@@ -11,7 +11,7 @@ class AinFile{
         vector<string> lines;
 
     public:
-        AinFile(string path);
+        AinFile(string &path);
 
         vector<string> getLines();
 

@@ -10,7 +10,7 @@
 #define ifstream std::ifstream
 #define getline std::getline
 
-AinFile::AinFile(string path){
+AinFile::AinFile(string &path){
     if(endsWith(path,".ain")){
         ifstream ainFile=ifstream(path);
         string line;
@@ -20,7 +20,7 @@ AinFile::AinFile(string path){
         ainFile.close();
     }
     else{
-        // TODO -> throw 
+        std::__throw_runtime_error("The passed file should be in .ain format.");
     }
 }
 
