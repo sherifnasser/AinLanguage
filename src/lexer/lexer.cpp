@@ -83,7 +83,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 bool haspower10minus=false;
 
                 while(i<line.size()){
-                    char ch = line[i];
+                    char &ch = line[i];
                     auto DOT=lexertoken::DOT;
                     auto MINUS=lexertoken::MINUS;
                     auto npos=std::string::npos;
@@ -122,10 +122,28 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                         newword += ch;
                         i++;
                     }
-                    else break;
+                    else{
+                        i--; // to make the main char loop read them as symbols 
+                        break;
+                    }
                 }
             }else if(!std::isspace(c)||!std::isblank(c)){
-
+                newword=c;
+                // increase i before the loop, as it might reach the end of the line, so the loop won't start
+                i++;
+                // get the full word until facing a space or a symbol (underscore excluded)
+                while (i<line.size())
+                {
+                    char &ch = line[i];
+                    if((std::ispunct(ch)&&ch!='_')||(std::isspace(c)||std::isblank(c))){
+                        i--; // to make the main char loop read them as symbols 
+                        break;
+                    }
+                    newword+=c;
+                    i++;
+                }
+                newtoken=(lexertoken::iskeyword(newword))
+                    ?lexertoken::KEYWORD_TOKEN:lexertoken::IDENTIFIER_TOKEN;
             }
 
             // write the next token

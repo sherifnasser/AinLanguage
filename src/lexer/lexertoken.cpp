@@ -12,6 +12,11 @@ std::string lexertoken::getval(){
 }
 
 bool lexertoken::iskeyword(){
+    return iskeyword(val);
+}
+
+bool lexertoken::iskeyword(std::string &val){
+
     for(auto &k:TOKENS::KEYWORDS){
         if(k.second==val)
             return true;

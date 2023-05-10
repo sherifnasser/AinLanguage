@@ -72,6 +72,7 @@ public:
     TOKEN_TYPE gettokentype();
     std::string getval();
     bool iskeyword();
+    static bool iskeyword(std::string &val);
 
 private:
     TOKEN_TYPE tokentype;
