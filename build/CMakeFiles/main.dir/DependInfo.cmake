@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp" "CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o" "gcc" "CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp" "CMakeFiles/main.dir/src/helpers/string_helper.cpp.o" "gcc" "CMakeFiles/main.dir/src/helpers/string_helper.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp" "CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o" "gcc" "CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp" "CMakeFiles/main.dir/src/lexer/lexer.cpp.o" "gcc" "CMakeFiles/main.dir/src/lexer/lexer.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp" "CMakeFiles/main.dir/src/lexer/lexerline.cpp.o" "gcc" "CMakeFiles/main.dir/src/lexer/lexerline.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp" "CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o" "gcc" "CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o.d"

@@ -177,6 +177,30 @@ src/helpers/string_helper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/string_helper.cpp.s
 .PHONY : src/helpers/string_helper.cpp.s
 
+src/helpers/wchar_t_helper.o: src/helpers/wchar_t_helper.cpp.o
+.PHONY : src/helpers/wchar_t_helper.o
+
+# target to build an object file
+src/helpers/wchar_t_helper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o
+.PHONY : src/helpers/wchar_t_helper.cpp.o
+
+src/helpers/wchar_t_helper.i: src/helpers/wchar_t_helper.cpp.i
+.PHONY : src/helpers/wchar_t_helper.i
+
+# target to preprocess a source file
+src/helpers/wchar_t_helper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.i
+.PHONY : src/helpers/wchar_t_helper.cpp.i
+
+src/helpers/wchar_t_helper.s: src/helpers/wchar_t_helper.cpp.s
+.PHONY : src/helpers/wchar_t_helper.s
+
+# target to generate assembly for a file
+src/helpers/wchar_t_helper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s
+.PHONY : src/helpers/wchar_t_helper.cpp.s
+
 src/lexer/lexer.o: src/lexer/lexer.cpp.o
 .PHONY : src/lexer/lexer.o
 
@@ -288,6 +312,9 @@ help:
 	@echo "... src/helpers/string_helper.o"
 	@echo "... src/helpers/string_helper.i"
 	@echo "... src/helpers/string_helper.s"
+	@echo "... src/helpers/wchar_t_helper.o"
+	@echo "... src/helpers/wchar_t_helper.i"
+	@echo "... src/helpers/wchar_t_helper.s"
 	@echo "... src/lexer/lexer.o"
 	@echo "... src/lexer/lexer.i"
 	@echo "... src/lexer/lexer.s"

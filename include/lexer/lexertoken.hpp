@@ -24,10 +24,11 @@ public:
         RIGHT_CURLY_BRACES=L'}',
         LEFT_SQUARE_BRACKET=L'[',
         RIGHT_SQUARE_BRACKET=L']',
+        COMMA=L'،',
         COLON=L':',
-        TILDE=L'~',
+        SEMICOLON=L'؛',
 
-        HASH=L'#',
+        QUESTION_MARK=L'؟',
         EXCLAMATION_MARK=L'!',
         AMPERSAND=L'&',
         BAR=L'|',

@@ -93,4 +93,5 @@ CMakeFiles/main.dir/src/helpers/string_helper.cpp.o: \
  /usr/include/linux/errno.h /usr/include/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/bits/types/error_t.h /usr/include/c++/12.2/bits/charconv.h \
- /usr/include/c++/12.2/bits/basic_string.tcc
+ /usr/include/c++/12.2/bits/basic_string.tcc \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp

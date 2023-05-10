@@ -2,6 +2,7 @@
 #include "lexer.hpp"
 #include "lexerline.hpp"
 #include "string_helper.hpp"
+#include "wchar_t_helper.hpp"
 
 lexer::lexer(AinFile ainFile):ainFile(ainFile){
     lexerlines=new std::vector<lexerline>();
@@ -23,7 +24,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
         for(int i=0;i<line.size();i++){
             
             auto &c=line[i];
-            if(std::iswpunct(c)&&c!='_'){ // exclude the underscore as they represent identifier
+            if(isainpunct(c)){ // exclude the underscore as they represent identifier
                 newtoken=lexertoken::SYMBOL_TOKEN;
                 newword=c;
 
@@ -88,7 +89,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                     auto MINUS=lexertoken::MINUS;
                     auto npos=std::string::npos;
 
-                    bool isliteraloperator=ch==DOT||ch==L'E'||ch==L'e'||ch==MINUS;
+                    bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS;
 
                     // if next char is a digit or underscore or dot or power 10 
                     if(std::iswdigit(ch)||ch==L'_'||isliteraloperator){
@@ -96,7 +97,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                         if(isliteraloperator){
                             if(
                                 (hasdot&&ch==DOT)
-                                ||(haspower10&&(ch==L'E'||ch==L'e'))
+                                ||(haspower10&&ispower10literaloperator(ch))
                                 ||(haspower10minus&&ch==MINUS)
                             ){
                                 i--; // to make the main char loop read them as symbols 
@@ -106,14 +107,14 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                             if(!hasdot)
                                 hasdot=ch==DOT;
                             if(!haspower10)
-                                haspower10=ch=='E'||ch=='e';
+                                haspower10=ispower10literaloperator(ch);
                             if(haspower10){
                                 hasdot=true; // as there shouldn't be a dot after the power
                                 // there should be power first then minus
                                 if(!haspower10minus){
                                     auto last=newword[newword.size()-1];
                                     // the minus should be after the power
-                                    haspower10minus=ch==MINUS&&(last==L'E'||last==L'e');
+                                    haspower10minus=ch==MINUS&&ispower10literaloperator(last);
                                 }
                             }
                             
@@ -127,7 +128,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                         break;
                     }
                 }
-            }else if(!std::iswspace(c)||!std::iswblank(c)){
+            }else if(isainalpha(c)){
                 newword=c;
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start
                 i++;
@@ -135,7 +136,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 while (i<line.size())
                 {
                     auto &ch = line[i];
-                    if((std::iswpunct(ch)&&ch!=L'_')||(std::iswspace(ch)||std::iswblank(ch))){
+                    if(isainpunct(ch)||iswempty(ch)){
                         i--; // to make the main char loop read them as symbols 
                         break;
                     }
@@ -147,7 +148,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
             }
 
             // write the next token
-            if(!std::isspace(c)||!std::isblank(c)){
+            if(!iswempty(c)){
                 tokens->push_back(lexertoken(newtoken,newword));
                 prevtoken=newtoken;
                 prevword=newword;
@@ -156,7 +157,6 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
         lexerlines->push_back(nextlexerline);
         
     }
-
 
 }
 

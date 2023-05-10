@@ -10,6 +10,7 @@ set(SRC_FILES
     src/lexer/lexertoken.cpp
     src/ain_file/ain_file.cpp
     src/helpers/string_helper.cpp
+    src/helpers/wchar_t_helper.cpp
 )
 set(INCLUDE
     include/
