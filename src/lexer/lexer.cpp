@@ -8,9 +8,10 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
 
     auto lines=ainFile.getLines();
 
-    int linenumber=1;
+    int linenumber=0;
 
     for(auto &line:lines){
+        linenumber++;
         if(line.empty())
             continue;
         lexerline nextlexerline=lexerline(linenumber);
@@ -20,8 +21,9 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
         lexertoken::TOKEN_TYPE prevtoken=lexertoken::NOT_SET_TOKEN, newtoken=lexertoken::NOT_SET_TOKEN;
 
         for(int i=0;i<line.size();i++){
+            
             char &c=line[i];
-            if(std::ispunct(c)){
+            if(std::ispunct(c)&&c!='_'){ // exclude the underscore as they represent identifier
                 newtoken=lexertoken::SYMBOL_TOKEN;
                 newword=c;
 
@@ -34,7 +36,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
 
                     // append every char in the line until finding another DOUBLE_QUOTE
                     while(i<line.size()){
-                        char ch=line[i];
+                        char &ch=line[i];
                         newword+=ch;
                         /*
                          we found a DOUBLE_QUOTE,
@@ -66,7 +68,62 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                     }
                 }
             }else if(std::isdigit(c)){
+                newtoken=lexertoken::LITERAL_TOKEN;
+                newword=c;
 
+                /*
+                TODO -> may delete the opertors and define it in the language as operator fun
+                */
+
+                // increase i before the loop, as it might reach the end of the line, so the loop won't start
+                i++;
+
+                bool hasdot=false;
+                bool haspower10=false;
+                bool haspower10minus=false;
+
+                while(i<line.size()){
+                    char ch = line[i];
+                    auto DOT=lexertoken::DOT;
+                    auto MINUS=lexertoken::MINUS;
+                    auto npos=std::string::npos;
+
+                    bool isliteraloperator=ch==DOT||ch=='E'||ch=='e'||ch==MINUS;
+
+                    // if next char is a digit or underscore or dot or power 10 
+                    if(std::isdigit(ch)||ch=='_'||isliteraloperator){
+
+                        if(isliteraloperator){
+                            if(
+                                (hasdot&&ch==DOT)
+                                ||(haspower10&&(ch=='E'||ch=='e'))
+                                ||(haspower10minus&&ch==MINUS)
+                            ){
+                                i--; // to make the main char loop read them as symbols 
+                                break;
+                            }
+
+                            if(!hasdot)
+                                hasdot=ch==DOT;
+                            if(!haspower10)
+                                haspower10=ch=='E'||ch=='e';
+                            if(haspower10){
+                                hasdot=true; // as there shouldn't be a dot after the power
+                                // there should be power first then minus
+                                if(!haspower10minus){
+                                    auto last=newword[newword.size()-1];
+                                    // the minus should be after the power
+                                    haspower10minus=ch==MINUS&&(last=='E'||last=='e');
+                                }
+                            }
+                            
+                        }
+                        
+                        newword += ch;
+                        i++;
+                    }
+                    else break;
+                }
             }else if(!std::isspace(c)||!std::isblank(c)){
 
             }
@@ -79,7 +136,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
             }
         }
         lexerlines->push_back(nextlexerline);
-        linenumber++;
+        
     }
 
 

@@ -32,7 +32,6 @@ public:
         AMPERSAND='&',
         BAR='|',
         DOT='.',
-        UNDERSCORE='_',
         DOUBLE_QUOTE='\"',
         SINGLE_QUOTE='\'',
         BACK_SLASH='\\',
