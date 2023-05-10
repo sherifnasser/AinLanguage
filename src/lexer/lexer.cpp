@@ -17,13 +17,13 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
         lexerline nextlexerline=lexerline(linenumber);
         auto tokens=nextlexerline.gettokens();
 
-        std::string prevword, newword;
+        std::wstring prevword, newword;
         lexertoken::TOKEN_TYPE prevtoken=lexertoken::NOT_SET_TOKEN, newtoken=lexertoken::NOT_SET_TOKEN;
 
         for(int i=0;i<line.size();i++){
             
-            char &c=line[i];
-            if(std::ispunct(c)&&c!='_'){ // exclude the underscore as they represent identifier
+            auto &c=line[i];
+            if(std::iswpunct(c)&&c!='_'){ // exclude the underscore as they represent identifier
                 newtoken=lexertoken::SYMBOL_TOKEN;
                 newword=c;
 
@@ -36,7 +36,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
 
                     // append every char in the line until finding another DOUBLE_QUOTE
                     while(i<line.size()){
-                        char &ch=line[i];
+                        auto &ch=line[i];
                         newword+=ch;
                         /*
                          we found a DOUBLE_QUOTE,
@@ -67,7 +67,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                         i=line.size();
                     }
                 }
-            }else if(std::isdigit(c)){
+            }else if(std::iswdigit(c)){
                 newtoken=lexertoken::LITERAL_TOKEN;
                 newword=c;
 
@@ -83,20 +83,20 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 bool haspower10minus=false;
 
                 while(i<line.size()){
-                    char &ch = line[i];
+                    auto &ch = line[i];
                     auto DOT=lexertoken::DOT;
                     auto MINUS=lexertoken::MINUS;
                     auto npos=std::string::npos;
 
-                    bool isliteraloperator=ch==DOT||ch=='E'||ch=='e'||ch==MINUS;
+                    bool isliteraloperator=ch==DOT||ch==L'E'||ch==L'e'||ch==MINUS;
 
                     // if next char is a digit or underscore or dot or power 10 
-                    if(std::isdigit(ch)||ch=='_'||isliteraloperator){
+                    if(std::iswdigit(ch)||ch==L'_'||isliteraloperator){
 
                         if(isliteraloperator){
                             if(
                                 (hasdot&&ch==DOT)
-                                ||(haspower10&&(ch=='E'||ch=='e'))
+                                ||(haspower10&&(ch==L'E'||ch==L'e'))
                                 ||(haspower10minus&&ch==MINUS)
                             ){
                                 i--; // to make the main char loop read them as symbols 
@@ -113,7 +113,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                                 if(!haspower10minus){
                                     auto last=newword[newword.size()-1];
                                     // the minus should be after the power
-                                    haspower10minus=ch==MINUS&&(last=='E'||last=='e');
+                                    haspower10minus=ch==MINUS&&(last==L'E'||last==L'e');
                                 }
                             }
                             
@@ -127,19 +127,19 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                         break;
                     }
                 }
-            }else if(!std::isspace(c)||!std::isblank(c)){
+            }else if(!std::iswspace(c)||!std::iswblank(c)){
                 newword=c;
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start
                 i++;
                 // get the full word until facing a space or a symbol (underscore excluded)
                 while (i<line.size())
                 {
-                    char &ch = line[i];
-                    if((std::ispunct(ch)&&ch!='_')||(std::isspace(c)||std::isblank(c))){
+                    auto &ch = line[i];
+                    if((std::iswpunct(ch)&&ch!=L'_')||(std::iswspace(ch)||std::iswblank(ch))){
                         i--; // to make the main char loop read them as symbols 
                         break;
                     }
-                    newword+=c;
+                    newword+=ch;
                     i++;
                 }
                 newtoken=(lexertoken::iskeyword(newword))

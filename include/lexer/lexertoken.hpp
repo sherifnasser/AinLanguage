@@ -12,37 +12,37 @@ public:
         IDENTIFIER_TOKEN = 4
     };
 
-    enum SYMBOL : char
+    enum SYMBOL : wchar_t
     {
-        NOT_IN_AIN=' ',
+        NOT_IN_AIN=L' ',
 
-        LEFT_ANGLE_BRACKET='<',
-        RIGHT_ANGLE_BRACKET='>',
-        LEFT_PARENTHESIS='(',
-        RIGHT_PARENTHESIS=')',
-        LEFT_CURLY_BRACES='{',
-        RIGHT_CURLY_BRACES='}',
-        LEFT_SQUARE_BRACKET='[',
-        RIGHT_SQUARE_BRACKET=']',
-        COLON=':',
-        TILDE='~',
+        LEFT_ANGLE_BRACKET=L'<',
+        RIGHT_ANGLE_BRACKET=L'>',
+        LEFT_PARENTHESIS=L'(',
+        RIGHT_PARENTHESIS=L')',
+        LEFT_CURLY_BRACES=L'{',
+        RIGHT_CURLY_BRACES=L'}',
+        LEFT_SQUARE_BRACKET=L'[',
+        RIGHT_SQUARE_BRACKET=L']',
+        COLON=L':',
+        TILDE=L'~',
 
-        HASH='#',
-        EXCLAMATION_MARK='!',
-        AMPERSAND='&',
-        BAR='|',
-        DOT='.',
-        DOUBLE_QUOTE='\"',
-        SINGLE_QUOTE='\'',
-        BACK_SLASH='\\',
+        HASH=L'#',
+        EXCLAMATION_MARK=L'!',
+        AMPERSAND=L'&',
+        BAR=L'|',
+        DOT=L'.',
+        DOUBLE_QUOTE=L'\"',
+        SINGLE_QUOTE=L'\'',
+        BACK_SLASH=L'\\',
 
-        PLUS='+',
-        MINUS='-',
-        STAR='*',
-        SLASH='/',
-        EQUAL='=',
-        TRIAL_DIVISION='%',
-        POWER='^',
+        PLUS=L'+',
+        MINUS=L'-',
+        STAR=L'*',
+        SLASH=L'/',
+        EQUAL=L'=',
+        TRIAL_DIVISION=L'%',
+        POWER=L'^',
     };
 
     enum LITERAL : int{
@@ -56,47 +56,81 @@ public:
         VAL,
         FUN,
         RETURN,
+
+        PACKAGE,
+        IMPORT,
         CLASS,
+        INTERFACE,
+        OBJECT,
+
+        DATA,
+        ABSTRACT,
+        OPEN,
+        ENUM,
+        ANNOTATION,
+
         PUBLIC,
         PRIVATE,
-    // static const std::string PROTECTED = "TODO";
+        PROTECTED,
+        OVERRIDE,
+
         IF,
         ELSE_IF,
         ELSE,
         WHEN, // as switch
+
         FOR,
-        WHILE
+        WHILE,
+        BREAK,
+        CONTINUE
     };
 
-    lexertoken(TOKEN_TYPE tokentype, std::string &val);
+    lexertoken(TOKEN_TYPE tokentype, std::wstring &val);
     TOKEN_TYPE gettokentype();
-    std::string getval();
+    std::wstring getval();
     bool iskeyword();
-    static bool iskeyword(std::string &val);
+    static bool iskeyword(std::wstring &val);
 
 private:
     TOKEN_TYPE tokentype;
-    std::string val;
+    std::wstring val;
 };
 
 
 namespace TOKENS{
-    static const std::map<lexertoken::KEYWORD,std::string> KEYWORDS{
-        {lexertoken::KEYWORD::VAR,"متغير"},
-        {lexertoken::KEYWORD::FUN,"دالة"},
-        {lexertoken::KEYWORD::RETURN,"بقيمة"},
-        {lexertoken::KEYWORD::CLASS,"تصنيف"},
-        {lexertoken::KEYWORD::PUBLIC,"تعميم"},
-        {lexertoken::KEYWORD::PRIVATE,"تخصيص"},
-        // {lexertoken::KEYWORD::PROTECTED,"تخصيص"}, TODO
-        
-        {lexertoken::KEYWORD::IF,"لو"},
-        {lexertoken::KEYWORD::ELSE_IF,"لكن لو"},
-        {lexertoken::KEYWORD::ELSE,"وإلا"},
-        {lexertoken::KEYWORD::WHEN,"عندما"}, // as switch
+    static const std::map<lexertoken::KEYWORD,std::wstring> KEYWORDS{
+        {lexertoken::KEYWORD::VAR,L"متغير"},
+        {lexertoken::KEYWORD::VAL,L"ثابت"},
+        {lexertoken::KEYWORD::FUN,L"دالة"},
+        {lexertoken::KEYWORD::RETURN,L"بقيمة"},
 
-        {lexertoken::KEYWORD::FOR,"لأجل"},
-        {lexertoken::KEYWORD::WHILE,"طالما"},
+        {lexertoken::KEYWORD::PACKAGE,L"تصنيف"},
+        {lexertoken::KEYWORD::IMPORT,L"استيراد"},
+        {lexertoken::KEYWORD::CLASS,L"تصنيف"},
+        {lexertoken::KEYWORD::INTERFACE,L"نموذج"},
+        {lexertoken::KEYWORD::OBJECT,L"كائن"},
+
+        {lexertoken::KEYWORD::DATA,L"بيانات"},
+        {lexertoken::KEYWORD::ABSTRACT,L"مجرد"},
+        {lexertoken::KEYWORD::OPEN,L"مفتوح"},
+        // TODO -> find them in arabic keywords
+        {lexertoken::KEYWORD::ENUM,L"enum"},
+        {lexertoken::KEYWORD::ANNOTATION,L"annotation"},
+
+        {lexertoken::KEYWORD::PUBLIC,L"تعميم"},
+        {lexertoken::KEYWORD::PRIVATE,L"تخصيص"},
+        {lexertoken::KEYWORD::PROTECTED,L"محمي"},
+        {lexertoken::KEYWORD::OVERRIDE,L"override"},
+        
+        {lexertoken::KEYWORD::IF,L"لو"},
+        {lexertoken::KEYWORD::ELSE_IF,L"لكن لو"},
+        {lexertoken::KEYWORD::ELSE,L"وإلا"},
+        {lexertoken::KEYWORD::WHEN,L"عندما"}, // as switch
+
+        {lexertoken::KEYWORD::FOR,L"لأجل"},
+        {lexertoken::KEYWORD::WHILE,L"طالما"},
+        {lexertoken::KEYWORD::BREAK,L"اكسر"},
+        {lexertoken::KEYWORD::CONTINUE,L"تخطى"},
     };
 
 };

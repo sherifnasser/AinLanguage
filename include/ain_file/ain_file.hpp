@@ -7,11 +7,11 @@
 
 class AinFile{
     private:
-        std::vector<std::string> lines;
+        std::vector<std::wstring> lines;
 
     public:
         AinFile(std::string &path);
 
-        std::vector<std::string> getLines();
+        std::vector<std::wstring> getLines();
 
 };

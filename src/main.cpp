@@ -17,15 +17,17 @@ int main(int argc, char * argv[]){
     }
         
     string path(argv[1]); // as it's the second arg
+    
     AinFile file=AinFile(path);
     lexer lex = lexer(file);
     auto lines=lex.getlexerlines();
     for(auto &l:lines){
         auto tokens=l.gettokens();
-        cout<<tokens->size()<<"L"<<l.getlinenumber()<<"\t"<<endl;
+        cout<<"L"<<l.getlinenumber()<<"\t"<<"s"<<tokens->size()<<endl;
         for(auto &t:*tokens){
-            cout<<"\t"<<t.gettokentype()<<"\t"<<t.getval()<<endl;
+            std::wcout<<"\t"<<t.gettokentype()<<L"\t"<<t.getval()<<endl;
         }
     }
+
     return 0;
 }
