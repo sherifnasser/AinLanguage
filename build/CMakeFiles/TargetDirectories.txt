@@ -1,0 +1,3 @@
+/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles/main.dir
+/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles/edit_cache.dir
+/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles/rebuild_cache.dir
