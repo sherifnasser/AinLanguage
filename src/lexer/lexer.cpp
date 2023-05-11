@@ -72,62 +72,88 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 newtoken=lexertoken::LITERAL_TOKEN;
                 newword=c;
 
-                /*
-                TODO -> may delete the opertors and define it in the language as operator fun
-                */
-
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start
                 i++;
 
-                bool hasdot=false;
-                bool haspower10=false;
-                bool haspower10minus=false;
-
-                while(i<line.size()){
-                    auto &ch = line[i];
-                    auto DOT=lexertoken::DOT;
-                    auto MINUS=lexertoken::MINUS;
-                    auto npos=std::string::npos;
-
-                    bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS;
-
-                    // if next char is a digit or underscore or dot or power 10 
-                    if(std::iswdigit(ch)||ch==L'_'||isliteraloperator){
-
-                        if(isliteraloperator){
-                            if(
-                                (hasdot&&ch==DOT)
-                                ||(haspower10&&ispower10literaloperator(ch))
-                                ||(haspower10minus&&ch==MINUS)
-                            ){
-                                i--; // to make the main char loop read them as symbols 
-                                break;
-                            }
-
-                            if(!hasdot)
-                                hasdot=ch==DOT;
-                            if(!haspower10)
-                                haspower10=ispower10literaloperator(ch);
-                            if(haspower10){
-                                hasdot=true; // as there shouldn't be a dot after the power
-                                // there should be power first then minus
-                                if(!haspower10minus){
-                                    auto last=newword[newword.size()-1];
-                                    // the minus should be after the power
-                                    haspower10minus=ch==MINUS&&ispower10literaloperator(last);
-                                }
-                            }
-                            
+                // next char nc may be hex, oct or bin
+                if(c=='0'&&isnumsystemchar(line[i])){
+                    
+                    auto &nc=line[i];
+                    newword+=nc;
+                    // increase i before the loop, as it might reach the end of the line, so the loop won't start
+                    i++;
+                    while (i < line.size()){
+                        auto &ch = line[i];
+                        if (
+                            ((nc==L'x'||nc==L'X')&&!std::iswxdigit(ch))
+                            ||
+                            ((nc==L'b'||nc==L'B')&&!iswbdigit(ch))
+                            ||
+                            ((nc==L'o'||nc==L'O')&&!iswodigit(ch))
+                        ){
+                            i--;
+                            break;
                         }
-                        
                         newword += ch;
                         i++;
                     }
-                    else{
-                        i--; // to make the main char loop read them as symbols 
-                        break;
+                    
+                }else{
+                        /*
+                    TODO -> may delete the opertors and define it in the language as operator fun
+                    */
+
+                    bool hasdot=false;
+                    bool haspower10=false;
+                    bool haspower10minus=false;
+
+                    while(i<line.size()){
+                        auto &ch = line[i];
+                        auto DOT=lexertoken::DOT;
+                        auto MINUS=lexertoken::MINUS;
+                        auto npos=std::string::npos;
+
+                        bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS;
+
+                        // if next char is a digit or underscore or dot or power 10 
+                        if(std::iswdigit(ch)||ch==L'_'||isliteraloperator){
+
+                            if(isliteraloperator){
+                                if(
+                                    (hasdot&&ch==DOT)
+                                    ||(haspower10&&ispower10literaloperator(ch))
+                                    ||(haspower10minus&&ch==MINUS)
+                                ){
+                                    i--; // to make the main char loop read them as symbols 
+                                    break;
+                                }
+
+                                if(!hasdot)
+                                    hasdot=ch==DOT;
+                                if(!haspower10)
+                                    haspower10=ispower10literaloperator(ch);
+                                if(haspower10){
+                                    hasdot=true; // as there shouldn't be a dot after the power
+                                    // there should be power first then minus
+                                    if(!haspower10minus){
+                                        auto last=newword[newword.size()-1];
+                                        // the minus should be after the power
+                                        haspower10minus=ch==MINUS&&ispower10literaloperator(last);
+                                    }
+                                }
+                                
+                            }
+                            
+                            newword += ch;
+                            i++;
+                        }
+                        else{
+                            i--; // to make the main char loop read them as symbols 
+                            break;
+                        }
                     }
                 }
+                
             }else if(isainalpha(c)){
                 newword=c;
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start

@@ -83,7 +83,12 @@ public:
         FOR,
         WHILE,
         BREAK,
-        CONTINUE
+        CONTINUE,
+
+        THROW,
+        TRY,
+        CATCH,
+        FINALLY
     };
 
     lexertoken(TOKEN_TYPE tokentype, std::wstring &val);
@@ -132,6 +137,11 @@ namespace TOKENS{
         {lexertoken::KEYWORD::WHILE,L"طالما"},
         {lexertoken::KEYWORD::BREAK,L"اكسر"},
         {lexertoken::KEYWORD::CONTINUE,L"تخطى"},
+
+        {lexertoken::KEYWORD::THROW,L"خطأ"},
+        {lexertoken::KEYWORD::TRY,L"حاول"},
+        {lexertoken::KEYWORD::CATCH,L"عالج"},
+        {lexertoken::KEYWORD::FINALLY,L"بالنهاية"},
     };
 
 };
