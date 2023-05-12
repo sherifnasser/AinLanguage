@@ -5,7 +5,7 @@ class symboltoken:public lexertoken
 {
     
 public:
-    symboltoken(wchar_t c);
+    symboltoken(std::wstring c);
     static symboltoken LEFT_ANGLE_BRACKET;
     static symboltoken RIGHT_ANGLE_BRACKET;
     static symboltoken LEFT_PARENTHESIS;

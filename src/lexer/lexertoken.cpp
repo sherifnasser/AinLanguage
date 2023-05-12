@@ -18,3 +18,19 @@ bool lexertoken::operator==(lexertoken &token){
     &&
     this->getval()==token.getval();
 }
+
+bool lexertoken::operator!=(lexertoken &token){
+    return !(*this==token);
+}
+
+bool lexertoken::isidentifiertoken(){
+    return this->gettokentype()==lexertoken::IDENTIFIER_TOKEN;
+}
+
+bool lexertoken::isnotsettoken(){
+    return this->gettokentype()==lexertoken::NOT_SET_TOKEN;
+}
+
+lexertoken lexertoken::identifiertoken = lexertoken(lexertoken::IDENTIFIER_TOKEN,L"");
+
+lexertoken lexertoken::notsettoken = lexertoken(lexertoken::NOT_SET_TOKEN,L"");

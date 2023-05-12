@@ -22,7 +22,12 @@ public:
     TOKEN_TYPE gettokentype();
     std::wstring getval();
     bool operator== (lexertoken &token);
-
+    bool operator!= (lexertoken &token);
+    bool isidentifiertoken();
+    bool isnotsettoken();
+    static lexertoken identifiertoken;
+    static lexertoken notsettoken;
+    
 private:
     TOKEN_TYPE tokentype;
     std::wstring val;

@@ -5,112 +5,77 @@
 #include "symboltoken.hpp"
 #define wstring std::wstring
 #define cout std::cout
+#define wcout std::wcout
 #define endl std::endl
 
 
-parser::parser(std::vector<lexertoken> &tokens):tokens(tokens){}
+parser::parser(std::vector<lexertoken>* tokensP){
+    tokens=tokensP;
+}
 
 void parser::startparse(globalscope globalscope){
     findglobalfunctions(globalscope);
 }
 
 void parser::findglobalfunctions(globalscope &globalscope){
-    bool found=false;
-    int i=0;
-    for(i;i<tokens.size();i+=3){
+    auto notsettoken=lexertoken::notsettoken;
+    int i=-1; // to make the next
+    auto tokensR=tokens;
+    lexertoken current=notsettoken;
+    auto next=[&i,&notsettoken,&tokensR,&current](){
+        ++i;
+        current=(i<tokensR->size())? (*tokensR)[i]:notsettoken;
+        //wcout<<current.getval()<<L"\t"<<current.gettokentype()<<endl;
+        return current;
+    };
+    //next(); // to set a value to the current
+    do{
+        if(current==keywordtoken::FUN){
+            if(next().isidentifiertoken()){
+                auto funname=current.getval();
+                if(next()==symboltoken::LEFT_PARENTHESIS){
+                    wcout<<L"funname: "<<funname<<endl;
+                    /*----------------we have two ways-------------------/*
+                    1- the next token is left parenthesis and no args for the fun.
+                    2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
 
-        auto read_fun_body = [&i](auto &tokens)
-        {
-            auto num_of_opened_curly_braces = 0;
-            if (tokens[i] == symboltoken::RIGHT_CURLY_BRACES)
-            {
-                for (i; i < tokens.size(); i++)
-                {
-
-                    if (tokens[i] == symboltoken::LEFT_CURLY_BRACES)
-                    {
-                        if (num_of_opened_curly_braces == 0)
-                        {
-                            std::wcout << "END of the function" << endl;
-                            break;
+                    while(next()!=symboltoken::RIGHT_PARENTHESIS){
+                        if(current.isidentifiertoken()){
+                            auto arg=current.getval();
+                            if(next()==symboltoken::COLON){
+                                if(next().isidentifiertoken()){
+                                    auto argtype=current.getval();
+                                    wcout<<arg<<L": "<<argtype<<endl;
+                                    // calling next() first multi args without a comma
+                                    if(next()==symboltoken::COMMA){}
+                                    // the user may right the comma or not at the end
+                                    else if(current==symboltoken::RIGHT_PARENTHESIS)
+                                    {break;}
+                                    // else error
+                                }
+                            }
+                        } // else error
+                    }
+                    if(next()==symboltoken::COLON){
+                        if(next().isidentifiertoken()){
+                            wcout<<L"funtype: "<<current.getval()<<endl;
+                            next();
                         }
-                        else
+                    }
+                    if(current==symboltoken::LEFT_CURLY_BRACES){
+                        auto openedCB=0; // the number of opened curly braces
+                        while(next()!=symboltoken::RIGHT_CURLY_BRACES&&openedCB)
                         {
-                            num_of_opened_curly_braces--;
+                            // TODO -> Parsing statements of the function
+                            if(current==symboltoken::LEFT_CURLY_BRACES){openedCB++;}
+                            else if(current==symboltoken::RIGHT_CURLY_BRACES){openedCB--;}
                         }
+                        
                     }
-                    else if (tokens[i] == symboltoken::RIGHT_CURLY_BRACES)
-                    {
-                        num_of_opened_curly_braces++;
-                    }
-                }
-            }
-        };
-
-        auto read_colonOrRCB = [&i,&read_fun_body](auto &tokens)
-        {
-            auto &colonOrRCB = tokens[++i];
-
-            if (colonOrRCB == symboltoken::COLON)
-            {
-                auto funtype = tokens[++i];
-                if (funtype.gettokentype() == lexertoken::IDENTIFIER_TOKEN)
-                {
-                    std::wcout << "funtype: " << funtype.getval() << endl;
-                    read_fun_body(tokens);
-                }
-            }
-            else
-            {
-                read_fun_body(tokens);
-            }
-        };
-
-
-        if(
-            tokens[i]==keywordtoken::FUN
-            &&
-            tokens[i+1].gettokentype()==lexertoken::IDENTIFIER_TOKEN
-            &&
-            tokens[i+2]==symboltoken::RIGHT_PARENTHESIS
-        ){
-            std::wcout<<"funname: "<<tokens[i+1].getval()<<endl;
-            for(i+=3;i<tokens.size();i+=4){
-                auto &argnameOrLP = tokens[i];
-                auto &colon = tokens[i+1];
-                auto &argtype = tokens[i+2];
-                lexertoken* commaOrLP;
-                bool iscommaOrPL;
-                try{
-                    commaOrLP=&tokens[i+3];
-                    iscommaOrPL =
-                    *commaOrLP == symboltoken::COMMA ||
-                    *commaOrLP == symboltoken::LEFT_PARENTHESIS;
-                }catch(std::exception e){
-                    
-                }
-
-                bool argnameAndargtypeAreIdentifiers=(
-                    argnameOrLP.gettokentype()
-                    ==
-                    lexertoken::IDENTIFIER_TOKEN
-                    ==
-                    argtype.gettokentype()
-                );
-
-                if(argnameAndargtypeAreIdentifiers && colon==symboltoken::COLON || iscommaOrPL)
-                {
-                    std::wcout<<argnameOrLP.getval()<<":"<<argtype.getval()<<endl;
-                    if(*commaOrLP == symboltoken::LEFT_PARENTHESIS){
-                        i+=3;
-                        read_colonOrRCB(tokens);
-                    }
-                }else if(argnameOrLP==symboltoken::LEFT_PARENTHESIS){
-                    read_colonOrRCB(tokens);
                 }
             }
         }
-    }
+    }while(next()!=notsettoken);
 
 }
 

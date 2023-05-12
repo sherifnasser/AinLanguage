@@ -6,10 +6,10 @@
 class parser
 {
 private:
-    std::vector<lexertoken> tokens;
+    std::vector<lexertoken>* tokens;
     
     void findglobalfunctions(globalscope &globalscope);
 public:
-    parser(std::vector<lexertoken> &tokens);
+    parser(std::vector<lexertoken>* tokens);
     void startparse(globalscope globalscope);
 };
