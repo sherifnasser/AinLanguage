@@ -1734,7 +1734,9 @@ CMakeFiles/main.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLan
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
 
 CMakeFiles/main.dir/src/parser/parser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp \
   /usr/include/stdc-predef.h \
