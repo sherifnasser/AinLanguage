@@ -146,4 +146,7 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
  /usr/include/c++/12.2/bits/uses_allocator.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h
+ /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp

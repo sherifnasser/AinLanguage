@@ -201,6 +201,30 @@ src/helpers/wchar_t_helper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s
 .PHONY : src/helpers/wchar_t_helper.cpp.s
 
+src/lexer/keywordtoken.o: src/lexer/keywordtoken.cpp.o
+.PHONY : src/lexer/keywordtoken.o
+
+# target to build an object file
+src/lexer/keywordtoken.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.o
+.PHONY : src/lexer/keywordtoken.cpp.o
+
+src/lexer/keywordtoken.i: src/lexer/keywordtoken.cpp.i
+.PHONY : src/lexer/keywordtoken.i
+
+# target to preprocess a source file
+src/lexer/keywordtoken.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.i
+.PHONY : src/lexer/keywordtoken.cpp.i
+
+src/lexer/keywordtoken.s: src/lexer/keywordtoken.cpp.s
+.PHONY : src/lexer/keywordtoken.s
+
+# target to generate assembly for a file
+src/lexer/keywordtoken.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.s
+.PHONY : src/lexer/keywordtoken.cpp.s
+
 src/lexer/lexer.o: src/lexer/lexer.cpp.o
 .PHONY : src/lexer/lexer.o
 
@@ -273,6 +297,30 @@ src/lexer/lexertoken.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexertoken.cpp.s
 .PHONY : src/lexer/lexertoken.cpp.s
 
+src/lexer/symboltoken.o: src/lexer/symboltoken.cpp.o
+.PHONY : src/lexer/symboltoken.o
+
+# target to build an object file
+src/lexer/symboltoken.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.o
+.PHONY : src/lexer/symboltoken.cpp.o
+
+src/lexer/symboltoken.i: src/lexer/symboltoken.cpp.i
+.PHONY : src/lexer/symboltoken.i
+
+# target to preprocess a source file
+src/lexer/symboltoken.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.i
+.PHONY : src/lexer/symboltoken.cpp.i
+
+src/lexer/symboltoken.s: src/lexer/symboltoken.cpp.s
+.PHONY : src/lexer/symboltoken.s
+
+# target to generate assembly for a file
+src/lexer/symboltoken.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.s
+.PHONY : src/lexer/symboltoken.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -297,6 +345,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser/parser.o: src/parser/parser.cpp.o
+.PHONY : src/parser/parser.o
+
+# target to build an object file
+src/parser/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.o
+.PHONY : src/parser/parser.cpp.o
+
+src/parser/parser.i: src/parser/parser.cpp.i
+.PHONY : src/parser/parser.i
+
+# target to preprocess a source file
+src/parser/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.i
+.PHONY : src/parser/parser.cpp.i
+
+src/parser/parser.s: src/parser/parser.cpp.s
+.PHONY : src/parser/parser.s
+
+# target to generate assembly for a file
+src/parser/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.s
+.PHONY : src/parser/parser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -315,6 +387,9 @@ help:
 	@echo "... src/helpers/wchar_t_helper.o"
 	@echo "... src/helpers/wchar_t_helper.i"
 	@echo "... src/helpers/wchar_t_helper.s"
+	@echo "... src/lexer/keywordtoken.o"
+	@echo "... src/lexer/keywordtoken.i"
+	@echo "... src/lexer/keywordtoken.s"
 	@echo "... src/lexer/lexer.o"
 	@echo "... src/lexer/lexer.i"
 	@echo "... src/lexer/lexer.s"
@@ -324,9 +399,15 @@ help:
 	@echo "... src/lexer/lexertoken.o"
 	@echo "... src/lexer/lexertoken.i"
 	@echo "... src/lexer/lexertoken.s"
+	@echo "... src/lexer/symboltoken.o"
+	@echo "... src/lexer/symboltoken.i"
+	@echo "... src/lexer/symboltoken.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/parser.o"
+	@echo "... src/parser/parser.i"
+	@echo "... src/parser/parser.s"
 .PHONY : help
 
 

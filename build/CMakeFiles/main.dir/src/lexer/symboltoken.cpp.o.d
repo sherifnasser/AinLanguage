@@ -1,6 +1,8 @@
-CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o: \
- /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
+CMakeFiles/main.dir/src/lexer/symboltoken.cpp.o: \
+ /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp \
+ /usr/include/stdc-predef.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp \
+ /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -134,5 +136,4 @@ CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
  /usr/include/c++/12.2/bits/uses_allocator.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp
+ /usr/include/c++/12.2/bits/erase_if.h

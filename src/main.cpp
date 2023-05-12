@@ -4,6 +4,8 @@
 #include <typeinfo>
 #include "ain_file.hpp"
 #include "lexer.hpp"
+#include "globalscope.hpp"
+#include "parser.hpp"
 
 #define string std::string
 #define vector std::vector
@@ -21,13 +23,19 @@ int main(int argc, char * argv[]){
     AinFile file=AinFile(path);
     lexer lex = lexer(file);
     auto lines=lex.getlexerlines();
+    auto tokens=vector<lexertoken>{};
     for(auto &l:lines){
-        auto tokens=l.gettokens();
-        cout<<"L"<<l.getlinenumber()<<"\t"<<"s"<<tokens->size()<<endl;
-        for(auto &t:*tokens){
-            std::wcout<<"\t"<<t.gettokentype()<<L"\t"<<t.getval()<<endl;
-        }
+        auto ltokens=l.gettokens();
+        tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
     }
+
+    for(auto &t:tokens){
+        std::wcout<<(int)t.gettokentype()<< "\t" <<t.getval()<<endl;
+    }
+    globalscope global;
+    parser Parser(tokens);
+    Parser.startparse(global);
+    std::wcout<<"END"<<endl;
 
     return 0;
 }

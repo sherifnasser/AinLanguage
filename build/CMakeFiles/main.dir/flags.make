@@ -4,7 +4,7 @@
 # compile CXX with /bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers
+CXX_INCLUDES = -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/eval
 
 CXX_FLAGS = 
 

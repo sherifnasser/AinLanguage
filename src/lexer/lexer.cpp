@@ -3,6 +3,13 @@
 #include "lexerline.hpp"
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
+#include "keywordtoken.hpp"
+
+#define DOUBLE_QOUTE L'\"'
+#define BACK_SLASH L'\\'
+#define SLASH L'/'
+#define DOT L'.'
+#define MINUS L'-'
 
 lexer::lexer(AinFile ainFile):ainFile(ainFile){
     lexerlines=new std::vector<lexerline>();
@@ -29,7 +36,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 newword=c;
 
                 // we're facing a string
-                if(c==lexertoken::DOUBLE_QUOTE){
+                if(c==DOUBLE_QOUTE){
                     newtoken=lexertoken::LITERAL_TOKEN;
 
                     // increase i before the loop, as it might reach the end of the line, so the loop won't start
@@ -44,7 +51,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                          but check if there is no a BACK_SLASH before it,
                          then stop appending
                         */
-                        if(ch==lexertoken::DOUBLE_QUOTE && line[i-1]!=lexertoken::BACK_SLASH)
+                        if(ch==DOUBLE_QOUTE && line[i-1]!=BACK_SLASH)
                             break;
                         i++;
                     }
@@ -53,10 +60,10 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 /******* TODO -> the multiline comment *******/
 
                 // is it a start for a comment
-                else if(c==lexertoken::SLASH){
+                else if(c==SLASH){
                     // we're facing a single line comment
                     // we found a SLASH, but check if there is another SLASH after it
-                    if(line[i+1]==lexertoken::SLASH){
+                    if(line[i+1]==SLASH){
                         newtoken=lexertoken::COMMENT_TOKEN;
                         // append everything from second slash to the end of the line
                         newword+=line.substr(i+1);
@@ -109,8 +116,6 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
 
                     while(i<line.size()){
                         auto &ch = line[i];
-                        auto DOT=lexertoken::DOT;
-                        auto MINUS=lexertoken::MINUS;
                         auto npos=std::string::npos;
 
                         bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS;
@@ -169,7 +174,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                     newword+=ch;
                     i++;
                 }
-                newtoken=(lexertoken::iskeyword(newword))
+                newtoken=(keywordtoken::iskeyword(newword))
                     ?lexertoken::KEYWORD_TOKEN:lexertoken::IDENTIFIER_TOKEN;
             }
 
