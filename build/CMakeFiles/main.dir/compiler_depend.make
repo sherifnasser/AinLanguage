@@ -933,7 +933,8 @@ CMakeFiles/main.dir/src/lexer/lexer.cpp.o: /home/nasser/Projects/Programming/C++
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
 
 CMakeFiles/main.dir/src/lexer/lexerline.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp \
   /usr/include/stdc-predef.h \
@@ -1734,8 +1735,8 @@ CMakeFiles/main.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLan
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
 
@@ -2338,7 +2339,9 @@ CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/stl_uninitialized.h \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp
 
 CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp \
   /usr/include/stdc-predef.h \
@@ -2537,7 +2540,9 @@ CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/bits/stl_uninitialized.h \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp
 
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp:
@@ -2546,11 +2551,11 @@ CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programm
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp:
 

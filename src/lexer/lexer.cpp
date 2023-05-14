@@ -4,12 +4,13 @@
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
 #include "keywordtoken.hpp"
+#include "symboltoken.hpp"
 
 #define DOUBLE_QOUTE L'\"'
 #define BACK_SLASH L'\\'
 #define SLASH L'/'
 #define DOT L'.'
-#define MINUS L'-'
+#define MINUS2 L'-'
 
 lexer::lexer(AinFile ainFile):ainFile(ainFile){
     lexerlines=new std::vector<lexerline>();
@@ -77,7 +78,22 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                 }
             }else if(std::iswdigit(c)){
                 newtoken=lexertoken::LITERAL_TOKEN;
-                newword=c;
+                auto size=tokens->size();
+                auto last=(size>=1)?(*tokens)[size-1]:lexertoken::notsettoken;
+                auto beforelast=(size>=2)?(*tokens)[size-2]:lexertoken::notsettoken;
+                newword=L"";
+                if(
+                    (last==symboltoken::PLUS||last==symboltoken::MINUS)
+                    &&
+                    (beforelast.gettokentype()==lexertoken::SYMBOL_TOKEN)
+                    &&
+                    (beforelast.getval()!=L")")
+                ){
+                    newword+=last.getval();
+                    tokens->pop_back();
+                }
+                newword+=c;
+                //std::wcout<<newword<<std::endl;
 
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start
                 i++;
@@ -110,45 +126,36 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
                     TODO -> may delete the opertors and define it in the language as operator fun
                     */
 
-                    bool hasdot=false;
-                    bool haspower10=false;
-                    bool haspower10minus=false;
-
                     while(i<line.size()){
                         auto &ch = line[i];
                         auto npos=std::string::npos;
 
-                        bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS;
+                        bool isliteraloperator=ch==DOT||ispower10literaloperator(ch)||ch==MINUS2;
 
                         // if next char is a digit or underscore or dot or power 10 
                         if(std::iswdigit(ch)||ch==L'_'||isliteraloperator){
 
                             if(isliteraloperator){
+                                auto ipower10E=newword.find(L'E');
+                                auto ipower10e=newword.find(L'e');
+                                auto ipower10=(ipower10E==npos)?ipower10e:ipower10E;
+                                auto haspower10=ipower10!=npos;
+                                auto ipower10minus=newword.find_last_of(L'-');
+                                auto haspower10minus=haspower10&&(ipower10+1==ipower10minus);
+                                auto finddot=newword.find(L'.');
+                                auto hasdot=finddot!=npos||haspower10;
                                 if(
-                                    (hasdot&&ch==DOT)
-                                    ||(haspower10&&ispower10literaloperator(ch))
-                                    ||(haspower10minus&&ch==MINUS)
+                                    (ispower10literaloperator(ch)&&haspower10)
+                                    ||
+                                    (ch==DOT&&hasdot)
+                                    ||
+                                    (ch==MINUS2&&ipower10!=newword.size()-1)
                                 ){
                                     i--; // to make the main char loop read them as symbols 
                                     break;
                                 }
-
-                                if(!hasdot)
-                                    hasdot=ch==DOT;
-                                if(!haspower10)
-                                    haspower10=ispower10literaloperator(ch);
-                                if(haspower10){
-                                    hasdot=true; // as there shouldn't be a dot after the power
-                                    // there should be power first then minus
-                                    if(!haspower10minus){
-                                        auto last=newword[newword.size()-1];
-                                        // the minus should be after the power
-                                        haspower10minus=ch==MINUS&&ispower10literaloperator(last);
-                                    }
-                                }
                                 
                             }
-                            
                             newword += ch;
                             i++;
                         }

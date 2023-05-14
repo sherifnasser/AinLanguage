@@ -23,6 +23,7 @@ int main(int argc, char * argv[]){
         
     string path(argv[1]); // as it's the second arg
     
+    //string p="/home/nasser/Projects/Programming/C++/AinLanguage/src/app_copy.ain";
     AinFile file=AinFile(path);
     lexer lex = lexer(file);
     auto lines=lex.getlexerlines();
@@ -30,6 +31,10 @@ int main(int argc, char * argv[]){
     for(auto &l:lines){
         auto ltokens=l.gettokens();
         tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
+    }
+
+    for(auto &t:tokens){
+        std::wcout<<t.getval()<<L"\t"<<t.gettokentype()<<endl;
     }
     
     globalscope global;

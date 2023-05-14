@@ -35,14 +35,10 @@ wstring parser::currentval(){
 }
 
 void parser::startparse(globalscope globalscope){
-    /*while(current!=notsettoken){
+    while(current!=notsettoken){
         find_functions(globalscope);
-    }*/
-
-    expression* ex=find_binary_math_expression();
-    wcout<<"Hi"<<endl;
-    wstring s=L"";
-    ex->print(s);
+        next();
+    }
 }
 
 void parser::find_functions(globalscope &globalscope){
@@ -53,7 +49,6 @@ void parser::find_functions(globalscope &globalscope){
         if(next().isidentifiertoken()){
             funname=currentval();
             if(nextmatch(symboltoken::LEFT_PARENTHESIS)){
-                wcout<<L"funname: "<<funname<<endl;
                 /*----------------we have two ways-------------------/*
                 1- the next token is left parenthesis and no args for the fun.
                 2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
@@ -64,7 +59,6 @@ void parser::find_functions(globalscope &globalscope){
                             if(next().isidentifiertoken()){
                                 auto argtype=currentval();
                                 args[arg]=argtype;
-                                wcout<<arg<<L": "<<argtype<<endl;
                                 // calling next() first multi args without a comma
                                 if(nextmatch(symboltoken::COMMA)){}
                                 // the user may right the comma or not at the end
@@ -79,39 +73,44 @@ void parser::find_functions(globalscope &globalscope){
                 if(nextmatch(symboltoken::COLON)){
                     if(next().isidentifiertoken()){
                         funtype=currentval();
-                        wcout<<L"funtype: "<<currentval()<<endl;
                         next();
                     }
                 }
                 auto fun=[&](){
                     if(args.size()==0){
                         if(funtype.empty()){
-                            return funscope(funname,&args);
+                            return new funscope(funname,&args);
                         }
-                        else return funscope(funname);
+                        else return new funscope(funname);
                     }
                     else if(funtype.empty())
-                        return funscope(funname,&args);
+                        return new funscope(funname,&args);
                     
-                    else return funscope(funname);
+                    else return new funscope(funname);
                     
                 };
-
+                
+                wcout<<L"funname: "<<funname<<endl;
+                for(auto &arg:args){
+                    wcout<<L"\t"<<arg.first<<L": "<<arg.second<<endl;
+                }
+                wcout<<L"funtype: "<<funtype<<endl;
                 auto fscope=fun();
                 globalscope.addfunction(fscope);
 
-
                 if(current==symboltoken::LEFT_CURLY_BRACES){
                     auto openedCB=0; // the number of opened curly braces
-                    while(!nextmatch(symboltoken::RIGHT_CURLY_BRACES)&&openedCB!=0)
+                    next();
+                    while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
                     {
-                        // TODO -> Parsing statements of the function
+                        find_next_statement(fscope);
+                        /*// TODO -> Parsing statements of the function
                         if(current==symboltoken::LEFT_CURLY_BRACES){
                             openedCB++;
-                            find_next_statement(fscope);
                         }
-                        else if(current==symboltoken::RIGHT_CURLY_BRACES){openedCB--;}
+                        else if(current==symboltoken::RIGHT_CURLY_BRACES){openedCB--;}*/
                     }
+
                 }
                 // else error
             }
@@ -119,11 +118,11 @@ void parser::find_functions(globalscope &globalscope){
     }
 }
 
-void parser::find_next_statement(funscope &funscope){    
+void parser::find_next_statement(funscope* funscope){    
     find_var_val_statement(funscope);
 }
 
-void parser::find_var_val_statement(funscope &funscope){
+void parser::find_var_val_statement(funscope* funscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
@@ -138,16 +137,20 @@ void parser::find_var_val_statement(funscope &funscope){
             }
             if(currentmatch(symboltoken::EQUAL)){
                 next();
-                find_expression();
+                auto ex=find_expression();
+                wstring t=L"";
+                ex->print(t);
+                //next();
             }
         }
     }
     
 }
 
-void parser::find_expression(){
+expression* parser::find_expression(){
     expression* math=find_binary_math_expression();
-    find_expression();
+    return math;
+    //find_expression();
 }
 
 expression* parser::find_binary_math_expression(){

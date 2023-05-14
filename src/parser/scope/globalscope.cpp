@@ -1,5 +1,9 @@
 #include "globalscope.hpp"
 
-void globalscope::addfunction(funscope &funscope){
-    getfuns()->push_back(funscope);
+globalscope::globalscope(){
+    setfuns(new std::vector<funscope>());
+}
+
+void globalscope::addfunction(funscope* funscope){
+    getfuns()->push_back(*funscope);
 }

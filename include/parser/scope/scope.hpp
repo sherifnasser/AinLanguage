@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include "expression.hpp"
 #define wstring std::wstring
 
 class scope;
@@ -72,6 +73,7 @@ protected:
     scope *parentscope;
     wstring *name;
     classscope *type;
+    expression* ex;
 
 public:
     variable();

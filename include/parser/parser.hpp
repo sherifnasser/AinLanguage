@@ -15,9 +15,9 @@ private:
     bool nextmatch(lexertoken expected);
     wstring currentval();
     void find_functions(globalscope &globalscope);
-    void find_next_statement(funscope &funscope);
-    void find_var_val_statement(funscope &funscope);
-    void find_expression();
+    void find_next_statement(funscope* funscope);
+    void find_var_val_statement(funscope* funscope);
+    expression* find_expression();
     expression* find_binary_math_expression();
     expression* find_binary_math_plus_minus_expression();
     expression* find_binary_math_star_slash_expression();
