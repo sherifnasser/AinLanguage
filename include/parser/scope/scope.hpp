@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <map>
 #include <vector>
+#define wstring std::wstring
 
 class scope;
 class variable;
@@ -14,7 +16,7 @@ class scope
 protected:
     scope* parentscope;
 
-    std::wstring name;
+    wstring name;
 
     // accessiable variables
     std::vector<variable>* vars;
@@ -26,14 +28,14 @@ protected:
     std::vector<funscope>* funs;
 
     // accessiable classess
-    std::vector<classscope>* classess;
+    std::vector<classscope>* classes;
 
 public:
     void setparentscope(scope* parentscope);
     void setvars(std::vector<variable>* vars);
     void setvals(std::vector<constant>* vals);
     void setfuns(std::vector<funscope>* funs);
-    void setclasses(std::vector<classscope>* classess);
+    void setclasses(std::vector<classscope>* classes);
 
     scope* getparentscope();
     std::vector<variable>* getvars();
@@ -52,6 +54,14 @@ class classscope: public scope
 
 class funscope:public scope
 {
+    private:
+        wstring returntype;
+        std::map<wstring,wstring>* args;
+    public:
+        funscope(wstring &name, wstring &returntype,std::map<wstring,wstring>* args);
+        funscope(wstring &name, wstring &returntype);
+        funscope(wstring &name, std::map<wstring,wstring>* args);
+        funscope(wstring &name);
 };
 
 
@@ -60,7 +70,7 @@ class variable
 {
 protected:
     scope *parentscope;
-    std::wstring *name;
+    wstring *name;
     classscope *type;
 
 public:

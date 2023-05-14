@@ -1,5 +1,7 @@
 #pragma once
 #include<map>
+#define wstring std::wstring
+
 class lexertoken{
 public:
     enum TOKEN_TYPE : int
@@ -17,18 +19,25 @@ public:
         NUMBER=1,
         BOOL=2
     };
-
-    lexertoken(TOKEN_TYPE tokentype, std::wstring val);
+    lexertoken();
+    lexertoken(TOKEN_TYPE tokentype, wstring val);
     TOKEN_TYPE gettokentype();
-    std::wstring getval();
+    wstring getval();
     bool operator== (lexertoken &token);
     bool operator!= (lexertoken &token);
     bool isidentifiertoken();
     bool isnotsettoken();
+    bool isnumberliteral();
+    bool isintliteral();
+    bool islongliteral();
+    bool isfloatliteral();
+    bool isdoubleliteral();
+    bool ischarliteral();
+    bool isstringliteral();
     static lexertoken identifiertoken;
     static lexertoken notsettoken;
     
 private:
     TOKEN_TYPE tokentype;
-    std::wstring val;
+    wstring val;
 };

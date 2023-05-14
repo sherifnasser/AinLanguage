@@ -1,6 +1,6 @@
 #include "symboltoken.hpp"
 
-symboltoken::symboltoken(std::wstring c):
+symboltoken::symboltoken(wstring c):
 lexertoken(lexertoken::SYMBOL_TOKEN,c){}
 
 symboltoken symboltoken::LEFT_ANGLE_BRACKET=symboltoken(L"<");
@@ -29,5 +29,5 @@ symboltoken symboltoken::MINUS=symboltoken(L"-");
 symboltoken symboltoken::STAR=symboltoken(L"*");
 symboltoken symboltoken::SLASH=symboltoken(L"/");
 symboltoken symboltoken::EQUAL=symboltoken(L"=");
-symboltoken symboltoken::TRIAL_DIVISION=symboltoken(L"%");
+symboltoken symboltoken::MODULO=symboltoken(L"%");
 symboltoken symboltoken::POWER=symboltoken(L"^");

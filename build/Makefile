@@ -345,6 +345,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser/expression.o: src/parser/expression.cpp.o
+.PHONY : src/parser/expression.o
+
+# target to build an object file
+src/parser/expression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.o
+.PHONY : src/parser/expression.cpp.o
+
+src/parser/expression.i: src/parser/expression.cpp.i
+.PHONY : src/parser/expression.i
+
+# target to preprocess a source file
+src/parser/expression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.i
+.PHONY : src/parser/expression.cpp.i
+
+src/parser/expression.s: src/parser/expression.cpp.s
+.PHONY : src/parser/expression.s
+
+# target to generate assembly for a file
+src/parser/expression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.s
+.PHONY : src/parser/expression.cpp.s
+
 src/parser/parser.o: src/parser/parser.cpp.o
 .PHONY : src/parser/parser.o
 
@@ -368,6 +392,54 @@ src/parser/parser.s: src/parser/parser.cpp.s
 src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
+
+src/parser/scope/globalscope.o: src/parser/scope/globalscope.cpp.o
+.PHONY : src/parser/scope/globalscope.o
+
+# target to build an object file
+src/parser/scope/globalscope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o
+.PHONY : src/parser/scope/globalscope.cpp.o
+
+src/parser/scope/globalscope.i: src/parser/scope/globalscope.cpp.i
+.PHONY : src/parser/scope/globalscope.i
+
+# target to preprocess a source file
+src/parser/scope/globalscope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.i
+.PHONY : src/parser/scope/globalscope.cpp.i
+
+src/parser/scope/globalscope.s: src/parser/scope/globalscope.cpp.s
+.PHONY : src/parser/scope/globalscope.s
+
+# target to generate assembly for a file
+src/parser/scope/globalscope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.s
+.PHONY : src/parser/scope/globalscope.cpp.s
+
+src/parser/scope/scope.o: src/parser/scope/scope.cpp.o
+.PHONY : src/parser/scope/scope.o
+
+# target to build an object file
+src/parser/scope/scope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.o
+.PHONY : src/parser/scope/scope.cpp.o
+
+src/parser/scope/scope.i: src/parser/scope/scope.cpp.i
+.PHONY : src/parser/scope/scope.i
+
+# target to preprocess a source file
+src/parser/scope/scope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.i
+.PHONY : src/parser/scope/scope.cpp.i
+
+src/parser/scope/scope.s: src/parser/scope/scope.cpp.s
+.PHONY : src/parser/scope/scope.s
+
+# target to generate assembly for a file
+src/parser/scope/scope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.s
+.PHONY : src/parser/scope/scope.cpp.s
 
 # Help Target
 help:
@@ -405,9 +477,18 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/expression.o"
+	@echo "... src/parser/expression.i"
+	@echo "... src/parser/expression.s"
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"
+	@echo "... src/parser/scope/globalscope.o"
+	@echo "... src/parser/scope/globalscope.i"
+	@echo "... src/parser/scope/globalscope.s"
+	@echo "... src/parser/scope/scope.o"
+	@echo "... src/parser/scope/scope.i"
+	@echo "... src/parser/scope/scope.s"
 .PHONY : help
 
 

@@ -126,7 +126,14 @@ CMakeFiles/main.dir/src/parser/parser.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc \
+ /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/map \
+ /usr/include/c++/12.2/bits/stl_tree.h \
+ /usr/include/c++/12.2/ext/aligned_buffer.h \
+ /usr/include/c++/12.2/bits/node_handle.h \
+ /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
+ /usr/include/c++/12.2/bits/uses_allocator.h \
+ /usr/include/c++/12.2/bits/stl_multimap.h \
+ /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
  /usr/include/c++/12.2/vector \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
@@ -134,14 +141,8 @@ CMakeFiles/main.dir/src/parser/parser.cpp.o: \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/ext/aligned_buffer.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
- /usr/include/c++/12.2/bits/uses_allocator.h \
- /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp

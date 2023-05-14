@@ -1,7 +1,7 @@
 #include <iostream>
 #include "keywordtoken.hpp"
 
-keywordtoken::keywordtoken(std::wstring val):
+keywordtoken::keywordtoken(wstring val):
 lexertoken(lexertoken::KEYWORD_TOKEN,val){}
 
 bool keywordtoken::iskeyword(lexertoken t){
@@ -22,7 +22,7 @@ bool keywordtoken::iskeyword(lexertoken t){
     return false;
 }
 
-bool keywordtoken::iskeyword(std::wstring val){
+bool keywordtoken::iskeyword(wstring val){
     return iskeyword(keywordtoken(val));
 }
 

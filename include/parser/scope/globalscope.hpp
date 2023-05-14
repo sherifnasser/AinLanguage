@@ -3,4 +3,6 @@
 
 class globalscope:public scope
 {
+    public:
+        void addfunction(funscope &funscope);
 };

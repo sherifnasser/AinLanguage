@@ -5,8 +5,8 @@ class keywordtoken:public lexertoken
 {
     
 public:
-    keywordtoken(std::wstring val);
-    static bool iskeyword(std::wstring val);
+    keywordtoken(wstring val);
+    static bool iskeyword(wstring val);
     static bool iskeyword(lexertoken t);
     static keywordtoken VAR;
     static keywordtoken VAL;
