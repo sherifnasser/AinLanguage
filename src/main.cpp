@@ -33,13 +33,33 @@ int main(int argc, char * argv[]){
         tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
     }
 
-    for(auto &t:tokens){
+    /*for(auto &t:tokens){
         std::wcout<<t.getval()<<L"\t"<<t.gettokentype()<<endl;
-    }
+    }*/
     
     globalscope global;
     parser Parser(&tokens);
     Parser.startparse(global);
+
+    auto funs=global.getfuns();
+    for(auto &fun:*funs){
+        auto type=(fun.getreturntype().empty())?L"Unit":fun.getreturntype();
+        std::wcout<<L"fun: "<<fun.getname()<<L", with type: "<<type<<endl;
+        auto args=fun.getargs();
+        for(auto &arg:*args){
+            std::wcout<<L"\targ: "<<arg.first<<L", with type: "<<arg.second<<endl;
+        }
+        wstring tab=L"\t\t";
+        for(auto &var:*(fun.getvars())){
+            std::wcout<<tab<<L"var: "<<var.getname()<<L", with type: "<<var.gettype()<<endl;
+            
+            var.getexpression()->print(tab);
+        }
+        for(auto &val:*(fun.getvals())){
+            std::wcout<<tab<<L"val: "<<val.getname()<<L", with type: "<<val.gettype()<<endl;
+            val.getexpression()->print(tab);
+        }
+    }
     std::wcout<<"END"<<endl;
     
     /* ----------------quick test---------------------

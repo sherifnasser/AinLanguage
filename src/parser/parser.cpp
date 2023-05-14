@@ -44,7 +44,7 @@ void parser::startparse(globalscope globalscope){
 void parser::find_functions(globalscope &globalscope){
     wstring funname;
     wstring funtype=L"";
-    std::map<wstring,wstring> args;
+    std::vector<std::pair<wstring,wstring>>* args=new std::vector<std::pair<wstring,wstring>>();
     if(currentmatch(keywordtoken::FUN)){
         if(next().isidentifiertoken()){
             funname=currentval();
@@ -54,11 +54,12 @@ void parser::find_functions(globalscope &globalscope){
                 2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
                 while(!nextmatch(symboltoken::RIGHT_PARENTHESIS)){
                     if(current.isidentifiertoken()){
-                        auto arg=currentval();
+                        auto argname=currentval();
                         if(nextmatch(symboltoken::COLON)){
                             if(next().isidentifiertoken()){
                                 auto argtype=currentval();
-                                args[arg]=argtype;
+                                auto arg=std::pair<wstring,wstring>(argname,argtype);
+                                args->push_back(arg);
                                 // calling next() first multi args without a comma
                                 if(nextmatch(symboltoken::COMMA)){}
                                 // the user may right the comma or not at the end
@@ -75,27 +76,14 @@ void parser::find_functions(globalscope &globalscope){
                         funtype=currentval();
                         next();
                     }
-                }
-                auto fun=[&](){
-                    if(args.size()==0){
-                        if(funtype.empty()){
-                            return new funscope(funname,&args);
-                        }
-                        else return new funscope(funname);
-                    }
-                    else if(funtype.empty())
-                        return new funscope(funname,&args);
-                    
-                    else return new funscope(funname);
-                    
-                };
+                }   
                 
-                wcout<<L"funname: "<<funname<<endl;
+                /*wcout<<L"funname: "<<funname<<endl;
                 for(auto &arg:args){
                     wcout<<L"\t"<<arg.first<<L": "<<arg.second<<endl;
                 }
-                wcout<<L"funtype: "<<funtype<<endl;
-                auto fscope=fun();
+                wcout<<L"funtype: "<<funtype<<endl;*/
+                auto fscope=new funscope(funname,funtype,args);
                 globalscope.addfunction(fscope);
 
                 if(current==symboltoken::LEFT_CURLY_BRACES){
@@ -126,6 +114,7 @@ void parser::find_var_val_statement(funscope* funscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
+    expression* ex;
     if(isvar||isval){
         if(next().isidentifiertoken()){
             name=currentval();
@@ -137,14 +126,46 @@ void parser::find_var_val_statement(funscope* funscope){
             }
             if(currentmatch(symboltoken::EQUAL)){
                 next();
-                auto ex=find_expression();
-                wstring t=L"";
-                ex->print(t);
+                ex=find_expression();
+                //wstring t=L"";
+                //ex->print(t);
                 //next();
             }
         }
     }
-    
+    scope* parentscope=funscope;
+    if(isvar){
+        variable* var;
+        if(ex!=nullptr){
+            if(type.empty()){
+                var=new variable(parentscope,name,ex);
+            }
+                
+            else{
+                var=new variable(parentscope,name,type,ex);
+            }
+        }
+        else{
+            var=new variable(parentscope,name,type);
+        }
+        funscope->getvars()->push_back(*var);
+    }
+    else if(isval){
+        constant* val;
+        if(ex!=nullptr){
+            if(type.empty()){
+                val=new constant(parentscope,name,ex);
+            }
+                
+            else{
+                val=new constant(parentscope,name,type,ex);
+            }
+        }
+        else{
+            val=new constant(parentscope,name,type);
+        }
+        funscope->getvals()->push_back(*val);
+    }
 }
 
 expression* parser::find_expression(){

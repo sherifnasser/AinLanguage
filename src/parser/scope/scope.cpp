@@ -1,8 +1,13 @@
 #include "scope.hpp"
 
+wstring scope::getname(){
+    return this->name;
+}
+
 void scope::setparentscope(scope* parentscope){
     this->parentscope=parentscope;
 }
+
 scope* scope::getparentscope(){
     return this->parentscope;
 }
@@ -10,6 +15,7 @@ scope* scope::getparentscope(){
 void scope::setvars(std::vector<variable>* vars){
     this->vars=vars;
 }
+
 std::vector<variable>* scope::getvars(){
     return this->vars;
 }
@@ -17,6 +23,7 @@ std::vector<variable>* scope::getvars(){
 void scope::setvals(std::vector<constant>* vals){
     this->vals=vals;
 }
+
 std::vector<constant>* scope::getvals(){
     return this->vals;
 }
@@ -24,6 +31,7 @@ std::vector<constant>* scope::getvals(){
 void scope::setfuns(std::vector<funscope>* funs){
     this->funs=funs;
 }
+
 std::vector<funscope>* scope::getfuns(){
     return this->funs;
 }
@@ -31,20 +39,55 @@ std::vector<funscope>* scope::getfuns(){
 void scope::setclasses(std::vector<classscope>* classes){
     this->classes=classes;
 }
+
 std::vector<classscope>* scope::getclasses(){
     return this->classes;
 }
 
+void funscope::init(){
+    setvars(new std::vector<variable>());
+    setvals(new std::vector<constant>());
+}
 
-funscope::funscope(wstring &name, wstring &returntype,std::map<wstring,wstring>* args):returntype(returntype),args(args){
+funscope::funscope(wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args):returntype(returntype),args(args){
     this->name=name;
+    init();
 }
-funscope::funscope(wstring &name, std::map<wstring,wstring>* args):args(args){
-    this->name=name;
+
+wstring funscope::getreturntype(){
+    return this->returntype;
 }
-funscope::funscope(wstring &name, wstring &returntype):returntype(returntype){
-    this->name=name;
+
+std::vector<std::pair<wstring,wstring>>* funscope::getargs(){
+    return this->args;
 }
-funscope::funscope(wstring &name){
-    this->name=name;
+
+variable::variable(scope* parentscope, wstring &name, wstring &type)
+:parentscope(parentscope),name(name),type(type){}
+
+constant::constant(scope* parentscope, wstring &name, wstring &type):
+variable(parentscope,name,type){}
+
+variable::variable(scope* parentscope, wstring &name, expression* ex)
+:parentscope(parentscope),name(name),ex(ex){}
+
+constant::constant(scope* parentscope, wstring &name, expression* ex):
+variable(parentscope,name,ex){}
+
+variable::variable(scope* parentscope, wstring &name, wstring &type, expression* ex)
+:parentscope(parentscope),name(name),type(type),ex(ex){}
+
+constant::constant(scope* parentscope, wstring &name, wstring &type, expression* ex):
+variable(parentscope,name,type,ex){}
+
+wstring variable::getname(){
+    return this->name;
+}
+
+wstring variable::gettype(){
+    return this->type;
+}
+
+expression* variable::getexpression(){
+    return this->ex;
 }
