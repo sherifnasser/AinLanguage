@@ -1,3 +1,4 @@
+#include <vector>
 #include "symboltoken.hpp"
 #include "expression.hpp"
 #define wcout std::wcout
@@ -34,5 +35,26 @@ left(left),right(right){
     else{
         wcout<<L"val: "<<operation.getval();
         std::__throw_invalid_argument("Math operation must be +, -, *, /, ^ or %");
+    }
+}
+
+variableaccessexpression::variableaccessexpression(wstring &name):name(name){}
+
+void variableaccessexpression::print(wstring &tabsize){
+    wcout<<tabsize<<"variableaccessexpression"<<endl;
+    auto newtabsize=tabsize+L"\t";
+    wcout<<newtabsize<<name<<endl;
+}
+
+funcallexpression::
+funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions):
+funname(funname),argsexpressions(argsexpressions){}
+
+void funcallexpression::print(wstring &tabsize){
+    wcout<<tabsize<<"funcallexpression"<<endl;
+    auto newtabsize=tabsize+L"\t";
+    wcout<<newtabsize<<funname<<endl;
+    for(auto ex:*argsexpressions){
+        ex->print(newtabsize);
     }
 }

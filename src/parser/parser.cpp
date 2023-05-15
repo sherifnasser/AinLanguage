@@ -35,10 +35,13 @@ wstring parser::currentval(){
 }
 
 void parser::startparse(globalscope globalscope){
-    while(current!=notsettoken){
+    /*while(current!=notsettoken){
         find_functions(globalscope);
         next();
-    }
+    }*/
+    auto ex=find_expression();
+    wstring tab=L"";
+    ex->print(tab);
 }
 
 void parser::find_functions(globalscope &globalscope){
@@ -248,6 +251,26 @@ expression* parser::find_binary_math_parentheses_expression(){
         auto val=currentval();
         left=new numberexpression(val);
         next();
+    }
+    else if(current.isidentifiertoken()){
+        auto name=currentval();
+        if(nextmatch(symboltoken::LEFT_PARENTHESIS)){
+            next();
+            auto argsex=new std::vector<expression*>();
+            while(!currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+                auto argex=find_expression();
+                argsex->push_back(argex);
+                if(currentmatch(symboltoken::COMMA)){
+                    next();
+                }
+            }
+            left=new funcallexpression(name,argsex);
+            next();
+        }
+        else{
+            left=new variableaccessexpression(name);
+            //next();
+        }
     }
     //next();
     return left;

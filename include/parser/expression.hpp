@@ -22,3 +22,20 @@ class binarymathxpression:public expression{
         binarymathxpression(expression* left, lexertoken &operation, expression* right);
         void print(wstring &tabsize) override;
 };
+
+class variableaccessexpression:public expression{
+    private:
+        wstring name;
+    public:
+        variableaccessexpression(wstring &name);
+        void print(wstring &tabsize) override;
+};
+
+class funcallexpression:public expression{
+    private:
+        wstring funname;
+        std::vector<expression*>* argsexpressions;
+    public:
+        funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions);
+        void print(wstring &tabsize) override;
+};
