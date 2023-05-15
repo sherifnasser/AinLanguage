@@ -35,13 +35,13 @@ wstring parser::currentval(){
 }
 
 void parser::startparse(globalscope globalscope){
-    /*while(current!=notsettoken){
+    while(current!=notsettoken){
         find_functions(globalscope);
         next();
-    }*/
-    auto ex=find_expression();
+    }
+    /*auto ex=find_expression();
     wstring tab=L"";
-    ex->print(tab);
+    ex->print(tab);*/
 }
 
 void parser::find_functions(globalscope &globalscope){
