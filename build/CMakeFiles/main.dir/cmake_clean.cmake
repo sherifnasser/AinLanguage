@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o"
   "CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o.d"
+  "CMakeFiles/main.dir/src/helpers/number_helper.cpp.o"
+  "CMakeFiles/main.dir/src/helpers/number_helper.cpp.o.d"
   "CMakeFiles/main.dir/src/helpers/string_helper.cpp.o"
   "CMakeFiles/main.dir/src/helpers/string_helper.cpp.o.d"
   "CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o"

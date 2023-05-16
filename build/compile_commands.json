@@ -55,6 +55,12 @@
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/eval -g -o CMakeFiles/main.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp",
+  "output": "CMakeFiles/main.dir/src/helpers/number_helper.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
   "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/eval -g -o CMakeFiles/main.dir/src/parser/scope/scope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp",
   "output": "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o"

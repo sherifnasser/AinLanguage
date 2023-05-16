@@ -195,10 +195,24 @@ CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp -o CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s
 
+CMakeFiles/main.dir/src/helpers/number_helper.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
+CMakeFiles/main.dir/src/helpers/number_helper.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/helpers/number_helper.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/helpers/number_helper.cpp.o -MF CMakeFiles/main.dir/src/helpers/number_helper.cpp.o.d -o CMakeFiles/main.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
+
+CMakeFiles/main.dir/src/helpers/number_helper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/helpers/number_helper.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp > CMakeFiles/main.dir/src/helpers/number_helper.cpp.i
+
+CMakeFiles/main.dir/src/helpers/number_helper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/helpers/number_helper.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp -o CMakeFiles/main.dir/src/helpers/number_helper.cpp.s
+
 CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp
 CMakeFiles/main.dir/src/parser/scope/scope.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/parser/scope/scope.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/parser/scope/scope.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/parser/scope/scope.cpp.o -MF CMakeFiles/main.dir/src/parser/scope/scope.cpp.o.d -o CMakeFiles/main.dir/src/parser/scope/scope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp
 
 CMakeFiles/main.dir/src/parser/scope/scope.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/main.dir/src/parser/scope/scope.cpp.s: cmake_force
 CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp
 CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o -MF CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o.d -o CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp
 
 CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.s: cmake_force
 CMakeFiles/main.dir/src/parser/expression.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/parser/expression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp
 CMakeFiles/main.dir/src/parser/expression.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/src/parser/expression.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/src/parser/expression.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/parser/expression.cpp.o -MF CMakeFiles/main.dir/src/parser/expression.cpp.o.d -o CMakeFiles/main.dir/src/parser/expression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp
 
 CMakeFiles/main.dir/src/parser/expression.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/main.dir/src/parser/expression.cpp.s: cmake_force
 CMakeFiles/main.dir/src/parser/parser.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/parser/parser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp
 CMakeFiles/main.dir/src/parser/parser.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/src/parser/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/src/parser/parser.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/parser/parser.cpp.o -MF CMakeFiles/main.dir/src/parser/parser.cpp.o.d -o CMakeFiles/main.dir/src/parser/parser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp
 
 CMakeFiles/main.dir/src/parser/parser.cpp.i: cmake_force
@@ -262,6 +276,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o" \
 "CMakeFiles/main.dir/src/helpers/string_helper.cpp.o" \
 "CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o" \
+"CMakeFiles/main.dir/src/helpers/number_helper.cpp.o" \
 "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o" \
 "CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o" \
 "CMakeFiles/main.dir/src/parser/expression.cpp.o" \
@@ -279,13 +294,14 @@ main: CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o
 main: CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o
 main: CMakeFiles/main.dir/src/helpers/string_helper.cpp.o
 main: CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o
+main: CMakeFiles/main.dir/src/helpers/number_helper.cpp.o
 main: CMakeFiles/main.dir/src/parser/scope/scope.cpp.o
 main: CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o
 main: CMakeFiles/main.dir/src/parser/expression.cpp.o
 main: CMakeFiles/main.dir/src/parser/parser.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

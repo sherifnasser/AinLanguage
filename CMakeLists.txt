@@ -13,6 +13,7 @@ set(SRC_FILES
     src/ain_file/ain_file.cpp
     src/helpers/string_helper.cpp
     src/helpers/wchar_t_helper.cpp
+    src/helpers/number_helper.cpp
     src/parser/scope/scope.cpp
     src/parser/scope/globalscope.cpp
     src/parser/expression.cpp

@@ -52,12 +52,13 @@ int main(int argc, char * argv[]){
         wstring tab=L"\t\t";
         for(auto &var:*(fun.getvars())){
             std::wcout<<tab<<L"var: "<<var.getname()<<L", with type: "<<var.gettype()<<endl;
-            
-            var.getexpression()->print(tab);
+            std::wcout<<tab<<var.getexpression()->evaluate()<<endl;
+            //var.getexpression()->print(tab);
         }
         for(auto &val:*(fun.getvals())){
             std::wcout<<tab<<L"val: "<<val.getname()<<L", with type: "<<val.gettype()<<endl;
-            val.getexpression()->print(tab);
+            std::wcout<<tab<<val.getexpression()->evaluate()<<endl;
+            //val.getexpression()->print(tab);
         }
     }
     std::wcout<<"END"<<endl;
