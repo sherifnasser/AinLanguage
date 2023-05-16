@@ -12,8 +12,8 @@ void numberexpression::print(wstring &tabsize){
     wcout<<newtabsize<<val<<endl;
 }
 
-void binarymathxpression::print(wstring &tabsize){
-    wcout<<tabsize<<"binarymathxpression"<<endl;
+void binaryexpression::print(wstring &tabsize){
+    wcout<<tabsize<<"binaryxpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     left->print(newtabsize);
     wcout<<newtabsize<<"Operation"<<endl;
@@ -21,7 +21,7 @@ void binarymathxpression::print(wstring &tabsize){
     right->print(newtabsize);
 }
 
-binarymathxpression::binarymathxpression(expression* left, lexertoken &operation, expression* right):
+binaryexpression::binaryexpression(expression* left, lexertoken &operation, expression* right):
 left(left),right(right){
     if(
         operation==symboltoken::PLUS||
@@ -29,12 +29,19 @@ left(left),right(right){
         operation==symboltoken::STAR||
         operation==symboltoken::SLASH||
         operation==symboltoken::MODULO||
-        operation==symboltoken::POWER
+        operation==symboltoken::POWER||
+        operation==symboltoken::EXCLAMATION_MARK||
+        operation==symboltoken::GREATER_EQUAL||
+        operation==symboltoken::LESS_EQUAL||
+        operation==symboltoken::EQUAL_EQUAL||
+        operation==symboltoken::NOT_EQUAL||
+        operation==symboltoken::LOGICAL_AND||
+        operation==symboltoken::LOGICAL_OR
     )
         this->operation=operation;
     else{
         wcout<<L"val: "<<operation.getval();
-        std::__throw_invalid_argument("Math operation must be +, -, *, /, ^ or %");
+        std::__throw_invalid_argument("Binary operation must be +, -, *, /, ^, %, >=, <=, ==, !=, && or ||");
     }
 }
 

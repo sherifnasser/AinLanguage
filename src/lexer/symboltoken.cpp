@@ -31,3 +31,10 @@ symboltoken symboltoken::SLASH=symboltoken(L"/");
 symboltoken symboltoken::EQUAL=symboltoken(L"=");
 symboltoken symboltoken::MODULO=symboltoken(L"%");
 symboltoken symboltoken::POWER=symboltoken(L"^");
+
+symboltoken symboltoken::GREATER_EQUAL=symboltoken(L">=");
+symboltoken symboltoken::LESS_EQUAL=symboltoken(L"<=");
+symboltoken symboltoken::EQUAL_EQUAL=symboltoken(L"==");
+symboltoken symboltoken::NOT_EQUAL=symboltoken(L"!=");
+symboltoken symboltoken::LOGICAL_AND=symboltoken(L"&&");
+symboltoken symboltoken::LOGICAL_OR=symboltoken(L"||");

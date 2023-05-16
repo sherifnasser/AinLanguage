@@ -35,4 +35,11 @@ public:
     static symboltoken EQUAL;
     static symboltoken MODULO;
     static symboltoken POWER;
+
+    static symboltoken GREATER_EQUAL;
+    static symboltoken LESS_EQUAL;
+    static symboltoken EQUAL_EQUAL;
+    static symboltoken NOT_EQUAL;
+    static symboltoken LOGICAL_AND;
+    static symboltoken LOGICAL_OR;
 };

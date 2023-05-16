@@ -35,13 +35,13 @@ wstring parser::currentval(){
 }
 
 void parser::startparse(globalscope globalscope){
-    while(current!=notsettoken){
+    /*while(current!=notsettoken){
         find_functions(globalscope);
         next();
-    }
-    /*auto ex=find_expression();
+    }*/
+    auto ex=find_expression();
     wstring tab=L"";
-    ex->print(tab);*/
+    ex->print(tab);
 }
 
 void parser::find_functions(globalscope &globalscope){
@@ -172,13 +172,73 @@ void parser::find_var_val_statement(funscope* funscope){
 }
 
 expression* parser::find_expression(){
-    expression* math=find_binary_math_expression();
-    return math;
-    //find_expression();
+    return find_binary_logical_or_expression();
 }
 
-expression* parser::find_binary_math_expression(){
-    return find_binary_math_plus_minus_expression();
+expression* parser::find_binary_logical_or_expression(){
+    expression* left=find_binary_logical_and_expression();
+    expression* right;
+    while(currentmatch(symboltoken::BAR)&&nextmatch(symboltoken::BAR))
+    {   
+        lexertoken op=symboltoken::LOGICAL_OR;
+        next();
+        right=find_binary_logical_and_expression();
+        left=new binaryexpression(left,op,right);
+    }
+    return left;
+    
+}
+
+expression* parser::find_binary_logical_and_expression(){
+    expression* left=find_binary_equality_expression();
+    expression* right;
+    while(currentmatch(symboltoken::AMPERSAND)&&nextmatch(symboltoken::AMPERSAND))
+    {   
+        lexertoken op=symboltoken::LOGICAL_AND;
+        next();
+        right=find_binary_equality_expression();
+        left=new binaryexpression(left,op,right);
+    }
+    return left;
+    
+}
+
+expression* parser::find_binary_equality_expression(){
+    expression* left=find_binary_comparison_expression();
+    expression* right;
+    while(currentmatch(symboltoken::EXCLAMATION_MARK)||currentmatch(symboltoken::EQUAL))
+    {
+        lexertoken op=current;
+        if(nextmatch(symboltoken::EQUAL)){
+            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op != or ==
+            next();
+            right=find_binary_comparison_expression();
+            left=new binaryexpression(left,op,right);
+        }
+        // else error
+    }
+    return left;
+    
+}
+
+expression* parser::find_binary_comparison_expression(){
+    expression* left=find_binary_math_plus_minus_expression();
+    expression* right;
+    while(
+        currentmatch(symboltoken::LEFT_ANGLE_BRACKET)
+        ||
+        currentmatch(symboltoken::RIGHT_ANGLE_BRACKET)
+    ){
+        lexertoken op=current;
+        if(nextmatch(symboltoken::EQUAL)){
+            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op >= or <=
+            next();
+        }
+        right=find_binary_math_plus_minus_expression();
+        left=new binaryexpression(left,op,right);
+    }
+    return left;
+    
 }
 
 expression* parser::find_binary_math_plus_minus_expression(){
@@ -192,8 +252,7 @@ expression* parser::find_binary_math_plus_minus_expression(){
         lexertoken op=current;
         next();
         right=find_binary_math_star_slash_expression();
-        left=new binarymathxpression(left,op,right);
-        //next();
+        left=new binaryexpression(left,op,right);
     }
     return left;
     
@@ -212,38 +271,34 @@ expression* parser::find_binary_math_star_slash_expression(){
         lexertoken op=current;
         next();
         right=find_binary_math_exponent_expression();
-        left=new binarymathxpression(left,op,right);
-        //next();
+        left=new binaryexpression(left,op,right);
     }
     return left;
 }
 
 expression* parser::find_binary_math_exponent_expression(){
-    expression* left=find_binary_math_parentheses_expression();
+    expression* left=find_binary_parentheses_expression();
     expression* right;
     while(currentmatch(symboltoken::POWER)){
         lexertoken op=current;
         next();
-        right=find_binary_math_parentheses_expression();
-        left=new binarymathxpression(left,op,right);
-        //next();
+        right=find_binary_parentheses_expression();
+        left=new binaryexpression(left,op,right);
     }
     return left;
 }
 
-expression* parser::find_binary_math_parentheses_expression(){
+expression* parser::find_binary_parentheses_expression(){
     expression* left;
     expression* right;
     if(currentmatch(symboltoken::LEFT_PARENTHESIS)){
         next();
-        left=find_binary_math_plus_minus_expression();
-        //next();
+        left=find_binary_logical_or_expression();
         while(!currentmatch(symboltoken::RIGHT_PARENTHESIS)){
             lexertoken op=current;
             next();
-            right=find_binary_math_plus_minus_expression();
-            left=new binarymathxpression(left,op,right);
-            //next();next();
+            right=find_binary_logical_or_expression();
+            left=new binaryexpression(left,op,right);
         }
         next();
     }
@@ -269,9 +324,7 @@ expression* parser::find_binary_math_parentheses_expression(){
         }
         else{
             left=new variableaccessexpression(name);
-            //next();
         }
     }
-    //next();
     return left;
 }

@@ -18,11 +18,14 @@ private:
     void find_next_statement(funscope* funscope);
     void find_var_val_statement(funscope* funscope);
     expression* find_expression();
-    expression* find_binary_math_expression();
+    expression* find_binary_logical_or_expression();
+    expression* find_binary_logical_and_expression();
+    expression* find_binary_equality_expression();
+    expression* find_binary_comparison_expression();
     expression* find_binary_math_plus_minus_expression();
     expression* find_binary_math_star_slash_expression();
     expression* find_binary_math_exponent_expression();
-    expression* find_binary_math_parentheses_expression();
+    expression* find_binary_parentheses_expression();
 
 public:
     parser(std::vector<lexertoken>* tokens);

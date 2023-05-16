@@ -13,13 +13,13 @@ class numberexpression:public expression{
         void print(wstring &tabsize) override;
 };
 
-class binarymathxpression:public expression{
+class binaryexpression:public expression{
     private:
         expression* left;
         lexertoken operation;
         expression* right;
     public:
-        binarymathxpression(expression* left, lexertoken &operation, expression* right);
+        binaryexpression(expression* left, lexertoken &operation, expression* right);
         void print(wstring &tabsize) override;
 };
 
