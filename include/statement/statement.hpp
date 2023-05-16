@@ -17,6 +17,15 @@ class statement
         virtual void run()=0;
 };
 
+class expressionstatement:public statement
+{
+    private:
+        expression* ex;
+    public:
+        expressionstatement(scope* runscope,expression* ex);
+        void run() override;
+};
+
 class vardeclarationstatement:public statement
 {
     private:
@@ -26,4 +35,15 @@ class vardeclarationstatement:public statement
         vardeclarationstatement(scope* runscope,variable* var,expression* ex);
         void run() override;
 };
+
+class varreassigntatement:public statement
+{
+    private:
+        wstring varname;
+        expression* ex;
+    public:
+        varreassigntatement(scope* runscope,wstring varname,expression* ex);
+        void run() override;
+};
+
 

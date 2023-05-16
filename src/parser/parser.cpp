@@ -101,7 +101,34 @@ void parser::find_functions(globalscope &globalscope){
 }
 
 void parser::find_next_statement(funscope* fscope){    
-    find_var_val_statement(fscope);
+    if(find_var_val_statement(fscope)==nullptr){
+        if(find_var_reassign_statement(fscope)==nullptr){
+            find_expression_statement(fscope);
+        }
+    }
+}
+
+statement* parser::find_expression_statement(funscope* fscope){
+    auto ex=find_expression();
+    auto stm=new expressionstatement(fscope,ex);
+    //wstring tab=L"";
+    //ex->print(tab);
+    fscope->getstmlist()->push_back(stm);
+    return stm;
+}
+
+statement* parser::find_var_reassign_statement(funscope* fscope){
+    if(current.isidentifiertoken()){
+        auto varname=current.getval();
+        if(nextmatch(symboltoken::EQUAL)){
+            next();
+            auto ex=find_expression();
+            auto stm=new varreassigntatement(fscope,varname,ex);
+            fscope->getstmlist()->push_back(stm);
+            return stm;
+        }
+    }
+    return nullptr;
 }
 
 statement* parser::find_var_val_statement(funscope* fscope){
@@ -121,19 +148,20 @@ statement* parser::find_var_val_statement(funscope* fscope){
             if(currentmatch(symboltoken::EQUAL)){
                 next();
                 ex=find_expression();
+                variable* var;
+                if(isvar){
+                    var=new variable(fscope,name,type);
+                }
+                else if(isval){
+                    var=new constant(fscope,name,type);
+                }
+                auto stm=new vardeclarationstatement(fscope,var,ex);
+                fscope->getstmlist()->push_back(stm);
+                return stm;
             }
         }
     }
-    variable* var;
-    if(isvar){
-        var=new variable(fscope,name,type);
-    }
-    else if(isval){
-        var=new constant(fscope,name,type);
-    }
-    auto stm=new vardeclarationstatement(fscope,var,ex);
-    fscope->getstmlist()->push_back(stm);
-    return stm;
+    return nullptr;
 }
 
 expression* parser::find_expression(){
