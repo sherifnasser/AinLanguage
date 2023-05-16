@@ -35,13 +35,13 @@ wstring parser::currentval(){
 }
 
 void parser::startparse(globalscope globalscope){
-    /*while(current!=notsettoken){
+    while(current!=notsettoken){
         find_functions(globalscope);
         next();
-    }*/
-    auto ex=find_expression();
+    }
+    /*auto ex=find_expression();
     wstring tab=L"";
-    ex->print(tab);
+    ex->print(tab);*/
 }
 
 void parser::find_functions(globalscope &globalscope){
@@ -81,11 +81,6 @@ void parser::find_functions(globalscope &globalscope){
                     }
                 }   
                 
-                /*wcout<<L"funname: "<<funname<<endl;
-                for(auto &arg:args){
-                    wcout<<L"\t"<<arg.first<<L": "<<arg.second<<endl;
-                }
-                wcout<<L"funtype: "<<funtype<<endl;*/
                 auto fscope=new funscope(funname,funtype,args);
                 globalscope.addfunction(fscope);
 
@@ -95,11 +90,6 @@ void parser::find_functions(globalscope &globalscope){
                     while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
                     {
                         find_next_statement(fscope);
-                        /*// TODO -> Parsing statements of the function
-                        if(current==symboltoken::LEFT_CURLY_BRACES){
-                            openedCB++;
-                        }
-                        else if(current==symboltoken::RIGHT_CURLY_BRACES){openedCB--;}*/
                     }
 
                 }
@@ -130,9 +120,6 @@ void parser::find_var_val_statement(funscope* funscope){
             if(currentmatch(symboltoken::EQUAL)){
                 next();
                 ex=find_expression();
-                //wstring t=L"";
-                //ex->print(t);
-                //next();
             }
         }
     }
