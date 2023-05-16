@@ -1,6 +1,9 @@
-CMakeFiles/main.dir/src/parser/parser.cpp.o: \
- /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
+CMakeFiles/main.dir/src/statement/statement.cpp.o: \
+ /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp \
+ /usr/include/stdc-predef.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
+ /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -133,17 +136,10 @@ CMakeFiles/main.dir/src/parser/parser.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
  /usr/include/c++/12.2/bits/uses_allocator.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
- /usr/include/c++/12.2/vector \
+ /usr/include/c++/12.2/bits/erase_if.h /usr/include/c++/12.2/vector \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp

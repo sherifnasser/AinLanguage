@@ -1,8 +1,16 @@
 #pragma once
+#include "scope.hpp"
 #include "lexertoken.hpp"
+
+class scope;
+class variable;
+class constant;
+class funscope;
+class classscope;
+
 class expression{
     public:
-        virtual wstring evaluate()=0;
+        virtual wstring evaluate(scope* evalscope)=0;
         virtual void print(wstring &tabsize)=0;
 };
 
@@ -11,7 +19,7 @@ class numberexpression:public expression{
         wstring val;
     public:
         numberexpression(wstring &val);
-        wstring evaluate() override;
+        wstring evaluate(scope* evalscope) override;
         void print(wstring &tabsize) override;
 };
 
@@ -22,7 +30,7 @@ class binaryexpression:public expression{
         expression* right;
     public:
         binaryexpression(expression* left, lexertoken &operation, expression* right);
-        wstring evaluate() override;
+        wstring evaluate(scope* evalscope) override;
         void print(wstring &tabsize) override;
         wstring evaluateplus(wstring l, wstring r);
         wstring evaluateminus(wstring l, wstring r);
@@ -37,7 +45,7 @@ class variableaccessexpression:public expression{
         wstring name;
     public:
         variableaccessexpression(wstring &name);
-        wstring evaluate() override;
+        wstring evaluate(scope* evalscope) override;
         void print(wstring &tabsize) override;
 };
 
@@ -47,6 +55,6 @@ class funcallexpression:public expression{
         std::vector<expression*>* argsexpressions;
     public:
         funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions);
-        wstring evaluate() override;
+        wstring evaluate(scope* evalscope) override;
         void print(wstring &tabsize) override;
 };

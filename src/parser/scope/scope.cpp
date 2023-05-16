@@ -12,41 +12,50 @@ scope* scope::getparentscope(){
     return this->parentscope;
 }
 
-void scope::setvars(std::vector<variable>* vars){
+void scope::setvars(std::vector<variable*>* vars){
     this->vars=vars;
 }
 
-std::vector<variable>* scope::getvars(){
+std::vector<variable*>* scope::getvars(){
     return this->vars;
 }
 
-void scope::setvals(std::vector<constant>* vals){
+void scope::setvals(std::vector<constant*>* vals){
     this->vals=vals;
 }
 
-std::vector<constant>* scope::getvals(){
+std::vector<constant*>* scope::getvals(){
     return this->vals;
 }
 
-void scope::setfuns(std::vector<funscope>* funs){
+void scope::setfuns(std::vector<funscope*>* funs){
     this->funs=funs;
 }
 
-std::vector<funscope>* scope::getfuns(){
+std::vector<funscope*>* scope::getfuns(){
     return this->funs;
 }
 
-void scope::setclasses(std::vector<classscope>* classes){
+void scope::setclasses(std::vector<classscope*>* classes){
     this->classes=classes;
 }
 
-std::vector<classscope>* scope::getclasses(){
+std::vector<classscope*>* scope::getclasses(){
     return this->classes;
 }
 
+void funscope::setstmlist(std::vector<statement*>* stmlist){
+    this->stmlist=stmlist;
+}
+
+std::vector<statement*>* funscope::getstmlist(){
+    return this->stmlist;
+}
+
 void funscope::init(){
-    setvars(new std::vector<variable>());
-    setvals(new std::vector<constant>());
+    setvars(new std::vector<variable*>());
+    setvals(new std::vector<constant*>());
+    setstmlist(new std::vector<statement*>());
 }
 
 funscope::funscope(wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args):returntype(returntype),args(args){
@@ -68,18 +77,6 @@ variable::variable(scope* parentscope, wstring &name, wstring &type)
 constant::constant(scope* parentscope, wstring &name, wstring &type):
 variable(parentscope,name,type){}
 
-variable::variable(scope* parentscope, wstring &name, expression* ex)
-:parentscope(parentscope),name(name),ex(ex){}
-
-constant::constant(scope* parentscope, wstring &name, expression* ex):
-variable(parentscope,name,ex){}
-
-variable::variable(scope* parentscope, wstring &name, wstring &type, expression* ex)
-:parentscope(parentscope),name(name),type(type),ex(ex){}
-
-constant::constant(scope* parentscope, wstring &name, wstring &type, expression* ex):
-variable(parentscope,name,type,ex){}
-
 wstring variable::getname(){
     return this->name;
 }
@@ -88,6 +85,25 @@ wstring variable::gettype(){
     return this->type;
 }
 
-expression* variable::getexpression(){
-    return this->ex;
+variable* scope::getvarbyname(wstring varname){
+    for(auto &var:*getvars()){
+        if(var->getname()==varname){
+            return var;
+        }
+    }
+    return nullptr;
+}
+
+wstring variable::getcurrentvalue(){
+    return this->currentval;
+}
+
+void variable::setcurrentvalue(wstring value){
+    this->currentval=value;
+}
+
+void funscope::call(){
+    for(auto stm:*stmlist){
+        stm->run();
+    }
 }

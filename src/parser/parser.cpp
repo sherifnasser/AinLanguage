@@ -4,6 +4,7 @@
 #include "lexertoken.hpp"
 #include "keywordtoken.hpp"
 #include "symboltoken.hpp"
+#include "statement.hpp"
 
 #define notsettoken lexertoken::notsettoken
 #define wcout std::wcout
@@ -99,11 +100,11 @@ void parser::find_functions(globalscope &globalscope){
     }
 }
 
-void parser::find_next_statement(funscope* funscope){    
-    find_var_val_statement(funscope);
+void parser::find_next_statement(funscope* fscope){    
+    find_var_val_statement(fscope);
 }
 
-void parser::find_var_val_statement(funscope* funscope){
+statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
@@ -123,39 +124,16 @@ void parser::find_var_val_statement(funscope* funscope){
             }
         }
     }
-    scope* parentscope=funscope;
+    variable* var;
     if(isvar){
-        variable* var;
-        if(ex!=nullptr){
-            if(type.empty()){
-                var=new variable(parentscope,name,ex);
-            }
-                
-            else{
-                var=new variable(parentscope,name,type,ex);
-            }
-        }
-        else{
-            var=new variable(parentscope,name,type);
-        }
-        funscope->getvars()->push_back(*var);
+        var=new variable(fscope,name,type);
     }
     else if(isval){
-        constant* val;
-        if(ex!=nullptr){
-            if(type.empty()){
-                val=new constant(parentscope,name,ex);
-            }
-                
-            else{
-                val=new constant(parentscope,name,type,ex);
-            }
-        }
-        else{
-            val=new constant(parentscope,name,type);
-        }
-        funscope->getvals()->push_back(*val);
+        var=new constant(fscope,name,type);
     }
+    auto stm=new vardeclarationstatement(fscope,var,ex);
+    fscope->getstmlist()->push_back(stm);
+    return stm;
 }
 
 expression* parser::find_expression(){

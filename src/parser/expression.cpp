@@ -74,22 +74,23 @@ void funcallexpression::print(wstring &tabsize){
     }
 }
 
-wstring funcallexpression::evaluate(){
+wstring funcallexpression::evaluate(scope* evalscope){
     return L"";
 }
 
-wstring variableaccessexpression::evaluate(){
-    return L"";
+wstring variableaccessexpression::evaluate(scope* evalscope){
+    auto var=evalscope->getvarbyname(this->name);
+    return var->getcurrentvalue();
 }
 
-wstring numberexpression::evaluate(){
+wstring numberexpression::evaluate(scope* evalscope){
     return val;
 }
 
-wstring binaryexpression::evaluate(){
+wstring binaryexpression::evaluate(scope* evalscope){
     wstring result;
-    auto leftRes=left->evaluate();
-    auto rightRes=right->evaluate();
+    auto leftRes=left->evaluate(evalscope);
+    auto rightRes=right->evaluate(evalscope);
 
     if(operation==symboltoken::PLUS){
         result=evaluateplus(leftRes,rightRes);

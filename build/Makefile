@@ -465,6 +465,30 @@ src/parser/scope/scope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.s
 .PHONY : src/parser/scope/scope.cpp.s
 
+src/statement/statement.o: src/statement/statement.cpp.o
+.PHONY : src/statement/statement.o
+
+# target to build an object file
+src/statement/statement.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.o
+.PHONY : src/statement/statement.cpp.o
+
+src/statement/statement.i: src/statement/statement.cpp.i
+.PHONY : src/statement/statement.i
+
+# target to preprocess a source file
+src/statement/statement.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.i
+.PHONY : src/statement/statement.cpp.i
+
+src/statement/statement.s: src/statement/statement.cpp.s
+.PHONY : src/statement/statement.s
+
+# target to generate assembly for a file
+src/statement/statement.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.s
+.PHONY : src/statement/statement.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -516,6 +540,9 @@ help:
 	@echo "... src/parser/scope/scope.o"
 	@echo "... src/parser/scope/scope.i"
 	@echo "... src/parser/scope/scope.s"
+	@echo "... src/statement/statement.o"
+	@echo "... src/statement/statement.i"
+	@echo "... src/statement/statement.s"
 .PHONY : help
 
 

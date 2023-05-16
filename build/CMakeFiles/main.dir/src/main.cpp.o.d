@@ -150,6 +150,7 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp

@@ -41,25 +41,13 @@ int main(int argc, char * argv[]){
     parser Parser(&tokens);
     Parser.startparse(global);
 
-    auto funs=global.getfuns();
-    for(auto &fun:*funs){
-        auto type=(fun.getreturntype().empty())?L"Unit":fun.getreturntype();
-        std::wcout<<L"fun: "<<fun.getname()<<L", with type: "<<type<<endl;
-        auto args=fun.getargs();
-        for(auto &arg:*args){
-            std::wcout<<L"\targ: "<<arg.first<<L", with type: "<<arg.second<<endl;
-        }
-        wstring tab=L"\t\t";
-        for(auto &var:*(fun.getvars())){
-            std::wcout<<tab<<L"var: "<<var.getname()<<L", with type: "<<var.gettype()<<endl;
-            std::wcout<<tab<<var.getexpression()->evaluate()<<endl;
-            //var.getexpression()->print(tab);
-        }
-        for(auto &val:*(fun.getvals())){
-            std::wcout<<tab<<L"val: "<<val.getname()<<L", with type: "<<val.gettype()<<endl;
-            std::wcout<<tab<<val.getexpression()->evaluate()<<endl;
-            //val.getexpression()->print(tab);
-        }
+    auto main=global.getmain();
+    auto fun=(global.getfuns())->at(0);
+
+    main->call();
+
+    for(auto var:*main->getvars()){
+        std::wcout<<L"var: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
     }
     std::wcout<<"END"<<endl;
     

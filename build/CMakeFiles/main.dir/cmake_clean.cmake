@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o.d"
   "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o"
   "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o.d"
+  "CMakeFiles/main.dir/src/statement/statement.cpp.o"
+  "CMakeFiles/main.dir/src/statement/statement.cpp.o.d"
   "main"
   "main.pdb"
 )

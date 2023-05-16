@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp" "CMakeFiles/main.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/main.dir/src/parser/parser.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp" "CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o" "gcc" "CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp" "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o" "gcc" "CMakeFiles/main.dir/src/parser/scope/scope.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp" "CMakeFiles/main.dir/src/statement/statement.cpp.o" "gcc" "CMakeFiles/main.dir/src/statement/statement.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

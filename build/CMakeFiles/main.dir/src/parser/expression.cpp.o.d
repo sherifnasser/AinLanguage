@@ -160,6 +160,8 @@ CMakeFiles/main.dir/src/parser/expression.cpp.o: \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
  /usr/include/c++/12.2/functional \
  /usr/include/c++/12.2/bits/std_function.h \
