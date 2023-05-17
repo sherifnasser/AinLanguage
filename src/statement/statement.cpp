@@ -18,6 +18,8 @@ vardeclarationstatement::vardeclarationstatement(scope* runscope,variable* var,e
 }
 
 void vardeclarationstatement::run(){
+    //wstring tab=L"";
+    //ex->print(tab);
     if(ex!=nullptr){
         auto exval=ex->evaluate(runscope);
         var->setcurrentvalue(exval);

@@ -58,7 +58,9 @@ void funscope::init(){
     setstmlist(new std::vector<statement*>());
 }
 
-funscope::funscope(wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args):returntype(returntype),args(args){
+funscope::funscope(scope* parentscope,wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args)
+:returntype(returntype),args(args){
+    this->setparentscope(parentscope);
     this->name=name;
     init();
 }
@@ -89,6 +91,15 @@ variable* scope::getvarbyname(wstring varname){
     for(auto &var:*getvars()){
         if(var->getname()==varname){
             return var;
+        }
+    }
+    return nullptr;
+}
+
+funscope* scope::getfunbyname(wstring funname){
+    for(auto &fun:*getfuns()){
+        if(fun->getname()==funname){
+            return fun;
         }
     }
     return nullptr;

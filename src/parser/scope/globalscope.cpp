@@ -9,9 +9,9 @@ void globalscope::addfunction(funscope* funscope){
 }
 
 funscope* globalscope::getmain(){
-    for(auto fun:*getfuns()){
-        if(fun->getname()==L"البداية")
-            return fun;
-    }
-    throw L"Couldn't find the main function";
+    auto fun=getfunbyname(L"البداية");
+    if (fun!=nullptr)
+        return fun;
+    else
+        throw L"Couldn't find the main function";
 }

@@ -28,7 +28,7 @@ class scope
         std::vector<constant*>* vals;
 
         // accessiable functions
-        std::vector<funscope*>* funs;
+        std::vector<funscope*>* funs;  // TODO: sort them and use binary search
 
         // accessiable classess
         std::vector<classscope*>* classes;
@@ -46,6 +46,7 @@ class scope
         std::vector<funscope*>* getfuns();
         std::vector<classscope*>* getclasses();
         variable* getvarbyname(wstring varname);
+        funscope* getfunbyname(wstring funname);
         wstring getname();
 };
 
@@ -65,7 +66,7 @@ class funscope:public scope
         std::vector<statement*>* stmlist;
         void init();
     public:
-        funscope(wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args);
+        funscope(scope* parentscope, wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args);
         wstring getreturntype();
         std::vector<std::pair<wstring,wstring>>* getargs();
         void setstmlist(std::vector<statement*>* stmlist);

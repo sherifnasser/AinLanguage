@@ -35,7 +35,7 @@ wstring parser::currentval(){
     return current.getval();
 }
 
-void parser::startparse(globalscope globalscope){
+void parser::startparse(globalscope* globalscope){
     while(current!=notsettoken){
         find_functions(globalscope);
         next();
@@ -45,7 +45,7 @@ void parser::startparse(globalscope globalscope){
     ex->print(tab);*/
 }
 
-void parser::find_functions(globalscope &globalscope){
+void parser::find_functions(globalscope* globalscope){
     wstring funname;
     wstring funtype=L"";
     std::vector<std::pair<wstring,wstring>>* args=new std::vector<std::pair<wstring,wstring>>();
@@ -82,8 +82,8 @@ void parser::find_functions(globalscope &globalscope){
                     }
                 }   
                 
-                auto fscope=new funscope(funname,funtype,args);
-                globalscope.addfunction(fscope);
+                auto fscope=new funscope(globalscope,funname,funtype,args);
+                globalscope->addfunction(fscope);
 
                 if(current==symboltoken::LEFT_CURLY_BRACES){
                     auto openedCB=0; // the number of opened curly braces
@@ -126,6 +126,9 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
             auto stm=new varreassigntatement(fscope,varname,ex);
             fscope->getstmlist()->push_back(stm);
             return stm;
+        }else{
+            currentpos-=2;
+            next();
         }
     }
     return nullptr;
@@ -135,7 +138,6 @@ statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
-    variable* var;
     expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
@@ -143,18 +145,19 @@ statement* parser::find_var_val_statement(funscope* fscope){
             if(nextmatch(symboltoken::COLON)){
                 if(next().isidentifiertoken()){
                     type=currentval();
-                    if(isvar){
-                        var=new variable(fscope,name,type);
-                    }
-                    else if(isval){
-                        var=new constant(fscope,name,type);
-                    }
                     next();
                 }
             }
             if(currentmatch(symboltoken::EQUAL)){
                 next();
                 ex=find_expression();
+            }
+            variable* var;
+            if(isvar){
+                var=new variable(fscope,name,type);
+            }
+            else if(isval){
+                var=new constant(fscope,name,type);
             }
             auto stm=new vardeclarationstatement(fscope,var,ex);
             fscope->getstmlist()->push_back(stm);

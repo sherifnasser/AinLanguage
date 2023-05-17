@@ -21,9 +21,9 @@ int main(int argc, char * argv[]){
         return -1;
     }
         
-    string path(argv[1]); // as it's the second arg
+    //string path(argv[1]); // as it's the second arg
     
-    //string p="/home/nasser/Projects/Programming/C++/AinLanguage/src/app_copy.ain";
+    string path="/home/nasser/Projects/Programming/C++/AinLanguage/src/app_copy.ain";
     AinFile file=AinFile(path);
     lexer lex = lexer(file);
     auto lines=lex.getlexerlines();
@@ -39,15 +39,23 @@ int main(int argc, char * argv[]){
     
     globalscope global;
     parser Parser(&tokens);
-    Parser.startparse(global);
+    Parser.startparse(&global);
 
     auto main=global.getmain();
-    auto fun=(global.getfuns())->at(0);
 
     main->call();
 
+    auto birthyearfun=(global.getfuns())->at(0);
+    auto sumfun=(global.getfuns())->at(1);
+
     for(auto var:*main->getvars()){
-        std::wcout<<L"var: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
+        std::wcout<<L"var1: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
+    }
+    for(auto var:*sumfun->getvars()){
+        std::wcout<<L"var2: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
+    }
+    for(auto var:*birthyearfun->getvars()){
+        std::wcout<<L"var3: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
     }
     std::wcout<<"END"<<endl;
     

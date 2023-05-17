@@ -14,7 +14,7 @@ private:
     bool currentmatch(lexertoken expected);
     bool nextmatch(lexertoken expected);
     wstring currentval();
-    void find_functions(globalscope &globalscope);
+    void find_functions(globalscope* globalscope);
     void find_next_statement(funscope* funscope);
     statement* find_var_val_statement(funscope* funscope);
     statement* find_var_reassign_statement(funscope* funscope);
@@ -31,5 +31,5 @@ private:
 
 public:
     parser(std::vector<lexertoken>* tokens);
-    void startparse(globalscope globalscope);
+    void startparse(globalscope* globalscope);
 };

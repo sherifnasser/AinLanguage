@@ -74,10 +74,6 @@ void funcallexpression::print(wstring &tabsize){
     }
 }
 
-wstring funcallexpression::evaluate(scope* evalscope){
-    return L"";
-}
-
 wstring variableaccessexpression::evaluate(scope* evalscope){
     auto var=evalscope->getvarbyname(this->name);
     return var->getcurrentvalue();
@@ -154,4 +150,31 @@ wstring binaryexpression::evaluatepower(wstring l, wstring r){
         return std::to_wstring(pow(todouble(l),todouble(r)));
     }
     return L"";
+}
+
+wstring funcallexpression::evaluate(scope* evalscope){
+    auto fun=evalscope->getparentscope()->getfunbyname(this->funname);
+    if(fun==nullptr){
+        throw (L"function with name "+funname+L"() is not found.");
+    }
+    else if(argsexpressions->size()!=fun->getargs()->size()){
+        throw (L"Too many arguments for calling "+funname+L"().");
+    }
+    else{
+        auto args=fun->getargs();
+        for(int i=0;i<args->size();i++){
+            auto arg=(*args)[i];
+            auto exval=(*argsexpressions)[i]->evaluate(evalscope);
+            // TODO: type matching
+            auto val=new constant(fun,arg.first,arg.second);
+            val->setcurrentvalue(exval);
+            fun->getvars()->push_back(val);
+        }
+        fun->call();
+        /*for(auto var:*fun->getvars()){
+            wcout<<L"var-"<<fun->getname()<<L": "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
+        }*/
+        fun->getvars()->clear();
+    }
+    return L""; // TODO: return the returned value from function
 }
