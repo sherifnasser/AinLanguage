@@ -95,11 +95,23 @@ variable* scope::getvarbyname(wstring varname){
 }
 
 wstring variable::getcurrentvalue(){
-    return this->currentval;
+    if(isinitialized)
+        return this->currentval;
+    else{
+        std::__throw_runtime_error("Variable is not initialized.");
+    }
 }
 
 void variable::setcurrentvalue(wstring value){
     this->currentval=value;
+    isinitialized=true;
+}
+
+void constant::setcurrentvalue(wstring value){
+    if(isinitialized)
+        std::__throw_runtime_error("Cannot reassign a constant value.");
+    else
+        variable::setcurrentvalue(value);
 }
 
 void funscope::call(){

@@ -135,30 +135,30 @@ statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
-    expression* ex;
+    variable* var;
+    expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
             name=currentval();
             if(nextmatch(symboltoken::COLON)){
                 if(next().isidentifiertoken()){
                     type=currentval();
+                    if(isvar){
+                        var=new variable(fscope,name,type);
+                    }
+                    else if(isval){
+                        var=new constant(fscope,name,type);
+                    }
                     next();
                 }
             }
             if(currentmatch(symboltoken::EQUAL)){
                 next();
                 ex=find_expression();
-                variable* var;
-                if(isvar){
-                    var=new variable(fscope,name,type);
-                }
-                else if(isval){
-                    var=new constant(fscope,name,type);
-                }
-                auto stm=new vardeclarationstatement(fscope,var,ex);
-                fscope->getstmlist()->push_back(stm);
-                return stm;
             }
+            auto stm=new vardeclarationstatement(fscope,var,ex);
+            fscope->getstmlist()->push_back(stm);
+            return stm;
         }
     }
     return nullptr;

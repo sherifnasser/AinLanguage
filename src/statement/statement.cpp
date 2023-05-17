@@ -18,8 +18,10 @@ vardeclarationstatement::vardeclarationstatement(scope* runscope,variable* var,e
 }
 
 void vardeclarationstatement::run(){
-    auto exval=ex->evaluate(runscope);
-    var->setcurrentvalue(exval);
+    if(ex!=nullptr){
+        auto exval=ex->evaluate(runscope);
+        var->setcurrentvalue(exval);
+    }
     runscope->getvars()->push_back(var);
 }
 

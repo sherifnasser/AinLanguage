@@ -83,13 +83,14 @@ protected:
     wstring name;
     wstring type;
     wstring currentval;
+    bool isinitialized=false;
 
     public:
         variable(scope* parentscope, wstring &name, wstring &type);
         wstring getname();
         wstring gettype();
         wstring getcurrentvalue();
-        void setcurrentvalue(wstring value);
+        virtual void setcurrentvalue(wstring value);
 };
 
 
@@ -98,4 +99,5 @@ class constant : public variable
 {
     public:
         constant(scope* parentscope, wstring &name, wstring &type);
+        void setcurrentvalue(wstring value) override;
 };
