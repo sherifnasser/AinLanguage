@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named ain
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+ain: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ain
+.PHONY : ain
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+ain/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/build
+.PHONY : ain/fast
 
 src/ain_file/ain_file.o: src/ain_file/ain_file.cpp.o
 .PHONY : src/ain_file/ain_file.o
 
 # target to build an object file
 src/ain_file/ain_file.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ain_file/ain_file.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.o
 .PHONY : src/ain_file/ain_file.cpp.o
 
 src/ain_file/ain_file.i: src/ain_file/ain_file.cpp.i
@@ -142,7 +142,7 @@ src/ain_file/ain_file.i: src/ain_file/ain_file.cpp.i
 
 # target to preprocess a source file
 src/ain_file/ain_file.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ain_file/ain_file.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.i
 .PHONY : src/ain_file/ain_file.cpp.i
 
 src/ain_file/ain_file.s: src/ain_file/ain_file.cpp.s
@@ -150,7 +150,7 @@ src/ain_file/ain_file.s: src/ain_file/ain_file.cpp.s
 
 # target to generate assembly for a file
 src/ain_file/ain_file.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ain_file/ain_file.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.s
 .PHONY : src/ain_file/ain_file.cpp.s
 
 src/helpers/number_helper.o: src/helpers/number_helper.cpp.o
@@ -158,7 +158,7 @@ src/helpers/number_helper.o: src/helpers/number_helper.cpp.o
 
 # target to build an object file
 src/helpers/number_helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/number_helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o
 .PHONY : src/helpers/number_helper.cpp.o
 
 src/helpers/number_helper.i: src/helpers/number_helper.cpp.i
@@ -166,7 +166,7 @@ src/helpers/number_helper.i: src/helpers/number_helper.cpp.i
 
 # target to preprocess a source file
 src/helpers/number_helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/number_helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/number_helper.cpp.i
 .PHONY : src/helpers/number_helper.cpp.i
 
 src/helpers/number_helper.s: src/helpers/number_helper.cpp.s
@@ -174,7 +174,7 @@ src/helpers/number_helper.s: src/helpers/number_helper.cpp.s
 
 # target to generate assembly for a file
 src/helpers/number_helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/number_helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/number_helper.cpp.s
 .PHONY : src/helpers/number_helper.cpp.s
 
 src/helpers/string_helper.o: src/helpers/string_helper.cpp.o
@@ -182,7 +182,7 @@ src/helpers/string_helper.o: src/helpers/string_helper.cpp.o
 
 # target to build an object file
 src/helpers/string_helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/string_helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/string_helper.cpp.o
 .PHONY : src/helpers/string_helper.cpp.o
 
 src/helpers/string_helper.i: src/helpers/string_helper.cpp.i
@@ -190,7 +190,7 @@ src/helpers/string_helper.i: src/helpers/string_helper.cpp.i
 
 # target to preprocess a source file
 src/helpers/string_helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/string_helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/string_helper.cpp.i
 .PHONY : src/helpers/string_helper.cpp.i
 
 src/helpers/string_helper.s: src/helpers/string_helper.cpp.s
@@ -198,7 +198,7 @@ src/helpers/string_helper.s: src/helpers/string_helper.cpp.s
 
 # target to generate assembly for a file
 src/helpers/string_helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/string_helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/string_helper.cpp.s
 .PHONY : src/helpers/string_helper.cpp.s
 
 src/helpers/wchar_t_helper.o: src/helpers/wchar_t_helper.cpp.o
@@ -206,7 +206,7 @@ src/helpers/wchar_t_helper.o: src/helpers/wchar_t_helper.cpp.o
 
 # target to build an object file
 src/helpers/wchar_t_helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o
 .PHONY : src/helpers/wchar_t_helper.cpp.o
 
 src/helpers/wchar_t_helper.i: src/helpers/wchar_t_helper.cpp.i
@@ -214,7 +214,7 @@ src/helpers/wchar_t_helper.i: src/helpers/wchar_t_helper.cpp.i
 
 # target to preprocess a source file
 src/helpers/wchar_t_helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.i
 .PHONY : src/helpers/wchar_t_helper.cpp.i
 
 src/helpers/wchar_t_helper.s: src/helpers/wchar_t_helper.cpp.s
@@ -222,7 +222,7 @@ src/helpers/wchar_t_helper.s: src/helpers/wchar_t_helper.cpp.s
 
 # target to generate assembly for a file
 src/helpers/wchar_t_helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/helpers/wchar_t_helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.s
 .PHONY : src/helpers/wchar_t_helper.cpp.s
 
 src/lexer/keywordtoken.o: src/lexer/keywordtoken.cpp.o
@@ -230,7 +230,7 @@ src/lexer/keywordtoken.o: src/lexer/keywordtoken.cpp.o
 
 # target to build an object file
 src/lexer/keywordtoken.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/keywordtoken.cpp.o
 .PHONY : src/lexer/keywordtoken.cpp.o
 
 src/lexer/keywordtoken.i: src/lexer/keywordtoken.cpp.i
@@ -238,7 +238,7 @@ src/lexer/keywordtoken.i: src/lexer/keywordtoken.cpp.i
 
 # target to preprocess a source file
 src/lexer/keywordtoken.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/keywordtoken.cpp.i
 .PHONY : src/lexer/keywordtoken.cpp.i
 
 src/lexer/keywordtoken.s: src/lexer/keywordtoken.cpp.s
@@ -246,7 +246,7 @@ src/lexer/keywordtoken.s: src/lexer/keywordtoken.cpp.s
 
 # target to generate assembly for a file
 src/lexer/keywordtoken.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/keywordtoken.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/keywordtoken.cpp.s
 .PHONY : src/lexer/keywordtoken.cpp.s
 
 src/lexer/lexer.o: src/lexer/lexer.cpp.o
@@ -254,7 +254,7 @@ src/lexer/lexer.o: src/lexer/lexer.cpp.o
 
 # target to build an object file
 src/lexer/lexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexer.cpp.o
 .PHONY : src/lexer/lexer.cpp.o
 
 src/lexer/lexer.i: src/lexer/lexer.cpp.i
@@ -262,7 +262,7 @@ src/lexer/lexer.i: src/lexer/lexer.cpp.i
 
 # target to preprocess a source file
 src/lexer/lexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexer.cpp.i
 .PHONY : src/lexer/lexer.cpp.i
 
 src/lexer/lexer.s: src/lexer/lexer.cpp.s
@@ -270,7 +270,7 @@ src/lexer/lexer.s: src/lexer/lexer.cpp.s
 
 # target to generate assembly for a file
 src/lexer/lexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexer.cpp.s
 .PHONY : src/lexer/lexer.cpp.s
 
 src/lexer/lexerline.o: src/lexer/lexerline.cpp.o
@@ -278,7 +278,7 @@ src/lexer/lexerline.o: src/lexer/lexerline.cpp.o
 
 # target to build an object file
 src/lexer/lexerline.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexerline.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexerline.cpp.o
 .PHONY : src/lexer/lexerline.cpp.o
 
 src/lexer/lexerline.i: src/lexer/lexerline.cpp.i
@@ -286,7 +286,7 @@ src/lexer/lexerline.i: src/lexer/lexerline.cpp.i
 
 # target to preprocess a source file
 src/lexer/lexerline.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexerline.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexerline.cpp.i
 .PHONY : src/lexer/lexerline.cpp.i
 
 src/lexer/lexerline.s: src/lexer/lexerline.cpp.s
@@ -294,7 +294,7 @@ src/lexer/lexerline.s: src/lexer/lexerline.cpp.s
 
 # target to generate assembly for a file
 src/lexer/lexerline.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexerline.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexerline.cpp.s
 .PHONY : src/lexer/lexerline.cpp.s
 
 src/lexer/lexertoken.o: src/lexer/lexertoken.cpp.o
@@ -302,7 +302,7 @@ src/lexer/lexertoken.o: src/lexer/lexertoken.cpp.o
 
 # target to build an object file
 src/lexer/lexertoken.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexertoken.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexertoken.cpp.o
 .PHONY : src/lexer/lexertoken.cpp.o
 
 src/lexer/lexertoken.i: src/lexer/lexertoken.cpp.i
@@ -310,7 +310,7 @@ src/lexer/lexertoken.i: src/lexer/lexertoken.cpp.i
 
 # target to preprocess a source file
 src/lexer/lexertoken.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexertoken.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexertoken.cpp.i
 .PHONY : src/lexer/lexertoken.cpp.i
 
 src/lexer/lexertoken.s: src/lexer/lexertoken.cpp.s
@@ -318,7 +318,7 @@ src/lexer/lexertoken.s: src/lexer/lexertoken.cpp.s
 
 # target to generate assembly for a file
 src/lexer/lexertoken.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/lexertoken.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/lexertoken.cpp.s
 .PHONY : src/lexer/lexertoken.cpp.s
 
 src/lexer/symboltoken.o: src/lexer/symboltoken.cpp.o
@@ -326,7 +326,7 @@ src/lexer/symboltoken.o: src/lexer/symboltoken.cpp.o
 
 # target to build an object file
 src/lexer/symboltoken.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/symboltoken.cpp.o
 .PHONY : src/lexer/symboltoken.cpp.o
 
 src/lexer/symboltoken.i: src/lexer/symboltoken.cpp.i
@@ -334,7 +334,7 @@ src/lexer/symboltoken.i: src/lexer/symboltoken.cpp.i
 
 # target to preprocess a source file
 src/lexer/symboltoken.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/symboltoken.cpp.i
 .PHONY : src/lexer/symboltoken.cpp.i
 
 src/lexer/symboltoken.s: src/lexer/symboltoken.cpp.s
@@ -342,7 +342,7 @@ src/lexer/symboltoken.s: src/lexer/symboltoken.cpp.s
 
 # target to generate assembly for a file
 src/lexer/symboltoken.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lexer/symboltoken.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/lexer/symboltoken.cpp.s
 .PHONY : src/lexer/symboltoken.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -350,7 +350,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -358,7 +358,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -366,7 +366,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/parser/expression.o: src/parser/expression.cpp.o
@@ -374,7 +374,7 @@ src/parser/expression.o: src/parser/expression.cpp.o
 
 # target to build an object file
 src/parser/expression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/expression.cpp.o
 .PHONY : src/parser/expression.cpp.o
 
 src/parser/expression.i: src/parser/expression.cpp.i
@@ -382,7 +382,7 @@ src/parser/expression.i: src/parser/expression.cpp.i
 
 # target to preprocess a source file
 src/parser/expression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/expression.cpp.i
 .PHONY : src/parser/expression.cpp.i
 
 src/parser/expression.s: src/parser/expression.cpp.s
@@ -390,7 +390,7 @@ src/parser/expression.s: src/parser/expression.cpp.s
 
 # target to generate assembly for a file
 src/parser/expression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/expression.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/expression.cpp.s
 .PHONY : src/parser/expression.cpp.s
 
 src/parser/parser.o: src/parser/parser.cpp.o
@@ -398,7 +398,7 @@ src/parser/parser.o: src/parser/parser.cpp.o
 
 # target to build an object file
 src/parser/parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/parser.cpp.o
 .PHONY : src/parser/parser.cpp.o
 
 src/parser/parser.i: src/parser/parser.cpp.i
@@ -406,7 +406,7 @@ src/parser/parser.i: src/parser/parser.cpp.i
 
 # target to preprocess a source file
 src/parser/parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/parser.cpp.i
 .PHONY : src/parser/parser.cpp.i
 
 src/parser/parser.s: src/parser/parser.cpp.s
@@ -414,7 +414,7 @@ src/parser/parser.s: src/parser/parser.cpp.s
 
 # target to generate assembly for a file
 src/parser/parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
 
 src/parser/scope/globalscope.o: src/parser/scope/globalscope.cpp.o
@@ -422,7 +422,7 @@ src/parser/scope/globalscope.o: src/parser/scope/globalscope.cpp.o
 
 # target to build an object file
 src/parser/scope/globalscope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/globalscope.cpp.o
 .PHONY : src/parser/scope/globalscope.cpp.o
 
 src/parser/scope/globalscope.i: src/parser/scope/globalscope.cpp.i
@@ -430,7 +430,7 @@ src/parser/scope/globalscope.i: src/parser/scope/globalscope.cpp.i
 
 # target to preprocess a source file
 src/parser/scope/globalscope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/globalscope.cpp.i
 .PHONY : src/parser/scope/globalscope.cpp.i
 
 src/parser/scope/globalscope.s: src/parser/scope/globalscope.cpp.s
@@ -438,7 +438,7 @@ src/parser/scope/globalscope.s: src/parser/scope/globalscope.cpp.s
 
 # target to generate assembly for a file
 src/parser/scope/globalscope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/globalscope.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/globalscope.cpp.s
 .PHONY : src/parser/scope/globalscope.cpp.s
 
 src/parser/scope/scope.o: src/parser/scope/scope.cpp.o
@@ -446,7 +446,7 @@ src/parser/scope/scope.o: src/parser/scope/scope.cpp.o
 
 # target to build an object file
 src/parser/scope/scope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/scope.cpp.o
 .PHONY : src/parser/scope/scope.cpp.o
 
 src/parser/scope/scope.i: src/parser/scope/scope.cpp.i
@@ -454,7 +454,7 @@ src/parser/scope/scope.i: src/parser/scope/scope.cpp.i
 
 # target to preprocess a source file
 src/parser/scope/scope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/scope.cpp.i
 .PHONY : src/parser/scope/scope.cpp.i
 
 src/parser/scope/scope.s: src/parser/scope/scope.cpp.s
@@ -462,7 +462,7 @@ src/parser/scope/scope.s: src/parser/scope/scope.cpp.s
 
 # target to generate assembly for a file
 src/parser/scope/scope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/parser/scope/scope.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/parser/scope/scope.cpp.s
 .PHONY : src/parser/scope/scope.cpp.s
 
 src/statement/statement.o: src/statement/statement.cpp.o
@@ -470,7 +470,7 @@ src/statement/statement.o: src/statement/statement.cpp.o
 
 # target to build an object file
 src/statement/statement.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/statement/statement.cpp.o
 .PHONY : src/statement/statement.cpp.o
 
 src/statement/statement.i: src/statement/statement.cpp.i
@@ -478,7 +478,7 @@ src/statement/statement.i: src/statement/statement.cpp.i
 
 # target to preprocess a source file
 src/statement/statement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/statement/statement.cpp.i
 .PHONY : src/statement/statement.cpp.i
 
 src/statement/statement.s: src/statement/statement.cpp.s
@@ -486,7 +486,7 @@ src/statement/statement.s: src/statement/statement.cpp.s
 
 # target to generate assembly for a file
 src/statement/statement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/statement/statement.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/statement/statement.cpp.s
 .PHONY : src/statement/statement.cpp.s
 
 # Help Target
@@ -497,7 +497,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main"
+	@echo "... ain"
 	@echo "... src/ain_file/ain_file.o"
 	@echo "... src/ain_file/ain_file.i"
 	@echo "... src/ain_file/ain_file.s"

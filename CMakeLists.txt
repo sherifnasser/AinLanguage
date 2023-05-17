@@ -30,6 +30,6 @@ set(INCLUDE
     include/parser/scope/
 )
 
-add_executable(main ${SRC_FILES})
+add_executable(ain ${SRC_FILES})
 
-target_include_directories(main PUBLIC ${INCLUDE})
+target_include_directories(ain PUBLIC ${INCLUDE})

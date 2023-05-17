@@ -255,7 +255,34 @@ void funcallexpression::print(wstring tabsize){
 wstring funcallexpression::evaluate(scope* evalscope){
     auto fun=evalscope->getparentscope()->getfunbyname(this->funname);
     if(fun==nullptr){
-        throw (L"function with name "+funname+L"() is not found.");
+
+        if(funname==L"اظهر"){
+            if(argsexpressions->size()>1)
+                throw(L"Too many arguments for calling " + funname + L"().");
+
+            auto exval = (*argsexpressions)[0]->evaluate(evalscope);
+            wcout << exval;
+            return L"";
+        }
+
+        else if(funname==L"اظهر_"){
+            if(argsexpressions->size()>1)
+                throw(L"Too many arguments for calling " + funname + L"().");
+            
+            auto exval = (*argsexpressions)[0]->evaluate(evalscope);
+            wcout << exval << endl;
+            return L"";
+        }
+
+        else if(funname==L"أدخل"){
+            if(argsexpressions->size()>0)
+                throw(L"Too many arguments for calling "+funname+L"().");
+            
+            wstring input;
+            std::wcin >> input;
+            return input;
+        }
+        else throw (L"function with name "+funname+L"() is not found.");
     }
     else if(argsexpressions->size()!=fun->getargs()->size()){
         throw (L"Too many arguments for calling "+funname+L"().");
