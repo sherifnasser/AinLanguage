@@ -48,6 +48,7 @@ class scope
         variable* getvarbyname(wstring varname);
         funscope* getfunbyname(wstring funname);
         wstring getname();
+        virtual ~scope();
 };
 
 
@@ -62,6 +63,7 @@ class funscope:public scope
 {
     private:
         wstring returntype;
+        wstring returnvalue;
         std::vector<std::pair<wstring,wstring>>* args;
         std::vector<statement*>* stmlist;
         void init();
@@ -72,6 +74,8 @@ class funscope:public scope
         void setstmlist(std::vector<statement*>* stmlist);
         std::vector<statement*>* getstmlist();
         void call();
+        wstring getreturnvalue();
+        void setreturnvalue(wstring returnvalue);
         
 };
 

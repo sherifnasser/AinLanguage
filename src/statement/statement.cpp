@@ -27,11 +27,19 @@ void vardeclarationstatement::run(){
     runscope->getvars()->push_back(var);
 }
 
-varreassigntatement::varreassigntatement(scope* runscope,wstring varname,expression* ex)
+varreassignstatement::varreassignstatement(scope* runscope,wstring varname,expression* ex)
 :statement(runscope),varname(varname),ex(ex){}
 
-void varreassigntatement::run(){
+void varreassignstatement::run(){
     auto var=runscope->getvarbyname(varname);
     auto exval=ex->evaluate(runscope);
     var->setcurrentvalue(exval);
+}
+
+returnstatement::returnstatement(funscope* runscope,expression* ex):statement(runscope),ex(ex){}
+
+void returnstatement::run(){
+    auto exval=ex->evaluate(runscope);
+    funscope* fscope=dynamic_cast<funscope*>(runscope);
+    fscope->setreturnvalue(exval);
 }

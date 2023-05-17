@@ -19,7 +19,11 @@ parser::parser(std::vector<lexertoken>* tokensP){
 lexertoken parser::next(){
     currentpos++;
     current=(currentpos<tokens->size())? (*tokens)[currentpos]:notsettoken;
-    return current;
+    // skip comments
+    if(current.gettokentype()!=lexertoken::COMMENT_TOKEN)
+        return current;
+    else
+        return next();
 }
 
 bool parser::currentmatch(lexertoken expected){
@@ -103,9 +107,24 @@ void parser::find_functions(globalscope* globalscope){
 void parser::find_next_statement(funscope* fscope){    
     if(find_var_val_statement(fscope)==nullptr){
         if(find_var_reassign_statement(fscope)==nullptr){
-            find_expression_statement(fscope);
+            if(find_return_statement(fscope)==nullptr){
+                find_expression_statement(fscope);
+            }
         }
     }
+}
+
+statement* parser::find_return_statement(funscope* fscope){
+    if(currentmatch(keywordtoken::RETURN)){
+        next();
+        //next();
+        auto ex=find_expression();
+        //wcout<<L"WELCOME"<<endl;
+        auto stm=new returnstatement(fscope,ex);
+        fscope->getstmlist()->push_back(stm);
+        return stm;
+    }
+    return nullptr;
 }
 
 statement* parser::find_expression_statement(funscope* fscope){
@@ -123,7 +142,7 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
         if(nextmatch(symboltoken::EQUAL)){
             next();
             auto ex=find_expression();
-            auto stm=new varreassigntatement(fscope,varname,ex);
+            auto stm=new varreassignstatement(fscope,varname,ex);
             fscope->getstmlist()->push_back(stm);
             return stm;
         }else{

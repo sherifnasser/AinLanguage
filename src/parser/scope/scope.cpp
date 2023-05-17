@@ -1,5 +1,7 @@
 #include "scope.hpp"
 
+scope::~scope(){}
+
 wstring scope::getname(){
     return this->name;
 }
@@ -69,6 +71,10 @@ wstring funscope::getreturntype(){
     return this->returntype;
 }
 
+wstring funscope::getreturnvalue(){
+    return this->returnvalue;
+}
+
 std::vector<std::pair<wstring,wstring>>* funscope::getargs(){
     return this->args;
 }
@@ -128,5 +134,11 @@ void constant::setcurrentvalue(wstring value){
 void funscope::call(){
     for(auto stm:*stmlist){
         stm->run();
+        /*if(returnvalue!=nullptr)
+            break;*/
     }
+}
+
+void funscope::setreturnvalue(wstring returnvalue){
+    this->returnvalue=returnvalue;
 }

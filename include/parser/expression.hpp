@@ -11,7 +11,7 @@ class classscope;
 class expression{
     public:
         virtual wstring evaluate(scope* evalscope)=0;
-        virtual void print(wstring &tabsize)=0;
+        virtual void print(wstring tabsize=L"")=0;
 };
 
 class numberexpression:public expression{
@@ -20,7 +20,7 @@ class numberexpression:public expression{
     public:
         numberexpression(wstring &val);
         wstring evaluate(scope* evalscope) override;
-        void print(wstring &tabsize) override;
+        void print(wstring tabsize=L"") override;
 };
 
 class binaryexpression:public expression{
@@ -31,7 +31,7 @@ class binaryexpression:public expression{
     public:
         binaryexpression(expression* left, lexertoken &operation, expression* right);
         wstring evaluate(scope* evalscope) override;
-        void print(wstring &tabsize) override;
+        void print(wstring tabsize=L"") override;
         wstring evaluateplus(wstring l, wstring r);
         wstring evaluateminus(wstring l, wstring r);
         wstring evaluatestar(wstring l, wstring r);
@@ -46,7 +46,7 @@ class variableaccessexpression:public expression{
     public:
         variableaccessexpression(wstring &name);
         wstring evaluate(scope* evalscope) override;
-        void print(wstring &tabsize) override;
+        void print(wstring tabsize=L"") override;
 };
 
 class funcallexpression:public expression{
@@ -56,5 +56,5 @@ class funcallexpression:public expression{
     public:
         funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions);
         wstring evaluate(scope* evalscope) override;
-        void print(wstring &tabsize) override;
+        void print(wstring tabsize=L"") override;
 };

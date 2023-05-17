@@ -36,14 +36,23 @@ class vardeclarationstatement:public statement
         void run() override;
 };
 
-class varreassigntatement:public statement
+class varreassignstatement:public statement
 {
     private:
         wstring varname;
         expression* ex;
     public:
-        varreassigntatement(scope* runscope,wstring varname,expression* ex);
+        varreassignstatement(scope* runscope,wstring varname,expression* ex);
         void run() override;
 };
 
+
+class returnstatement:public statement
+{
+    private:
+        expression* ex;
+    public:
+        returnstatement(funscope* runscope,expression* ex);
+        void run() override;
+};
 

@@ -14,13 +14,13 @@
 
 numberexpression::numberexpression(wstring &val):val(val){}
 
-void numberexpression::print(wstring &tabsize){
+void numberexpression::print(wstring tabsize){
     wcout<<tabsize<<"numberexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<val<<endl;
 }
 
-void binaryexpression::print(wstring &tabsize){
+void binaryexpression::print(wstring tabsize){
     wcout<<tabsize<<"binaryxpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     left->print(newtabsize);
@@ -55,7 +55,7 @@ left(left),right(right){
 
 variableaccessexpression::variableaccessexpression(wstring &name):name(name){}
 
-void variableaccessexpression::print(wstring &tabsize){
+void variableaccessexpression::print(wstring tabsize){
     wcout<<tabsize<<"variableaccessexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<name<<endl;
@@ -65,7 +65,7 @@ funcallexpression::
 funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions):
 funname(funname),argsexpressions(argsexpressions){}
 
-void funcallexpression::print(wstring &tabsize){
+void funcallexpression::print(wstring tabsize){
     wcout<<tabsize<<"funcallexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<funname<<endl;
@@ -171,10 +171,12 @@ wstring funcallexpression::evaluate(scope* evalscope){
             fun->getvars()->push_back(val);
         }
         fun->call();
+        auto returnedvalue=fun->getreturnvalue();
         /*for(auto var:*fun->getvars()){
             wcout<<L"var-"<<fun->getname()<<L": "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
         }*/
         fun->getvars()->clear();
+        return returnedvalue;
     }
-    return L""; // TODO: return the returned value from function
+    return NULL;
 }

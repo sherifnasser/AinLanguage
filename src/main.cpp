@@ -49,7 +49,7 @@ int main(int argc, char * argv[]){
     auto sumfun=(global.getfuns())->at(1);
 
     for(auto var:*main->getvars()){
-        std::wcout<<L"var1: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
+        std::wcout<<L"var-main: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
     }
     for(auto var:*sumfun->getvars()){
         std::wcout<<L"var2: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
