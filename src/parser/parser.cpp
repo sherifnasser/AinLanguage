@@ -317,6 +317,16 @@ expression* parser::find_binary_parentheses_expression(){
         }
         next();
     }
+    else if(current.isstringliteral()){
+        auto val=currentval();
+        left=new stringexpression(val);
+        next();
+    }
+    else if(currentmatch(keywordtoken::TRUE)||currentmatch(keywordtoken::FALSE)){
+        auto val=currentval();
+        left=new boolexpression(val);
+        next();
+    }
     else if(current.isnumberliteral()){
         auto val=currentval();
         left=new numberexpression(val);

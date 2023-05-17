@@ -12,7 +12,7 @@ bool keywordtoken::iskeyword(lexertoken t){
         PUBLIC,PRIVATE,PROTECTED,OVERRIDE,
         IF,ELSE_IF,ELSE,WHEN,
         FOR,WHILE,BREAK,CONTINUE,
-        THROW,TRY,CATCH,FINALLY,
+        THROW,TRY,CATCH,FINALLY,TRUE,FALSE
     };
 
     for(keywordtoken &k:keywords){
@@ -58,7 +58,11 @@ keywordtoken keywordtoken::WHILE=keywordtoken(L"طالما");
 keywordtoken keywordtoken::BREAK=keywordtoken(L"اكسر");
 keywordtoken keywordtoken::CONTINUE=keywordtoken(L"استكمل");
 
-keywordtoken keywordtoken::THROW=keywordtoken(L"خطأ");
-keywordtoken keywordtoken::TRY=keywordtoken(L"جرب");
-keywordtoken keywordtoken::CATCH=keywordtoken(L"عالج");
+keywordtoken keywordtoken::THROW=keywordtoken(L"اعترض");
+keywordtoken keywordtoken::TRY=keywordtoken(L"حاول");
+keywordtoken keywordtoken::CATCH=keywordtoken(L"اقتنص");
 keywordtoken keywordtoken::FINALLY=keywordtoken(L"بالنهاية");
+
+// We may consider them as bool literal tokens, but we put them here instead
+keywordtoken keywordtoken::TRUE=keywordtoken(L"صواب");
+keywordtoken keywordtoken::FALSE=keywordtoken(L"خطأ");

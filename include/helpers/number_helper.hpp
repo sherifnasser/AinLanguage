@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <functional>
 #define wstring std::wstring
 

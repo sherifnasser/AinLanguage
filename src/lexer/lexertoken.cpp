@@ -67,9 +67,9 @@ bool lexertoken::ischarliteral(){
 
 bool lexertoken::isstringliteral(){
     auto _val=getval();
-    wstring start=L""+_val[0];
-    wstring end=L""+_val[val.size()-1];
-    return start==end&&start==L"\"";
+    wchar_t start=_val[0];
+    wchar_t end=_val[val.size()-1];
+    return start==end&&start==L'\"';
 }
 
 lexertoken lexertoken::identifiertoken = lexertoken(lexertoken::IDENTIFIER_TOKEN,L"");

@@ -45,17 +45,8 @@ int main(int argc, char * argv[]){
 
     main->call();
 
-    auto birthyearfun=(global.getfuns())->at(0);
-    auto sumfun=(global.getfuns())->at(1);
-
     for(auto var:*main->getvars()){
         std::wcout<<L"var-main: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
-    }
-    for(auto var:*sumfun->getvars()){
-        std::wcout<<L"var2: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
-    }
-    for(auto var:*birthyearfun->getvars()){
-        std::wcout<<L"var3: "<<var->getname()<<L", "<<var->getcurrentvalue()<<endl;
     }
     std::wcout<<"END"<<endl;
     

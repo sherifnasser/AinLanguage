@@ -14,6 +14,27 @@ class expression{
         virtual void print(wstring tabsize=L"")=0;
 };
 
+class boolexpression:public expression{
+    private:
+        wstring val;
+    public:
+        boolexpression(wstring &val);
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
+        static bool boolfromstr(wstring s);
+        static wstring strfrombool(bool b);
+};
+
+
+class stringexpression:public expression{
+    private:
+        wstring val;
+    public:
+        stringexpression(wstring &val);
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
+};
+
 class numberexpression:public expression{
     private:
         wstring val;
@@ -32,6 +53,14 @@ class binaryexpression:public expression{
         binaryexpression(expression* left, lexertoken &operation, expression* right);
         wstring evaluate(scope* evalscope) override;
         void print(wstring tabsize=L"") override;
+        wstring evaluatelogicalor(wstring l, wstring r);
+        wstring evaluatelogicaland(wstring l, wstring r);
+        wstring evaluateequalequal(wstring l, wstring r);
+        wstring evaluatenotequal(wstring l, wstring r);
+        wstring evaluategreaterequal(wstring l, wstring r);
+        wstring evaluatelessequal(wstring l, wstring r);
+        wstring evaluategreater(wstring l, wstring r);
+        wstring evaluateless(wstring l, wstring r);
         wstring evaluateplus(wstring l, wstring r);
         wstring evaluateminus(wstring l, wstring r);
         wstring evaluatestar(wstring l, wstring r);
