@@ -90,7 +90,6 @@ void parser::find_functions(globalscope* globalscope){
                 globalscope->addfunction(fscope);
 
                 if(current==symboltoken::LEFT_CURLY_BRACES){
-                    auto openedCB=0; // the number of opened curly braces
                     next();
                     while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
                     {
@@ -111,6 +110,26 @@ void parser::find_next_statement(funscope* fscope){
                 find_expression_statement(fscope);
             }
         }
+    }
+}
+
+statement* parser::find_if_statement(funscope* fscope){
+    if(currentmatch(keywordtoken::IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        std::vector<ExStmList*>* exstmlists=new std::vector<ExStmList*>();
+        next();
+        auto ex=find_expression();
+        if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+            if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+                next();
+                while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                {
+                    find_next_statement(fscope);
+                }
+            }else{
+                
+            }
+        }
+
     }
 }
 
