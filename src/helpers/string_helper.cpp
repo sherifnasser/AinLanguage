@@ -1,4 +1,5 @@
 #include <string>
+#include "string_helper.hpp"
 bool startsWith(std::string str, std::string prefix)
 {
     return str.size() >= prefix.size() && 0 == str.compare(0, prefix.size(), prefix);

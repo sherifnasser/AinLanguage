@@ -5,15 +5,16 @@
 #include "string_helper.hpp"
 #include "ain_file.hpp"
 
-#define string std::string
+#define wstring std::wstring
 #define vector std::vector
-#define ifstream std::ifstream
+#define wifstream std::wifstream
 #define getline std::getline
 
-AinFile::AinFile(string &path){
+AinFile::AinFile(std::string &path){
     if(endsWith(path,".ain")){
-        ifstream ainFile=ifstream(path);
-        string line;
+        wifstream ainFile=wifstream(path);
+        ainFile.imbue(std::locale("en_US.UTF-8"));
+        wstring line;
         while(getline(ainFile,line)){
             this->lines.push_back(line);
         }
@@ -24,6 +25,6 @@ AinFile::AinFile(string &path){
     }
 }
 
-vector<string> AinFile::getLines(){
+vector<wstring> AinFile::getLines(){
     return this->lines;
 }
