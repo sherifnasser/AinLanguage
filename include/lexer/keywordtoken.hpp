@@ -44,4 +44,8 @@ public:
     static keywordtoken TRY;
     static keywordtoken CATCH;
     static keywordtoken FINALLY;
+    
+    // We may consider them as bool literal tokens, but we put them here instead
+    static keywordtoken TRUE;
+    static keywordtoken FALSE;
 };

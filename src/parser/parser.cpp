@@ -4,6 +4,7 @@
 #include "lexertoken.hpp"
 #include "keywordtoken.hpp"
 #include "symboltoken.hpp"
+#include "statement.hpp"
 
 #define notsettoken lexertoken::notsettoken
 #define wcout std::wcout
@@ -18,7 +19,11 @@ parser::parser(std::vector<lexertoken>* tokensP){
 lexertoken parser::next(){
     currentpos++;
     current=(currentpos<tokens->size())? (*tokens)[currentpos]:notsettoken;
-    return current;
+    // skip comments
+    if(current.gettokentype()!=lexertoken::COMMENT_TOKEN)
+        return current;
+    else
+        return next();
 }
 
 bool parser::currentmatch(lexertoken expected){
@@ -34,7 +39,7 @@ wstring parser::currentval(){
     return current.getval();
 }
 
-void parser::startparse(globalscope globalscope){
+void parser::startparse(globalscope* globalscope){
     while(current!=notsettoken){
         find_functions(globalscope);
         next();
@@ -44,7 +49,7 @@ void parser::startparse(globalscope globalscope){
     ex->print(tab);*/
 }
 
-void parser::find_functions(globalscope &globalscope){
+void parser::find_functions(globalscope* globalscope){
     wstring funname;
     wstring funtype=L"";
     std::vector<std::pair<wstring,wstring>>* args=new std::vector<std::pair<wstring,wstring>>();
@@ -81,8 +86,8 @@ void parser::find_functions(globalscope &globalscope){
                     }
                 }   
                 
-                auto fscope=new funscope(funname,funtype,args);
-                globalscope.addfunction(fscope);
+                auto fscope=new funscope(globalscope,funname,funtype,args);
+                globalscope->addfunction(fscope);
 
                 if(current==symboltoken::LEFT_CURLY_BRACES){
                     auto openedCB=0; // the number of opened curly braces
@@ -99,15 +104,60 @@ void parser::find_functions(globalscope &globalscope){
     }
 }
 
-void parser::find_next_statement(funscope* funscope){    
-    find_var_val_statement(funscope);
+void parser::find_next_statement(funscope* fscope){    
+    if(find_var_val_statement(fscope)==nullptr){
+        if(find_var_reassign_statement(fscope)==nullptr){
+            if(find_return_statement(fscope)==nullptr){
+                find_expression_statement(fscope);
+            }
+        }
+    }
 }
 
-void parser::find_var_val_statement(funscope* funscope){
+statement* parser::find_return_statement(funscope* fscope){
+    if(currentmatch(keywordtoken::RETURN)){
+        next();
+        //next();
+        auto ex=find_expression();
+        //wcout<<L"WELCOME"<<endl;
+        auto stm=new returnstatement(fscope,ex);
+        fscope->getstmlist()->push_back(stm);
+        return stm;
+    }
+    return nullptr;
+}
+
+statement* parser::find_expression_statement(funscope* fscope){
+    auto ex=find_expression();
+    auto stm=new expressionstatement(fscope,ex);
+    //wstring tab=L"";
+    //ex->print(tab);
+    fscope->getstmlist()->push_back(stm);
+    return stm;
+}
+
+statement* parser::find_var_reassign_statement(funscope* fscope){
+    if(current.isidentifiertoken()){
+        auto varname=current.getval();
+        if(nextmatch(symboltoken::EQUAL)){
+            next();
+            auto ex=find_expression();
+            auto stm=new varreassignstatement(fscope,varname,ex);
+            fscope->getstmlist()->push_back(stm);
+            return stm;
+        }else{
+            currentpos-=2;
+            next();
+        }
+    }
+    return nullptr;
+}
+
+statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
     wstring name,type=L"";
-    expression* ex;
+    expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
             name=currentval();
@@ -121,41 +171,19 @@ void parser::find_var_val_statement(funscope* funscope){
                 next();
                 ex=find_expression();
             }
+            variable* var;
+            if(isvar){
+                var=new variable(fscope,name,type);
+            }
+            else if(isval){
+                var=new constant(fscope,name,type);
+            }
+            auto stm=new vardeclarationstatement(fscope,var,ex);
+            fscope->getstmlist()->push_back(stm);
+            return stm;
         }
     }
-    scope* parentscope=funscope;
-    if(isvar){
-        variable* var;
-        if(ex!=nullptr){
-            if(type.empty()){
-                var=new variable(parentscope,name,ex);
-            }
-                
-            else{
-                var=new variable(parentscope,name,type,ex);
-            }
-        }
-        else{
-            var=new variable(parentscope,name,type);
-        }
-        funscope->getvars()->push_back(*var);
-    }
-    else if(isval){
-        constant* val;
-        if(ex!=nullptr){
-            if(type.empty()){
-                val=new constant(parentscope,name,ex);
-            }
-                
-            else{
-                val=new constant(parentscope,name,type,ex);
-            }
-        }
-        else{
-            val=new constant(parentscope,name,type);
-        }
-        funscope->getvals()->push_back(*val);
-    }
+    return nullptr;
 }
 
 expression* parser::find_expression(){
@@ -287,6 +315,16 @@ expression* parser::find_binary_parentheses_expression(){
             right=find_binary_logical_or_expression();
             left=new binaryexpression(left,op,right);
         }
+        next();
+    }
+    else if(current.isstringliteral()){
+        auto val=currentval();
+        left=new stringexpression(val);
+        next();
+    }
+    else if(currentmatch(keywordtoken::TRUE)||currentmatch(keywordtoken::FALSE)){
+        auto val=currentval();
+        left=new boolexpression(val);
         next();
     }
     else if(current.isnumberliteral()){

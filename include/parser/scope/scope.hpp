@@ -3,8 +3,10 @@
 #include <map>
 #include <vector>
 #include "expression.hpp"
+#include "statement.hpp"
 #define wstring std::wstring
 
+class statement;
 class scope;
 class variable;
 class constant;
@@ -20,30 +22,33 @@ class scope
         wstring name;
 
         // accessiable variables
-        std::vector<variable>* vars;
+        std::vector<variable*>* vars;
 
         // accessiable constants
-        std::vector<constant>* vals;
+        std::vector<constant*>* vals;
 
         // accessiable functions
-        std::vector<funscope>* funs;
+        std::vector<funscope*>* funs;  // TODO: sort them and use binary search
 
         // accessiable classess
-        std::vector<classscope>* classes;
+        std::vector<classscope*>* classes;
 
     public:
         void setparentscope(scope* parentscope);
-        void setvars(std::vector<variable>* vars);
-        void setvals(std::vector<constant>* vals);
-        void setfuns(std::vector<funscope>* funs);
-        void setclasses(std::vector<classscope>* classes);
+        void setvars(std::vector<variable*>* vars);
+        void setvals(std::vector<constant*>* vals);
+        void setfuns(std::vector<funscope*>* funs);
+        void setclasses(std::vector<classscope*>* classes);
 
         scope* getparentscope();
-        std::vector<variable>* getvars();
-        std::vector<constant>* getvals();
-        std::vector<funscope>* getfuns();
-        std::vector<classscope>* getclasses();
+        std::vector<variable*>* getvars();
+        std::vector<constant*>* getvals();
+        std::vector<funscope*>* getfuns();
+        std::vector<classscope*>* getclasses();
+        variable* getvarbyname(wstring varname);
+        funscope* getfunbyname(wstring funname);
         wstring getname();
+        virtual ~scope();
 };
 
 
@@ -58,12 +63,19 @@ class funscope:public scope
 {
     private:
         wstring returntype;
+        wstring returnvalue;
         std::vector<std::pair<wstring,wstring>>* args;
+        std::vector<statement*>* stmlist;
         void init();
     public:
-        funscope(wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args);
+        funscope(scope* parentscope, wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args);
         wstring getreturntype();
         std::vector<std::pair<wstring,wstring>>* getargs();
+        void setstmlist(std::vector<statement*>* stmlist);
+        std::vector<statement*>* getstmlist();
+        void call();
+        wstring getreturnvalue();
+        void setreturnvalue(wstring returnvalue);
         
 };
 
@@ -75,15 +87,15 @@ protected:
     scope *parentscope;
     wstring name;
     wstring type;
-    expression* ex;
+    wstring currentval;
+    bool isinitialized=false;
 
     public:
         variable(scope* parentscope, wstring &name, wstring &type);
-        variable(scope* parentscope, wstring &name, expression* ex);
-        variable(scope* parentscope, wstring &name, wstring &type, expression* ex);
         wstring getname();
         wstring gettype();
-        expression* getexpression();
+        wstring getcurrentvalue();
+        virtual void setcurrentvalue(wstring value);
 };
 
 
@@ -92,6 +104,5 @@ class constant : public variable
 {
     public:
         constant(scope* parentscope, wstring &name, wstring &type);
-        constant(scope* parentscope, wstring &name, expression* ex);
-        constant(scope* parentscope, wstring &name, wstring &type, expression* ex);
+        void setcurrentvalue(wstring value) override;
 };

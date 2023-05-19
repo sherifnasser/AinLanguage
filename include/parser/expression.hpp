@@ -1,8 +1,38 @@
 #pragma once
+#include "scope.hpp"
 #include "lexertoken.hpp"
+
+class scope;
+class variable;
+class constant;
+class funscope;
+class classscope;
+
 class expression{
     public:
-        virtual void print(wstring &tabsize)=0;
+        virtual wstring evaluate(scope* evalscope)=0;
+        virtual void print(wstring tabsize=L"")=0;
+};
+
+class boolexpression:public expression{
+    private:
+        wstring val;
+    public:
+        boolexpression(wstring &val);
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
+        static bool boolfromstr(wstring s);
+        static wstring strfrombool(bool b);
+};
+
+
+class stringexpression:public expression{
+    private:
+        wstring val;
+    public:
+        stringexpression(wstring &val);
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
 };
 
 class numberexpression:public expression{
@@ -10,7 +40,8 @@ class numberexpression:public expression{
         wstring val;
     public:
         numberexpression(wstring &val);
-        void print(wstring &tabsize) override;
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
 };
 
 class binaryexpression:public expression{
@@ -20,7 +51,22 @@ class binaryexpression:public expression{
         expression* right;
     public:
         binaryexpression(expression* left, lexertoken &operation, expression* right);
-        void print(wstring &tabsize) override;
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
+        wstring evaluatelogicalor(wstring l, wstring r);
+        wstring evaluatelogicaland(wstring l, wstring r);
+        wstring evaluateequalequal(wstring l, wstring r);
+        wstring evaluatenotequal(wstring l, wstring r);
+        wstring evaluategreaterequal(wstring l, wstring r);
+        wstring evaluatelessequal(wstring l, wstring r);
+        wstring evaluategreater(wstring l, wstring r);
+        wstring evaluateless(wstring l, wstring r);
+        wstring evaluateplus(wstring l, wstring r);
+        wstring evaluateminus(wstring l, wstring r);
+        wstring evaluatestar(wstring l, wstring r);
+        wstring evaluateslash(wstring l, wstring r);
+        wstring evaluatemodulo(wstring l, wstring r);
+        wstring evaluatepower(wstring l, wstring r);
 };
 
 class variableaccessexpression:public expression{
@@ -28,7 +74,8 @@ class variableaccessexpression:public expression{
         wstring name;
     public:
         variableaccessexpression(wstring &name);
-        void print(wstring &tabsize) override;
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
 };
 
 class funcallexpression:public expression{
@@ -37,5 +84,6 @@ class funcallexpression:public expression{
         std::vector<expression*>* argsexpressions;
     public:
         funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions);
-        void print(wstring &tabsize) override;
+        wstring evaluate(scope* evalscope) override;
+        void print(wstring tabsize=L"") override;
 };

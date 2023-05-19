@@ -1,6 +1,7 @@
 #include <iostream>
 #include "lexertoken.hpp"
 #include "keywordtoken.hpp"
+#include "number_helper.hpp"
 
 lexertoken::lexertoken(){
     lexertoken(NOT_SET_TOKEN,L"");
@@ -36,39 +37,19 @@ bool lexertoken::isnotsettoken(){
 }
 
 bool lexertoken::isintliteral(){
-    try{
-        int val=std::stoi(getval());
-        return true;
-    }catch(std::exception e){
-        return false;
-    }
+    return isint(getval());
 }
 
 bool lexertoken::islongliteral(){
-    try{
-        float val=std::stol(getval());
-        return true;
-    }catch(std::exception e){
-        return false;
-    }
+    return islong(getval());
 }
 
 bool lexertoken::isfloatliteral(){
-    try{
-        float val=std::stof(getval());
-        return true;
-    }catch(std::exception e){
-        return false;
-    }
+    return isfloat(getval());
 }
 
 bool lexertoken::isdoubleliteral(){
-    try{
-        double val=std::stod(getval());
-        return true;
-    }catch(std::exception e){
-        return false;
-    }
+    return isdouble(getval());
 }
 
 bool lexertoken::isnumberliteral(){
@@ -86,9 +67,9 @@ bool lexertoken::ischarliteral(){
 
 bool lexertoken::isstringliteral(){
     auto _val=getval();
-    wstring start=L""+_val[0];
-    wstring end=L""+_val[val.size()-1];
-    return start==end&&start==L"\"";
+    wchar_t start=_val[0];
+    wchar_t end=_val[val.size()-1];
+    return start==end&&start==L'\"';
 }
 
 lexertoken lexertoken::identifiertoken = lexertoken(lexertoken::IDENTIFIER_TOKEN,L"");
