@@ -19,7 +19,8 @@ int main(int argc, char * argv[]){
         std::__throw_out_of_range("You can only pass one argumet for the ain file path.");
         return -1;
     }
-        
+
+    //string path="/home/nasser/Projects/Programming/C++/AinLanguage/src/app.ain";    
     string path(argv[1]); // as it's the second arg
     
     AinFile file=AinFile(path);
