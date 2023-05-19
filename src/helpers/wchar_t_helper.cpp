@@ -5,9 +5,9 @@
 bool isainpunct(wchar_t &c)
 {
     return (std::iswpunct(c)&&c!=L'_')
-        ||c==lexertoken::QUESTION_MARK
-        ||c==lexertoken::SEMICOLON
-        ||c==lexertoken::COMMA
+        ||c==L'؟'
+        ||c==L'؛'
+        ||c==L'،'
     ;
 }
 
