@@ -1,6 +1,5 @@
 #pragma once
 #include<map>
-#define wstring std::wstring
 
 class lexertoken{
 public:
@@ -20,9 +19,9 @@ public:
         BOOL=2
     };
     lexertoken();
-    lexertoken(TOKEN_TYPE tokentype, wstring val);
+    lexertoken(TOKEN_TYPE tokentype, std::wstring val);
     TOKEN_TYPE gettokentype();
-    wstring getval();
+    std::wstring getval();
     bool operator== (lexertoken &token);
     bool operator!= (lexertoken &token);
     bool isidentifiertoken();
@@ -39,5 +38,5 @@ public:
     
 private:
     TOKEN_TYPE tokentype;
-    wstring val;
+    std::wstring val;
 };

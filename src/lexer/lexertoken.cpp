@@ -7,13 +7,13 @@ lexertoken::lexertoken(){
     lexertoken(NOT_SET_TOKEN,L"");
 }
 
-lexertoken::lexertoken(TOKEN_TYPE tokentype, wstring val):tokentype(tokentype),val(val){}
+lexertoken::lexertoken(TOKEN_TYPE tokentype, std::wstring val):tokentype(tokentype),val(val){}
 
 lexertoken::TOKEN_TYPE lexertoken::gettokentype(){
     return this->tokentype;
 }
 
-wstring lexertoken::getval(){
+std::wstring lexertoken::getval(){
     return this->val;
 }
 

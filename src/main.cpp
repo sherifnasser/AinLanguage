@@ -22,7 +22,6 @@ int main(int argc, char * argv[]){
         
     string path(argv[1]); // as it's the second arg
     
-    //string path="/home/nasser/Projects/Programming/C++/AinLanguage/src/app_copy.ain";
     AinFile file=AinFile(path);
     lexer lex = lexer(file);
     auto lines=lex.getlexerlines();

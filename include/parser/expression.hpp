@@ -10,38 +10,38 @@ class classscope;
 
 class expression{
     public:
-        virtual wstring evaluate(scope* evalscope)=0;
-        virtual void print(wstring tabsize=L"")=0;
+        virtual std::wstring evaluate(scope* evalscope)=0;
+        virtual void print(std::wstring tabsize=L"")=0;
 };
 
 class boolexpression:public expression{
     private:
-        wstring val;
+        std::wstring val;
     public:
-        boolexpression(wstring &val);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
-        static bool boolfromstr(wstring s);
-        static wstring strfrombool(bool b);
+        boolexpression(std::wstring &val);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
+        static bool boolfromstr(std::wstring s);
+        static std::wstring strfrombool(bool b);
 };
 
 
 class stringexpression:public expression{
     private:
-        wstring val;
+        std::wstring val;
     public:
-        stringexpression(wstring &val);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
+        stringexpression(std::wstring &val);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
 };
 
 class numberexpression:public expression{
     private:
-        wstring val;
+        std::wstring val;
     public:
-        numberexpression(wstring &val);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
+        numberexpression(std::wstring &val);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
 };
 
 class binaryexpression:public expression{
@@ -51,39 +51,39 @@ class binaryexpression:public expression{
         expression* right;
     public:
         binaryexpression(expression* left, lexertoken &operation, expression* right);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
-        wstring evaluatelogicalor(wstring l, wstring r);
-        wstring evaluatelogicaland(wstring l, wstring r);
-        wstring evaluateequalequal(wstring l, wstring r);
-        wstring evaluatenotequal(wstring l, wstring r);
-        wstring evaluategreaterequal(wstring l, wstring r);
-        wstring evaluatelessequal(wstring l, wstring r);
-        wstring evaluategreater(wstring l, wstring r);
-        wstring evaluateless(wstring l, wstring r);
-        wstring evaluateplus(wstring l, wstring r);
-        wstring evaluateminus(wstring l, wstring r);
-        wstring evaluatestar(wstring l, wstring r);
-        wstring evaluateslash(wstring l, wstring r);
-        wstring evaluatemodulo(wstring l, wstring r);
-        wstring evaluatepower(wstring l, wstring r);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
+        std::wstring evaluatelogicalor(std::wstring l, std::wstring r);
+        std::wstring evaluatelogicaland(std::wstring l, std::wstring r);
+        std::wstring evaluateequalequal(std::wstring l, std::wstring r);
+        std::wstring evaluatenotequal(std::wstring l, std::wstring r);
+        std::wstring evaluategreaterequal(std::wstring l, std::wstring r);
+        std::wstring evaluatelessequal(std::wstring l, std::wstring r);
+        std::wstring evaluategreater(std::wstring l, std::wstring r);
+        std::wstring evaluateless(std::wstring l, std::wstring r);
+        std::wstring evaluateplus(std::wstring l, std::wstring r);
+        std::wstring evaluateminus(std::wstring l, std::wstring r);
+        std::wstring evaluatestar(std::wstring l, std::wstring r);
+        std::wstring evaluateslash(std::wstring l, std::wstring r);
+        std::wstring evaluatemodulo(std::wstring l, std::wstring r);
+        std::wstring evaluatepower(std::wstring l, std::wstring r);
 };
 
 class variableaccessexpression:public expression{
     private:
-        wstring name;
+        std::wstring name;
     public:
-        variableaccessexpression(wstring &name);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
+        variableaccessexpression(std::wstring &name);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
 };
 
 class funcallexpression:public expression{
     private:
-        wstring funname;
+        std::wstring funname;
         std::vector<expression*>* argsexpressions;
     public:
-        funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions);
-        wstring evaluate(scope* evalscope) override;
-        void print(wstring tabsize=L"") override;
+        funcallexpression(std::wstring &funname, std::vector<expression*>* argsexpressions);
+        std::wstring evaluate(scope* evalscope) override;
+        void print(std::wstring tabsize=L"") override;
 };

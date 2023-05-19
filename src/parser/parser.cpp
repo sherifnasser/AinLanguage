@@ -35,7 +35,7 @@ bool parser::nextmatch(lexertoken expected){
     return currentmatch(expected);
 }
 
-wstring parser::currentval(){
+std::wstring parser::currentval(){
     return current.getval();
 }
 
@@ -45,14 +45,14 @@ void parser::startparse(globalscope* globalscope){
         next();
     }
     /*auto ex=find_expression();
-    wstring tab=L"";
+    std::wstring tab=L"";
     ex->print(tab);*/
 }
 
 void parser::find_functions(globalscope* globalscope){
-    wstring funname;
-    wstring funtype=L"";
-    std::vector<std::pair<wstring,wstring>>* args=new std::vector<std::pair<wstring,wstring>>();
+    std::wstring funname;
+    std::wstring funtype=L"";
+    std::vector<std::pair<std::wstring,std::wstring>>* args=new std::vector<std::pair<std::wstring,std::wstring>>();
     if(currentmatch(keywordtoken::FUN)){
         if(next().isidentifiertoken()){
             funname=currentval();
@@ -66,7 +66,7 @@ void parser::find_functions(globalscope* globalscope){
                         if(nextmatch(symboltoken::COLON)){
                             if(next().isidentifiertoken()){
                                 auto argtype=currentval();
-                                auto arg=std::pair<wstring,wstring>(argname,argtype);
+                                auto arg=std::pair<std::wstring,std::wstring>(argname,argtype);
                                 args->push_back(arg);
                                 // calling next() first multi args without a comma
                                 if(nextmatch(symboltoken::COMMA)){}
@@ -130,7 +130,7 @@ statement* parser::find_return_statement(funscope* fscope){
 statement* parser::find_expression_statement(funscope* fscope){
     auto ex=find_expression();
     auto stm=new expressionstatement(fscope,ex);
-    //wstring tab=L"";
+    //std::wstring tab=L"";
     //ex->print(tab);
     fscope->getstmlist()->push_back(stm);
     return stm;
@@ -156,7 +156,7 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
 statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
-    wstring name,type=L"";
+    std::wstring name,type=L"";
     expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
