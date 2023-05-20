@@ -22,7 +22,7 @@
                 "-iquote${workspaceFolder}/include/lexer",
                 "-iquote${workspaceFolder}/include/parser",
                 "-iquote${workspaceFolder}/include/parser/scope",
-                "-iquote${workspaceFolder}/include/statement",
+                "-iquote${workspaceFolder}/include/statement"
             ],
             "options": {
                 "cwd": "${fileDirname}"

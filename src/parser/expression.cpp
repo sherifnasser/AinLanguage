@@ -156,32 +156,32 @@ std::wstring binaryexpression::evaluatelogicaland(std::wstring l, std::wstring r
 }
 
 std::wstring binaryexpression::evaluateequalequal(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)==boolexpression::boolfromstr(r);
+    auto res=l==r;
     return boolexpression::strfrombool(res);
 }
 
 std::wstring binaryexpression::evaluatenotequal(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)!=boolexpression::boolfromstr(r);
+    auto res=l!=r;
     return boolexpression::strfrombool(res);
 }
 
 std::wstring binaryexpression::evaluatelessequal(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)<=boolexpression::boolfromstr(r);
+    auto res=todouble(l)<=todouble(r);
     return boolexpression::strfrombool(res);
 }
 
 std::wstring binaryexpression::evaluategreaterequal(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)>=boolexpression::boolfromstr(r);
+    auto res=todouble(l)>=todouble(r);
     return boolexpression::strfrombool(res);
 }
 
 std::wstring binaryexpression::evaluateless(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)<boolexpression::boolfromstr(r);
+    auto res=todouble(l)<todouble(r);
     return boolexpression::strfrombool(res);
 }
 
 std::wstring binaryexpression::evaluategreater(std::wstring l, std::wstring r){
-    auto res=boolexpression::boolfromstr(l)>boolexpression::boolfromstr(r);
+    auto res=todouble(l)>todouble(r);
     return boolexpression::strfrombool(res);
 }
 
