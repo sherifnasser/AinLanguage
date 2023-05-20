@@ -153,6 +153,30 @@ src/ain_file/ain_file.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.s
 .PHONY : src/ain_file/ain_file.cpp.s
 
+src/helpers/ainprint.o: src/helpers/ainprint.cpp.o
+.PHONY : src/helpers/ainprint.o
+
+# target to build an object file
+src/helpers/ainprint.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o
+.PHONY : src/helpers/ainprint.cpp.o
+
+src/helpers/ainprint.i: src/helpers/ainprint.cpp.i
+.PHONY : src/helpers/ainprint.i
+
+# target to preprocess a source file
+src/helpers/ainprint.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/ainprint.cpp.i
+.PHONY : src/helpers/ainprint.cpp.i
+
+src/helpers/ainprint.s: src/helpers/ainprint.cpp.s
+.PHONY : src/helpers/ainprint.s
+
+# target to generate assembly for a file
+src/helpers/ainprint.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/helpers/ainprint.cpp.s
+.PHONY : src/helpers/ainprint.cpp.s
+
 src/helpers/number_helper.o: src/helpers/number_helper.cpp.o
 .PHONY : src/helpers/number_helper.o
 
@@ -501,6 +525,9 @@ help:
 	@echo "... src/ain_file/ain_file.o"
 	@echo "... src/ain_file/ain_file.i"
 	@echo "... src/ain_file/ain_file.s"
+	@echo "... src/helpers/ainprint.o"
+	@echo "... src/helpers/ainprint.i"
+	@echo "... src/helpers/ainprint.s"
 	@echo "... src/helpers/number_helper.o"
 	@echo "... src/helpers/number_helper.i"
 	@echo "... src/helpers/number_helper.s"

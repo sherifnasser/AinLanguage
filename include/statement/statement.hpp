@@ -39,10 +39,10 @@ class vardeclarationstatement:public statement
 class varreassignstatement:public statement
 {
     private:
-        wstring varname;
+        std::wstring varname;
         expression* ex;
     public:
-        varreassignstatement(scope* runscope,wstring varname,expression* ex);
+        varreassignstatement(scope* runscope,std::wstring varname,expression* ex);
         void run() override;
 };
 

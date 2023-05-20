@@ -26,7 +26,7 @@ lexer::lexer(AinFile ainFile):ainFile(ainFile){
         lexerline nextlexerline=lexerline(linenumber);
         auto tokens=nextlexerline.gettokens();
 
-        wstring prevword, newword;
+        std::wstring prevword, newword;
         lexertoken::TOKEN_TYPE prevtoken=lexertoken::NOT_SET_TOKEN, newtoken=lexertoken::NOT_SET_TOKEN;
 
         for(int i=0;i<line.size();i++){

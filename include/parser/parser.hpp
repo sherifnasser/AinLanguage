@@ -13,7 +13,7 @@ private:
     lexertoken next();
     bool currentmatch(lexertoken expected);
     bool nextmatch(lexertoken expected);
-    wstring currentval();
+    std::wstring currentval();
     void find_functions(globalscope* globalscope);
     void find_next_statement(funscope* funscope);
     statement* find_var_val_statement(funscope* funscope);
