@@ -9,34 +9,34 @@ bool tryconvert(std::function<void()> convertfun){
     }
 }
 
-bool isint(wstring s){
+bool isint(std::wstring s){
     int i;
     return tryconvert([&](){
         i=std::stoi(s);
     });
 }
 
-bool islong(wstring s){
+bool islong(std::wstring s){
     long l;
     return tryconvert([&](){
         l=std::stol(s);
     });
 }
 
-bool isfloat(wstring s){
+bool isfloat(std::wstring s){
     float f;
     return tryconvert([&](){
         f=std::stof(s);
     });
 }
 
-bool isdouble(wstring s){
+bool isdouble(std::wstring s){
     double d;
     return tryconvert([&](){
         d=std::stod(s);
     });
 }
 
-bool isnum(wstring s){
+bool isnum(std::wstring s){
     return isint(s)||islong(s)||isfloat(s)||isdouble(s);
 }

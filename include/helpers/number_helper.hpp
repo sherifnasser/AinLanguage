@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <functional>
-#define wstring std::wstring
 
 /*
 FIXME: can't differentiate between ints and doubles
@@ -10,12 +9,12 @@ FIXME: can't differentiate between ints and doubles
 
 bool tryconvert(std::function<void()> convertfun);
 
-bool isint(wstring s);
+bool isint(std::wstring s);
 
-bool isfloat(wstring s);
+bool isfloat(std::wstring s);
 
-bool isdouble(wstring s);
+bool isdouble(std::wstring s);
 
-bool islong(wstring s);
+bool islong(std::wstring s);
 
-bool isnum(wstring s);
+bool isnum(std::wstring s);

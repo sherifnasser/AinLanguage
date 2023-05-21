@@ -19,7 +19,7 @@ vardeclarationstatement::vardeclarationstatement(scope* runscope,variable* var,e
 }
 
 void vardeclarationstatement::run(){
-    //wstring tab=L"";
+    //std::wstring tab=L"";
     //ex->print(tab);
     if(ex!=nullptr){
         auto exval=ex->evaluate(runscope);
@@ -28,7 +28,7 @@ void vardeclarationstatement::run(){
     runscope->getvars()->push_back(var);
 }
 
-varreassignstatement::varreassignstatement(scope* runscope,wstring varname,expression* ex)
+varreassignstatement::varreassignstatement(scope* runscope,std::wstring varname,expression* ex)
 :statement(runscope),varname(varname),ex(ex){}
 
 void varreassignstatement::run(){

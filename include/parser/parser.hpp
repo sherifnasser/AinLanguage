@@ -13,7 +13,7 @@ private:
     lexertoken next();
     bool currentmatch(lexertoken expected);
     bool nextmatch(lexertoken expected);
-    wstring currentval();
+    std::wstring currentval();
     void find_functions(globalscope* globalscope);
     statement* find_next_statement(funscope* funscope);
     statement* find_var_val_statement(funscope* funscope);
@@ -30,6 +30,7 @@ private:
     expression* find_binary_math_star_slash_expression();
     expression* find_binary_math_exponent_expression();
     expression* find_binary_parentheses_expression();
+    void add_next_stm_to_stm_list(funscope* fscope,StmList* stmlist);
 
 public:
     parser(std::vector<lexertoken>* tokens);

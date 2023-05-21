@@ -4,7 +4,6 @@
 #include <vector>
 #include "expression.hpp"
 #include "statement.hpp"
-#define wstring std::wstring
 
 class statement;
 class scope;
@@ -19,7 +18,7 @@ class scope
     protected:
         scope* parentscope;
 
-        wstring name;
+        std::wstring name;
 
         // accessiable variables
         std::vector<variable*>* vars;
@@ -45,9 +44,9 @@ class scope
         std::vector<constant*>* getvals();
         std::vector<funscope*>* getfuns();
         std::vector<classscope*>* getclasses();
-        variable* getvarbyname(wstring varname);
-        funscope* getfunbyname(wstring funname);
-        wstring getname();
+        variable* getvarbyname(std::wstring varname);
+        funscope* getfunbyname(std::wstring funname);
+        std::wstring getname();
         virtual ~scope();
 };
 
@@ -62,20 +61,20 @@ class classscope: public scope
 class funscope:public scope
 {
     private:
-        wstring returntype;
-        wstring returnvalue;
-        std::vector<std::pair<wstring,wstring>>* args;
+        std::wstring returntype;
+        std::wstring returnvalue;
+        std::vector<std::pair<std::wstring,std::wstring>>* args;
         std::vector<statement*>* stmlist;
         void init();
     public:
-        funscope(scope* parentscope, wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args);
-        wstring getreturntype();
-        std::vector<std::pair<wstring,wstring>>* getargs();
+        funscope(scope* parentscope, std::wstring &name, std::wstring &returntype,std::vector<std::pair<std::wstring,std::wstring>>* args);
+        std::wstring getreturntype();
+        std::vector<std::pair<std::wstring,std::wstring>>* getargs();
         void setstmlist(std::vector<statement*>* stmlist);
         std::vector<statement*>* getstmlist();
         void call();
-        wstring getreturnvalue();
-        void setreturnvalue(wstring returnvalue);
+        std::wstring getreturnvalue();
+        void setreturnvalue(std::wstring returnvalue);
         
 };
 
@@ -85,17 +84,17 @@ class variable
 {
 protected:
     scope *parentscope;
-    wstring name;
-    wstring type;
-    wstring currentval;
+    std::wstring name;
+    std::wstring type;
+    std::wstring currentval;
     bool isinitialized=false;
 
     public:
-        variable(scope* parentscope, wstring &name, wstring &type);
-        wstring getname();
-        wstring gettype();
-        wstring getcurrentvalue();
-        virtual void setcurrentvalue(wstring value);
+        variable(scope* parentscope, std::wstring &name, std::wstring &type);
+        std::wstring getname();
+        std::wstring gettype();
+        std::wstring getcurrentvalue();
+        virtual void setcurrentvalue(std::wstring value);
 };
 
 
@@ -103,6 +102,6 @@ protected:
 class constant : public variable
 {
     public:
-        constant(scope* parentscope, wstring &name, wstring &type);
-        void setcurrentvalue(wstring value) override;
+        constant(scope* parentscope, std::wstring &name, std::wstring &type);
+        void setcurrentvalue(std::wstring value) override;
 };

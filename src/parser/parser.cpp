@@ -35,7 +35,7 @@ bool parser::nextmatch(lexertoken expected){
     return currentmatch(expected);
 }
 
-wstring parser::currentval(){
+std::wstring parser::currentval(){
     return current.getval();
 }
 
@@ -45,14 +45,14 @@ void parser::startparse(globalscope* globalscope){
         next();
     }
     /*auto ex=find_expression();
-    wstring tab=L"";
+    std::wstring tab=L"";
     ex->print(tab);*/
 }
 
 void parser::find_functions(globalscope* globalscope){
-    wstring funname;
-    wstring funtype=L"";
-    std::vector<std::pair<wstring,wstring>>* args=new std::vector<std::pair<wstring,wstring>>();
+    std::wstring funname;
+    std::wstring funtype=L"";
+    std::vector<std::pair<std::wstring,std::wstring>>* args=new std::vector<std::pair<std::wstring,std::wstring>>();
     if(currentmatch(keywordtoken::FUN)){
         if(next().isidentifiertoken()){
             funname=currentval();
@@ -66,7 +66,7 @@ void parser::find_functions(globalscope* globalscope){
                         if(nextmatch(symboltoken::COLON)){
                             if(next().isidentifiertoken()){
                                 auto argtype=currentval();
-                                auto arg=std::pair<wstring,wstring>(argname,argtype);
+                                auto arg=std::pair<std::wstring,std::wstring>(argname,argtype);
                                 args->push_back(arg);
                                 // calling next() first multi args without a comma
                                 if(nextmatch(symboltoken::COMMA)){}
@@ -92,15 +92,18 @@ void parser::find_functions(globalscope* globalscope){
                 if(current==symboltoken::LEFT_CURLY_BRACES){
                     next();
                     while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
-                    {
-                        find_next_statement(fscope);
-                    }
-
+                        add_next_stm_to_stm_list(fscope,fscope->getstmlist());
                 }
                 // else error
             }
         }
     }
+}
+
+void parser::add_next_stm_to_stm_list(funscope* fscope,StmList* stmlist){
+    auto stm=find_next_statement(fscope);
+    if(stm!=nullptr)
+        stmlist->push_back(stm);
 }
 
 statement* parser::find_next_statement(funscope* fscope){
@@ -129,31 +132,34 @@ statement* parser::find_if_statement(funscope* fscope){
     if(currentmatch(keywordtoken::IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
         std::vector<ExStmList*>* exstmlists=new std::vector<ExStmList*>();
 
+        auto find_condition_stm_list=[&](expression* ex){
+            StmList* stmlist=new StmList();
+            if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+                next();
+                while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                    add_next_stm_to_stm_list(fscope,stmlist);
+                next();
+                    
+            }else add_next_stm_to_stm_list(fscope,stmlist);
+                
+            exstmlists->push_back(new std::pair(ex,stmlist));
+        };
+
         auto if_condition=[&](auto& next_condition){
             next();
             auto ex=find_expression();
-            StmList* stmlist=new StmList();
-            auto add_next_stm_to_stm_list=[&](){
-                auto stm=find_next_statement(fscope);
-                stmlist->push_back(stm);
-            };
             if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
-                if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
-                    next();
-                    while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
-                        add_next_stm_to_stm_list();
-                    
-                }else add_next_stm_to_stm_list();
-                
-                exstmlists->push_back(new std::pair(ex,stmlist));
-                next_condition();
+                find_condition_stm_list(ex);
             }
+            next_condition();
         };
 
         auto else_condition=[&](){
-            if(currentmatch(keywordtoken::ELSE)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
-                auto empty=[](){};
-                if_condition(empty);
+            if(currentmatch(keywordtoken::ELSE)){
+                std::wstring True_val=keywordtoken::TRUE.getval();
+                expression* ex=new boolexpression(True_val);
+                find_condition_stm_list(ex);
+                //next();
             }
         };
 
@@ -166,7 +172,8 @@ statement* parser::find_if_statement(funscope* fscope){
         };
         
 
-        if_condition(else_if_condition);
+        if_condition(else_condition);
+
 
         auto if_statement=new ifstatement(fscope,exstmlists);
         return if_statement;
@@ -180,9 +187,7 @@ statement* parser::find_return_statement(funscope* fscope){
         next();
         //next();
         auto ex=find_expression();
-        //wcout<<L"WELCOME"<<endl;
         auto stm=new returnstatement(fscope,ex);
-        fscope->getstmlist()->push_back(stm);
         return stm;
     }
     return nullptr;
@@ -191,9 +196,7 @@ statement* parser::find_return_statement(funscope* fscope){
 statement* parser::find_expression_statement(funscope* fscope){
     auto ex=find_expression();
     auto stm=new expressionstatement(fscope,ex);
-    //wstring tab=L"";
-    //ex->print(tab);
-    fscope->getstmlist()->push_back(stm);
+    //ex->print();
     return stm;
 }
 
@@ -204,7 +207,6 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
             next();
             auto ex=find_expression();
             auto stm=new varreassignstatement(fscope,varname,ex);
-            fscope->getstmlist()->push_back(stm);
             return stm;
         }else{
             currentpos-=2;
@@ -217,7 +219,7 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
 statement* parser::find_var_val_statement(funscope* fscope){
     auto isvar=currentmatch(keywordtoken::VAR);
     auto isval=currentmatch(keywordtoken::VAL);
-    wstring name,type=L"";
+    std::wstring name,type=L"";
     expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
@@ -240,7 +242,6 @@ statement* parser::find_var_val_statement(funscope* fscope){
                 var=new constant(fscope,name,type);
             }
             auto stm=new vardeclarationstatement(fscope,var,ex);
-            fscope->getstmlist()->push_back(stm);
             return stm;
         }
     }

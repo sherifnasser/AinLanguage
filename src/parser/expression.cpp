@@ -6,6 +6,7 @@
 #include "expression.hpp"
 #include "number_helper.hpp"
 #include "string_helper.hpp"
+#include "ainprint.hpp"
 #define wcout std::wcout
 #define endl std::endl
 #define toint std::stoi
@@ -13,48 +14,48 @@
 #define todouble std::stod
 #define tofloat std::stof
 
-bool boolexpression::boolfromstr(wstring s){
+bool boolexpression::boolfromstr(std::wstring s){
     return s==keywordtoken::TRUE.getval();
 }
 
-wstring boolexpression::strfrombool(bool b){
+std::wstring boolexpression::strfrombool(bool b){
     return (b)?keywordtoken::TRUE.getval():keywordtoken::FALSE.getval();
 }
 
-boolexpression::boolexpression(wstring &val):val(val){}
+boolexpression::boolexpression(std::wstring &val):val(val){}
 
-void boolexpression::print(wstring tabsize){
+void boolexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"boolexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<std::boolalpha<<newtabsize<<boolfromstr(val)<<endl;
 }
 
-wstring boolexpression::evaluate(scope* evalscope){
+std::wstring boolexpression::evaluate(scope* evalscope){
     return val;
 }
 
-stringexpression::stringexpression(wstring &val):val(val){}
+stringexpression::stringexpression(std::wstring &val):val(val){}
 
-void stringexpression::print(wstring tabsize){
+void stringexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"stringexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<val<<endl;
 }
 
-wstring stringexpression::evaluate(scope* evalscope){
+std::wstring stringexpression::evaluate(scope* evalscope){
     // TODO: evaluate ctrl chars
     return val.substr(1,val.size()-2);
 }
 
-numberexpression::numberexpression(wstring &val):val(val){}
+numberexpression::numberexpression(std::wstring &val):val(val){}
 
-void numberexpression::print(wstring tabsize){
+void numberexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"numberexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<val<<endl;
 }
 
-wstring numberexpression::evaluate(scope* evalscope){
+std::wstring numberexpression::evaluate(scope* evalscope){
     return val;
 }
 
@@ -84,7 +85,7 @@ left(left),right(right){
     }
 }
 
-void binaryexpression::print(wstring tabsize){
+void binaryexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"binaryxpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     left->print(newtabsize);
@@ -93,8 +94,8 @@ void binaryexpression::print(wstring tabsize){
     right->print(newtabsize);
 }
 
-wstring binaryexpression::evaluate(scope* evalscope){
-    wstring result;
+std::wstring binaryexpression::evaluate(scope* evalscope){
+    std::wstring result;
     auto leftRes=left->evaluate(evalscope);
     auto rightRes=right->evaluate(evalscope);
 
@@ -144,106 +145,106 @@ wstring binaryexpression::evaluate(scope* evalscope){
     return result;
 }
 
-wstring binaryexpression::evaluatelogicalor(wstring l, wstring r){
+std::wstring binaryexpression::evaluatelogicalor(std::wstring l, std::wstring r){
     auto res=boolexpression::boolfromstr(l)||boolexpression::boolfromstr(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluatelogicaland(wstring l, wstring r){
+std::wstring binaryexpression::evaluatelogicaland(std::wstring l, std::wstring r){
     auto res=boolexpression::boolfromstr(l)&&boolexpression::boolfromstr(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluateequalequal(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)==boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluateequalequal(std::wstring l, std::wstring r){
+    auto res=l==r;
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluatenotequal(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)!=boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluatenotequal(std::wstring l, std::wstring r){
+    auto res=l!=r;
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluatelessequal(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)<=boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluatelessequal(std::wstring l, std::wstring r){
+    auto res=todouble(l)<=todouble(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluategreaterequal(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)>=boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluategreaterequal(std::wstring l, std::wstring r){
+    auto res=todouble(l)>=todouble(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluateless(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)<boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluateless(std::wstring l, std::wstring r){
+    auto res=todouble(l)<todouble(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluategreater(wstring l, wstring r){
-    auto res=boolexpression::boolfromstr(l)>boolexpression::boolfromstr(r);
+std::wstring binaryexpression::evaluategreater(std::wstring l, std::wstring r){
+    auto res=todouble(l)>todouble(r);
     return boolexpression::strfrombool(res);
 }
 
-wstring binaryexpression::evaluateplus(wstring l, wstring r){
+std::wstring binaryexpression::evaluateplus(std::wstring l, std::wstring r){
     if(isnum(l)&&isnum(r)){
         return std::to_wstring(todouble(l)+todouble(r));
     }
     else return l.append(r);
 }
 
-wstring binaryexpression::evaluateminus(wstring l, wstring r){
+std::wstring binaryexpression::evaluateminus(std::wstring l, std::wstring r){
     if(isnum(l)&&isnum(r)){
         return std::to_wstring(todouble(l)-todouble(r));
     }
     return L"";
 }
 
-wstring binaryexpression::evaluatestar(wstring l, wstring r){
+std::wstring binaryexpression::evaluatestar(std::wstring l, std::wstring r){
     if(isnum(l)&&isnum(r)){
         return std::to_wstring(todouble(l)*todouble(r));
     }
     return L"";
 }
 
-wstring binaryexpression::evaluateslash(wstring l, wstring r){
+std::wstring binaryexpression::evaluateslash(std::wstring l, std::wstring r){
     if(isnum(l)&&isnum(r)){
         return std::to_wstring(todouble(l)/todouble(r));
     }
     return L"";
 }
 
-wstring binaryexpression::evaluatemodulo(wstring l, wstring r){
+std::wstring binaryexpression::evaluatemodulo(std::wstring l, std::wstring r){
     if(isint(l)&&isint(r)){
         return std::to_wstring(toint(l)%toint(r));
     }
     return L"";
 }
 
-wstring binaryexpression::evaluatepower(wstring l, wstring r){
+std::wstring binaryexpression::evaluatepower(std::wstring l, std::wstring r){
     if(isnum(l)&&isnum(r)){
         return std::to_wstring(pow(todouble(l),todouble(r)));
     }
     return L"";
 }
 
-variableaccessexpression::variableaccessexpression(wstring &name):name(name){}
+variableaccessexpression::variableaccessexpression(std::wstring &name):name(name){}
 
-void variableaccessexpression::print(wstring tabsize){
+void variableaccessexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"variableaccessexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<name<<endl;
 }
 
-wstring variableaccessexpression::evaluate(scope* evalscope){
+std::wstring variableaccessexpression::evaluate(scope* evalscope){
     auto var=evalscope->getvarbyname(this->name);
     return var->getcurrentvalue();
 }
 
 funcallexpression::
-funcallexpression(wstring &funname, std::vector<expression*>* argsexpressions):
+funcallexpression(std::wstring &funname, std::vector<expression*>* argsexpressions):
 funname(funname),argsexpressions(argsexpressions){}
 
-void funcallexpression::print(wstring tabsize){
+void funcallexpression::print(std::wstring tabsize){
     wcout<<tabsize<<"funcallexpression"<<endl;
     auto newtabsize=tabsize+L"\t";
     wcout<<newtabsize<<funname<<endl;
@@ -252,7 +253,7 @@ void funcallexpression::print(wstring tabsize){
     }
 }
 
-wstring funcallexpression::evaluate(scope* evalscope){
+std::wstring funcallexpression::evaluate(scope* evalscope){
     auto fun=evalscope->getparentscope()->getfunbyname(this->funname);
     if(fun==nullptr){
 
@@ -261,7 +262,7 @@ wstring funcallexpression::evaluate(scope* evalscope){
                 throw(L"Too many arguments for calling " + funname + L"().");
 
             auto exval = (*argsexpressions)[0]->evaluate(evalscope);
-            wcout << exval;
+            ainprint(exval,false);
             return L"";
         }
 
@@ -270,7 +271,7 @@ wstring funcallexpression::evaluate(scope* evalscope){
                 throw(L"Too many arguments for calling " + funname + L"().");
             
             auto exval = (*argsexpressions)[0]->evaluate(evalscope);
-            wcout << exval << endl;
+            ainprint(exval,true);
             return L"";
         }
 
@@ -278,7 +279,7 @@ wstring funcallexpression::evaluate(scope* evalscope){
             if(argsexpressions->size()>0)
                 throw(L"Too many arguments for calling "+funname+L"().");
             
-            wstring input;
+            std::wstring input;
             std::wcin >> input;
             return input;
         }

@@ -39,10 +39,10 @@ class vardeclarationstatement:public statement
 class varreassignstatement:public statement
 {
     private:
-        wstring varname;
+        std::wstring varname;
         expression* ex;
     public:
-        varreassignstatement(scope* runscope,wstring varname,expression* ex);
+        varreassignstatement(scope* runscope,std::wstring varname,expression* ex);
         void run() override;
 };
 
@@ -62,6 +62,7 @@ typedef std::pair<expression*,StmList*> ExStmList;
 class ifstatement:public statement
 {
     private:
+        // Maybe change if we removed ELSE_IF keyword token
         std::vector<ExStmList*>* exstmlists;
     public:
         ifstatement(funscope* runscope,std::vector<ExStmList*>* exstmlists);

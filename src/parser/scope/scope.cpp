@@ -2,7 +2,7 @@
 
 scope::~scope(){}
 
-wstring scope::getname(){
+std::wstring scope::getname(){
     return this->name;
 }
 
@@ -60,40 +60,40 @@ void funscope::init(){
     setstmlist(new std::vector<statement*>());
 }
 
-funscope::funscope(scope* parentscope,wstring &name, wstring &returntype,std::vector<std::pair<wstring,wstring>>* args)
+funscope::funscope(scope* parentscope,std::wstring &name, std::wstring &returntype,std::vector<std::pair<std::wstring,std::wstring>>* args)
 :returntype(returntype),args(args){
     this->setparentscope(parentscope);
     this->name=name;
     init();
 }
 
-wstring funscope::getreturntype(){
+std::wstring funscope::getreturntype(){
     return this->returntype;
 }
 
-wstring funscope::getreturnvalue(){
+std::wstring funscope::getreturnvalue(){
     return this->returnvalue;
 }
 
-std::vector<std::pair<wstring,wstring>>* funscope::getargs(){
+std::vector<std::pair<std::wstring,std::wstring>>* funscope::getargs(){
     return this->args;
 }
 
-variable::variable(scope* parentscope, wstring &name, wstring &type)
+variable::variable(scope* parentscope, std::wstring &name, std::wstring &type)
 :parentscope(parentscope),name(name),type(type){}
 
-constant::constant(scope* parentscope, wstring &name, wstring &type):
+constant::constant(scope* parentscope, std::wstring &name, std::wstring &type):
 variable(parentscope,name,type){}
 
-wstring variable::getname(){
+std::wstring variable::getname(){
     return this->name;
 }
 
-wstring variable::gettype(){
+std::wstring variable::gettype(){
     return this->type;
 }
 
-variable* scope::getvarbyname(wstring varname){
+variable* scope::getvarbyname(std::wstring varname){
     for(auto &var:*getvars()){
         if(var->getname()==varname){
             return var;
@@ -102,7 +102,7 @@ variable* scope::getvarbyname(wstring varname){
     return nullptr;
 }
 
-funscope* scope::getfunbyname(wstring funname){
+funscope* scope::getfunbyname(std::wstring funname){
     for(auto &fun:*getfuns()){
         if(fun->getname()==funname){
             return fun;
@@ -111,7 +111,7 @@ funscope* scope::getfunbyname(wstring funname){
     return nullptr;
 }
 
-wstring variable::getcurrentvalue(){
+std::wstring variable::getcurrentvalue(){
     if(isinitialized)
         return this->currentval;
     else{
@@ -119,12 +119,12 @@ wstring variable::getcurrentvalue(){
     }
 }
 
-void variable::setcurrentvalue(wstring value){
+void variable::setcurrentvalue(std::wstring value){
     this->currentval=value;
     isinitialized=true;
 }
 
-void constant::setcurrentvalue(wstring value){
+void constant::setcurrentvalue(std::wstring value){
     if(isinitialized)
         std::__throw_runtime_error("Cannot reassign a constant value.");
     else
@@ -139,6 +139,6 @@ void funscope::call(){
     }
 }
 
-void funscope::setreturnvalue(wstring returnvalue){
+void funscope::setreturnvalue(std::wstring returnvalue){
     this->returnvalue=returnvalue;
 }

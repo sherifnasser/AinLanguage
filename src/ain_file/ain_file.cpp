@@ -5,7 +5,6 @@
 #include "string_helper.hpp"
 #include "ain_file.hpp"
 
-#define wstring std::wstring
 #define vector std::vector
 #define wifstream std::wifstream
 #define getline std::getline
@@ -14,7 +13,7 @@ AinFile::AinFile(std::string &path){
     if(endsWith(path,".ain")){
         wifstream ainFile=wifstream(path);
         ainFile.imbue(std::locale("en_US.UTF-8"));
-        wstring line;
+        std::wstring line;
         while(getline(ainFile,line)){
             this->lines.push_back(line);
         }
@@ -25,6 +24,6 @@ AinFile::AinFile(std::string &path){
     }
 }
 
-vector<wstring> AinFile::getLines(){
+vector<std::wstring> AinFile::getLines(){
     return this->lines;
 }
