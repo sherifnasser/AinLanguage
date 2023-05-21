@@ -15,11 +15,12 @@ private:
     bool nextmatch(lexertoken expected);
     wstring currentval();
     void find_functions(globalscope* globalscope);
-    void find_next_statement(funscope* funscope);
+    statement* find_next_statement(funscope* funscope);
     statement* find_var_val_statement(funscope* funscope);
     statement* find_var_reassign_statement(funscope* funscope);
     statement* find_return_statement(funscope* funscope);
     statement* find_expression_statement(funscope* funscope);
+    statement* find_if_statement(funscope* funscope);
     expression* find_expression();
     expression* find_binary_logical_or_expression();
     expression* find_binary_logical_and_expression();

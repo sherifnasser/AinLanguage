@@ -1,4 +1,5 @@
 #include "statement.hpp"
+#include "keywordtoken.hpp"
 
 statement::statement(scope* runscope):runscope(runscope){}
 
@@ -42,4 +43,26 @@ void returnstatement::run(){
     auto exval=ex->evaluate(runscope);
     funscope* fscope=dynamic_cast<funscope*>(runscope);
     fscope->setreturnvalue(exval);
+}
+
+ifstatement::ifstatement(funscope* runscope,std::vector<ExStmList*>* exstmlists)
+:statement(runscope),exstmlists(exstmlists){}
+
+void ifstatement::run(){
+    auto vars_size_before=runscope->getvars()->size();
+    for(auto &exstmlist:*exstmlists){
+        auto ex=exstmlist->first;  // condition
+        auto stmlist=exstmlist->second; // then statements
+        auto exval=ex->evaluate(runscope); // evaluate the condition
+        if(exval==keywordtoken::TRUE.getval()){ // run then statements
+            for(auto stm:*stmlist){
+                stm->run();
+            }
+            // pop defined variables in if statement
+            runscope->getvars()->resize(vars_size_before);
+            break; // don't evaluate next conditions
+        }
+    }
+
+    
 }

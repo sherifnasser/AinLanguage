@@ -56,3 +56,15 @@ class returnstatement:public statement
         void run() override;
 };
 
+typedef std::vector<statement*> StmList;
+typedef std::pair<expression*,StmList*> ExStmList;
+
+class ifstatement:public statement
+{
+    private:
+        std::vector<ExStmList*>* exstmlists;
+    public:
+        ifstatement(funscope* runscope,std::vector<ExStmList*>* exstmlists);
+        void run() override;
+};
+

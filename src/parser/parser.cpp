@@ -90,7 +90,6 @@ void parser::find_functions(globalscope* globalscope){
                 globalscope->addfunction(fscope);
 
                 if(current==symboltoken::LEFT_CURLY_BRACES){
-                    auto openedCB=0; // the number of opened curly braces
                     next();
                     while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
                     {
@@ -104,14 +103,76 @@ void parser::find_functions(globalscope* globalscope){
     }
 }
 
-void parser::find_next_statement(funscope* fscope){    
-    if(find_var_val_statement(fscope)==nullptr){
-        if(find_var_reassign_statement(fscope)==nullptr){
-            if(find_return_statement(fscope)==nullptr){
-                find_expression_statement(fscope);
+statement* parser::find_next_statement(funscope* fscope){
+
+    auto var_val_stm=find_var_val_statement(fscope);
+    if(var_val_stm==nullptr){
+        auto var_reassign_stm=find_var_reassign_statement(fscope);
+        if(var_reassign_stm==nullptr){
+            auto return_stm=find_return_statement(fscope);
+            if(return_stm==nullptr){
+                auto if_statement=find_if_statement(fscope);
+                if(if_statement==nullptr){
+                    auto ex_stm=find_expression_statement(fscope);
+                    return ex_stm;
+                }
+                return if_statement;
             }
+            return return_stm;
         }
+        return var_reassign_stm;
     }
+    return var_val_stm;
+}
+
+statement* parser::find_if_statement(funscope* fscope){
+    if(currentmatch(keywordtoken::IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        std::vector<ExStmList*>* exstmlists=new std::vector<ExStmList*>();
+
+        auto if_condition=[&](auto& next_condition){
+            next();
+            auto ex=find_expression();
+            StmList* stmlist=new StmList();
+            auto add_next_stm_to_stm_list=[&](){
+                auto stm=find_next_statement(fscope);
+                stmlist->push_back(stm);
+            };
+            if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+                if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+                    next();
+                    while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                        add_next_stm_to_stm_list();
+                    
+                }else add_next_stm_to_stm_list();
+                
+                exstmlists->push_back(new std::pair(ex,stmlist));
+                next_condition();
+            }
+        };
+
+        auto else_condition=[&](){
+            if(currentmatch(keywordtoken::ELSE)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+                auto empty=[](){};
+                if_condition(empty);
+            }
+        };
+
+        auto else_if_condition=[&](){
+            while(currentmatch(keywordtoken::ELSE_IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+                auto empty=[](){};
+                if_condition(empty);
+            }
+            else_condition();
+        };
+        
+
+        if_condition(else_if_condition);
+
+        auto if_statement=new ifstatement(fscope,exstmlists);
+        return if_statement;
+    }
+
+    return nullptr;
 }
 
 statement* parser::find_return_statement(funscope* fscope){
