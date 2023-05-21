@@ -49,16 +49,18 @@ ifstatement::ifstatement(funscope* runscope,std::vector<ExStmList*>* exstmlists)
 :statement(runscope),exstmlists(exstmlists){}
 
 void ifstatement::run(){
-
+    auto vars_size_before=runscope->getvars()->size();
     for(auto &exstmlist:*exstmlists){
-        auto ex=exstmlist->first;
-        auto stmlist=exstmlist->second;
-        auto exval=ex->evaluate(runscope);
-        if(exval==keywordtoken::TRUE.getval()){
+        auto ex=exstmlist->first;  // condition
+        auto stmlist=exstmlist->second; // then statements
+        auto exval=ex->evaluate(runscope); // evaluate the condition
+        if(exval==keywordtoken::TRUE.getval()){ // run then statements
             for(auto stm:*stmlist){
                 stm->run();
             }
-            break;
+            // pop defined variables in if statement
+            runscope->getvars()->resize(vars_size_before);
+            break; // don't evaluate next conditions
         }
     }
 

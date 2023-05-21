@@ -1,9 +1,6 @@
 #pragma once
 #include "scope.hpp"
 
-typedef std::vector<statement*> StmList;
-typedef std::pair<expression*,StmList*> ExStmList;
-
 class expression;
 class scope;
 class variable;
@@ -58,6 +55,9 @@ class returnstatement:public statement
         returnstatement(funscope* runscope,expression* ex);
         void run() override;
 };
+
+typedef std::vector<statement*> StmList;
+typedef std::pair<expression*,StmList*> ExStmList;
 
 class ifstatement:public statement
 {
