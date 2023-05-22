@@ -197,7 +197,7 @@ CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.o: /home/nasser/Projects/Programmin
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/ain_file.hpp
 
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp \
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -380,7 +380,7 @@ CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainprint.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
 
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp \
   /usr/include/stdc-predef.h \
@@ -2153,7 +2153,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
 
 CMakeFiles/ain.dir/src/parser/expression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp \
   /usr/include/stdc-predef.h \
@@ -2399,7 +2400,7 @@ CMakeFiles/ain.dir/src/parser/expression.cpp.o: /home/nasser/Projects/Programmin
   /usr/include/c++/12.2/bits/stl_tempbuf.h \
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainprint.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
 
 CMakeFiles/ain.dir/src/parser/parser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp \
   /usr/include/stdc-predef.h \
@@ -3530,13 +3531,9 @@ CMakeFiles/ain.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programm
 
 /usr/include/c++/12.2/bits/stl_algo.h:
 
-/usr/include/c++/12.2/bits/string_view.tcc:
-
 /usr/include/c++/12.2/bits/cxxabi_init_exception.h:
 
 /usr/include/c++/12.2/ext/string_conversions.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainprint.hpp:
 
 /usr/include/c++/12.2/cctype:
 
@@ -3640,6 +3637,8 @@ CMakeFiles/ain.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programm
 
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp:
+
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
 
 /usr/include/c++/12.2/bits/basic_ios.tcc:
@@ -3668,11 +3667,9 @@ CMakeFiles/ain.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programm
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp:
+/usr/include/c++/12.2/bits/string_view.tcc:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp:
-
-/usr/include/c++/12.2/unordered_map:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp:
 
 /usr/include/c++/12.2/cstdlib:
 
@@ -3685,6 +3682,10 @@ CMakeFiles/ain.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programm
 /usr/include/c++/12.2/bits/std_function.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp:
+
+/usr/include/c++/12.2/unordered_map:
 
 /usr/include/c++/12.2/ext/aligned_buffer.h:
 

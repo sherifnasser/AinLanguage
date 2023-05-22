@@ -6,7 +6,7 @@
 #include "expression.hpp"
 #include "number_helper.hpp"
 #include "string_helper.hpp"
-#include "ainprint.hpp"
+#include "ainio.hpp"
 #define wcout std::wcout
 #define endl std::endl
 #define toint std::stoi
@@ -279,8 +279,14 @@ std::wstring funcallexpression::evaluate(scope* evalscope){
             if(argsexpressions->size()>0)
                 throw(L"Too many arguments for calling "+funname+L"().");
             
-            std::wstring input;
-            std::wcin >> input;
+            std::wstring input=ainread(false);
+            return input;
+        }
+        else if(funname==L"أدخل_"){
+            if(argsexpressions->size()>0)
+                throw(L"Too many arguments for calling "+funname+L"().");
+
+            std::wstring input=ainread(true);
             return input;
         }
         else throw (L"function with name "+funname+L"() is not found.");

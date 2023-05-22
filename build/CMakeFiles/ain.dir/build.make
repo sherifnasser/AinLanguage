@@ -195,10 +195,24 @@ CMakeFiles/ain.dir/src/helpers/string_helper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ain.dir/src/helpers/string_helper.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp -o CMakeFiles/ain.dir/src/helpers/string_helper.cpp.s
 
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: CMakeFiles/ain.dir/flags.make
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: CMakeFiles/ain.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ain.dir/src/helpers/ainio.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/helpers/ainio.cpp.o -MF CMakeFiles/ain.dir/src/helpers/ainio.cpp.o.d -o CMakeFiles/ain.dir/src/helpers/ainio.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp
+
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ain.dir/src/helpers/ainio.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp > CMakeFiles/ain.dir/src/helpers/ainio.cpp.i
+
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ain.dir/src/helpers/ainio.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp -o CMakeFiles/ain.dir/src/helpers/ainio.cpp.s
+
 CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o: CMakeFiles/ain.dir/flags.make
 CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp
 CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o: CMakeFiles/ain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o -MF CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o.d -o CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp
 
 CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.s: cmake_force
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o: CMakeFiles/ain.dir/flags.make
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o: CMakeFiles/ain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o -MF CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o.d -o CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
 
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.i: cmake_force
@@ -222,20 +236,6 @@ CMakeFiles/ain.dir/src/helpers/number_helper.cpp.i: cmake_force
 CMakeFiles/ain.dir/src/helpers/number_helper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ain.dir/src/helpers/number_helper.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp -o CMakeFiles/ain.dir/src/helpers/number_helper.cpp.s
-
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o: CMakeFiles/ain.dir/flags.make
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o: CMakeFiles/ain.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o -MF CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o.d -o CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp
-
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ain.dir/src/helpers/ainprint.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp > CMakeFiles/ain.dir/src/helpers/ainprint.cpp.i
-
-CMakeFiles/ain.dir/src/helpers/ainprint.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ain.dir/src/helpers/ainprint.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainprint.cpp -o CMakeFiles/ain.dir/src/helpers/ainprint.cpp.s
 
 CMakeFiles/ain.dir/src/parser/scope/scope.cpp.o: CMakeFiles/ain.dir/flags.make
 CMakeFiles/ain.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp
@@ -304,9 +304,9 @@ ain_OBJECTS = \
 "CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.o" \
 "CMakeFiles/ain.dir/src/statement/statement.cpp.o" \
 "CMakeFiles/ain.dir/src/helpers/string_helper.cpp.o" \
+"CMakeFiles/ain.dir/src/helpers/ainio.cpp.o" \
 "CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o" \
 "CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o" \
-"CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o" \
 "CMakeFiles/ain.dir/src/parser/scope/scope.cpp.o" \
 "CMakeFiles/ain.dir/src/parser/scope/globalscope.cpp.o" \
 "CMakeFiles/ain.dir/src/parser/expression.cpp.o" \
@@ -324,9 +324,9 @@ ain: CMakeFiles/ain.dir/src/lexer/lexertoken.cpp.o
 ain: CMakeFiles/ain.dir/src/ain_file/ain_file.cpp.o
 ain: CMakeFiles/ain.dir/src/statement/statement.cpp.o
 ain: CMakeFiles/ain.dir/src/helpers/string_helper.cpp.o
+ain: CMakeFiles/ain.dir/src/helpers/ainio.cpp.o
 ain: CMakeFiles/ain.dir/src/helpers/wchar_t_helper.cpp.o
 ain: CMakeFiles/ain.dir/src/helpers/number_helper.cpp.o
-ain: CMakeFiles/ain.dir/src/helpers/ainprint.cpp.o
 ain: CMakeFiles/ain.dir/src/parser/scope/scope.cpp.o
 ain: CMakeFiles/ain.dir/src/parser/scope/globalscope.cpp.o
 ain: CMakeFiles/ain.dir/src/parser/expression.cpp.o

@@ -107,25 +107,28 @@ void parser::add_next_stm_to_stm_list(funscope* fscope,StmList* stmlist){
 }
 
 statement* parser::find_next_statement(funscope* fscope){
+    
+    auto var_val_statement=find_var_val_statement(fscope);
+    if(var_val_statement!=nullptr)
+        return var_val_statement;
+    
+    auto var_reassign_statement=find_var_reassign_statement(fscope);
+    if(var_reassign_statement!=nullptr)
+        return var_reassign_statement;
 
-    auto var_val_stm=find_var_val_statement(fscope);
-    if(var_val_stm==nullptr){
-        auto var_reassign_stm=find_var_reassign_statement(fscope);
-        if(var_reassign_stm==nullptr){
-            auto return_stm=find_return_statement(fscope);
-            if(return_stm==nullptr){
-                auto if_statement=find_if_statement(fscope);
-                if(if_statement==nullptr){
-                    auto ex_stm=find_expression_statement(fscope);
-                    return ex_stm;
-                }
-                return if_statement;
-            }
-            return return_stm;
-        }
-        return var_reassign_stm;
-    }
-    return var_val_stm;
+    auto return_statement=find_return_statement(fscope);
+    if(return_statement!=nullptr)
+        return return_statement;
+    
+    auto if_statement=find_if_statement(fscope);
+    if(if_statement!=nullptr)
+        return if_statement;
+
+    auto expression_statement=find_expression_statement(fscope);
+    if(expression_statement!=nullptr)
+        return expression_statement;
+
+    return nullptr;
 }
 
 statement* parser::find_if_statement(funscope* fscope){

@@ -1,5 +1,5 @@
-CMakeFiles/ain.dir/src/main.cpp.o: \
- /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp \
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: \
+ /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -126,32 +126,5 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/vector \
- /usr/include/c++/12.2/bits/stl_uninitialized.h \
- /usr/include/c++/12.2/bits/stl_vector.h \
- /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/ain_file.hpp \
- /usr/include/c++/12.2/fstream /usr/include/c++/12.2/bits/codecvt.h \
- /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h \
- /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++io.h \
- /usr/include/c++/12.2/bits/fstream.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/ext/aligned_buffer.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
- /usr/include/c++/12.2/bits/uses_allocator.h \
- /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp \
+ /usr/include/c++/12.2/bits/istream.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
