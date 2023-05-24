@@ -124,10 +124,35 @@ statement* parser::find_next_statement(funscope* fscope){
     if(if_statement!=nullptr)
         return if_statement;
 
+    auto while_statement=find_while_statement(fscope);
+    if(while_statement!=nullptr)
+        return while_statement;
+
     auto expression_statement=find_expression_statement(fscope);
     if(expression_statement!=nullptr)
         return expression_statement;
 
+    return nullptr;
+}
+
+statement* parser::find_while_statement(funscope* fscope){
+    if(currentmatch(keywordtoken::WHILE)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        next();
+        auto ex=find_expression();
+        if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+            StmList* stmlist=new StmList();
+            if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+                next();
+                while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                    add_next_stm_to_stm_list(fscope,stmlist);
+                next();
+                    
+            }else add_next_stm_to_stm_list(fscope,stmlist);
+
+            auto while_statment=new whilestatement(fscope,ex,stmlist);
+            return while_statment;
+        }
+    }
     return nullptr;
 }
 

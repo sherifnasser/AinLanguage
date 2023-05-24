@@ -69,3 +69,13 @@ class ifstatement:public statement
         void run() override;
 };
 
+class whilestatement:public statement
+{
+    private:
+        expression* ex;
+        StmList* stmlist;
+
+    public:
+        whilestatement(funscope* runscope, expression* ex, StmList* stmlist);
+        void run() override;
+};

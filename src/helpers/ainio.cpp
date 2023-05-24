@@ -2,7 +2,7 @@
 #include "ainio.hpp"
 
 void ainprint(std::wstring s,bool endl){
-    std::wios::sync_with_stdio(false);
+    std::ios_base::sync_with_stdio(false);
     std::locale myloc("en_US.UTF-8");                                           
     std::wcout.imbue(myloc);
     std::wcout<<s;
@@ -11,7 +11,7 @@ void ainprint(std::wstring s,bool endl){
 }
 
 std::wstring ainread(bool readline){
-    std::wios::sync_with_stdio(false);
+    std::ios_base::sync_with_stdio(false);
     std::locale myloc("en_US.UTF-8");                                           
     std::wcin.imbue(myloc);
     std::wstring input;

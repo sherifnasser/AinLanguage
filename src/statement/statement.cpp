@@ -58,11 +58,27 @@ void ifstatement::run(){
             for(auto stm:*stmlist){
                 stm->run();
             }
-            // pop defined variables in if statement
+            // pop all defined variables in if statement
             runscope->getvars()->resize(vars_size_before);
             break; // don't evaluate next conditions
         }
+    }   
+}
+
+whilestatement::whilestatement(funscope* runscope,expression* ex, StmList* stmlist)
+:statement(runscope),ex(ex),stmlist(stmlist){}
+
+void whilestatement::run(){
+
+    auto vars_size_before=runscope->getvars()->size();
+
+    while(ex->evaluate(runscope)==keywordtoken::TRUE.getval()){ // while the condition is true
+        for(auto stm:*stmlist){
+            stm->run();
+        }
     }
 
-    
+    // pop all defined variables in while statement
+    runscope->getvars()->resize(vars_size_before);
+
 }
