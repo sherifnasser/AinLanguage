@@ -236,7 +236,26 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
             auto ex=find_expression();
             auto stm=new varreassignstatement(fscope,varname,ex);
             return stm;
-        }else{
+        }
+        else if(
+            currentmatch(symboltoken::PLUS)||
+            currentmatch(symboltoken::MINUS)||
+            currentmatch(symboltoken::STAR)||
+            currentmatch(symboltoken::SLASH)||
+            currentmatch(symboltoken::MODULO)||
+            currentmatch(symboltoken::POWER)
+        ){
+            lexertoken op=current;
+            if(nextmatch(symboltoken::EQUAL)){
+                next();
+                auto left=new variableaccessexpression(varname);
+                auto right=find_expression();
+                expression* ex=new binaryexpression(left,op,right);
+                auto stm=new varreassignstatement(fscope,varname,ex);
+                return stm;
+            }
+        }
+        else{
             currentpos-=2;
             next();
         }
