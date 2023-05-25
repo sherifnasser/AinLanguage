@@ -11,7 +11,7 @@ bool keywordtoken::iskeyword(lexertoken t){
         DATA,ABSTRACT,OPEN,ENUM,ANNOTATION,
         PUBLIC,PRIVATE,PROTECTED,OVERRIDE,
         IF,ELSE_IF,ELSE,WHEN,
-        FOR,WHILE,BREAK,CONTINUE,
+        FOR,DO,WHILE,BREAK,CONTINUE,
         THROW,TRY,CATCH,FINALLY,TRUE,FALSE
     };
 
@@ -54,6 +54,7 @@ keywordtoken keywordtoken::ELSE=keywordtoken(L"وإلا");
 keywordtoken keywordtoken::WHEN=keywordtoken(L"عندما"); // as switch
 
 keywordtoken keywordtoken::FOR=keywordtoken(L"لأجل");
+keywordtoken keywordtoken::DO=keywordtoken(L"افعل");
 keywordtoken keywordtoken::WHILE=keywordtoken(L"طالما");
 keywordtoken keywordtoken::BREAK=keywordtoken(L"اكسر");
 keywordtoken keywordtoken::CONTINUE=keywordtoken(L"استكمل");

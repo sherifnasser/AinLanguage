@@ -71,11 +71,18 @@ class ifstatement:public statement
 
 class whilestatement:public statement
 {
-    private:
+    protected:
         expression* ex;
         StmList* stmlist;
 
     public:
         whilestatement(funscope* runscope, expression* ex, StmList* stmlist);
+        void run() override;
+};
+
+class dowhilestatement:public whilestatement
+{
+    public:
+        dowhilestatement(funscope* runscope, expression* ex, StmList* stmlist);
         void run() override;
 };

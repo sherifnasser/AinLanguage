@@ -1,5 +1,5 @@
-CMakeFiles/ain.dir/src/parser/expression.cpp.o: \
- /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp \
+CMakeFiles/ain.dir/src/helpers/ainio.cpp.o: \
+ /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -126,55 +126,5 @@ CMakeFiles/ain.dir/src/parser/expression.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/vector \
- /usr/include/c++/12.2/bits/stl_uninitialized.h \
- /usr/include/c++/12.2/bits/stl_vector.h \
- /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc /usr/include/c++/12.2/cmath \
- /usr/include/math.h /usr/include/bits/math-vector.h \
- /usr/include/bits/libm-simd-decl-stubs.h \
- /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
- /usr/include/bits/fp-fast.h \
- /usr/include/bits/mathcalls-helper-functions.h \
- /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
- /usr/include/bits/iscanonical.h /usr/include/c++/12.2/bits/specfun.h \
- /usr/include/c++/12.2/limits /usr/include/c++/12.2/tr1/gamma.tcc \
- /usr/include/c++/12.2/tr1/special_function_util.h \
- /usr/include/c++/12.2/tr1/bessel_function.tcc \
- /usr/include/c++/12.2/tr1/beta_function.tcc \
- /usr/include/c++/12.2/tr1/ell_integral.tcc \
- /usr/include/c++/12.2/tr1/exp_integral.tcc \
- /usr/include/c++/12.2/tr1/hypergeometric.tcc \
- /usr/include/c++/12.2/tr1/legendre_function.tcc \
- /usr/include/c++/12.2/tr1/modified_bessel_func.tcc \
- /usr/include/c++/12.2/tr1/poly_hermite.tcc \
- /usr/include/c++/12.2/tr1/poly_laguerre.tcc \
- /usr/include/c++/12.2/tr1/riemann_zeta.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/ext/aligned_buffer.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
- /usr/include/c++/12.2/bits/uses_allocator.h \
- /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
- /usr/include/c++/12.2/functional \
- /usr/include/c++/12.2/bits/std_function.h \
- /usr/include/c++/12.2/unordered_map \
- /usr/include/c++/12.2/bits/hashtable.h \
- /usr/include/c++/12.2/bits/hashtable_policy.h \
- /usr/include/c++/12.2/bits/enable_special_members.h \
- /usr/include/c++/12.2/bits/unordered_map.h /usr/include/c++/12.2/array \
- /usr/include/c++/12.2/compare /usr/include/c++/12.2/bits/stl_algo.h \
- /usr/include/c++/12.2/bits/algorithmfwd.h \
- /usr/include/c++/12.2/bits/stl_heap.h \
- /usr/include/c++/12.2/bits/stl_tempbuf.h \
- /usr/include/c++/12.2/bits/uniform_int_dist.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /usr/include/c++/12.2/bits/istream.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
