@@ -82,3 +82,21 @@ void whilestatement::run(){
     runscope->getvars()->resize(vars_size_before);
 
 }
+
+dowhilestatement::dowhilestatement(funscope* runscope,expression* ex, StmList* stmlist)
+:whilestatement(runscope,ex,stmlist){}
+
+void dowhilestatement::run(){
+
+    auto vars_size_before=runscope->getvars()->size();
+
+    do{
+        for(auto stm:*stmlist){
+            stm->run();
+        }
+    }while(ex->evaluate(runscope)==keywordtoken::TRUE.getval());
+
+
+    // pop all defined variables in while statement
+    runscope->getvars()->resize(vars_size_before);
+}

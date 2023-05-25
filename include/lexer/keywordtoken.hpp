@@ -36,6 +36,7 @@ public:
     static keywordtoken WHEN; // as switch
 
     static keywordtoken FOR;
+    static keywordtoken DO;
     static keywordtoken WHILE;
     static keywordtoken BREAK;
     static keywordtoken CONTINUE;
