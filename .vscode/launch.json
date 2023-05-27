@@ -4,14 +4,32 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "cppdbg",
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/debug/ain",
             "args": [
-                "${workspaceFolder}/src/app.ain"
+                "${workspaceFolder}/app.ain"
             ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "cppdbg",
+            "request": "launch",
+            "name": "Run",
+            "program": "${workspaceFolder}/build/ain",
+            "args": [
+                "${workspaceFolder}/app.ain"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "cppdbg",
+            "request": "launch",
+            "name": "Run Unit Tests",
+            "program": "${workspaceFolder}/build/unit_tests",
             "cwd": "${workspaceFolder}"
         }
     ]

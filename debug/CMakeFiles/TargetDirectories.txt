@@ -1,3 +1,5 @@
+/home/nasser/Projects/Programming/C++/AinLanguage/debug/CMakeFiles/ainsrc.dir
 /home/nasser/Projects/Programming/C++/AinLanguage/debug/CMakeFiles/ain.dir
+/home/nasser/Projects/Programming/C++/AinLanguage/debug/CMakeFiles/unit_tests.dir
 /home/nasser/Projects/Programming/C++/AinLanguage/debug/CMakeFiles/edit_cache.dir
 /home/nasser/Projects/Programming/C++/AinLanguage/debug/CMakeFiles/rebuild_cache.dir

@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.26.3)
 
 project(AinLanguage)
 
-
-set(SRC_FILES
-    src/main.cpp
+add_library(ainsrc
     src/lexer/lexer.cpp
     src/lexer/keywordtoken.cpp
     src/lexer/lexerline.cpp
@@ -21,6 +19,7 @@ set(SRC_FILES
     src/parser/expression.cpp
     src/parser/parser.cpp
 )
+
 set(INCLUDE
     include/
     include/lexer/
@@ -31,6 +30,22 @@ set(INCLUDE
     include/parser/scope/
 )
 
-add_executable(ain ${SRC_FILES})
+add_executable(ain src/main.cpp)
 
-target_include_directories(ain PUBLIC ${INCLUDE})
+target_include_directories(ainsrc PUBLIC ${INCLUDE})
+
+target_link_libraries(ain ainsrc)
+
+
+
+# Add Catch2 library
+find_package(Catch2 REQUIRED)
+
+# Add test executable
+add_executable(unit_tests
+    test/test.cpp
+    test/test2.cpp
+)
+
+# Link Catch2 library to the test executable
+target_link_libraries(unit_tests Catch2::Catch2 ainsrc)
