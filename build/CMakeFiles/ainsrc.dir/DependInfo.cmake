@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp" "CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp" "CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp" "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp" "CMakeFiles/ainsrc.dir/src/main.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/main.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp" "CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp" "CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp" "CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o.d"

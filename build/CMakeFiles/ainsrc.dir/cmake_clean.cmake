@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o"
   "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o.d"
+  "CMakeFiles/ainsrc.dir/src/main.cpp.o"
+  "CMakeFiles/ainsrc.dir/src/main.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o"
   "CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o"

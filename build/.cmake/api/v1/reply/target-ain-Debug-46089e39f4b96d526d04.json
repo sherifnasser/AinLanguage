@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "unit_tests"
+			"path" : "ain"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 45,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 51,
+				"line" : 45,
 				"parent" : 0
 			}
 		]
@@ -79,8 +79,7 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -91,7 +90,7 @@
 			"id" : "ainsrc::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "unit_tests::@6890427a1f51a3e7e1df",
+	"id" : "ain::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -112,8 +111,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "unit_tests",
-	"nameOnDisk" : "unit_tests",
+	"name" : "ain",
+	"nameOnDisk" : "ain",
 	"paths" : 
 	{
 		"build" : ".",
@@ -125,8 +124,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -135,13 +133,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/test2.cpp",
+			"path" : "src/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

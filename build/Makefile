@@ -400,6 +400,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
@@ -408,6 +409,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
@@ -416,6 +418,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
@@ -539,53 +542,29 @@ src/statement/statement.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/statement.cpp.s
 .PHONY : src/statement/statement.cpp.s
 
-test/test.o: test/test.cpp.o
-.PHONY : test/test.o
+test/lexer/lexertest.o: test/lexer/lexertest.cpp.o
+.PHONY : test/lexer/lexertest.o
 
 # target to build an object file
-test/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test.cpp.o
-.PHONY : test/test.cpp.o
+test/lexer/lexertest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o
+.PHONY : test/lexer/lexertest.cpp.o
 
-test/test.i: test/test.cpp.i
-.PHONY : test/test.i
-
-# target to preprocess a source file
-test/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test.cpp.i
-.PHONY : test/test.cpp.i
-
-test/test.s: test/test.cpp.s
-.PHONY : test/test.s
-
-# target to generate assembly for a file
-test/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test.cpp.s
-.PHONY : test/test.cpp.s
-
-test/test2.o: test/test2.cpp.o
-.PHONY : test/test2.o
-
-# target to build an object file
-test/test2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test2.cpp.o
-.PHONY : test/test2.cpp.o
-
-test/test2.i: test/test2.cpp.i
-.PHONY : test/test2.i
+test/lexer/lexertest.i: test/lexer/lexertest.cpp.i
+.PHONY : test/lexer/lexertest.i
 
 # target to preprocess a source file
-test/test2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test2.cpp.i
-.PHONY : test/test2.cpp.i
+test/lexer/lexertest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.i
+.PHONY : test/lexer/lexertest.cpp.i
 
-test/test2.s: test/test2.cpp.s
-.PHONY : test/test2.s
+test/lexer/lexertest.s: test/lexer/lexertest.cpp.s
+.PHONY : test/lexer/lexertest.s
 
 # target to generate assembly for a file
-test/test2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/test2.cpp.s
-.PHONY : test/test2.cpp.s
+test/lexer/lexertest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.s
+.PHONY : test/lexer/lexertest.cpp.s
 
 # Help Target
 help:
@@ -646,12 +625,9 @@ help:
 	@echo "... src/statement/statement.o"
 	@echo "... src/statement/statement.i"
 	@echo "... src/statement/statement.s"
-	@echo "... test/test.o"
-	@echo "... test/test.i"
-	@echo "... test/test.s"
-	@echo "... test/test2.o"
-	@echo "... test/test2.i"
-	@echo "... test/test2.s"
+	@echo "... test/lexer/lexertest.o"
+	@echo "... test/lexer/lexertest.i"
+	@echo "... test/lexer/lexertest.s"
 .PHONY : help
 
 

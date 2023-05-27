@@ -69,48 +69,32 @@ include CMakeFiles/unit_tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/unit_tests.dir/flags.make
 
-CMakeFiles/unit_tests.dir/test/test.cpp.o: CMakeFiles/unit_tests.dir/flags.make
-CMakeFiles/unit_tests.dir/test/test.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp
-CMakeFiles/unit_tests.dir/test/test.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/unit_tests.dir/test/test.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/test.cpp.o -MF CMakeFiles/unit_tests.dir/test/test.cpp.o.d -o CMakeFiles/unit_tests.dir/test/test.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp
+CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
+CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp
+CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp
 
-CMakeFiles/unit_tests.dir/test/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/test.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp > CMakeFiles/unit_tests.dir/test/test.cpp.i
+CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp > CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.i
 
-CMakeFiles/unit_tests.dir/test/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/test.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp -o CMakeFiles/unit_tests.dir/test/test.cpp.s
-
-CMakeFiles/unit_tests.dir/test/test2.cpp.o: CMakeFiles/unit_tests.dir/flags.make
-CMakeFiles/unit_tests.dir/test/test2.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp
-CMakeFiles/unit_tests.dir/test/test2.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/unit_tests.dir/test/test2.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/test2.cpp.o -MF CMakeFiles/unit_tests.dir/test/test2.cpp.o.d -o CMakeFiles/unit_tests.dir/test/test2.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp
-
-CMakeFiles/unit_tests.dir/test/test2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/test2.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp > CMakeFiles/unit_tests.dir/test/test2.cpp.i
-
-CMakeFiles/unit_tests.dir/test/test2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/test2.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp -o CMakeFiles/unit_tests.dir/test/test2.cpp.s
+CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.s
 
 # Object files for target unit_tests
 unit_tests_OBJECTS = \
-"CMakeFiles/unit_tests.dir/test/test.cpp.o" \
-"CMakeFiles/unit_tests.dir/test/test2.cpp.o"
+"CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o"
 
 # External object files for target unit_tests
 unit_tests_EXTERNAL_OBJECTS =
 
-unit_tests: CMakeFiles/unit_tests.dir/test/test.cpp.o
-unit_tests: CMakeFiles/unit_tests.dir/test/test2.cpp.o
+unit_tests: CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o
 unit_tests: CMakeFiles/unit_tests.dir/build.make
 unit_tests: libainsrc.a
 unit_tests: CMakeFiles/unit_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable unit_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unit_tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

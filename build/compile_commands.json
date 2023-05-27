@@ -1,6 +1,12 @@
 [
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
   "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o"
@@ -97,14 +103,8 @@
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/test.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp",
-  "output": "CMakeFiles/unit_tests.dir/test/test.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/test2.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp",
-  "output": "CMakeFiles/unit_tests.dir/test/test2.cpp.o"
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp",
+  "output": "CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o"
 }
 ]

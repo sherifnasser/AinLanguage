@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/nasser/Projects/Programming/C++/AinLanguage/test/test.cpp" "CMakeFiles/unit_tests.dir/test/test.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/test.cpp.o.d"
-  "/home/nasser/Projects/Programming/C++/AinLanguage/test/test2.cpp" "CMakeFiles/unit_tests.dir/test/test2.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/test2.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp" "CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

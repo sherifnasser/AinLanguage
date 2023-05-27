@@ -5,7 +5,7 @@
 #include <symboltoken.hpp>
 
 
-SCENARIO("Example test", "[test.cpp]") {
+SCENARIO("Example test", "[lexertest.cpp]") {
     GIVEN("SOME"){
         WHEN("NOTHING"){
             THEN("Plus is +"){
@@ -17,8 +17,4 @@ SCENARIO("Example test", "[test.cpp]") {
         }
     }
     
-}
-
-TEST_CASE("Example test2", "[test.cpp]") {
-    REQUIRE(2 + 2 == 4);
 }
