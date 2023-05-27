@@ -10,5 +10,6 @@ class lexer{
         
     public:
         lexer(AinFile ainFile);
+        lexerline lexline(std::wstring line,int linenumber);
         std::vector<lexerline> getlexerlines();
 };
