@@ -12,7 +12,7 @@ add_library(ainsrc
     src/lexer/lexerline.cpp
     src/lexer/symboltoken.cpp
     src/lexer/lexertoken.cpp
-    src/ain_file/ain_file.cpp
+    src/ain_file/AinFile.cpp
     src/statement/statement.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp
@@ -26,6 +26,7 @@ add_library(ainsrc
 
 set(INCLUDE
     include/
+    include/exceptions/
     include/lexer/
     include/ain_file/
     include/statement/
@@ -36,9 +37,13 @@ set(INCLUDE
 
 set(TEST
     test/lexer/lexertest.cpp
+    test/ain_file/AinFileTest.cpp
 )
 
 ### end files_cmake.cpp ###
+
+
+
 
 
 add_executable(ain src/main.cpp)

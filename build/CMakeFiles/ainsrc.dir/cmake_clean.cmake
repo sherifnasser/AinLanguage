@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o"
-  "CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o.d"
+  "CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o"
+  "CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o"
   "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o"

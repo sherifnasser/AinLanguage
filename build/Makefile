@@ -155,29 +155,29 @@ unit_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-src/ain_file/ain_file.o: src/ain_file/ain_file.cpp.o
-.PHONY : src/ain_file/ain_file.o
+src/ain_file/AinFile.o: src/ain_file/AinFile.cpp.o
+.PHONY : src/ain_file/AinFile.o
 
 # target to build an object file
-src/ain_file/ain_file.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o
-.PHONY : src/ain_file/ain_file.cpp.o
+src/ain_file/AinFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o
+.PHONY : src/ain_file/AinFile.cpp.o
 
-src/ain_file/ain_file.i: src/ain_file/ain_file.cpp.i
-.PHONY : src/ain_file/ain_file.i
+src/ain_file/AinFile.i: src/ain_file/AinFile.cpp.i
+.PHONY : src/ain_file/AinFile.i
 
 # target to preprocess a source file
-src/ain_file/ain_file.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i
-.PHONY : src/ain_file/ain_file.cpp.i
+src/ain_file/AinFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i
+.PHONY : src/ain_file/AinFile.cpp.i
 
-src/ain_file/ain_file.s: src/ain_file/ain_file.cpp.s
-.PHONY : src/ain_file/ain_file.s
+src/ain_file/AinFile.s: src/ain_file/AinFile.cpp.s
+.PHONY : src/ain_file/AinFile.s
 
 # target to generate assembly for a file
-src/ain_file/ain_file.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s
-.PHONY : src/ain_file/ain_file.cpp.s
+src/ain_file/AinFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s
+.PHONY : src/ain_file/AinFile.cpp.s
 
 src/helpers/ainio.o: src/helpers/ainio.cpp.o
 .PHONY : src/helpers/ainio.o
@@ -542,6 +542,30 @@ src/statement/statement.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/statement.cpp.s
 .PHONY : src/statement/statement.cpp.s
 
+test/ain_file/AinFileTest.o: test/ain_file/AinFileTest.cpp.o
+.PHONY : test/ain_file/AinFileTest.o
+
+# target to build an object file
+test/ain_file/AinFileTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o
+.PHONY : test/ain_file/AinFileTest.cpp.o
+
+test/ain_file/AinFileTest.i: test/ain_file/AinFileTest.cpp.i
+.PHONY : test/ain_file/AinFileTest.i
+
+# target to preprocess a source file
+test/ain_file/AinFileTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i
+.PHONY : test/ain_file/AinFileTest.cpp.i
+
+test/ain_file/AinFileTest.s: test/ain_file/AinFileTest.cpp.s
+.PHONY : test/ain_file/AinFileTest.s
+
+# target to generate assembly for a file
+test/ain_file/AinFileTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
+.PHONY : test/ain_file/AinFileTest.cpp.s
+
 test/lexer/lexertest.o: test/lexer/lexertest.cpp.o
 .PHONY : test/lexer/lexertest.o
 
@@ -577,9 +601,9 @@ help:
 	@echo "... ain"
 	@echo "... ainsrc"
 	@echo "... unit_tests"
-	@echo "... src/ain_file/ain_file.o"
-	@echo "... src/ain_file/ain_file.i"
-	@echo "... src/ain_file/ain_file.s"
+	@echo "... src/ain_file/AinFile.o"
+	@echo "... src/ain_file/AinFile.i"
+	@echo "... src/ain_file/AinFile.s"
 	@echo "... src/helpers/ainio.o"
 	@echo "... src/helpers/ainio.i"
 	@echo "... src/helpers/ainio.s"
@@ -625,6 +649,9 @@ help:
 	@echo "... src/statement/statement.o"
 	@echo "... src/statement/statement.i"
 	@echo "... src/statement/statement.s"
+	@echo "... test/ain_file/AinFileTest.o"
+	@echo "... test/ain_file/AinFileTest.i"
+	@echo "... test/ain_file/AinFileTest.s"
 	@echo "... test/lexer/lexertest.o"
 	@echo "... test/lexer/lexertest.i"
 	@echo "... test/lexer/lexertest.s"

@@ -153,19 +153,19 @@ CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o -MF CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o.d -o CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -MF CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o.d -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp > CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp > CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp -o CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s
 
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp
@@ -301,7 +301,7 @@ ainsrc_OBJECTS = \
 "CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o" \
@@ -321,7 +321,7 @@ libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o

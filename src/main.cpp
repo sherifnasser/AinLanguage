@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ain_file.hpp"
+#include "AinFile.hpp"
 #include "lexer.hpp"
 #include "globalscope.hpp"
 #include "parser.hpp"
