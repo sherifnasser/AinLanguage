@@ -275,6 +275,30 @@ src/helpers/wchar_t_helper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.s
 .PHONY : src/helpers/wchar_t_helper.cpp.s
 
+src/lexer/Lexer.o: src/lexer/Lexer.cpp.o
+.PHONY : src/lexer/Lexer.o
+
+# target to build an object file
+src/lexer/Lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o
+.PHONY : src/lexer/Lexer.cpp.o
+
+src/lexer/Lexer.i: src/lexer/Lexer.cpp.i
+.PHONY : src/lexer/Lexer.i
+
+# target to preprocess a source file
+src/lexer/Lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i
+.PHONY : src/lexer/Lexer.cpp.i
+
+src/lexer/Lexer.s: src/lexer/Lexer.cpp.s
+.PHONY : src/lexer/Lexer.s
+
+# target to generate assembly for a file
+src/lexer/Lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s
+.PHONY : src/lexer/Lexer.cpp.s
+
 src/lexer/keywordtoken.o: src/lexer/keywordtoken.cpp.o
 .PHONY : src/lexer/keywordtoken.o
 
@@ -298,30 +322,6 @@ src/lexer/keywordtoken.s: src/lexer/keywordtoken.cpp.s
 src/lexer/keywordtoken.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.s
 .PHONY : src/lexer/keywordtoken.cpp.s
-
-src/lexer/lexer.o: src/lexer/lexer.cpp.o
-.PHONY : src/lexer/lexer.o
-
-# target to build an object file
-src/lexer/lexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o
-.PHONY : src/lexer/lexer.cpp.o
-
-src/lexer/lexer.i: src/lexer/lexer.cpp.i
-.PHONY : src/lexer/lexer.i
-
-# target to preprocess a source file
-src/lexer/lexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i
-.PHONY : src/lexer/lexer.cpp.i
-
-src/lexer/lexer.s: src/lexer/lexer.cpp.s
-.PHONY : src/lexer/lexer.s
-
-# target to generate assembly for a file
-src/lexer/lexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s
-.PHONY : src/lexer/lexer.cpp.s
 
 src/lexer/lexerline.o: src/lexer/lexerline.cpp.o
 .PHONY : src/lexer/lexerline.o
@@ -566,29 +566,29 @@ test/ain_file/AinFileTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
 .PHONY : test/ain_file/AinFileTest.cpp.s
 
-test/lexer/lexertest.o: test/lexer/lexertest.cpp.o
-.PHONY : test/lexer/lexertest.o
+test/lexer/LexerTest.o: test/lexer/LexerTest.cpp.o
+.PHONY : test/lexer/LexerTest.o
 
 # target to build an object file
-test/lexer/lexertest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o
-.PHONY : test/lexer/lexertest.cpp.o
+test/lexer/LexerTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o
+.PHONY : test/lexer/LexerTest.cpp.o
 
-test/lexer/lexertest.i: test/lexer/lexertest.cpp.i
-.PHONY : test/lexer/lexertest.i
+test/lexer/LexerTest.i: test/lexer/LexerTest.cpp.i
+.PHONY : test/lexer/LexerTest.i
 
 # target to preprocess a source file
-test/lexer/lexertest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.i
-.PHONY : test/lexer/lexertest.cpp.i
+test/lexer/LexerTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i
+.PHONY : test/lexer/LexerTest.cpp.i
 
-test/lexer/lexertest.s: test/lexer/lexertest.cpp.s
-.PHONY : test/lexer/lexertest.s
+test/lexer/LexerTest.s: test/lexer/LexerTest.cpp.s
+.PHONY : test/lexer/LexerTest.s
 
 # target to generate assembly for a file
-test/lexer/lexertest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.s
-.PHONY : test/lexer/lexertest.cpp.s
+test/lexer/LexerTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
+.PHONY : test/lexer/LexerTest.cpp.s
 
 # Help Target
 help:
@@ -616,12 +616,12 @@ help:
 	@echo "... src/helpers/wchar_t_helper.o"
 	@echo "... src/helpers/wchar_t_helper.i"
 	@echo "... src/helpers/wchar_t_helper.s"
+	@echo "... src/lexer/Lexer.o"
+	@echo "... src/lexer/Lexer.i"
+	@echo "... src/lexer/Lexer.s"
 	@echo "... src/lexer/keywordtoken.o"
 	@echo "... src/lexer/keywordtoken.i"
 	@echo "... src/lexer/keywordtoken.s"
-	@echo "... src/lexer/lexer.o"
-	@echo "... src/lexer/lexer.i"
-	@echo "... src/lexer/lexer.s"
 	@echo "... src/lexer/lexerline.o"
 	@echo "... src/lexer/lexerline.i"
 	@echo "... src/lexer/lexerline.s"
@@ -652,9 +652,9 @@ help:
 	@echo "... test/ain_file/AinFileTest.o"
 	@echo "... test/ain_file/AinFileTest.i"
 	@echo "... test/ain_file/AinFileTest.s"
-	@echo "... test/lexer/lexertest.o"
-	@echo "... test/lexer/lexertest.i"
-	@echo "... test/lexer/lexertest.s"
+	@echo "... test/lexer/LexerTest.o"
+	@echo "... test/lexer/LexerTest.i"
+	@echo "... test/lexer/LexerTest.s"
 .PHONY : help
 
 

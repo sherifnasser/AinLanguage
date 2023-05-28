@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "AinFile.hpp"
-#include "lexer.hpp"
+#include "Lexer.hpp"
 #include "globalscope.hpp"
 #include "parser.hpp"
 #include "keywordtoken.hpp"
@@ -22,9 +23,9 @@ int main(int argc, char * argv[]){
 
     string path(argv[1]); // as it's the second arg
     
-    AinFile file=AinFile(path);
-    lexer lex = lexer(file);
-    auto lines=lex.getlexerlines();
+    std::shared_ptr<IAinFile> file=std::make_shared<AinFile>(path);
+    Lexer lexer = Lexer(file);
+    auto lines=lexer.getlexerlines();
     auto tokens=vector<lexertoken>{};
     for(auto &l:lines){
         auto ltokens=l.gettokens();

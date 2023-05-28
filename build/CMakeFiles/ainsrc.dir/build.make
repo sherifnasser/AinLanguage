@@ -83,19 +83,19 @@ CMakeFiles/ainsrc.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/main.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp -o CMakeFiles/ainsrc.dir/src/main.cpp.s
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp > CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp > CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp -o CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s
 
 CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp
@@ -296,7 +296,7 @@ CMakeFiles/ainsrc.dir/src/parser/parser.cpp.s: cmake_force
 # Object files for target ainsrc
 ainsrc_OBJECTS = \
 "CMakeFiles/ainsrc.dir/src/main.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o" \
@@ -316,7 +316,7 @@ ainsrc_OBJECTS = \
 ainsrc_EXTERNAL_OBJECTS =
 
 libainsrc.a: CMakeFiles/ainsrc.dir/src/main.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o

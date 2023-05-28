@@ -272,7 +272,7 @@ CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: /home/nasser/Projects
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp
 
-CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp \
+CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -619,14 +619,15 @@ CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Prog
   /usr/include/c++/12.2/bits/regex_executor.tcc \
   /usr/include/c++/12.2/iterator \
   /usr/include/c++/12.2/bits/stream_iterator.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp
 
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
 
 /usr/include/c++/12.2/bits/regex.h:
 
@@ -709,6 +710,8 @@ CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/set:
 
 /usr/include/c++/12.2/bits/stl_multimap.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp:
 
@@ -863,8 +866,6 @@ CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/bits/floatn.h:
 
 /usr/include/c++/12.2/bits/memoryfwd.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/lexertest.cpp:
 
 /usr/include/bits/types/struct_tm.h:
 
@@ -1269,8 +1270,6 @@ CMakeFiles/unit_tests.dir/test/lexer/lexertest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/ext/aligned_buffer.h:
 
 /usr/include/c++/12.2/bits/shared_ptr_atomic.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp:
 
 /usr/include/c++/12.2/bits/random.h:
 

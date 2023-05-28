@@ -189,18 +189,34 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
   /usr/include/c++/12.2/map \
   /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
   /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
@@ -224,15 +240,29 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/erase_if.h:
 
-/usr/include/c++/12.2/bits/uses_allocator.h:
-
 /usr/include/c++/12.2/bits/stl_map.h:
 
 /usr/include/c++/12.2/bits/node_handle.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+
+/usr/include/c++/12.2/bits/atomic_base.h:
+
+/usr/include/c++/12.2/bits/shared_ptr_atomic.h:
+
 /usr/include/c++/12.2/ext/aligned_buffer.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+/usr/include/c++/12.2/bits/unique_ptr.h:
+
+/usr/include/c++/12.2/bits/uses_allocator.h:
+
+/usr/include/c++/12.2/bit:
+
+/usr/include/c++/12.2/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/12.2/bits/stl_tempbuf.h:
+
+/usr/include/c++/12.2/memory:
 
 /usr/include/c++/12.2/bits/vector.tcc:
 
@@ -270,6 +300,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/errno.h:
 
+/usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
+
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/12.2/bits/locale_classes.tcc:
@@ -280,11 +312,17 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/stdio.h:
 
+/usr/include/c++/12.2/bits/align.h:
+
 /usr/include/c++/12.2/cstdio:
 
 /usr/include/c++/12.2/bits/std_abs.h:
 
 /usr/include/alloca.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
+
+/usr/include/c++/12.2/bits/shared_ptr_base.h:
 
 /usr/include/c++/12.2/bits/streambuf.tcc:
 
@@ -309,6 +347,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/string_view.tcc:
 
 /usr/include/c++/12.2/bits/functional_hash.h:
+
+/usr/include/c++/12.2/bits/shared_ptr.h:
 
 /usr/include/c++/12.2/string_view:
 
@@ -366,6 +406,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/cxxabi_init_exception.h:
 
+/usr/include/c++/12.2/pstl/execution_defs.h:
+
 /usr/include/c++/12.2/bits/exception_defines.h:
 
 /usr/include/c++/12.2/bits/move.h:
@@ -407,6 +449,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/locale.h:
 
 /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/12.2/backward/auto_ptr.h:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h:
 
@@ -494,6 +538,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/map:
 
+/usr/include/c++/12.2/ext/concurrence.h:
+
 /usr/include/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/c++/12.2/clocale:
@@ -560,6 +606,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/bits/types/clockid_t.h:
 
+/usr/include/c++/12.2/pstl/glue_memory_defs.h:
+
 /usr/include/bits/atomic_wide_counter.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
@@ -596,8 +644,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/functexcept.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp:
-
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 
 /usr/include/c++/12.2/bits/invoke.h:
@@ -625,6 +671,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/allocator.h:
 
 /usr/include/c++/12.2/bits/utility.h:
+
+/usr/include/c++/12.2/bits/allocated_ptr.h:
 
 /usr/include/c++/12.2/bits/refwrap.h:
 
