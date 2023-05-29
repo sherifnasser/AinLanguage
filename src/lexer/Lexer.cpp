@@ -13,7 +13,7 @@
 #define MINUS2 L'-'
 
 Lexer::Lexer(std::shared_ptr<IAinFile> ainFile):ainFile(ainFile){
-    lexerlines=new std::vector<lexerline>();
+    lexerlines=std::make_shared<std::vector<lexerline>>();
 
     auto lines=ainFile->getLines();
 

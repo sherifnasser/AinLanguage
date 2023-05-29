@@ -270,7 +270,8 @@ CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/pstl/glue_numeric_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FileNotFoundException.hpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
   /usr/include/stdc-predef.h \
@@ -621,6 +622,7 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
   /usr/include/c++/12.2/bits/stream_iterator.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp
 
@@ -786,6 +788,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/bits/types/clock_t.h:
 
 /usr/include/bits/types/sig_atomic_t.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FileNotFoundException.hpp:
 
 /usr/include/bits/types/__fpos_t.h:
 
@@ -1154,6 +1158,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/bits/stl_iterator.h:
 
 /usr/include/bits/types/__fpos64_t.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
 
 /usr/include/bits/environments.h:
 

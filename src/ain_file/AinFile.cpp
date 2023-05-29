@@ -2,9 +2,11 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <filesystem>
 #include "string_helper.hpp"
 #include "AinFile.hpp"
 #include "BadFileFormatException.hpp"
+#include "FileNotFoundException.hpp"
 
 #define vector std::vector
 #define wifstream std::wifstream
@@ -14,6 +16,10 @@ AinFile::AinFile(std::string &path){
 
     if(!endsWith(path,".ain")){
         throw BadFileFormatException(path);
+    }
+    
+    if(!std::filesystem::exists(path)){
+        throw FileNotFoundException(path);
     }
     
     readAinFile(path);

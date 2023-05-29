@@ -3,10 +3,11 @@
 #include <catch2/catch.hpp>
 #include "AinFile.hpp"
 #include "BadFileFormatException.hpp"
+#include "FileNotFoundException.hpp"
 
 SCENARIO("Test AinFile.cpp","[AinFileTest.cpp]"){
     GIVEN("A file"){
-        WHEN("format is *.ain"){
+        WHEN("format is *.ain, file exists"){
             std::string path="../test/ain_file/testPass.ain";
             AinFile file(path);
             std::vector<std::wstring> LINES={L"##",L"This for testing AinFile.cpp",L"##"};
@@ -16,7 +17,30 @@ SCENARIO("Test AinFile.cpp","[AinFileTest.cpp]"){
                 for(int i=0;i<lines.size();i++){
                     REQUIRE(lines[i]==LINES[i]);
                 }
-            }
+            };
+        };
+        
+        WHEN("format is *.ain, file doesn't exist"){
+            THEN("Throw FileNotFoundException with file name"){
+                std::string path="../test/ain_file/testFail.ain";
+
+                auto matcher=Catch::Matchers::Predicate<FileNotFoundException>(
+                    [&](const FileNotFoundException e){
+                        std::string what=e.what();
+                        return
+                            what.find("testFail.ain")!=std::string::npos
+                                &&
+                            what.find("ain_file/")==std::string::npos
+                        ;
+                    }
+                );
+
+                REQUIRE_THROWS_MATCHES(
+                    AinFile(path),
+                    FileNotFoundException,
+                    matcher
+                );
+            };
         };
 
         WHEN("file in path and format is not *.ain"){

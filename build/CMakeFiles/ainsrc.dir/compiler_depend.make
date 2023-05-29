@@ -194,10 +194,41 @@ CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++io.h \
   /usr/include/c++/12.2/bits/fstream.tcc \
+  /usr/include/c++/12.2/filesystem \
+  /usr/include/c++/12.2/bits/fs_fwd.h \
+  /usr/include/c++/12.2/bits/chrono.h \
+  /usr/include/c++/12.2/ratio \
+  /usr/include/c++/12.2/limits \
+  /usr/include/c++/12.2/ctime \
+  /usr/include/c++/12.2/bits/parse_numbers.h \
+  /usr/include/c++/12.2/bits/fs_path.h \
+  /usr/include/c++/12.2/locale \
+  /usr/include/c++/12.2/bits/locale_facets_nonio.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12.2/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12.2/bits/locale_conv.h \
+  /usr/include/c++/12.2/iomanip \
+  /usr/include/c++/12.2/bits/quoted_string.h \
+  /usr/include/c++/12.2/sstream \
+  /usr/include/c++/12.2/bits/sstream.tcc \
+  /usr/include/c++/12.2/codecvt \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/bits/fs_dir.h \
+  /usr/include/c++/12.2/bits/fs_ops.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FileNotFoundException.hpp
 
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
   /usr/include/stdc-predef.h \
@@ -1135,6 +1166,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
   /usr/include/c++/12.2/map \
@@ -2163,6 +2195,7 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinL
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
   /usr/include/c++/12.2/map \
@@ -3268,8 +3301,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/tr1/gamma.tcc:
 
-/usr/include/c++/12.2/limits:
-
 /usr/include/c++/12.2/bits/specfun.h:
 
 /usr/include/bits/iscanonical.h:
@@ -3288,6 +3319,34 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp:
+
+/usr/include/c++/12.2/pstl/execution_defs.h:
+
+/usr/include/c++/12.2/pstl/glue_memory_defs.h:
+
+/usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/12.2/bits/atomic_base.h:
+
+/usr/include/c++/12.2/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/12.2/bits/align.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
+
 /usr/include/c++/12.2/ext/alloc_traits.h:
 
 /usr/include/c++/12.2/bits/refwrap.h:
@@ -3304,6 +3363,8 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/bits/stl_construct.h:
 
+/usr/include/c++/12.2/bits/fs_ops.h:
+
 /usr/include/bits/mathcalls.h:
 
 /usr/include/c++/12.2/cerrno:
@@ -3318,7 +3379,9 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/struct_mutex.h:
 
-/usr/include/bits/thread-shared-types.h:
+/usr/include/c++/12.2/backward/auto_ptr.h:
+
+/usr/include/c++/12.2/bits/stl_uninitialized.h:
 
 /usr/include/c++/12.2/backward/binders.h:
 
@@ -3332,9 +3395,13 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/atomic_wide_counter.h:
 
-/usr/include/c++/12.2/pstl/glue_memory_defs.h:
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/c++/12.2/bits/quoted_string.h:
 
 /usr/include/bits/types/clock_t.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FileNotFoundException.hpp:
 
 /usr/include/bits/types/__fpos_t.h:
 
@@ -3368,15 +3435,9 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/types/struct_sched_param.h:
 
-/usr/include/c++/12.2/bits/invoke.h:
-
-/usr/include/c++/12.2/bits/hash_bytes.h:
-
-/usr/include/bits/endianness.h:
-
 /usr/include/ctype.h:
 
-/usr/include/c++/12.2/bits/uniform_int_dist.h:
+/usr/include/c++/12.2/bits/fs_fwd.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h:
 
@@ -3416,6 +3477,8 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/stdc-predef.h:
 
+/usr/include/c++/12.2/bits/chrono.h:
+
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h:
 
 /usr/include/bits/types/__sigset_t.h:
@@ -3429,6 +3492,12 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 /usr/include/bits/typesizes.h:
 
 /usr/include/c++/12.2/bits/stringfwd.h:
+
+/usr/include/c++/12.2/bits/parse_numbers.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp:
+
+/usr/include/c++/12.2/bits/exception.h:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
@@ -3444,8 +3513,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/timesize.h:
 
-/usr/include/c++/12.2/compare:
-
 /usr/include/c++/12.2/iostream:
 
 /usr/include/bits/long-double.h:
@@ -3454,25 +3521,15 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h:
 
-/usr/include/c++/12.2/bits/stl_uninitialized.h:
-
-/usr/include/c++/12.2/backward/auto_ptr.h:
-
 /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h:
 
 /usr/include/locale.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp:
 
 /usr/include/c++/12.2/bits/char_traits.h:
 
 /usr/include/c++/12.2/bits/basic_string.h:
 
 /usr/include/features-time64.h:
-
-/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h:
-
-/usr/include/c++/12.2/stdexcept:
 
 /usr/include/bits/types/mbstate_t.h:
 
@@ -3483,8 +3540,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 /usr/include/gnu/stubs-64.h:
 
 /usr/include/bits/types/FILE.h:
-
-/usr/include/c++/12.2/bits/locale_facets.tcc:
 
 /usr/include/bits/fp-fast.h:
 
@@ -3501,8 +3556,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 /usr/include/c++/12.2/bits/move.h:
 
 /usr/include/c++/12.2/bits/exception_defines.h:
-
-/usr/include/c++/12.2/pstl/execution_defs.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp:
 
@@ -3542,6 +3595,10 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/stdlib-float.h:
 
+/usr/include/c++/12.2/memory:
+
+/usr/include/c++/12.2/bits/algorithmfwd.h:
+
 /usr/include/bits/types/clockid_t.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++io.h:
@@ -3570,9 +3627,9 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/byteswap.h:
 
-/usr/include/c++/12.2/bits/stl_algo.h:
-
 /usr/include/c++/12.2/bits/shared_ptr.h:
+
+/usr/include/c++/12.2/bits/stl_algo.h:
 
 /usr/include/c++/12.2/cmath:
 
@@ -3612,21 +3669,15 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/bits/streambuf.tcc:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
-
 /usr/include/c++/12.2/bits/shared_ptr_base.h:
 
 /usr/include/bits/types/sigset_t.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp:
 
 /usr/include/c++/12.2/bits/ptr_traits.h:
 
 /usr/include/c++/12.2/bits/std_abs.h:
 
 /usr/include/c++/12.2/cstdio:
-
-/usr/include/c++/12.2/bits/align.h:
 
 /usr/include/c++/12.2/bits/localefwd.h:
 
@@ -3638,15 +3689,21 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/bits/types/__fpos64_t.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
+
 /usr/include/bits/types/struct_FILE.h:
+
+/usr/include/c++/12.2/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/12.2/string_view:
+
+/usr/include/c++/12.2/bits/locale_classes.tcc:
 
 /usr/include/c++/12.2/bits/codecvt.h:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/12.2/functional:
-
-/usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
 
 /usr/include/errno.h:
 
@@ -3658,6 +3715,10 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/asm/errno.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp:
+
+/usr/include/c++/12.2/locale:
+
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/bits/types/error_t.h:
@@ -3667,8 +3728,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 /usr/include/c++/12.2/ext/concurrence.h:
 
 /usr/include/c++/12.2/bits/basic_string.tcc:
-
-/usr/include/c++/12.2/system_error:
 
 /usr/include/c++/12.2/cwchar:
 
@@ -3686,6 +3745,8 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
 
+/usr/include/c++/12.2/bits/fs_path.h:
+
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp:
@@ -3694,7 +3755,7 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/bits/ostream.tcc:
 
-/usr/include/c++/12.2/bits/istream.tcc:
+/usr/include/c++/12.2/limits:
 
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 
@@ -3718,9 +3779,59 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h:
 
-/usr/include/c++/12.2/bits/string_view.tcc:
+/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp:
+/usr/include/c++/12.2/stdexcept:
+
+/usr/include/c++/12.2/filesystem:
+
+/usr/include/c++/12.2/ratio:
+
+/usr/include/c++/12.2/bits/locale_facets.tcc:
+
+/usr/include/c++/12.2/ctime:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp:
+
+/usr/include/c++/12.2/bits/unique_ptr.h:
+
+/usr/include/c++/12.2/bits/locale_facets_nonio.h:
+
+/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h:
+
+/usr/include/c++/12.2/bits/uniform_int_dist.h:
+
+/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/messages_members.h:
+
+/usr/include/c++/12.2/bits/invoke.h:
+
+/usr/include/c++/12.2/bits/hash_bytes.h:
+
+/usr/include/bits/endianness.h:
+
+/usr/include/libintl.h:
+
+/usr/include/c++/12.2/bits/istream.tcc:
+
+/usr/include/c++/12.2/bits/locale_facets_nonio.tcc:
+
+/usr/include/c++/12.2/bits/locale_conv.h:
+
+/usr/include/c++/12.2/iomanip:
+
+/usr/include/c++/12.2/compare:
+
+/usr/include/c++/12.2/sstream:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/c++/12.2/bits/stl_map.h:
+
+/usr/include/c++/12.2/system_error:
+
+/usr/include/c++/12.2/bits/sstream.tcc:
+
+/usr/include/c++/12.2/codecvt:
 
 /usr/include/c++/12.2/cstdlib:
 
@@ -3728,25 +3839,33 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /usr/include/c++/12.2/bits/uses_allocator.h:
 
+/usr/include/c++/12.2/ext/aligned_buffer.h:
+
+/usr/include/c++/12.2/bit:
+
+/usr/include/c++/12.2/bits/basic_ios.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+
+/usr/include/c++/12.2/bits/string_view.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp:
+
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
 
 /usr/include/c++/12.2/bits/std_function.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp:
 
 /usr/include/c++/12.2/unordered_map:
 
-/usr/include/c++/12.2/ext/aligned_buffer.h:
-
-/usr/include/c++/12.2/string_view:
-
-/usr/include/c++/12.2/bits/locale_classes.tcc:
-
-/usr/include/c++/12.2/bits/stl_raw_storage_iter.h:
-
 /usr/include/c++/12.2/bits/enable_special_members.h:
+
+/usr/include/c++/12.2/bits/fs_dir.h:
 
 /usr/include/c++/12.2/bits/node_handle.h:
 
@@ -3772,46 +3891,6 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Progr
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp:
 
-/usr/include/c++/12.2/bits/exception.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/c++/12.2/bits/stl_map.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp:
-
-/usr/include/c++/12.2/bits/algorithmfwd.h:
-
-/usr/include/c++/12.2/memory:
-
-/usr/include/c++/12.2/bits/basic_ios.tcc:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
-
-/usr/include/c++/12.2/bit:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp:
-
-/usr/include/c++/12.2/bits/unique_ptr.h:
-
-/usr/include/c++/12.2/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/12.2/bits/atomic_base.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp:
