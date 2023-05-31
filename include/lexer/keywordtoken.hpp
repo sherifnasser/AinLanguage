@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
-#include "lexertoken.hpp"
-class keywordtoken:public lexertoken
+#include "LexerToken.hpp"
+class keywordtoken:public LexerToken
 {
     
 public:
     keywordtoken(std::wstring val);
     static bool iskeyword(std::wstring val);
-    static bool iskeyword(lexertoken t);
+    static bool iskeyword(LexerToken t);
     static keywordtoken VAR;
     static keywordtoken VAL;
     static keywordtoken FUN;

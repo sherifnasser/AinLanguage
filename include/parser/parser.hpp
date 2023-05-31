@@ -1,18 +1,19 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include <vector>
-#include "lexertoken.hpp"
+#include "LexerToken.hpp"
 #include "globalscope.hpp"
 #include "expression.hpp"
 class parser
 {
 private:
-    std::vector<lexertoken>* tokens;
-    lexertoken current;
+    std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokens;
+    LexerToken current;
     int currentpos=-1;
-    lexertoken next();
-    bool currentmatch(lexertoken expected);
-    bool nextmatch(lexertoken expected);
+    LexerToken next();
+    bool currentmatch(LexerToken expected);
+    bool nextmatch(LexerToken expected);
     std::wstring currentval();
     void find_functions(globalscope* globalscope);
     statement* find_next_statement(funscope* funscope);
@@ -35,6 +36,6 @@ private:
     void add_next_stm_to_stm_list(funscope* fscope,StmList* stmlist);
 
 public:
-    parser(std::vector<lexertoken>* tokens);
+    parser(std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokens);
     void startparse(globalscope* globalscope);
 };

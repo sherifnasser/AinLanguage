@@ -142,5 +142,5 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp

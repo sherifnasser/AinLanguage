@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "lexertoken.hpp"
-class symboltoken:public lexertoken
+#include "LexerToken.hpp"
+class symboltoken:public LexerToken
 {
     
 public:

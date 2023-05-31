@@ -14,7 +14,3 @@ class FakeAinFile: public IAinFile{
             };
         }
 };
-
-SCENARIO("Test Lexer reads ain file", "[LexerTest.cpp]") {
-    
-}

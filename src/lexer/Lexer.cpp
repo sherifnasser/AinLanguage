@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Lexer.hpp"
-#include "lexerline.hpp"
+#include "LexerLine.hpp"
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
 #include "keywordtoken.hpp"
@@ -13,42 +13,42 @@
 #define MINUS2 L'-'
 
 Lexer::Lexer(std::shared_ptr<IAinFile> ainFile):ainFile(ainFile){
-    lexerlines=std::make_shared<std::vector<lexerline>>();
+    lexerlines=std::make_shared<std::vector<LexerLine>>();
 
     auto lines=ainFile->getLines();
 
-    int linenumber=0;
+    int lineNumber=0;
 
     for(auto &line:lines){
-        linenumber++;
+        lineNumber++;
         
         if(line.empty())
             continue;
 
-        auto nextlexerline=lexline(line,linenumber);
+        auto nextlexerline=lexLine(line,lineNumber);
         lexerlines->push_back(nextlexerline);
         
     }
 
 }
 
-lexerline Lexer::lexline(std::wstring line,int linenumber){
+LexerLine Lexer::lexLine(std::wstring line,int linenumber){
 
-    lexerline _lexerline=lexerline(linenumber);
-    auto tokens=_lexerline.gettokens();
+    LexerLine _lexerline=LexerLine(line,linenumber);
+    auto tokens=_lexerline.getTokens();
     std::wstring newword;
-    lexertoken::TOKEN_TYPE newtoken=lexertoken::NOT_SET_TOKEN;
+    LexerToken::TOKEN_TYPE newtoken=LexerToken::NOT_SET_TOKEN;
 
     for(int i=0;i<line.size();i++){
         
         auto &c=line[i];
         if(isainpunct(c)){ // exclude the underscore as they represent identifier
-            newtoken=lexertoken::SYMBOL_TOKEN;
+            newtoken=LexerToken::SYMBOL_TOKEN;
             newword=c;
 
             // we're facing a string
             if(c==DOUBLE_QOUTE){
-                newtoken=lexertoken::LITERAL_TOKEN;
+                newtoken=LexerToken::LITERAL_TOKEN;
 
                 // increase i before the loop, as it might reach the end of the line, so the loop won't start
                 i++;
@@ -75,7 +75,7 @@ lexerline Lexer::lexline(std::wstring line,int linenumber){
                 // we're facing a single line comment
                 // we found a SLASH, but check if there is another SLASH after it
                 if(line[i+1]==SLASH){
-                    newtoken=lexertoken::COMMENT_TOKEN;
+                    newtoken=LexerToken::COMMENT_TOKEN;
                     // append everything from second slash to the end of the line
                     newword+=line.substr(i+1);
 
@@ -87,19 +87,19 @@ lexerline Lexer::lexline(std::wstring line,int linenumber){
                 }
             }
         }else if(std::iswdigit(c)){
-            newtoken=lexertoken::LITERAL_TOKEN;
+            newtoken=LexerToken::LITERAL_TOKEN;
             auto size=tokens->size();
-            auto last=(size>=1)?(*tokens)[size-1]:lexertoken::notsettoken;
-            auto beforelast=(size>=2)?(*tokens)[size-2]:lexertoken::notsettoken;
+            auto last=(size>=1)?(*tokens)[size-1]:std::make_shared<LexerToken>(LexerToken::notsettoken);
+            auto beforelast=(size>=2)?(*tokens)[size-2]:std::make_shared<LexerToken>(LexerToken::notsettoken);
             newword=L"";
             if(
-                (last==symboltoken::PLUS||last==symboltoken::MINUS)
+                (*last==symboltoken::PLUS||*last==symboltoken::MINUS)
                 &&
-                (beforelast.gettokentype()==lexertoken::SYMBOL_TOKEN)
+                (beforelast->getTokenType()==LexerToken::SYMBOL_TOKEN)
                 &&
-                (beforelast.getval()!=L")")
+                (beforelast->getVal()!=L")")
             ){
-                newword+=last.getval();
+                newword+=last->getVal();
                 tokens->pop_back();
             }
             newword+=c;
@@ -192,18 +192,20 @@ lexerline Lexer::lexline(std::wstring line,int linenumber){
                 i++;
             }
             newtoken=(keywordtoken::iskeyword(newword))
-                ?lexertoken::KEYWORD_TOKEN:lexertoken::IDENTIFIER_TOKEN;
+                ?LexerToken::KEYWORD_TOKEN:LexerToken::IDENTIFIER_TOKEN;
         }
 
         // write the next token
-        if(!iswempty(c))
-            tokens->push_back(lexertoken(newtoken,newword));
+        if(!iswempty(c)){
+            auto token=std::make_shared<LexerToken>(LexerToken(newtoken,newword));
+            tokens->push_back(token);
+        }
         
     }
 
     return _lexerline;
 }
 
-std::vector<lexerline> Lexer::getlexerlines(){
+std::vector<LexerLine> Lexer::getLexerLines(){
     return *lexerlines;
 }

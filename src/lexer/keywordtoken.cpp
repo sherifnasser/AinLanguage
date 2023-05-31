@@ -2,9 +2,9 @@
 #include "keywordtoken.hpp"
 
 keywordtoken::keywordtoken(std::wstring val):
-lexertoken(lexertoken::KEYWORD_TOKEN,val){}
+LexerToken(LexerToken::KEYWORD_TOKEN,val){}
 
-bool keywordtoken::iskeyword(lexertoken t){
+bool keywordtoken::iskeyword(LexerToken t){
     keywordtoken keywords[]={
         VAR,VAL,FUN,RETURN,
         PACKAGE,IMPORT,CLASS,INTERFACE,OBJECT,

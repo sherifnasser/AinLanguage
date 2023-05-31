@@ -54,7 +54,7 @@ void ifstatement::run(){
         auto ex=exstmlist->first;  // condition
         auto stmlist=exstmlist->second; // then statements
         auto exval=ex->evaluate(runscope); // evaluate the condition
-        if(exval==keywordtoken::TRUE.getval()){ // run then statements
+        if(exval==keywordtoken::TRUE.getVal()){ // run then statements
             for(auto stm:*stmlist){
                 stm->run();
             }
@@ -72,7 +72,7 @@ void whilestatement::run(){
 
     auto vars_size_before=runscope->getvars()->size();
 
-    while(ex->evaluate(runscope)==keywordtoken::TRUE.getval()){ // while the condition is true
+    while(ex->evaluate(runscope)==keywordtoken::TRUE.getVal()){ // while the condition is true
         for(auto stm:*stmlist){
             stm->run();
         }
@@ -94,7 +94,7 @@ void dowhilestatement::run(){
         for(auto stm:*stmlist){
             stm->run();
         }
-    }while(ex->evaluate(runscope)==keywordtoken::TRUE.getval());
+    }while(ex->evaluate(runscope)==keywordtoken::TRUE.getVal());
 
 
     // pop all defined variables in while statement

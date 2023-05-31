@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-#include "lexerline.hpp"
+#include "LexerLine.hpp"
 
 class ILexer{
         
     public:
-        virtual lexerline lexline(std::wstring line,int linenumber)=0;
-        virtual std::vector<lexerline> getlexerlines()=0;
+        virtual LexerLine lexLine(std::wstring line,int linenumber)=0;
+        virtual std::vector<LexerLine> getLexerLines()=0;
 };

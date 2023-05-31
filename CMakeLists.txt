@@ -7,11 +7,12 @@ project(AinLanguage)
 
 add_library(ainsrc
     src/main.cpp
+    src/lexer/LexerToken.cpp
     src/lexer/Lexer.cpp
+    src/lexer/LexerLine.cpp
+    src/lexer/LiteralToken.cpp
     src/lexer/keywordtoken.cpp
-    src/lexer/lexerline.cpp
     src/lexer/symboltoken.cpp
-    src/lexer/lexertoken.cpp
     src/ain_file/AinFile.cpp
     src/statement/statement.cpp
     src/helpers/string_helper.cpp
@@ -37,15 +38,11 @@ set(INCLUDE
 
 set(TEST
     test/lexer/LexerTest.cpp
+    test/lexer/LexerLineTest.cpp
     test/ain_file/AinFileTest.cpp
 )
 
 ### end files_cmake.cpp ###
-
-
-
-
-
 
 
 add_executable(ain src/main.cpp)

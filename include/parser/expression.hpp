@@ -1,6 +1,6 @@
 #pragma once
 #include "scope.hpp"
-#include "lexertoken.hpp"
+#include "LexerToken.hpp"
 
 class scope;
 class variable;
@@ -47,10 +47,10 @@ class numberexpression:public expression{
 class binaryexpression:public expression{
     private:
         expression* left;
-        lexertoken operation;
+        LexerToken operation;
         expression* right;
     public:
-        binaryexpression(expression* left, lexertoken &operation, expression* right);
+        binaryexpression(expression* left, LexerToken &operation, expression* right);
         std::wstring evaluate(scope* evalscope) override;
         void print(std::wstring tabsize=L"") override;
         std::wstring evaluatelogicalor(std::wstring l, std::wstring r);

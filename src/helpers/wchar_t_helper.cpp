@@ -1,6 +1,6 @@
 #include <iostream>
 #include "wchar_t_helper.hpp"
-#include "lexertoken.hpp"
+#include "LexerToken.hpp"
 
 bool isainpunct(wchar_t &c)
 {

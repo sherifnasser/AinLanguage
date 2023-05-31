@@ -1,42 +1,42 @@
 #include <iostream>
 #include <map>
 #include "parser.hpp"
-#include "lexertoken.hpp"
+#include "LexerToken.hpp"
 #include "keywordtoken.hpp"
 #include "symboltoken.hpp"
 #include "statement.hpp"
 
-#define notsettoken lexertoken::notsettoken
+#define notsettoken LexerToken::notsettoken
 #define wcout std::wcout
 #define endl std::endl
 
 
-parser::parser(std::vector<lexertoken>* tokensP){
+parser::parser(std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokensP){
     tokens=tokensP;
     current=next();
 }
 
-lexertoken parser::next(){
+LexerToken parser::next(){
     currentpos++;
-    current=(currentpos<tokens->size())? (*tokens)[currentpos]:notsettoken;
+    current=(currentpos<tokens->size())?(*((*tokens)[currentpos])):notsettoken;
     // skip comments
-    if(current.gettokentype()!=lexertoken::COMMENT_TOKEN)
+    if(current.getTokenType()!=LexerToken::COMMENT_TOKEN)
         return current;
     else
         return next();
 }
 
-bool parser::currentmatch(lexertoken expected){
+bool parser::currentmatch(LexerToken expected){
     return current==expected;
 }
 
-bool parser::nextmatch(lexertoken expected){
+bool parser::nextmatch(LexerToken expected){
     next();
     return currentmatch(expected);
 }
 
 std::wstring parser::currentval(){
-    return current.getval();
+    return current.getVal();
 }
 
 void parser::startparse(globalscope* globalscope){
@@ -213,7 +213,7 @@ statement* parser::find_if_statement(funscope* fscope){
 
         auto else_condition=[&](){
             if(currentmatch(keywordtoken::ELSE)){
-                std::wstring True_val=keywordtoken::TRUE.getval();
+                std::wstring True_val=keywordtoken::TRUE.getVal();
                 expression* ex=new boolexpression(True_val);
                 find_condition_stm_list(ex);
                 //next();
@@ -259,7 +259,7 @@ statement* parser::find_expression_statement(funscope* fscope){
 
 statement* parser::find_var_reassign_statement(funscope* fscope){
     if(current.isidentifiertoken()){
-        auto varname=current.getval();
+        auto varname=current.getVal();
         if(nextmatch(symboltoken::EQUAL)){
             next();
             auto ex=find_expression();
@@ -274,7 +274,7 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
             currentmatch(symboltoken::MODULO)||
             currentmatch(symboltoken::POWER)
         ){
-            lexertoken op=current;
+            LexerToken op=current;
             if(nextmatch(symboltoken::EQUAL)){
                 next();
                 auto left=new variableaccessexpression(varname);
@@ -333,7 +333,7 @@ expression* parser::find_binary_logical_or_expression(){
     expression* right;
     while(currentmatch(symboltoken::BAR)&&nextmatch(symboltoken::BAR))
     {   
-        lexertoken op=symboltoken::LOGICAL_OR;
+        LexerToken op=symboltoken::LOGICAL_OR;
         next();
         right=find_binary_logical_and_expression();
         left=new binaryexpression(left,op,right);
@@ -347,7 +347,7 @@ expression* parser::find_binary_logical_and_expression(){
     expression* right;
     while(currentmatch(symboltoken::AMPERSAND)&&nextmatch(symboltoken::AMPERSAND))
     {   
-        lexertoken op=symboltoken::LOGICAL_AND;
+        LexerToken op=symboltoken::LOGICAL_AND;
         next();
         right=find_binary_equality_expression();
         left=new binaryexpression(left,op,right);
@@ -361,9 +361,9 @@ expression* parser::find_binary_equality_expression(){
     expression* right;
     while(currentmatch(symboltoken::EXCLAMATION_MARK)||currentmatch(symboltoken::EQUAL))
     {
-        lexertoken op=current;
+        LexerToken op=current;
         if(nextmatch(symboltoken::EQUAL)){
-            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op != or ==
+            op=LexerToken(LexerToken::SYMBOL_TOKEN,op.getVal()+L"="); // we don't need if() to make op != or ==
             next();
             right=find_binary_comparison_expression();
             left=new binaryexpression(left,op,right);
@@ -382,9 +382,9 @@ expression* parser::find_binary_comparison_expression(){
         ||
         currentmatch(symboltoken::RIGHT_ANGLE_BRACKET)
     ){
-        lexertoken op=current;
+        LexerToken op=current;
         if(nextmatch(symboltoken::EQUAL)){
-            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op >= or <=
+            op=LexerToken(LexerToken::SYMBOL_TOKEN,op.getVal()+L"="); // we don't need if() to make op >= or <=
             next();
         }
         right=find_binary_math_plus_minus_expression();
@@ -402,7 +402,7 @@ expression* parser::find_binary_math_plus_minus_expression(){
         ||
         currentmatch(symboltoken::MINUS)
     ){
-        lexertoken op=current;
+        LexerToken op=current;
         next();
         right=find_binary_math_star_slash_expression();
         left=new binaryexpression(left,op,right);
@@ -421,7 +421,7 @@ expression* parser::find_binary_math_star_slash_expression(){
         ||
         currentmatch(symboltoken::MODULO)
     ){
-        lexertoken op=current;
+        LexerToken op=current;
         next();
         right=find_binary_math_exponent_expression();
         left=new binaryexpression(left,op,right);
@@ -433,7 +433,7 @@ expression* parser::find_binary_math_exponent_expression(){
     expression* left=find_binary_parentheses_expression();
     expression* right;
     while(currentmatch(symboltoken::POWER)){
-        lexertoken op=current;
+        LexerToken op=current;
         next();
         right=find_binary_parentheses_expression();
         left=new binaryexpression(left,op,right);
@@ -448,7 +448,7 @@ expression* parser::find_binary_parentheses_expression(){
         next();
         left=find_binary_logical_or_expression();
         while(!currentmatch(symboltoken::RIGHT_PARENTHESIS)){
-            lexertoken op=current;
+            LexerToken op=current;
             next();
             right=find_binary_logical_or_expression();
             left=new binaryexpression(left,op,right);

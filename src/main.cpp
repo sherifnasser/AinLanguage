@@ -25,14 +25,14 @@ int main(int argc, char * argv[]){
     
     std::shared_ptr<IAinFile> file=std::make_shared<AinFile>(path);
     Lexer lexer = Lexer(file);
-    auto lines=lexer.getlexerlines();
-    auto tokens=vector<lexertoken>{};
+    auto lines=lexer.getLexerLines();
+    auto tokens=std::make_shared<vector<std::shared_ptr<LexerToken>>>();
     for(auto &l:lines){
-        auto ltokens=l.gettokens();
-        tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
+        auto ltokens=l.getTokens();
+        tokens->insert(tokens->end(),ltokens->begin(),ltokens->end());
     }
     globalscope global;
-    parser Parser(&tokens);
+    parser Parser(tokens);
     Parser.startparse(&global);
 
     auto main=global.getmain();

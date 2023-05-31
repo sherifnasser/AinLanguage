@@ -251,5 +251,5 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp

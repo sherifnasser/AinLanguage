@@ -15,11 +15,11 @@
 #define tofloat std::stof
 
 bool boolexpression::boolfromstr(std::wstring s){
-    return s==keywordtoken::TRUE.getval();
+    return s==keywordtoken::TRUE.getVal();
 }
 
 std::wstring boolexpression::strfrombool(bool b){
-    return (b)?keywordtoken::TRUE.getval():keywordtoken::FALSE.getval();
+    return (b)?keywordtoken::TRUE.getVal():keywordtoken::FALSE.getVal();
 }
 
 boolexpression::boolexpression(std::wstring &val):val(val){}
@@ -59,7 +59,7 @@ std::wstring numberexpression::evaluate(scope* evalscope){
     return val;
 }
 
-binaryexpression::binaryexpression(expression* left, lexertoken &operation, expression* right):
+binaryexpression::binaryexpression(expression* left, LexerToken &operation, expression* right):
 left(left),right(right){
     if(
         operation==symboltoken::LOGICAL_OR||
@@ -80,7 +80,7 @@ left(left),right(right){
     )
         this->operation=operation;
     else{
-        wcout<<L"val: "<<operation.getval();
+        wcout<<L"val: "<<operation.getVal();
         std::__throw_invalid_argument("Binary operation must be +, -, *, /, ^, %, >=, <=, ==, !=, && or ||");
     }
 }
@@ -90,7 +90,7 @@ void binaryexpression::print(std::wstring tabsize){
     auto newtabsize=tabsize+L"\t";
     left->print(newtabsize);
     wcout<<newtabsize<<"Operation"<<endl;
-    wcout<<newtabsize+L"\t"<<operation.getval()<<endl;
+    wcout<<newtabsize+L"\t"<<operation.getVal()<<endl;
     right->print(newtabsize);
 }
 

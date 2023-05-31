@@ -1,7 +1,7 @@
 #include "symboltoken.hpp"
 
 symboltoken::symboltoken(std::wstring c):
-lexertoken(lexertoken::SYMBOL_TOKEN,c){}
+LexerToken(LexerToken::SYMBOL_TOKEN,c){}
 
 symboltoken symboltoken::LEFT_ANGLE_BRACKET=symboltoken(L"<");
 symboltoken symboltoken::RIGHT_ANGLE_BRACKET=symboltoken(L">");
