@@ -4,7 +4,7 @@
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
 #include "keywordtoken.hpp"
-#include "symboltoken.hpp"
+#include "SymbolToken.hpp"
 
 #define DOUBLE_QOUTE L'\"'
 #define BACK_SLASH L'\\'
@@ -93,7 +93,7 @@ LexerLine Lexer::lexLine(std::wstring line,int linenumber){
             auto beforelast=(size>=2)?(*tokens)[size-2]:std::make_shared<LexerToken>(LexerToken::notsettoken);
             newword=L"";
             if(
-                (*last==symboltoken::PLUS||*last==symboltoken::MINUS)
+                (*last==SymbolToken::PLUS||*last==SymbolToken::MINUS)
                 &&
                 (beforelast->getTokenType()==LexerToken::SYMBOL_TOKEN)
                 &&

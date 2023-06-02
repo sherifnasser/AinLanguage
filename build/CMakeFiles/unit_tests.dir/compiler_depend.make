@@ -547,6 +547,7 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
@@ -1502,6 +1503,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/12.2/bits/istream.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp:
 
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 

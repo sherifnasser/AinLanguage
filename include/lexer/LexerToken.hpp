@@ -17,8 +17,8 @@ public:
     LexerToken(TOKEN_TYPE tokenType, std::wstring val);
     TOKEN_TYPE getTokenType();
     std::wstring getVal();
-    bool operator== (LexerToken &token);
-    bool operator!= (LexerToken &token);
+    bool operator== (LexerToken &token) const;
+    bool operator!= (LexerToken &token) const;
     bool isidentifiertoken();
     bool isnotsettoken();
     bool isnumberliteral();

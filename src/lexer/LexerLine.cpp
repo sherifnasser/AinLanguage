@@ -3,7 +3,7 @@
 #include<vector>
 #include "LexerLine.hpp"
 #include "LiteralToken.hpp"
-#include "symboltoken.hpp"
+#include "SymbolToken.hpp"
 #include "wchar_t_helper.hpp"
 #include "StringIsNotClosedException.hpp"
 
@@ -19,23 +19,42 @@ int LexerLine::getLineNumber(){
     return this->lineNumber;
 }
 
+bool LexerLine::isNotNullToken(std::shared_ptr<LexerToken> token){
+    if(token==nullptr)
+        return false;
+    tokens->push_back(token);
+    return true;
+}
+
 void LexerLine::tokenize(){
-    for(int i=0;i<line.size();i++){
-        i=findStringLiteralToken(i);
+    int i=0;
+    while(i<line.size()){
+        
+        auto stringToken=findStringLiteralToken(&i);
+        if(isNotNullToken(stringToken))
+            continue;
+        
+        auto commentToken=findCommentToken(&i);
+        if(isNotNullToken(commentToken))
+            continue;
+        
+        auto symbolToken=findSymbolToken(&i);
+        if(isNotNullToken(symbolToken))
+            continue;
     }
 }
 
-int LexerLine::findStringLiteralToken(int startIndex){
-        
-    auto &c=line[startIndex];
+std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(int* startIndex){
+    
+    auto &c=line[*startIndex];
     auto DOUBLE_QOUTE=L'\"';
     std::wstring CNTRL_DOUBLE_QOUTE=L"\\\""; // when there is double qoute inside the string
 
     if(c!=DOUBLE_QOUTE)
-        return startIndex;
+        return nullptr;
 
     std::wstring word=L"\"";  // add current "
-    int i=++startIndex;
+    int i=++(*startIndex);
     // append every char in the line until finding another "
 
     while(i<line.size()){
@@ -55,12 +74,64 @@ int LexerLine::findStringLiteralToken(int startIndex){
             break;
         }
 
-        word+=line.substr(startIndex,lastDoubleQouteIndex-startIndex+1);
+        word+=line.substr(*startIndex,lastDoubleQouteIndex-*startIndex+1);
         auto token=std::make_shared<LiteralToken>(LiteralToken::STRING,word);
-        tokens->push_back(token);
-        return lastDoubleQouteIndex+1;
+        *startIndex=lastDoubleQouteIndex+1;
+        return token;
     }
 
-    word+=line.substr(startIndex);
+    word+=line.substr(*startIndex);
     throw StringIsNotClosedException(lineNumber,word);
+}
+
+std::shared_ptr<LexerToken> LexerLine::findCommentToken(int* startIndex){
+
+    auto commentIndex=line.find(L"//",*startIndex);
+
+    if(commentIndex!=*startIndex)
+        return nullptr;
+    
+    auto word=line.substr(commentIndex);
+    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,word);
+    *startIndex=line.size();  // end of the line, so it'll stop the loop
+    return token;
+}
+
+
+std::shared_ptr<LexerToken> LexerLine::findSymbolToken(int* startIndex){
+    
+    // find a double-symbol token (>=, <=, ==, !=, &&, ||) also assignment operators
+    SymbolToken doubleSymbolTokens[]={
+        SymbolToken::GREATER_EQUAL,
+        SymbolToken::LESS_EQUAL,
+        SymbolToken::EQUAL_EQUAL,
+        SymbolToken::NOT_EQUAL,
+        SymbolToken::LOGICAL_AND,
+        SymbolToken::LOGICAL_OR,
+        SymbolToken::PLUS_EQUAL,
+        SymbolToken::MINUS_EQUAL,
+        SymbolToken::STAR_EQUAL,
+        SymbolToken::SLASH_EQUAL,
+        SymbolToken::MODULO_EQUAL,
+        SymbolToken::POWER_EQUAL
+    };
+    for(auto &s:doubleSymbolTokens){
+        auto found=line.find(s.getVal(),*startIndex);
+        if(found!=*startIndex)
+            continue;
+        *startIndex+=2; // skip next symbol
+        auto token=std::make_shared<SymbolToken>(s);
+        return token;
+    }
+
+    // find a single-symbol token
+    auto &c=line[*startIndex];
+    if(!isainpunct(c)) // This excludes underscore
+        return nullptr;
+    
+    ++(*startIndex);
+    std::wstring val;
+    val=c;
+    auto token=std::make_shared<SymbolToken>(val);
+    return token;
 }

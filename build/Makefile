@@ -371,6 +371,30 @@ src/lexer/LiteralToken.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.s
 .PHONY : src/lexer/LiteralToken.cpp.s
 
+src/lexer/SymbolToken.o: src/lexer/SymbolToken.cpp.o
+.PHONY : src/lexer/SymbolToken.o
+
+# target to build an object file
+src/lexer/SymbolToken.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o
+.PHONY : src/lexer/SymbolToken.cpp.o
+
+src/lexer/SymbolToken.i: src/lexer/SymbolToken.cpp.i
+.PHONY : src/lexer/SymbolToken.i
+
+# target to preprocess a source file
+src/lexer/SymbolToken.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.i
+.PHONY : src/lexer/SymbolToken.cpp.i
+
+src/lexer/SymbolToken.s: src/lexer/SymbolToken.cpp.s
+.PHONY : src/lexer/SymbolToken.s
+
+# target to generate assembly for a file
+src/lexer/SymbolToken.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.s
+.PHONY : src/lexer/SymbolToken.cpp.s
+
 src/lexer/keywordtoken.o: src/lexer/keywordtoken.cpp.o
 .PHONY : src/lexer/keywordtoken.o
 
@@ -394,30 +418,6 @@ src/lexer/keywordtoken.s: src/lexer/keywordtoken.cpp.s
 src/lexer/keywordtoken.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.s
 .PHONY : src/lexer/keywordtoken.cpp.s
-
-src/lexer/symboltoken.o: src/lexer/symboltoken.cpp.o
-.PHONY : src/lexer/symboltoken.o
-
-# target to build an object file
-src/lexer/symboltoken.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o
-.PHONY : src/lexer/symboltoken.cpp.o
-
-src/lexer/symboltoken.i: src/lexer/symboltoken.cpp.i
-.PHONY : src/lexer/symboltoken.i
-
-# target to preprocess a source file
-src/lexer/symboltoken.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.i
-.PHONY : src/lexer/symboltoken.cpp.i
-
-src/lexer/symboltoken.s: src/lexer/symboltoken.cpp.s
-.PHONY : src/lexer/symboltoken.s
-
-# target to generate assembly for a file
-src/lexer/symboltoken.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.s
-.PHONY : src/lexer/symboltoken.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -676,12 +676,12 @@ help:
 	@echo "... src/lexer/LiteralToken.o"
 	@echo "... src/lexer/LiteralToken.i"
 	@echo "... src/lexer/LiteralToken.s"
+	@echo "... src/lexer/SymbolToken.o"
+	@echo "... src/lexer/SymbolToken.i"
+	@echo "... src/lexer/SymbolToken.s"
 	@echo "... src/lexer/keywordtoken.o"
 	@echo "... src/lexer/keywordtoken.i"
 	@echo "... src/lexer/keywordtoken.s"
-	@echo "... src/lexer/symboltoken.o"
-	@echo "... src/lexer/symboltoken.i"
-	@echo "... src/lexer/symboltoken.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

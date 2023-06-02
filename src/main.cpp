@@ -7,7 +7,7 @@
 #include "globalscope.hpp"
 #include "parser.hpp"
 #include "keywordtoken.hpp"
-#include "symboltoken.hpp"
+#include "SymbolToken.hpp"
 
 #define string std::string
 #define vector std::vector

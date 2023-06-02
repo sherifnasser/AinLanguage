@@ -17,14 +17,14 @@ std::wstring LexerToken::getVal(){
     return this->val;
 }
 
-bool LexerToken::operator==(LexerToken &token){
+bool LexerToken::operator==(LexerToken &token) const{
     return
-    this->getTokenType()==token.getTokenType()
+    this->tokenType==token.getTokenType()
     &&
-    this->getVal()==token.getVal();
+    this->val==token.getVal();
 }
 
-bool LexerToken::operator!=(LexerToken &token){
+bool LexerToken::operator!=(LexerToken &token) const{
     return !(*this==token);
 }
 

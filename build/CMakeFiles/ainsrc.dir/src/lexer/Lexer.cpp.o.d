@@ -161,4 +161,4 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp

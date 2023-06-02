@@ -226,10 +226,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp
 
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp:
 
@@ -292,6 +290,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/basic_string.tcc:
 
 /usr/include/c++/12.2/bits/charconv.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp:
 
 /usr/include/bits/types/error_t.h:
 

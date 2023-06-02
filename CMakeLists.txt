@@ -12,7 +12,7 @@ add_library(ainsrc
     src/lexer/LexerLine.cpp
     src/lexer/LiteralToken.cpp
     src/lexer/keywordtoken.cpp
-    src/lexer/symboltoken.cpp
+    src/lexer/SymbolToken.cpp
     src/ain_file/AinFile.cpp
     src/statement/statement.cpp
     src/helpers/string_helper.cpp
@@ -43,6 +43,8 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
+
 
 
 add_executable(ain src/main.cpp)
