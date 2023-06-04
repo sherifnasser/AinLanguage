@@ -31,6 +31,12 @@
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
   "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o"

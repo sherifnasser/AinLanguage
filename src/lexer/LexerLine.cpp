@@ -1,11 +1,18 @@
 #include<iostream>
 #include<memory>
 #include<vector>
+#include<limits>
+#include<algorithm>
 #include "LexerLine.hpp"
 #include "LiteralToken.hpp"
+#include "NumberToken.hpp"
 #include "SymbolToken.hpp"
 #include "wchar_t_helper.hpp"
+#include "string_helper.hpp"
 #include "StringIsNotClosedException.hpp"
+#include "UnsupportedTokenException.hpp"
+#include "IllegalUnderscoreException.hpp"
+#include "OutOfRangeException.hpp"
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber):line(line),lineNumber(lineNumber){
     this->tokens=std::make_shared<std::vector<std::shared_ptr<LexerToken>>>();
@@ -41,6 +48,11 @@ void LexerLine::tokenize(){
         auto symbolToken=findSymbolToken(&i);
         if(isNotNullToken(symbolToken))
             continue;
+
+        auto numberToken=findNumberToken(&i);
+        if(isNotNullToken(numberToken))
+            continue;
+
     }
 }
 
@@ -134,4 +146,248 @@ std::shared_ptr<LexerToken> LexerLine::findSymbolToken(int* startIndex){
     val=c;
     auto token=std::make_shared<SymbolToken>(val);
     return token;
+}
+
+std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
+
+    if(!iswdigit(line[*startIndex]))
+        return nullptr;
+    
+    int nextStartIndex=*startIndex;
+
+    NUM_SYS numSys=NUM_SYS::DEC;
+    auto numType=NumberToken::INT;
+
+    /**
+     * Skip after a digit array in a non-decimal number system.
+     * If skipped, then change [numSys] and don't skip any more.
+    */
+    for(auto nS:{NUM_SYS::BIN, NUM_SYS::OCT, NUM_SYS::HEX}){
+        skipAfterNonDecIntDigitArray(&nextStartIndex,nS);
+        if(nextStartIndex!=*startIndex){
+            numSys=nS;
+            break;
+        }
+    }
+
+    /**
+     * If numSys didn't change from previos loop,
+     * then skip after a digit array in decimal and change the number type (int, double or float)
+    */
+    if(numSys==NUM_SYS::DEC)
+        numType=skipAfterDecDigitArray(&nextStartIndex);
+    
+    auto number=line.substr(*startIndex,nextStartIndex-*startIndex+1);
+
+    // remove underscores
+    removeUnderscores(&number);
+
+    *startIndex=nextStartIndex;
+
+    switch(numType){
+        case NumberToken::DOUBLE:
+            getDoubleNumberToken(&number);
+            break;
+        case NumberToken::FLOAT:
+            getFloatNumberToken(&number);
+            break;
+        default: // INT
+            getIntNumberToken(startIndex,&number,&numType,numSys);
+    }
+
+    auto tokenPtr=std::make_shared<NumberToken>(numType,number);
+    return tokenPtr;
+}
+
+void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
+    
+    if(line[*startIndex]!=L'0')
+        return;
+    
+    // If error occured, we can show the start of number to error index with this
+    auto absoluteStartIndex=*startIndex;
+
+    auto nextStartIndex=*startIndex+1;
+    auto &numSysCharLine=line[nextStartIndex];
+
+    wchar_t numSysChar;
+    switch(numSys)
+    {
+        case BIN:
+            numSysChar=L'b';
+            break;
+        case OCT:
+            numSysChar=L'o';
+            break;
+        case HEX:
+            numSysChar=L'x';
+            break;
+        default:
+            std::__throw_runtime_error("function `skipAfterNonDecNumSystemInt` is only for non-decimal numbers");
+    }
+
+    if(std::towlower(numSysCharLine)!=numSysChar)
+        return;
+    
+    nextStartIndex++;
+
+    skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex,numSys);
+
+    *startIndex=nextStartIndex;
+}
+
+NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
+
+    // If error occured, we can show the start of number to error index with this
+    auto absoluteStartIndex=*startIndex;
+
+    auto nextStartIndex=*startIndex;
+    auto numType=NumberToken::INT;
+
+    auto skip=[&](){
+        ++nextStartIndex;
+        if(line[nextStartIndex]==L'_')
+            throw IllegalUnderscoreException(
+                getLineNumber(),
+                line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
+            );
+        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+    };
+
+    auto checkSkipped=[&](){ // if there are no digits after the dot or exponent, throw an exception
+        if(nextStartIndex==*startIndex+1)
+            throw UnsupportedTokenException(
+                getLineNumber(),
+                line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
+            );
+        *startIndex=nextStartIndex;
+    };
+
+    skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+    *startIndex=nextStartIndex;
+
+    if(line[nextStartIndex]==L'.'){
+        numType=NumberToken::DOUBLE;
+        skip();
+        checkSkipped();
+    }
+
+    if(std::towlower(line[nextStartIndex])==L'e'){
+        numType=NumberToken::DOUBLE; // may be doesn't have a dot, so reassign it to DOUBLE
+        if(line[nextStartIndex+1]==L'-'||line[nextStartIndex+1]==L'+') // sign of exponent
+            nextStartIndex++;
+        skip();
+        checkSkipped();
+    }
+
+    if(std::towlower(line[nextStartIndex])==L'f'){
+        numType=NumberToken::FLOAT;
+        nextStartIndex++;
+    }
+
+    *startIndex=nextStartIndex;
+
+    return numType;
+}
+
+void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM_SYS numSys){
+    int i=*startIndex;
+    auto isNumSysDigit=[&](wchar_t &c){
+        switch(numSys)
+        {
+            case BIN:
+                return iswbdigit(c);
+            case OCT:
+                return iswodigit(c);
+            case HEX:
+                return (bool)iswxdigit(c);
+            default:
+                return (bool)iswdigit(c);
+        }
+    };
+
+    while(i<line.size()){
+        auto &c=line[i];
+        
+        if(!(isNumSysDigit(c)||c==L'_'))
+            break;
+        
+        i++;
+    }
+    if(line[i-1]==L'_') // must be no underscore at the end
+        throw IllegalUnderscoreException(lineNumber,line.substr(*absoluteStartIndex,i-*absoluteStartIndex+1));
+
+    *startIndex=i;
+}
+
+void LexerLine::getIntNumberToken(
+    int *startIndex,
+    std::wstring* number,
+    NumberToken::NUMBER_TYPE* numType,
+    NUM_SYS numSys
+){
+    if(numSys!=DEC)
+        *number=number->substr(2); // skip prefix to not struggle with stoull
+    
+    // TODO: May prevent leading zeros in integers
+    unsigned long long num;
+    try{
+        num=std::stoull(*number,0,numSys);
+    }catch(std::out_of_range e){
+        throw OutOfRangeException(lineNumber,*number);
+    }
+
+    // May be int or long or unsigned of them
+
+    /**
+     * The unary minus from parser may change the numType if the num reached the limits of int or long
+    */
+
+    auto isUnsigned=line[*startIndex]==L'U'||line[*startIndex]==L'u';
+    if(isUnsigned){
+        *numType=
+        (num<=std::numeric_limits<unsigned int>::max())
+        ?NumberToken::UNSIGNED_INT
+        :NumberToken::UNSIGNED_LONG;
+        ++(*startIndex);
+    }
+    else{
+        *numType=
+        (num<=std::numeric_limits<int>::max())
+        ?NumberToken::INT
+        :(num<=std::numeric_limits<long long>::min())
+        ?NumberToken::LONG
+        :throw OutOfRangeException(lineNumber,*number);
+    }
+
+    auto isLong=line[*startIndex]==L'L'||line[*startIndex]==L'l';
+    if(isLong){
+        *numType=
+        (isUnsigned)
+        ?NumberToken::UNSIGNED_LONG
+        :NumberToken::LONG;
+        ++(*startIndex);
+    }
+    *number=std::to_wstring(num);
+}
+
+void LexerLine::getDoubleNumberToken(std::wstring* number){
+
+    try{
+        auto doubleNum=std::stold(*number);
+        *number=std::to_wstring(doubleNum);
+    }
+    catch(std::out_of_range e){
+        throw OutOfRangeException(lineNumber,*number);
+    }
+}
+
+void LexerLine::getFloatNumberToken(std::wstring* number){
+    try{
+        auto floatNum=std::stof(*number);
+        *number=std::to_wstring(floatNum);
+    }
+    catch(std::out_of_range e){
+        throw OutOfRangeException(lineNumber,*number);
+    }
 }

@@ -220,6 +220,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
@@ -280,6 +282,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
 /usr/include/c++/12.2/cwctype:
 
@@ -602,6 +606,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/errno.h:
 
 /usr/include/bits/timex.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp:
 
 /usr/include/bits/types/__fpos_t.h:
 

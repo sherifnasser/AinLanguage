@@ -371,6 +371,30 @@ src/lexer/LiteralToken.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.s
 .PHONY : src/lexer/LiteralToken.cpp.s
 
+src/lexer/NumberToken.o: src/lexer/NumberToken.cpp.o
+.PHONY : src/lexer/NumberToken.o
+
+# target to build an object file
+src/lexer/NumberToken.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o
+.PHONY : src/lexer/NumberToken.cpp.o
+
+src/lexer/NumberToken.i: src/lexer/NumberToken.cpp.i
+.PHONY : src/lexer/NumberToken.i
+
+# target to preprocess a source file
+src/lexer/NumberToken.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.i
+.PHONY : src/lexer/NumberToken.cpp.i
+
+src/lexer/NumberToken.s: src/lexer/NumberToken.cpp.s
+.PHONY : src/lexer/NumberToken.s
+
+# target to generate assembly for a file
+src/lexer/NumberToken.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.s
+.PHONY : src/lexer/NumberToken.cpp.s
+
 src/lexer/SymbolToken.o: src/lexer/SymbolToken.cpp.o
 .PHONY : src/lexer/SymbolToken.o
 
@@ -676,6 +700,9 @@ help:
 	@echo "... src/lexer/LiteralToken.o"
 	@echo "... src/lexer/LiteralToken.i"
 	@echo "... src/lexer/LiteralToken.s"
+	@echo "... src/lexer/NumberToken.o"
+	@echo "... src/lexer/NumberToken.i"
+	@echo "... src/lexer/NumberToken.s"
 	@echo "... src/lexer/SymbolToken.o"
 	@echo "... src/lexer/SymbolToken.i"
 	@echo "... src/lexer/SymbolToken.s"

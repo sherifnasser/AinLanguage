@@ -540,15 +540,21 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/numeric \
   /usr/include/c++/12.2/bits/stl_numeric.h \
   /usr/include/c++/12.2/pstl/glue_numeric_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /usr/include/c++/12.2/map \
   /usr/include/c++/12.2/bits/stl_tree.h \
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
   /usr/include/stdc-predef.h \
@@ -901,7 +907,9 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp
 
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
@@ -976,10 +984,6 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /usr/include/c++/12.2/cfloat:
 
-/usr/include/signal.h:
-
-/usr/include/strings.h:
-
 /usr/include/string.h:
 
 /usr/include/c++/12.2/bits/stl_set.h:
@@ -988,7 +992,17 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
+
+/usr/include/signal.h:
+
+/usr/include/strings.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
 /usr/include/c++/12.2/bits/stl_multimap.h:
 
@@ -1007,6 +1021,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/numeric:
 
 /usr/include/c++/12.2/bits/stl_deque.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/opt_random.h:
 
@@ -1033,6 +1049,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/bits/types/struct_timespec.h:
 
 /usr/include/c++/12.2/bits/regex_compiler.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp:
 
 /usr/include/c++/12.2/bits/stl_construct.h:
 
@@ -1445,6 +1463,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
 
 /usr/include/bits/environments.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp:
 
 /usr/include/bits/types/struct_FILE.h:
 

@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o"
   "CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o.d"
+  "CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o"
+  "CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o"
   "CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o"

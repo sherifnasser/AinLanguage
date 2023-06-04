@@ -3,3 +3,5 @@
 bool startsWith(std::string str, std::string prefix);
 
 bool endsWith(std::string str, std::string suffix);
+
+void removeUnderscores(std::wstring* wstr);
