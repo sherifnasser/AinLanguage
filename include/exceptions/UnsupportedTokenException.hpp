@@ -11,7 +11,7 @@ class UnsupportedTokenException:public AinException{
             L"في السطر "+std::to_wstring(lineNumber)+
             L"\n"+
             token+
-            L" قيمة غير مدعومة"
+            L" قيمة غير مدعومة."
         )
     ){}
 };

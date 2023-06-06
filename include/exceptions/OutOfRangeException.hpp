@@ -11,7 +11,7 @@ class OutOfRangeException:public AinException{
             L"في السطر "+std::to_wstring(lineNumber)+
             L"\n"+
             val+
-            L" القيمة خارج النطاق المسموح به"
+            L" القيمة خارج النطاق المسموح به."
         )
     ){}
 };

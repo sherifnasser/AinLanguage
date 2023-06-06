@@ -13,6 +13,8 @@
 #include "UnsupportedTokenException.hpp"
 #include "IllegalUnderscoreException.hpp"
 #include "OutOfRangeException.hpp"
+#include "InvalidNumberSystemDigitException.hpp"
+#include "InvalidIdentifierNameException.hpp"
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber):line(line),lineNumber(lineNumber){
     this->tokens=std::make_shared<std::vector<std::shared_ptr<LexerToken>>>();
@@ -233,51 +235,67 @@ void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
 
     skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex,numSys);
 
+    auto &stopChar=line[nextStartIndex]; // where the skipping stopped
+
+    // user types 0b12, ob1a, 0O128, ,0b12s, 0xfg etc.
+    if (
+        (iswxdigit(stopChar) && numSys!=NUM_SYS::HEX)
+        ||
+        isainalpha(stopChar)
+    )
+        throw InvalidNumberSystemDigitException(
+            lineNumber,
+            line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
+        );
+
     *startIndex=nextStartIndex;
 }
 
 NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
 
+
     // If error occured, we can show the start of number to error index with this
     auto absoluteStartIndex=*startIndex;
 
     auto nextStartIndex=*startIndex;
+
+    auto getErrorNumberToken=[&](){
+        return line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1);
+    };
+
     auto numType=NumberToken::INT;
 
-    auto skip=[&](){
-        ++nextStartIndex;
-        if(line[nextStartIndex]==L'_')
-            throw IllegalUnderscoreException(
-                getLineNumber(),
-                line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
-            );
-        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
-    };
-
-    auto checkSkipped=[&](){ // if there are no digits after the dot or exponent, throw an exception
-        if(nextStartIndex==*startIndex+1)
-            throw UnsupportedTokenException(
-                getLineNumber(),
-                line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
-            );
-        *startIndex=nextStartIndex;
-    };
-
     skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
-    *startIndex=nextStartIndex;
 
-    if(line[nextStartIndex]==L'.'){
+    // number before dot may be treated as object, so check if after the dot is a digit to build the double
+    if(line[nextStartIndex]==L'.' && iswdigit(line[nextStartIndex+1])){
         numType=NumberToken::DOUBLE;
-        skip();
-        checkSkipped();
+        ++nextStartIndex;
+        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
     }
 
     if(std::towlower(line[nextStartIndex])==L'e'){
         numType=NumberToken::DOUBLE; // may be doesn't have a dot, so reassign it to DOUBLE
-        if(line[nextStartIndex+1]==L'-'||line[nextStartIndex+1]==L'+') // sign of exponent
+
+        ++nextStartIndex;
+
+        if(line[nextStartIndex]==L'-'||line[nextStartIndex]==L'+') // sign of exponent
             nextStartIndex++;
-        skip();
-        checkSkipped();
+
+        if(line[nextStartIndex]==L'_')
+            throw IllegalUnderscoreException(lineNumber,getErrorNumberToken());
+
+        if(!iswdigit(line[nextStartIndex]))
+            throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
+
+        auto before=nextStartIndex;
+
+        // skip after checking next char
+        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+
+        // if nextStartIndex didn't change from skip, error will be thrown
+        if(nextStartIndex==before)
+            throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
     }
 
     if(std::towlower(line[nextStartIndex])==L'f'){
@@ -287,6 +305,24 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
 
     *startIndex=nextStartIndex;
 
+    wchar_t stopChar=std::towlower(line[nextStartIndex]);
+
+    if(!isainalpha(stopChar))
+        return numType;
+
+    /**
+     * The number token has an alphabet (which isn't valid for decimal system numbers)
+    */
+
+   // numType is float or double
+    if(numType!=NumberToken::INT)
+        throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
+
+    // numType is int
+    if(stopChar!=L'u'&&stopChar!=L'l') // checking for stopChar after unsinged and long types is in getIntNumberToken
+        throw InvalidIdentifierNameException(lineNumber,getErrorNumberToken());
+    
+    // Nothing happened, numType will be unsigned int, unsigned long or long in getIntNumberToken
     return numType;
 }
 
@@ -314,6 +350,7 @@ void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM
         
         i++;
     }
+
     if(line[i-1]==L'_') // must be no underscore at the end
         throw IllegalUnderscoreException(lineNumber,line.substr(*absoluteStartIndex,i-*absoluteStartIndex+1));
 
@@ -368,6 +405,12 @@ void LexerLine::getIntNumberToken(
         :NumberToken::LONG;
         ++(*startIndex);
     }
+
+    wchar_t stopChar=line[*startIndex];
+    
+    if(isainalpha(stopChar))
+        throw InvalidIdentifierNameException(lineNumber,*number+stopChar);
+
     *number=std::to_wstring(num);
 }
 

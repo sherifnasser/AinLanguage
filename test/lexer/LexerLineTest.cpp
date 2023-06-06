@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <vector>
 #include <catch2/catch.hpp>
 #include "string_helper.hpp"
 #include "LexerLine.hpp"
@@ -10,6 +11,32 @@
 #include "IllegalUnderscoreException.hpp"
 #include "UnsupportedTokenException.hpp"
 #include "OutOfRangeException.hpp"
+#include "InvalidNumberSystemDigitException.hpp"
+#include "InvalidIdentifierNameException.hpp"
+
+/**
+ * @brief Given illegal tokens in @param illegals, when calling lexerLine.tokenize()
+ * We expect to find each illegal token in exception message and the line number.
+ * @tparam E type of the expected exception
+*/
+
+template<typename E>
+void LexerLineNumberTokensTestWithException(std::vector<std::wstring> illegals){
+    int i=0;
+    for(auto &illegal:illegals){
+        auto lexerLine=LexerLine(illegal,i);
+
+        auto matcher=Catch::Matchers::Predicate<E>(
+            [&](E e){
+                auto npos=std::wstring::npos;
+                auto what=e.whatWstr();
+                return what.find(std::to_wstring(i))!=npos && what.find(illegal)!=npos;
+            }
+        );
+        REQUIRE_THROWS_MATCHES(lexerLine.tokenize(),E,matcher);
+        i++;
+    }
+}
 
 SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
     GIVEN("a line"){
@@ -120,8 +147,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     NumberToken(NumberToken::DOUBLE,L"3.0e2"),
                     NumberToken(NumberToken::DOUBLE,L"3.0e-2"),
                     NumberToken(NumberToken::DOUBLE,L"3.0e-2_0"),
+                    NumberToken(NumberToken::DOUBLE,L"003.0e-2"),
                     NumberToken(NumberToken::FLOAT,L"3.00f"),
                     NumberToken(NumberToken::FLOAT,L"3.00F"),
+                    NumberToken(NumberToken::FLOAT,L"03.00F"),
                     NumberToken(NumberToken::INT,L"3_3_3__0"),
                     NumberToken(NumberToken::INT,L"32_23_23_2_20"),
                     NumberToken(NumberToken::DOUBLE,L"12.54e1"),
@@ -201,21 +230,19 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             };
 
             THEN("Throw IllegalUnderscoreException when there is illegal underscore"){
-                std::wstring illegalUnderscore[]={
+                std::vector<std::wstring> illegals={
                     L"12_",
                     L"3_.0",
-                    L"3._0",
-                    L"3.0_",
                     L"4_e2",
                     L"4e_2",
                     L"4e2_",
                     L"15.64_e5",
                     L"15321__.166_f",
                 };
-
                 int i=0;
-                for(auto &illegal:illegalUnderscore){
+                for(auto &illegal:illegals){
                     auto lexerLine=LexerLine(illegal,i);
+
                     auto matcher=Catch::Matchers::Predicate<IllegalUnderscoreException>(
                         [&](IllegalUnderscoreException e){
                             auto npos=std::wstring::npos;
@@ -229,47 +256,50 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                             ;
                         }
                     );
-                    REQUIRE_THROWS_MATCHES(
-                        lexerLine.tokenize(),
-                        IllegalUnderscoreException,
-                        matcher
-                    );
+                    REQUIRE_THROWS_MATCHES(lexerLine.tokenize(),IllegalUnderscoreException,matcher);
                     i++;
                 }
             };
 
             THEN("Throw UnsupportedTokenException when cannot construct tokens"){
-                std::wstring unsupported[]={
-                    L"3.",
-                    L"3..0",
+                std::vector<std::wstring> illegals={
                     L"3.0e",
-
-                    /**
-                     * May be tested in parser
-                    */
-
-                    /*L"4ac",
-                    L"0xa165.166",
-                    L"0Ba165.166",
-                    L"0oa165.166",
-                    L"0b1215",
-                    L"0o1289",
-                    L"0x121s",*/
-                    
+                    L"3.0e+",
+                    L"3.0e-",
+                    L"30ef",
+                    L"30.1a",
+                    L"30.1e2a",
+                    L"30.1e2ش",
+                    L"30.1fa",
+                    L"30.1fش"
                 };
-                int i=0;
-                for(auto &illegal:unsupported){
-                    auto lexerLine=LexerLine(illegal,i);
-                    REQUIRE_THROWS_AS(
-                        lexerLine.tokenize(),
-                        UnsupportedTokenException
-                    );
-                    i++;
-                }
+                LexerLineNumberTokensTestWithException<UnsupportedTokenException>(illegals);
+            };
+
+            THEN("Throw InvalidIdentifierNameException when cannot construct tokens"){
+                std::vector<std::wstring> illegals={
+                    L"30a",
+                    L"30ش",
+                    L"30ua",
+                    L"30La",
+                };
+                LexerLineNumberTokensTestWithException<InvalidIdentifierNameException>(illegals);
+            };
+
+            THEN("Throw InvalidNumberSystemDigitException when different num sys digit is entered"){
+                std::vector<std::wstring> illegals={
+                    L"0b12",
+                    L"0bm",
+                    L"0o18",
+                    L"0o12a",
+                    L"0Om",
+                    L"0xabcdefw",
+                };
+                LexerLineNumberTokensTestWithException<InvalidNumberSystemDigitException>(illegals);
             };
 
             THEN("Throw OutOfRangeException when exceeds the maximum limits of data types"){
-                std::wstring outOfRange[]={
+                std::vector<std::wstring> illegals={
                     L"3.5e38f",   // > FLOAT_MAX
                     L"1.16e-38f", // < FLOAT_MIN
                     L"1.19973e+4932", // > DOUBLE_MAX
@@ -277,23 +307,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     L"9223372036854775808" // > LONG_MAX
                     L"18446744073709551616" // > ULONG_MAX
                 };
-                int i=0;
-                for(auto &illegal:outOfRange){
-                    auto lexerLine=LexerLine(illegal,i);
-                    auto matcher=Catch::Matchers::Predicate<OutOfRangeException>(
-                        [&](OutOfRangeException e){
-                            auto npos=std::wstring::npos;
-                            auto what=e.whatWstr();
-                            return what.find(std::to_wstring(i))!=npos && what.find(illegal)!=npos;
-                        }
-                    );
-                    REQUIRE_THROWS_MATCHES(
-                        lexerLine.tokenize(),
-                        OutOfRangeException,
-                        matcher
-                    );
-                    i++;
-                }
+                LexerLineNumberTokensTestWithException<OutOfRangeException>(illegals);
             };
             
         };

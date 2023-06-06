@@ -128,7 +128,7 @@ CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
  /usr/include/c++/12.2/bits/istream.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
  /usr/include/c++/12.2/ext/aligned_buffer.h \
  /usr/include/c++/12.2/bits/node_handle.h \

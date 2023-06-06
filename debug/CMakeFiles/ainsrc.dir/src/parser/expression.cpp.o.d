@@ -150,8 +150,8 @@ CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o: \
  /usr/include/c++/12.2/tr1/poly_hermite.tcc \
  /usr/include/c++/12.2/tr1/poly_laguerre.tcc \
  /usr/include/c++/12.2/tr1/riemann_zeta.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
  /usr/include/c++/12.2/ext/aligned_buffer.h \
  /usr/include/c++/12.2/bits/node_handle.h \

@@ -11,7 +11,7 @@ class IllegalUnderscoreException:public AinException{
             L"في السطر "+std::to_wstring(lineNumber)+
             L"\n"+
             token+
-            L" يوجد شَرطَة سُفلية غير صالحة"
+            L" يوجد شَرطَة سُفلية غير صالحة."
         )
     ){}
 };

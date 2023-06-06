@@ -10,7 +10,7 @@ class StringIsNotClosedException:public AinException{
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
             L" عند "+strLiteral+
-            L"\n"+L"لم يتم إغلاق النص بعلامة تنصيص"
+            L"\n"+L"لم يتم إغلاق النص بعلامة تنصيص."
         )
     ){}
 };

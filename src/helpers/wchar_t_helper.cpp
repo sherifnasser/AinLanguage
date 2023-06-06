@@ -13,7 +13,7 @@ bool isainpunct(wchar_t &c)
 
 bool isainalpha(wchar_t &c)
 {
-    return !isainpunct(c)&&!std::iswdigit(c)&&!iswempty(c);
+    return !isainpunct(c)&&!std::iswdigit(c)&&!iswempty(c)&&c!=L'\0';
 }
 
 bool iswempty(wchar_t &c)
