@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include "SymbolToken.hpp"
-#include "keywordtoken.hpp"
+#include "KeywordToken.hpp"
 #include "expression.hpp"
 #include "number_helper.hpp"
 #include "string_helper.hpp"
@@ -15,11 +15,11 @@
 #define tofloat std::stof
 
 bool boolexpression::boolfromstr(std::wstring s){
-    return s==keywordtoken::TRUE.getVal();
+    return s==KeywordToken::TRUE.getVal();
 }
 
 std::wstring boolexpression::strfrombool(bool b){
-    return (b)?keywordtoken::TRUE.getVal():keywordtoken::FALSE.getVal();
+    return (b)?KeywordToken::TRUE.getVal():KeywordToken::FALSE.getVal();
 }
 
 boolexpression::boolexpression(std::wstring &val):val(val){}

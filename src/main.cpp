@@ -6,7 +6,7 @@
 #include "Lexer.hpp"
 #include "globalscope.hpp"
 #include "parser.hpp"
-#include "keywordtoken.hpp"
+#include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 
 #define string std::string

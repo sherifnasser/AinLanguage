@@ -21,6 +21,7 @@ class LexerLine{
         std::shared_ptr<LexerToken> findCommentToken(int* startIndex);
         std::shared_ptr<LexerToken> findSymbolToken(int* startIndex);
         std::shared_ptr<LexerToken> findNumberToken(int* startIndex);
+        std::shared_ptr<LexerToken> findIdentifierOrKeywordToken(int* startIndex);
         void skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray(int* startIndex);
         void skipAfterDigitArray(int* startIndex,int* absoluteStartIndex,NUM_SYS numSys=NUM_SYS::DEC); // Default is decimal

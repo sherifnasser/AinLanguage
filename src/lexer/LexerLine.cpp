@@ -3,18 +3,19 @@
 #include<vector>
 #include<limits>
 #include<algorithm>
-#include "LexerLine.hpp"
-#include "LiteralToken.hpp"
-#include "NumberToken.hpp"
-#include "SymbolToken.hpp"
-#include "wchar_t_helper.hpp"
-#include "string_helper.hpp"
-#include "StringIsNotClosedException.hpp"
-#include "UnsupportedTokenException.hpp"
-#include "IllegalUnderscoreException.hpp"
-#include "OutOfRangeException.hpp"
-#include "InvalidNumberSystemDigitException.hpp"
-#include "InvalidIdentifierNameException.hpp"
+#include"LexerLine.hpp"
+#include"LiteralToken.hpp"
+#include"NumberToken.hpp"
+#include"SymbolToken.hpp"
+#include"KeywordToken.hpp"
+#include"wchar_t_helper.hpp"
+#include"string_helper.hpp"
+#include"StringIsNotClosedException.hpp"
+#include"UnsupportedTokenException.hpp"
+#include"IllegalUnderscoreException.hpp"
+#include"OutOfRangeException.hpp"
+#include"InvalidNumberSystemDigitException.hpp"
+#include"InvalidIdentifierNameException.hpp"
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber):line(line),lineNumber(lineNumber){
     this->tokens=std::make_shared<std::vector<std::shared_ptr<LexerToken>>>();
@@ -55,6 +56,12 @@ void LexerLine::tokenize(){
         if(isNotNullToken(numberToken))
             continue;
 
+        auto identifierOrKeywordToken=findIdentifierOrKeywordToken(&i);
+        if(isNotNullToken(identifierOrKeywordToken))
+            continue;
+        
+        // next char is space, so skip it
+        i++;
     }
 }
 
@@ -87,10 +94,11 @@ std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(int* startIndex){
         if(lastDoubleQouteIndex == std::wstring::npos){ // string isn't closed
             break;
         }
+        auto nextStartIndex=lastDoubleQouteIndex+1;
 
-        word+=line.substr(*startIndex,lastDoubleQouteIndex-*startIndex+1);
+        word+=line.substr(*startIndex,nextStartIndex-*startIndex);
         auto token=std::make_shared<LiteralToken>(LiteralToken::STRING,word);
-        *startIndex=lastDoubleQouteIndex+1;
+        *startIndex=nextStartIndex;
         return token;
     }
 
@@ -105,8 +113,8 @@ std::shared_ptr<LexerToken> LexerLine::findCommentToken(int* startIndex){
     if(commentIndex!=*startIndex)
         return nullptr;
     
-    auto word=line.substr(commentIndex);
-    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,word);
+    auto comment=line.substr(commentIndex);
+    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
     *startIndex=line.size();  // end of the line, so it'll stop the loop
     return token;
 }
@@ -197,8 +205,8 @@ std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
             getIntNumberToken(startIndex,&number,&numType,numSys);
     }
 
-    auto tokenPtr=std::make_shared<NumberToken>(numType,number);
-    return tokenPtr;
+    auto token=std::make_shared<NumberToken>(numType,number);
+    return token;
 }
 
 void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
@@ -336,20 +344,14 @@ void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM
             case OCT:
                 return iswodigit(c);
             case HEX:
-                return (bool)iswxdigit(c);
+                return (bool)std::iswxdigit(c);
             default:
-                return (bool)iswdigit(c);
+                return (bool)std::iswdigit(c);
         }
     };
 
-    while(i<line.size()){
-        auto &c=line[i];
-        
-        if(!(isNumSysDigit(c)||c==L'_'))
-            break;
-        
+    while(i<line.size() && (isNumSysDigit(line[i])||line[i]==L'_'))
         i++;
-    }
 
     if(line[i-1]==L'_') // must be no underscore at the end
         throw IllegalUnderscoreException(lineNumber,line.substr(*absoluteStartIndex,i-*absoluteStartIndex+1));
@@ -415,7 +417,6 @@ void LexerLine::getIntNumberToken(
 }
 
 void LexerLine::getDoubleNumberToken(std::wstring* number){
-
     try{
         auto doubleNum=std::stold(*number);
         *number=std::to_wstring(doubleNum);
@@ -433,4 +434,25 @@ void LexerLine::getFloatNumberToken(std::wstring* number){
     catch(std::out_of_range e){
         throw OutOfRangeException(lineNumber,*number);
     }
+}
+
+std::shared_ptr<LexerToken> LexerLine::findIdentifierOrKeywordToken(int* startIndex){
+    int i=*startIndex;
+
+    // Identifiers nad tokens don't start with digits, symbols or spaces
+    if(!isainalpha(line[i]))
+        return nullptr;
+    
+    do i++;
+    while(isainalpha(line[i])||iswdigit(line[i])); // if next char is alpha or digit add it
+
+    auto val=line.substr(*startIndex,i-*startIndex);
+
+    auto tokenType=(KeywordToken::iskeyword(val))
+    ?LexerToken::KEYWORD_TOKEN:LexerToken::IDENTIFIER_TOKEN;
+
+    *startIndex=i; // The new index at which the next token starts
+
+    auto token=std::make_shared<LexerToken>(tokenType,val);
+    return token;
 }

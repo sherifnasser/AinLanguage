@@ -7,6 +7,7 @@
 #include "LiteralToken.hpp"
 #include "SymbolToken.hpp"
 #include "NumberToken.hpp"
+#include "KeywordToken.hpp"
 #include "StringIsNotClosedException.hpp"
 #include "IllegalUnderscoreException.hpp"
 #include "UnsupportedTokenException.hpp"
@@ -311,5 +312,65 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             };
             
         };
+
+        WHEN("line has keywords"){
+            std::vector<KeywordToken> keywords={
+                KeywordToken::VAR,KeywordToken::VAL,KeywordToken::FUN,KeywordToken::RETURN,
+                KeywordToken::PACKAGE,KeywordToken::IMPORT,KeywordToken::CLASS,KeywordToken::INTERFACE,
+                KeywordToken::OBJECT,
+                KeywordToken::DATA,KeywordToken::ABSTRACT,KeywordToken::OPEN,KeywordToken::ENUM,
+                KeywordToken::ANNOTATION,
+                KeywordToken::PUBLIC,KeywordToken::PRIVATE,KeywordToken::PROTECTED,KeywordToken::OVERRIDE,
+                KeywordToken::IF,/*KeywordToken::ELSE_IF,*/KeywordToken::ELSE,KeywordToken::WHEN,
+                KeywordToken::FOR,KeywordToken::DO,KeywordToken::WHILE,KeywordToken::BREAK,KeywordToken::CONTINUE,
+                KeywordToken::THROW,KeywordToken::TRY,KeywordToken::CATCH,KeywordToken::FINALLY,
+                KeywordToken::TRUE,KeywordToken::FALSE
+            };
+            std::wstring line=L"";
+            for(auto &keyword:keywords){
+                line+=keyword.getVal()+L" ";
+            }
+
+            auto lexerLine=LexerLine(line,1);
+            lexerLine.tokenize();
+            auto tokens=lexerLine.getTokens();
+
+            THEN("Return them as keyword tokens"){
+                REQUIRE(tokens->size()==keywords.size());
+                int i=0;
+                for(auto &token:*tokens){
+                    REQUIRE(token->operator==(keywords[i]));
+                    i++;
+                }
+            };
+
+        }
+
+        WHEN("line has identifiers"){
+            std::vector<std::wstring> identifiers={
+                L"س",
+                L"الاسم",
+                L"العمر",
+            };
+            std::wstring line=L"";
+            for(auto &identifier:identifiers){
+                line+=identifier+L" ";
+            }
+
+            auto lexerLine=LexerLine(line,1);
+            lexerLine.tokenize();
+            auto tokens=lexerLine.getTokens();
+
+            THEN("Return them as identifier tokens"){
+                REQUIRE(tokens->size()==identifiers.size());
+                int i=0;
+                for(auto &token:*tokens){
+                    REQUIRE(token->getVal()==identifiers[i]);
+                    REQUIRE(token->getTokenType()==LexerToken::IDENTIFIER_TOKEN);
+                    i++;
+                }
+            };
+
+        }
     }
 }

@@ -2,7 +2,7 @@
 #include <map>
 #include "parser.hpp"
 #include "LexerToken.hpp"
-#include "keywordtoken.hpp"
+#include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 #include "statement.hpp"
 
@@ -53,7 +53,7 @@ void parser::find_functions(globalscope* globalscope){
     std::wstring funname;
     std::wstring funtype=L"";
     std::vector<std::pair<std::wstring,std::wstring>>* args=new std::vector<std::pair<std::wstring,std::wstring>>();
-    if(currentmatch(keywordtoken::FUN)){
+    if(currentmatch(KeywordToken::FUN)){
         if(next().isidentifiertoken()){
             funname=currentval();
             if(nextmatch(SymbolToken::LEFT_PARENTHESIS)){
@@ -140,7 +140,7 @@ statement* parser::find_next_statement(funscope* fscope){
 }
 
 statement* parser::find_while_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
+    if(currentmatch(KeywordToken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
         next();
         auto ex=find_expression();
         if(currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
@@ -161,7 +161,7 @@ statement* parser::find_while_statement(funscope* fscope){
 }
 
 statement* parser::find_do_while_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::DO)){
+    if(currentmatch(KeywordToken::DO)){
         StmList* stmlist=new StmList();
         if(nextmatch(SymbolToken::LEFT_CURLY_BRACES)){
             next();
@@ -171,7 +171,7 @@ statement* parser::find_do_while_statement(funscope* fscope){
                     
         }else add_next_stm_to_stm_list(fscope,stmlist);
 
-        if(currentmatch(keywordtoken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
+        if(currentmatch(KeywordToken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
             next();
             auto ex=find_expression();
             if(currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
@@ -186,7 +186,7 @@ statement* parser::find_do_while_statement(funscope* fscope){
 }
 
 statement* parser::find_if_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
+    if(currentmatch(KeywordToken::IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
         std::vector<ExStmList*>* exstmlists=new std::vector<ExStmList*>();
 
         auto find_condition_stm_list=[&](expression* ex){
@@ -212,21 +212,21 @@ statement* parser::find_if_statement(funscope* fscope){
         };
 
         auto else_condition=[&](){
-            if(currentmatch(keywordtoken::ELSE)){
-                std::wstring True_val=keywordtoken::TRUE.getVal();
+            if(currentmatch(KeywordToken::ELSE)){
+                std::wstring True_val=KeywordToken::TRUE.getVal();
                 expression* ex=new boolexpression(True_val);
                 find_condition_stm_list(ex);
                 //next();
             }
         };
 
-        auto else_if_condition=[&](){
-            while(currentmatch(keywordtoken::ELSE_IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
+        /*auto else_if_condition=[&](){
+            while(currentmatch(KeywordToken::ELSE_IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
                 auto empty=[](){};
                 if_condition(empty);
             }
             else_condition();
-        };
+        };*/
         
 
         if_condition(else_condition);
@@ -240,7 +240,7 @@ statement* parser::find_if_statement(funscope* fscope){
 }
 
 statement* parser::find_return_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::RETURN)){
+    if(currentmatch(KeywordToken::RETURN)){
         next();
         //next();
         auto ex=find_expression();
@@ -293,8 +293,8 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
 }
 
 statement* parser::find_var_val_statement(funscope* fscope){
-    auto isvar=currentmatch(keywordtoken::VAR);
-    auto isval=currentmatch(keywordtoken::VAL);
+    auto isvar=currentmatch(KeywordToken::VAR);
+    auto isval=currentmatch(KeywordToken::VAL);
     std::wstring name,type=L"";
     expression* ex=nullptr;     
     if(isvar||isval){
@@ -460,7 +460,7 @@ expression* parser::find_binary_parentheses_expression(){
         left=new stringexpression(val);
         next();
     }
-    else if(currentmatch(keywordtoken::TRUE)||currentmatch(keywordtoken::FALSE)){
+    else if(currentmatch(KeywordToken::TRUE)||currentmatch(KeywordToken::FALSE)){
         auto val=currentval();
         left=new boolexpression(val);
         next();

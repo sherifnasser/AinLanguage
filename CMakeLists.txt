@@ -12,7 +12,7 @@ add_library(ainsrc
     src/lexer/LexerLine.cpp
     src/lexer/LiteralToken.cpp
     src/lexer/NumberToken.cpp
-    src/lexer/keywordtoken.cpp
+    src/lexer/KeywordToken.cpp
     src/lexer/SymbolToken.cpp
     src/ain_file/AinFile.cpp
     src/statement/statement.cpp

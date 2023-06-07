@@ -3,7 +3,7 @@
 #include "LexerLine.hpp"
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
-#include "keywordtoken.hpp"
+#include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 
 #define DOUBLE_QOUTE L'\"'
@@ -191,7 +191,7 @@ LexerLine Lexer::lexLine(std::wstring line,int linenumber){
                 newword+=ch;
                 i++;
             }
-            newtoken=(keywordtoken::iskeyword(newword))
+            newtoken=(KeywordToken::iskeyword(newword))
                 ?LexerToken::KEYWORD_TOKEN:LexerToken::IDENTIFIER_TOKEN;
         }
 
