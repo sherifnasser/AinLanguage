@@ -187,7 +187,7 @@ std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
     if(numSys==NUM_SYS::DEC)
         numType=skipAfterDecDigitArray(&nextStartIndex);
     
-    auto number=line.substr(*startIndex,nextStartIndex-*startIndex+1);
+    auto number=line.substr(*startIndex,nextStartIndex-*startIndex);
 
     // remove underscores
     removeUnderscores(&number);
@@ -335,7 +335,6 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
 }
 
 void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM_SYS numSys){
-    int i=*startIndex;
     auto isNumSysDigit=[&](wchar_t &c){
         switch(numSys)
         {
@@ -350,6 +349,14 @@ void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM
         }
     };
 
+    // number may be 0b, 0o, ox, so throw an error
+    if(!isNumSysDigit(line[*startIndex]))
+        throw InvalidNumberSystemDigitException(
+            lineNumber,
+            line.substr(*absoluteStartIndex,*startIndex-*absoluteStartIndex+1)
+        );
+
+    int i=*startIndex;
     while(i<line.size() && (isNumSysDigit(line[i])||line[i]==L'_'))
         i++;
 
@@ -365,6 +372,9 @@ void LexerLine::getIntNumberToken(
     NumberToken::NUMBER_TYPE* numType,
     NUM_SYS numSys
 ){
+
+    int nextStartIndex=*startIndex;
+
     if(numSys!=DEC)
         *number=number->substr(2); // skip prefix to not struggle with stoull
     
@@ -382,37 +392,40 @@ void LexerLine::getIntNumberToken(
      * The unary minus from parser may change the numType if the num reached the limits of int or long
     */
 
-    auto isUnsigned=line[*startIndex]==L'U'||line[*startIndex]==L'u';
+    auto isUnsigned=line[nextStartIndex]==L'U'||line[nextStartIndex]==L'u';
     if(isUnsigned){
         *numType=
         (num<=std::numeric_limits<unsigned int>::max())
         ?NumberToken::UNSIGNED_INT
         :NumberToken::UNSIGNED_LONG;
-        ++(*startIndex);
+        nextStartIndex++;
     }
     else{
         *numType=
         (num<=std::numeric_limits<int>::max())
         ?NumberToken::INT
-        :(num<=std::numeric_limits<long long>::min())
+        :(num<=std::numeric_limits<long long>::max())
         ?NumberToken::LONG
         :throw OutOfRangeException(lineNumber,*number);
     }
 
-    auto isLong=line[*startIndex]==L'L'||line[*startIndex]==L'l';
+    auto isLong=line[nextStartIndex]==L'L'||line[nextStartIndex]==L'l';
     if(isLong){
         *numType=
         (isUnsigned)
         ?NumberToken::UNSIGNED_LONG
         :NumberToken::LONG;
-        ++(*startIndex);
+        nextStartIndex++;
     }
 
-    wchar_t stopChar=line[*startIndex];
+    wchar_t stopChar=line[nextStartIndex];
     
     if(isainalpha(stopChar))
-        throw InvalidIdentifierNameException(lineNumber,*number+stopChar);
-
+        throw InvalidIdentifierNameException(
+            lineNumber,
+            *number+line.substr(*startIndex,nextStartIndex-*startIndex+1)
+        );
+    *startIndex=nextStartIndex;
     *number=std::to_wstring(num);
 }
 
