@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "symboltoken.hpp"
-#include "keywordtoken.hpp"
+#include "SymbolToken.hpp"
+#include "KeywordToken.hpp"
 #include "expression.hpp"
 #include "number_helper.hpp"
 #include "string_helper.hpp"
@@ -15,11 +15,11 @@
 #define tofloat std::stof
 
 bool boolexpression::boolfromstr(std::wstring s){
-    return s==keywordtoken::TRUE.getval();
+    return s==KeywordToken::TRUE.getVal();
 }
 
 std::wstring boolexpression::strfrombool(bool b){
-    return (b)?keywordtoken::TRUE.getval():keywordtoken::FALSE.getval();
+    return (b)?KeywordToken::TRUE.getVal():KeywordToken::FALSE.getVal();
 }
 
 boolexpression::boolexpression(std::wstring &val):val(val){}
@@ -59,28 +59,28 @@ std::wstring numberexpression::evaluate(scope* evalscope){
     return val;
 }
 
-binaryexpression::binaryexpression(expression* left, lexertoken &operation, expression* right):
+binaryexpression::binaryexpression(expression* left, LexerToken &operation, expression* right):
 left(left),right(right){
     if(
-        operation==symboltoken::LOGICAL_OR||
-        operation==symboltoken::LOGICAL_AND||
-        operation==symboltoken::EQUAL_EQUAL||
-        operation==symboltoken::NOT_EQUAL||
-        operation==symboltoken::LESS_EQUAL||
-        operation==symboltoken::GREATER_EQUAL||
-        operation==symboltoken::LEFT_ANGLE_BRACKET||
-        operation==symboltoken::RIGHT_ANGLE_BRACKET||
-        operation==symboltoken::EXCLAMATION_MARK||
-        operation==symboltoken::PLUS||
-        operation==symboltoken::MINUS||
-        operation==symboltoken::STAR||
-        operation==symboltoken::SLASH||
-        operation==symboltoken::MODULO||
-        operation==symboltoken::POWER
+        operation==SymbolToken::LOGICAL_OR||
+        operation==SymbolToken::LOGICAL_AND||
+        operation==SymbolToken::EQUAL_EQUAL||
+        operation==SymbolToken::NOT_EQUAL||
+        operation==SymbolToken::LESS_EQUAL||
+        operation==SymbolToken::GREATER_EQUAL||
+        operation==SymbolToken::LEFT_ANGLE_BRACKET||
+        operation==SymbolToken::RIGHT_ANGLE_BRACKET||
+        operation==SymbolToken::EXCLAMATION_MARK||
+        operation==SymbolToken::PLUS||
+        operation==SymbolToken::MINUS||
+        operation==SymbolToken::STAR||
+        operation==SymbolToken::SLASH||
+        operation==SymbolToken::MODULO||
+        operation==SymbolToken::POWER
     )
         this->operation=operation;
     else{
-        wcout<<L"val: "<<operation.getval();
+        wcout<<L"val: "<<operation.getVal();
         std::__throw_invalid_argument("Binary operation must be +, -, *, /, ^, %, >=, <=, ==, !=, && or ||");
     }
 }
@@ -90,7 +90,7 @@ void binaryexpression::print(std::wstring tabsize){
     auto newtabsize=tabsize+L"\t";
     left->print(newtabsize);
     wcout<<newtabsize<<"Operation"<<endl;
-    wcout<<newtabsize+L"\t"<<operation.getval()<<endl;
+    wcout<<newtabsize+L"\t"<<operation.getVal()<<endl;
     right->print(newtabsize);
 }
 
@@ -99,46 +99,46 @@ std::wstring binaryexpression::evaluate(scope* evalscope){
     auto leftRes=left->evaluate(evalscope);
     auto rightRes=right->evaluate(evalscope);
 
-    if(operation==symboltoken::LOGICAL_OR){
+    if(operation==SymbolToken::LOGICAL_OR){
         result=evaluatelogicalor(leftRes,rightRes);
     }
-    else if(operation==symboltoken::LOGICAL_AND){
+    else if(operation==SymbolToken::LOGICAL_AND){
         result=evaluatelogicaland(leftRes,rightRes);
     }
-    else if(operation==symboltoken::EQUAL_EQUAL){
+    else if(operation==SymbolToken::EQUAL_EQUAL){
         result=evaluateequalequal(leftRes,rightRes);
     }
-    else if(operation==symboltoken::NOT_EQUAL){
+    else if(operation==SymbolToken::NOT_EQUAL){
         result=evaluatenotequal(leftRes,rightRes);
     }
-    else if(operation==symboltoken::GREATER_EQUAL){
+    else if(operation==SymbolToken::GREATER_EQUAL){
         result=evaluategreaterequal(leftRes,rightRes);
     }
-    else if(operation==symboltoken::LESS_EQUAL){
+    else if(operation==SymbolToken::LESS_EQUAL){
         result=evaluatelessequal(leftRes,rightRes);
     }
-    else if(operation==symboltoken::RIGHT_ANGLE_BRACKET){
+    else if(operation==SymbolToken::RIGHT_ANGLE_BRACKET){
         result=evaluategreater(leftRes,rightRes);
     }
-    else if(operation==symboltoken::LEFT_ANGLE_BRACKET){
+    else if(operation==SymbolToken::LEFT_ANGLE_BRACKET){
         result=evaluateless(leftRes,rightRes);
     }
-    else if(operation==symboltoken::PLUS){
+    else if(operation==SymbolToken::PLUS){
         result=evaluateplus(leftRes,rightRes);
     }
-    else if(operation==symboltoken::MINUS){
+    else if(operation==SymbolToken::MINUS){
         result=evaluateminus(leftRes,rightRes);
     }
-    else if(operation==symboltoken::STAR){
+    else if(operation==SymbolToken::STAR){
         result=evaluatestar(leftRes,rightRes);
     }
-    else if(operation==symboltoken::SLASH){
+    else if(operation==SymbolToken::SLASH){
         result=evaluateslash(leftRes,rightRes);
     }
-    else if(operation==symboltoken::MODULO){
+    else if(operation==SymbolToken::MODULO){
         result=evaluatemodulo(leftRes,rightRes);
     }
-    else if(operation==symboltoken::POWER){
+    else if(operation==SymbolToken::POWER){
         result=evaluatepower(leftRes,rightRes);
     }
 

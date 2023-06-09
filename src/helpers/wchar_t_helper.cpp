@@ -1,8 +1,8 @@
 #include <iostream>
 #include "wchar_t_helper.hpp"
-#include "lexertoken.hpp"
+#include "LexerToken.hpp"
 
-bool isainpunct(wchar_t &c)
+bool isainpunct(const wchar_t &c)
 {
     return (std::iswpunct(c)&&c!=L'_')
         ||c==L'؟'
@@ -11,29 +11,29 @@ bool isainpunct(wchar_t &c)
     ;
 }
 
-bool isainalpha(wchar_t &c)
+bool isainalpha(const wchar_t &c)
 {
-    return !isainpunct(c)&&!std::iswdigit(c)&&!iswempty(c);
+    return !isainpunct(c)&&!std::iswdigit(c)&&!iswempty(c)&&c!=L'\0';
 }
 
-bool iswempty(wchar_t &c)
+bool iswempty(const wchar_t &c)
 {
     return std::iswspace(c)||std::iswblank(c);
 }
 
-bool ispower10literaloperator(wchar_t &c)
+bool ispower10literaloperator(const wchar_t &c)
 {
     return c==L'E'||c==L'e';
 }
 
-bool iswbdigit(wchar_t &c){
+bool iswbdigit(const wchar_t &c){
     return c==L'0' || c==L'1';
 }
 
-bool iswodigit(wchar_t &c){
+bool iswodigit(const wchar_t &c){
     return c>=L'0' && c<=L'7';
 }
 
-bool isnumsystemchar(wchar_t &c){
+bool isnumsystemchar(const wchar_t &c){
     return c==L'x'||c==L'X'||c==L'b'||c==L'B'||c==L'o'||c==L'O';
 }

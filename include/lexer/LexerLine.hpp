@@ -1,0 +1,57 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <memory>
+#include "LexerToken.hpp"
+#include "NumberToken.hpp"
+
+class LexerLine{
+    private:
+        enum NUM_SYS{
+            DEC=10,
+            BIN=2,
+            OCT=8,
+            HEX=16,
+        };
+        std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokens;
+        std::wstring line;
+        int lineNumber;
+
+        /**
+         * @brief The start index of the current token in the line (first char in the token)
+        */
+        int tokenStartIndex=0;
+
+        /**
+         * @brief The end index of the current token in the line (last char in the token)
+        */
+        int tokenEndIndex=0;
+
+        /**
+         * @brief Get the token value from [tokenStartIndex] to [tokenEndIndex]
+        */
+        std::wstring getCurrentTokenVal();
+
+        /**
+         * @brief Get the character in line of at [index]
+        */
+        wchar_t charAt(int index);
+
+        bool isNotNullToken(std::shared_ptr<LexerToken> token);
+        std::shared_ptr<LexerToken> findStringLiteralToken();
+        std::shared_ptr<LexerToken> findCommentToken();
+        std::shared_ptr<LexerToken> findSymbolToken();
+        std::shared_ptr<LexerToken> findNumberToken();
+        std::shared_ptr<LexerToken> findIdentifierOrKeywordToken();
+        void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
+        NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
+        void skipAfterDigitArray(int startFrom,NUM_SYS numSys=NUM_SYS::DEC); // Default is decimal
+        void getIntNumberToken(std::wstring* number,NumberToken::NUMBER_TYPE* numType,NUM_SYS numSys);
+        void getDoubleNumberToken(std::wstring* number);
+        void getFloatNumberToken(std::wstring* number);
+    public:
+        LexerLine(std::wstring &line,int lineNumber);
+        void tokenize();
+        std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> getTokens();
+        int getLineNumber();
+};

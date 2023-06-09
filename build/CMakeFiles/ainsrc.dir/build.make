@@ -69,94 +69,136 @@ include CMakeFiles/ainsrc.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ainsrc.dir/flags.make
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp
+CMakeFiles/ainsrc.dir/src/main.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp
+CMakeFiles/ainsrc.dir/src/main.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ainsrc.dir/src/main.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/main.cpp.o -MF CMakeFiles/ainsrc.dir/src/main.cpp.o.d -o CMakeFiles/ainsrc.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp > CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.i
+CMakeFiles/ainsrc.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/main.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp > CMakeFiles/ainsrc.dir/src/main.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexer.cpp -o CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.s
+CMakeFiles/ainsrc.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/main.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp -o CMakeFiles/ainsrc.dir/src/main.cpp.s
 
-CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp
-CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp > CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp > CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/keywordtoken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.s
 
-CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp
-CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp > CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp > CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexerline.cpp -o CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.s
 
-CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp
-CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp > CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp > CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/symboltoken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp -o CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.s
 
-CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp
-CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp
 
-CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp > CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp > CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.i
 
-CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/lexertoken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.s
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o -MF CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o.d -o CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp
+CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp > CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.i
+CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp > CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.i
 
-CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/ain_file.cpp -o CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.s
+CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.s
+
+CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp
+
+CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp > CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.i
+
+CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.s
+
+CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp
+CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o -MF CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o.d -o CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp
+
+CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp > CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.i
+
+CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp -o CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.s
+
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -MF CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o.d -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp
+
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp > CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.i
+
+CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s
 
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o -MF CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o.d -o CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp
 
 CMakeFiles/ainsrc.dir/src/statement/statement.cpp.i: cmake_force
@@ -170,7 +212,7 @@ CMakeFiles/ainsrc.dir/src/statement/statement.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o -MF CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o.d -o CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp
 
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.i: cmake_force
@@ -184,7 +226,7 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o -MF CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o.d -o CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp
 
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.i: cmake_force
@@ -198,7 +240,7 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp
 CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o -MF CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o.d -o CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp
 
 CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.i: cmake_force
@@ -212,7 +254,7 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o -MF CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o.d -o CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp
 
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.i: cmake_force
@@ -226,7 +268,7 @@ CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp
 CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.i: cmake_force
@@ -240,7 +282,7 @@ CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp
 CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.i: cmake_force
@@ -254,7 +296,7 @@ CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp
 CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/expression.cpp.i: cmake_force
@@ -268,7 +310,7 @@ CMakeFiles/ainsrc.dir/src/parser/expression.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp
 CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/parser.cpp.i: cmake_force
@@ -281,12 +323,15 @@ CMakeFiles/ainsrc.dir/src/parser/parser.cpp.s: cmake_force
 
 # Object files for target ainsrc
 ainsrc_OBJECTS = \
-"CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/main.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o" \
@@ -300,12 +345,15 @@ ainsrc_OBJECTS = \
 # External object files for target ainsrc
 ainsrc_EXTERNAL_OBJECTS =
 
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexer.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/keywordtoken.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexerline.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/symboltoken.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/lexertoken.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/ain_file/ain_file.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/main.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o
@@ -317,7 +365,7 @@ libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/build.make
 libainsrc.a: CMakeFiles/ainsrc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libainsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX static library libainsrc.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/ainsrc.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ainsrc.dir/link.txt --verbose=$(VERBOSE)
 

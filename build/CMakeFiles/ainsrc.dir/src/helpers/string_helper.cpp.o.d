@@ -94,4 +94,11 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/bits/types/error_t.h /usr/include/c++/12.2/bits/charconv.h \
  /usr/include/c++/12.2/bits/basic_string.tcc \
+ /usr/include/c++/12.2/algorithm /usr/include/c++/12.2/bits/stl_algo.h \
+ /usr/include/c++/12.2/bits/algorithmfwd.h \
+ /usr/include/c++/12.2/bits/stl_heap.h \
+ /usr/include/c++/12.2/bits/stl_tempbuf.h \
+ /usr/include/c++/12.2/bits/uniform_int_dist.h \
+ /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/12.2/pstl/execution_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp

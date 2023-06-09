@@ -2,13 +2,19 @@ cmake_minimum_required(VERSION 3.26.3)
 
 project(AinLanguage)
 
+
+### start files_cmake.cpp ###
+
 add_library(ainsrc
-    src/lexer/lexer.cpp
-    src/lexer/keywordtoken.cpp
-    src/lexer/lexerline.cpp
-    src/lexer/symboltoken.cpp
-    src/lexer/lexertoken.cpp
-    src/ain_file/ain_file.cpp
+    src/main.cpp
+    src/lexer/LexerToken.cpp
+    src/lexer/Lexer.cpp
+    src/lexer/LexerLine.cpp
+    src/lexer/LiteralToken.cpp
+    src/lexer/NumberToken.cpp
+    src/lexer/KeywordToken.cpp
+    src/lexer/SymbolToken.cpp
+    src/ain_file/AinFile.cpp
     src/statement/statement.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp
@@ -22,6 +28,7 @@ add_library(ainsrc
 
 set(INCLUDE
     include/
+    include/exceptions/
     include/lexer/
     include/ain_file/
     include/statement/
@@ -30,22 +37,30 @@ set(INCLUDE
     include/parser/scope/
 )
 
+set(TEST
+    test/lexer/LexerTest.cpp
+    test/lexer/LexerLineTest.cpp
+    test/ain_file/AinFileTest.cpp
+)
+
+### end files_cmake.cpp ###
+
+
+
+
+
+
 add_executable(ain src/main.cpp)
 
 target_include_directories(ainsrc PUBLIC ${INCLUDE})
 
 target_link_libraries(ain ainsrc)
 
-
-
 # Add Catch2 library
 find_package(Catch2 REQUIRED)
 
 # Add test executable
-add_executable(unit_tests
-    test/test.cpp
-    test/test2.cpp
-)
+add_executable(unit_tests ${TEST})
 
 # Link Catch2 library to the test executable
 target_link_libraries(unit_tests Catch2::Catch2 ainsrc)

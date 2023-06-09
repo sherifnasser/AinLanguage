@@ -1,42 +1,42 @@
 #include <iostream>
 #include <map>
 #include "parser.hpp"
-#include "lexertoken.hpp"
-#include "keywordtoken.hpp"
-#include "symboltoken.hpp"
+#include "LexerToken.hpp"
+#include "KeywordToken.hpp"
+#include "SymbolToken.hpp"
 #include "statement.hpp"
 
-#define notsettoken lexertoken::notsettoken
+#define notsettoken LexerToken::notsettoken
 #define wcout std::wcout
 #define endl std::endl
 
 
-parser::parser(std::vector<lexertoken>* tokensP){
+parser::parser(std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokensP){
     tokens=tokensP;
     current=next();
 }
 
-lexertoken parser::next(){
+LexerToken parser::next(){
     currentpos++;
-    current=(currentpos<tokens->size())? (*tokens)[currentpos]:notsettoken;
+    current=(currentpos<tokens->size())?(*((*tokens)[currentpos])):notsettoken;
     // skip comments
-    if(current.gettokentype()!=lexertoken::COMMENT_TOKEN)
+    if(current.getTokenType()!=LexerToken::COMMENT_TOKEN)
         return current;
     else
         return next();
 }
 
-bool parser::currentmatch(lexertoken expected){
+bool parser::currentmatch(LexerToken expected){
     return current==expected;
 }
 
-bool parser::nextmatch(lexertoken expected){
+bool parser::nextmatch(LexerToken expected){
     next();
     return currentmatch(expected);
 }
 
 std::wstring parser::currentval(){
-    return current.getval();
+    return current.getVal();
 }
 
 void parser::startparse(globalscope* globalscope){
@@ -53,25 +53,25 @@ void parser::find_functions(globalscope* globalscope){
     std::wstring funname;
     std::wstring funtype=L"";
     std::vector<std::pair<std::wstring,std::wstring>>* args=new std::vector<std::pair<std::wstring,std::wstring>>();
-    if(currentmatch(keywordtoken::FUN)){
+    if(currentmatch(KeywordToken::FUN)){
         if(next().isidentifiertoken()){
             funname=currentval();
-            if(nextmatch(symboltoken::LEFT_PARENTHESIS)){
+            if(nextmatch(SymbolToken::LEFT_PARENTHESIS)){
                 /*----------------we have two ways-------------------/*
                 1- the next token is left parenthesis and no args for the fun.
                 2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
-                while(!nextmatch(symboltoken::RIGHT_PARENTHESIS)){
+                while(!nextmatch(SymbolToken::RIGHT_PARENTHESIS)){
                     if(current.isidentifiertoken()){
                         auto argname=currentval();
-                        if(nextmatch(symboltoken::COLON)){
+                        if(nextmatch(SymbolToken::COLON)){
                             if(next().isidentifiertoken()){
                                 auto argtype=currentval();
                                 auto arg=std::pair<std::wstring,std::wstring>(argname,argtype);
                                 args->push_back(arg);
                                 // calling next() first multi args without a comma
-                                if(nextmatch(symboltoken::COMMA)){}
+                                if(nextmatch(SymbolToken::COMMA)){}
                                 // the user may right the comma or not at the end
-                                else if(current==symboltoken::RIGHT_PARENTHESIS)
+                                else if(current==SymbolToken::RIGHT_PARENTHESIS)
                                 {break;}
                                 // else error
                             }
@@ -79,7 +79,7 @@ void parser::find_functions(globalscope* globalscope){
                     } // else error
                 }
 
-                if(nextmatch(symboltoken::COLON)){
+                if(nextmatch(SymbolToken::COLON)){
                     if(next().isidentifiertoken()){
                         funtype=currentval();
                         next();
@@ -89,9 +89,9 @@ void parser::find_functions(globalscope* globalscope){
                 auto fscope=new funscope(globalscope,funname,funtype,args);
                 globalscope->addfunction(fscope);
 
-                if(current==symboltoken::LEFT_CURLY_BRACES){
+                if(current==SymbolToken::LEFT_CURLY_BRACES){
                     next();
-                    while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                    while(!currentmatch(SymbolToken::RIGHT_CURLY_BRACES))
                         add_next_stm_to_stm_list(fscope,fscope->getstmlist());
                 }
                 // else error
@@ -140,14 +140,14 @@ statement* parser::find_next_statement(funscope* fscope){
 }
 
 statement* parser::find_while_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::WHILE)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+    if(currentmatch(KeywordToken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
         next();
         auto ex=find_expression();
-        if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+        if(currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
             StmList* stmlist=new StmList();
-            if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+            if(nextmatch(SymbolToken::LEFT_CURLY_BRACES)){
                 next();
-                while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                while(!currentmatch(SymbolToken::RIGHT_CURLY_BRACES))
                     add_next_stm_to_stm_list(fscope,stmlist);
                 next();
                     
@@ -161,20 +161,20 @@ statement* parser::find_while_statement(funscope* fscope){
 }
 
 statement* parser::find_do_while_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::DO)){
+    if(currentmatch(KeywordToken::DO)){
         StmList* stmlist=new StmList();
-        if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+        if(nextmatch(SymbolToken::LEFT_CURLY_BRACES)){
             next();
-            while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+            while(!currentmatch(SymbolToken::RIGHT_CURLY_BRACES))
                 add_next_stm_to_stm_list(fscope,stmlist);
             next();
                     
         }else add_next_stm_to_stm_list(fscope,stmlist);
 
-        if(currentmatch(keywordtoken::WHILE)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        if(currentmatch(KeywordToken::WHILE)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
             next();
             auto ex=find_expression();
-            if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+            if(currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
                 next();
                 auto do_while_statment=new dowhilestatement(fscope,ex,stmlist);
                 return do_while_statment;
@@ -186,14 +186,14 @@ statement* parser::find_do_while_statement(funscope* fscope){
 }
 
 statement* parser::find_if_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+    if(currentmatch(KeywordToken::IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
         std::vector<ExStmList*>* exstmlists=new std::vector<ExStmList*>();
 
         auto find_condition_stm_list=[&](expression* ex){
             StmList* stmlist=new StmList();
-            if(nextmatch(symboltoken::LEFT_CURLY_BRACES)){
+            if(nextmatch(SymbolToken::LEFT_CURLY_BRACES)){
                 next();
-                while(!currentmatch(symboltoken::RIGHT_CURLY_BRACES))
+                while(!currentmatch(SymbolToken::RIGHT_CURLY_BRACES))
                     add_next_stm_to_stm_list(fscope,stmlist);
                 next();
                     
@@ -205,28 +205,28 @@ statement* parser::find_if_statement(funscope* fscope){
         auto if_condition=[&](auto& next_condition){
             next();
             auto ex=find_expression();
-            if(currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+            if(currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
                 find_condition_stm_list(ex);
             }
             next_condition();
         };
 
         auto else_condition=[&](){
-            if(currentmatch(keywordtoken::ELSE)){
-                std::wstring True_val=keywordtoken::TRUE.getval();
+            if(currentmatch(KeywordToken::ELSE)){
+                std::wstring True_val=KeywordToken::TRUE.getVal();
                 expression* ex=new boolexpression(True_val);
                 find_condition_stm_list(ex);
                 //next();
             }
         };
 
-        auto else_if_condition=[&](){
-            while(currentmatch(keywordtoken::ELSE_IF)&&nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        /*auto else_if_condition=[&](){
+            while(currentmatch(KeywordToken::ELSE_IF)&&nextmatch(SymbolToken::LEFT_PARENTHESIS)){
                 auto empty=[](){};
                 if_condition(empty);
             }
             else_condition();
-        };
+        };*/
         
 
         if_condition(else_condition);
@@ -240,7 +240,7 @@ statement* parser::find_if_statement(funscope* fscope){
 }
 
 statement* parser::find_return_statement(funscope* fscope){
-    if(currentmatch(keywordtoken::RETURN)){
+    if(currentmatch(KeywordToken::RETURN)){
         next();
         //next();
         auto ex=find_expression();
@@ -259,23 +259,23 @@ statement* parser::find_expression_statement(funscope* fscope){
 
 statement* parser::find_var_reassign_statement(funscope* fscope){
     if(current.isidentifiertoken()){
-        auto varname=current.getval();
-        if(nextmatch(symboltoken::EQUAL)){
+        auto varname=current.getVal();
+        if(nextmatch(SymbolToken::EQUAL)){
             next();
             auto ex=find_expression();
             auto stm=new varreassignstatement(fscope,varname,ex);
             return stm;
         }
         else if(
-            currentmatch(symboltoken::PLUS)||
-            currentmatch(symboltoken::MINUS)||
-            currentmatch(symboltoken::STAR)||
-            currentmatch(symboltoken::SLASH)||
-            currentmatch(symboltoken::MODULO)||
-            currentmatch(symboltoken::POWER)
+            currentmatch(SymbolToken::PLUS)||
+            currentmatch(SymbolToken::MINUS)||
+            currentmatch(SymbolToken::STAR)||
+            currentmatch(SymbolToken::SLASH)||
+            currentmatch(SymbolToken::MODULO)||
+            currentmatch(SymbolToken::POWER)
         ){
-            lexertoken op=current;
-            if(nextmatch(symboltoken::EQUAL)){
+            LexerToken op=current;
+            if(nextmatch(SymbolToken::EQUAL)){
                 next();
                 auto left=new variableaccessexpression(varname);
                 auto right=find_expression();
@@ -293,20 +293,20 @@ statement* parser::find_var_reassign_statement(funscope* fscope){
 }
 
 statement* parser::find_var_val_statement(funscope* fscope){
-    auto isvar=currentmatch(keywordtoken::VAR);
-    auto isval=currentmatch(keywordtoken::VAL);
+    auto isvar=currentmatch(KeywordToken::VAR);
+    auto isval=currentmatch(KeywordToken::VAL);
     std::wstring name,type=L"";
     expression* ex=nullptr;     
     if(isvar||isval){
         if(next().isidentifiertoken()){
             name=currentval();
-            if(nextmatch(symboltoken::COLON)){
+            if(nextmatch(SymbolToken::COLON)){
                 if(next().isidentifiertoken()){
                     type=currentval();
                     next();
                 }
             }
-            if(currentmatch(symboltoken::EQUAL)){
+            if(currentmatch(SymbolToken::EQUAL)){
                 next();
                 ex=find_expression();
             }
@@ -331,9 +331,9 @@ expression* parser::find_expression(){
 expression* parser::find_binary_logical_or_expression(){
     expression* left=find_binary_logical_and_expression();
     expression* right;
-    while(currentmatch(symboltoken::BAR)&&nextmatch(symboltoken::BAR))
+    while(currentmatch(SymbolToken::BAR)&&nextmatch(SymbolToken::BAR))
     {   
-        lexertoken op=symboltoken::LOGICAL_OR;
+        LexerToken op=SymbolToken::LOGICAL_OR;
         next();
         right=find_binary_logical_and_expression();
         left=new binaryexpression(left,op,right);
@@ -345,9 +345,9 @@ expression* parser::find_binary_logical_or_expression(){
 expression* parser::find_binary_logical_and_expression(){
     expression* left=find_binary_equality_expression();
     expression* right;
-    while(currentmatch(symboltoken::AMPERSAND)&&nextmatch(symboltoken::AMPERSAND))
+    while(currentmatch(SymbolToken::AMPERSAND)&&nextmatch(SymbolToken::AMPERSAND))
     {   
-        lexertoken op=symboltoken::LOGICAL_AND;
+        LexerToken op=SymbolToken::LOGICAL_AND;
         next();
         right=find_binary_equality_expression();
         left=new binaryexpression(left,op,right);
@@ -359,11 +359,11 @@ expression* parser::find_binary_logical_and_expression(){
 expression* parser::find_binary_equality_expression(){
     expression* left=find_binary_comparison_expression();
     expression* right;
-    while(currentmatch(symboltoken::EXCLAMATION_MARK)||currentmatch(symboltoken::EQUAL))
+    while(currentmatch(SymbolToken::EXCLAMATION_MARK)||currentmatch(SymbolToken::EQUAL))
     {
-        lexertoken op=current;
-        if(nextmatch(symboltoken::EQUAL)){
-            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op != or ==
+        LexerToken op=current;
+        if(nextmatch(SymbolToken::EQUAL)){
+            op=LexerToken(LexerToken::SYMBOL_TOKEN,op.getVal()+L"="); // we don't need if() to make op != or ==
             next();
             right=find_binary_comparison_expression();
             left=new binaryexpression(left,op,right);
@@ -378,13 +378,13 @@ expression* parser::find_binary_comparison_expression(){
     expression* left=find_binary_math_plus_minus_expression();
     expression* right;
     while(
-        currentmatch(symboltoken::LEFT_ANGLE_BRACKET)
+        currentmatch(SymbolToken::LEFT_ANGLE_BRACKET)
         ||
-        currentmatch(symboltoken::RIGHT_ANGLE_BRACKET)
+        currentmatch(SymbolToken::RIGHT_ANGLE_BRACKET)
     ){
-        lexertoken op=current;
-        if(nextmatch(symboltoken::EQUAL)){
-            op=lexertoken(lexertoken::SYMBOL_TOKEN,op.getval()+L"="); // we don't need if() to make op >= or <=
+        LexerToken op=current;
+        if(nextmatch(SymbolToken::EQUAL)){
+            op=LexerToken(LexerToken::SYMBOL_TOKEN,op.getVal()+L"="); // we don't need if() to make op >= or <=
             next();
         }
         right=find_binary_math_plus_minus_expression();
@@ -398,11 +398,11 @@ expression* parser::find_binary_math_plus_minus_expression(){
     expression* left=find_binary_math_star_slash_expression();
     expression* right;
     while(
-        currentmatch(symboltoken::PLUS)
+        currentmatch(SymbolToken::PLUS)
         ||
-        currentmatch(symboltoken::MINUS)
+        currentmatch(SymbolToken::MINUS)
     ){
-        lexertoken op=current;
+        LexerToken op=current;
         next();
         right=find_binary_math_star_slash_expression();
         left=new binaryexpression(left,op,right);
@@ -415,13 +415,13 @@ expression* parser::find_binary_math_star_slash_expression(){
     expression* left=find_binary_math_exponent_expression();
     expression* right;
     while(
-        currentmatch(symboltoken::STAR)
+        currentmatch(SymbolToken::STAR)
         ||
-        currentmatch(symboltoken::SLASH)
+        currentmatch(SymbolToken::SLASH)
         ||
-        currentmatch(symboltoken::MODULO)
+        currentmatch(SymbolToken::MODULO)
     ){
-        lexertoken op=current;
+        LexerToken op=current;
         next();
         right=find_binary_math_exponent_expression();
         left=new binaryexpression(left,op,right);
@@ -432,8 +432,8 @@ expression* parser::find_binary_math_star_slash_expression(){
 expression* parser::find_binary_math_exponent_expression(){
     expression* left=find_binary_parentheses_expression();
     expression* right;
-    while(currentmatch(symboltoken::POWER)){
-        lexertoken op=current;
+    while(currentmatch(SymbolToken::POWER)){
+        LexerToken op=current;
         next();
         right=find_binary_parentheses_expression();
         left=new binaryexpression(left,op,right);
@@ -444,11 +444,11 @@ expression* parser::find_binary_math_exponent_expression(){
 expression* parser::find_binary_parentheses_expression(){
     expression* left;
     expression* right;
-    if(currentmatch(symboltoken::LEFT_PARENTHESIS)){
+    if(currentmatch(SymbolToken::LEFT_PARENTHESIS)){
         next();
         left=find_binary_logical_or_expression();
-        while(!currentmatch(symboltoken::RIGHT_PARENTHESIS)){
-            lexertoken op=current;
+        while(!currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
+            LexerToken op=current;
             next();
             right=find_binary_logical_or_expression();
             left=new binaryexpression(left,op,right);
@@ -460,7 +460,7 @@ expression* parser::find_binary_parentheses_expression(){
         left=new stringexpression(val);
         next();
     }
-    else if(currentmatch(keywordtoken::TRUE)||currentmatch(keywordtoken::FALSE)){
+    else if(currentmatch(KeywordToken::TRUE)||currentmatch(KeywordToken::FALSE)){
         auto val=currentval();
         left=new boolexpression(val);
         next();
@@ -472,13 +472,13 @@ expression* parser::find_binary_parentheses_expression(){
     }
     else if(current.isidentifiertoken()){
         auto name=currentval();
-        if(nextmatch(symboltoken::LEFT_PARENTHESIS)){
+        if(nextmatch(SymbolToken::LEFT_PARENTHESIS)){
             next();
             auto argsex=new std::vector<expression*>();
-            while(!currentmatch(symboltoken::RIGHT_PARENTHESIS)){
+            while(!currentmatch(SymbolToken::RIGHT_PARENTHESIS)){
                 auto argex=find_expression();
                 argsex->push_back(argex);
-                if(currentmatch(symboltoken::COMMA)){
+                if(currentmatch(SymbolToken::COMMA)){
                     next();
                 }
             }

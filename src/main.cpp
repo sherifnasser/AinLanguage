@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ain_file.hpp"
-#include "lexer.hpp"
+#include <memory>
+#include "AinFile.hpp"
+#include "Lexer.hpp"
 #include "globalscope.hpp"
 #include "parser.hpp"
-#include "keywordtoken.hpp"
-#include "symboltoken.hpp"
+#include "KeywordToken.hpp"
+#include "SymbolToken.hpp"
 
 #define string std::string
 #define vector std::vector
@@ -22,16 +23,16 @@ int main(int argc, char * argv[]){
 
     string path(argv[1]); // as it's the second arg
     
-    AinFile file=AinFile(path);
-    lexer lex = lexer(file);
-    auto lines=lex.getlexerlines();
-    auto tokens=vector<lexertoken>{};
+    std::shared_ptr<IAinFile> file=std::make_shared<AinFile>(path);
+    Lexer lexer = Lexer(file);
+    auto lines=lexer.getLexerLines();
+    auto tokens=std::make_shared<vector<std::shared_ptr<LexerToken>>>();
     for(auto &l:lines){
-        auto ltokens=l.gettokens();
-        tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
+        auto ltokens=l.getTokens();
+        tokens->insert(tokens->end(),ltokens->begin(),ltokens->end());
     }
     globalscope global;
-    parser Parser(&tokens);
+    parser Parser(tokens);
     Parser.startparse(&global);
 
     auto main=global.getmain();

@@ -130,27 +130,40 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/ain_file.hpp \
- /usr/include/c++/12.2/fstream /usr/include/c++/12.2/bits/codecvt.h \
- /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h \
- /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++io.h \
- /usr/include/c++/12.2/bits/fstream.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexer.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexerline.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/lexertoken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/ext/aligned_buffer.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
+ /usr/include/c++/12.2/bits/vector.tcc /usr/include/c++/12.2/memory \
+ /usr/include/c++/12.2/bits/stl_tempbuf.h \
+ /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/12.2/bits/align.h /usr/include/c++/12.2/bit \
  /usr/include/c++/12.2/bits/uses_allocator.h \
+ /usr/include/c++/12.2/bits/unique_ptr.h /usr/include/c++/12.2/tuple \
+ /usr/include/c++/12.2/bits/shared_ptr.h \
+ /usr/include/c++/12.2/bits/shared_ptr_base.h \
+ /usr/include/c++/12.2/bits/allocated_ptr.h \
+ /usr/include/c++/12.2/ext/aligned_buffer.h \
+ /usr/include/c++/12.2/ext/concurrence.h \
+ /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+ /usr/include/c++/12.2/bits/atomic_base.h \
+ /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/12.2/backward/auto_ptr.h \
+ /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+ /usr/include/c++/12.2/pstl/execution_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
+ /usr/include/c++/12.2/bits/node_handle.h \
+ /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/symboltoken.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp
