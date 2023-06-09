@@ -33,94 +33,106 @@ bool LexerLine::isNotNullToken(std::shared_ptr<LexerToken> token){
     if(token==nullptr)
         return false;
     tokens->push_back(token);
+
+    // move to the next token, start and end will be equal
+    tokenStartIndex=++tokenEndIndex;
     return true;
 }
 
+std::wstring LexerLine::getCurrentTokenVal(){
+    return line.substr(tokenStartIndex,tokenEndIndex-tokenStartIndex+1);
+}
+
+wchar_t LexerLine::charAt(int index){
+    if(index<line.size())
+        return line[index];
+    
+    return L'\0';
+}
+
 void LexerLine::tokenize(){
-    int i=0;
-    while(i<line.size()){
+
+    while(tokenStartIndex<line.size()){
         
-        auto stringToken=findStringLiteralToken(&i);
+        auto stringToken=findStringLiteralToken();
         if(isNotNullToken(stringToken))
             continue;
         
-        auto commentToken=findCommentToken(&i);
+        auto commentToken=findCommentToken();
         if(isNotNullToken(commentToken))
             continue;
         
-        auto symbolToken=findSymbolToken(&i);
+        auto symbolToken=findSymbolToken();
         if(isNotNullToken(symbolToken))
             continue;
 
-        auto numberToken=findNumberToken(&i);
+        auto numberToken=findNumberToken();
         if(isNotNullToken(numberToken))
             continue;
 
-        auto identifierOrKeywordToken=findIdentifierOrKeywordToken(&i);
+        auto identifierOrKeywordToken=findIdentifierOrKeywordToken();
         if(isNotNullToken(identifierOrKeywordToken))
             continue;
         
-        // next char is space, so skip it
-        i++;
+        // To skip spaces and tabs, move to the next token, start and end will be equal
+        tokenStartIndex=++tokenEndIndex;
     }
 }
 
-std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(int* startIndex){
+std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(){
     
-    auto &c=line[*startIndex];
+    auto c=charAt(tokenStartIndex);
     auto DOUBLE_QOUTE=L'\"';
     std::wstring CNTRL_DOUBLE_QOUTE=L"\\\""; // when there is double qoute inside the string
 
     if(c!=DOUBLE_QOUTE)
         return nullptr;
 
-    std::wstring word=L"\"";  // add current "
-    int i=++(*startIndex);
+    ++tokenEndIndex; // the end must be after first double qoute
+    
     // append every char in the line until finding another "
+    while(tokenEndIndex<line.size()){
 
-    while(i<line.size()){
-
-        auto nextCnrtlDoubleQouteIndex=line.find(CNTRL_DOUBLE_QOUTE,i);
+        auto nextCnrtlDoubleQouteIndex=line.find(CNTRL_DOUBLE_QOUTE,tokenEndIndex);
 
         if(nextCnrtlDoubleQouteIndex != std::wstring::npos){
-            i=nextCnrtlDoubleQouteIndex+2; // get the char after \" (after 2 chars)
+            tokenEndIndex=nextCnrtlDoubleQouteIndex+2; // get the char after \" (after 2 chars)
             continue;
         }
 
         // no more cntrl \" in the string
 
-        auto lastDoubleQouteIndex=line.find(DOUBLE_QOUTE,i);  
+        auto lastDoubleQouteIndex=line.find(DOUBLE_QOUTE,tokenEndIndex);  
 
         if(lastDoubleQouteIndex == std::wstring::npos){ // string isn't closed
             break;
         }
-        auto nextStartIndex=lastDoubleQouteIndex+1;
 
-        word+=line.substr(*startIndex,nextStartIndex-*startIndex);
-        auto token=std::make_shared<LiteralToken>(LiteralToken::STRING,word);
-        *startIndex=nextStartIndex;
+        tokenEndIndex=lastDoubleQouteIndex;
+
+        auto token=std::make_shared<LiteralToken>(LiteralToken::STRING,getCurrentTokenVal());
         return token;
     }
 
-    word+=line.substr(*startIndex);
-    throw StringIsNotClosedException(lineNumber,word);
+    throw StringIsNotClosedException(lineNumber,getCurrentTokenVal());
 }
 
-std::shared_ptr<LexerToken> LexerLine::findCommentToken(int* startIndex){
+std::shared_ptr<LexerToken> LexerLine::findCommentToken(){
 
-    auto commentIndex=line.find(L"//",*startIndex);
+    auto commentIndex=line.find(L"//",tokenStartIndex);
 
-    if(commentIndex!=*startIndex)
+    // may be there is a comment in the line but there're tokens before it, so return to tokenize them
+    if(commentIndex!=tokenStartIndex)
         return nullptr;
     
     auto comment=line.substr(commentIndex);
     auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
-    *startIndex=line.size();  // end of the line, so it'll stop the loop
+    tokenEndIndex=line.size()-1;  // last character in comment
     return token;
 }
 
 
-std::shared_ptr<LexerToken> LexerLine::findSymbolToken(int* startIndex){
+std::shared_ptr<LexerToken> LexerLine::findSymbolToken(){
     
     // find a double-symbol token (>=, <=, ==, !=, &&, ||) also assignment operators
     SymbolToken doubleSymbolTokens[]={
@@ -138,32 +150,27 @@ std::shared_ptr<LexerToken> LexerLine::findSymbolToken(int* startIndex){
         SymbolToken::POWER_EQUAL
     };
     for(auto &s:doubleSymbolTokens){
-        auto found=line.find(s.getVal(),*startIndex);
-        if(found!=*startIndex)
+        auto found=line.find(s.getVal(),tokenStartIndex);
+        if(found!=tokenStartIndex)
             continue;
-        *startIndex+=2; // skip next symbol
+        tokenEndIndex++; // skip next symbol
         auto token=std::make_shared<SymbolToken>(s);
         return token;
     }
 
     // find a single-symbol token
-    auto &c=line[*startIndex];
+    auto c=charAt(tokenStartIndex);
     if(!isainpunct(c)) // This excludes underscore
         return nullptr;
     
-    ++(*startIndex);
-    std::wstring val;
-    val=c;
-    auto token=std::make_shared<SymbolToken>(val);
+    auto token=std::make_shared<SymbolToken>(getCurrentTokenVal());
     return token;
 }
 
-std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
+std::shared_ptr<LexerToken> LexerLine::findNumberToken(){
 
-    if(!iswdigit(line[*startIndex]))
+    if(!iswdigit(charAt(tokenStartIndex)))
         return nullptr;
-    
-    int nextStartIndex=*startIndex;
 
     NUM_SYS numSys=NUM_SYS::DEC;
     auto numType=NumberToken::INT;
@@ -173,8 +180,8 @@ std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
      * If skipped, then change [numSys] and don't skip any more.
     */
     for(auto nS:{NUM_SYS::BIN, NUM_SYS::OCT, NUM_SYS::HEX}){
-        skipAfterNonDecIntDigitArray(&nextStartIndex,nS);
-        if(nextStartIndex!=*startIndex){
+        skipAfterNonDecIntDigitArray(nS);
+        if(tokenEndIndex!=tokenStartIndex){
             numSys=nS;
             break;
         }
@@ -185,14 +192,12 @@ std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
      * then skip after a digit array in decimal and change the number type (int, double or float)
     */
     if(numSys==NUM_SYS::DEC)
-        numType=skipAfterDecDigitArray(&nextStartIndex);
+        numType=skipAfterDecDigitArray();
     
-    auto number=line.substr(*startIndex,nextStartIndex-*startIndex);
+    auto number=getCurrentTokenVal();
 
     // remove underscores
     removeUnderscores(&number);
-
-    *startIndex=nextStartIndex;
 
     switch(numType){
         case NumberToken::DOUBLE:
@@ -202,23 +207,19 @@ std::shared_ptr<LexerToken> LexerLine::findNumberToken(int* startIndex){
             getFloatNumberToken(&number);
             break;
         default: // INT
-            getIntNumberToken(startIndex,&number,&numType,numSys);
+            getIntNumberToken(&number,&numType,numSys);
     }
 
     auto token=std::make_shared<NumberToken>(numType,number);
     return token;
 }
 
-void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
+void LexerLine::skipAfterNonDecIntDigitArray(NUM_SYS numSys){
     
-    if(line[*startIndex]!=L'0')
+    if(charAt(tokenStartIndex)!=L'0')
         return;
     
-    // If error occured, we can show the start of number to error index with this
-    auto absoluteStartIndex=*startIndex;
-
-    auto nextStartIndex=*startIndex+1;
-    auto &numSysCharLine=line[nextStartIndex];
+    auto numSysCharLine=charAt(tokenStartIndex+1);
 
     wchar_t numSysChar;
     switch(numSys)
@@ -238,12 +239,12 @@ void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
 
     if(std::towlower(numSysCharLine)!=numSysChar)
         return;
-    
-    nextStartIndex++;
 
-    skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex,numSys);
+    // to skip the zero and numSysChar
+    tokenEndIndex++;
+    skipAfterDigitArray(tokenEndIndex+1,numSys);
 
-    auto &stopChar=line[nextStartIndex]; // where the skipping stopped
+    auto stopChar=charAt(tokenEndIndex+1); // where the skipping stopped
 
     // user types 0b12, ob1a, 0O128, ,0b12s, 0xfg etc.
     if (
@@ -251,69 +252,57 @@ void LexerLine::skipAfterNonDecIntDigitArray(int* startIndex,NUM_SYS numSys){
         ||
         isainalpha(stopChar)
     )
-        throw InvalidNumberSystemDigitException(
-            lineNumber,
-            line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1)
-        );
-
-    *startIndex=nextStartIndex;
+        throw InvalidNumberSystemDigitException(lineNumber,getCurrentTokenVal()+stopChar);
 }
 
-NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
-
-
-    // If error occured, we can show the start of number to error index with this
-    auto absoluteStartIndex=*startIndex;
-
-    auto nextStartIndex=*startIndex;
-
-    auto getErrorNumberToken=[&](){
-        return line.substr(absoluteStartIndex,nextStartIndex-absoluteStartIndex+1);
-    };
+NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
 
     auto numType=NumberToken::INT;
 
-    skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+    skipAfterDigitArray(tokenStartIndex);
 
     // number before dot may be treated as object, so check if after the dot is a digit to build the double
-    if(line[nextStartIndex]==L'.' && iswdigit(line[nextStartIndex+1])){
+    if(charAt(tokenEndIndex+1)==L'.' && iswdigit(charAt(tokenEndIndex+2))){
         numType=NumberToken::DOUBLE;
-        ++nextStartIndex;
-        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+        tokenEndIndex++; // add '.' symbol to the token
+        skipAfterDigitArray(tokenEndIndex+1);
     }
 
-    if(std::towlower(line[nextStartIndex])==L'e'){
+    if(std::towlower(charAt(tokenEndIndex+1))==L'e'){
         numType=NumberToken::DOUBLE; // may be doesn't have a dot, so reassign it to DOUBLE
 
-        ++nextStartIndex;
+        // add 'e' symbol to the token
+        tokenEndIndex++;
 
-        if(line[nextStartIndex]==L'-'||line[nextStartIndex]==L'+') // sign of exponent
-            nextStartIndex++;
+        if(charAt(tokenEndIndex+1)==L'-'||charAt(tokenEndIndex+1)==L'+') // sign of exponent
+            tokenEndIndex++; // add the sign to token
 
-        if(line[nextStartIndex]==L'_')
-            throw IllegalUnderscoreException(lineNumber,getErrorNumberToken());
+        // when character after exponent is underscore
+        auto nextChar=charAt(tokenEndIndex+1);
+        if(nextChar==L'_')
+            throw IllegalUnderscoreException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
 
-        if(!iswdigit(line[nextStartIndex]))
-            throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
+        // when character after exponent isn't a digit
+        if(!iswdigit(nextChar))
+            throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
 
-        auto before=nextStartIndex;
+        auto skipStart=tokenEndIndex+1;
 
         // skip after checking next char
-        skipAfterDigitArray(&nextStartIndex,&absoluteStartIndex);
+        skipAfterDigitArray(skipStart);
 
-        // if nextStartIndex didn't change from skip, error will be thrown
-        if(nextStartIndex==before)
-            throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
+        // if tokenEndIndex didn't change after skip, error will be thrown
+        // this when number ends with exponent without numbers after 'e' symbol (e.g., 10e, 2e+, 3e-)
+        if(tokenEndIndex==skipStart-1)
+            throw UnsupportedTokenException(lineNumber,getCurrentTokenVal());
     }
 
-    if(std::towlower(line[nextStartIndex])==L'f'){
+    if(std::towlower(charAt(tokenEndIndex+1))==L'f'){
         numType=NumberToken::FLOAT;
-        nextStartIndex++;
+        tokenEndIndex++; // add 'f' symbol to the token
     }
 
-    *startIndex=nextStartIndex;
-
-    wchar_t stopChar=std::towlower(line[nextStartIndex]);
+    wchar_t stopChar=std::towlower(charAt(tokenEndIndex+1));
 
     if(!isainalpha(stopChar))
         return numType;
@@ -324,18 +313,21 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(int* startIndex){
 
    // numType is float or double
     if(numType!=NumberToken::INT)
-        throw UnsupportedTokenException(lineNumber,getErrorNumberToken());
+        throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
+    
 
     // numType is int
-    if(stopChar!=L'u'&&stopChar!=L'l') // checking for stopChar after unsinged and long types is in getIntNumberToken
-        throw InvalidIdentifierNameException(lineNumber,getErrorNumberToken());
+    // checking for stopChar after unsinged and long types is in getIntNumberToken
+    if(stopChar!=L'u'&&stopChar!=L'l')
+        throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
+    
     
     // Nothing happened, numType will be unsigned int, unsigned long or long in getIntNumberToken
     return numType;
 }
 
-void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM_SYS numSys){
-    auto isNumSysDigit=[&](wchar_t &c){
+void LexerLine::skipAfterDigitArray(int startFrom,NUM_SYS numSys){
+    auto isNumSysDigit=[&](wchar_t &&c){
         switch(numSys)
         {
             case BIN:
@@ -350,30 +342,26 @@ void LexerLine::skipAfterDigitArray(int* startIndex, int* absoluteStartIndex,NUM
     };
 
     // number may be 0b, 0o, ox, so throw an error
-    if(!isNumSysDigit(line[*startIndex]))
-        throw InvalidNumberSystemDigitException(
-            lineNumber,
-            line.substr(*absoluteStartIndex,*startIndex-*absoluteStartIndex+1)
-        );
+    if(!isNumSysDigit(charAt(startFrom)))
+        throw InvalidNumberSystemDigitException(lineNumber,getCurrentTokenVal()+charAt(startFrom)); // apend next char
 
-    int i=*startIndex;
-    while(i<line.size() && (isNumSysDigit(line[i])||line[i]==L'_'))
+    int i=startFrom+1;
+    while(i<line.size() && (isNumSysDigit(charAt(i))||charAt(i)==L'_'))
         i++;
 
-    if(line[i-1]==L'_') // must be no underscore at the end
-        throw IllegalUnderscoreException(lineNumber,line.substr(*absoluteStartIndex,i-*absoluteStartIndex+1));
+    tokenEndIndex=i-1;
 
-    *startIndex=i;
+    // must be no underscore at the end of number
+    if(charAt(tokenEndIndex)==L'_')
+        throw IllegalUnderscoreException(lineNumber,getCurrentTokenVal());
+
 }
 
 void LexerLine::getIntNumberToken(
-    int *startIndex,
     std::wstring* number,
     NumberToken::NUMBER_TYPE* numType,
     NUM_SYS numSys
 ){
-
-    int nextStartIndex=*startIndex;
 
     if(numSys!=DEC)
         *number=number->substr(2); // skip prefix to not struggle with stoull
@@ -392,13 +380,13 @@ void LexerLine::getIntNumberToken(
      * The unary minus from parser may change the numType if the num reached the limits of int or long
     */
 
-    auto isUnsigned=line[nextStartIndex]==L'U'||line[nextStartIndex]==L'u';
+    auto isUnsigned=charAt(tokenEndIndex+1)==L'U'||charAt(tokenEndIndex+1)==L'u';
     if(isUnsigned){
         *numType=
         (num<=std::numeric_limits<unsigned int>::max())
         ?NumberToken::UNSIGNED_INT
         :NumberToken::UNSIGNED_LONG;
-        nextStartIndex++;
+        tokenEndIndex++; // append 'U' symbol to token
     }
     else{
         *numType=
@@ -406,26 +394,23 @@ void LexerLine::getIntNumberToken(
         ?NumberToken::INT
         :(num<=std::numeric_limits<long long>::max())
         ?NumberToken::LONG
-        :throw OutOfRangeException(lineNumber,*number);
+        :throw OutOfRangeException(lineNumber,getCurrentTokenVal());
     }
 
-    auto isLong=line[nextStartIndex]==L'L'||line[nextStartIndex]==L'l';
+    auto isLong=charAt(tokenEndIndex+1)==L'L'||charAt(tokenEndIndex+1)==L'l';
     if(isLong){
         *numType=
         (isUnsigned)
         ?NumberToken::UNSIGNED_LONG
         :NumberToken::LONG;
-        nextStartIndex++;
+        tokenEndIndex++; // append 'L' symbol to token
     }
 
-    wchar_t stopChar=line[nextStartIndex];
+    wchar_t stopChar=charAt(tokenEndIndex+1);
     
     if(isainalpha(stopChar))
-        throw InvalidIdentifierNameException(
-            lineNumber,
-            *number+line.substr(*startIndex,nextStartIndex-*startIndex+1)
-        );
-    *startIndex=nextStartIndex;
+        throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
+    
     *number=std::to_wstring(num);
 }
 
@@ -449,22 +434,21 @@ void LexerLine::getFloatNumberToken(std::wstring* number){
     }
 }
 
-std::shared_ptr<LexerToken> LexerLine::findIdentifierOrKeywordToken(int* startIndex){
-    int i=*startIndex;
-
+std::shared_ptr<LexerToken> LexerLine::findIdentifierOrKeywordToken(){
     // Identifiers nad tokens don't start with digits, symbols or spaces
-    if(!isainalpha(line[i]))
+    if(!isainalpha(line[tokenStartIndex]))
         return nullptr;
     
+    int i=tokenStartIndex;
     do i++;
     while(isainalpha(line[i])||iswdigit(line[i])); // if next char is alpha or digit add it
 
-    auto val=line.substr(*startIndex,i-*startIndex);
+    tokenEndIndex=i-1;
+
+    auto val=getCurrentTokenVal();
 
     auto tokenType=(KeywordToken::iskeyword(val))
     ?LexerToken::KEYWORD_TOKEN:LexerToken::IDENTIFIER_TOKEN;
-
-    *startIndex=i; // The new index at which the next token starts
 
     auto token=std::make_shared<LexerToken>(tokenType,val);
     return token;

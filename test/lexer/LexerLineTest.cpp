@@ -141,7 +141,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
         WHEN("line has number literals"){
 
             THEN("Tokenize legals"){
-                NumberToken legals[]={
+                std::vector<NumberToken> legals={
                     NumberToken(NumberToken::INT,L"3"),
                     NumberToken(NumberToken::INT,L"30"),
                     NumberToken(NumberToken::LONG,L"4545544L"),
@@ -219,7 +219,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     {L"0XA_bFF_4",L"704500"},
                 };
                 int i=0;
-                for(auto &legal:legalNumSys){
+                for(const auto &legal:legalNumSys){
                     auto val1=legal.first;
                     auto val2=legal.second;
                     auto lexerLine=LexerLine(val1,i);
@@ -339,12 +339,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             for(auto &keyword:keywords){
                 line+=keyword.getVal()+L" ";
             }
-
-            auto lexerLine=LexerLine(line,1);
-            lexerLine.tokenize();
-            auto tokens=lexerLine.getTokens();
-
             THEN("Return them as keyword tokens"){
+                auto lexerLine=LexerLine(line,1);
+                lexerLine.tokenize();
+                auto tokens=lexerLine.getTokens();
                 REQUIRE(tokens->size()==keywords.size());
                 int i=0;
                 for(auto &token:*tokens){
@@ -365,12 +363,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             for(auto &identifier:identifiers){
                 line+=identifier+L" ";
             }
-
-            auto lexerLine=LexerLine(line,1);
-            lexerLine.tokenize();
-            auto tokens=lexerLine.getTokens();
-
             THEN("Return them as identifier tokens"){
+                auto lexerLine=LexerLine(line,1);
+                lexerLine.tokenize();
+                auto tokens=lexerLine.getTokens();
                 REQUIRE(tokens->size()==identifiers.size());
                 int i=0;
                 for(auto &token:*tokens){

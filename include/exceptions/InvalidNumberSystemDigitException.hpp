@@ -15,7 +15,7 @@ class InvalidNumberSystemDigitException:public AinException{
             L"في السطر "+std::to_wstring(lineNumber)+
             L"\n"+
             errorNumberToken+
-            L" يحتوى على حرف أو رقم لا ينتمي للنظام العددي"+
+            L" يحتوى على حرف أو رقم لا ينتمي للنظام العددي "+
             (
                 (std::towlower(errorNumberToken[1])==L'b')?L"الثُنائي.":
                 (std::towlower(errorNumberToken[1])==L'o')?L"الثماني.":
