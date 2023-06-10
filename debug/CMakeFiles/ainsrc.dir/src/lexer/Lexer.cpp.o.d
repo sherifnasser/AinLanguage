@@ -151,6 +151,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
@@ -160,7 +161,8 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/keywordtoken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp

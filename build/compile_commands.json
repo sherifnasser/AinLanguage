@@ -1,133 +1,223 @@
 [
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BinaryExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BinaryExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BoolExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BoolExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/StringExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/StringExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VariableAccessExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VariableAccessExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NumberExpression.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NumberExpression.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FunScope.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FunScope.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Scope.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Scope.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Constant.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Constant.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/GlobalScope.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/GlobalScope.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/statement.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/statement/statement.cpp.o"
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/IStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/IStatement.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IfStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IfStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarDeclarationStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarDeclarationStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/DoWhileStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/DoWhileStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarReassignStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarReassignStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o"
+},
+{
+  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp",
   "output": "CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/scope.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/parser/scope/scope.cpp.o"
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/Parser.cpp",
+  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/Parser.cpp",
+  "output": "CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/scope/globalscope.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/parser/scope/globalscope.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/expression.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/parser/expression.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp",
-  "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/parser.cpp",
-  "output": "CMakeFiles/ainsrc.dir/src/parser/parser.cpp.o"
-},
-{
-  "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/ain.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/ain.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp",
   "output": "CMakeFiles/ain.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp",
   "output": "CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp",
   "output": "CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o"
 },
 {
   "directory": "/home/nasser/Projects/Programming/C++/AinLanguage/build",
-  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope -g -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp",
+  "command": "/bin/g++  -I/home/nasser/Projects/Programming/C++/AinLanguage/include -I/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions -I/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer -I/home/nasser/Projects/Programming/C++/AinLanguage/include/expression -I/home/nasser/Projects/Programming/C++/AinLanguage/include/scope -I/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file -I/home/nasser/Projects/Programming/C++/AinLanguage/include/statement -I/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers -I/home/nasser/Projects/Programming/C++/AinLanguage/include/parser -g -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp",
   "file": "/home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp",
   "output": "CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o"
 }

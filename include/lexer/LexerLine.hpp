@@ -4,18 +4,10 @@
 #include <memory>
 #include "LexerToken.hpp"
 #include "NumberToken.hpp"
+#include "ILexerLine.hpp"
 
-class LexerLine{
+class LexerLine:public ILexerLine{
     private:
-        enum NUM_SYS{
-            DEC=10,
-            BIN=2,
-            OCT=8,
-            HEX=16,
-        };
-        std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> tokens;
-        std::wstring line;
-        int lineNumber;
 
         /**
          * @brief The start index of the current token in the line (first char in the token)
@@ -37,12 +29,12 @@ class LexerLine{
         */
         wchar_t charAt(int index);
 
-        bool isNotNullToken(std::shared_ptr<LexerToken> token);
-        std::shared_ptr<LexerToken> findStringLiteralToken();
-        std::shared_ptr<LexerToken> findCommentToken();
-        std::shared_ptr<LexerToken> findSymbolToken();
-        std::shared_ptr<LexerToken> findNumberToken();
-        std::shared_ptr<LexerToken> findIdentifierOrKeywordToken();
+        bool isNotNullToken(SharedLexerToken token);
+        SharedLexerToken findStringLiteralToken();
+        SharedLexerToken findCommentToken();
+        SharedLexerToken findSymbolToken();
+        SharedLexerToken findNumberToken();
+        SharedLexerToken findIdentifierOrKeywordToken();
         void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
         void skipAfterDigitArray(int startFrom,NUM_SYS numSys=NUM_SYS::DEC); // Default is decimal
@@ -51,7 +43,5 @@ class LexerLine{
         void getFloatNumberToken(std::wstring* number);
     public:
         LexerLine(std::wstring &line,int lineNumber);
-        void tokenize();
-        std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> getTokens();
-        int getLineNumber();
+        void tokenize()override;
 };

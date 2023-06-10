@@ -549,6 +549,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
@@ -909,10 +911,12 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp
 
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
@@ -1008,6 +1012,10 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
