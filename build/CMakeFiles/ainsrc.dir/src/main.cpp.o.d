@@ -154,11 +154,6 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h \
- /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \

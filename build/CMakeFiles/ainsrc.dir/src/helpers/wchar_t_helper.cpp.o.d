@@ -129,10 +129,25 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: \
  /usr/include/c++/12.2/bits/istream.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
- /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/ext/aligned_buffer.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/stl_map.h /usr/include/c++/12.2/tuple \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+ /usr/include/c++/12.2/memory \
+ /usr/include/c++/12.2/bits/stl_uninitialized.h \
+ /usr/include/c++/12.2/bits/stl_tempbuf.h \
+ /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/12.2/bits/align.h /usr/include/c++/12.2/bit \
  /usr/include/c++/12.2/bits/uses_allocator.h \
- /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h
+ /usr/include/c++/12.2/bits/unique_ptr.h /usr/include/c++/12.2/tuple \
+ /usr/include/c++/12.2/bits/shared_ptr.h \
+ /usr/include/c++/12.2/bits/shared_ptr_base.h \
+ /usr/include/c++/12.2/bits/allocated_ptr.h \
+ /usr/include/c++/12.2/ext/aligned_buffer.h \
+ /usr/include/c++/12.2/ext/concurrence.h \
+ /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+ /usr/include/c++/12.2/bits/atomic_base.h \
+ /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/12.2/backward/auto_ptr.h \
+ /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+ /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/vector \
+ /usr/include/c++/12.2/bits/stl_vector.h \
+ /usr/include/c++/12.2/bits/stl_bvector.h \
+ /usr/include/c++/12.2/bits/vector.tcc
