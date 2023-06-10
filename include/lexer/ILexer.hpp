@@ -1,10 +1,9 @@
 #pragma once
-#include <iostream>
-#include "LexerLine.hpp"
+#include "SharedPtrTypes.hpp"
 
 class ILexer{
         
     public:
-        virtual LexerLine lexLine(std::wstring line,int linenumber)=0;
-        virtual std::vector<LexerLine> getLexerLines()=0;
+        virtual SharedVector<SharedILexerLine> getLexerLines()=0;
+        virtual SharedVector<SharedLexerToken> getTokens()=0;
 };

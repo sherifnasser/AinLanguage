@@ -2,16 +2,18 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
-#include "globalscope.hpp"
-#include "parser.hpp"
+#include "GlobalScope.hpp"
+#include "FunScope.hpp"
+#include "Parser.hpp"
 #include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 
 #define string std::string
 #define vector std::vector
-#define cout std::cout
+#define wcout std::wcout
 #define endl std::endl
 
 int main(int argc, char * argv[]){
@@ -23,19 +25,13 @@ int main(int argc, char * argv[]){
 
     string path(argv[1]); // as it's the second arg
     
-    std::shared_ptr<IAinFile> file=std::make_shared<AinFile>(path);
-    Lexer lexer = Lexer(file);
-    auto lines=lexer.getLexerLines();
-    auto tokens=std::make_shared<vector<std::shared_ptr<LexerToken>>>();
-    for(auto &l:lines){
-        auto ltokens=l.getTokens();
-        tokens->insert(tokens->end(),ltokens->begin(),ltokens->end());
-    }
-    globalscope global;
-    parser Parser(tokens);
-    Parser.startparse(&global);
-
-    auto main=global.getmain();
+    SharedIAinFile file=std::make_shared<AinFile>(path);
+    SharedILexer lexer=std::make_shared<Lexer>(file);
+    auto tokens=lexer->getTokens();
+    SharedGlobalScope global=std::make_shared<GlobalScope>();
+    auto parser=std::make_shared<Parser>();
+    parser->startParse(tokens,global);
+    auto main=global->getmain();
 
     main->call();
 

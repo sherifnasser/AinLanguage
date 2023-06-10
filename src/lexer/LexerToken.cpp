@@ -74,6 +74,6 @@ bool LexerToken::isstringliteral(){
 
 LexerToken LexerToken::identifiertoken = LexerToken(LexerToken::IDENTIFIER_TOKEN,L"");
 
-LexerToken LexerToken::notsettoken = LexerToken();
+LexerToken LexerToken::notsettoken = LexerToken(LexerToken::NOT_SET_TOKEN,L"");
 
 LexerToken::~LexerToken(){}

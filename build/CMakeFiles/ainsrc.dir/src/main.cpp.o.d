@@ -147,6 +147,7 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/backward/auto_ptr.h \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2/pstl/execution_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
@@ -160,10 +161,11 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp

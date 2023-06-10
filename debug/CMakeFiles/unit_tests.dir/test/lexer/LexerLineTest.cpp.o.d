@@ -201,7 +201,10 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \

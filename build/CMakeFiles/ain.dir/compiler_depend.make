@@ -208,6 +208,7 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/backward/auto_ptr.h \
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
@@ -222,20 +223,19 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp
 
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/expression.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/scope.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/scope/globalscope.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp:
 
 /usr/include/c++/12.2/bits/erase_if.h:
 
@@ -243,9 +243,11 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/node_handle.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
 
 /usr/include/c++/12.2/bits/atomic_base.h:
 
@@ -271,6 +273,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/istream.tcc:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp:
+
 /usr/include/c++/12.2/bits/ostream.tcc:
 
 /usr/include/c++/12.2/bits/basic_ios.tcc:
@@ -278,6 +282,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
 
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
 
@@ -322,6 +328,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/cstdio:
 
 /usr/include/c++/12.2/bits/std_abs.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /usr/include/alloca.h:
 
@@ -493,6 +501,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/typeinfo:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp:
+
 /usr/include/bits/types/__sigset_t.h:
 
 /usr/include/bits/types/__FILE.h:
@@ -502,8 +512,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/12.2/ext/atomicity.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/statement.hpp:
 
 /usr/include/c++/12.2/bits/predefined_ops.h:
 
@@ -526,8 +534,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/types/struct_timeval.h:
 
 /usr/include/bits/floatn.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/parser.hpp:
 
 /usr/include/c++/12.2/bits/range_access.h:
 

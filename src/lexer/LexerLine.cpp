@@ -17,19 +17,13 @@
 #include"InvalidNumberSystemDigitException.hpp"
 #include"InvalidIdentifierNameException.hpp"
 
-LexerLine::LexerLine(std::wstring &line,int lineNumber):line(line),lineNumber(lineNumber){
-    this->tokens=std::make_shared<std::vector<std::shared_ptr<LexerToken>>>();
+LexerLine::LexerLine(std::wstring &line,int lineNumber){
+    this->line=line;
+    this->lineNumber=lineNumber;
+    this->tokens=std::make_shared<std::vector<SharedLexerToken>>();
 }
 
-std::shared_ptr<std::vector<std::shared_ptr<LexerToken>>> LexerLine::getTokens(){
-    return this->tokens;
-}
-
-int LexerLine::getLineNumber(){
-    return this->lineNumber;
-}
-
-bool LexerLine::isNotNullToken(std::shared_ptr<LexerToken> token){
+bool LexerLine::isNotNullToken(SharedLexerToken token){
     if(token==nullptr)
         return false;
     tokens->push_back(token);
@@ -79,7 +73,7 @@ void LexerLine::tokenize(){
     }
 }
 
-std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(){
+SharedLexerToken LexerLine::findStringLiteralToken(){
     
     auto c=charAt(tokenStartIndex);
     auto DOUBLE_QOUTE=L'\"';
@@ -117,7 +111,7 @@ std::shared_ptr<LexerToken> LexerLine::findStringLiteralToken(){
     throw StringIsNotClosedException(lineNumber,getCurrentTokenVal());
 }
 
-std::shared_ptr<LexerToken> LexerLine::findCommentToken(){
+SharedLexerToken LexerLine::findCommentToken(){
 
     auto commentIndex=line.find(L"//",tokenStartIndex);
 
@@ -132,7 +126,7 @@ std::shared_ptr<LexerToken> LexerLine::findCommentToken(){
 }
 
 
-std::shared_ptr<LexerToken> LexerLine::findSymbolToken(){
+SharedLexerToken LexerLine::findSymbolToken(){
     
     // find a double-symbol token (>=, <=, ==, !=, &&, ||) also assignment operators
     SymbolToken doubleSymbolTokens[]={
@@ -167,7 +161,7 @@ std::shared_ptr<LexerToken> LexerLine::findSymbolToken(){
     return token;
 }
 
-std::shared_ptr<LexerToken> LexerLine::findNumberToken(){
+SharedLexerToken LexerLine::findNumberToken(){
 
     if(!iswdigit(charAt(tokenStartIndex)))
         return nullptr;
@@ -377,7 +371,7 @@ void LexerLine::getIntNumberToken(
     // May be int or long or unsigned of them
 
     /**
-     * The unary minus from parser may change the numType if the num reached the limits of int or long
+     * The unary minus from Parser may change the numType if the num reached the limits of int or long
     */
 
     auto isUnsigned=charAt(tokenEndIndex+1)==L'U'||charAt(tokenEndIndex+1)==L'u';
@@ -434,7 +428,7 @@ void LexerLine::getFloatNumberToken(std::wstring* number){
     }
 }
 
-std::shared_ptr<LexerToken> LexerLine::findIdentifierOrKeywordToken(){
+SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
     // Identifiers nad tokens don't start with digits, symbols or spaces
     if(!isainalpha(line[tokenStartIndex]))
         return nullptr;

@@ -7,11 +7,11 @@
 
 class Lexer:public ILexer{
     private:
-        std::shared_ptr<IAinFile> ainFile;
-        std::shared_ptr<std::vector<LexerLine>> lexerlines;
+        SharedIAinFile ainFile;
+        SharedVector<SharedILexerLine> lexerLines;
         
     public:
-        Lexer(std::shared_ptr<IAinFile> ainFile);
-        LexerLine lexLine(std::wstring line,int linenumber) override;
-        std::vector<LexerLine> getLexerLines() override;
+        Lexer(SharedIAinFile ainFile);
+        SharedVector<SharedILexerLine> getLexerLines() override;
+        SharedVector<SharedLexerToken> getTokens() override;
 };
