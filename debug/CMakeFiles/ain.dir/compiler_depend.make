@@ -215,12 +215,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
@@ -236,12 +230,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp:
-
-/usr/include/c++/12.2/bits/erase_if.h:
-
-/usr/include/c++/12.2/bits/stl_map.h:
-
-/usr/include/c++/12.2/bits/node_handle.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
 
@@ -407,8 +395,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/type_traits:
 
-/usr/include/c++/12.2/bits/stl_multimap.h:
-
 /usr/include/bits/types.h:
 
 /usr/include/c++/12.2/new:
@@ -545,8 +531,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/initializer_list:
 
-/usr/include/c++/12.2/map:
-
 /usr/include/c++/12.2/ext/concurrence.h:
 
 /usr/include/bits/types/struct___jmp_buf_tag.h:
@@ -588,8 +572,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/ios_base.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h:
-
-/usr/include/c++/12.2/bits/stl_tree.h:
 
 /usr/include/c++/12.2/bits/stl_vector.h:
 

@@ -468,12 +468,6 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
   /usr/include/c++/12.2/functional \
   /usr/include/c++/12.2/bits/std_function.h \
@@ -481,7 +475,9 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -700,13 +696,7 @@ CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
 
 CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp \
   /usr/include/stdc-predef.h \
@@ -2285,15 +2275,31 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc
 
 CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp \
   /usr/include/stdc-predef.h \
@@ -2480,15 +2486,31 @@ CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: /home/nasser/Projects/Progra
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc
 
 CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp \
   /usr/include/stdc-predef.h \
@@ -2703,12 +2725,6 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
@@ -2933,16 +2949,10 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
@@ -3139,15 +3149,31 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
   /usr/include/c++/12.2/functional \
@@ -3156,19 +3182,17 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
   /usr/include/c++/12.2/bits/algorithmfwd.h \
   /usr/include/c++/12.2/bits/stl_heap.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/uniform_int_dist.h
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp
 
 CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3355,15 +3379,31 @@ CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: /home/nasser/Projects/Progra
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc
 
 CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3551,15 +3591,31 @@ CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc
 
 CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3746,15 +3802,31 @@ CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
   /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc
 
 CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -3970,12 +4042,6 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinL
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
@@ -4206,6 +4272,7 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
@@ -5500,12 +5567,6 @@ CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: /home/nasser/Project
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
 
 CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp \
@@ -6146,12 +6207,6 @@ CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o: /home/nasser/Projects/Pro
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
 
 CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp \
@@ -7010,12 +7065,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
 
 
@@ -7042,6 +7091,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarReassignStatement.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp:
+
+/usr/include/c++/12.2/bits/stl_multimap.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp:
 
@@ -7110,8 +7163,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/functional:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp:
-
-/usr/include/c++/12.2/bits/stl_multimap.h:
 
 /usr/include/c++/12.2/pstl/execution_defs.h:
 
@@ -7323,9 +7374,9 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp:
-
 /usr/include/c++/12.2/map:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp:
 
 /usr/include/bits/setjmp.h:
 

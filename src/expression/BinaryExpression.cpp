@@ -31,7 +31,7 @@ left(left),right(right){
     )
         this->operation=operation;
     else{
-        wcout<<L"val: "<<operation->getVal();
+        wcout<<L"val: "<<operation->getVal()<<endl;
         std::__throw_invalid_argument("Binary operation must be +, -, *, /, ^, %, >=, <=, ==, !=, && or ||");
     }
 }

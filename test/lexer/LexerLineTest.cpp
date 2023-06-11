@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <map>
 #include <catch2/catch.hpp>
 #include "string_helper.hpp"
 #include "LexerLine.hpp"

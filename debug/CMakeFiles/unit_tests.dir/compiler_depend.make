@@ -480,6 +480,12 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/catch2/catch.hpp \
   /usr/include/c++/12.2/cstddef \
   /usr/include/c++/12.2/cassert \
@@ -496,9 +502,7 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -543,14 +547,10 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /usr/include/c++/12.2/map \
-  /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
@@ -1013,15 +1013,15 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
-/usr/include/c++/12.2/bits/stl_multimap.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
+
+/usr/include/c++/12.2/bits/stl_multimap.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp:
 
