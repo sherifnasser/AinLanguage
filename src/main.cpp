@@ -11,11 +11,6 @@
 #include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 
-#define string std::string
-#define vector std::vector
-#define wcout std::wcout
-#define endl std::endl
-
 int main(int argc, char * argv[]){
 
     if(argc > 2){ // 2 as it includes the prgram name
@@ -23,17 +18,21 @@ int main(int argc, char * argv[]){
         return -1;
     }
 
-    string path(argv[1]); // as it's the second arg
+    std::string path(argv[1]); // as it's the second arg
+    try{
+        SharedIAinFile file=std::make_shared<AinFile>(path);
+        SharedILexer lexer=std::make_shared<Lexer>(file);
+        auto tokens=lexer->getTokens();
+        SharedGlobalScope global=std::make_shared<GlobalScope>();
+        SharedIParser parser=std::make_shared<Parser>();
+        parser->startParse(tokens,global);
+        auto main=global->getmain();
+        main->call();
+    }
+    catch(std::exception& e){
+        std::cout<<e.what()<<std::endl;
+    }
     
-    SharedIAinFile file=std::make_shared<AinFile>(path);
-    SharedILexer lexer=std::make_shared<Lexer>(file);
-    auto tokens=lexer->getTokens();
-    SharedGlobalScope global=std::make_shared<GlobalScope>();
-    auto parser=std::make_shared<Parser>();
-    parser->startParse(tokens,global);
-    auto main=global->getmain();
-
-    main->call();
 
     return 0;
 }

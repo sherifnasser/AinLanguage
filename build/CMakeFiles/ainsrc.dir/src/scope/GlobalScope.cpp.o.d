@@ -150,4 +150,6 @@ CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: \
  /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/vector \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc
+ /usr/include/c++/12.2/bits/vector.tcc \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MainFunctionNotFoundException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp
