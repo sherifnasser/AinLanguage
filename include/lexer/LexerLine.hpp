@@ -30,7 +30,8 @@ class LexerLine:public ILexerLine{
         wchar_t charAt(int index);
 
         bool isNotNullToken(SharedLexerToken token);
-        SharedLexerToken findStringLiteralToken();
+        SharedLexerToken findStringToken();
+        SharedLexerToken findCharToken();
         SharedLexerToken findCommentToken();
         SharedLexerToken findSymbolToken();
         SharedLexerToken findNumberToken();

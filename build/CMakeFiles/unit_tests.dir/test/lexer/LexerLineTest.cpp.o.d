@@ -205,8 +205,11 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/CharacterLiteralInvalidLengthException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \

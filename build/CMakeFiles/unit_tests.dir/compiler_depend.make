@@ -553,8 +553,11 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/CharacterLiteralInvalidLengthException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
@@ -1003,13 +1006,17 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/CharacterLiteralInvalidLengthException.hpp:
+
 /usr/include/signal.h:
 
 /usr/include/strings.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
 
@@ -1376,6 +1383,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/iosfwd:
 
 /usr/include/c++/12.2/debug/assertions.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp:
 
 /usr/include/bits/fp-logb.h:
 

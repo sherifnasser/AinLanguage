@@ -10,7 +10,7 @@
 #include"KeywordToken.hpp"
 #include"wchar_t_helper.hpp"
 #include"string_helper.hpp"
-#include"StringIsNotClosedException.hpp"
+#include"MissingQouteException.hpp"
 #include"UnsupportedTokenException.hpp"
 #include"IllegalUnderscoreException.hpp"
 #include"OutOfRangeException.hpp"
@@ -48,7 +48,7 @@ void LexerLine::tokenize(){
 
     while(tokenStartIndex<line.size()){
         
-        auto stringToken=findStringLiteralToken();
+        auto stringToken=findStringToken();
         if(isNotNullToken(stringToken))
             continue;
         
@@ -73,7 +73,7 @@ void LexerLine::tokenize(){
     }
 }
 
-SharedLexerToken LexerLine::findStringLiteralToken(){
+SharedLexerToken LexerLine::findStringToken(){
     
     auto c=charAt(tokenStartIndex);
     auto DOUBLE_QOUTE=L'\"';
@@ -108,7 +108,16 @@ SharedLexerToken LexerLine::findStringLiteralToken(){
         return token;
     }
 
-    throw StringIsNotClosedException(lineNumber,getCurrentTokenVal());
+    throw MissingQouteException(lineNumber,getCurrentTokenVal());
+}
+
+SharedLexerToken LexerLine::findCharToken(){
+
+    auto c=charAt(tokenStartIndex);
+    auto SINGLE_QOUTE=L'\'';
+    if(c!=SINGLE_QOUTE)
+        return nullptr;
+    
 }
 
 SharedLexerToken LexerLine::findCommentToken(){
