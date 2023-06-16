@@ -16,6 +16,9 @@
 #include"OutOfRangeException.hpp"
 #include"InvalidNumberSystemDigitException.hpp"
 #include"InvalidIdentifierNameException.hpp"
+#include"InvalidLengthCharacterLiteralException.hpp"
+#include"InvalidEscapeSequenceException.hpp"
+#include"InvalidUniversalCharacterCodeException.hpp"
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber){
     this->line=line;
@@ -48,8 +51,8 @@ void LexerLine::tokenize(){
 
     while(tokenStartIndex<line.size()){
         
-        auto stringToken=findStringToken();
-        if(isNotNullToken(stringToken))
+        auto stringOrCharToken=findStringOrCharToken();
+        if(isNotNullToken(stringOrCharToken))
             continue;
         
         auto commentToken=findCommentToken();
@@ -73,51 +76,70 @@ void LexerLine::tokenize(){
     }
 }
 
-SharedLexerToken LexerLine::findStringToken(){
+SharedLexerToken LexerLine::findStringOrCharToken(){
     
-    auto c=charAt(tokenStartIndex);
-    auto DOUBLE_QOUTE=L'\"';
-    std::wstring CNTRL_DOUBLE_QOUTE=L"\\\""; // when there is double qoute inside the string
+    auto qoute=charAt(tokenStartIndex);
+    auto isChar=qoute==L'\'';
+    auto isString=qoute==L'\"';
 
-    if(c!=DOUBLE_QOUTE)
+    if(!isChar&&!isString)
         return nullptr;
-
-    ++tokenEndIndex; // the end must be after first double qoute
     
-    // append every char in the line until finding another "
-    while(tokenEndIndex<line.size()){
+    auto literalType=(isChar)?LiteralToken::CHAR:LiteralToken::STRING;
+    
+    // append every char in the line until finding another " or '
+    std::wstring tokenVal=L"";
+    tokenVal+=qoute; // append first qoute
 
-        auto nextCnrtlDoubleQouteIndex=line.find(CNTRL_DOUBLE_QOUTE,tokenEndIndex);
+    for(
+        tokenEndIndex=tokenStartIndex+1 /*Start after first qoute*/;
+        tokenEndIndex<line.size();
+        tokenEndIndex++
+    ){
 
-        if(nextCnrtlDoubleQouteIndex != std::wstring::npos){
-            tokenEndIndex=nextCnrtlDoubleQouteIndex+2; // get the char after \" (after 2 chars)
+        /*If it's qoute (" or ') retuen the token*/
+        if(charAt(tokenEndIndex)==qoute){
+            tokenVal+=qoute;
+            // the size should be 3 for the first, last qoutes and the character between them
+            if(isChar&&tokenVal.size()!=3)
+                throw InvalidLengthCharacterLiteralException(lineNumber,getCurrentTokenVal());
+            
+            auto token=std::make_shared<LiteralToken>(literalType,tokenVal);
+            return token;
+        }
+
+        /*Append if it is not a special character*/
+        if(charAt(tokenEndIndex)!=L'\\'){
+            tokenVal+=charAt(tokenEndIndex);
             continue;
         }
 
-        // no more cntrl \" in the string
+        tokenEndIndex++; // get next char
 
-        auto lastDoubleQouteIndex=line.find(DOUBLE_QOUTE,tokenEndIndex);  
-
-        if(lastDoubleQouteIndex == std::wstring::npos){ // string isn't closed
-            break;
+        /*Unicode charaters parsing*/
+        if(charAt(tokenEndIndex)==L'u'){
+            auto codePoint=line.substr(tokenEndIndex+1,4);
+            try{
+                auto c=getUnicodeCharacterFromCode(codePoint);
+                tokenVal+=c;
+                tokenEndIndex+=4; // skip the next 4 digits
+                continue;
+            }catch(std::invalid_argument e){
+                throw InvalidUniversalCharacterCodeException(lineNumber,getCurrentTokenVal()+codePoint);
+            }
         }
 
-        tokenEndIndex=lastDoubleQouteIndex;
+        /*Escape sequences*/
+        try{
+            auto es=getEscapeSequenceFromCharacter(charAt(tokenEndIndex));
+            tokenVal+=es;
+        }
+        catch(std::invalid_argument e){
+            throw InvalidEscapeSequenceException(lineNumber,getCurrentTokenVal());
+        }
 
-        auto token=std::make_shared<LiteralToken>(LiteralToken::STRING,getCurrentTokenVal());
-        return token;
     }
-
     throw MissingQouteException(lineNumber,getCurrentTokenVal());
-}
-
-SharedLexerToken LexerLine::findCharToken(){
-
-    auto c=charAt(tokenStartIndex);
-    auto SINGLE_QOUTE=L'\'';
-    if(c!=SINGLE_QOUTE)
-        return nullptr;
-    
 }
 
 SharedLexerToken LexerLine::findCommentToken(){
@@ -273,31 +295,9 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
 
     if(std::towlower(charAt(tokenEndIndex+1))==L'e'){
         numType=NumberToken::DOUBLE; // may be doesn't have a dot, so reassign it to DOUBLE
-
         // add 'e' symbol to the token
         tokenEndIndex++;
-
-        if(charAt(tokenEndIndex+1)==L'-'||charAt(tokenEndIndex+1)==L'+') // sign of exponent
-            tokenEndIndex++; // add the sign to token
-
-        // when character after exponent is underscore
-        auto nextChar=charAt(tokenEndIndex+1);
-        if(nextChar==L'_')
-            throw IllegalUnderscoreException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
-
-        // when character after exponent isn't a digit
-        if(!iswdigit(nextChar))
-            throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
-
-        auto skipStart=tokenEndIndex+1;
-
-        // skip after checking next char
-        skipAfterDigitArray(skipStart);
-
-        // if tokenEndIndex didn't change after skip, error will be thrown
-        // this when number ends with exponent without numbers after 'e' symbol (e.g., 10e, 2e+, 3e-)
-        if(tokenEndIndex==skipStart-1)
-            throw UnsupportedTokenException(lineNumber,getCurrentTokenVal());
+        skipDigitsAfterExponent();
     }
 
     if(std::towlower(charAt(tokenEndIndex+1))==L'f'){
@@ -318,15 +318,37 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
     if(numType!=NumberToken::INT)
         throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
-
     // numType is int
     // checking for stopChar after unsinged and long types is in getIntNumberToken
     if(stopChar!=L'u'&&stopChar!=L'l')
         throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
-    
     // Nothing happened, numType will be unsigned int, unsigned long or long in getIntNumberToken
     return numType;
+}
+
+void LexerLine::skipDigitsAfterExponent(){
+    if(charAt(tokenEndIndex+1)==L'-'||charAt(tokenEndIndex+1)==L'+') // sign of exponent
+        tokenEndIndex++; // add the sign to token
+
+    // when character after exponent is underscore
+    auto nextChar=charAt(tokenEndIndex+1);
+    if(nextChar==L'_')
+        throw IllegalUnderscoreException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
+
+    // when character after exponent isn't a digit
+    if(!iswdigit(nextChar))
+        throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+nextChar); // append nextChar
+
+    auto skipStart=tokenEndIndex+1;
+
+    // skip after checking next char
+    skipAfterDigitArray(skipStart);
+
+    // if tokenEndIndex didn't change after skip, error will be thrown
+    // this when number ends with exponent without numbers after 'e' symbol (e.g., 10e, 2e+, 3e-)
+    if(tokenEndIndex==skipStart-1)
+        throw UnsupportedTokenException(lineNumber,getCurrentTokenVal());
 }
 
 void LexerLine::skipAfterDigitArray(int startFrom,NUM_SYS numSys){
@@ -439,12 +461,12 @@ void LexerLine::getFloatNumberToken(std::wstring* number){
 
 SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
     // Identifiers nad tokens don't start with digits, symbols or spaces
-    if(!isainalpha(line[tokenStartIndex]))
+    if(!isainalpha(charAt(tokenStartIndex)))
         return nullptr;
     
     int i=tokenStartIndex;
     do i++;
-    while(isainalpha(line[i])||iswdigit(line[i])); // if next char is alpha or digit add it
+    while(isainalpha(charAt(i))||iswdigit(charAt(i))); // if next char is alpha or digit add it
 
     tokenEndIndex=i-1;
 

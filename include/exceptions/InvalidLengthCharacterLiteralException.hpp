@@ -2,10 +2,10 @@
 #include <iostream>
 #include "AinException.hpp"
 
-class CharacterLiteralInvalidLengthException:public AinException{
+class InvalidLengthCharacterLiteralException:public AinException{
 
     public:
-    CharacterLiteralInvalidLengthException(int lineNumber,std::wstring literal)
+    InvalidLengthCharacterLiteralException(int lineNumber,std::wstring literal)
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+

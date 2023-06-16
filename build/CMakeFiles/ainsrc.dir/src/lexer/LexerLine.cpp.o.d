@@ -168,4 +168,7 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp

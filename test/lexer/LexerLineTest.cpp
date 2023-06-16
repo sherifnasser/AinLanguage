@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <functional>
 #include <map>
 #include <catch2/catch.hpp>
 #include "string_helper.hpp"
@@ -10,7 +11,7 @@
 #include "NumberToken.hpp"
 #include "KeywordToken.hpp"
 #include "MissingQouteException.hpp"
-#include "CharacterLiteralInvalidLengthException.hpp"
+#include "InvalidLengthCharacterLiteralException.hpp"
 #include "InvalidEscapeSequenceException.hpp"
 #include "InvalidUniversalCharacterCodeException.hpp"
 #include "IllegalUnderscoreException.hpp"
@@ -31,16 +32,20 @@ struct IdentifierTestToken:public LexerToken{
 */
 
 template<typename E>
-void LexerLineTokensTestWithException(std::vector<std::wstring> illegals){
+void LexerLineTokensTestWithException(
+    std::vector<std::wstring> illegals,
+    std::function<std::wstring(std::wstring&)> illegalExpected=
+    [](std::wstring &illegal){return illegal;}
+){
     int i=0;
     for(auto &illegal:illegals){
         auto lexerLine=LexerLine(illegal,i);
-
+        auto expectedInMsg=illegalExpected(illegal);
         auto matcher=Catch::Matchers::Predicate<E>(
             [&](E e){
-                auto npos=std::wstring::npos;
                 auto what=e.whatWstr();
-                return what.find(std::to_wstring(i))!=npos && what.find(illegal)!=npos;
+                auto npos=std::wstring::npos;
+                return what.find(std::to_wstring(i))!=npos && what.find(expectedInMsg)!=npos;
             }
         );
         REQUIRE_THROWS_MATCHES(lexerLine.tokenize(),E,matcher);
@@ -60,6 +65,9 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             THEN("Add LiteralToken::STRING to tokens"){
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
+                for(auto &token:*tokens){
+                    //std::wcout<<token->getVal()<<token->getTokenType()<<std::endl;
+                }
                 REQUIRE(tokens->size()==1);
                 std::shared_ptr<LexerToken> token=tokens->at(0);
                 auto literalToken=std::dynamic_pointer_cast<LiteralToken>(token);
@@ -127,8 +135,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\'\\n\\t\'",
                 L"\'\\na\'",
             };
-            THEN("Throw CharacterLiteralInvalidLengthException"){
-                LexerLineTokensTestWithException<CharacterLiteralInvalidLengthException>(illegals);
+            THEN("Throw InvalidLengthCharacterLiteralException"){
+                LexerLineTokensTestWithException<InvalidLengthCharacterLiteralException>(illegals);
             };
         };
 
@@ -136,13 +144,16 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             std::vector<std::wstring> illegals={
                 L"\'\\a\'",
                 L"\'\\k\'",
-                L"\'\\ش\'"
-                L"\"حرف\\a\""
-                L"\"حرف\\ش\""
-                L"\"حرف\\k\""
+                L"\'\\ش\'",
+                L"\"حرف\\a\"",
+                L"\"حرف\\ش\"",
+                L"\"حرف\\k\"",
+            };
+            auto msgMatcher=[](std::wstring &illegal){
+                return illegal.substr(0,illegal.size()-1); // remove last qoute
             };
             THEN("Throw InvalidEscapeSequenceException"){
-                LexerLineTokensTestWithException<InvalidEscapeSequenceException>(illegals);
+                LexerLineTokensTestWithException<InvalidEscapeSequenceException>(illegals,msgMatcher);
             };
         };
 
@@ -150,7 +161,6 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             std::vector<std::wstring> illegals={
                 L"\'\\u\'",
                 L"\'\\uF\'",
-                L"\'\\uFFF\'",
                 L"\'\\uFFF\'",
                 L"\'\\uFFFش\'",
                 L"\'\\uش\'",
@@ -160,12 +170,15 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\"نص\\uFFF\"",
                 L"\"نص\\uFFFش\"",
             };
+            auto msgMatcher=[](std::wstring &illegal){
+                return illegal.substr(0,illegal.size()-1); // remove last qoute
+            };
             THEN("Throw InvalidUniversalCharacterCodeException"){
-                LexerLineTokensTestWithException<InvalidUniversalCharacterCodeException>(illegals);
+                LexerLineTokensTestWithException<InvalidUniversalCharacterCodeException>(illegals,msgMatcher);
             };
         };
 
-        WHEN("String or character misssing qoute"){
+        WHEN("Misssing qoute (in string or char literls)"){
             std::vector<std::wstring> illegals={
                 L"\"string literal with \\\"DOULBE QOUTES\\\"",
                 L"\"",
@@ -335,26 +348,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     L"15.64_e5",
                     L"15321__.166_f",
                 };
-                int i=0;
-                for(auto &illegal:illegals){
-                    auto lexerLine=LexerLine(illegal,i);
-
-                    auto matcher=Catch::Matchers::Predicate<IllegalUnderscoreException>(
-                        [&](IllegalUnderscoreException e){
-                            auto npos=std::wstring::npos;
-                            auto what=e.whatWstr();
-                            return
-                                what.find(std::to_wstring(i))!=npos
-                                &&
-                                what.find(
-                                    illegal.substr(0,illegal.find(L'_')+1)
-                                )!=npos
-                            ;
-                        }
-                    );
-                    REQUIRE_THROWS_MATCHES(lexerLine.tokenize(),IllegalUnderscoreException,matcher);
-                    i++;
-                }
+                auto msgMatcher=[](std::wstring &illegal){
+                    return illegal.substr(0,illegal.find(L'_')+1); // substr to first underscore
+                };
+                LexerLineTokensTestWithException<IllegalUnderscoreException>(illegals,msgMatcher);
             };
 
             THEN("Throw UnsupportedTokenException when cannot construct tokens"){
