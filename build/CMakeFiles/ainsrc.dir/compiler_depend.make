@@ -1733,7 +1733,10 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp
 
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp \
   /usr/include/stdc-predef.h \
@@ -2320,12 +2323,19 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/memory \
   /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
   /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
   /usr/include/c++/12.2/bits/align.h \
   /usr/include/c++/12.2/bit \
@@ -2342,7 +2352,6 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
   /usr/include/c++/12.2/backward/auto_ptr.h \
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
@@ -3013,7 +3022,8 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp
 
 CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp \
   /usr/include/stdc-predef.h \
@@ -7168,8 +7178,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
@@ -7187,6 +7195,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp:
 

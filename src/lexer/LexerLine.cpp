@@ -19,6 +19,12 @@
 #include"InvalidLengthCharacterLiteralException.hpp"
 #include"InvalidEscapeSequenceException.hpp"
 #include"InvalidUniversalCharacterCodeException.hpp"
+#include"ContainsKufrOrUnsupportedCharacterException.hpp"
+
+void LexerLine::checkIsKufrOrUnsupportedCharacter(const wchar_t &c){
+    if(isKufrOrUnsupportedCharacter(c))
+        throw ContainsKufrOrUnsupportedCharacterException(lineNumber,line);
+}
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber){
     this->line=line;
@@ -96,9 +102,10 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         tokenEndIndex<line.size();
         tokenEndIndex++
     ){
+        auto currentChar=charAt(tokenEndIndex);
 
         /*If it's qoute (" or ') retuen the token*/
-        if(charAt(tokenEndIndex)==qoute){
+        if(currentChar==qoute){
             tokenVal+=qoute;
             // the size should be 3 for the first, last qoutes and the character between them
             if(isChar&&tokenVal.size()!=3)
@@ -109,18 +116,21 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         }
 
         /*Append if it is not a special character*/
-        if(charAt(tokenEndIndex)!=L'\\'){
-            tokenVal+=charAt(tokenEndIndex);
+        if(currentChar!=L'\\'){
+            checkIsKufrOrUnsupportedCharacter(currentChar);
+            tokenVal+=currentChar;
             continue;
         }
 
-        tokenEndIndex++; // get next char
+        tokenEndIndex++; // get next control char
+        currentChar=charAt(tokenEndIndex);
 
         /*Unicode charaters parsing*/
-        if(charAt(tokenEndIndex)==L'u'){
+        if(currentChar==L'u'){
             auto codePoint=line.substr(tokenEndIndex+1,4);
             try{
                 auto c=getUnicodeCharacterFromCode(codePoint);
+                checkIsKufrOrUnsupportedCharacter(c);
                 tokenVal+=c;
                 tokenEndIndex+=4; // skip the next 4 digits
                 continue;
@@ -131,7 +141,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
 
         /*Escape sequences*/
         try{
-            auto es=getEscapeSequenceFromCharacter(charAt(tokenEndIndex));
+            auto es=getEscapeSequenceFromCharacter(currentChar);
             tokenVal+=es;
         }
         catch(std::invalid_argument e){
@@ -151,6 +161,10 @@ SharedLexerToken LexerLine::findCommentToken(){
         return nullptr;
     
     auto comment=line.substr(commentIndex);
+
+    for(auto &c:comment)
+        checkIsKufrOrUnsupportedCharacter(c);
+    
     auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
     tokenEndIndex=line.size()-1;  // last character in comment
     return token;
@@ -185,7 +199,7 @@ SharedLexerToken LexerLine::findSymbolToken(){
 
     // find a single-symbol token
     auto c=charAt(tokenStartIndex);
-    if(!isainpunct(c)) // This excludes underscore
+    if(!isAinPunct(c)) // This excludes underscore
         return nullptr;
     
     auto token=std::make_shared<SymbolToken>(getCurrentTokenVal());
@@ -275,7 +289,7 @@ void LexerLine::skipAfterNonDecIntDigitArray(NUM_SYS numSys){
     if (
         (iswxdigit(stopChar) && numSys!=NUM_SYS::HEX)
         ||
-        isainalpha(stopChar)
+        isAinAlpha(stopChar)
     )
         throw InvalidNumberSystemDigitException(lineNumber,getCurrentTokenVal()+stopChar);
 }
@@ -307,7 +321,7 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
 
     wchar_t stopChar=std::towlower(charAt(tokenEndIndex+1));
 
-    if(!isainalpha(stopChar))
+    if(!isAinAlpha(stopChar))
         return numType;
 
     /**
@@ -433,7 +447,7 @@ void LexerLine::getIntNumberToken(
 
     wchar_t stopChar=charAt(tokenEndIndex+1);
     
-    if(isainalpha(stopChar))
+    if(isAinAlpha(stopChar))
         throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
     *number=std::to_wstring(num);
@@ -461,12 +475,12 @@ void LexerLine::getFloatNumberToken(std::wstring* number){
 
 SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
     // Identifiers nad tokens don't start with digits, symbols or spaces
-    if(!isainalpha(charAt(tokenStartIndex)))
+    if(!isAinAlpha(charAt(tokenStartIndex)))
         return nullptr;
     
     int i=tokenStartIndex;
     do i++;
-    while(isainalpha(charAt(i))||iswdigit(charAt(i))); // if next char is alpha or digit add it
+    while(isAinAlpha(charAt(i))||iswdigit(charAt(i))); // if next char is alpha or digit add it
 
     tokenEndIndex=i-1;
 
@@ -474,6 +488,11 @@ SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
 
     auto tokenType=(KeywordToken::iskeyword(val))
     ?LexerToken::KEYWORD_TOKEN:LexerToken::IDENTIFIER_TOKEN;
+
+    if(tokenType==LexerToken::IDENTIFIER_TOKEN){
+        for(auto &c:val)
+            checkIsKufrOrUnsupportedCharacter(c);
+    }
 
     auto token=std::make_shared<LexerToken>(tokenType,val);
     return token;

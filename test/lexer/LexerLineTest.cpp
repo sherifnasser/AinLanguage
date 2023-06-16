@@ -19,6 +19,7 @@
 #include "OutOfRangeException.hpp"
 #include "InvalidNumberSystemDigitException.hpp"
 #include "InvalidIdentifierNameException.hpp"
+#include "ContainsKufrOrUnsupportedCharacterException.hpp"
 
 struct IdentifierTestToken:public LexerToken{
     IdentifierTestToken(std::wstring val):
@@ -55,6 +56,17 @@ void LexerLineTokensTestWithException(
 
 SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
     GIVEN("a line"){
+
+        WHEN("Has kufr or unsupported character (in string or char literls)"){
+            std::vector<std::wstring> illegals={
+                L"\"\\u0900\"",
+                L"\'\\u0900\'",
+            };
+
+            THEN("Throw ContainsKufrOrUnsupportedCharacterException"){
+                LexerLineTokensTestWithException<ContainsKufrOrUnsupportedCharacterException>(illegals);
+            };
+        };
 
         WHEN("the line has string literal"){
             std::wstring line=L"\"string \\b\\t\\n\\v\\f\\r\\\\ literal with\\\'\\\' \\\"QOUTES\\\" \\n and \\u0041\\u0042\"";
@@ -131,7 +143,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\'حرف\'",
                 L"\'\'",
                 L"\'\\u0041\\u0042\'", // 'AB'
-                L"\'\\u10000\'", // supposed to be (max unicode char+1) but it will read it as 0 appended to \u1000
+                L"\'\\u000F0\'",
                 L"\'\\n\\t\'",
                 L"\'\\na\'",
             };
@@ -188,7 +200,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\'\\\'",
             };
 
-            THEN("Throw MissingQouteException (There're letters after first \")"){
+            THEN("Throw MissingQouteException"){
                 LexerLineTokensTestWithException<MissingQouteException>(illegals);
             };
         };

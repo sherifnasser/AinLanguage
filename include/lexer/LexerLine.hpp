@@ -43,6 +43,7 @@ class LexerLine:public ILexerLine{
         void getIntNumberToken(std::wstring* number,NumberToken::NUMBER_TYPE* numType,NUM_SYS numSys);
         void getDoubleNumberToken(std::wstring* number);
         void getFloatNumberToken(std::wstring* number);
+        void checkIsKufrOrUnsupportedCharacter(const wchar_t &c);
     public:
         LexerLine(std::wstring &line,int lineNumber);
         void tokenize()override;
