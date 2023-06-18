@@ -10,10 +10,12 @@
 namespace fs=std::filesystem;
 
 
-const string C_SRC_FILES="set(SRC_FILES";
+const string C_SRC_FILES="add_library(ainsrc";
 string SRC_FILES=C_SRC_FILES;
 const string C_INCLUDE="set(INCLUDE";
 string INCLUDE=C_INCLUDE;
+const string C_TEST="set(TEST";
+string TEST_SRC_FILES=C_TEST;
 vector<string> cmake_lines;
 vector<string> new_cmake_lines;
 
@@ -32,27 +34,33 @@ void read_from_cmake_file(){
 }
 
 void write_to_cmake_file(){
-    int i=0; // number of reading ) after src
-    bool deleteNextLines=false;
+
+    bool isEditing=false;
+
     for(auto &line:cmake_lines){
-        // if the line starts with SRC_FILES pre-defined value
-        if(startsWith(line,C_SRC_FILES)){
-            new_cmake_lines.push_back(SRC_FILES);
-            new_cmake_lines.push_back(INCLUDE);
-            deleteNextLines=true;
+        string start="### start files_cmake.cpp ###";
+        string end="### end files_cmake.cpp ###";
+
+        if(startsWith(line,end)){
+            isEditing=false;
+            continue;
         }
-        else if(deleteNextLines){
-            // do nothing and stops when see )
-            if(startsWith(line,")")){
-                if(i==1)
-                deleteNextLines=false;
-            else
-                i++;
-            }
-        }
-        else{
+
+        if(isEditing)
+            continue;
+
+        if(!startsWith(line,start)){
             new_cmake_lines.push_back(line);
+            continue;
         }
+
+        isEditing=true;
+
+        new_cmake_lines.push_back(start+"\n");
+        new_cmake_lines.push_back(SRC_FILES+"\n");
+        new_cmake_lines.push_back(INCLUDE+"\n");
+        new_cmake_lines.push_back(TEST_SRC_FILES+"\n");
+        new_cmake_lines.push_back(end+"\n");
     }
     
     std::ofstream file("CMakeLists.txt");
@@ -72,20 +80,25 @@ void readinclude(string path){
     }
 }
 
-void readsrc(string path){
+void readsrc(string path,string &files){
     for(const auto & entry: fs::directory_iterator(path)){
         auto p=entry.path();
         if(fs::is_directory(p)){
-            readsrc(p);
+            readsrc(p,files);
         }
         else if(p.extension()==".cpp"&&p.filename()!="main.cpp"){
-            SRC_FILES.append("\n    ").append(p);
+            files.append("\n    ").append(p);
         }
     }
 }
 
+void settestsrc(){
+    readsrc("test",TEST_SRC_FILES);
+    TEST_SRC_FILES.append("\n)");
+}
+
 void setsrc(){
-    readsrc("src");
+    readsrc("src",SRC_FILES);
     SRC_FILES.append("\n)");
 }
 
@@ -99,6 +112,7 @@ int main(){
     INCLUDE.append("\n    include/");
     setsrc();
     setinclude();
+    settestsrc();
     read_from_cmake_file();
     write_to_cmake_file();
     return 0;

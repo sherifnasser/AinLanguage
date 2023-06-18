@@ -63,7 +63,9 @@ CMAKE_BINARY_DIR = /home/nasser/Projects/Programming/C++/AinLanguage/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/ainsrc.dir/all
 all: CMakeFiles/ain.dir/all
+all: CMakeFiles/unit_tests.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,22 +73,50 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/ainsrc.dir/clean
 clean: CMakeFiles/ain.dir/clean
+clean: CMakeFiles/unit_tests.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ainsrc.dir
+
+# All Build rule for target.
+CMakeFiles/ainsrc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Built target ainsrc"
+.PHONY : CMakeFiles/ainsrc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ainsrc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 34
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ainsrc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 0
+.PHONY : CMakeFiles/ainsrc.dir/rule
+
+# Convenience name for target.
+ainsrc: CMakeFiles/ainsrc.dir/rule
+.PHONY : ainsrc
+
+# clean rule for target.
+CMakeFiles/ainsrc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/clean
+.PHONY : CMakeFiles/ainsrc.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ain.dir
 
 # All Build rule for target.
-CMakeFiles/ain.dir/all:
+CMakeFiles/ain.dir/all: CMakeFiles/ainsrc.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target ain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=1,2 "Built target ain"
 .PHONY : CMakeFiles/ain.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ain.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ain.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 0
 .PHONY : CMakeFiles/ain.dir/rule
@@ -99,6 +129,32 @@ ain: CMakeFiles/ain.dir/rule
 CMakeFiles/ain.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/clean
 .PHONY : CMakeFiles/ain.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/unit_tests.dir
+
+# All Build rule for target.
+CMakeFiles/unit_tests.dir/all: CMakeFiles/ainsrc.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=37,38,39,40 "Built target unit_tests"
+.PHONY : CMakeFiles/unit_tests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/unit_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 38
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/unit_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 0
+.PHONY : CMakeFiles/unit_tests.dir/rule
+
+# Convenience name for target.
+unit_tests: CMakeFiles/unit_tests.dir/rule
+.PHONY : unit_tests
+
+# clean rule for target.
+CMakeFiles/unit_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/clean
+.PHONY : CMakeFiles/unit_tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

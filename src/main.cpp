@@ -1,17 +1,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ain_file.hpp"
-#include "lexer.hpp"
-#include "globalscope.hpp"
-#include "parser.hpp"
-#include "keywordtoken.hpp"
-#include "symboltoken.hpp"
-
-#define string std::string
-#define vector std::vector
-#define cout std::cout
-#define endl std::endl
+#include <memory>
+#include "SharedPtrTypes.hpp"
+#include "AinFile.hpp"
+#include "Lexer.hpp"
+#include "GlobalScope.hpp"
+#include "FunScope.hpp"
+#include "Parser.hpp"
+#include "KeywordToken.hpp"
+#include "SymbolToken.hpp"
 
 int main(int argc, char * argv[]){
 
@@ -20,24 +18,21 @@ int main(int argc, char * argv[]){
         return -1;
     }
 
-    //string path="/home/nasser/Projects/Programming/C++/AinLanguage/src/app.ain";    
-    string path(argv[1]); // as it's the second arg
-    
-    AinFile file=AinFile(path);
-    lexer lex = lexer(file);
-    auto lines=lex.getlexerlines();
-    auto tokens=vector<lexertoken>{};
-    for(auto &l:lines){
-        auto ltokens=l.gettokens();
-        tokens.insert(tokens.end(),ltokens->begin(),ltokens->end());
+    std::string path(argv[1]); // as it's the second arg
+    try{
+        SharedIAinFile file=std::make_shared<AinFile>(path);
+        SharedILexer lexer=std::make_shared<Lexer>(file);
+        auto tokens=lexer->getTokens();
+        SharedGlobalScope global=std::make_shared<GlobalScope>();
+        SharedIParser parser=std::make_shared<Parser>();
+        parser->startParse(tokens,global);
+        auto main=global->getmain();
+        main->call();
     }
-    globalscope global;
-    parser Parser(&tokens);
-    Parser.startparse(&global);
-
-    auto main=global.getmain();
-
-    main->call();
+    catch(std::exception& e){
+        std::cout<<e.what()<<std::endl;
+    }
+    
 
     return 0;
 }
