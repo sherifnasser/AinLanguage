@@ -126,7 +126,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         currentChar=charAt(tokenEndIndex);
 
         /*Unicode charaters parsing*/
-        if(currentChar==L'u'){
+        if(currentChar==L'ي'){
             auto codePoint=line.substr(tokenEndIndex+1,4);
             try{
                 auto c=getUnicodeCharacterFromCode(codePoint);

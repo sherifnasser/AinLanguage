@@ -34,12 +34,24 @@ wchar_t getUnicodeCharacterFromCode(std::wstring codePoint){
 
 wchar_t getEscapeSequenceFromCharacter(const wchar_t& c){
     switch(c){
-        case L'b' :return L'\b';
-        case L't' :return L'\t';
-        case L'n' :return L'\n';
-        case L'v' :return L'\v';
-        case L'f' :return L'\f';
-        case L'r' :return L'\r';
+        // مسافة للخلف
+        case L'خ' :return L'\b';
+
+        // مساحة أفقية
+        case L'ف' :return L'\t';
+
+        // سطر جديد
+        case L'س' :return L'\n';
+
+        // مساحة رأسية
+        case L'ر' :return L'\v';
+
+        // الصفحة التالية
+        case L'ص' :return L'\f';
+
+        // إرجاع المؤشر إلى بداية السطر، وبدء الكتابة منه
+        case L'ج' :return L'\r';
+        
         case L'\\':return L'\\';
         case L'\"':return L'\"';
         case L'\'':return L'\'';

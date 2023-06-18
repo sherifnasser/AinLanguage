@@ -59,8 +59,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
 
         WHEN("Has kufr or unsupported character (in string or char literls)"){
             std::vector<std::wstring> illegals={
-                L"\"\\u0900\"",
-                L"\'\\u0900\'",
+                L"\"\\ي0900\"",
+                L"\'\\ي0900\'",
             };
 
             THEN("Throw ContainsKufrOrUnsupportedCharacterException"){
@@ -69,7 +69,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
         };
 
         WHEN("the line has string literal"){
-            std::wstring line=L"\"string \\b\\t\\n\\v\\f\\r\\\\ literal with\\\'\\\' \\\"QOUTES\\\" \\n and \\u0041\\u0042\"";
+            std::wstring line=L"\"string \\خ\\ف\\س\\ر\\ص\\ج\\\\ literal with\\\'\\\' \\\"QOUTES\\\" \\س and \\ي0041\\ي0042\"";
             // expected to replace unescaped characters with escaped versions, also unicode characters
             std::wstring expected=L"\"string \b\t\n\v\f\r\\ literal with\'\' \"QOUTES\" \n and \u0041\u0042\"";
             LexerLine lexerLine=LexerLine(line,1);
@@ -93,14 +93,14 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
         WHEN("the line has character literal"){
             std::vector<std::wstring> legals={
                 L"\'ش\'",
-                L"\'\\u0041\'", // 'A'
-                L"\'\\uFFFF\'", // max unicode char
-                L"\'\\b\'",
-                L"\'\\t\'",
-                L"\'\\n\'",
-                L"\'\\v\'",
-                L"\'\\f\'",
-                L"\'\\r\'",
+                L"\'\\ي0041\'", // 'A'
+                L"\'\\يFFFF\'", // max unicode char
+                L"\'\\خ\'",
+                L"\'\\ف\'",
+                L"\'\\س\'",
+                L"\'\\ر\'",
+                L"\'\\ص\'",
+                L"\'\\ج\'",
                 L"\'\\\\\'", // '\\'
                 L"\'\\\'\'", // '\''
                 L"\'\\\"\'", // '\"'
@@ -142,10 +142,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             std::vector<std::wstring> illegals={
                 L"\'حرف\'",
                 L"\'\'",
-                L"\'\\u0041\\u0042\'", // 'AB'
-                L"\'\\u000F0\'",
-                L"\'\\n\\t\'",
-                L"\'\\na\'",
+                L"\'\\ي0041\\ي0042\'", // 'AB'
+                L"\'\\ي000F0\'",
+                L"\'\\س\\ف\'",
+                L"\'\\سa\'",
             };
             THEN("Throw InvalidLengthCharacterLiteralException"){
                 LexerLineTokensTestWithException<InvalidLengthCharacterLiteralException>(illegals);
@@ -171,16 +171,15 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
 
         WHEN("line has an invalid universal char code (in string or char literls)"){
             std::vector<std::wstring> illegals={
-                L"\'\\u\'",
-                L"\'\\uF\'",
-                L"\'\\uFFF\'",
-                L"\'\\uFFFش\'",
-                L"\'\\uش\'",
-                L"\"نص\\u\"",
-                L"\"نص\\uF\"",
-                L"\"نص\\uFFF\"",
-                L"\"نص\\uFFF\"",
-                L"\"نص\\uFFFش\"",
+                L"\'\\ي\'",
+                L"\'\\يF\'",
+                L"\'\\يFFF\'",
+                L"\'\\يFFFش\'",
+                L"\'\\يش\'",
+                L"\"نص\\ي\"",
+                L"\"نص\\يF\"",
+                L"\"نص\\يFFF\"",
+                L"\"نص\\يFFFش\"",
             };
             auto msgMatcher=[](std::wstring &illegal){
                 return illegal.substr(0,illegal.size()-1); // remove last qoute
