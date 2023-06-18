@@ -7,8 +7,9 @@ class LiteralToken:public LexerToken
     public:
         enum LITERAL_TYPE : int{
             STRING=0,
-            NUMBER=1,
-            BOOL=2
+            CHAR=1,
+            NUMBER=2,
+            BOOL=3
         };
 
         LiteralToken(LITERAL_TYPE literalType,std::wstring val);

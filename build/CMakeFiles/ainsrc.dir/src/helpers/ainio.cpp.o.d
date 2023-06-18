@@ -127,4 +127,7 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
  /usr/include/c++/12.2/bits/istream.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp

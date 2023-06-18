@@ -162,10 +162,14 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp

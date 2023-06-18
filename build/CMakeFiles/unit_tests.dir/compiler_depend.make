@@ -480,12 +480,25 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /usr/include/c++/12.2/map \
   /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/catch2/catch.hpp \
   /usr/include/c++/12.2/cstddef \
   /usr/include/c++/12.2/cassert \
@@ -496,19 +509,6 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/limits \
   /usr/include/c++/12.2/ctime \
   /usr/include/c++/12.2/bits/parse_numbers.h \
-  /usr/include/c++/12.2/functional \
-  /usr/include/c++/12.2/bits/std_function.h \
-  /usr/include/c++/12.2/unordered_map \
-  /usr/include/c++/12.2/bits/hashtable.h \
-  /usr/include/c++/12.2/bits/hashtable_policy.h \
-  /usr/include/c++/12.2/bits/enable_special_members.h \
-  /usr/include/c++/12.2/bits/unordered_map.h \
-  /usr/include/c++/12.2/array \
-  /usr/include/c++/12.2/compare \
-  /usr/include/c++/12.2/bits/stl_algo.h \
-  /usr/include/c++/12.2/bits/algorithmfwd.h \
-  /usr/include/c++/12.2/bits/stl_heap.h \
-  /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /usr/include/c++/12.2/utility \
@@ -553,13 +553,17 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
   /usr/include/stdc-predef.h \
@@ -999,17 +1003,21 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp:
 
 /usr/include/signal.h:
 
 /usr/include/strings.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
 
@@ -1134,6 +1142,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/pthread.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp:
 
 /usr/include/c++/12.2/bits/ios_base.h:
 
@@ -1376,6 +1386,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 /usr/include/c++/12.2/iosfwd:
 
 /usr/include/c++/12.2/debug/assertions.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp:
 
 /usr/include/bits/fp-logb.h:
 

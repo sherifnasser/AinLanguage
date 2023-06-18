@@ -1733,7 +1733,10 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp
 
 CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp \
   /usr/include/stdc-predef.h \
@@ -1946,7 +1949,7 @@ CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o: /home/nasser/Projects/Pro
 
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp \
   /usr/include/stdc-predef.h \
-  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
   /usr/include/features.h \
@@ -1959,9 +1962,11 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/gnu/stubs-64.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
   /usr/include/c++/12.2/bits/stringfwd.h \
   /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
   /usr/include/c++/12.2/bits/postypes.h \
   /usr/include/c++/12.2/cwchar \
   /usr/include/wchar.h \
@@ -1978,7 +1983,18 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/bits/types/FILE.h \
   /usr/include/bits/types/locale_t.h \
   /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
   /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
   /usr/include/c++/12.2/cstdint \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
   /usr/include/stdint.h \
@@ -1987,25 +2003,54 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/bits/time64.h \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
   /usr/include/c++/12.2/bits/localefwd.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
   /usr/include/c++/12.2/clocale \
   /usr/include/locale.h \
   /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/iosfwd \
   /usr/include/c++/12.2/cctype \
   /usr/include/ctype.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
   /usr/include/c++/12.2/bits/ostream_insert.h \
   /usr/include/c++/12.2/bits/cxxabi_forced.h \
   /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
@@ -2033,7 +2078,6 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/c++/12.2/bits/stl_construct.h \
   /usr/include/c++/12.2/string_view \
   /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
   /usr/include/c++/12.2/bits/string_view.tcc \
   /usr/include/c++/12.2/ext/string_conversions.h \
   /usr/include/c++/12.2/cstdlib \
@@ -2041,25 +2085,12 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/sys/types.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/timer_t.h \
   /usr/include/endian.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/uintn-identity.h \
   /usr/include/sys/select.h \
   /usr/include/bits/select.h \
   /usr/include/bits/types/sigset_t.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/c++/12.2/bits/std_abs.h \
@@ -2080,6 +2111,25 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/bits/types/error_t.h \
   /usr/include/c++/12.2/bits/charconv.h \
   /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/bits/stl_algo.h \
   /usr/include/c++/12.2/bits/algorithmfwd.h \
@@ -2273,12 +2323,19 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/memory \
   /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
   /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
   /usr/include/c++/12.2/bits/align.h \
   /usr/include/c++/12.2/bit \
@@ -2295,7 +2352,6 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
   /usr/include/c++/12.2/backward/auto_ptr.h \
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
@@ -2957,13 +3013,17 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp
 
 CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp \
   /usr/include/stdc-predef.h \
@@ -7110,11 +7170,13 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp:
 
@@ -7134,6 +7196,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/StringExpression.hpp:
@@ -7147,8 +7213,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunCallExpression.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/StringIsNotClosedException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp:
 
@@ -7291,6 +7355,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/pthread.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp:
 
 /usr/include/c++/12.2/bits/ios_base.h:
 
@@ -7503,6 +7569,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 
 /usr/include/asm-generic/errno.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp:
 
 /usr/include/bits/fp-logb.h:
 
