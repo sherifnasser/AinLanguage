@@ -73,43 +73,43 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: CMakeFiles/unit_tests.dir/
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp > CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp > CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
 
 # Object files for target unit_tests
 unit_tests_OBJECTS = \

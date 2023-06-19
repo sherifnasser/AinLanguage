@@ -1,1 +1,0 @@
-/bin/c++ -g CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -o unit_tests  libainsrc.a 

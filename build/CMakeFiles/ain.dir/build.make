@@ -73,15 +73,15 @@ CMakeFiles/ain.dir/src/main.cpp.o: CMakeFiles/ain.dir/flags.make
 CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp
 CMakeFiles/ain.dir/src/main.cpp.o: CMakeFiles/ain.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ain.dir/src/main.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/main.cpp.o -MF CMakeFiles/ain.dir/src/main.cpp.o.d -o CMakeFiles/ain.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ain.dir/src/main.cpp.o -MF CMakeFiles/ain.dir/src/main.cpp.o.d -o CMakeFiles/ain.dir/src/main.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp
 
 CMakeFiles/ain.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ain.dir/src/main.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp > CMakeFiles/ain.dir/src/main.cpp.i
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp > CMakeFiles/ain.dir/src/main.cpp.i
 
 CMakeFiles/ain.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ain.dir/src/main.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp -o CMakeFiles/ain.dir/src/main.cpp.s
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp -o CMakeFiles/ain.dir/src/main.cpp.s
 
 # Object files for target ain
 ain_OBJECTS = \
