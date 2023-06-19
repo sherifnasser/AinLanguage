@@ -11,8 +11,9 @@ class InvalidIdentifierNameException:public AinException{
             L"في السطر "+std::to_wstring(lineNumber)+
             L"\n"+
             L"المُعرف "+
-            token+
-            L" يجب ألا يبدأ بأرقام، وألا يكون كلمةً محجوزة."
+            AinException::removeNullChar(token)+
+            L"\n"+
+            L"يجب ألا يبدأ بأرقام، وألا يكون كلمةً محجوزة."
         )
     ){}
 };

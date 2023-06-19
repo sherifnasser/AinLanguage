@@ -9,9 +9,11 @@ class UnsupportedTokenException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
+            L" عند "+
             L"\n"+
-            token+
-            L" قيمة غير مدعومة."
+            AinException::removeNullChar(token)+
+            L"\n"+
+            L"قيمة غير مدعومة."
         )
     ){}
 };

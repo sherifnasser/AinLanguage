@@ -9,9 +9,11 @@ class IllegalUnderscoreException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
+            L" عند "+
             L"\n"+
-            token+
-            L" يوجد شَرطَة سُفلية غير صالحة."
+            AinException::removeNullChar(token)+
+            L"\n"+
+            L"يوجد شَرطَة سُفلية غير صالحة."
         )
     ){}
 };

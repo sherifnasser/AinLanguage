@@ -9,8 +9,11 @@ class InvalidUniversalCharacterCodeException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
-            L" عند "+literal+
-            L"\n"+L"رمز اليونيكود غير صالح."
+            L" عند "+
+            L"\n"+
+            AinException::removeNullChar(literal)+
+            L"\n"+
+            L"رمز اليونيكود غير صالح."
         )
     ){}
 };

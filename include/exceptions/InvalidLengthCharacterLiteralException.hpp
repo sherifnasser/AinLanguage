@@ -9,8 +9,11 @@ class InvalidLengthCharacterLiteralException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
-            L" عند "+literal+
-            L"\n"+L"يجب أن يحتوى على حرفٍ واحدٍ فقط."
+            L" عند "+
+            L"\n"+
+            AinException::removeNullChar(literal)+
+            L"\n"+
+            L"يجب أن يحتوى على حرفٍ واحدٍ فقط."
         )
     ){}
 };

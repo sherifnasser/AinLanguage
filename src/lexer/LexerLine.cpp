@@ -380,7 +380,7 @@ void LexerLine::skipAfterDigitArray(int startFrom,NUM_SYS numSys){
         }
     };
 
-    // number may be 0b, 0o, ox, so throw an error
+    // number may be 0b, 0o, 0x, so throw an error
     if(!isNumSysDigit(charAt(startFrom)))
         throw InvalidNumberSystemDigitException(lineNumber,getCurrentTokenVal()+charAt(startFrom)); // apend next char
 

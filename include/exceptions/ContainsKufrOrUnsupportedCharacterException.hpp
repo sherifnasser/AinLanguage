@@ -9,7 +9,8 @@ class ContainsKufrOrUnsupportedCharacterException:public AinException{
     :AinException(
         AinException::errorWString(
             ((lineNumber>=0)?L"في السطر "+std::to_wstring(lineNumber)+L"\n":L"")+
-            line+
+            L" عند "+L"\n"+
+            AinException::removeNullChar(line)+
             L"\n"+
             L"يحتوي على رمز للكُفار أو رمز غير مدعوم."
         )

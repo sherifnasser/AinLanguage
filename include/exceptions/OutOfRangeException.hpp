@@ -9,9 +9,11 @@ class OutOfRangeException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
+            L" عند "+
             L"\n"+
-            val+
-            L" القيمة خارج النطاق المسموح به."
+            AinException::removeNullChar(val)+
+            L"\n"+
+            L"القيمة خارج النطاق المسموح به."
         )
     ){}
 };

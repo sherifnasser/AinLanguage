@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<algorithm>
 #include<string>
 #include <cstdlib>
 #include <cwchar>
@@ -36,5 +37,11 @@ class AinException:public std::exception{
 
     static std::wstring errorWString(std::wstring wstr){
         return L"\033[1;31m"+wstr+L"\033[0m";
+    }
+
+    
+    static std::wstring removeNullChar(std::wstring wstr){
+        wstr.erase(remove(wstr.begin(), wstr.end(), L'\0'), wstr.end());
+        return wstr;
     }
 };

@@ -9,8 +9,11 @@ class InvalidEscapeSequenceException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
-            L" عند "+literal+
-            L"\n"+L"يحتوي على حرفٍ خاص غير صالح."
+            L" عند "+
+            L"\n"+
+            AinException::removeNullChar(literal)+
+            L"\n"+
+            L"يحتوي على حرفٍ خاص غير صالح."
         )
     ){}
 };

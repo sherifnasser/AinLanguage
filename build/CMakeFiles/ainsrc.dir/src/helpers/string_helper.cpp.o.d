@@ -1,5 +1,10 @@
+<<<<<<<< HEAD:build/CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o.d
 CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp \
+========
+CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: \
+ /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
+>>>>>>>> main:build/CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o.d
  /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -126,12 +131,25 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
+<<<<<<<< HEAD:build/CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o.d
  /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/bits/stl_algo.h \
+========
+ /usr/include/c++/12.2/bits/istream.tcc \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /usr/include/c++/12.2/algorithm /usr/include/c++/12.2/bits/stl_algo.h \
+>>>>>>>> main:build/CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o.d
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \
  /usr/include/c++/12.2/bits/stl_tempbuf.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+<<<<<<<< HEAD:build/CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o.d
  /usr/include/c++/12.2/pstl/execution_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp
+========
+ /usr/include/c++/12.2/pstl/execution_defs.h
+>>>>>>>> main:build/CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o.d
