@@ -6,5 +6,5 @@ class GlobalScope:public Scope
     public:
         GlobalScope();
         void addfunction(SharedFunScope funScope);
-        SharedFunScope getmain();
+        SharedFunScope getMain();
 };

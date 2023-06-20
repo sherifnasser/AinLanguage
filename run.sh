@@ -1,4 +1,4 @@
 #!/bin/bash
 cd build
 make
-ain ../app.ain
+ain ../AinApp/app.ain ../AinApp/show.ain

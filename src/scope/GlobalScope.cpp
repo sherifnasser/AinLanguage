@@ -9,7 +9,7 @@ void GlobalScope::addfunction(SharedFunScope funScope){
     getFuns()->push_back(funScope);
 }
 
-SharedFunScope GlobalScope::getmain(){
+SharedFunScope GlobalScope::getMain(){
     auto fun=getFunByName(L"البداية");
     if(fun==nullptr)
         throw MainFunctionNotFoundException();
