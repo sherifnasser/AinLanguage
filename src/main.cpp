@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 #include <memory>
@@ -20,6 +21,10 @@ void readAndParse(std::string path, SharedGlobalScope global){
     parser->startParse(tokens,global);
 }
 
+bool isMainFileOption(std::string o){
+    return o=="-m" || o=="--main";
+}
+
 int main(int argc, char * argv[]){
 
     // TODO: show info about ain and available options
@@ -31,16 +36,24 @@ int main(int argc, char * argv[]){
     try{
         SharedGlobalScope global=std::make_shared<GlobalScope>();
 
-        std::string mainPath(argv[1]); // default is first file
+        // default is first file
+        std::string mainPath(argv[1]);
+
+        // to make sure that -m or --main is used only once 
+        auto mainOptionUsed=false;
 
         // parse in reverse and make the main file at the end
         for(int i=argc-1;i>1;i--){
-            if(argv[i-1]=="-m" || argv[i-1]=="--main")
+            if(isMainFileOption(argv[i-1])){
+                if(mainOptionUsed)
+                    throw std::invalid_argument("\033[1;31mأمر -m أو --main يجب أن يُستخدم مرة واحدة فقط.\033[0m");
                 mainPath=std::string(argv[i]);
-            else
-                readAndParse(argv[i],global);
+                mainOptionUsed=true;
+                i--;
+                continue;
+            }
+            readAndParse(argv[i],global);
         }
-
         readAndParse(mainPath,global);
 
         auto main=global->getMain();
