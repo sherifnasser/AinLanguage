@@ -4,12 +4,15 @@
 #include <functional>
 #include <map>
 #include <catch2/catch.hpp>
+#include "SharedPtrTypes.hpp"
 #include "string_helper.hpp"
 #include "LexerLine.hpp"
 #include "LiteralToken.hpp"
 #include "SymbolToken.hpp"
 #include "NumberToken.hpp"
 #include "KeywordToken.hpp"
+#include "LinkedList.hpp"
+#include "LinkedListNode.hpp"
 #include "MissingQouteException.hpp"
 #include "InvalidLengthCharacterLiteralException.hpp"
 #include "InvalidEscapeSequenceException.hpp"
@@ -29,7 +32,7 @@ struct IdentifierTestToken:public LexerToken{
 /**
  * @brief Given illegal tokens in @param illegals, when calling lexerLine.tokenize()
  * We expect to find each illegal token in exception message and the line number.
- * @tparam E type of the expected exception
+ * @param E type of the expected exception
 */
 
 template<typename E>
@@ -72,16 +75,13 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             std::wstring line=L"\"string \\خ\\ف\\س\\ر\\ص\\ج\\\\ literal with\\\'\\\' \\\"QOUTES\\\" \\س and \\ي0041\\ي0042\"";
             // expected to replace unescaped characters with escaped versions, also unicode characters
             std::wstring expected=L"\"string \b\t\n\v\f\r\\ literal with\'\' \"QOUTES\" \n and \u0041\u0042\"";
-            LexerLine lexerLine=LexerLine(line,1);
 
             THEN("Add LiteralToken::STRING to tokens"){
+                LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                for(auto &token:*tokens){
-                    //std::wcout<<token->getVal()<<token->getTokenType()<<std::endl;
-                }
-                REQUIRE(tokens->size()==1);
-                std::shared_ptr<LexerToken> token=tokens->at(0);
+                REQUIRE(tokens->size==1);
+                std::shared_ptr<LexerToken> token=tokens->head->val;
                 auto literalToken=std::dynamic_pointer_cast<LiteralToken>(token);
                 REQUIRE(literalToken!=nullptr);
                 REQUIRE(literalToken->getLiteralType()==LiteralToken::STRING);
@@ -126,8 +126,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     LexerLine lexerLine=LexerLine(legeal,i);
                     lexerLine.tokenize();
                     auto tokens=lexerLine.getTokens();
-                    REQUIRE(tokens->size()==1);
-                    std::shared_ptr<LexerToken> token=tokens->at(0);
+                    REQUIRE(tokens->size==1);
+                    std::shared_ptr<LexerToken> token=tokens->head->val;
                     auto literalToken=std::dynamic_pointer_cast<LiteralToken>(token);
                     REQUIRE(literalToken!=nullptr);
                     REQUIRE(literalToken->getLiteralType()==LiteralToken::CHAR);
@@ -152,7 +152,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             };
         };
 
-        WHEN("line has an invalid escape sequence (in string or char literls)"){
+        WHEN("line has an invalid escape sequence (in string or char literals)"){
             std::vector<std::wstring> illegals={
                 L"\'\\a\'",
                 L"\'\\k\'",
@@ -199,8 +199,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\'\\\'",
             };
 
-            THEN("Throw MissingQouteException"){
-                LexerLineTokensTestWithException<MissingQouteException>(illegals);
+            THEN("Throw MissingQuoteException"){
+                LexerLineTokensTestWithException<MissingQuoteException>(illegals);
             };
         };
 
@@ -211,8 +211,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size()==1);
-                auto commentToken=tokens->at(0);
+                REQUIRE(tokens->size==1);
+                auto commentToken=tokens->head->val;
                 REQUIRE(commentToken->operator==(expectedToken));
             }
         };
@@ -240,14 +240,12 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size()==expectedTokens.size());
-                int i=0;
-                for(auto &token:*tokens){
+                REQUIRE(tokens->size==expectedTokens.size());
+                tokens->forEachIndexed([&](SharedLexerToken token,int i){
                     REQUIRE_NOTHROW(std::dynamic_pointer_cast<SymbolToken>(token));
                     REQUIRE(token->getTokenType()==LexerToken::SYMBOL_TOKEN);
                     REQUIRE(token->operator==(expectedTokens[i]));
-                    i++;
-                }
+                });
             }
         };
 
@@ -291,7 +289,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     auto lexerLine=LexerLine(val,i);
                     lexerLine.tokenize();
                     auto numToken=std::dynamic_pointer_cast<NumberToken>(
-                        lexerLine.getTokens()->at(0)
+                        lexerLine.getTokens()->head->val
                     );
                     auto expected=val;
                     removeUnderscores(&expected);
@@ -312,7 +310,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                         expected=std::to_wstring(std::stof(expected));
                         break;
                     }
-                    REQUIRE(lexerLine.getTokens()->size()==1);
+                    REQUIRE(lexerLine.getTokens()->size==1);
                     REQUIRE(expected==numToken->getVal());
                     REQUIRE(legal.getNumberType()==numToken->getNumberType());
                     REQUIRE(legal.getLiteralType()==numToken->getLiteralType());
@@ -338,9 +336,9 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     auto lexerLine=LexerLine(val1,i);
                     lexerLine.tokenize();
                     auto numToken=std::dynamic_pointer_cast<NumberToken>(
-                        lexerLine.getTokens()->at(0)
+                        lexerLine.getTokens()->head->val
                     );
-                    REQUIRE(lexerLine.getTokens()->size()==1);
+                    REQUIRE(lexerLine.getTokens()->size==1);
                     REQUIRE(val2==numToken->getVal());
                     REQUIRE(numToken->getNumberType()==NumberToken::INT);
                     REQUIRE(numToken->getLiteralType()==LiteralToken::NUMBER);
@@ -440,12 +438,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 auto lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size()==keywords.size());
-                int i=0;
-                for(auto &token:*tokens){
+                REQUIRE(tokens->size==keywords.size());
+                tokens->forEachIndexed([&](SharedLexerToken token,int i){
                     REQUIRE(token->operator==(keywords[i]));
-                    i++;
-                }
+                });
             };
 
         };
@@ -464,13 +460,11 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 auto lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size()==identifiers.size());
-                int i=0;
-                for(auto &token:*tokens){
+                REQUIRE(tokens->size==identifiers.size());
+                tokens->forEachIndexed([&](SharedLexerToken token,int i){
                     REQUIRE(token->getVal()==identifiers[i]);
                     REQUIRE(token->getTokenType()==LexerToken::IDENTIFIER_TOKEN);
-                    i++;
-                }
+                });
             };
 
         };
@@ -496,16 +490,14 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 lexerLineWithSpaces.tokenize();
                 auto tokens=lexerLine.getTokens();
                 auto tokensWithSpaces=lexerLine.getTokens();
-                REQUIRE(tokens->size()==expectedTokens.size());
-                REQUIRE(tokensWithSpaces->size()==expectedTokens.size());
-                int i=0;
-                for(auto &expected:expectedTokens){
-                    auto token1=tokens->at(i);
-                    auto token2=tokensWithSpaces->at(i);
-                    REQUIRE(token1->operator==(expected));
-                    REQUIRE(token2->operator==(expected));
-                    i++;
-                }
+                REQUIRE(tokens->size==expectedTokens.size());
+                REQUIRE(tokensWithSpaces->size==expectedTokens.size());
+                tokens->forEachIndexed([&](SharedLexerToken token,int i){
+                    REQUIRE(token->operator==(expectedTokens[i]));
+                });
+                tokensWithSpaces->forEachIndexed([&](SharedLexerToken token,int i){
+                    REQUIRE(token->operator==(expectedTokens[i]));
+                });
             };
         };
     }

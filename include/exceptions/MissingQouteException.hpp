@@ -2,10 +2,10 @@
 #include <iostream>
 #include "AinException.hpp"
 
-class MissingQouteException:public AinException{
+class MissingQuoteException:public AinException{
 
     public:
-    MissingQouteException(int lineNumber,std::wstring literal)
+    MissingQuoteException(int lineNumber,std::wstring literal)
     :AinException(
         AinException::errorWString(
             L"في السطر "+std::to_wstring(lineNumber)+
