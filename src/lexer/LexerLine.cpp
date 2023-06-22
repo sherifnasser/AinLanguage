@@ -3,6 +3,7 @@
 #include<vector>
 #include<limits>
 #include<algorithm>
+#include"LinkedList.hpp"
 #include"LexerLine.hpp"
 #include"LiteralToken.hpp"
 #include"NumberToken.hpp"
@@ -29,13 +30,13 @@ void LexerLine::checkIsKufrOrUnsupportedCharacter(const wchar_t &c){
 LexerLine::LexerLine(std::wstring &line,int lineNumber){
     this->line=line;
     this->lineNumber=lineNumber;
-    this->tokens=std::make_shared<std::vector<SharedLexerToken>>();
+    this->tokens=std::make_shared<LinkedList<SharedLexerToken>>();
 }
 
 bool LexerLine::isNotNullToken(SharedLexerToken token){
     if(token==nullptr)
         return false;
-    tokens->push_back(token);
+    tokens->insert(token);
 
     // move to the next token, start and end will be equal
     tokenStartIndex=++tokenEndIndex;
@@ -84,9 +85,9 @@ void LexerLine::tokenize(){
 
 SharedLexerToken LexerLine::findStringOrCharToken(){
     
-    auto qoute=charAt(tokenStartIndex);
-    auto isChar=qoute==L'\'';
-    auto isString=qoute==L'\"';
+    auto quote=charAt(tokenStartIndex);
+    auto isChar=quote==L'\'';
+    auto isString=quote==L'\"';
 
     if(!isChar&&!isString)
         return nullptr;
@@ -95,19 +96,19 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
     
     // append every char in the line until finding another " or '
     std::wstring tokenVal=L"";
-    tokenVal+=qoute; // append first qoute
+    tokenVal+=quote; // append first quote
 
     for(
-        tokenEndIndex=tokenStartIndex+1 /*Start after first qoute*/;
+        tokenEndIndex=tokenStartIndex+1 /*Start after first quote*/;
         tokenEndIndex<line.size();
         tokenEndIndex++
     ){
         auto currentChar=charAt(tokenEndIndex);
 
-        /*If it's qoute (" or ') retuen the token*/
-        if(currentChar==qoute){
-            tokenVal+=qoute;
-            // the size should be 3 for the first, last qoutes and the character between them
+        /*If it's quote (" or ') return the token*/
+        if(currentChar==quote){
+            tokenVal+=quote;
+            // the size should be 3 for the first, last quotes and the character between them
             if(isChar&&tokenVal.size()!=3)
                 throw InvalidLengthCharacterLiteralException(lineNumber,getCurrentTokenVal());
             
@@ -125,7 +126,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         tokenEndIndex++; // get next control char
         currentChar=charAt(tokenEndIndex);
 
-        /*Unicode charaters parsing*/
+        /*Unicode characters parsing*/
         if(currentChar==L'ي'){
             auto codePoint=line.substr(tokenEndIndex+1,4);
             try{
@@ -149,7 +150,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         }
 
     }
-    throw MissingQouteException(lineNumber,getCurrentTokenVal());
+    throw MissingQuoteException(lineNumber,getCurrentTokenVal());
 }
 
 SharedLexerToken LexerLine::findCommentToken(){
@@ -227,7 +228,7 @@ SharedLexerToken LexerLine::findNumberToken(){
     }
 
     /**
-     * If numSys didn't change from previos loop,
+     * If numSys didn't change from previous loop,
      * then skip after a digit array in decimal and change the number type (int, double or float)
     */
     if(numSys==NUM_SYS::DEC)
@@ -333,7 +334,7 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
         throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
     // numType is int
-    // checking for stopChar after unsinged and long types is in getIntNumberToken
+    // checking for stopChar after unsigned and long types is in getIntNumberToken
     if(stopChar!=L'u'&&stopChar!=L'l')
         throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     

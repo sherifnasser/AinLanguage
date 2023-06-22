@@ -5,5 +5,5 @@ class ILexer{
         
     public:
         virtual SharedVector<SharedILexerLine> getLexerLines()=0;
-        virtual SharedVector<SharedLexerToken> getTokens()=0;
+        virtual SharedLinkedList<SharedLexerToken> getTokens()=0;
 };

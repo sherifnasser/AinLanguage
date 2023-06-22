@@ -17,9 +17,19 @@ class Variable;
 class Constant;
 class IStatement;
 class IExpression;
+template<typename T>
+struct LinkedListNode;
+template<typename T>
+struct LinkedList;
 
 template<typename T>
 using SharedVector=std::shared_ptr<std::vector<T>>;
+
+template<typename T>
+using SharedLinkedListNode=std::shared_ptr<LinkedListNode<T>>;
+
+template<typename T>
+using SharedLinkedList=std::shared_ptr<LinkedList<T>>;
 
 using SharedWString=std::shared_ptr<std::wstring>;
 

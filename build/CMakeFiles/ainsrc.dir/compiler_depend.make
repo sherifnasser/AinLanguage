@@ -2792,6 +2792,23 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
@@ -3011,9 +3028,22 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /usr/include/c++/12.2/bits/stl_heap.h \
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
@@ -7194,6 +7224,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
@@ -7793,6 +7825,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/12.2/bits/locale_conv.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp:
 
 /usr/include/c++/12.2/iomanip:
 

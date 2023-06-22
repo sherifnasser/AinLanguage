@@ -544,15 +544,17 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/numeric \
   /usr/include/c++/12.2/bits/stl_numeric.h \
   /usr/include/c++/12.2/pstl/glue_numeric_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
@@ -951,8 +953,6 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /usr/include/c++/12.2/locale:
 
-/usr/include/c++/12.2/iomanip:
-
 /usr/include/bits/sigthread.h:
 
 /usr/include/bits/types/struct_sigstack.h:
@@ -1019,15 +1019,21 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Prog
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp:
+
+/usr/include/c++/12.2/iomanip:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
 
 /usr/include/c++/12.2/bits/stl_multimap.h:
 

@@ -37,7 +37,7 @@ class LexerLine:public ILexerLine{
         SharedLexerToken findIdentifierOrKeywordToken();
         void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
-        // Skip digits after findng an 'e' in a double number token starting from [tokenEndIndex]
+        // Skip digits after finding an 'e' in a double number token starting from [tokenEndIndex]
         void skipDigitsAfterExponent();
         void skipAfterDigitArray(int startFrom,NUM_SYS numSys=NUM_SYS::DEC); // Default is decimal
         void getIntNumberToken(std::wstring* number,NumberToken::NUMBER_TYPE* numType,NUM_SYS numSys);
