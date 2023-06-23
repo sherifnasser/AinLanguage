@@ -36,9 +36,15 @@ Parser::Parser(){}
 
 SharedLexerToken Parser::next(){
     currentNode=currentNode->next;
-
-    // skip comments
-    if(currentTokenType()!=LexerToken::COMMENT_TOKEN)
+    auto tokenType=currentTokenType();
+    // skip those
+    if(
+        tokenType!=LexerToken::COMMENT_TOKEN
+        &&
+        tokenType!=LexerToken::SPACE_TOKEN
+        &&
+        tokenType!=LexerToken::EOL_TOKEN
+    )
         return currentToken();
     
     return next();
@@ -56,7 +62,7 @@ bool Parser::nextMatch(LexerToken expected){
 SharedLexerToken Parser::currentToken(){
     return (currentNode)
     ?currentNode->val
-    :std::make_shared<LexerToken>(BadToken());
+    :std::make_shared<LexerToken>(LexerToken(LexerToken::EOF_TOKEN,L""));
 }
 
 std::wstring Parser::currentVal(){
@@ -70,13 +76,10 @@ LexerToken::TOKEN_TYPE Parser::currentTokenType(){
 void Parser::startParse(SharedLinkedList<SharedLexerToken> tokens,SharedGlobalScope globalScope){
     this->tokens=tokens;
     currentNode=tokens->head;
-    while(currentTokenType()!=LexerToken::BAD_TOKEN){
+    while(currentTokenType()!=LexerToken::EOF_TOKEN){
         findFunctions(globalScope);
         next();
     }
-    /*auto ex=findExpression();
-    std::wstring tab=L"";
-    ex->print(tab);*/
 }
 
 void Parser::findFunctions(SharedGlobalScope globalScope){
@@ -93,11 +96,11 @@ void Parser::findFunctions(SharedGlobalScope globalScope){
                 2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
                 while(!nextMatch(SymbolToken::RIGHT_PARENTHESIS)){
                     if(currentTokenType()==LexerToken::IDENTIFIER_TOKEN){
-                        auto argname=currentVal();
+                        auto argName=currentVal();
                         if(nextMatch(SymbolToken::COLON)){
                             if(next()->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
                                 auto argType=currentVal();
-                                auto arg=std::pair<std::wstring,std::wstring>(argname,argType);
+                                auto arg=std::pair<std::wstring,std::wstring>(argName,argType);
                                 args->push_back(arg);
                                 // calling next() first multi args without a comma
                                 if(nextMatch(SymbolToken::COMMA)){}
