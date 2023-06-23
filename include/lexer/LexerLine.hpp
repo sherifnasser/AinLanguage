@@ -35,6 +35,7 @@ class LexerLine:public ILexerLine{
         SharedLexerToken findSymbolToken();
         SharedLexerToken findNumberToken();
         SharedLexerToken findIdentifierOrKeywordToken();
+        SharedLexerToken findSpaceToken();
         void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
         // Skip digits after finding an 'e' in a double number token starting from [tokenEndIndex]

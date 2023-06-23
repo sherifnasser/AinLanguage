@@ -10,7 +10,10 @@ public:
         LITERAL_TOKEN = 1,
         COMMENT_TOKEN = 2,
         KEYWORD_TOKEN = 3,
-        IDENTIFIER_TOKEN = 4
+        IDENTIFIER_TOKEN = 4,
+        SPACE_TOKEN = 5,
+        EOL_TOKEN = 6,
+        EOF_TOKEN = 7,
     };
     LexerToken(TOKEN_TYPE tokenType, std::wstring val);
     TOKEN_TYPE getTokenType();

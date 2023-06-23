@@ -1,6 +1,9 @@
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/12.2/iostream \
+ /usr/include/stdc-predef.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+ /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -126,16 +129,8 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc /usr/include/catch2/catch.hpp \
- /usr/include/c++/12.2/cstddef /usr/include/c++/12.2/vector \
+ /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/memory \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
- /usr/include/c++/12.2/bits/stl_vector.h \
- /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc /usr/include/c++/12.2/cassert \
- /usr/include/assert.h /usr/include/c++/12.2/ctime \
- /usr/include/c++/12.2/ratio /usr/include/c++/12.2/chrono \
- /usr/include/c++/12.2/bits/chrono.h /usr/include/c++/12.2/limits \
- /usr/include/c++/12.2/bits/parse_numbers.h /usr/include/c++/12.2/memory \
  /usr/include/c++/12.2/bits/stl_tempbuf.h \
  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
  /usr/include/c++/12.2/bits/align.h /usr/include/c++/12.2/bit \
@@ -151,7 +146,15 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12.2/backward/auto_ptr.h \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
- /usr/include/c++/12.2/pstl/execution_defs.h \
+ /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/vector \
+ /usr/include/c++/12.2/bits/stl_vector.h \
+ /usr/include/c++/12.2/bits/stl_bvector.h \
+ /usr/include/c++/12.2/bits/vector.tcc /usr/include/catch2/catch.hpp \
+ /usr/include/c++/12.2/cstddef /usr/include/c++/12.2/cassert \
+ /usr/include/assert.h /usr/include/c++/12.2/ctime \
+ /usr/include/c++/12.2/ratio /usr/include/c++/12.2/chrono \
+ /usr/include/c++/12.2/bits/chrono.h /usr/include/c++/12.2/limits \
+ /usr/include/c++/12.2/bits/parse_numbers.h \
  /usr/include/c++/12.2/functional \
  /usr/include/c++/12.2/bits/std_function.h \
  /usr/include/c++/12.2/unordered_map \
@@ -251,9 +254,9 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp

@@ -7,6 +7,7 @@
 #include"LexerLine.hpp"
 #include"LiteralToken.hpp"
 #include"NumberToken.hpp"
+#include "SharedPtrTypes.hpp"
 #include"SymbolToken.hpp"
 #include"KeywordToken.hpp"
 #include"wchar_t_helper.hpp"
@@ -78,9 +79,16 @@ void LexerLine::tokenize(){
         if(isNotNullToken(identifierOrKeywordToken))
             continue;
         
+        auto spaceToken=findSpaceToken();
+        if(isNotNullToken(spaceToken))
+            continue;
+        
         // To skip spaces and tabs, move to the next token, start and end will be equal
-        tokenStartIndex=++tokenEndIndex;
+        //tokenStartIndex=++tokenEndIndex;
     }
+
+    auto eol=std::make_shared<LexerToken>(LexerToken::EOL_TOKEN,getCurrentTokenVal());
+    tokens->insert(eol);
 }
 
 SharedLexerToken LexerLine::findStringOrCharToken(){
@@ -497,4 +505,16 @@ SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
 
     auto token=std::make_shared<LexerToken>(tokenType,val);
     return token;
+}
+
+SharedLexerToken LexerLine::findSpaceToken(){
+    if(!iswempty(charAt(tokenStartIndex)))
+        return nullptr;
+    int i=tokenStartIndex;
+    while(iswempty(charAt(i)))
+        i++;
+    
+    tokenEndIndex=i-1;
+
+    return std::make_shared<LexerToken>(LexerToken::SPACE_TOKEN,getCurrentTokenVal());
 }
