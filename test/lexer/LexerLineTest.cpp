@@ -4,6 +4,7 @@
 #include <functional>
 #include <map>
 #include <catch2/catch.hpp>
+#include "LexerToken.hpp"
 #include "SharedPtrTypes.hpp"
 #include "string_helper.hpp"
 #include "LexerLine.hpp"
@@ -80,7 +81,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size==1);
+                REQUIRE(tokens->size==2);
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                 std::shared_ptr<LexerToken> token=tokens->head->val;
                 auto literalToken=std::dynamic_pointer_cast<LiteralToken>(token);
                 REQUIRE(literalToken!=nullptr);
@@ -126,7 +128,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     LexerLine lexerLine=LexerLine(legeal,i);
                     lexerLine.tokenize();
                     auto tokens=lexerLine.getTokens();
-                    REQUIRE(tokens->size==1);
+                    REQUIRE(tokens->size==2);
+                    REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                     std::shared_ptr<LexerToken> token=tokens->head->val;
                     auto literalToken=std::dynamic_pointer_cast<LiteralToken>(token);
                     REQUIRE(literalToken!=nullptr);
@@ -211,7 +214,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size==1);
+                REQUIRE(tokens->size==2);
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                 auto commentToken=tokens->head->val;
                 REQUIRE(commentToken->operator==(expectedToken));
             }
@@ -240,8 +244,11 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 LexerLine lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size==expectedTokens.size());
+                REQUIRE(tokens->size==expectedTokens.size()+1);
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                 tokens->forEachIndexed([&](SharedLexerToken token,int i){
+                    if(token->getTokenType()==LexerToken::EOL_TOKEN)
+                        return;
                     REQUIRE_NOTHROW(std::dynamic_pointer_cast<SymbolToken>(token));
                     REQUIRE(token->getTokenType()==LexerToken::SYMBOL_TOKEN);
                     REQUIRE(token->operator==(expectedTokens[i]));
@@ -310,7 +317,9 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                         expected=std::to_wstring(std::stof(expected));
                         break;
                     }
-                    REQUIRE(lexerLine.getTokens()->size==1);
+                    auto tokens=lexerLine.getTokens();
+                    REQUIRE(tokens->size==2);
+                    REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                     REQUIRE(expected==numToken->getVal());
                     REQUIRE(legal.getNumberType()==numToken->getNumberType());
                     REQUIRE(legal.getLiteralType()==numToken->getLiteralType());
@@ -335,10 +344,12 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     auto val2=legal.second;
                     auto lexerLine=LexerLine(val1,i);
                     lexerLine.tokenize();
+                    auto tokens=lexerLine.getTokens();
                     auto numToken=std::dynamic_pointer_cast<NumberToken>(
-                        lexerLine.getTokens()->head->val
+                        tokens->head->val
                     );
-                    REQUIRE(lexerLine.getTokens()->size==1);
+                    REQUIRE(tokens->size==2);
+                    REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
                     REQUIRE(val2==numToken->getVal());
                     REQUIRE(numToken->getNumberType()==NumberToken::INT);
                     REQUIRE(numToken->getLiteralType()==LiteralToken::NUMBER);
@@ -438,9 +449,18 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 auto lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size==keywords.size());
-                tokens->forEachIndexed([&](SharedLexerToken token,int i){
+                REQUIRE(tokens->size==keywords.size()*2+1); // spaces and eol
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
+                int i=0;
+                tokens->forEach([&](SharedLexerToken token){
+                    if(
+                        token->getTokenType()==LexerToken::SPACE_TOKEN
+                        ||
+                        token->getTokenType()==LexerToken::EOL_TOKEN
+                    )
+                        return;
                     REQUIRE(token->operator==(keywords[i]));
+                    i++;
                 });
             };
 
@@ -460,10 +480,19 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 auto lexerLine=LexerLine(line,1);
                 lexerLine.tokenize();
                 auto tokens=lexerLine.getTokens();
-                REQUIRE(tokens->size==identifiers.size());
-                tokens->forEachIndexed([&](SharedLexerToken token,int i){
+                REQUIRE(tokens->size==identifiers.size()*2+1); // spaces and eol
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
+                int i=0;
+                tokens->forEach([&](SharedLexerToken token){
+                    if(
+                        token->getTokenType()==LexerToken::SPACE_TOKEN
+                        ||
+                        token->getTokenType()==LexerToken::EOL_TOKEN
+                    )
+                        return;
                     REQUIRE(token->getVal()==identifiers[i]);
                     REQUIRE(token->getTokenType()==LexerToken::IDENTIFIER_TOKEN);
+                    i++;
                 });
             };
 
@@ -490,13 +519,26 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 lexerLineWithSpaces.tokenize();
                 auto tokens=lexerLine.getTokens();
                 auto tokensWithSpaces=lexerLine.getTokens();
-                REQUIRE(tokens->size==expectedTokens.size());
-                REQUIRE(tokensWithSpaces->size==expectedTokens.size());
-                tokens->forEachIndexed([&](SharedLexerToken token,int i){
-                    REQUIRE(token->operator==(expectedTokens[i]));
-                });
-                tokensWithSpaces->forEachIndexed([&](SharedLexerToken token,int i){
-                    REQUIRE(token->operator==(expectedTokens[i]));
+                REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
+                REQUIRE(tokensWithSpaces->tail->val->getTokenType()==LexerToken::EOL_TOKEN);
+
+                auto tokenNode=tokens->head;
+                int i=0;
+                tokensWithSpaces->forEach([&](SharedLexerToken tokenWithSpace){
+                    if(
+                        tokenWithSpace->getTokenType()==LexerToken::SPACE_TOKEN
+                        ||
+                        tokenWithSpace->getTokenType()==LexerToken::EOL_TOKEN
+                    )
+                        return;
+
+                    while(tokenNode->val->getTokenType()==LexerToken::SPACE_TOKEN)
+                        tokenNode=tokenNode->next;
+                    
+                    REQUIRE(tokenNode->val->operator==(expectedTokens[i]));
+                    REQUIRE(tokenWithSpace->operator==(expectedTokens[i]));
+                    tokenNode=tokenNode->next;
+                    i++;
                 });
             };
         };

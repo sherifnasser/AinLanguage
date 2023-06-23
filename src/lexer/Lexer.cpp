@@ -1,5 +1,7 @@
 #include <iostream>
+#include <memory>
 #include "Lexer.hpp"
+#include "LexerToken.hpp"
 #include "LinkedList.hpp"
 #include "LexerLine.hpp"
 #include "string_helper.hpp"
@@ -16,16 +18,11 @@ Lexer::Lexer(SharedIAinFile ainFile):ainFile(ainFile){
 
     for(auto &line:lines){
         lineNumber++;
-        
-        if(line.empty())
-            continue;
 
         auto nextLexerLine=std::make_shared<LexerLine>(line,lineNumber);
         nextLexerLine->tokenize();
-        lexerLines->push_back(nextLexerLine);
-        
+        lexerLines->push_back(nextLexerLine);    
     }
-
 }
 
 SharedVector<SharedILexerLine> Lexer::getLexerLines(){
@@ -38,5 +35,6 @@ SharedLinkedList<SharedLexerToken> Lexer::getTokens(){
         auto lTokens=line->getTokens();
         tokens->insert(*lTokens);
     }
+    tokens->insert(std::make_shared<LexerToken>(LexerToken::EOF_TOKEN,L""));
     return tokens;
 }
