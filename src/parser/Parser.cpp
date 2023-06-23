@@ -1,8 +1,10 @@
 #include <iostream>
 #include <map>
+#include "LinkedList.hpp"
 #include "Parser.hpp"
 #include "LexerToken.hpp"
 #include "KeywordToken.hpp"
+#include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
 #include "BadToken.hpp"
 
@@ -33,19 +35,17 @@
 Parser::Parser(){}
 
 SharedLexerToken Parser::next(){
-    currentPos++;
-    //wcout<<currentVal()<<endl;
-    current=(currentPos<tokens->size())
-    ?(*tokens)[currentPos]
-    :std::make_shared<LexerToken>(BadToken());
+    currentNode=currentNode->next;
+
     // skip comments
-    if(current->getTokenType()!=LexerToken::COMMENT_TOKEN)
-        return current;
+    if(currentTokenType()!=LexerToken::COMMENT_TOKEN)
+        return currentToken();
+    
     return next();
 }
 
 bool Parser::currentMatch(LexerToken expected){
-    return *current==expected;
+    return *currentToken()==expected;
 }
 
 bool Parser::nextMatch(LexerToken expected){
@@ -53,14 +53,24 @@ bool Parser::nextMatch(LexerToken expected){
     return currentMatch(expected);
 }
 
-std::wstring Parser::currentVal(){
-    return current->getVal();
+SharedLexerToken Parser::currentToken(){
+    return (currentNode)
+    ?currentNode->val
+    :std::make_shared<LexerToken>(BadToken());
 }
 
-void Parser::startParse(SharedVector<SharedLexerToken> tokens,SharedGlobalScope globalScope){
+std::wstring Parser::currentVal(){
+    return currentToken()->getVal();
+}
+
+LexerToken::TOKEN_TYPE Parser::currentTokenType(){
+    return currentToken()->getTokenType();
+}
+
+void Parser::startParse(SharedLinkedList<SharedLexerToken> tokens,SharedGlobalScope globalScope){
     this->tokens=tokens;
-    current=next();
-    while(current->getTokenType()!=LexerToken::BAD_TOKEN){
+    currentNode=tokens->head;
+    while(currentTokenType()!=LexerToken::BAD_TOKEN){
         findFunctions(globalScope);
         next();
     }
@@ -82,7 +92,7 @@ void Parser::findFunctions(SharedGlobalScope globalScope){
                 1- the next token is left parenthesis and no args for the fun.
                 2- there're args in form (arg1:arg1Type, arg2:arg2Type, ...). */
                 while(!nextMatch(SymbolToken::RIGHT_PARENTHESIS)){
-                    if(current->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
+                    if(currentTokenType()==LexerToken::IDENTIFIER_TOKEN){
                         auto argname=currentVal();
                         if(nextMatch(SymbolToken::COLON)){
                             if(next()->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
@@ -255,8 +265,9 @@ SharedIStatement Parser::findExpressionStatement(SharedFunScope funScope){
 }
 
 SharedIStatement Parser::findVarReassignStatement(SharedFunScope funScope){
-    if(current->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
-        auto varname=current->getVal();
+    if(currentTokenType()==LexerToken::IDENTIFIER_TOKEN){
+        auto varname=currentVal();
+        auto identifierNode=currentNode; // needed in else block
         if(nextMatch(SymbolToken::EQUAL)){
             next();
             auto ex=findExpression();
@@ -280,8 +291,7 @@ SharedIStatement Parser::findVarReassignStatement(SharedFunScope funScope){
             return stm;
         }
         else{
-            currentPos-=2;
-            next();
+            currentNode=identifierNode;
         }
     }
     return nullptr;
@@ -328,7 +338,7 @@ SharedIExpression Parser::findBinaryLogicalOrExpression(){
     SharedIExpression right;
     while(currentMatch(SymbolToken::LOGICAL_OR))
     {   
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryLogicalAndExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -342,7 +352,7 @@ SharedIExpression Parser::findBinaryLogicalAndExpression(){
     SharedIExpression right;
     while(currentMatch(SymbolToken::LOGICAL_AND))
     {   
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryEqualityExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -356,7 +366,7 @@ SharedIExpression Parser::findBinaryEqualityExpression(){
     SharedIExpression right;
     while(currentMatch(SymbolToken::NOT_EQUAL)||currentMatch(SymbolToken::EQUAL_EQUAL))
     {
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryComparisonExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -377,7 +387,7 @@ SharedIExpression Parser::findBinaryComparisonExpression(){
         ||
         currentMatch(SymbolToken::LESS_EQUAL)
     ){
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryPlusMinusExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -394,7 +404,7 @@ SharedIExpression Parser::findBinaryPlusMinusExpression(){
         ||
         currentMatch(SymbolToken::MINUS)
     ){
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryStarSlashExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -413,7 +423,7 @@ SharedIExpression Parser::findBinaryStarSlashExpression(){
         ||
         currentMatch(SymbolToken::MODULO)
     ){
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryExponentExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -425,7 +435,7 @@ SharedIExpression Parser::findBinaryExponentExpression(){
     SharedIExpression left=findBinaryParenthesesExpression();
     SharedIExpression right;
     while(currentMatch(SymbolToken::POWER)){
-        auto op=current;
+        auto op=currentToken();
         next();
         right=findBinaryParenthesesExpression();
         left=std::make_shared<BinaryExpression>(left,op,right);
@@ -440,14 +450,14 @@ SharedIExpression Parser::findBinaryParenthesesExpression(){
         next();
         left=findBinaryLogicalOrExpression();
         while(!currentMatch(SymbolToken::RIGHT_PARENTHESIS)){
-            auto op=current;
+            auto op=currentToken();
             next();
             right=findBinaryLogicalOrExpression();
             left=std::make_shared<BinaryExpression>(left,op,right);
         }
         next();
     }
-    else if(LexerToken::isStringLiteral(current)){
+    else if(LexerToken::isStringLiteral(currentToken())){
         auto val=currentVal();
         left=std::make_shared<StringExpression>(val);
         next();
@@ -457,12 +467,12 @@ SharedIExpression Parser::findBinaryParenthesesExpression(){
         left=std::make_shared<BoolExpression>(val);
         next();
     }
-    else if(LexerToken::isNumberLiteral(current)){
+    else if(LexerToken::isNumberLiteral(currentToken())){
         auto val=currentVal();
         left=std::make_shared<NumberExpression>(val);
         next();
     }
-    else if(current->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
+    else if(currentTokenType()==LexerToken::IDENTIFIER_TOKEN){
         auto name=currentVal();
         if(nextMatch(SymbolToken::LEFT_PARENTHESIS)){
             next();

@@ -1,15 +1,17 @@
 #pragma once
 #include "IParser.hpp"
+#include "LexerToken.hpp"
 class Parser:public IParser
 {
 private:
-    SharedVector<SharedLexerToken> tokens;
-    SharedLexerToken current;
-    int currentPos=-1;
+    SharedLinkedList<SharedLexerToken> tokens;
+    SharedLinkedListNode<SharedLexerToken> currentNode;
     SharedLexerToken next();
     bool currentMatch(LexerToken expected);
     bool nextMatch(LexerToken expected);
+    SharedLexerToken currentToken();
     std::wstring currentVal();
+    LexerToken::TOKEN_TYPE currentTokenType();
     void findFunctions(SharedGlobalScope globalScope);
     SharedIStatement findNextStatement(SharedFunScope funScope);
     SharedIStatement findVarValStatement(SharedFunScope funScope);
@@ -32,5 +34,5 @@ private:
 
 public:
     Parser();
-    void startParse(SharedVector<SharedLexerToken> tokens,SharedGlobalScope GlobalScope)override;
+    void startParse(SharedLinkedList<SharedLexerToken> tokens,SharedGlobalScope GlobalScope)override;
 };

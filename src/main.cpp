@@ -18,7 +18,7 @@ void readAndParse(std::string path, SharedGlobalScope global){
     SharedILexer lexer=std::make_shared<Lexer>(file);
     auto tokens=lexer->getTokens();
     SharedIParser parser=std::make_shared<Parser>();
-    //parser->startParse(tokens,global);
+    parser->startParse(tokens,global);
 }
 
 bool isMainFileOption(std::string o){
