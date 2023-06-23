@@ -126,9 +126,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
- /usr/include/c++/12.2/memory \
+ /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/memory \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
  /usr/include/c++/12.2/bits/stl_tempbuf.h \
  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
@@ -146,6 +144,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/backward/auto_ptr.h \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2/pstl/execution_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /usr/include/c++/12.2/vector /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
