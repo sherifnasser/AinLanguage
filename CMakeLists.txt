@@ -19,6 +19,8 @@ add_library(ainsrc
     src/expression/FunCallExpression.cpp
     src/expression/VariableAccessExpression.cpp
     src/expression/NumberExpression.cpp
+    src/scope/BaseScope.cpp
+    src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
     src/scope/Scope.cpp
     src/scope/Constant.cpp
@@ -37,12 +39,15 @@ add_library(ainsrc
     src/helpers/ainio.cpp
     src/helpers/wchar_t_helper.cpp
     src/helpers/number_helper.cpp
+    src/parser/PackageParser.cpp
+    src/parser/TokensIterator.cpp
     src/parser/Parser.cpp
 )
 
 set(INCLUDE
     include/
     include/exceptions/
+    include/exceptions/parser/
     include/lexer/
     include/expression/
     include/scope/
@@ -56,6 +61,8 @@ set(TEST
     test/lexer/LexerTest.cpp
     test/lexer/LexerLineTest.cpp
     test/ain_file/AinFileTest.cpp
+    test/parser/PackageParserTest.cpp
+    test/parser/TokensIteratorTest.cpp
 )
 
 ### end files_cmake.cpp ###

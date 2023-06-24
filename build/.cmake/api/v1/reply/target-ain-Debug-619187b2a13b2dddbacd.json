@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 69,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 73,
+				"line" : 80,
 				"parent" : 0
 			}
 		]
@@ -54,6 +54,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser"
 				},
 				{
 					"backtrace" : 2,

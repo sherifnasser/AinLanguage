@@ -36,4 +36,18 @@ bool LexerToken::isStringLiteral(SharedLexerToken token){
     return stringToken!=nullptr && stringToken->getLiteralType()==LiteralToken::STRING;
 }
 
+std::wstring LexerToken::stringify(TOKEN_TYPE tokenType) {
+    switch(tokenType){
+        case BAD_TOKEN:return L"رمز غير صالح";
+        case SYMBOL_TOKEN:return L"رمز";
+        case LITERAL_TOKEN:return L"قيمة";
+        case COMMENT_TOKEN:return L"تعليق";
+        case KEYWORD_TOKEN:return L"كلمة مفتاحية";
+        case IDENTIFIER_TOKEN:return L"مُعرِّف";
+        case SPACE_TOKEN:return L"مسافة";
+        case EOL_TOKEN:return L"نهاية السطر";
+        case EOF_TOKEN:return L"نهاية الملف";
+    }
+}
+
 LexerToken::~LexerToken(){}

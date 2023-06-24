@@ -10,6 +10,8 @@ class ILexerLine;
 class IParser;
 class LexerToken;
 class Scope;
+class BaseScope;
+class PackageScope;
 class GlobalScope;
 class FunScope;
 class ClassScope;
@@ -21,6 +23,7 @@ template<typename T>
 struct LinkedListNode;
 template<typename T>
 struct LinkedList;
+struct TokensIterator;
 
 template<typename T>
 using SharedVector=std::shared_ptr<std::vector<T>>;
@@ -45,6 +48,10 @@ using SharedIParser=std::shared_ptr<IParser>;
 
 using SharedScope=std::shared_ptr<Scope>;
 
+using SharedBaseScope=std::shared_ptr<BaseScope>;
+
+using SharedPackageScope=std::shared_ptr<PackageScope>;
+
 using SharedGlobalScope=std::shared_ptr<GlobalScope>;
 
 using SharedClassScope=std::shared_ptr<ClassScope>;
@@ -58,3 +65,5 @@ using SharedConstant=std::shared_ptr<Constant>;
 using SharedIStatement=std::shared_ptr<IStatement>;
 
 using SharedIExpression=std::shared_ptr<IExpression>;
+
+using SharedTokensIterator=std::shared_ptr<TokensIterator>;

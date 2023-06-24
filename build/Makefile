@@ -614,6 +614,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser/PackageParser.o: src/parser/PackageParser.cpp.o
+.PHONY : src/parser/PackageParser.o
+
+# target to build an object file
+src/parser/PackageParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.o
+.PHONY : src/parser/PackageParser.cpp.o
+
+src/parser/PackageParser.i: src/parser/PackageParser.cpp.i
+.PHONY : src/parser/PackageParser.i
+
+# target to preprocess a source file
+src/parser/PackageParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.i
+.PHONY : src/parser/PackageParser.cpp.i
+
+src/parser/PackageParser.s: src/parser/PackageParser.cpp.s
+.PHONY : src/parser/PackageParser.s
+
+# target to generate assembly for a file
+src/parser/PackageParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.s
+.PHONY : src/parser/PackageParser.cpp.s
+
 src/parser/Parser.o: src/parser/Parser.cpp.o
 .PHONY : src/parser/Parser.o
 
@@ -637,6 +661,54 @@ src/parser/Parser.s: src/parser/Parser.cpp.s
 src/parser/Parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.s
 .PHONY : src/parser/Parser.cpp.s
+
+src/parser/TokensIterator.o: src/parser/TokensIterator.cpp.o
+.PHONY : src/parser/TokensIterator.o
+
+# target to build an object file
+src/parser/TokensIterator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.o
+.PHONY : src/parser/TokensIterator.cpp.o
+
+src/parser/TokensIterator.i: src/parser/TokensIterator.cpp.i
+.PHONY : src/parser/TokensIterator.i
+
+# target to preprocess a source file
+src/parser/TokensIterator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.i
+.PHONY : src/parser/TokensIterator.cpp.i
+
+src/parser/TokensIterator.s: src/parser/TokensIterator.cpp.s
+.PHONY : src/parser/TokensIterator.s
+
+# target to generate assembly for a file
+src/parser/TokensIterator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.s
+.PHONY : src/parser/TokensIterator.cpp.s
+
+src/scope/BaseScope.o: src/scope/BaseScope.cpp.o
+.PHONY : src/scope/BaseScope.o
+
+# target to build an object file
+src/scope/BaseScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o
+.PHONY : src/scope/BaseScope.cpp.o
+
+src/scope/BaseScope.i: src/scope/BaseScope.cpp.i
+.PHONY : src/scope/BaseScope.i
+
+# target to preprocess a source file
+src/scope/BaseScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.i
+.PHONY : src/scope/BaseScope.cpp.i
+
+src/scope/BaseScope.s: src/scope/BaseScope.cpp.s
+.PHONY : src/scope/BaseScope.s
+
+# target to generate assembly for a file
+src/scope/BaseScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.s
+.PHONY : src/scope/BaseScope.cpp.s
 
 src/scope/Constant.o: src/scope/Constant.cpp.o
 .PHONY : src/scope/Constant.o
@@ -709,6 +781,30 @@ src/scope/GlobalScope.s: src/scope/GlobalScope.cpp.s
 src/scope/GlobalScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.s
 .PHONY : src/scope/GlobalScope.cpp.s
+
+src/scope/PackageScope.o: src/scope/PackageScope.cpp.o
+.PHONY : src/scope/PackageScope.o
+
+# target to build an object file
+src/scope/PackageScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.o
+.PHONY : src/scope/PackageScope.cpp.o
+
+src/scope/PackageScope.i: src/scope/PackageScope.cpp.i
+.PHONY : src/scope/PackageScope.i
+
+# target to preprocess a source file
+src/scope/PackageScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.i
+.PHONY : src/scope/PackageScope.cpp.i
+
+src/scope/PackageScope.s: src/scope/PackageScope.cpp.s
+.PHONY : src/scope/PackageScope.s
+
+# target to generate assembly for a file
+src/scope/PackageScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.s
+.PHONY : src/scope/PackageScope.cpp.s
 
 src/scope/Scope.o: src/scope/Scope.cpp.o
 .PHONY : src/scope/Scope.o
@@ -1022,6 +1118,54 @@ test/lexer/LexerTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
 .PHONY : test/lexer/LexerTest.cpp.s
 
+test/parser/PackageParserTest.o: test/parser/PackageParserTest.cpp.o
+.PHONY : test/parser/PackageParserTest.o
+
+# target to build an object file
+test/parser/PackageParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o
+.PHONY : test/parser/PackageParserTest.cpp.o
+
+test/parser/PackageParserTest.i: test/parser/PackageParserTest.cpp.i
+.PHONY : test/parser/PackageParserTest.i
+
+# target to preprocess a source file
+test/parser/PackageParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.i
+.PHONY : test/parser/PackageParserTest.cpp.i
+
+test/parser/PackageParserTest.s: test/parser/PackageParserTest.cpp.s
+.PHONY : test/parser/PackageParserTest.s
+
+# target to generate assembly for a file
+test/parser/PackageParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s
+.PHONY : test/parser/PackageParserTest.cpp.s
+
+test/parser/TokensIteratorTest.o: test/parser/TokensIteratorTest.cpp.o
+.PHONY : test/parser/TokensIteratorTest.o
+
+# target to build an object file
+test/parser/TokensIteratorTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o
+.PHONY : test/parser/TokensIteratorTest.cpp.o
+
+test/parser/TokensIteratorTest.i: test/parser/TokensIteratorTest.cpp.i
+.PHONY : test/parser/TokensIteratorTest.i
+
+# target to preprocess a source file
+test/parser/TokensIteratorTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.i
+.PHONY : test/parser/TokensIteratorTest.cpp.i
+
+test/parser/TokensIteratorTest.s: test/parser/TokensIteratorTest.cpp.s
+.PHONY : test/parser/TokensIteratorTest.s
+
+# target to generate assembly for a file
+test/parser/TokensIteratorTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.s
+.PHONY : test/parser/TokensIteratorTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1090,9 +1234,18 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/PackageParser.o"
+	@echo "... src/parser/PackageParser.i"
+	@echo "... src/parser/PackageParser.s"
 	@echo "... src/parser/Parser.o"
 	@echo "... src/parser/Parser.i"
 	@echo "... src/parser/Parser.s"
+	@echo "... src/parser/TokensIterator.o"
+	@echo "... src/parser/TokensIterator.i"
+	@echo "... src/parser/TokensIterator.s"
+	@echo "... src/scope/BaseScope.o"
+	@echo "... src/scope/BaseScope.i"
+	@echo "... src/scope/BaseScope.s"
 	@echo "... src/scope/Constant.o"
 	@echo "... src/scope/Constant.i"
 	@echo "... src/scope/Constant.s"
@@ -1102,6 +1255,9 @@ help:
 	@echo "... src/scope/GlobalScope.o"
 	@echo "... src/scope/GlobalScope.i"
 	@echo "... src/scope/GlobalScope.s"
+	@echo "... src/scope/PackageScope.o"
+	@echo "... src/scope/PackageScope.i"
+	@echo "... src/scope/PackageScope.s"
 	@echo "... src/scope/Scope.o"
 	@echo "... src/scope/Scope.i"
 	@echo "... src/scope/Scope.s"
@@ -1141,6 +1297,12 @@ help:
 	@echo "... test/lexer/LexerTest.o"
 	@echo "... test/lexer/LexerTest.i"
 	@echo "... test/lexer/LexerTest.s"
+	@echo "... test/parser/PackageParserTest.o"
+	@echo "... test/parser/PackageParserTest.i"
+	@echo "... test/parser/PackageParserTest.s"
+	@echo "... test/parser/TokensIteratorTest.o"
+	@echo "... test/parser/TokensIteratorTest.i"
+	@echo "... test/parser/TokensIteratorTest.s"
 .PHONY : help
 
 
