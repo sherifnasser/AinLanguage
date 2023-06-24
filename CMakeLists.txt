@@ -47,6 +47,7 @@ add_library(ainsrc
 set(INCLUDE
     include/
     include/exceptions/
+    include/exceptions/lexer/
     include/exceptions/parser/
     include/lexer/
     include/expression/
@@ -63,14 +64,14 @@ set(TEST
     test/ain_file/AinFileTest.cpp
     test/parser/PackageParserTest.cpp
     test/parser/TokensIteratorTest.cpp
+    test/parser/TokensIteratorForTests.cpp
 )
 
 ### end files_cmake.cpp ###
 
-
-
-
-
+set(TEST_INCLUDE
+    testInclude/
+)
 
 
 add_executable(ain src/main.cpp)
@@ -84,6 +85,8 @@ find_package(Catch2 REQUIRED)
 
 # Add test executable
 add_executable(unit_tests ${TEST})
+
+target_include_directories(unit_tests PUBLIC ${TEST_INCLUDE})
 
 # Link Catch2 library to the test executable
 target_link_libraries(unit_tests Catch2::Catch2 ainsrc)

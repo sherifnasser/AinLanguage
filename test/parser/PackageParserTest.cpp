@@ -6,41 +6,55 @@
 #include "KeywordToken.hpp"
 #include "TokensIterator.hpp"
 #include "PackageScope.hpp"
+#include "TokensIteratorForTests.hpp"
 #include "UnexpectedTokenException.hpp"
 #include <catch2/catch.hpp>
+#include <initializer_list>
 #include <memory>
 #include <string>
 
 TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
-    auto eol=std::make_shared<LexerToken>(LexerToken(LexerToken::EOL_TOKEN,L""));
-    auto eof=std::make_shared<LexerToken>(LexerToken(LexerToken::EOF_TOKEN,L""));
-    auto packageKeyword=std::make_shared<LexerToken>(KeywordToken::PACKAGE);
-    auto dot=std::make_shared<LexerToken>(SymbolToken::DOT);
-    auto comma=std::make_shared<LexerToken>(SymbolToken::COMMA);
-    auto package1=std::make_shared<LexerToken>(LexerToken(LexerToken::IDENTIFIER_TOKEN,L"حزمة1"));
-    auto package2=std::make_shared<LexerToken>(LexerToken(LexerToken::IDENTIFIER_TOKEN,L"حزمة2"));
-    LinkedList<SharedLexerToken> list;
+    auto eol=LexerToken::EolToken();
+    auto eof=LexerToken::EofToken();
+    auto packageKeyword=KeywordToken::PACKAGE;
+    auto dot=SymbolToken::DOT;
+    auto comma=SymbolToken::COMMA;
+    auto package1=LexerToken::IdentifierToken(L"حزمة1");
+    auto package2=LexerToken::IdentifierToken(L"حزمة2");
+    auto package3=LexerToken::IdentifierToken(L"حزمة3");
+    auto importKeyword=KeywordToken::IMPORT;
     
 
     SECTION("no packages keyword in iterator, will return Ain package"){
 
-        auto iterator=std::make_shared<TokensIterator>(list);
+        auto iterator=std::make_shared<TokensIterator>(
+            getTokensIterator({importKeyword})
+        );
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
 
         auto returnedPackage=parser->parse();
 
         REQUIRE(returnedPackage==PackageScope::AIN_PACKAGE);
+
+        SECTION("the currentNode of iterator should be next token to parse"){
+            REQUIRE(iterator->currentToken()->operator==(importKeyword));
+        }
     };
 
     SECTION("when there is package keyword"){
-        list.insert(packageKeyword);
-        list.insert(package1);
-        list.insert(dot);
-        list.insert(package2);
-        list.insert(eol);
-
-        auto iterator=std::make_shared<TokensIterator>(list);
+        auto iterator=std::make_shared<TokensIterator>(
+            getTokensIterator(
+                {
+                    packageKeyword,
+                    package1,
+                    dot,
+                    package2,
+                    eol,
+                    importKeyword
+                }
+            )
+        );
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
 
@@ -60,27 +74,76 @@ TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
             returnedPackageParent
             ==
             PackageScope::AIN_PACKAGE
-            ->findPackageByName(package1->getVal())
+            ->findPackageByName(package1.getVal())
         );
         REQUIRE(
             returnedPackage
             ==
             PackageScope::AIN_PACKAGE
-            ->findPackageByName(package1->getVal())
-            ->findPackageByName(package2->getVal())
+            ->findPackageByName(package1.getVal())
+            ->findPackageByName(package2.getVal())
         );
+
+        SECTION("the currentNode of iterator should be next token to parse"){
+            REQUIRE(iterator->currentToken()->operator==(importKeyword));
+        }
+
+        SECTION("when re-parse package (in different file), should return exist packages"){
+
+            auto iterator2=std::make_shared<TokensIterator>(
+                getTokensIterator(
+                    {
+                        packageKeyword,
+                        package1,
+                        dot,
+                        package2,
+                        eol,
+                        dot,
+                        package3,
+                        eol
+                    }
+                )
+            );
+
+            auto parser2=std::make_shared<PackageParser>(iterator2,PackageScope::AIN_PACKAGE);
+
+            auto returnedPackage2=parser2->parse();
+            auto returnedPackage2Parent=std::dynamic_pointer_cast<PackageScope>(
+                returnedPackage2->getParentScope()
+            );
+
+            REQUIRE(
+                returnedPackage2
+                ==
+                PackageScope::AIN_PACKAGE
+                ->findPackageByName(package1.getVal())
+                ->findPackageByName(package2.getVal())
+                ->findPackageByName(package3.getVal())
+            );
+            REQUIRE(
+                returnedPackage2Parent
+                ==
+                PackageScope::AIN_PACKAGE
+                ->findPackageByName(package1.getVal())
+                ->findPackageByName(package2.getVal())
+            );
+        }
     };
 
     SECTION("Testing when unexpected token is after dot after package name"){
         
-        list.insert(eol);
-        list.insert(packageKeyword);
-        list.insert(package1);
-        list.insert(dot);
-        list.insert(packageKeyword);
-        list.insert(eol);
-
-        auto iterator=std::make_shared<TokensIterator>(list);
+        auto iterator=std::make_shared<TokensIterator>(
+            getTokensIterator(
+                {
+                    eol,
+                    packageKeyword,
+                    package1,
+                    dot,
+                    packageKeyword,
+                    eol
+                }
+            )
+        );
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
 

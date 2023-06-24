@@ -1735,7 +1735,7 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -3051,17 +3051,17 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/UnsupportedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/IllegalUnderscoreException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/OutOfRangeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidNumberSystemDigitException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidIdentifierNameException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidLengthCharacterLiteralException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidEscapeSequenceException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidUniversalCharacterCodeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp
 
 CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp \
   /usr/include/stdc-predef.h \
@@ -4627,7 +4627,6 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
@@ -8114,13 +8113,13 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp:
 
 /usr/include/c++/12.2/bits/stl_multimap.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/PackageParser.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp:
 
@@ -8134,15 +8133,15 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/PackageParser.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidUniversalCharacterCodeException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidEscapeSequenceException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/OutOfRangeException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/IllegalUnderscoreException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/UnsupportedTokenException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp:
 
@@ -8167,8 +8166,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/algorithm:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp:
 
@@ -8239,8 +8236,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/bits/types/struct_timespec.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp:
 
 /usr/include/c++/12.2/bits/stl_construct.h:
 
@@ -8327,8 +8322,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/pthread.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp:
 
 /usr/include/c++/12.2/bits/ios_base.h:
 
@@ -8424,8 +8417,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/pthreadtypes-arch.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp:
-
 /usr/include/gnu/stubs.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/GlobalScope.cpp:
@@ -8496,6 +8487,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/exception_defines.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp:
 
 /usr/include/bits/pthreadtypes.h:
@@ -8511,6 +8504,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/c++/12.2/bits/nested_exception.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidNumberSystemDigitException.hpp:
 
 /usr/include/c++/12.2/bits/stl_function.h:
 
@@ -8541,8 +8536,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 
 /usr/include/asm-generic/errno.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp:
 
 /usr/include/bits/fp-logb.h:
 
@@ -8632,8 +8625,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/__fpos64_t.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
 
 /usr/include/bits/types/struct_FILE.h:
@@ -8662,11 +8653,15 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/asm/errno.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/MissingQouteException.hpp:
+
 /usr/include/c++/12.2/locale:
 
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/bits/types/error_t.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidIdentifierNameException.hpp:
 
 /usr/include/c++/12.2/bits/charconv.h:
 
@@ -8823,6 +8818,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/tr1/ell_integral.tcc:
 
 /usr/include/c++/12.2/tr1/exp_integral.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidLengthCharacterLiteralException.hpp:
 
 /usr/include/c++/12.2/tr1/hypergeometric.tcc:
 

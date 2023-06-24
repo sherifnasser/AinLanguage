@@ -1142,6 +1142,30 @@ test/parser/PackageParserTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s
 .PHONY : test/parser/PackageParserTest.cpp.s
 
+test/parser/TokensIteratorForTests.o: test/parser/TokensIteratorForTests.cpp.o
+.PHONY : test/parser/TokensIteratorForTests.o
+
+# target to build an object file
+test/parser/TokensIteratorForTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o
+.PHONY : test/parser/TokensIteratorForTests.cpp.o
+
+test/parser/TokensIteratorForTests.i: test/parser/TokensIteratorForTests.cpp.i
+.PHONY : test/parser/TokensIteratorForTests.i
+
+# target to preprocess a source file
+test/parser/TokensIteratorForTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.i
+.PHONY : test/parser/TokensIteratorForTests.cpp.i
+
+test/parser/TokensIteratorForTests.s: test/parser/TokensIteratorForTests.cpp.s
+.PHONY : test/parser/TokensIteratorForTests.s
+
+# target to generate assembly for a file
+test/parser/TokensIteratorForTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.s
+.PHONY : test/parser/TokensIteratorForTests.cpp.s
+
 test/parser/TokensIteratorTest.o: test/parser/TokensIteratorTest.cpp.o
 .PHONY : test/parser/TokensIteratorTest.o
 
@@ -1300,6 +1324,9 @@ help:
 	@echo "... test/parser/PackageParserTest.o"
 	@echo "... test/parser/PackageParserTest.i"
 	@echo "... test/parser/PackageParserTest.s"
+	@echo "... test/parser/TokensIteratorForTests.o"
+	@echo "... test/parser/TokensIteratorForTests.i"
+	@echo "... test/parser/TokensIteratorForTests.s"
 	@echo "... test/parser/TokensIteratorTest.o"
 	@echo "... test/parser/TokensIteratorTest.i"
 	@echo "... test/parser/TokensIteratorTest.s"

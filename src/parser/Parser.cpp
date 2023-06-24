@@ -6,7 +6,6 @@
 #include "KeywordToken.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
-#include "BadToken.hpp"
 
 #include "GlobalScope.hpp"
 #include "FunScope.hpp"
@@ -62,7 +61,7 @@ bool Parser::nextMatch(LexerToken expected){
 SharedLexerToken Parser::currentToken(){
     return (currentNode)
     ?currentNode->val
-    :std::make_shared<LexerToken>(LexerToken(LexerToken::EOF_TOKEN,L""));
+    :std::make_shared<LexerToken>(LexerToken::EofToken());
 }
 
 std::wstring Parser::currentVal(){

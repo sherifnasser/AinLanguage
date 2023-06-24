@@ -48,6 +48,25 @@ std::wstring LexerToken::stringify(TOKEN_TYPE tokenType) {
         case EOL_TOKEN:return L"نهاية السطر";
         case EOF_TOKEN:return L"نهاية الملف";
     }
+
+    // to stop warning
+    return L"";
+}
+
+LexerToken LexerToken::IdentifierToken(std::wstring val){
+    return LexerToken(LexerToken::IDENTIFIER_TOKEN,val);
+}
+
+LexerToken LexerToken::SpaceToken(std::wstring val){
+    return LexerToken(LexerToken::SPACE_TOKEN,val);
+}
+
+LexerToken LexerToken::EolToken() {
+    return LexerToken(LexerToken::EOL_TOKEN,L"");
+}
+
+LexerToken LexerToken::EofToken() {
+    return LexerToken(LexerToken::EOF_TOKEN,L"");
 }
 
 LexerToken::~LexerToken(){}

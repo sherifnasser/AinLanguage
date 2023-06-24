@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp" "CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp" "CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp" "CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o.d"
   )
 
