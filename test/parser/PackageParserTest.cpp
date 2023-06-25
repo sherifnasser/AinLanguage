@@ -27,9 +27,7 @@ TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
 
     SECTION("no packages keyword in iterator, will return Ain package"){
 
-        auto iterator=std::make_shared<TokensIterator>(
-            getTokensIterator({importKeyword})
-        );
+        auto iterator=getTokensIterator({importKeyword});
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
 
@@ -43,17 +41,15 @@ TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
     };
 
     SECTION("when there is package keyword"){
-        auto iterator=std::make_shared<TokensIterator>(
-            getTokensIterator(
-                {
-                    packageKeyword,
-                    package1,
-                    dot,
-                    package2,
-                    eol,
-                    importKeyword
-                }
-            )
+        auto iterator=getTokensIterator(
+            {
+                packageKeyword,
+                package1,
+                dot,
+                package2,
+                eol,
+                importKeyword
+            }
         );
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
@@ -90,19 +86,17 @@ TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
 
         SECTION("when re-parse package (in different file), should return exist packages"){
 
-            auto iterator2=std::make_shared<TokensIterator>(
-                getTokensIterator(
-                    {
-                        packageKeyword,
-                        package1,
-                        dot,
-                        package2,
-                        eol,
-                        dot,
-                        package3,
-                        eol
-                    }
-                )
+            auto iterator2=getTokensIterator(
+                {
+                    packageKeyword,
+                    package1,
+                    dot,
+                    package2,
+                    eol,
+                    dot,
+                    package3,
+                    eol
+                }
             );
 
             auto parser2=std::make_shared<PackageParser>(iterator2,PackageScope::AIN_PACKAGE);
@@ -132,17 +126,15 @@ TEST_CASE("Test package parser","[PackageParserTest.cpp]"){
 
     SECTION("Testing when unexpected token is after dot after package name"){
         
-        auto iterator=std::make_shared<TokensIterator>(
-            getTokensIterator(
-                {
-                    eol,
-                    packageKeyword,
-                    package1,
-                    dot,
-                    packageKeyword,
-                    eol
-                }
-            )
+        auto iterator=getTokensIterator(
+            {
+                eol,
+                packageKeyword,
+                package1,
+                dot,
+                packageKeyword,
+                eol
+            }
         );
 
         auto parser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);

@@ -2,6 +2,6 @@
 #include "LexerToken.hpp"
 #include "TokensIterator.hpp"
 #include <vector>
-TokensIterator getTokensIterator(
+SharedTokensIterator getTokensIterator(
     std::vector<LexerToken> tokens
 );

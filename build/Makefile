@@ -614,6 +614,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser/FileParser.o: src/parser/FileParser.cpp.o
+.PHONY : src/parser/FileParser.o
+
+# target to build an object file
+src/parser/FileParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o
+.PHONY : src/parser/FileParser.cpp.o
+
+src/parser/FileParser.i: src/parser/FileParser.cpp.i
+.PHONY : src/parser/FileParser.i
+
+# target to preprocess a source file
+src/parser/FileParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.i
+.PHONY : src/parser/FileParser.cpp.i
+
+src/parser/FileParser.s: src/parser/FileParser.cpp.s
+.PHONY : src/parser/FileParser.s
+
+# target to generate assembly for a file
+src/parser/FileParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.s
+.PHONY : src/parser/FileParser.cpp.s
+
 src/parser/PackageParser.o: src/parser/PackageParser.cpp.o
 .PHONY : src/parser/PackageParser.o
 
@@ -733,6 +757,30 @@ src/scope/Constant.s: src/scope/Constant.cpp.s
 src/scope/Constant.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.s
 .PHONY : src/scope/Constant.cpp.s
+
+src/scope/FileScope.o: src/scope/FileScope.cpp.o
+.PHONY : src/scope/FileScope.o
+
+# target to build an object file
+src/scope/FileScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o
+.PHONY : src/scope/FileScope.cpp.o
+
+src/scope/FileScope.i: src/scope/FileScope.cpp.i
+.PHONY : src/scope/FileScope.i
+
+# target to preprocess a source file
+src/scope/FileScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.i
+.PHONY : src/scope/FileScope.cpp.i
+
+src/scope/FileScope.s: src/scope/FileScope.cpp.s
+.PHONY : src/scope/FileScope.s
+
+# target to generate assembly for a file
+src/scope/FileScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.s
+.PHONY : src/scope/FileScope.cpp.s
 
 src/scope/FunScope.o: src/scope/FunScope.cpp.o
 .PHONY : src/scope/FunScope.o
@@ -1118,6 +1166,30 @@ test/lexer/LexerTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
 .PHONY : test/lexer/LexerTest.cpp.s
 
+test/parser/FileParserTest.o: test/parser/FileParserTest.cpp.o
+.PHONY : test/parser/FileParserTest.o
+
+# target to build an object file
+test/parser/FileParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o
+.PHONY : test/parser/FileParserTest.cpp.o
+
+test/parser/FileParserTest.i: test/parser/FileParserTest.cpp.i
+.PHONY : test/parser/FileParserTest.i
+
+# target to preprocess a source file
+test/parser/FileParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.i
+.PHONY : test/parser/FileParserTest.cpp.i
+
+test/parser/FileParserTest.s: test/parser/FileParserTest.cpp.s
+.PHONY : test/parser/FileParserTest.s
+
+# target to generate assembly for a file
+test/parser/FileParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s
+.PHONY : test/parser/FileParserTest.cpp.s
+
 test/parser/PackageParserTest.o: test/parser/PackageParserTest.cpp.o
 .PHONY : test/parser/PackageParserTest.o
 
@@ -1258,6 +1330,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/FileParser.o"
+	@echo "... src/parser/FileParser.i"
+	@echo "... src/parser/FileParser.s"
 	@echo "... src/parser/PackageParser.o"
 	@echo "... src/parser/PackageParser.i"
 	@echo "... src/parser/PackageParser.s"
@@ -1273,6 +1348,9 @@ help:
 	@echo "... src/scope/Constant.o"
 	@echo "... src/scope/Constant.i"
 	@echo "... src/scope/Constant.s"
+	@echo "... src/scope/FileScope.o"
+	@echo "... src/scope/FileScope.i"
+	@echo "... src/scope/FileScope.s"
 	@echo "... src/scope/FunScope.o"
 	@echo "... src/scope/FunScope.i"
 	@echo "... src/scope/FunScope.s"
@@ -1321,6 +1399,9 @@ help:
 	@echo "... test/lexer/LexerTest.o"
 	@echo "... test/lexer/LexerTest.i"
 	@echo "... test/lexer/LexerTest.s"
+	@echo "... test/parser/FileParserTest.o"
+	@echo "... test/parser/FileParserTest.i"
+	@echo "... test/parser/FileParserTest.s"
 	@echo "... test/parser/PackageParserTest.o"
 	@echo "... test/parser/PackageParserTest.i"
 	@echo "... test/parser/PackageParserTest.s"

@@ -24,6 +24,7 @@ add_library(ainsrc
     src/scope/FunScope.cpp
     src/scope/Scope.cpp
     src/scope/Constant.cpp
+    src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/scope/GlobalScope.cpp
     src/ain_file/AinFile.cpp
@@ -42,6 +43,7 @@ add_library(ainsrc
     src/parser/PackageParser.cpp
     src/parser/TokensIterator.cpp
     src/parser/Parser.cpp
+    src/parser/FileParser.cpp
 )
 
 set(INCLUDE
@@ -63,11 +65,13 @@ set(TEST
     test/lexer/LexerLineTest.cpp
     test/ain_file/AinFileTest.cpp
     test/parser/PackageParserTest.cpp
+    test/parser/FileParserTest.cpp
     test/parser/TokensIteratorTest.cpp
     test/parser/TokensIteratorForTests.cpp
 )
 
 ### end files_cmake.cpp ###
+
 
 set(TEST_INCLUDE
     testInclude/

@@ -12,6 +12,7 @@ class LexerToken;
 class Scope;
 class BaseScope;
 class PackageScope;
+class FileScope;
 class GlobalScope;
 class FunScope;
 class ClassScope;
@@ -51,6 +52,8 @@ using SharedScope=std::shared_ptr<Scope>;
 using SharedBaseScope=std::shared_ptr<BaseScope>;
 
 using SharedPackageScope=std::shared_ptr<PackageScope>;
+
+using SharedFileScope=std::shared_ptr<FileScope>;
 
 using SharedGlobalScope=std::shared_ptr<GlobalScope>;
 

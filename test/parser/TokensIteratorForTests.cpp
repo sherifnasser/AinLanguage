@@ -2,7 +2,7 @@
 #include "SharedPtrTypes.hpp"
 #include <memory>
 
-TokensIterator getTokensIterator(
+SharedTokensIterator getTokensIterator(
     std::vector<LexerToken> tokens
 ){
     auto list=LinkedList<SharedLexerToken>();
@@ -11,5 +11,5 @@ TokensIterator getTokensIterator(
             std::make_shared<LexerToken>(token)
         );
     }
-    return TokensIterator(list);
+    return std::make_shared<TokensIterator>(list);
 }
