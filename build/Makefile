@@ -638,6 +638,30 @@ src/parser/FileParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.s
 .PHONY : src/parser/FileParser.cpp.s
 
+src/parser/OldParser.o: src/parser/OldParser.cpp.o
+.PHONY : src/parser/OldParser.o
+
+# target to build an object file
+src/parser/OldParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.o
+.PHONY : src/parser/OldParser.cpp.o
+
+src/parser/OldParser.i: src/parser/OldParser.cpp.i
+.PHONY : src/parser/OldParser.i
+
+# target to preprocess a source file
+src/parser/OldParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.i
+.PHONY : src/parser/OldParser.cpp.i
+
+src/parser/OldParser.s: src/parser/OldParser.cpp.s
+.PHONY : src/parser/OldParser.s
+
+# target to generate assembly for a file
+src/parser/OldParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.s
+.PHONY : src/parser/OldParser.cpp.s
+
 src/parser/PackageParser.o: src/parser/PackageParser.cpp.o
 .PHONY : src/parser/PackageParser.o
 
@@ -661,30 +685,6 @@ src/parser/PackageParser.s: src/parser/PackageParser.cpp.s
 src/parser/PackageParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.s
 .PHONY : src/parser/PackageParser.cpp.s
-
-src/parser/Parser.o: src/parser/Parser.cpp.o
-.PHONY : src/parser/Parser.o
-
-# target to build an object file
-src/parser/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o
-.PHONY : src/parser/Parser.cpp.o
-
-src/parser/Parser.i: src/parser/Parser.cpp.i
-.PHONY : src/parser/Parser.i
-
-# target to preprocess a source file
-src/parser/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.i
-.PHONY : src/parser/Parser.cpp.i
-
-src/parser/Parser.s: src/parser/Parser.cpp.s
-.PHONY : src/parser/Parser.s
-
-# target to generate assembly for a file
-src/parser/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.s
-.PHONY : src/parser/Parser.cpp.s
 
 src/parser/TokensIterator.o: src/parser/TokensIterator.cpp.o
 .PHONY : src/parser/TokensIterator.o
@@ -710,6 +710,150 @@ src/parser/TokensIterator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.s
 .PHONY : src/parser/TokensIterator.cpp.s
 
+src/parser/elements/FunDecl.o: src/parser/elements/FunDecl.cpp.o
+.PHONY : src/parser/elements/FunDecl.o
+
+# target to build an object file
+src/parser/elements/FunDecl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o
+.PHONY : src/parser/elements/FunDecl.cpp.o
+
+src/parser/elements/FunDecl.i: src/parser/elements/FunDecl.cpp.i
+.PHONY : src/parser/elements/FunDecl.i
+
+# target to preprocess a source file
+src/parser/elements/FunDecl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.i
+.PHONY : src/parser/elements/FunDecl.cpp.i
+
+src/parser/elements/FunDecl.s: src/parser/elements/FunDecl.cpp.s
+.PHONY : src/parser/elements/FunDecl.s
+
+# target to generate assembly for a file
+src/parser/elements/FunDecl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.s
+.PHONY : src/parser/elements/FunDecl.cpp.s
+
+src/parser/elements/FunParamater.o: src/parser/elements/FunParamater.cpp.o
+.PHONY : src/parser/elements/FunParamater.o
+
+# target to build an object file
+src/parser/elements/FunParamater.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o
+.PHONY : src/parser/elements/FunParamater.cpp.o
+
+src/parser/elements/FunParamater.i: src/parser/elements/FunParamater.cpp.i
+.PHONY : src/parser/elements/FunParamater.i
+
+# target to preprocess a source file
+src/parser/elements/FunParamater.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.i
+.PHONY : src/parser/elements/FunParamater.cpp.i
+
+src/parser/elements/FunParamater.s: src/parser/elements/FunParamater.cpp.s
+.PHONY : src/parser/elements/FunParamater.s
+
+# target to generate assembly for a file
+src/parser/elements/FunParamater.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.s
+.PHONY : src/parser/elements/FunParamater.cpp.s
+
+src/parser/elements/Type.o: src/parser/elements/Type.cpp.o
+.PHONY : src/parser/elements/Type.o
+
+# target to build an object file
+src/parser/elements/Type.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o
+.PHONY : src/parser/elements/Type.cpp.o
+
+src/parser/elements/Type.i: src/parser/elements/Type.cpp.i
+.PHONY : src/parser/elements/Type.i
+
+# target to preprocess a source file
+src/parser/elements/Type.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.i
+.PHONY : src/parser/elements/Type.cpp.i
+
+src/parser/elements/Type.s: src/parser/elements/Type.cpp.s
+.PHONY : src/parser/elements/Type.s
+
+# target to generate assembly for a file
+src/parser/elements/Type.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.s
+.PHONY : src/parser/elements/Type.cpp.s
+
+src/parser/elements/parser/FunDeclParser.o: src/parser/elements/parser/FunDeclParser.cpp.o
+.PHONY : src/parser/elements/parser/FunDeclParser.o
+
+# target to build an object file
+src/parser/elements/parser/FunDeclParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o
+.PHONY : src/parser/elements/parser/FunDeclParser.cpp.o
+
+src/parser/elements/parser/FunDeclParser.i: src/parser/elements/parser/FunDeclParser.cpp.i
+.PHONY : src/parser/elements/parser/FunDeclParser.i
+
+# target to preprocess a source file
+src/parser/elements/parser/FunDeclParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.i
+.PHONY : src/parser/elements/parser/FunDeclParser.cpp.i
+
+src/parser/elements/parser/FunDeclParser.s: src/parser/elements/parser/FunDeclParser.cpp.s
+.PHONY : src/parser/elements/parser/FunDeclParser.s
+
+# target to generate assembly for a file
+src/parser/elements/parser/FunDeclParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.s
+.PHONY : src/parser/elements/parser/FunDeclParser.cpp.s
+
+src/parser/elements/parser/FunParamaterParser.o: src/parser/elements/parser/FunParamaterParser.cpp.o
+.PHONY : src/parser/elements/parser/FunParamaterParser.o
+
+# target to build an object file
+src/parser/elements/parser/FunParamaterParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o
+.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.o
+
+src/parser/elements/parser/FunParamaterParser.i: src/parser/elements/parser/FunParamaterParser.cpp.i
+.PHONY : src/parser/elements/parser/FunParamaterParser.i
+
+# target to preprocess a source file
+src/parser/elements/parser/FunParamaterParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.i
+.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.i
+
+src/parser/elements/parser/FunParamaterParser.s: src/parser/elements/parser/FunParamaterParser.cpp.s
+.PHONY : src/parser/elements/parser/FunParamaterParser.s
+
+# target to generate assembly for a file
+src/parser/elements/parser/FunParamaterParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.s
+.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.s
+
+src/parser/elements/parser/TypeParser.o: src/parser/elements/parser/TypeParser.cpp.o
+.PHONY : src/parser/elements/parser/TypeParser.o
+
+# target to build an object file
+src/parser/elements/parser/TypeParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o
+.PHONY : src/parser/elements/parser/TypeParser.cpp.o
+
+src/parser/elements/parser/TypeParser.i: src/parser/elements/parser/TypeParser.cpp.i
+.PHONY : src/parser/elements/parser/TypeParser.i
+
+# target to preprocess a source file
+src/parser/elements/parser/TypeParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.i
+.PHONY : src/parser/elements/parser/TypeParser.cpp.i
+
+src/parser/elements/parser/TypeParser.s: src/parser/elements/parser/TypeParser.cpp.s
+.PHONY : src/parser/elements/parser/TypeParser.s
+
+# target to generate assembly for a file
+src/parser/elements/parser/TypeParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.s
+.PHONY : src/parser/elements/parser/TypeParser.cpp.s
+
 src/scope/BaseScope.o: src/scope/BaseScope.cpp.o
 .PHONY : src/scope/BaseScope.o
 
@@ -733,30 +877,6 @@ src/scope/BaseScope.s: src/scope/BaseScope.cpp.s
 src/scope/BaseScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.s
 .PHONY : src/scope/BaseScope.cpp.s
-
-src/scope/Constant.o: src/scope/Constant.cpp.o
-.PHONY : src/scope/Constant.o
-
-# target to build an object file
-src/scope/Constant.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.o
-.PHONY : src/scope/Constant.cpp.o
-
-src/scope/Constant.i: src/scope/Constant.cpp.i
-.PHONY : src/scope/Constant.i
-
-# target to preprocess a source file
-src/scope/Constant.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.i
-.PHONY : src/scope/Constant.cpp.i
-
-src/scope/Constant.s: src/scope/Constant.cpp.s
-.PHONY : src/scope/Constant.s
-
-# target to generate assembly for a file
-src/scope/Constant.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.s
-.PHONY : src/scope/Constant.cpp.s
 
 src/scope/FileScope.o: src/scope/FileScope.cpp.o
 .PHONY : src/scope/FileScope.o
@@ -782,30 +902,6 @@ src/scope/FileScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.s
 .PHONY : src/scope/FileScope.cpp.s
 
-src/scope/FunScope.o: src/scope/FunScope.cpp.o
-.PHONY : src/scope/FunScope.o
-
-# target to build an object file
-src/scope/FunScope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o
-.PHONY : src/scope/FunScope.cpp.o
-
-src/scope/FunScope.i: src/scope/FunScope.cpp.i
-.PHONY : src/scope/FunScope.i
-
-# target to preprocess a source file
-src/scope/FunScope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.i
-.PHONY : src/scope/FunScope.cpp.i
-
-src/scope/FunScope.s: src/scope/FunScope.cpp.s
-.PHONY : src/scope/FunScope.s
-
-# target to generate assembly for a file
-src/scope/FunScope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.s
-.PHONY : src/scope/FunScope.cpp.s
-
 src/scope/GlobalScope.o: src/scope/GlobalScope.cpp.o
 .PHONY : src/scope/GlobalScope.o
 
@@ -829,6 +925,78 @@ src/scope/GlobalScope.s: src/scope/GlobalScope.cpp.s
 src/scope/GlobalScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.s
 .PHONY : src/scope/GlobalScope.cpp.s
+
+src/scope/OldConstant.o: src/scope/OldConstant.cpp.o
+.PHONY : src/scope/OldConstant.o
+
+# target to build an object file
+src/scope/OldConstant.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.o
+.PHONY : src/scope/OldConstant.cpp.o
+
+src/scope/OldConstant.i: src/scope/OldConstant.cpp.i
+.PHONY : src/scope/OldConstant.i
+
+# target to preprocess a source file
+src/scope/OldConstant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.i
+.PHONY : src/scope/OldConstant.cpp.i
+
+src/scope/OldConstant.s: src/scope/OldConstant.cpp.s
+.PHONY : src/scope/OldConstant.s
+
+# target to generate assembly for a file
+src/scope/OldConstant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.s
+.PHONY : src/scope/OldConstant.cpp.s
+
+src/scope/OldFunScope.o: src/scope/OldFunScope.cpp.o
+.PHONY : src/scope/OldFunScope.o
+
+# target to build an object file
+src/scope/OldFunScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.o
+.PHONY : src/scope/OldFunScope.cpp.o
+
+src/scope/OldFunScope.i: src/scope/OldFunScope.cpp.i
+.PHONY : src/scope/OldFunScope.i
+
+# target to preprocess a source file
+src/scope/OldFunScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.i
+.PHONY : src/scope/OldFunScope.cpp.i
+
+src/scope/OldFunScope.s: src/scope/OldFunScope.cpp.s
+.PHONY : src/scope/OldFunScope.s
+
+# target to generate assembly for a file
+src/scope/OldFunScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.s
+.PHONY : src/scope/OldFunScope.cpp.s
+
+src/scope/OldVariable.o: src/scope/OldVariable.cpp.o
+.PHONY : src/scope/OldVariable.o
+
+# target to build an object file
+src/scope/OldVariable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.o
+.PHONY : src/scope/OldVariable.cpp.o
+
+src/scope/OldVariable.i: src/scope/OldVariable.cpp.i
+.PHONY : src/scope/OldVariable.i
+
+# target to preprocess a source file
+src/scope/OldVariable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.i
+.PHONY : src/scope/OldVariable.cpp.i
+
+src/scope/OldVariable.s: src/scope/OldVariable.cpp.s
+.PHONY : src/scope/OldVariable.s
+
+# target to generate assembly for a file
+src/scope/OldVariable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.s
+.PHONY : src/scope/OldVariable.cpp.s
 
 src/scope/PackageScope.o: src/scope/PackageScope.cpp.o
 .PHONY : src/scope/PackageScope.o
@@ -877,30 +1045,6 @@ src/scope/Scope.s: src/scope/Scope.cpp.s
 src/scope/Scope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.s
 .PHONY : src/scope/Scope.cpp.s
-
-src/scope/Variable.o: src/scope/Variable.cpp.o
-.PHONY : src/scope/Variable.o
-
-# target to build an object file
-src/scope/Variable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.o
-.PHONY : src/scope/Variable.cpp.o
-
-src/scope/Variable.i: src/scope/Variable.cpp.i
-.PHONY : src/scope/Variable.i
-
-# target to preprocess a source file
-src/scope/Variable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.i
-.PHONY : src/scope/Variable.cpp.i
-
-src/scope/Variable.s: src/scope/Variable.cpp.s
-.PHONY : src/scope/Variable.s
-
-# target to generate assembly for a file
-src/scope/Variable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.s
-.PHONY : src/scope/Variable.cpp.s
 
 src/statement/DoWhileStatement.o: src/statement/DoWhileStatement.cpp.o
 .PHONY : src/statement/DoWhileStatement.o
@@ -1333,39 +1477,57 @@ help:
 	@echo "... src/parser/FileParser.o"
 	@echo "... src/parser/FileParser.i"
 	@echo "... src/parser/FileParser.s"
+	@echo "... src/parser/OldParser.o"
+	@echo "... src/parser/OldParser.i"
+	@echo "... src/parser/OldParser.s"
 	@echo "... src/parser/PackageParser.o"
 	@echo "... src/parser/PackageParser.i"
 	@echo "... src/parser/PackageParser.s"
-	@echo "... src/parser/Parser.o"
-	@echo "... src/parser/Parser.i"
-	@echo "... src/parser/Parser.s"
 	@echo "... src/parser/TokensIterator.o"
 	@echo "... src/parser/TokensIterator.i"
 	@echo "... src/parser/TokensIterator.s"
+	@echo "... src/parser/elements/FunDecl.o"
+	@echo "... src/parser/elements/FunDecl.i"
+	@echo "... src/parser/elements/FunDecl.s"
+	@echo "... src/parser/elements/FunParamater.o"
+	@echo "... src/parser/elements/FunParamater.i"
+	@echo "... src/parser/elements/FunParamater.s"
+	@echo "... src/parser/elements/Type.o"
+	@echo "... src/parser/elements/Type.i"
+	@echo "... src/parser/elements/Type.s"
+	@echo "... src/parser/elements/parser/FunDeclParser.o"
+	@echo "... src/parser/elements/parser/FunDeclParser.i"
+	@echo "... src/parser/elements/parser/FunDeclParser.s"
+	@echo "... src/parser/elements/parser/FunParamaterParser.o"
+	@echo "... src/parser/elements/parser/FunParamaterParser.i"
+	@echo "... src/parser/elements/parser/FunParamaterParser.s"
+	@echo "... src/parser/elements/parser/TypeParser.o"
+	@echo "... src/parser/elements/parser/TypeParser.i"
+	@echo "... src/parser/elements/parser/TypeParser.s"
 	@echo "... src/scope/BaseScope.o"
 	@echo "... src/scope/BaseScope.i"
 	@echo "... src/scope/BaseScope.s"
-	@echo "... src/scope/Constant.o"
-	@echo "... src/scope/Constant.i"
-	@echo "... src/scope/Constant.s"
 	@echo "... src/scope/FileScope.o"
 	@echo "... src/scope/FileScope.i"
 	@echo "... src/scope/FileScope.s"
-	@echo "... src/scope/FunScope.o"
-	@echo "... src/scope/FunScope.i"
-	@echo "... src/scope/FunScope.s"
 	@echo "... src/scope/GlobalScope.o"
 	@echo "... src/scope/GlobalScope.i"
 	@echo "... src/scope/GlobalScope.s"
+	@echo "... src/scope/OldConstant.o"
+	@echo "... src/scope/OldConstant.i"
+	@echo "... src/scope/OldConstant.s"
+	@echo "... src/scope/OldFunScope.o"
+	@echo "... src/scope/OldFunScope.i"
+	@echo "... src/scope/OldFunScope.s"
+	@echo "... src/scope/OldVariable.o"
+	@echo "... src/scope/OldVariable.i"
+	@echo "... src/scope/OldVariable.s"
 	@echo "... src/scope/PackageScope.o"
 	@echo "... src/scope/PackageScope.i"
 	@echo "... src/scope/PackageScope.s"
 	@echo "... src/scope/Scope.o"
 	@echo "... src/scope/Scope.i"
 	@echo "... src/scope/Scope.s"
-	@echo "... src/scope/Variable.o"
-	@echo "... src/scope/Variable.i"
-	@echo "... src/scope/Variable.s"
 	@echo "... src/statement/DoWhileStatement.o"
 	@echo "... src/statement/DoWhileStatement.i"
 	@echo "... src/statement/DoWhileStatement.s"

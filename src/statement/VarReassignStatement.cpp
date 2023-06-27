@@ -1,6 +1,6 @@
 #include "VarReassignStatement.hpp"
 #include "IExpression.hpp"
-#include "Variable.hpp"
+#include "OldVariable.hpp"
 
 VarReassignStatement::VarReassignStatement(SharedScope runScope,std::wstring varname,SharedIExpression ex)
 :IStatement(runScope),varname(varname),ex(ex){}

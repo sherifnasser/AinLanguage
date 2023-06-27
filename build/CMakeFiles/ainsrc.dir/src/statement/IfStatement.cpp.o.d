@@ -155,4 +155,4 @@ CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp

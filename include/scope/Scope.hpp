@@ -8,32 +8,32 @@ class Scope
 
         std::wstring name;
 
-        // accessiable variables
-        SharedVector<SharedVariable> vars;
+        // accessiable OldVariables
+        SharedVector<SharedOldVariable> vars;
 
-        // accessiable constants
-        SharedVector<SharedConstant> vals;
+        // accessiable OldConstants
+        SharedVector<SharedOldConstant> vals;
 
         // accessiable functions
-        SharedVector<SharedFunScope> funs;  // TODO: sort them and use binary search
+        SharedVector<SharedOldFunScope> funs;  // TODO: sort them and use binary search
 
         // accessiable classess
         SharedVector<SharedClassScope> classes;
 
     public:
         void setParentScope(SharedScope parentScope);
-        void setVars(SharedVector<SharedVariable> vars);
-        void setVals(SharedVector<SharedConstant> vals);
-        void setFuns(SharedVector<SharedFunScope> funs);
+        void setVars(SharedVector<SharedOldVariable> vars);
+        void setVals(SharedVector<SharedOldConstant> vals);
+        void setFuns(SharedVector<SharedOldFunScope> funs);
         void setClasses(SharedVector<SharedClassScope> classes);
 
         SharedScope getparentScope();
-        SharedVector<SharedVariable> getVars();
-        SharedVector<SharedConstant> getVals();
-        SharedVector<SharedFunScope> getFuns();
+        SharedVector<SharedOldVariable> getVars();
+        SharedVector<SharedOldConstant> getVals();
+        SharedVector<SharedOldFunScope> getFuns();
         SharedVector<SharedClassScope> getClasses();
-        SharedVariable getVarByName(std::wstring varname);
-        SharedFunScope getFunByName(std::wstring funName);
+        SharedOldVariable getVarByName(std::wstring varname);
+        SharedOldFunScope getFunByName(std::wstring funName);
         std::wstring getName();
         virtual ~Scope();
 };

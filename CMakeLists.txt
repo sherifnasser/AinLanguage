@@ -20,12 +20,12 @@ add_library(ainsrc
     src/expression/VariableAccessExpression.cpp
     src/expression/NumberExpression.cpp
     src/scope/BaseScope.cpp
+    src/scope/OldFunScope.cpp
     src/scope/PackageScope.cpp
-    src/scope/FunScope.cpp
+    src/scope/OldVariable.cpp
     src/scope/Scope.cpp
-    src/scope/Constant.cpp
+    src/scope/OldConstant.cpp
     src/scope/FileScope.cpp
-    src/scope/Variable.cpp
     src/scope/GlobalScope.cpp
     src/ain_file/AinFile.cpp
     src/statement/IStatement.cpp
@@ -40,9 +40,15 @@ add_library(ainsrc
     src/helpers/ainio.cpp
     src/helpers/wchar_t_helper.cpp
     src/helpers/number_helper.cpp
+    src/parser/elements/FunParamater.cpp
+    src/parser/elements/Type.cpp
+    src/parser/elements/FunDecl.cpp
+    src/parser/elements/parser/FunDeclParser.cpp
+    src/parser/elements/parser/TypeParser.cpp
+    src/parser/elements/parser/FunParamaterParser.cpp
     src/parser/PackageParser.cpp
     src/parser/TokensIterator.cpp
-    src/parser/Parser.cpp
+    src/parser/OldParser.cpp
     src/parser/FileParser.cpp
 )
 
@@ -58,6 +64,8 @@ set(INCLUDE
     include/statement/
     include/helpers/
     include/parser/
+    include/parser/elements/
+    include/parser/elements/parser/
 )
 
 set(TEST
@@ -71,6 +79,12 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
+
+
+
+
+
 
 
 set(TEST_INCLUDE

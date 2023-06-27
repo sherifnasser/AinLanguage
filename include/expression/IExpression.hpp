@@ -2,9 +2,9 @@
 #include "SharedPtrTypes.hpp"
 
 class Scope;
-class Variable;
-class Constant;
-class FunScope;
+class OldVariable;
+class OldConstant;
+class OldFunScope;
 class ClassScope;
 
 class IExpression{

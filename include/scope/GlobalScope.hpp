@@ -5,6 +5,6 @@ class GlobalScope:public Scope
 {
     public:
         GlobalScope();
-        void addfunction(SharedFunScope funScope);
-        SharedFunScope getMain();
+        void addfunction(SharedOldFunScope funScope);
+        SharedOldFunScope getMain();
 };

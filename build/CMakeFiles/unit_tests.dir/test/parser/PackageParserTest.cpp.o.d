@@ -151,7 +151,9 @@ CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o: \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
  /usr/include/c++/12.2/functional \
  /usr/include/c++/12.2/bits/std_function.h \
@@ -167,19 +169,17 @@ CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o: \
  /usr/include/c++/12.2/bits/stl_heap.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /usr/include/c++/12.2/algorithm \
+ /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/TokensIteratorForTests.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
- /usr/include/c++/12.2/algorithm \
- /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
  /usr/include/catch2/catch.hpp /usr/include/c++/12.2/cstddef \
  /usr/include/c++/12.2/cassert /usr/include/assert.h \
  /usr/include/c++/12.2/chrono /usr/include/c++/12.2/bits/chrono.h \

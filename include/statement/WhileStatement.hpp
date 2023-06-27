@@ -9,7 +9,7 @@ class WhileStatement:public IStatement
 
     public:
         WhileStatement(
-            SharedFunScope runScope,
+            SharedOldFunScope runScope,
             SharedIExpression ex,
             SharedVector<SharedIStatement> stmList
         );

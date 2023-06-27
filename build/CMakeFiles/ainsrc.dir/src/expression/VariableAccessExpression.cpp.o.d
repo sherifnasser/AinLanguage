@@ -1,7 +1,7 @@
 CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VariableAccessExpression.cpp \
  /usr/include/stdc-predef.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OldVariableAccessExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
@@ -152,4 +152,4 @@ CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o: \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldVariable.hpp

@@ -15,9 +15,13 @@ class PackageScope;
 class FileScope;
 class GlobalScope;
 class FunScope;
+class OldFunScope;
 class ClassScope;
-class Variable;
-class Constant;
+struct FunDecl;
+struct Type;
+struct FunParamater;
+class OldVariable;
+class OldConstant;
 class IStatement;
 class IExpression;
 template<typename T>
@@ -61,9 +65,17 @@ using SharedClassScope=std::shared_ptr<ClassScope>;
 
 using SharedFunScope=std::shared_ptr<FunScope>;
 
-using SharedVariable=std::shared_ptr<Variable>;
+using SharedOldFunScope=std::shared_ptr<OldFunScope>;
 
-using SharedConstant=std::shared_ptr<Constant>;
+using SharedFunDecl=std::shared_ptr<FunDecl>;
+
+using SharedType=std::shared_ptr<Type>;
+
+using SharedFunParamater=std::shared_ptr<FunParamater>;
+
+using SharedOldVariable=std::shared_ptr<OldVariable>;
+
+using SharedOldConstant=std::shared_ptr<OldConstant>;
 
 using SharedIStatement=std::shared_ptr<IStatement>;
 

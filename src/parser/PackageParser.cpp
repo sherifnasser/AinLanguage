@@ -13,11 +13,9 @@ SharedPackageScope PackageParser::parse(){
     
     if(!iterator->currentMatch(KeywordToken::PACKAGE))
         return currentPackage;
-    
-    currentPackage=addPackageTo(currentPackage);
-
-    while(iterator->currentMatch(SymbolToken::DOT))
-        currentPackage=addPackageTo(currentPackage);
+        
+    do currentPackage=addPackageTo(currentPackage);
+    while(iterator->currentMatch(SymbolToken::DOT));
     
 
     return currentPackage;
@@ -25,16 +23,8 @@ SharedPackageScope PackageParser::parse(){
 
 SharedPackageScope PackageParser::addPackageTo(SharedPackageScope parent){
 
-    iterator->next();
+    auto packageName=expectNextIdentifier();
 
-    if(iterator->currentTokenType()!=LexerToken::IDENTIFIER_TOKEN)
-        throw UnexpectedTokenException(
-            iterator->lineNumber,
-            LexerToken::stringify(LexerToken::IDENTIFIER_TOKEN),
-            LexerToken::stringify(iterator->currentTokenType())
-        );
-
-    auto packageName=iterator->currentVal();
     auto foundPackage=parent->findPackageByName(packageName);
 
     auto newPackage=(foundPackage)

@@ -153,4 +153,4 @@ CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.o: \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldVariable.hpp

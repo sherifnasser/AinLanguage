@@ -1,10 +1,10 @@
 #include "IfStatement.hpp"
 #include "IExpression.hpp"
 #include "KeywordToken.hpp"
-#include "FunScope.hpp" // Should be added to enable casting
+#include "OldFunScope.hpp" // Should be added to enable casting
 
 IfStatement::IfStatement(
-    SharedFunScope runScope,
+    SharedOldFunScope runScope,
     SharedIExpression ifCondition,
     SharedVector<SharedIStatement> ifStmList,
     SharedVector<SharedIStatement> elseStmList
@@ -21,6 +21,6 @@ void IfStatement::run(){
     for(auto stm:*stmList){
         stm->run();
     }
-    // pop all defined variables in if statement
+    // pop all defined OldVariables in if statement
     runScope->getVars()->resize(vars_size_before);
 }

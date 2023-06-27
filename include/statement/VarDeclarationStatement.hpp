@@ -4,9 +4,9 @@
 class VarDeclarationStatement:public IStatement
 {
     private:
-        SharedVariable var;
+        SharedOldVariable var;
         SharedIExpression ex;
     public:
-        VarDeclarationStatement(SharedScope runScope,SharedVariable var,SharedIExpression ex);
+        VarDeclarationStatement(SharedScope runScope,SharedOldVariable var,SharedIExpression ex);
         void run() override;
 };

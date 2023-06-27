@@ -1,12 +1,12 @@
 #include "VarDeclarationStatement.hpp"
 #include "IExpression.hpp"
-#include "Variable.hpp"
+#include "OldVariable.hpp"
 
-VarDeclarationStatement::VarDeclarationStatement(SharedScope runScope,SharedVariable var,SharedIExpression ex)
+VarDeclarationStatement::VarDeclarationStatement(SharedScope runScope,SharedOldVariable var,SharedIExpression ex)
 :IStatement(runScope),var(var),ex(ex){
     auto exist=runScope->getVarByName(var->getName());
     if(exist!=nullptr){
-        throw L"The Variable "+(var->getName())+L" is declared before.";
+        throw L"The OldVariable "+(var->getName())+L" is declared before.";
     }
 }
 

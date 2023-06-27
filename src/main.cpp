@@ -7,8 +7,8 @@
 #include "AinFile.hpp"
 #include "Lexer.hpp"
 #include "GlobalScope.hpp"
-#include "FunScope.hpp"
-#include "Parser.hpp"
+#include "OldFunScope.hpp"
+#include "OldParser.hpp"
 #include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 

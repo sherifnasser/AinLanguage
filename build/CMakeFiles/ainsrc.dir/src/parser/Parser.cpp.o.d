@@ -174,7 +174,7 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NumberExpression.hpp \

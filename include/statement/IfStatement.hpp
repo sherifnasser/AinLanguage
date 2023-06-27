@@ -9,7 +9,7 @@ class IfStatement:public IStatement
         SharedVector<SharedIStatement> elseStmList;
     public:
         IfStatement(
-            SharedFunScope runScope,
+            SharedOldFunScope runScope,
             SharedIExpression ifCondition,
             SharedVector<SharedIStatement> ifStmList,
             SharedVector<SharedIStatement> elseStmList

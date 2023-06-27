@@ -1,6 +1,6 @@
 #include "Scope.hpp"
-#include "FunScope.hpp"
-#include "Variable.hpp"
+#include "OldFunScope.hpp"
+#include "OldVariable.hpp"
 
 Scope::~Scope(){}
 
@@ -16,27 +16,27 @@ SharedScope Scope::getparentScope(){
     return this->parentScope;
 }
 
-void Scope::setVars(SharedVector<SharedVariable> vars){
+void Scope::setVars(SharedVector<SharedOldVariable> vars){
     this->vars=vars;
 }
 
-SharedVector<SharedVariable> Scope::getVars(){
+SharedVector<SharedOldVariable> Scope::getVars(){
     return this->vars;
 }
 
-void Scope::setVals(SharedVector<SharedConstant> vals){
+void Scope::setVals(SharedVector<SharedOldConstant> vals){
     this->vals=vals;
 }
 
-SharedVector<SharedConstant> Scope::getVals(){
+SharedVector<SharedOldConstant> Scope::getVals(){
     return this->vals;
 }
 
-void Scope::setFuns(SharedVector<SharedFunScope> funs){
+void Scope::setFuns(SharedVector<SharedOldFunScope> funs){
     this->funs=funs;
 }
 
-SharedVector<SharedFunScope> Scope::getFuns(){
+SharedVector<SharedOldFunScope> Scope::getFuns(){
     return this->funs;
 }
 
@@ -48,7 +48,7 @@ SharedVector<SharedClassScope> Scope::getClasses(){
     return this->classes;
 }
 
-SharedVariable Scope::getVarByName(std::wstring varname){
+SharedOldVariable Scope::getVarByName(std::wstring varname){
     for(auto &var:*getVars()){
         if(var->getName()==varname){
             return var;
@@ -57,7 +57,7 @@ SharedVariable Scope::getVarByName(std::wstring varname){
     return nullptr;
 }
 
-SharedFunScope Scope::getFunByName(std::wstring funName){
+SharedOldFunScope Scope::getFunByName(std::wstring funName){
     for(auto &fun:*getFuns()){
         if(fun->getName()==funName){
             return fun;

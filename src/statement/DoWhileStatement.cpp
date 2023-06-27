@@ -1,10 +1,10 @@
 #include "DoWhileStatement.hpp"
 #include "IExpression.hpp"
 #include "KeywordToken.hpp"
-#include "FunScope.hpp" // Should be added to enable casting
+#include "OldFunScope.hpp" // Should be added to enable casting
 
 DoWhileStatement::DoWhileStatement(
-    SharedFunScope runScope,
+    SharedOldFunScope runScope,
     SharedIExpression ex,
     SharedVector<SharedIStatement> stmList
 )
@@ -21,6 +21,6 @@ void DoWhileStatement::run(){
     }while(ex->evaluate(runScope)==KeywordToken::TRUE.getVal());
 
 
-    // pop all defined variables in while IStatement
+    // pop all defined OldVariables in while IStatement
     runScope->getVars()->resize(vars_size_before);
 }

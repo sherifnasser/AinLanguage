@@ -2,14 +2,14 @@
 #include "MainFunctionNotFoundException.hpp"
 
 GlobalScope::GlobalScope(){
-    this->funs=std::make_shared<std::vector<SharedFunScope>>();
+    this->funs=std::make_shared<std::vector<SharedOldFunScope>>();
 }
 
-void GlobalScope::addfunction(SharedFunScope funScope){
+void GlobalScope::addfunction(SharedOldFunScope funScope){
     getFuns()->push_back(funScope);
 }
 
-SharedFunScope GlobalScope::getMain(){
+SharedOldFunScope GlobalScope::getMain(){
     auto fun=getFunByName(L"البداية");
     if(fun==nullptr)
         throw MainFunctionNotFoundException();

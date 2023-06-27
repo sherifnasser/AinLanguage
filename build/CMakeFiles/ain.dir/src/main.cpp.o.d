@@ -159,8 +159,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/OldParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/OldIParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp

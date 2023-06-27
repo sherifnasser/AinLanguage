@@ -5,7 +5,7 @@ class DoWhileStatement:public WhileStatement
 {
     public:
         DoWhileStatement(
-            SharedFunScope runScope,
+            SharedOldFunScope runScope,
             SharedIExpression ex,
             SharedVector<SharedIStatement> stmList
         );

@@ -1,6 +1,6 @@
 #include "FunCallExpression.hpp"
-#include "FunScope.hpp"
-#include "Constant.hpp"
+#include "OldFunScope.hpp"
+#include "OldConstant.hpp"
 #include "ainio.hpp"
 #define wcout std::wcout
 #define endl std::endl
@@ -65,7 +65,7 @@ std::wstring FunCallExpression::evaluate(SharedScope evalScope){
             auto arg=(*args)[i];
             auto exval=(*argsExpressions)[i]->evaluate(evalScope);
             // TODO: type matching
-            auto val=std::make_shared<Constant>(fun,arg.first,arg.second);
+            auto val=std::make_shared<OldConstant>(fun,arg.first,arg.second);
             val->setCurrentValue(exval);
             fun->getVars()->push_back(val);
         }

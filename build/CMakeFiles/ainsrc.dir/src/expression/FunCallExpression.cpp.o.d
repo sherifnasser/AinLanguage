@@ -151,8 +151,8 @@ CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o: \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldConstant.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldVariable.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp

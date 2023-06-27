@@ -6,6 +6,6 @@ class ReturnStatement:public IStatement
     private:
         SharedIExpression ex;
     public:
-        ReturnStatement(SharedFunScope runScope,SharedIExpression ex);
+        ReturnStatement(SharedOldFunScope runScope,SharedIExpression ex);
         void run() override;
 };
