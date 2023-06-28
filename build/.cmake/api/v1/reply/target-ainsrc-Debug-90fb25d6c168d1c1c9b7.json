@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 97,
+				"line" : 100,
 				"parent" : 0
 			}
 		]
@@ -148,7 +148,9 @@
 				41,
 				42,
 				43,
-				44
+				44,
+				45,
+				46
 			]
 		}
 	],
@@ -210,7 +212,9 @@
 				41,
 				42,
 				43,
-				44
+				44,
+				45,
+				46
 			]
 		}
 	],
@@ -453,6 +457,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/parser/elements/parser/VarDeclParser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/parser/elements/parser/TypeParser.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -460,6 +470,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/parser/elements/parser/FunParamaterParser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/elements/VarDecl.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

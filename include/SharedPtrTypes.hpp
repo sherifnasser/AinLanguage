@@ -18,6 +18,7 @@ class FunScope;
 class OldFunScope;
 class ClassScope;
 struct FunDecl;
+struct VarDecl;
 struct Type;
 struct FunParamater;
 class OldVariable;
@@ -40,6 +41,8 @@ template<typename T>
 using SharedLinkedList=std::shared_ptr<LinkedList<T>>;
 
 using SharedWString=std::shared_ptr<std::wstring>;
+
+using SharedBool=std::shared_ptr<bool>;
 
 using SharedILexerLine=std::shared_ptr<ILexerLine>;
 
@@ -68,6 +71,8 @@ using SharedFunScope=std::shared_ptr<FunScope>;
 using SharedOldFunScope=std::shared_ptr<OldFunScope>;
 
 using SharedFunDecl=std::shared_ptr<FunDecl>;
+
+using SharedVarDecl=std::shared_ptr<VarDecl>;
 
 using SharedType=std::shared_ptr<Type>;
 

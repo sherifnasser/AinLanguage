@@ -44,8 +44,10 @@ add_library(ainsrc
     src/parser/elements/Type.cpp
     src/parser/elements/FunDecl.cpp
     src/parser/elements/parser/FunDeclParser.cpp
+    src/parser/elements/parser/VarDeclParser.cpp
     src/parser/elements/parser/TypeParser.cpp
     src/parser/elements/parser/FunParamaterParser.cpp
+    src/parser/elements/VarDecl.cpp
     src/parser/PackageParser.cpp
     src/parser/TokensIterator.cpp
     src/parser/OldParser.cpp
@@ -79,6 +81,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 
 

@@ -782,6 +782,30 @@ src/parser/elements/Type.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.s
 .PHONY : src/parser/elements/Type.cpp.s
 
+src/parser/elements/VarDecl.o: src/parser/elements/VarDecl.cpp.o
+.PHONY : src/parser/elements/VarDecl.o
+
+# target to build an object file
+src/parser/elements/VarDecl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o
+.PHONY : src/parser/elements/VarDecl.cpp.o
+
+src/parser/elements/VarDecl.i: src/parser/elements/VarDecl.cpp.i
+.PHONY : src/parser/elements/VarDecl.i
+
+# target to preprocess a source file
+src/parser/elements/VarDecl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.i
+.PHONY : src/parser/elements/VarDecl.cpp.i
+
+src/parser/elements/VarDecl.s: src/parser/elements/VarDecl.cpp.s
+.PHONY : src/parser/elements/VarDecl.s
+
+# target to generate assembly for a file
+src/parser/elements/VarDecl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.s
+.PHONY : src/parser/elements/VarDecl.cpp.s
+
 src/parser/elements/parser/FunDeclParser.o: src/parser/elements/parser/FunDeclParser.cpp.o
 .PHONY : src/parser/elements/parser/FunDeclParser.o
 
@@ -853,6 +877,30 @@ src/parser/elements/parser/TypeParser.s: src/parser/elements/parser/TypeParser.c
 src/parser/elements/parser/TypeParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.s
 .PHONY : src/parser/elements/parser/TypeParser.cpp.s
+
+src/parser/elements/parser/VarDeclParser.o: src/parser/elements/parser/VarDeclParser.cpp.o
+.PHONY : src/parser/elements/parser/VarDeclParser.o
+
+# target to build an object file
+src/parser/elements/parser/VarDeclParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o
+.PHONY : src/parser/elements/parser/VarDeclParser.cpp.o
+
+src/parser/elements/parser/VarDeclParser.i: src/parser/elements/parser/VarDeclParser.cpp.i
+.PHONY : src/parser/elements/parser/VarDeclParser.i
+
+# target to preprocess a source file
+src/parser/elements/parser/VarDeclParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.i
+.PHONY : src/parser/elements/parser/VarDeclParser.cpp.i
+
+src/parser/elements/parser/VarDeclParser.s: src/parser/elements/parser/VarDeclParser.cpp.s
+.PHONY : src/parser/elements/parser/VarDeclParser.s
+
+# target to generate assembly for a file
+src/parser/elements/parser/VarDeclParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.s
+.PHONY : src/parser/elements/parser/VarDeclParser.cpp.s
 
 src/scope/BaseScope.o: src/scope/BaseScope.cpp.o
 .PHONY : src/scope/BaseScope.o
@@ -1495,6 +1543,9 @@ help:
 	@echo "... src/parser/elements/Type.o"
 	@echo "... src/parser/elements/Type.i"
 	@echo "... src/parser/elements/Type.s"
+	@echo "... src/parser/elements/VarDecl.o"
+	@echo "... src/parser/elements/VarDecl.i"
+	@echo "... src/parser/elements/VarDecl.s"
 	@echo "... src/parser/elements/parser/FunDeclParser.o"
 	@echo "... src/parser/elements/parser/FunDeclParser.i"
 	@echo "... src/parser/elements/parser/FunDeclParser.s"
@@ -1504,6 +1555,9 @@ help:
 	@echo "... src/parser/elements/parser/TypeParser.o"
 	@echo "... src/parser/elements/parser/TypeParser.i"
 	@echo "... src/parser/elements/parser/TypeParser.s"
+	@echo "... src/parser/elements/parser/VarDeclParser.o"
+	@echo "... src/parser/elements/parser/VarDeclParser.i"
+	@echo "... src/parser/elements/parser/VarDeclParser.s"
 	@echo "... src/scope/BaseScope.o"
 	@echo "... src/scope/BaseScope.i"
 	@echo "... src/scope/BaseScope.s"
