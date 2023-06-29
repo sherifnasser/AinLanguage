@@ -153,6 +153,7 @@ CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MainFunctionNotFoundException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /usr/include/c++/12.2/algorithm /usr/include/c++/12.2/bits/stl_algo.h \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \

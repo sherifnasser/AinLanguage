@@ -7,7 +7,7 @@ VarDecl::VarDecl(
     SharedBool isVal
 ):name(name),type(type),isVal(isVal){}
 
-bool VarDecl::operator==(VarDecl& declaration) {
+bool VarDecl::operator==(const VarDecl& declaration)const{
     return
         *name==*declaration.name
         &&
@@ -17,6 +17,6 @@ bool VarDecl::operator==(VarDecl& declaration) {
     ;
 }
 
-bool VarDecl::operator!=(VarDecl& declaration) {
+bool VarDecl::operator!=(const VarDecl& declaration)const{
     return !(*this==declaration);
 }

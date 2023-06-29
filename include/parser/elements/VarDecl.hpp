@@ -11,6 +11,6 @@ struct VarDecl{
         SharedBool isVal
     );
 
-    bool operator==(VarDecl& declaration);
-    bool operator!=(VarDecl& declaration);
+    bool operator==(const VarDecl& declaration)const;
+    bool operator!=(const VarDecl& declaration)const;
 };

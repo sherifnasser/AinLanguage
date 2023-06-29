@@ -171,10 +171,14 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OperatorFunShouldHaveSingleParamException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp

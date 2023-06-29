@@ -5,8 +5,7 @@
 #include <string>
 
 TypeParser::TypeParser(SharedTokensIterator iterator)
-:BaseParser(iterator,nullptr)
-{}
+:BaseParser(iterator,nullptr){}
 
 SharedType TypeParser::parse(){
     // TODO: parse generics and nullables

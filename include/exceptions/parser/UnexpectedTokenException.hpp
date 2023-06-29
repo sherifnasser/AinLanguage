@@ -12,7 +12,7 @@ class UnexpectedTokenException:public AinException{
         AinException::errorWString(
             L"رمز غير مُتوقَّع\nيُتوقَّع "+
             AinException::betweenAngleBrackets(expected)
-            +L"، ولكن وُجِدَ"+
+            +L"، ولكن وُجِدَ "+
             AinException::betweenAngleBrackets(found)
         )
     ),lineNumber(lineNumber){}

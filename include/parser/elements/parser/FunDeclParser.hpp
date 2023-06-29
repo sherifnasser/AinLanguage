@@ -3,12 +3,12 @@
 #include "SharedPtrTypes.hpp"
 class FunDeclParser:public BaseParser<SharedFunDecl>{
     private:
-        bool defaultReturnTypeIsUnit;
+        bool mustHaveExplicitReturnType;
     public:
         FunDeclParser(
             SharedTokensIterator iterator,
             SharedBaseScope scope,
-            bool defaultReturnTypeIsUnit=false
+            bool mustHaveExplicitReturnType=false
         );
         SharedFunDecl parse()override;
 };

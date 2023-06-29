@@ -36,7 +36,7 @@ std::wstring BaseParser<T>::expectIdentifier(){
         throw UnexpectedTokenException(
             iterator->lineNumber,
             LexerToken::stringify(LexerToken::IDENTIFIER_TOKEN),
-            LexerToken::stringify(iterator->currentTokenType())
+            LexerToken::stringify(iterator->currentTokenType())+L" "+iterator->currentVal()
         );
     
     return iterator->currentVal();
@@ -51,11 +51,11 @@ std::wstring BaseParser<T>::expectNextIdentifier(){
 
 template<typename T>
 void BaseParser<T>::expectSymbol(SymbolToken symbol){
-    if(iterator->currentTokenType()!=LexerToken::IDENTIFIER_TOKEN)
+    if(!iterator->currentMatch(symbol))
         throw UnexpectedTokenException(
             iterator->lineNumber,
             LexerToken::stringify(LexerToken::SYMBOL_TOKEN)+L" "+symbol.getVal(),
-            LexerToken::stringify(iterator->currentTokenType())
+            LexerToken::stringify(iterator->currentTokenType())+L" "+iterator->currentVal()
         );
 }
 

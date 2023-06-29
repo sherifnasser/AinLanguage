@@ -5,10 +5,11 @@
 FunDecl::FunDecl(
     SharedWString name,
     SharedType returnType,
+    SharedBool isOperator,
     SharedVector<SharedFunParamater> params
-):name(name),returnType(returnType),params(params){}
+):name(name),returnType(returnType),isOperator(isOperator),params(params){}
 
-bool FunDecl::operator==(FunDecl& declaration){
+bool FunDecl::operator==(const FunDecl& declaration)const{
 
     if(params->size()!=declaration.params->size())
         return false;
@@ -25,7 +26,7 @@ bool FunDecl::operator==(FunDecl& declaration){
     ;
 }
 
-bool FunDecl::operator!=(FunDecl& declaration) {
+bool FunDecl::operator!=(const FunDecl& declaration)const{
     return !(*this==declaration);
 }
 

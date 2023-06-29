@@ -1,4 +1,5 @@
 #pragma once
+#include "string_helper.hpp"
 #include<iostream>
 #include<algorithm>
 #include<string>
@@ -14,21 +15,7 @@ class AinException:public std::exception{
     AinException(std::wstring msgStr):msgStr(msgStr){}
 
     const char* what() const noexcept override{
-        
-        std::setlocale(0,"en_US.UTF-8");
-        
-        auto wmsg=msgStr.c_str();
-        
-        // Get the length of the multibyte string
-        std::size_t len = std::wcstombs(nullptr, wmsg, 0);
-
-        // Allocate a buffer to hold the multibyte string
-        char* mbstr = new char[len + 1];
-
-        // Convert the wide character string to a multibyte character string
-        std::wcstombs(mbstr, wmsg, len + 1);
-
-        return mbstr;
+        return toCharPointer(msgStr);
     }
 
     std::wstring whatWstr(){

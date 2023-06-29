@@ -75,6 +75,10 @@ set(TEST
     test/lexer/LexerLineTest.cpp
     test/ain_file/AinFileTest.cpp
     test/parser/PackageParserTest.cpp
+    test/parser/elements/FunDeclTest.cpp
+    test/parser/elements/FunParamaterTest.cpp
+    test/parser/elements/parser/FunDeclParserTest.cpp
+    test/parser/elements/TypeTest.cpp
     test/parser/FileParserTest.cpp
     test/parser/TokensIteratorTest.cpp
     test/parser/TokensIteratorForTests.cpp

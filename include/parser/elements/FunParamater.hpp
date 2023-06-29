@@ -6,6 +6,6 @@ struct FunParamater{
 
     FunParamater(SharedWString name, SharedType type);
 
-    bool operator==(FunParamater& param);
-    bool operator!=(FunParamater& param);
+    bool operator==(const FunParamater& param)const;
+    bool operator!=(const FunParamater& param)const;
 };

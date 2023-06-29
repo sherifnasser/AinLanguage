@@ -1,4 +1,5 @@
 #include "VarDeclParser.hpp"
+#include "VarDecl.hpp"
 #include "KeywordToken.hpp"
 #include "SharedPtrTypes.hpp"
 #include "TypeParser.hpp"

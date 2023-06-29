@@ -4,7 +4,7 @@
 FunParamater::FunParamater(SharedWString name, SharedType type)
 :name(name),type(type){}
 
-bool FunParamater::operator==(FunParamater& param){
+bool FunParamater::operator==(const FunParamater& param)const{
     return 
         *this->name==*param.name
         &&
@@ -12,6 +12,6 @@ bool FunParamater::operator==(FunParamater& param){
     ;
 }
 
-bool FunParamater::operator!=(FunParamater& param){
+bool FunParamater::operator!=(const FunParamater& param)const{
     return !(*this==param);
 }

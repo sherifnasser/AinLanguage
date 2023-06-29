@@ -59,3 +59,20 @@ wchar_t getEscapeSequenceFromCharacter(const wchar_t& c){
             std::__throw_invalid_argument("Invalid escape sequence.");
     }
 }
+
+const char* toCharPointer(const std::wstring& wstr) {
+    std::setlocale(0,"en_US.UTF-8");
+        
+    auto wmsg=wstr.c_str();
+    
+    // Get the length of the multibyte string
+    std::size_t len = std::wcstombs(nullptr, wmsg, 0);
+
+    // Allocate a buffer to hold the multibyte string
+    char* mbstr = new char[len + 1];
+
+    // Convert the wide character string to a multibyte character string
+    std::wcstombs(mbstr, wmsg, len + 1);
+
+    return mbstr;
+}

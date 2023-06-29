@@ -6,7 +6,7 @@ LexerToken(LexerToken::KEYWORD_TOKEN,val){}
 
 bool KeywordToken::iskeyword(LexerToken t){
     KeywordToken keywords[]={
-        VAR,VAL,FUN,RETURN,
+        VAR,VAL,OPERATOR,FUN,RETURN,
         PACKAGE,IMPORT,CLASS,INTERFACE,OBJECT,
         DATA,ABSTRACT,OPEN,ENUM,ANNOTATION,
         PUBLIC,PRIVATE,PROTECTED,OVERRIDE,
@@ -28,6 +28,7 @@ bool KeywordToken::iskeyword(std::wstring val){
 
 KeywordToken KeywordToken::VAR=KeywordToken(L"متغير");
 KeywordToken KeywordToken::VAL=KeywordToken(L"ثابت");
+KeywordToken KeywordToken::OPERATOR=KeywordToken(L"معامل");
 KeywordToken KeywordToken::FUN=KeywordToken(L"دالة");
 KeywordToken KeywordToken::RETURN=KeywordToken(L"بقيمة");
 

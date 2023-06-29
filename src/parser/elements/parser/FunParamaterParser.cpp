@@ -6,10 +6,13 @@
 FunParamaterParser::FunParamaterParser(SharedTokensIterator iterator)
 :BaseParser(iterator,nullptr){}
 
-SharedFunParamater FunParamaterParser::parse() {
+SharedFunParamater FunParamaterParser::parse(){
+
     auto nameId=expectIdentifier();
 
     expectNextSymbol(SymbolToken::COLON);
+
+    iterator->next();
 
     auto paramName=std::make_shared<std::wstring>(nameId);
 
