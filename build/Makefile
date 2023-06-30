@@ -1526,6 +1526,30 @@ test/parser/elements/TypeTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.s
 .PHONY : test/parser/elements/TypeTest.cpp.s
 
+test/parser/elements/VarDeclTest.o: test/parser/elements/VarDeclTest.cpp.o
+.PHONY : test/parser/elements/VarDeclTest.o
+
+# target to build an object file
+test/parser/elements/VarDeclTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o
+.PHONY : test/parser/elements/VarDeclTest.cpp.o
+
+test/parser/elements/VarDeclTest.i: test/parser/elements/VarDeclTest.cpp.i
+.PHONY : test/parser/elements/VarDeclTest.i
+
+# target to preprocess a source file
+test/parser/elements/VarDeclTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.i
+.PHONY : test/parser/elements/VarDeclTest.cpp.i
+
+test/parser/elements/VarDeclTest.s: test/parser/elements/VarDeclTest.cpp.s
+.PHONY : test/parser/elements/VarDeclTest.s
+
+# target to generate assembly for a file
+test/parser/elements/VarDeclTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.s
+.PHONY : test/parser/elements/VarDeclTest.cpp.s
+
 test/parser/elements/parser/FunDeclParserTest.o: test/parser/elements/parser/FunDeclParserTest.cpp.o
 .PHONY : test/parser/elements/parser/FunDeclParserTest.o
 
@@ -1732,6 +1756,9 @@ help:
 	@echo "... test/parser/elements/TypeTest.o"
 	@echo "... test/parser/elements/TypeTest.i"
 	@echo "... test/parser/elements/TypeTest.s"
+	@echo "... test/parser/elements/VarDeclTest.o"
+	@echo "... test/parser/elements/VarDeclTest.i"
+	@echo "... test/parser/elements/VarDeclTest.s"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.o"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.i"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.s"

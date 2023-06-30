@@ -19,16 +19,14 @@
 
 FunDeclParser::FunDeclParser(
     SharedTokensIterator iterator,
-    SharedBaseScope scope,
-    bool mustHaveExplicitReturnType
-):BaseParser(iterator,scope),mustHaveExplicitReturnType(mustHaveExplicitReturnType){}
+    SharedBaseScope scope
+):BaseParser(iterator,scope){}
 
 SharedFunDecl FunDeclParser::parse(){
 
     if(!iterator->currentMatch(KeywordToken::FUN))
         return nullptr;
     
-
     auto isOperator=std::make_shared<bool>(false);
 
     if(iterator->nextMatch(KeywordToken::OPERATOR)){
@@ -36,7 +34,6 @@ SharedFunDecl FunDeclParser::parse(){
         iterator->next();
     }
 
-    
     auto funNameId=expectIdentifier();
 
     auto funName=std::make_shared<std::wstring>(funNameId);
@@ -70,16 +67,14 @@ SharedFunDecl FunDeclParser::parse(){
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    SharedType funReturnType=Type::UNIT;
+    SharedType funReturnType;
 
     auto colonFound=false;
+    
     try{
         expectNextSymbol(SymbolToken::COLON);
         colonFound=true;
-    }catch(UnexpectedTokenException& e){
-        if(mustHaveExplicitReturnType)
-            throw e;
-    }
+    }catch(UnexpectedTokenException& e){}
 
     if(colonFound){
         iterator->next();

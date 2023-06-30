@@ -19,6 +19,9 @@ bool FunDecl::operator==(const FunDecl& declaration)const{
             return false;
     }
     
+    if(!(returnType&&declaration.returnType))
+        return false;
+
     return
         *name==*declaration.name
         &&
@@ -28,6 +31,10 @@ bool FunDecl::operator==(const FunDecl& declaration)const{
 
 bool FunDecl::operator!=(const FunDecl& declaration)const{
     return !(*this==declaration);
+}
+
+bool FunDecl::hasImplicitReturnType()const {
+    return this->returnType==nullptr;
 }
 
     

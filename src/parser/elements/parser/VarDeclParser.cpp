@@ -8,9 +8,8 @@
 
 VarDeclParser::VarDeclParser(
     SharedTokensIterator iterator,
-    SharedBaseScope scope,
-    bool typeFromExpression
-):BaseParser(iterator,scope),typeFromExpression(typeFromExpression){}
+    SharedBaseScope scope
+):BaseParser(iterator,scope){}
 
 SharedVarDecl VarDeclParser::parse(){
 
@@ -27,18 +26,18 @@ SharedVarDecl VarDeclParser::parse(){
 
     auto name=std::make_shared<std::wstring>(nameId);
 
-    expectNextSymbol(SymbolToken::COLON);
-
-    iterator->next();
     SharedType type;
+
+    auto colonFound=false;
     
     try{
+        expectNextSymbol(SymbolToken::COLON);
+        colonFound=true;
+    }catch(UnexpectedTokenException& e){}
+
+    if(colonFound){
+        iterator->next();
         type=TypeParser(iterator).parse();
-    }
-    catch(UnexpectedTokenException& e){
-        if(!typeFromExpression)
-            throw e;
-        type=Type::UNIT;
     }
 
     auto var=std::make_shared<VarDecl>(

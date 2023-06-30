@@ -12,5 +12,8 @@ struct VarDecl{
     );
 
     bool operator==(const VarDecl& declaration)const;
+    
     bool operator!=(const VarDecl& declaration)const;
+
+    bool hasImplicitType()const;
 };

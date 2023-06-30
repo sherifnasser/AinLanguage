@@ -76,6 +76,7 @@ set(TEST
     test/ain_file/AinFileTest.cpp
     test/parser/PackageParserTest.cpp
     test/parser/elements/FunDeclTest.cpp
+    test/parser/elements/VarDeclTest.cpp
     test/parser/elements/FunParamaterTest.cpp
     test/parser/elements/parser/FunDeclParserTest.cpp
     test/parser/elements/TypeTest.cpp
@@ -85,6 +86,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 
 

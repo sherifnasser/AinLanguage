@@ -1,7 +1,8 @@
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp \
- /usr/include/stdc-predef.h /usr/include/catch2/catch.hpp \
- /usr/include/c++/12.2/cstddef \
+ /usr/include/stdc-predef.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/StringMaker.hpp \
+ /usr/include/catch2/catch.hpp /usr/include/c++/12.2/cstddef \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -193,14 +194,16 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: \
  /usr/include/c++/12.2/bits/random.tcc /usr/include/c++/12.2/numeric \
  /usr/include/c++/12.2/bits/stl_numeric.h \
  /usr/include/c++/12.2/pstl/glue_numeric_defs.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream /usr/include/c++/12.2/istream \
  /usr/include/c++/12.2/bits/istream.tcc \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
@@ -217,6 +220,5 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/TokensIteratorForTests.hpp

@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.o.d"
   "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o"
   "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o.d"
+  "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o"
+  "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o.d"
   "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o"
   "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o.d"
   "unit_tests"

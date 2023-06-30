@@ -23,4 +23,6 @@ struct FunDecl{
      * and it should be checked explicitly
     */
     bool operator!=(const FunDecl& declaration)const;
+
+    bool hasImplicitReturnType()const;
 };

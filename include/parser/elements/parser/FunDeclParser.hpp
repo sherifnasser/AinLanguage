@@ -2,13 +2,10 @@
 #include "BaseParser.hpp"
 #include "SharedPtrTypes.hpp"
 class FunDeclParser:public BaseParser<SharedFunDecl>{
-    private:
-        bool mustHaveExplicitReturnType;
     public:
         FunDeclParser(
             SharedTokensIterator iterator,
-            SharedBaseScope scope,
-            bool mustHaveExplicitReturnType=false
+            SharedBaseScope scope
         );
         SharedFunDecl parse()override;
 };

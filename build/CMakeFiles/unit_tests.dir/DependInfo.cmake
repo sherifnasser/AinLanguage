@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamaterTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o.d"
   )
 

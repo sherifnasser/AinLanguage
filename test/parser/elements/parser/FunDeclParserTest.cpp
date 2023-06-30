@@ -1,4 +1,4 @@
-#include <catch2/catch.hpp>
+#include "StringMaker.hpp"
 #include <memory>
 #include <string>
 #include <vector>
@@ -13,22 +13,9 @@
 #include "PackageScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
-#include "Type.hpp"
 #include "TypeParser.hpp"
 #include "TokensIteratorForTests.hpp"
 #include "UnexpectedTokenException.hpp"
-#include "string_helper.hpp"
-
-namespace Catch {
-    template<>
-    struct StringMaker<Type> {
-        static std::string convert( Type const& value ){
-            return "Type: ("+std::string(
-                toCharPointer(*value.name)
-            )+")";
-        }
-    };
-}
 
 TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
     auto FUN_NAME=LexerToken::IdentifierToken(L"الجمع");
@@ -60,33 +47,36 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             SymbolToken::RIGHT_PARENTHESIS
         };
 
-        auto parse=[&](Type& expectedReturnType){
+        auto parse=[&](){
             auto iterator=getTokensIterator(tokens);
 
-            FunDeclParser parser(iterator, scope, false);
+            FunDeclParser parser(iterator, scope);
 
             auto result=parser.parse();
 
             REQUIRE(result != nullptr);
 
             REQUIRE(*result->name == FUN_NAME.getVal());
-            REQUIRE(*result->returnType == expectedReturnType);
             REQUIRE(*result->isOperator == false);
             REQUIRE(result->params->size() == 2);
             REQUIRE(*result->params->at(0)->name == PARAM_NAME.getVal());
             REQUIRE(*result->params->at(0)->type==*Type::INT);
             REQUIRE(*result->params->at(1)->name == PARAM_NAME2.getVal());
             REQUIRE(*result->params->at(1)->type==*Type::DOUBLE);
+            return result;
         };
 
-        SECTION("with default return type"){
-            parse(*Type::UNIT);
+        SECTION("with implicit return type"){
+            auto result=parse();
+            REQUIRE(result->hasImplicitReturnType());
         }
 
         SECTION("with explicit return type") {
             tokens.push_back(SymbolToken::COLON);
             tokens.push_back(DOUBLE_TYPE_NAME);
-            parse(*Type::DOUBLE);
+            auto result=parse();
+            REQUIRE_FALSE(result->hasImplicitReturnType());
+            REQUIRE(*result->returnType == *Type::DOUBLE);
         }
     }
 
@@ -104,7 +94,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             DOUBLE_TYPE_NAME
         });
 
-        FunDeclParser parser(iterator, scope, false);
+        FunDeclParser parser(iterator, scope);
 
         auto result = parser.parse();
 
@@ -135,7 +125,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             DOUBLE_TYPE_NAME
         });
 
-        FunDeclParser parser(iterator, scope, false);
+        FunDeclParser parser(iterator, scope);
 
         REQUIRE_THROWS_AS(parser.parse(), OperatorFunShouldHaveSingleParamException);
     }
@@ -157,7 +147,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             DOUBLE_TYPE_NAME
         });
 
-        FunDeclParser parser(iterator, scope, false);
+        FunDeclParser parser(iterator, scope);
 
         REQUIRE_THROWS_AS(parser.parse(), ConflictingDeclarationException);
     }
@@ -188,8 +178,6 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             10, // SymbolToken::RIGHT_PARENTHESIS
         };
 
-        auto mustHaveExplicitReturnType=false;
-
         auto removeAndAssert=[&](int missingTokenIndex){
 
             auto invalidDecl=trueDecl;
@@ -198,7 +186,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
 
             auto iterator=getTokensIterator(invalidDecl);
 
-            FunDeclParser parser(iterator, scope, mustHaveExplicitReturnType);
+            FunDeclParser parser(iterator, scope);
 
             REQUIRE_THROWS_AS(parser.parse(), UnexpectedTokenException);
 
@@ -208,12 +196,10 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             removeAndAssert(missingTokenIndex);
         }
 
-        SECTION("mustHaveExplicitReturnType is true and no type provided"){
-            mustHaveExplicitReturnType=true;
+        SECTION("has explicit return type and no type provided after colon"){
             trueDecl.push_back(SymbolToken::COLON);
             trueDecl.push_back(INT_TYPE_NAME);
             trueDecl.push_back(LexerToken::EofToken());
-            removeAndAssert(12); // index of last colon token
             removeAndAssert(13); // index of fun return type token
         }
        

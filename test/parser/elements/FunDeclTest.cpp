@@ -16,6 +16,7 @@ TEST_CASE("FunDecl tests", "[FunDeclTest.cpp]") {
 
         // Check that the object's properties were set correctly
         REQUIRE(myFunction.name == name);
+        REQUIRE_FALSE(myFunction.hasImplicitReturnType());
         REQUIRE(myFunction.returnType == returnType);
         REQUIRE(myFunction.isOperator == isOperator);
         REQUIRE(myFunction.params == params);
@@ -28,6 +29,24 @@ TEST_CASE("FunDecl tests", "[FunDeclTest.cpp]") {
 
         // Check that the equality operator returns true
         REQUIRE(myFunction1 == myFunction2);
+    }
+
+    SECTION("equality operator returns false when one return type is null or both") {
+        // Create two FunDecl objects with identical properties
+        FunDecl myFunction1(name, nullptr, isOperator, params);
+        FunDecl myFunction2(name, returnType, isOperator, params);
+
+        // Check that the equality operator returns false
+        REQUIRE_FALSE(myFunction1 == myFunction2);
+
+        // second fun has implicit type
+        myFunction2.returnType=nullptr;
+        REQUIRE_FALSE(myFunction1 == myFunction2);
+
+
+        // first fun has explicit type
+        myFunction1.returnType=returnType;
+        REQUIRE_FALSE(myFunction1 == myFunction2);
     }
 
     SECTION("equality operator returns false for objects with different parameters") {
