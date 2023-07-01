@@ -6,8 +6,8 @@ class DoWhileStatement:public WhileStatement
     public:
         DoWhileStatement(
             SharedOldFunScope runScope,
-            SharedIExpression ex,
-            SharedVector<SharedIStatement> stmList
+            SharedIOldExpression ex,
+            SharedVector<SharedIOldStatement> stmList
         );
         void run() override;
 };

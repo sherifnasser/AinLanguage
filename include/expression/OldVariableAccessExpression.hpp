@@ -1,7 +1,7 @@
 #pragma once
-#include"IExpression.hpp"
+#include"IOldExpression.hpp"
 
-class OldVariableAccessExpression:public IExpression{
+class OldVariableAccessExpression:public IOldExpression{
     private:
         std::wstring name;
     public:

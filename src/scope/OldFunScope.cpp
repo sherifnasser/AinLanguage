@@ -1,5 +1,5 @@
 #include "OldFunScope.hpp"
-#include "IStatement.hpp"
+#include "IOldStatement.hpp"
 
 OldFunScope::OldFunScope(
     SharedScope parentScope,
@@ -12,7 +12,7 @@ OldFunScope::OldFunScope(
     this->name=name;
     this->vars=std::make_shared<std::vector<SharedOldVariable>>();
     this->vals=std::make_shared<std::vector<SharedOldConstant>>();
-    this->stmList=std::make_shared<std::vector<SharedIStatement>>();
+    this->stmList=std::make_shared<std::vector<SharedIOldStatement>>();
 }
 
 
@@ -32,11 +32,11 @@ void OldFunScope::setReturnValue(std::wstring returnValue){
     this->returnValue=returnValue;
 }
 
-SharedVector<SharedIStatement> OldFunScope::getStmList(){
+SharedVector<SharedIOldStatement> OldFunScope::getStmList(){
     return this->stmList;
 }
 
-void OldFunScope::setStmList(SharedVector<SharedIStatement> stmList){
+void OldFunScope::setStmList(SharedVector<SharedIOldStatement> stmList){
     this->stmList=stmList;
 }
 

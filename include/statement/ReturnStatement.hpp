@@ -1,11 +1,11 @@
 #pragma once
-#include "IStatement.hpp"
+#include "IOldStatement.hpp"
 
-class ReturnStatement:public IStatement
+class ReturnStatement:public IOldStatement
 {
     private:
-        SharedIExpression ex;
+        SharedIOldExpression ex;
     public:
-        ReturnStatement(SharedOldFunScope runScope,SharedIExpression ex);
+        ReturnStatement(SharedOldFunScope runScope,SharedIOldExpression ex);
         void run() override;
 };

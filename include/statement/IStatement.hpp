@@ -1,11 +1,10 @@
 #pragma once
-#include "Scope.hpp"
-
-class IStatement
-{
+#include "SharedPtrTypes.hpp"
+class IStatement{
     protected:
-        SharedScope runScope;
+        SharedBaseScope runScope;
     public:
-        IStatement(SharedScope runScope);
+        IStatement(SharedBaseScope runScope);
+        virtual void check()=0;
         virtual void run()=0;
 };

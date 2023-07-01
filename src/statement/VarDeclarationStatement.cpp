@@ -1,9 +1,9 @@
 #include "VarDeclarationStatement.hpp"
-#include "IExpression.hpp"
+#include "IOldExpression.hpp"
 #include "OldVariable.hpp"
 
-VarDeclarationStatement::VarDeclarationStatement(SharedScope runScope,SharedOldVariable var,SharedIExpression ex)
-:IStatement(runScope),var(var),ex(ex){
+VarDeclarationStatement::VarDeclarationStatement(SharedScope runScope,SharedOldVariable var,SharedIOldExpression ex)
+:IOldStatement(runScope),var(var),ex(ex){
     auto exist=runScope->getVarByName(var->getName());
     if(exist!=nullptr){
         throw L"The OldVariable "+(var->getName())+L" is declared before.";

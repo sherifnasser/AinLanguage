@@ -1,12 +1,12 @@
 #pragma once
-#include"IExpression.hpp"
+#include"IOldExpression.hpp"
 
-class FunCallExpression:public IExpression{
+class FunCallExpression:public IOldExpression{
     private:
         std::wstring funName;
-        SharedVector<SharedIExpression> argsExpressions;
+        SharedVector<SharedIOldExpression> argsExpressions;
     public:
-        FunCallExpression(std::wstring &funName, SharedVector<SharedIExpression> argsExpressions);
+        FunCallExpression(std::wstring &funName, SharedVector<SharedIOldExpression> argsExpressions);
         std::wstring evaluate(SharedScope evalScope) override;
         void print(std::wstring tabsize=L"") override;
 };

@@ -1,13 +1,13 @@
 #pragma once
-#include"IExpression.hpp"
+#include"IOldExpression.hpp"
 
-class BinaryExpression:public IExpression{
+class BinaryExpression:public IOldExpression{
     private:
-        SharedIExpression left;
+        SharedIOldExpression left;
         SharedLexerToken operation;
-        SharedIExpression right;
+        SharedIOldExpression right;
     public:
-        BinaryExpression(SharedIExpression left, SharedLexerToken operation, SharedIExpression right);
+        BinaryExpression(SharedIOldExpression left, SharedLexerToken operation, SharedIOldExpression right);
         std::wstring evaluate(SharedScope evalScope) override;
         void print(std::wstring tabsize=L"") override;
         std::wstring evaluatelogicalor(std::wstring l, std::wstring r);

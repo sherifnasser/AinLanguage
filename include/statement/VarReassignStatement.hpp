@@ -1,12 +1,12 @@
 #pragma once
-#include "IStatement.hpp"
+#include "IOldStatement.hpp"
 
-class VarReassignStatement:public IStatement
+class VarReassignStatement:public IOldStatement
 {
     private:
         std::wstring varname;
-        SharedIExpression ex;
+        SharedIOldExpression ex;
     public:
-        VarReassignStatement(SharedScope runScope,std::wstring varname,SharedIExpression ex);
+        VarReassignStatement(SharedScope runScope,std::wstring varname,SharedIOldExpression ex);
         void run() override;
 };

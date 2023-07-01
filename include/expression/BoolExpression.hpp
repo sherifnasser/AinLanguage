@@ -1,7 +1,7 @@
 #pragma once
-#include"IExpression.hpp"
+#include"IOldExpression.hpp"
 
-class BoolExpression:public IExpression{
+class BoolExpression:public IOldExpression{
     private:
         std::wstring val;
     public:

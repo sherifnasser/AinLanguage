@@ -1,8 +1,8 @@
 #include "ReturnStatement.hpp"
-#include "IExpression.hpp"
+#include "IOldExpression.hpp"
 #include "OldFunScope.hpp" // Should be added to enable casting
 
-ReturnStatement::ReturnStatement(SharedOldFunScope runScope,SharedIExpression ex):IStatement(runScope),ex(ex){}
+ReturnStatement::ReturnStatement(SharedOldFunScope runScope,SharedIOldExpression ex):IOldStatement(runScope),ex(ex){}
 
 void ReturnStatement::run(){
     auto exval=ex->evaluate(runScope);

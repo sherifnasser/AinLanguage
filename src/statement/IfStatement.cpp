@@ -1,14 +1,14 @@
 #include "IfStatement.hpp"
-#include "IExpression.hpp"
+#include "IOldExpression.hpp"
 #include "KeywordToken.hpp"
 #include "OldFunScope.hpp" // Should be added to enable casting
 
 IfStatement::IfStatement(
     SharedOldFunScope runScope,
-    SharedIExpression ifCondition,
-    SharedVector<SharedIStatement> ifStmList,
-    SharedVector<SharedIStatement> elseStmList
-):IStatement(runScope),
+    SharedIOldExpression ifCondition,
+    SharedVector<SharedIOldStatement> ifStmList,
+    SharedVector<SharedIOldStatement> elseStmList
+):IOldStatement(runScope),
 ifCondition(ifCondition),
 ifStmList(ifStmList),
 elseStmList(elseStmList)

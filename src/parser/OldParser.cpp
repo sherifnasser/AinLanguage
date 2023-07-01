@@ -133,13 +133,13 @@ void Parser::findFunctions(SharedGlobalScope globalScope){
     }
 }
 
-void Parser::addNextStmToStmList(SharedOldFunScope funScope,SharedVector<SharedIStatement> stmList){
+void Parser::addNextStmToStmList(SharedOldFunScope funScope,SharedVector<SharedIOldStatement> stmList){
     auto stm=findNextStatement(funScope);
     if(stm!=nullptr)
         stmList->push_back(stm);
 }
 
-SharedIStatement Parser::findNextStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findNextStatement(SharedOldFunScope funScope){
     
     auto var_val_Statement=findVarValStatement(funScope);
     if(var_val_Statement!=nullptr)
@@ -172,12 +172,12 @@ SharedIStatement Parser::findNextStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findWhileStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findWhileStatement(SharedOldFunScope funScope){
     if(currentMatch(KeywordToken::WHILE)&&nextMatch(SymbolToken::LEFT_PARENTHESIS)){
         next();
         auto ex=findExpression();
         if(currentMatch(SymbolToken::RIGHT_PARENTHESIS)){
-            auto stmList=std::make_shared<std::vector<SharedIStatement>>();
+            auto stmList=std::make_shared<std::vector<SharedIOldStatement>>();
             if(nextMatch(SymbolToken::LEFT_CURLY_BRACES)){
                 next();
                 while(!currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
@@ -193,9 +193,9 @@ SharedIStatement Parser::findWhileStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findDoWhileStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findDoWhileStatement(SharedOldFunScope funScope){
     if(currentMatch(KeywordToken::DO)){
-        auto stmList=std::make_shared<std::vector<SharedIStatement>>();
+        auto stmList=std::make_shared<std::vector<SharedIOldStatement>>();
         if(nextMatch(SymbolToken::LEFT_CURLY_BRACES)){
             next();
             while(!currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
@@ -218,10 +218,10 @@ SharedIStatement Parser::findDoWhileStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findIfStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findIfStatement(SharedOldFunScope funScope){
     if(currentMatch(KeywordToken::IF)&&nextMatch(SymbolToken::LEFT_PARENTHESIS)){
 
-        auto find_condition_stm_list=[&](SharedVector<SharedIStatement> stmList){
+        auto find_condition_stm_list=[&](SharedVector<SharedIOldStatement> stmList){
             if(nextMatch(SymbolToken::LEFT_CURLY_BRACES)){
                 next();
                 while(!currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
@@ -233,8 +233,8 @@ SharedIStatement Parser::findIfStatement(SharedOldFunScope funScope){
 
         next();
         auto ifCondition=findExpression();
-        SharedVector<SharedIStatement> ifStmList=std::make_shared<std::vector<SharedIStatement>>();;
-        SharedVector<SharedIStatement> elseStmList=std::make_shared<std::vector<SharedIStatement>>();;
+        SharedVector<SharedIOldStatement> ifStmList=std::make_shared<std::vector<SharedIOldStatement>>();;
+        SharedVector<SharedIOldStatement> elseStmList=std::make_shared<std::vector<SharedIOldStatement>>();;
 
         if(currentMatch(SymbolToken::RIGHT_PARENTHESIS)){
             find_condition_stm_list(ifStmList);
@@ -250,7 +250,7 @@ SharedIStatement Parser::findIfStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findReturnStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findReturnStatement(SharedOldFunScope funScope){
     if(currentMatch(KeywordToken::RETURN)){
         next();
         auto ex=findExpression();
@@ -260,13 +260,13 @@ SharedIStatement Parser::findReturnStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findExpressionStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findExpressionStatement(SharedOldFunScope funScope){
     auto ex=findExpression();
     auto stm=std::make_shared<ExpressionStatement>(funScope,ex);
     return stm;
 }
 
-SharedIStatement Parser::findVarReassignStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findVarReassignStatement(SharedOldFunScope funScope){
     if(currentTokenType()==LexerToken::IDENTIFIER_TOKEN){
         auto varname=currentVal();
         auto identifierNode=currentNode; // needed in else block
@@ -299,11 +299,11 @@ SharedIStatement Parser::findVarReassignStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIStatement Parser::findVarValStatement(SharedOldFunScope funScope){
+SharedIOldStatement Parser::findVarValStatement(SharedOldFunScope funScope){
     auto isvar=currentMatch(KeywordToken::VAR);
     auto isval=currentMatch(KeywordToken::VAL);
     std::wstring name,type=L"";
-    SharedIExpression ex;     
+    SharedIOldExpression ex;     
     if(isvar||isval){
         if(next()->getTokenType()==LexerToken::IDENTIFIER_TOKEN){
             name=currentVal();
@@ -331,13 +331,13 @@ SharedIStatement Parser::findVarValStatement(SharedOldFunScope funScope){
     return nullptr;
 }
 
-SharedIExpression Parser::findExpression(){
+SharedIOldExpression Parser::findExpression(){
     return findBinaryLogicalOrExpression();
 }
 
-SharedIExpression Parser::findBinaryLogicalOrExpression(){
-    SharedIExpression left=findBinaryLogicalAndExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryLogicalOrExpression(){
+    SharedIOldExpression left=findBinaryLogicalAndExpression();
+    SharedIOldExpression right;
     while(currentMatch(SymbolToken::LOGICAL_OR))
     {   
         auto op=currentToken();
@@ -349,9 +349,9 @@ SharedIExpression Parser::findBinaryLogicalOrExpression(){
     
 }
 
-SharedIExpression Parser::findBinaryLogicalAndExpression(){
-    SharedIExpression left=findBinaryEqualityExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryLogicalAndExpression(){
+    SharedIOldExpression left=findBinaryEqualityExpression();
+    SharedIOldExpression right;
     while(currentMatch(SymbolToken::LOGICAL_AND))
     {   
         auto op=currentToken();
@@ -363,9 +363,9 @@ SharedIExpression Parser::findBinaryLogicalAndExpression(){
     
 }
 
-SharedIExpression Parser::findBinaryEqualityExpression(){
-    SharedIExpression left=findBinaryComparisonExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryEqualityExpression(){
+    SharedIOldExpression left=findBinaryComparisonExpression();
+    SharedIOldExpression right;
     while(currentMatch(SymbolToken::NOT_EQUAL)||currentMatch(SymbolToken::EQUAL_EQUAL))
     {
         auto op=currentToken();
@@ -377,9 +377,9 @@ SharedIExpression Parser::findBinaryEqualityExpression(){
     
 }
 
-SharedIExpression Parser::findBinaryComparisonExpression(){
-    SharedIExpression left=findBinaryPlusMinusExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryComparisonExpression(){
+    SharedIOldExpression left=findBinaryPlusMinusExpression();
+    SharedIOldExpression right;
     while(
         currentMatch(SymbolToken::LEFT_ANGLE_BRACKET)
         ||
@@ -398,9 +398,9 @@ SharedIExpression Parser::findBinaryComparisonExpression(){
     
 }
 
-SharedIExpression Parser::findBinaryPlusMinusExpression(){
-    SharedIExpression left=findBinaryStarSlashExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryPlusMinusExpression(){
+    SharedIOldExpression left=findBinaryStarSlashExpression();
+    SharedIOldExpression right;
     while(
         currentMatch(SymbolToken::PLUS)
         ||
@@ -415,9 +415,9 @@ SharedIExpression Parser::findBinaryPlusMinusExpression(){
     
 }
 
-SharedIExpression Parser::findBinaryStarSlashExpression(){
-    SharedIExpression left=findBinaryExponentExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryStarSlashExpression(){
+    SharedIOldExpression left=findBinaryExponentExpression();
+    SharedIOldExpression right;
     while(
         currentMatch(SymbolToken::STAR)
         ||
@@ -433,9 +433,9 @@ SharedIExpression Parser::findBinaryStarSlashExpression(){
     return left;
 }
 
-SharedIExpression Parser::findBinaryExponentExpression(){
-    SharedIExpression left=findBinaryParenthesesExpression();
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryExponentExpression(){
+    SharedIOldExpression left=findBinaryParenthesesExpression();
+    SharedIOldExpression right;
     while(currentMatch(SymbolToken::POWER)){
         auto op=currentToken();
         next();
@@ -445,9 +445,9 @@ SharedIExpression Parser::findBinaryExponentExpression(){
     return left;
 }
 
-SharedIExpression Parser::findBinaryParenthesesExpression(){
-    SharedIExpression left;
-    SharedIExpression right;
+SharedIOldExpression Parser::findBinaryParenthesesExpression(){
+    SharedIOldExpression left;
+    SharedIOldExpression right;
     if(currentMatch(SymbolToken::LEFT_PARENTHESIS)){
         next();
         left=findBinaryLogicalOrExpression();
@@ -478,7 +478,7 @@ SharedIExpression Parser::findBinaryParenthesesExpression(){
         auto name=currentVal();
         if(nextMatch(SymbolToken::LEFT_PARENTHESIS)){
             next();
-            auto argsEx=std::make_shared<std::vector<SharedIExpression>>();
+            auto argsEx=std::make_shared<std::vector<SharedIOldExpression>>();
             while(!currentMatch(SymbolToken::RIGHT_PARENTHESIS)){
                 auto argex=findExpression();
                 argsEx->push_back(argex);

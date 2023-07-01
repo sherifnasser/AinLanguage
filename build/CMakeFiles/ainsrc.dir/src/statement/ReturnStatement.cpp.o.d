@@ -2,7 +2,7 @@ CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IOldStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
@@ -152,5 +152,5 @@ CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IOldExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp

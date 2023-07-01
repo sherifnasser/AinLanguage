@@ -11,4 +11,5 @@ public:
     SharedBaseScope getParentScope();
     std::wstring getName();
     virtual ~BaseScope();
+    virtual SharedClassScope getClassByType(SharedType type);
 };

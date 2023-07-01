@@ -21,10 +21,13 @@ struct FunDecl;
 struct VarDecl;
 struct Type;
 struct FunParamater;
+class IValue;
+class Variable;
+class IStatement;
 class OldVariable;
 class OldConstant;
-class IStatement;
-class IExpression;
+class IOldStatement;
+class IOldExpression;
 template<typename T>
 struct LinkedListNode;
 template<typename T>
@@ -78,12 +81,18 @@ using SharedType=std::shared_ptr<Type>;
 
 using SharedFunParamater=std::shared_ptr<FunParamater>;
 
+using SharedIValue=std::shared_ptr<IValue>;
+
+using SharedVariable=std::shared_ptr<Variable>;
+
+using SharedIStatement=std::shared_ptr<IStatement>;
+
 using SharedOldVariable=std::shared_ptr<OldVariable>;
 
 using SharedOldConstant=std::shared_ptr<OldConstant>;
 
-using SharedIStatement=std::shared_ptr<IStatement>;
+using SharedIOldStatement=std::shared_ptr<IOldStatement>;
 
-using SharedIExpression=std::shared_ptr<IExpression>;
+using SharedIOldExpression=std::shared_ptr<IOldExpression>;
 
 using SharedTokensIterator=std::shared_ptr<TokensIterator>;

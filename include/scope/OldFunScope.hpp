@@ -7,7 +7,7 @@ class OldFunScope:public Scope
         std::wstring returnType;
         std::wstring returnValue;
         SharedVector<std::pair<std::wstring,std::wstring>> args;
-        SharedVector<SharedIStatement> stmList;
+        SharedVector<SharedIOldStatement> stmList;
     public:
         OldFunScope(
             SharedScope parentScope,
@@ -18,8 +18,8 @@ class OldFunScope:public Scope
         SharedVector<std::pair<std::wstring,std::wstring>> getArgs();
         std::wstring getReturnType();
         std::wstring getReturnValue();
-        SharedVector<SharedIStatement> getStmList();
-        void setStmList(SharedVector<SharedIStatement> stmList);
+        SharedVector<SharedIOldStatement> getStmList();
+        void setStmList(SharedVector<SharedIOldStatement> stmList);
         void setReturnValue(std::wstring returnValue);
         void call();
         

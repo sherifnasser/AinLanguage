@@ -1,18 +1,18 @@
 #pragma once
-#include "IStatement.hpp"
+#include "IOldStatement.hpp"
 
-class IfStatement:public IStatement
+class IfStatement:public IOldStatement
 {
     private:
-        SharedIExpression ifCondition;
-        SharedVector<SharedIStatement> ifStmList;
-        SharedVector<SharedIStatement> elseStmList;
+        SharedIOldExpression ifCondition;
+        SharedVector<SharedIOldStatement> ifStmList;
+        SharedVector<SharedIOldStatement> elseStmList;
     public:
         IfStatement(
             SharedOldFunScope runScope,
-            SharedIExpression ifCondition,
-            SharedVector<SharedIStatement> ifStmList,
-            SharedVector<SharedIStatement> elseStmList
+            SharedIOldExpression ifCondition,
+            SharedVector<SharedIOldStatement> ifStmList,
+            SharedVector<SharedIOldStatement> elseStmList
         );
         void run() override;
 };

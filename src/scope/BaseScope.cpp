@@ -12,3 +12,6 @@ std::wstring BaseScope::getName() {
 }
 
 BaseScope::~BaseScope(){}
+SharedClassScope BaseScope::getClassByType(SharedType type){
+    return getParentScope()->getClassByType(type);
+}

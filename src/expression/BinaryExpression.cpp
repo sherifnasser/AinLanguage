@@ -10,7 +10,7 @@
 #define todouble std::stod
 #define tofloat std::stof
 
-BinaryExpression::BinaryExpression(SharedIExpression left, SharedLexerToken operation, SharedIExpression right):
+BinaryExpression::BinaryExpression(SharedIOldExpression left, SharedLexerToken operation, SharedIOldExpression right):
 left(left),right(right){
     if(
         *operation==SymbolToken::LOGICAL_OR||

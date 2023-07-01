@@ -13,6 +13,7 @@ add_library(ainsrc
     src/lexer/LiteralToken.cpp
     src/lexer/NumberToken.cpp
     src/lexer/SymbolToken.cpp
+    src/expression/value/IValue.cpp
     src/expression/BinaryExpression.cpp
     src/expression/BoolExpression.cpp
     src/expression/StringExpression.cpp
@@ -22,15 +23,18 @@ add_library(ainsrc
     src/scope/BaseScope.cpp
     src/scope/OldFunScope.cpp
     src/scope/PackageScope.cpp
+    src/scope/FunScope.cpp
     src/scope/OldVariable.cpp
     src/scope/Scope.cpp
     src/scope/OldConstant.cpp
     src/scope/FileScope.cpp
+    src/scope/Variable.cpp
     src/scope/GlobalScope.cpp
     src/ain_file/AinFile.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
+    src/statement/IOldStatement.cpp
     src/statement/VarDeclarationStatement.cpp
     src/statement/DoWhileStatement.cpp
     src/statement/ExpressionStatement.cpp
@@ -61,7 +65,9 @@ set(INCLUDE
     include/exceptions/parser/
     include/lexer/
     include/expression/
+    include/expression/value/
     include/scope/
+    include/scope/class/
     include/ain_file/
     include/statement/
     include/helpers/
@@ -86,6 +92,8 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
+
 
 
 

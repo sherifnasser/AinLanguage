@@ -1,17 +1,17 @@
 #pragma once
-#include "IStatement.hpp"
+#include "IOldStatement.hpp"
 
-class WhileStatement:public IStatement
+class WhileStatement:public IOldStatement
 {
     protected:
-        SharedIExpression ex;
-        SharedVector<SharedIStatement> stmList;
+        SharedIOldExpression ex;
+        SharedVector<SharedIOldStatement> stmList;
 
     public:
         WhileStatement(
             SharedOldFunScope runScope,
-            SharedIExpression ex,
-            SharedVector<SharedIStatement> stmList
+            SharedIOldExpression ex,
+            SharedVector<SharedIOldStatement> stmList
         );
         void run() override;
 };

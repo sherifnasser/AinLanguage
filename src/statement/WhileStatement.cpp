@@ -1,14 +1,14 @@
 #include "WhileStatement.hpp"
-#include "IExpression.hpp"
+#include "IOldExpression.hpp"
 #include "KeywordToken.hpp"
 #include "OldFunScope.hpp" // Should be added to enable casting
 
 WhileStatement::WhileStatement(
     SharedOldFunScope runScope,
-    SharedIExpression ex,
-    SharedVector<SharedIStatement> stmList
+    SharedIOldExpression ex,
+    SharedVector<SharedIOldStatement> stmList
 )
-:IStatement(runScope),ex(ex),stmList(stmList){}
+:IOldStatement(runScope),ex(ex),stmList(stmList){}
 
 void WhileStatement::run(){
 
@@ -20,7 +20,7 @@ void WhileStatement::run(){
         }
     }
 
-    // pop all defined OldVariables in while IStatement
+    // pop all defined OldVariables in while IOldStatement
     runScope->getVars()->resize(vars_size_before);
 
 }

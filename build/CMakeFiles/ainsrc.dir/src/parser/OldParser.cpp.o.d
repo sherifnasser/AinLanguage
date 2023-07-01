@@ -178,14 +178,14 @@ CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldVariable.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldConstant.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NumberExpression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IOldExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/StringExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BinaryExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunCallExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OldVariableAccessExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IOldStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarReassignStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarDeclarationStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \

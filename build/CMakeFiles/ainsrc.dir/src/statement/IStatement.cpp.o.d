@@ -2,7 +2,6 @@ CMakeFiles/ainsrc.dir/src/statement/IStatement.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IStatement.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \

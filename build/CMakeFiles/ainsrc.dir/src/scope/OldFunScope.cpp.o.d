@@ -151,4 +151,4 @@ CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.o: \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IOldStatement.hpp

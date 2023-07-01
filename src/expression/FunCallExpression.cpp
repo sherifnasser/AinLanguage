@@ -6,7 +6,7 @@
 #define endl std::endl
 
 FunCallExpression::
-FunCallExpression(std::wstring &funName, SharedVector<SharedIExpression> argsExpressions):
+FunCallExpression(std::wstring &funName, SharedVector<SharedIOldExpression> argsExpressions):
 funName(funName),argsExpressions(argsExpressions){}
 
 void FunCallExpression::print(std::wstring tabsize){

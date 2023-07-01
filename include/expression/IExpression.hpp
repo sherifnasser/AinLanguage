@@ -1,14 +1,11 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
-
-class Scope;
-class OldVariable;
-class OldConstant;
-class OldFunScope;
-class ClassScope;
-
+#include <string>
 class IExpression{
+    protected:
+        SharedClassScope returnType;
     public:
-        virtual std::wstring evaluate(SharedScope evalScope)=0;
         virtual void print(std::wstring tabSize=L"")=0;
+        virtual SharedIValue evaluate()=0;
+        virtual void check()=0;
 };

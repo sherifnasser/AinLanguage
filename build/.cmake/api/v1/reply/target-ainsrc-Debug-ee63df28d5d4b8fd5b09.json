@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 106,
+				"line" : 114,
 				"parent" : 0
 			}
 		]
@@ -74,7 +74,15 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class"
 				},
 				{
 					"backtrace" : 2,
@@ -150,7 +158,11 @@
 				43,
 				44,
 				45,
-				46
+				46,
+				47,
+				48,
+				49,
+				50
 			]
 		}
 	],
@@ -214,7 +226,11 @@
 				43,
 				44,
 				45,
-				46
+				46,
+				47,
+				48,
+				49,
+				50
 			]
 		}
 	],
@@ -266,6 +282,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/lexer/SymbolToken.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/IValue.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -325,6 +347,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/scope/FunScope.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/scope/OldVariable.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -344,6 +372,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/scope/FileScope.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/scope/Variable.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -374,6 +408,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/statement/IfStatement.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/statement/IOldStatement.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -1,3 +1,3 @@
 #include "IStatement.hpp"
 
-IStatement::IStatement(SharedScope runScope):runScope(runScope){}
+IStatement::IStatement(SharedBaseScope runScope):runScope(runScope){}

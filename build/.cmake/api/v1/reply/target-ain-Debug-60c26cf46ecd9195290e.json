@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 104,
+				"line" : 112,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 108,
+				"line" : 116,
 				"parent" : 0
 			}
 		]
@@ -73,7 +73,15 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class"
 				},
 				{
 					"backtrace" : 2,
