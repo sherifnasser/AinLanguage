@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 111,
+				"line" : 112,
 				"parent" : 0
 			}
 		]
@@ -495,12 +495,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/parser/elements/FunParamater.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/parser/elements/Type.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -508,6 +502,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/parser/elements/FunDecl.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/elements/FunParam.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/elements/parser/FunParamParser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -526,12 +532,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/parser/elements/parser/TypeParser.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/parser/elements/parser/FunParamaterParser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

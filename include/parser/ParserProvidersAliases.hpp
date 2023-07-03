@@ -8,7 +8,7 @@ using TypeParserProvider=std::function<SharedBaseParser<SharedType>(
     SharedBaseScope scope
 )>;
 
-using FunParamaterParserProvider=std::function<SharedBaseParser<SharedFunParamater>(
+using FunParamParserProvider=std::function<SharedBaseParser<SharedFunParam>(
     SharedTokensIterator iterator,
     SharedBaseScope scope,
     TypeParserProvider typeParserProvider
@@ -21,6 +21,5 @@ using FunDeclParserProvider=std::function<SharedBaseParser<SharedFunDecl>(
 
 using StmListParserProvider=std::function<SharedBaseParser<SharedStmList>(
     SharedTokensIterator iterator,
-    SharedStmListScope scope,
-    SharedMap<std::wstring,SharedVariable> locals
+    SharedStmListScope scope
 )>;

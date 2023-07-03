@@ -158,6 +158,6 @@ CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp

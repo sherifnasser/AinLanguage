@@ -178,7 +178,7 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp
  /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/TokensIteratorForTests.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \

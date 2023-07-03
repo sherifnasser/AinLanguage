@@ -1,12 +1,12 @@
 #include "FunDecl.hpp"
-#include "FunParamater.hpp"
+#include "FunParam.hpp"
 #include "Type.hpp"
 
 FunDecl::FunDecl(
     SharedWString name,
     SharedType returnType,
     SharedBool isOperator,
-    SharedVector<SharedFunParamater> params
+    SharedVector<SharedFunParam> params
 ):name(name),returnType(returnType),isOperator(isOperator),params(params){}
 
 bool FunDecl::operator==(const FunDecl& declaration)const{

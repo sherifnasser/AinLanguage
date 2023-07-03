@@ -185,5 +185,5 @@ CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp

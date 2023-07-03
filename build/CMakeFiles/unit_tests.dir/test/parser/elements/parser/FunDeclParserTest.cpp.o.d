@@ -215,7 +215,7 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OperatorFunShouldHaveSingleParamException.hpp \

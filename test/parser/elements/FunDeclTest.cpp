@@ -1,6 +1,6 @@
 #include <catch2/catch.hpp>
 #include "FunDecl.hpp"
-#include "FunParamater.hpp"
+#include "FunParam.hpp"
 #include "Type.hpp"
 
 TEST_CASE("FunDecl tests", "[FunDeclTest.cpp]") {
@@ -8,7 +8,7 @@ TEST_CASE("FunDecl tests", "[FunDeclTest.cpp]") {
     auto name = std::make_shared<std::wstring>(L"myFunction");
     auto returnType=Type::BOOL;
     auto isOperator=std::make_shared<bool>(false);
-    auto params = std::make_shared<std::vector<SharedFunParamater>>();
+    auto params = std::make_shared<std::vector<SharedFunParam>>();
 
     SECTION("constructor sets properties correctly") {
         // Create a new FunDecl object
@@ -51,11 +51,11 @@ TEST_CASE("FunDecl tests", "[FunDeclTest.cpp]") {
 
     SECTION("equality operator returns false for objects with different parameters") {
         // Create two FunDecl objects with different parameter lists
-        auto params1 = std::make_shared<std::vector<SharedFunParamater>>();
-        auto params2 = std::make_shared<std::vector<SharedFunParamater>>();
+        auto params1 = std::make_shared<std::vector<SharedFunParam>>();
+        auto params2 = std::make_shared<std::vector<SharedFunParam>>();
         auto name=std::make_shared<std::wstring>(L"param1");
-        params1->push_back(std::make_shared<FunParamater>(name,Type::INT));
-        params2->push_back(std::make_shared<FunParamater>(name,Type::DOUBLE));
+        params1->push_back(std::make_shared<FunParam>(name,Type::INT));
+        params2->push_back(std::make_shared<FunParam>(name,Type::DOUBLE));
 
         FunDecl myFunction1(name, returnType, isOperator, params1);
         FunDecl myFunction2(name, returnType, isOperator, params2);

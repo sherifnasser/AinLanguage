@@ -1,7 +1,7 @@
 #include "FunScope.hpp"
 #include "FunDecl.hpp"
 #include "SharedPtrTypes.hpp"
-#include "FunParamater.hpp"
+#include "FunParam.hpp"
 #include "StmListScope.hpp"
 #include "Variable.hpp"
 #include "IStatement.hpp"
@@ -27,10 +27,6 @@ SharedIValue FunScope::invoke(std::map<std::wstring, SharedIValue> params){
     return nullptr;
 }
 
-SharedClassScope FunScope::getReturnType(){
-    return returnType;
-}
-
-void FunScope::setReturnType(SharedClassScope returnType){
-    this->returnType=returnType;
+SharedType FunScope::getReturnType(){
+    return this->decl->returnType;
 }

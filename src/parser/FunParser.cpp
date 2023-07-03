@@ -7,7 +7,7 @@
 #include "FunDecl.hpp"
 #include "FunScope.hpp"
 #include "ClassScope.hpp"
-#include "FunParamater.hpp"
+#include "FunParam.hpp"
 #include "Variable.hpp"
 #include "FunScope.hpp"
 #include <map>
@@ -51,7 +51,7 @@ SharedFunScope FunParser::parse(){
 
     }
 
-    auto stmListParser=stmListParserProvider(iterator,funScope,locals);
+    auto stmListParser=stmListParserProvider(iterator,funScope);
 
     stmListParser->parse();
 

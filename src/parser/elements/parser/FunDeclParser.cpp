@@ -11,8 +11,8 @@
 #include "Type.hpp"
 #include "TypeParser.hpp"
 #include "UnexpectedTokenException.hpp"
-#include "FunParamaterParser.hpp"
-#include "FunParamater.hpp"
+#include "FunParamParser.hpp"
+#include "FunParam.hpp"
 #include <algorithm>
 #include <functional>
 #include <memory>
@@ -23,7 +23,7 @@ FunDeclParser::FunDeclParser(
     SharedTokensIterator iterator,
     SharedBaseScope scope,
     TypeParserProvider typeParserProvider,
-    FunParamaterParserProvider paramsParserProvider
+    FunParamParserProvider paramsParserProvider
 ):
 BaseParser(iterator,scope),
 returnTypeParser(
@@ -51,7 +51,7 @@ SharedFunDecl FunDeclParser::parse(){
 
     expectNextSymbol(SymbolToken::LEFT_PARENTHESIS);
 
-    auto params=std::make_shared<std::vector<SharedFunParamater>>();
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
 
     do{
 
@@ -63,7 +63,7 @@ SharedFunDecl FunDeclParser::parse(){
         auto isParamDeclared=std::find_if(
             params->begin(),
             params->end(),
-            [&](SharedFunParamater p){return *p->name==*param->name;}
+            [&](SharedFunParam p){return *p->name==*param->name;}
         );
 
         if(isParamDeclared!=params->end())

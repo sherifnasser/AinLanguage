@@ -16,4 +16,6 @@ class Variable{
         SharedWString getName();
 
         SharedBool isValue();
+
+        SharedType getType();
 };

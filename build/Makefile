@@ -782,29 +782,29 @@ src/parser/elements/FunDecl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.s
 .PHONY : src/parser/elements/FunDecl.cpp.s
 
-src/parser/elements/FunParamater.o: src/parser/elements/FunParamater.cpp.o
-.PHONY : src/parser/elements/FunParamater.o
+src/parser/elements/FunParam.o: src/parser/elements/FunParam.cpp.o
+.PHONY : src/parser/elements/FunParam.o
 
 # target to build an object file
-src/parser/elements/FunParamater.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o
-.PHONY : src/parser/elements/FunParamater.cpp.o
+src/parser/elements/FunParam.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o
+.PHONY : src/parser/elements/FunParam.cpp.o
 
-src/parser/elements/FunParamater.i: src/parser/elements/FunParamater.cpp.i
-.PHONY : src/parser/elements/FunParamater.i
+src/parser/elements/FunParam.i: src/parser/elements/FunParam.cpp.i
+.PHONY : src/parser/elements/FunParam.i
 
 # target to preprocess a source file
-src/parser/elements/FunParamater.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.i
-.PHONY : src/parser/elements/FunParamater.cpp.i
+src/parser/elements/FunParam.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.i
+.PHONY : src/parser/elements/FunParam.cpp.i
 
-src/parser/elements/FunParamater.s: src/parser/elements/FunParamater.cpp.s
-.PHONY : src/parser/elements/FunParamater.s
+src/parser/elements/FunParam.s: src/parser/elements/FunParam.cpp.s
+.PHONY : src/parser/elements/FunParam.s
 
 # target to generate assembly for a file
-src/parser/elements/FunParamater.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.s
-.PHONY : src/parser/elements/FunParamater.cpp.s
+src/parser/elements/FunParam.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.s
+.PHONY : src/parser/elements/FunParam.cpp.s
 
 src/parser/elements/Type.o: src/parser/elements/Type.cpp.o
 .PHONY : src/parser/elements/Type.o
@@ -878,29 +878,29 @@ src/parser/elements/parser/FunDeclParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.s
 .PHONY : src/parser/elements/parser/FunDeclParser.cpp.s
 
-src/parser/elements/parser/FunParamaterParser.o: src/parser/elements/parser/FunParamaterParser.cpp.o
-.PHONY : src/parser/elements/parser/FunParamaterParser.o
+src/parser/elements/parser/FunParamParser.o: src/parser/elements/parser/FunParamParser.cpp.o
+.PHONY : src/parser/elements/parser/FunParamParser.o
 
 # target to build an object file
-src/parser/elements/parser/FunParamaterParser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o
-.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.o
+src/parser/elements/parser/FunParamParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o
+.PHONY : src/parser/elements/parser/FunParamParser.cpp.o
 
-src/parser/elements/parser/FunParamaterParser.i: src/parser/elements/parser/FunParamaterParser.cpp.i
-.PHONY : src/parser/elements/parser/FunParamaterParser.i
+src/parser/elements/parser/FunParamParser.i: src/parser/elements/parser/FunParamParser.cpp.i
+.PHONY : src/parser/elements/parser/FunParamParser.i
 
 # target to preprocess a source file
-src/parser/elements/parser/FunParamaterParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.i
-.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.i
+src/parser/elements/parser/FunParamParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.i
+.PHONY : src/parser/elements/parser/FunParamParser.cpp.i
 
-src/parser/elements/parser/FunParamaterParser.s: src/parser/elements/parser/FunParamaterParser.cpp.s
-.PHONY : src/parser/elements/parser/FunParamaterParser.s
+src/parser/elements/parser/FunParamParser.s: src/parser/elements/parser/FunParamParser.cpp.s
+.PHONY : src/parser/elements/parser/FunParamParser.s
 
 # target to generate assembly for a file
-src/parser/elements/parser/FunParamaterParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.s
-.PHONY : src/parser/elements/parser/FunParamaterParser.cpp.s
+src/parser/elements/parser/FunParamParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.s
+.PHONY : src/parser/elements/parser/FunParamParser.cpp.s
 
 src/parser/elements/parser/TypeParser.o: src/parser/elements/parser/TypeParser.cpp.o
 .PHONY : src/parser/elements/parser/TypeParser.o
@@ -1550,6 +1550,30 @@ test/parser/FileParserTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s
 .PHONY : test/parser/FileParserTest.cpp.s
 
+test/parser/FunParserTest.o: test/parser/FunParserTest.cpp.o
+.PHONY : test/parser/FunParserTest.o
+
+# target to build an object file
+test/parser/FunParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o
+.PHONY : test/parser/FunParserTest.cpp.o
+
+test/parser/FunParserTest.i: test/parser/FunParserTest.cpp.i
+.PHONY : test/parser/FunParserTest.i
+
+# target to preprocess a source file
+test/parser/FunParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.i
+.PHONY : test/parser/FunParserTest.cpp.i
+
+test/parser/FunParserTest.s: test/parser/FunParserTest.cpp.s
+.PHONY : test/parser/FunParserTest.s
+
+# target to generate assembly for a file
+test/parser/FunParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.s
+.PHONY : test/parser/FunParserTest.cpp.s
+
 test/parser/PackageParserTest.o: test/parser/PackageParserTest.cpp.o
 .PHONY : test/parser/PackageParserTest.o
 
@@ -1646,29 +1670,29 @@ test/parser/elements/FunDeclTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.s
 .PHONY : test/parser/elements/FunDeclTest.cpp.s
 
-test/parser/elements/FunParamaterTest.o: test/parser/elements/FunParamaterTest.cpp.o
-.PHONY : test/parser/elements/FunParamaterTest.o
+test/parser/elements/FunParamTest.o: test/parser/elements/FunParamTest.cpp.o
+.PHONY : test/parser/elements/FunParamTest.o
 
 # target to build an object file
-test/parser/elements/FunParamaterTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.o
-.PHONY : test/parser/elements/FunParamaterTest.cpp.o
+test/parser/elements/FunParamTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o
+.PHONY : test/parser/elements/FunParamTest.cpp.o
 
-test/parser/elements/FunParamaterTest.i: test/parser/elements/FunParamaterTest.cpp.i
-.PHONY : test/parser/elements/FunParamaterTest.i
+test/parser/elements/FunParamTest.i: test/parser/elements/FunParamTest.cpp.i
+.PHONY : test/parser/elements/FunParamTest.i
 
 # target to preprocess a source file
-test/parser/elements/FunParamaterTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.i
-.PHONY : test/parser/elements/FunParamaterTest.cpp.i
+test/parser/elements/FunParamTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.i
+.PHONY : test/parser/elements/FunParamTest.cpp.i
 
-test/parser/elements/FunParamaterTest.s: test/parser/elements/FunParamaterTest.cpp.s
-.PHONY : test/parser/elements/FunParamaterTest.s
+test/parser/elements/FunParamTest.s: test/parser/elements/FunParamTest.cpp.s
+.PHONY : test/parser/elements/FunParamTest.s
 
 # target to generate assembly for a file
-test/parser/elements/FunParamaterTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamaterTest.cpp.s
-.PHONY : test/parser/elements/FunParamaterTest.cpp.s
+test/parser/elements/FunParamTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.s
+.PHONY : test/parser/elements/FunParamTest.cpp.s
 
 test/parser/elements/TypeTest.o: test/parser/elements/TypeTest.cpp.o
 .PHONY : test/parser/elements/TypeTest.o
@@ -1742,29 +1766,29 @@ test/parser/elements/parser/FunDeclParserTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s
 .PHONY : test/parser/elements/parser/FunDeclParserTest.cpp.s
 
-test/parser/elements/parser/FunParamaterParserTest.o: test/parser/elements/parser/FunParamaterParserTest.cpp.o
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.o
+test/parser/elements/parser/FunParamParserTest.o: test/parser/elements/parser/FunParamParserTest.cpp.o
+.PHONY : test/parser/elements/parser/FunParamParserTest.o
 
 # target to build an object file
-test/parser/elements/parser/FunParamaterParserTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.o
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.o
+test/parser/elements/parser/FunParamParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o
+.PHONY : test/parser/elements/parser/FunParamParserTest.cpp.o
 
-test/parser/elements/parser/FunParamaterParserTest.i: test/parser/elements/parser/FunParamaterParserTest.cpp.i
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.i
+test/parser/elements/parser/FunParamParserTest.i: test/parser/elements/parser/FunParamParserTest.cpp.i
+.PHONY : test/parser/elements/parser/FunParamParserTest.i
 
 # target to preprocess a source file
-test/parser/elements/parser/FunParamaterParserTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.i
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.i
+test/parser/elements/parser/FunParamParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.i
+.PHONY : test/parser/elements/parser/FunParamParserTest.cpp.i
 
-test/parser/elements/parser/FunParamaterParserTest.s: test/parser/elements/parser/FunParamaterParserTest.cpp.s
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.s
+test/parser/elements/parser/FunParamParserTest.s: test/parser/elements/parser/FunParamParserTest.cpp.s
+.PHONY : test/parser/elements/parser/FunParamParserTest.s
 
 # target to generate assembly for a file
-test/parser/elements/parser/FunParamaterParserTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.s
-.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.s
+test/parser/elements/parser/FunParamParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.s
+.PHONY : test/parser/elements/parser/FunParamParserTest.cpp.s
 
 test/parser/elements/parser/TypeParserTest.o: test/parser/elements/parser/TypeParserTest.cpp.o
 .PHONY : test/parser/elements/parser/TypeParserTest.o
@@ -1903,9 +1927,9 @@ help:
 	@echo "... src/parser/elements/FunDecl.o"
 	@echo "... src/parser/elements/FunDecl.i"
 	@echo "... src/parser/elements/FunDecl.s"
-	@echo "... src/parser/elements/FunParamater.o"
-	@echo "... src/parser/elements/FunParamater.i"
-	@echo "... src/parser/elements/FunParamater.s"
+	@echo "... src/parser/elements/FunParam.o"
+	@echo "... src/parser/elements/FunParam.i"
+	@echo "... src/parser/elements/FunParam.s"
 	@echo "... src/parser/elements/Type.o"
 	@echo "... src/parser/elements/Type.i"
 	@echo "... src/parser/elements/Type.s"
@@ -1915,9 +1939,9 @@ help:
 	@echo "... src/parser/elements/parser/FunDeclParser.o"
 	@echo "... src/parser/elements/parser/FunDeclParser.i"
 	@echo "... src/parser/elements/parser/FunDeclParser.s"
-	@echo "... src/parser/elements/parser/FunParamaterParser.o"
-	@echo "... src/parser/elements/parser/FunParamaterParser.i"
-	@echo "... src/parser/elements/parser/FunParamaterParser.s"
+	@echo "... src/parser/elements/parser/FunParamParser.o"
+	@echo "... src/parser/elements/parser/FunParamParser.i"
+	@echo "... src/parser/elements/parser/FunParamParser.s"
 	@echo "... src/parser/elements/parser/TypeParser.o"
 	@echo "... src/parser/elements/parser/TypeParser.i"
 	@echo "... src/parser/elements/parser/TypeParser.s"
@@ -1999,6 +2023,9 @@ help:
 	@echo "... test/parser/FileParserTest.o"
 	@echo "... test/parser/FileParserTest.i"
 	@echo "... test/parser/FileParserTest.s"
+	@echo "... test/parser/FunParserTest.o"
+	@echo "... test/parser/FunParserTest.i"
+	@echo "... test/parser/FunParserTest.s"
 	@echo "... test/parser/PackageParserTest.o"
 	@echo "... test/parser/PackageParserTest.i"
 	@echo "... test/parser/PackageParserTest.s"
@@ -2011,9 +2038,9 @@ help:
 	@echo "... test/parser/elements/FunDeclTest.o"
 	@echo "... test/parser/elements/FunDeclTest.i"
 	@echo "... test/parser/elements/FunDeclTest.s"
-	@echo "... test/parser/elements/FunParamaterTest.o"
-	@echo "... test/parser/elements/FunParamaterTest.i"
-	@echo "... test/parser/elements/FunParamaterTest.s"
+	@echo "... test/parser/elements/FunParamTest.o"
+	@echo "... test/parser/elements/FunParamTest.i"
+	@echo "... test/parser/elements/FunParamTest.s"
 	@echo "... test/parser/elements/TypeTest.o"
 	@echo "... test/parser/elements/TypeTest.i"
 	@echo "... test/parser/elements/TypeTest.s"
@@ -2023,9 +2050,9 @@ help:
 	@echo "... test/parser/elements/parser/FunDeclParserTest.o"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.i"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.s"
-	@echo "... test/parser/elements/parser/FunParamaterParserTest.o"
-	@echo "... test/parser/elements/parser/FunParamaterParserTest.i"
-	@echo "... test/parser/elements/parser/FunParamaterParserTest.s"
+	@echo "... test/parser/elements/parser/FunParamParserTest.o"
+	@echo "... test/parser/elements/parser/FunParamParserTest.i"
+	@echo "... test/parser/elements/parser/FunParamParserTest.s"
 	@echo "... test/parser/elements/parser/TypeParserTest.o"
 	@echo "... test/parser/elements/parser/TypeParserTest.i"
 	@echo "... test/parser/elements/parser/TypeParserTest.s"

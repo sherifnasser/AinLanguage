@@ -8,7 +8,7 @@
 #include "ConflictingDeclarationException.hpp"
 #include "FileScope.hpp"
 #include "FunDeclParser.hpp"
-#include "FunParamater.hpp"
+#include "FunParam.hpp"
 #include "FunDecl.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -32,19 +32,19 @@ struct FakeTypeParser:public BaseParser<SharedType>{
 
 };
 
-struct FakeFunParamaterParser:public BaseParser<SharedFunParamater>{
+struct FakeFunParamParser:public BaseParser<SharedFunParam>{
     int calledTimes=0;
-    std::vector<FunParamater> params;
-    FakeFunParamaterParser():BaseParser(nullptr,nullptr){}
-    SharedFunParamater parse()override{
-        auto param=std::make_shared<FunParamater>(params[calledTimes]);
+    std::vector<FunParam> params;
+    FakeFunParamParser():BaseParser(nullptr,nullptr){}
+    SharedFunParam parse()override{
+        auto param=std::make_shared<FunParam>(params[calledTimes]);
         calledTimes++;
         return param;
     }
 
     void addParam(std::wstring name,SharedType type){
         params.push_back(
-            FunParamater(
+            FunParam(
                 std::make_shared<std::wstring>(name),
                 type
             )
@@ -59,7 +59,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
         return fakeTypeParser;
     };
 
-    auto fakeFunParamParser=std::make_shared<FakeFunParamaterParser>();
+    auto fakeFunParamParser=std::make_shared<FakeFunParamParser>();
     auto fakeFunParamParserProvider=[&](SharedTokensIterator,SharedBaseScope,TypeParserProvider){
         return fakeFunParamParser;
     };

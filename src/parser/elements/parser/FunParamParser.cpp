@@ -1,9 +1,9 @@
-#include "FunParamaterParser.hpp"
-#include "FunParamater.hpp"
+#include "FunParamParser.hpp"
+#include "FunParam.hpp"
 #include "TypeParser.hpp"
 #include "SharedPtrTypes.hpp"
 
-FunParamaterParser::FunParamaterParser(
+FunParamParser::FunParamParser(
     SharedTokensIterator iterator,
     SharedBaseScope scope,
     TypeParserProvider typeParserProvider
@@ -13,7 +13,7 @@ typeParser(
     typeParserProvider(iterator,scope)
 ){}
 
-SharedFunParamater FunParamaterParser::parse(){
+SharedFunParam FunParamParser::parse(){
 
     auto nameId=expectIdentifier();
 
@@ -25,7 +25,7 @@ SharedFunParamater FunParamaterParser::parse(){
 
     auto paramType=typeParser->parse();
 
-    auto param=std::make_shared<FunParamater>(paramName,paramType);
+    auto param=std::make_shared<FunParam>(paramName,paramType);
 
     return param;
 }

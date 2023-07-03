@@ -4,12 +4,12 @@ struct FunDecl{
     SharedWString name;
     SharedType returnType;
     SharedBool isOperator;
-    SharedVector<SharedFunParamater> params;
+    SharedVector<SharedFunParam> params;
     FunDecl(
         SharedWString name,
         SharedType returnType,
         SharedBool isOperator,
-        SharedVector<SharedFunParamater> params
+        SharedVector<SharedFunParam> params
     );
 
     /**

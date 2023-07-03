@@ -643,24 +643,10 @@ CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp -o CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.s
 
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp
-
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp > CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.i
-
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.s
-
 CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/Type.cpp
 CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/Type.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.i: cmake_force
@@ -674,7 +660,7 @@ CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.s: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunDecl.cpp
 CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunDecl.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.i: cmake_force
@@ -685,10 +671,38 @@ CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunDecl.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.s
 
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp > CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.i
+
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.s
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.i"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp > CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.i
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.s"
+	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.s
+
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunDeclParser.cpp
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunDeclParser.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.i: cmake_force
@@ -702,7 +716,7 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.s: cmake_forc
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/VarDeclParser.cpp
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/VarDeclParser.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.i: cmake_force
@@ -716,7 +730,7 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.s: cmake_forc
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp
 
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.i: cmake_force
@@ -726,20 +740,6 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.i: cmake_force
 CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.s"
 	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.s
-
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o: CMakeFiles/ainsrc.dir/flags.make
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o: CMakeFiles/ainsrc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o -MF CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o.d -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp
-
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp > CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.i
-
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp -o CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.s
 
 CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o: CMakeFiles/ainsrc.dir/flags.make
 CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/VarDecl.cpp
@@ -868,13 +868,13 @@ ainsrc_OBJECTS = \
 "CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o" \
+"CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o" \
-"CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.o" \
 "CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o" \
@@ -926,13 +926,13 @@ libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/helpers/number_helper.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o
+libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o
-libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.o
 libainsrc.a: CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o

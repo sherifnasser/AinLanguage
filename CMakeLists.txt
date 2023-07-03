@@ -46,13 +46,13 @@ add_library(ainsrc
     src/helpers/ainio.cpp
     src/helpers/wchar_t_helper.cpp
     src/helpers/number_helper.cpp
-    src/parser/elements/FunParamater.cpp
     src/parser/elements/Type.cpp
     src/parser/elements/FunDecl.cpp
+    src/parser/elements/FunParam.cpp
+    src/parser/elements/parser/FunParamParser.cpp
     src/parser/elements/parser/FunDeclParser.cpp
     src/parser/elements/parser/VarDeclParser.cpp
     src/parser/elements/parser/TypeParser.cpp
-    src/parser/elements/parser/FunParamaterParser.cpp
     src/parser/elements/VarDecl.cpp
     src/parser/PackageParser.cpp
     src/parser/FunParser.cpp
@@ -87,15 +87,16 @@ set(TEST
     test/parser/PackageParserTest.cpp
     test/parser/elements/FunDeclTest.cpp
     test/parser/elements/VarDeclTest.cpp
-    test/parser/elements/FunParamaterTest.cpp
-    test/parser/elements/parser/FunParamaterParserTest.cpp
     test/parser/elements/parser/VarDeclParserTest.cpp
     test/parser/elements/parser/FunDeclParserTest.cpp
     test/parser/elements/parser/TypeParserTest.cpp
+    test/parser/elements/parser/FunParamParserTest.cpp
     test/parser/elements/TypeTest.cpp
+    test/parser/elements/FunParamTest.cpp
     test/parser/FileParserTest.cpp
     test/parser/TokensIteratorTest.cpp
     test/parser/TokensIteratorForTests.cpp
+    test/parser/FunParserTest.cpp
 )
 
 ### end files_cmake.cpp ###

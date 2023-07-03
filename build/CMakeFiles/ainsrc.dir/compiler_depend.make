@@ -4941,7 +4941,7 @@ CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o: /home/nasser/Projects/Programm
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
 
 CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/OldParser.cpp \
@@ -5889,12 +5889,12 @@ CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o: /home/nasser/Projects/P
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
 
-CMakeFiles/ainsrc.dir/src/parser/elements/FunParamater.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp \
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -6789,12 +6789,12 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: /home/nass
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp
 
-CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp \
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
@@ -7032,7 +7032,7 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamaterParser.cpp.o: /home
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp
 
@@ -8178,7 +8178,7 @@ CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o: /home/nasser/Projects/Programmin
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
 
@@ -12171,15 +12171,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamaterParser.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunDeclParser.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParamater.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp:
 
@@ -12202,8 +12198,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/OldParser.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp:
 
@@ -12459,6 +12453,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/locale.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp:
+
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h:
 
 /usr/include/wchar.h:
@@ -12486,6 +12482,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/bits/types/struct_tm.h:
 
 /usr/include/c++/12.2/ios:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp:
 
 /usr/include/sys/types.h:
 
@@ -12862,6 +12860,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp:
 
 /usr/include/c++/12.2/bits/uniform_int_dist.h:
 

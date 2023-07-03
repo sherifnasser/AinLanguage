@@ -22,3 +22,7 @@ SharedWString Variable::getName(){
 SharedBool Variable::isValue(){
     return isVal;
 }
+
+SharedType Variable::getType(){
+    return this->type;
+}

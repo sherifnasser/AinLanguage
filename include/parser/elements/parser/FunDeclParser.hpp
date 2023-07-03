@@ -6,13 +6,13 @@
 class FunDeclParser:public BaseParser<SharedFunDecl>{
     private:
         SharedBaseParser<SharedType> returnTypeParser;
-        SharedBaseParser<SharedFunParamater> paramsParser;
+        SharedBaseParser<SharedFunParam> paramsParser;
     public:
         FunDeclParser(
             SharedTokensIterator iterator,
             SharedBaseScope scope,
             TypeParserProvider typeParserProvider,
-            FunParamaterParserProvider paramsParserProvider
+            FunParamParserProvider paramsParserProvider
         );
         SharedFunDecl parse()override;
 };

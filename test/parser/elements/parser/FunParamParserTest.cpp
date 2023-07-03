@@ -1,7 +1,7 @@
 #include "LexerToken.hpp"
 #include "SharedPtrTypes.hpp"
-#include "FunParamaterParser.hpp"
-#include "FunParamater.hpp"
+#include "FunParamParser.hpp"
+#include "FunParam.hpp"
 #include "SymbolToken.hpp"
 #include "TokensIteratorForTests.hpp"
 #include "PackageScope.hpp"
@@ -21,7 +21,7 @@ struct FakeTypeParser:public BaseParser<SharedType>{
 };
 
 
-TEST_CASE("Test function paramater parser","[FunParamaterParserTest.cpp]"){
+TEST_CASE("Test function parameter parser","[FunParamParserTest.cpp]"){
     auto fakeTypeParser=std::make_shared<FakeTypeParser>();
     auto fakeTypeParserProvider=[&](SharedTokensIterator,SharedBaseScope){
         return fakeTypeParser;
@@ -29,13 +29,13 @@ TEST_CASE("Test function paramater parser","[FunParamaterParserTest.cpp]"){
     fakeTypeParser->type=Type::INT;
     auto scope = std::make_shared<FileScope>(L"Test",PackageScope::AIN_PACKAGE);
 
-    SECTION("parsing a function paramater"){
+    SECTION("parsing a function parameter"){
         auto iterator=getTokensIterator({
                 LexerToken::IdentifierToken(L"param1"),
                 SymbolToken::COLON,
                 /**Fake parsed type*/
         });
-        auto result=FunParamaterParser(
+        auto result=FunParamParser(
             iterator,
             scope,
             fakeTypeParserProvider
@@ -51,7 +51,7 @@ TEST_CASE("Test function paramater parser","[FunParamaterParserTest.cpp]"){
                 SymbolToken::COLON,
                 /**Fake parsed type*/
         });
-        auto parser=FunParamaterParser(
+        auto parser=FunParamParser(
             iterator,
             scope,
             fakeTypeParserProvider
@@ -66,7 +66,7 @@ TEST_CASE("Test function paramater parser","[FunParamaterParserTest.cpp]"){
                 LexerToken::IdentifierToken(L"param1"),
                 /**Fake parsed type*/
         });
-        auto parser=FunParamaterParser(
+        auto parser=FunParamParser(
             iterator,
             scope,
             fakeTypeParserProvider

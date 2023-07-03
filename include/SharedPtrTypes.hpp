@@ -28,7 +28,7 @@ class ClassScope;
 struct FunDecl;
 struct VarDecl;
 struct Type;
-struct FunParamater;
+struct FunParam;
 class IValue;
 class Variable;
 class IStatement;
@@ -92,7 +92,7 @@ using SharedVarDecl=std::shared_ptr<VarDecl>;
 
 using SharedType=std::shared_ptr<Type>;
 
-using SharedFunParamater=std::shared_ptr<FunParamater>;
+using SharedFunParam=std::shared_ptr<FunParam>;
 
 using SharedIValue=std::shared_ptr<IValue>;
 

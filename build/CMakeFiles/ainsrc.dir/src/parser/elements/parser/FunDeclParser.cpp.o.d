@@ -185,5 +185,5 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamaterParser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParamater.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp
