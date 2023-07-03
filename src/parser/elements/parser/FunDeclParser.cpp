@@ -4,6 +4,7 @@
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
 #include "OperatorFunShouldHaveSingleParamException.hpp"
+#include "ParserProvidersAliases.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
 #include "TokensIterator.hpp"
@@ -13,14 +14,24 @@
 #include "FunParamaterParser.hpp"
 #include "FunParamater.hpp"
 #include <algorithm>
+#include <functional>
 #include <memory>
 #include <string>
 #include <vector>
 
 FunDeclParser::FunDeclParser(
     SharedTokensIterator iterator,
-    SharedBaseScope scope
-):BaseParser(iterator,scope){}
+    SharedBaseScope scope,
+    TypeParserProvider typeParserProvider,
+    FunParamaterParserProvider paramsParserProvider
+):
+BaseParser(iterator,scope),
+returnTypeParser(
+    typeParserProvider(iterator,scope)
+),
+paramsParser(
+    paramsParserProvider(iterator,scope,typeParserProvider)
+){}
 
 SharedFunDecl FunDeclParser::parse(){
 
@@ -47,7 +58,7 @@ SharedFunDecl FunDeclParser::parse(){
         if(iterator->nextMatch(SymbolToken::RIGHT_PARENTHESIS))
             break;
 
-        auto param=FunParamaterParser(iterator).parse();
+        auto param=paramsParser->parse();
 
         auto isParamDeclared=std::find_if(
             params->begin(),
@@ -78,7 +89,7 @@ SharedFunDecl FunDeclParser::parse(){
 
     if(colonFound){
         iterator->next();
-        funReturnType=TypeParser(iterator).parse();
+        funReturnType=returnTypeParser->parse();
     }
 
     auto fun=std::make_shared<FunDecl>(

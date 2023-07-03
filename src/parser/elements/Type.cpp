@@ -12,6 +12,18 @@ bool Type::operator!=(const Type& type)const{
     return !(*this==type);
 }
 
+SharedClassScope Type::getClassScope(){
+    return classScope;
+}
+
+void Type::setClassScope(SharedClassScope classScope){
+    this->classScope = classScope;
+}
+
+SharedWString Type::getName(){
+    return name;
+}
+
 SharedType Type::UNIT=std::make_shared<Type>(
     std::make_shared<std::wstring>(L"الوحدة")
 );

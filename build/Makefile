@@ -662,6 +662,30 @@ src/parser/FileParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.s
 .PHONY : src/parser/FileParser.cpp.s
 
+src/parser/FunParser.o: src/parser/FunParser.cpp.o
+.PHONY : src/parser/FunParser.o
+
+# target to build an object file
+src/parser/FunParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o
+.PHONY : src/parser/FunParser.cpp.o
+
+src/parser/FunParser.i: src/parser/FunParser.cpp.i
+.PHONY : src/parser/FunParser.i
+
+# target to preprocess a source file
+src/parser/FunParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.i
+.PHONY : src/parser/FunParser.cpp.i
+
+src/parser/FunParser.s: src/parser/FunParser.cpp.s
+.PHONY : src/parser/FunParser.s
+
+# target to generate assembly for a file
+src/parser/FunParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.s
+.PHONY : src/parser/FunParser.cpp.s
+
 src/parser/OldParser.o: src/parser/OldParser.cpp.o
 .PHONY : src/parser/OldParser.o
 
@@ -1142,6 +1166,30 @@ src/scope/Scope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.s
 .PHONY : src/scope/Scope.cpp.s
 
+src/scope/StmListScope.o: src/scope/StmListScope.cpp.o
+.PHONY : src/scope/StmListScope.o
+
+# target to build an object file
+src/scope/StmListScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.o
+.PHONY : src/scope/StmListScope.cpp.o
+
+src/scope/StmListScope.i: src/scope/StmListScope.cpp.i
+.PHONY : src/scope/StmListScope.i
+
+# target to preprocess a source file
+src/scope/StmListScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.i
+.PHONY : src/scope/StmListScope.cpp.i
+
+src/scope/StmListScope.s: src/scope/StmListScope.cpp.s
+.PHONY : src/scope/StmListScope.s
+
+# target to generate assembly for a file
+src/scope/StmListScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.s
+.PHONY : src/scope/StmListScope.cpp.s
+
 src/scope/Variable.o: src/scope/Variable.cpp.o
 .PHONY : src/scope/Variable.o
 
@@ -1165,6 +1213,30 @@ src/scope/Variable.s: src/scope/Variable.cpp.s
 src/scope/Variable.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.s
 .PHONY : src/scope/Variable.cpp.s
+
+src/semantics/TypeChecker.o: src/semantics/TypeChecker.cpp.o
+.PHONY : src/semantics/TypeChecker.o
+
+# target to build an object file
+src/semantics/TypeChecker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/TypeChecker.cpp.o
+.PHONY : src/semantics/TypeChecker.cpp.o
+
+src/semantics/TypeChecker.i: src/semantics/TypeChecker.cpp.i
+.PHONY : src/semantics/TypeChecker.i
+
+# target to preprocess a source file
+src/semantics/TypeChecker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/TypeChecker.cpp.i
+.PHONY : src/semantics/TypeChecker.cpp.i
+
+src/semantics/TypeChecker.s: src/semantics/TypeChecker.cpp.s
+.PHONY : src/semantics/TypeChecker.s
+
+# target to generate assembly for a file
+src/semantics/TypeChecker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/TypeChecker.cpp.s
+.PHONY : src/semantics/TypeChecker.cpp.s
 
 src/statement/DoWhileStatement.o: src/statement/DoWhileStatement.cpp.o
 .PHONY : src/statement/DoWhileStatement.o
@@ -1670,6 +1742,78 @@ test/parser/elements/parser/FunDeclParserTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s
 .PHONY : test/parser/elements/parser/FunDeclParserTest.cpp.s
 
+test/parser/elements/parser/FunParamaterParserTest.o: test/parser/elements/parser/FunParamaterParserTest.cpp.o
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.o
+
+# target to build an object file
+test/parser/elements/parser/FunParamaterParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.o
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.o
+
+test/parser/elements/parser/FunParamaterParserTest.i: test/parser/elements/parser/FunParamaterParserTest.cpp.i
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.i
+
+# target to preprocess a source file
+test/parser/elements/parser/FunParamaterParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.i
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.i
+
+test/parser/elements/parser/FunParamaterParserTest.s: test/parser/elements/parser/FunParamaterParserTest.cpp.s
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.s
+
+# target to generate assembly for a file
+test/parser/elements/parser/FunParamaterParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.s
+.PHONY : test/parser/elements/parser/FunParamaterParserTest.cpp.s
+
+test/parser/elements/parser/TypeParserTest.o: test/parser/elements/parser/TypeParserTest.cpp.o
+.PHONY : test/parser/elements/parser/TypeParserTest.o
+
+# target to build an object file
+test/parser/elements/parser/TypeParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o
+.PHONY : test/parser/elements/parser/TypeParserTest.cpp.o
+
+test/parser/elements/parser/TypeParserTest.i: test/parser/elements/parser/TypeParserTest.cpp.i
+.PHONY : test/parser/elements/parser/TypeParserTest.i
+
+# target to preprocess a source file
+test/parser/elements/parser/TypeParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.i
+.PHONY : test/parser/elements/parser/TypeParserTest.cpp.i
+
+test/parser/elements/parser/TypeParserTest.s: test/parser/elements/parser/TypeParserTest.cpp.s
+.PHONY : test/parser/elements/parser/TypeParserTest.s
+
+# target to generate assembly for a file
+test/parser/elements/parser/TypeParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.s
+.PHONY : test/parser/elements/parser/TypeParserTest.cpp.s
+
+test/parser/elements/parser/VarDeclParserTest.o: test/parser/elements/parser/VarDeclParserTest.cpp.o
+.PHONY : test/parser/elements/parser/VarDeclParserTest.o
+
+# target to build an object file
+test/parser/elements/parser/VarDeclParserTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o
+.PHONY : test/parser/elements/parser/VarDeclParserTest.cpp.o
+
+test/parser/elements/parser/VarDeclParserTest.i: test/parser/elements/parser/VarDeclParserTest.cpp.i
+.PHONY : test/parser/elements/parser/VarDeclParserTest.i
+
+# target to preprocess a source file
+test/parser/elements/parser/VarDeclParserTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.i
+.PHONY : test/parser/elements/parser/VarDeclParserTest.cpp.i
+
+test/parser/elements/parser/VarDeclParserTest.s: test/parser/elements/parser/VarDeclParserTest.cpp.s
+.PHONY : test/parser/elements/parser/VarDeclParserTest.s
+
+# target to generate assembly for a file
+test/parser/elements/parser/VarDeclParserTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.s
+.PHONY : test/parser/elements/parser/VarDeclParserTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1744,6 +1888,9 @@ help:
 	@echo "... src/parser/FileParser.o"
 	@echo "... src/parser/FileParser.i"
 	@echo "... src/parser/FileParser.s"
+	@echo "... src/parser/FunParser.o"
+	@echo "... src/parser/FunParser.i"
+	@echo "... src/parser/FunParser.s"
 	@echo "... src/parser/OldParser.o"
 	@echo "... src/parser/OldParser.i"
 	@echo "... src/parser/OldParser.s"
@@ -1804,9 +1951,15 @@ help:
 	@echo "... src/scope/Scope.o"
 	@echo "... src/scope/Scope.i"
 	@echo "... src/scope/Scope.s"
+	@echo "... src/scope/StmListScope.o"
+	@echo "... src/scope/StmListScope.i"
+	@echo "... src/scope/StmListScope.s"
 	@echo "... src/scope/Variable.o"
 	@echo "... src/scope/Variable.i"
 	@echo "... src/scope/Variable.s"
+	@echo "... src/semantics/TypeChecker.o"
+	@echo "... src/semantics/TypeChecker.i"
+	@echo "... src/semantics/TypeChecker.s"
 	@echo "... src/statement/DoWhileStatement.o"
 	@echo "... src/statement/DoWhileStatement.i"
 	@echo "... src/statement/DoWhileStatement.s"
@@ -1870,6 +2023,15 @@ help:
 	@echo "... test/parser/elements/parser/FunDeclParserTest.o"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.i"
 	@echo "... test/parser/elements/parser/FunDeclParserTest.s"
+	@echo "... test/parser/elements/parser/FunParamaterParserTest.o"
+	@echo "... test/parser/elements/parser/FunParamaterParserTest.i"
+	@echo "... test/parser/elements/parser/FunParamaterParserTest.s"
+	@echo "... test/parser/elements/parser/TypeParserTest.o"
+	@echo "... test/parser/elements/parser/TypeParserTest.i"
+	@echo "... test/parser/elements/parser/TypeParserTest.s"
+	@echo "... test/parser/elements/parser/VarDeclParserTest.o"
+	@echo "... test/parser/elements/parser/VarDeclParserTest.i"
+	@echo "... test/parser/elements/parser/VarDeclParserTest.s"
 .PHONY : help
 
 

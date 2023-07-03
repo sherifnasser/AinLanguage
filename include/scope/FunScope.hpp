@@ -1,21 +1,22 @@
 #pragma once
-#include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
+#include "StmListScope.hpp"
 #include <map>
-class FunScope:public BaseScope{
+#include <string>
+
+class FunScope:public StmListScope{
     private:
         SharedFunDecl decl;
         SharedClassScope returnType;
-        std::map<SharedWString, SharedVariable> locals;
-        SharedVector<SharedIStatement> stmList;
+        // TODO add params for shadowing
+        // SharedMap<std::wstring, SharedVariable> params;
     public:
         FunScope(
             SharedBaseScope parentScope,
-            SharedFunDecl decl,
-            std::map<SharedWString, SharedVariable> locals,
-            SharedVector<SharedIStatement> stmList
+            SharedFunDecl decl
         );
         void check();
-        SharedIValue invoke(std::map<SharedWString, SharedIValue> params);
+        SharedIValue invoke(std::map<std::wstring, SharedIValue> params);
         SharedClassScope getReturnType();
+        void setReturnType(SharedClassScope returnType);
 };

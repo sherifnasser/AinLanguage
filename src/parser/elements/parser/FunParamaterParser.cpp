@@ -3,8 +3,15 @@
 #include "TypeParser.hpp"
 #include "SharedPtrTypes.hpp"
 
-FunParamaterParser::FunParamaterParser(SharedTokensIterator iterator)
-:BaseParser(iterator,nullptr){}
+FunParamaterParser::FunParamaterParser(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope,
+    TypeParserProvider typeParserProvider
+):
+BaseParser(iterator,scope),
+typeParser(
+    typeParserProvider(iterator,scope)
+){}
 
 SharedFunParamater FunParamaterParser::parse(){
 
@@ -16,7 +23,7 @@ SharedFunParamater FunParamaterParser::parse(){
 
     auto paramName=std::make_shared<std::wstring>(nameId);
 
-    auto paramType=TypeParser(iterator).parse();
+    auto paramType=typeParser->parse();
 
     auto param=std::make_shared<FunParamater>(paramName,paramType);
 

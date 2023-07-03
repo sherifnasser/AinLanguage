@@ -8,8 +8,12 @@
 
 VarDeclParser::VarDeclParser(
     SharedTokensIterator iterator,
-    SharedBaseScope scope
-):BaseParser(iterator,scope){}
+    SharedBaseScope scope,
+    TypeParserProvider typeParserProvider
+):BaseParser(iterator,scope),
+typeParser(
+    typeParserProvider(iterator,scope)
+){}
 
 SharedVarDecl VarDeclParser::parse(){
 
@@ -37,7 +41,7 @@ SharedVarDecl VarDeclParser::parse(){
 
     if(colonFound){
         iterator->next();
-        type=TypeParser(iterator).parse();
+        type=typeParser->parse();
     }
 
     auto var=std::make_shared<VarDecl>(

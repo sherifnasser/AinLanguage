@@ -8,9 +8,9 @@
 namespace Catch {
     template<>
     struct StringMaker<Type> {
-        static std::string convert( Type const& value ){
+        static std::string convert( Type value ){
             return "Type: ("+std::string(
-                toCharPointer(*value.name)
+                toCharPointer(*value.getName())
             )+")";
         }
     };

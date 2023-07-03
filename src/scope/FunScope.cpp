@@ -2,37 +2,35 @@
 #include "FunDecl.hpp"
 #include "SharedPtrTypes.hpp"
 #include "FunParamater.hpp"
+#include "StmListScope.hpp"
 #include "Variable.hpp"
 #include "IStatement.hpp"
+#include "FunDecl.hpp"
+#include <string>
 
 FunScope::FunScope(
     SharedBaseScope parentScope,
-    SharedFunDecl decl,
-    std::map<SharedWString, SharedVariable> locals,
-    SharedVector<SharedIStatement> stmList
-)
-:BaseScope(*decl->name,parentScope)
-,decl(decl),locals(locals),stmList(stmList)
+    SharedFunDecl decl
+):StmListScope(*decl->name,parentScope),decl(decl)
 {}
 
 void FunScope::check(){
-    this->returnType=getClassByType(decl->returnType);
     
-    for(auto param:*decl->params){
-        auto paramType=getClassByType(param->type);
-        locals[param->name]->setType(paramType);
-    }
-
     for(auto stm:*stmList){
         stm->check();
     }
 }
 
-SharedIValue FunScope::invoke(std::map<SharedWString, SharedIValue> params) {
+SharedIValue FunScope::invoke(std::map<std::wstring, SharedIValue> params){
+    
     // TODO
     return nullptr;
 }
 
 SharedClassScope FunScope::getReturnType(){
     return returnType;
+}
+
+void FunScope::setReturnType(SharedClassScope returnType){
+    this->returnType=returnType;
 }

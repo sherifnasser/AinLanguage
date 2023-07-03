@@ -4,16 +4,16 @@
 #include "FileScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include <memory>
+
 FileParser::FileParser(
     SharedTokensIterator iterator,
-    SharedPackageScope scope,
-    std::wstring filePath
-):BaseParser(iterator,scope),filePath(filePath){}
+    std::wstring filePath,
+    SharedBaseParser<SharedPackageScope> packageParser
+):BaseParser(iterator,nullptr),filePath(filePath),packageParser(packageParser){}
 
 
 SharedFileScope FileParser::parse(){
-    PackageParser pp(iterator,scope);
-    auto package=pp.parse();
+    auto package=packageParser->parse();
     auto file=std::make_shared<FileScope>(filePath,package);
     package->addFile(file);
     return file;

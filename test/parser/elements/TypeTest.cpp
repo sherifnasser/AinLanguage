@@ -3,15 +3,15 @@
 
 TEST_CASE("Type tests", "[TypeTest.cpp]") {
     // Create some shared pointers to test data
-    auto intTypeName=Type::INT->name;
-    auto doubleTypeName=Type::DOUBLE->name;
+    auto intTypeName=Type::INT->getName();
+    auto doubleTypeName=Type::DOUBLE->getName();
 
     SECTION("constructor sets name property correctly") {
         // Create a new Type object
         Type intType(intTypeName);
 
         // Check that the object's name property was set correctly
-        REQUIRE(intType.name == intTypeName);
+        REQUIRE(intType.getName() == intTypeName);
     }
 
     SECTION("equality operator returns true for equal objects") {

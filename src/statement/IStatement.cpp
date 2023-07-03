@@ -1,3 +1,4 @@
 #include "IStatement.hpp"
 
-IStatement::IStatement(SharedBaseScope runScope):runScope(runScope){}
+IStatement::IStatement(int lineNumber,SharedStmListScope runScope)
+:lineNumber(lineNumber),runScope(runScope){}

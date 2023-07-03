@@ -149,7 +149,12 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/vector \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc /usr/include/catch2/catch.hpp \
+ /usr/include/c++/12.2/bits/vector.tcc /usr/include/c++/12.2/map \
+ /usr/include/c++/12.2/bits/stl_tree.h \
+ /usr/include/c++/12.2/bits/node_handle.h \
+ /usr/include/c++/12.2/bits/stl_map.h \
+ /usr/include/c++/12.2/bits/stl_multimap.h \
+ /usr/include/c++/12.2/bits/erase_if.h /usr/include/catch2/catch.hpp \
  /usr/include/c++/12.2/cstddef /usr/include/c++/12.2/cassert \
  /usr/include/assert.h /usr/include/c++/12.2/ctime \
  /usr/include/c++/12.2/ratio /usr/include/c++/12.2/chrono \
@@ -161,9 +166,7 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /usr/include/c++/12.2/bits/hashtable.h \
  /usr/include/c++/12.2/bits/hashtable_policy.h \
  /usr/include/c++/12.2/bits/enable_special_members.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/unordered_map.h \
- /usr/include/c++/12.2/bits/erase_if.h /usr/include/c++/12.2/array \
+ /usr/include/c++/12.2/bits/unordered_map.h /usr/include/c++/12.2/array \
  /usr/include/c++/12.2/compare /usr/include/c++/12.2/bits/stl_algo.h \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \
@@ -195,10 +198,7 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/opt_random.h \
  /usr/include/c++/12.2/bits/random.tcc /usr/include/c++/12.2/numeric \
  /usr/include/c++/12.2/bits/stl_numeric.h \
- /usr/include/c++/12.2/pstl/glue_numeric_defs.h /usr/include/c++/12.2/map \
- /usr/include/c++/12.2/bits/stl_tree.h \
- /usr/include/c++/12.2/bits/stl_map.h \
- /usr/include/c++/12.2/bits/stl_multimap.h /usr/include/c++/12.2/set \
+ /usr/include/c++/12.2/pstl/glue_numeric_defs.h /usr/include/c++/12.2/set \
  /usr/include/c++/12.2/bits/stl_set.h \
  /usr/include/c++/12.2/bits/stl_multiset.h /usr/include/c++/12.2/cstring \
  /usr/include/string.h /usr/include/strings.h \

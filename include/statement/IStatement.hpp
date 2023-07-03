@@ -2,9 +2,10 @@
 #include "SharedPtrTypes.hpp"
 class IStatement{
     protected:
-        SharedBaseScope runScope;
+        int lineNumber;
+        SharedStmListScope runScope;
     public:
-        IStatement(SharedBaseScope runScope);
+        IStatement(int lineNumber,SharedStmListScope runScope);
         virtual void check()=0;
         virtual void run()=0;
 };

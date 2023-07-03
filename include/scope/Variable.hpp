@@ -3,19 +3,15 @@
 class Variable{
     private:
         SharedWString name;
+        SharedType type;
         SharedBool isVal;
-        SharedClassScope type;
         SharedIValue value;
     public:
-        Variable(SharedWString name,SharedBool isVal);
+        Variable(SharedWString name,SharedType type,SharedBool isVal);
 
         SharedIValue getValue();
 
         void setValue(SharedIValue value);
-
-        SharedClassScope getType();
-        
-        void setType(SharedClassScope type);
 
         SharedWString getName();
 

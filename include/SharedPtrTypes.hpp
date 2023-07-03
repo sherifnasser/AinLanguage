@@ -2,8 +2,15 @@
 #include<iostream>
 #include<memory>
 #include<vector>
+#include<map>
 #include<string>
 
+
+template<typename T>
+class BaseParser;
+namespace Semantics {
+    class ITypeChecker;
+};
 class IAinFile;
 class ILexer;
 class ILexerLine;
@@ -14,6 +21,7 @@ class BaseScope;
 class PackageScope;
 class FileScope;
 class GlobalScope;
+class StmListScope;
 class FunScope;
 class OldFunScope;
 class ClassScope;
@@ -36,6 +44,9 @@ struct TokensIterator;
 
 template<typename T>
 using SharedVector=std::shared_ptr<std::vector<T>>;
+
+template<typename Key,typename Val>
+using SharedMap=std::shared_ptr<std::map<Key,Val>>;
 
 template<typename T>
 using SharedLinkedListNode=std::shared_ptr<LinkedListNode<T>>;
@@ -71,6 +82,8 @@ using SharedClassScope=std::shared_ptr<ClassScope>;
 
 using SharedFunScope=std::shared_ptr<FunScope>;
 
+using SharedStmListScope=std::shared_ptr<StmListScope>;
+
 using SharedOldFunScope=std::shared_ptr<OldFunScope>;
 
 using SharedFunDecl=std::shared_ptr<FunDecl>;
@@ -87,6 +100,8 @@ using SharedVariable=std::shared_ptr<Variable>;
 
 using SharedIStatement=std::shared_ptr<IStatement>;
 
+using SharedStmList=SharedVector<SharedIStatement>;
+
 using SharedOldVariable=std::shared_ptr<OldVariable>;
 
 using SharedOldConstant=std::shared_ptr<OldConstant>;
@@ -96,3 +111,8 @@ using SharedIOldStatement=std::shared_ptr<IOldStatement>;
 using SharedIOldExpression=std::shared_ptr<IOldExpression>;
 
 using SharedTokensIterator=std::shared_ptr<TokensIterator>;
+
+template<typename T>
+using SharedBaseParser=std::shared_ptr<BaseParser<T>>;
+
+using SharedITypeChecker=std::shared_ptr<Semantics::ITypeChecker>;

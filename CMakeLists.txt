@@ -25,12 +25,14 @@ add_library(ainsrc
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
     src/scope/OldVariable.cpp
+    src/scope/StmListScope.cpp
     src/scope/Scope.cpp
     src/scope/OldConstant.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/scope/GlobalScope.cpp
     src/ain_file/AinFile.cpp
+    src/semantics/TypeChecker.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
@@ -53,6 +55,7 @@ add_library(ainsrc
     src/parser/elements/parser/FunParamaterParser.cpp
     src/parser/elements/VarDecl.cpp
     src/parser/PackageParser.cpp
+    src/parser/FunParser.cpp
     src/parser/TokensIterator.cpp
     src/parser/OldParser.cpp
     src/parser/FileParser.cpp
@@ -69,6 +72,7 @@ set(INCLUDE
     include/scope/
     include/scope/class/
     include/ain_file/
+    include/semantics/
     include/statement/
     include/helpers/
     include/parser/
@@ -84,7 +88,10 @@ set(TEST
     test/parser/elements/FunDeclTest.cpp
     test/parser/elements/VarDeclTest.cpp
     test/parser/elements/FunParamaterTest.cpp
+    test/parser/elements/parser/FunParamaterParserTest.cpp
+    test/parser/elements/parser/VarDeclParserTest.cpp
     test/parser/elements/parser/FunDeclParserTest.cpp
+    test/parser/elements/parser/TypeParserTest.cpp
     test/parser/elements/TypeTest.cpp
     test/parser/FileParserTest.cpp
     test/parser/TokensIteratorTest.cpp
@@ -92,16 +99,6 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
-
-
-
-
-
-
-
-
-
-
 
 
 set(TEST_INCLUDE

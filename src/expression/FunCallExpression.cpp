@@ -77,5 +77,4 @@ std::wstring FunCallExpression::evaluate(SharedScope evalScope){
         fun->getVars()->clear();
         return returnedvalue;
     }
-    return NULL;
 }

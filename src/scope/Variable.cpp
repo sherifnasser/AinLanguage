@@ -2,8 +2,10 @@
 #include "SharedPtrTypes.hpp"
 #include "VarDecl.hpp"
 
-Variable::Variable(SharedWString name,SharedBool isVal)
-:name(name),isVal(isVal){}
+
+
+Variable::Variable(SharedWString name,SharedType type,SharedBool isVal)
+:name(name),type(type),isVal(isVal){}
 
 SharedIValue Variable::getValue(){
     return value;
@@ -11,14 +13,6 @@ SharedIValue Variable::getValue(){
 
 void Variable::setValue(SharedIValue value){
     this->value=value;
-}
-
-SharedClassScope Variable::getType(){
-    return this->type;
-}
-
-void Variable::setType(SharedClassScope type){
-    this->type=type;
 }
 
 SharedWString Variable::getName(){

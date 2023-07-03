@@ -20,6 +20,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamaterParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamaterParserTest.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
