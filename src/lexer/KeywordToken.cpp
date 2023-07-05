@@ -34,6 +34,7 @@ KeywordToken KeywordToken::RETURN=KeywordToken(L"بقيمة");
 
 KeywordToken KeywordToken::PACKAGE=KeywordToken(L"حزمة");
 KeywordToken KeywordToken::IMPORT=KeywordToken(L"استيراد");
+KeywordToken KeywordToken::NEW=KeywordToken(L"إنشاء");
 KeywordToken KeywordToken::CLASS=KeywordToken(L"طراز");
 KeywordToken KeywordToken::INTERFACE=KeywordToken(L"وسيط");
 KeywordToken KeywordToken::OBJECT=KeywordToken(L"كائن");

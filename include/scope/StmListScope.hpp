@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseScope.hpp"
+#include "SharedPtrTypes.hpp"
+#include <string>
 
 class StmListScope:public BaseScope{
 
@@ -10,4 +12,6 @@ class StmListScope:public BaseScope{
 
     public:
         SharedMap<std::wstring, SharedVariable> getLocals();
+        SharedVariable getVarByName(std::wstring varName)override;
+        SharedVariable getLocalByName(std::wstring varName);
 };

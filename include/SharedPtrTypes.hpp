@@ -32,6 +32,7 @@ struct FunParam;
 class IValue;
 class Variable;
 class IStatement;
+class IExpression;
 class OldVariable;
 class OldConstant;
 class IOldStatement;
@@ -99,6 +100,8 @@ using SharedIValue=std::shared_ptr<IValue>;
 using SharedVariable=std::shared_ptr<Variable>;
 
 using SharedIStatement=std::shared_ptr<IStatement>;
+
+using SharedIExpression=std::shared_ptr<IExpression>;
 
 using SharedStmList=SharedVector<SharedIStatement>;
 

@@ -2,6 +2,7 @@
 #include "FunDeclParser.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
+#include "Type.hpp"
 #include "TypeChecker.hpp"
 #include "ClassScope.hpp"
 #include "FunDecl.hpp"
@@ -29,6 +30,9 @@ stmListParserProvider(stmListParserProvider){}
 SharedFunScope FunParser::parse(){
 
     auto decl=funDeclParser->parse();
+    
+    if(decl->hasImplicitReturnType())
+        decl->returnType=Type::UINT;
     
     auto funScope=std::make_shared<FunScope>(
         FunScope(

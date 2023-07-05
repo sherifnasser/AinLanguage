@@ -2,9 +2,9 @@
 #include "SharedPtrTypes.hpp"
 class IValue{
     protected:
-        SharedClassScope type;
-        IValue(SharedClassScope type);
+        SharedType type;
+        IValue(SharedType type);
     public:
-        SharedClassScope getType();
+        SharedType getType();
         virtual ~IValue();
 };

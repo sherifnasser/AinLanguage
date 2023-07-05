@@ -9,6 +9,12 @@
 
 namespace Semantics {
 
+    TypeChecker::TypeCheckStatement::TypeCheckStatement(
+        int lineNumber,
+        SharedBaseScope searchScope,
+        SharedType type
+    ):lineNumber(lineNumber),searchScope(searchScope),type(type){}
+
     TypeChecker::TypeChecker(){}
 
     std::shared_ptr<TypeChecker> TypeChecker::getInstance(){

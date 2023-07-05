@@ -10,6 +10,7 @@ class Type{
         bool operator==(const Type& type)const;
         bool operator!=(const Type& type)const;
         static SharedType UNIT;
+        static SharedType CHAR;
         static SharedType INT;
         static SharedType LONG;
         static SharedType FLOAT;
@@ -17,6 +18,7 @@ class Type{
         static SharedType ULONG;
         static SharedType DOUBLE;
         static SharedType BOOL;
+        static SharedType STRING;
 
         SharedClassScope getClassScope();
         

@@ -28,6 +28,10 @@ SharedType Type::UNIT=std::make_shared<Type>(
     std::make_shared<std::wstring>(L"الوحدة")
 );
 
+SharedType Type::CHAR=std::make_shared<Type>(
+    std::make_shared<std::wstring>(L"حرف")
+);
+
 SharedType Type::INT=std::make_shared<Type>(
     std::make_shared<std::wstring>(L"صحيح")
 );
@@ -57,4 +61,8 @@ SharedType Type::DOUBLE=std::make_shared<Type>(
 
 SharedType Type::BOOL=std::make_shared<Type>(
     std::make_shared<std::wstring>(L"منطقي")
+);
+
+SharedType Type::STRING=std::make_shared<Type>(
+    std::make_shared<std::wstring>(L"نص")
 );

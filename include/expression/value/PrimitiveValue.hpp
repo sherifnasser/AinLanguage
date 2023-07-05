@@ -5,13 +5,13 @@ class PrimitiveValue:public IValue{
     protected:
         T value;
     public:
-        PrimitiveValue<T>(SharedClassScope type,T value);
+        PrimitiveValue<T>(SharedType type,T value);
         T getValue();
 };
 
 
 template<typename T>
-PrimitiveValue<T>::PrimitiveValue(SharedClassScope type,T value)
+PrimitiveValue<T>::PrimitiveValue(SharedType type,T value)
 :IValue(type),value(value){}
 
 template<typename T>

@@ -1,6 +1,7 @@
 #pragma once
 // TODO: change name
 #include "SharedPtrTypes.hpp"
+#include <string>
 class BaseScope{
 protected:
     SharedBaseScope parentScope;
@@ -12,4 +13,6 @@ public:
     std::wstring getName();
     virtual ~BaseScope();
     virtual SharedClassScope getClassByType(SharedType type);
+    virtual SharedVariable getVarByName(std::wstring varName);
+    virtual SharedVariable getFunByDecl(SharedFunDecl funDecl);
 };
