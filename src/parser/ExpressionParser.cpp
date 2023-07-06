@@ -33,7 +33,7 @@ SharedIExpression ExpressionParser::parse(){
 }
 
 SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence){
-    if(precedence==1)
+    if(precedence==0)
         return parsePrimaryExpression();
     
     auto left=parseBinaryOperatorExpression(precedence-1);
@@ -41,6 +41,7 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
     while(currentMatchByPrecedence(precedence)){
         int lineNumber=iterator->lineNumber;
         auto op=iterator->currentToken();
+        iterator->next();
         auto right=parseBinaryOperatorExpression(precedence-1);
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector({right}));
         left=std::make_shared<OperatorFunInvokeExpression>(
@@ -153,7 +154,6 @@ SharedIExpression ExpressionParser::parseIdentifierExpression(){
         return funEx;
     }
 
-
     SharedVariable var;
 
     auto stmListScope=std::dynamic_pointer_cast<StmListScope>(scope);
@@ -195,23 +195,30 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
 
     // TODO: right might be inner class instantiation
 
+    SharedIExpression ex;
+
     auto id=expectIdentifier();
     
-    if(!iterator->nextMatch(SymbolToken::LEFT_PARENTHESIS))
-        return std::make_shared<NonStaticVarAccessExpression>(
+    if(iterator->nextMatch(SymbolToken::LEFT_PARENTHESIS))
+        ex=std::make_shared<NonStaticFunInvokeExpression>(
+            lineNumber,
+            id,
+            expectFunArgs(),
+            inside
+        );
+    else
+        ex=std::make_shared<NonStaticVarAccessExpression>(
             lineNumber,
             id,
             inside
         );
-    
-    auto args=expectFunArgs();
 
-    return std::make_shared<NonStaticFunInvokeExpression>(
-        lineNumber,
-        id,
-        args,
-        inside
-    );
+    if(!iterator->currentMatch(SymbolToken::DOT))
+        return ex;
+    
+    iterator->next();
+    
+    return parseNonStaticAccessExpression(ex);
 }
 
 bool ExpressionParser::currentMatchByPrecedence(int precedence){
@@ -300,7 +307,7 @@ SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){
 
     expectSymbol(SymbolToken::LEFT_PARENTHESIS);
 
-    SharedVector<SharedIExpression> args;
+    SharedVector<SharedIExpression> args=std::make_shared<std::vector<SharedIExpression>>();
 
     do{
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "IValue.hpp"
+#include <string>
 template<typename T>
 class PrimitiveValue:public IValue{
     protected:
@@ -7,6 +8,7 @@ class PrimitiveValue:public IValue{
     public:
         PrimitiveValue<T>(SharedType type,T value);
         T getValue();
+        std::wstring toString()override;
 };
 
 
@@ -17,4 +19,9 @@ PrimitiveValue<T>::PrimitiveValue(SharedType type,T value)
 template<typename T>
 T PrimitiveValue<T>::getValue(){
     return this->value;
+}
+
+template<typename T>
+std::wstring PrimitiveValue<T>::toString(){
+    return std::to_wstring(value);
 }

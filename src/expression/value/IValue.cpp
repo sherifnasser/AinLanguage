@@ -1,9 +1,9 @@
 #include "SharedPtrTypes.hpp"
 #include "IValue.hpp"
 
-IValue::IValue(SharedClassScope type):type(type){}
+IValue::IValue(SharedType type):type(type){}
 
-SharedClassScope IValue::getType(){
+SharedType IValue::getType(){
     return this->type;
 }
 

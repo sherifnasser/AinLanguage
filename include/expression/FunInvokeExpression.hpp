@@ -8,6 +8,8 @@ class FunInvokeExpression:public IExpression{
         std::wstring funName;
         SharedVector<SharedIExpression> args;
     public:
-        FunInvokeExpression(int lineNumber,std::wstring funName, SharedVector<SharedIExpression> args);
+        FunInvokeExpression(int lineNumber,std::wstring funName,SharedVector<SharedIExpression> args);
+        std::vector<std::wstring> prettyPrint()override;
+        SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
 };

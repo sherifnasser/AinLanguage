@@ -6,3 +6,5 @@ IExpression::IExpression(int lineNumber,SharedType returnType)
 SharedType IExpression::getReturnType() {
     return this->returnType;
 }
+
+IExpression::~IExpression(){}

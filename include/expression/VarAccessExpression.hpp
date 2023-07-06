@@ -9,6 +9,8 @@ class VarAccessExpression:public IExpression{
         SharedVariable var;
     public:
         VarAccessExpression(int lineNumber,std::wstring varName,SharedVariable var);
+        std::vector<std::wstring> prettyPrint()override;
+        SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
 
 };

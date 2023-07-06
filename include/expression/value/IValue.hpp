@@ -1,5 +1,6 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
+#include <string>
 class IValue{
     protected:
         SharedType type;
@@ -7,4 +8,5 @@ class IValue{
     public:
         SharedType getType();
         virtual ~IValue();
+        virtual std::wstring toString()=0;
 };

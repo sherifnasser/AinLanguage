@@ -13,27 +13,29 @@
 #include <string>
 #include <vector>
 
-struct FakeFunDeclParser:public BaseParser<SharedFunDecl>{
-    int calledTimes=0;
-    SharedFunDecl decl;
-    FakeFunDeclParser():BaseParser(nullptr,nullptr){}
+namespace {
+    struct FakeFunDeclParser:public BaseParser<SharedFunDecl>{
+        int calledTimes=0;
+        SharedFunDecl decl;
+        FakeFunDeclParser():BaseParser(nullptr,nullptr){}
 
-    SharedFunDecl parse()override{
-        calledTimes++;
-        return decl;
-    }
-};
+        SharedFunDecl parse()override{
+            calledTimes++;
+            return decl;
+        }
+    };
 
-struct FakeStmListParser:public BaseParser<SharedStmList>{
-    int calledTimes=0;
-    SharedStmList stmList;
-    FakeStmListParser():BaseParser(nullptr,nullptr){}
+    struct FakeStmListParser:public BaseParser<SharedStmList>{
+        int calledTimes=0;
+        SharedStmList stmList;
+        FakeStmListParser():BaseParser(nullptr,nullptr){}
 
-    SharedStmList parse()override{
-        calledTimes++;
-        return stmList;
-    }
-};
+        SharedStmList parse()override{
+            calledTimes++;
+            return stmList;
+        }
+    };
+}
 
 TEST_CASE("FunParser tests","[FunParserTest.cpp]"){
     auto params=std::make_shared<std::vector<SharedFunParam>>(

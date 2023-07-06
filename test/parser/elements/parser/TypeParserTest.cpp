@@ -11,15 +11,18 @@
 #include <memory>
 #include <vector>
 
-struct FakeTypeChecker:public Semantics::ITypeChecker{
-    int calledTimes=0;
-    
-    void subscribe(int lineNumber,SharedBaseScope searchScope,SharedType type)override{
-        calledTimes++;
-    }
+namespace{
+    struct FakeTypeChecker:public Semantics::ITypeChecker{
+        int calledTimes=0;
+        
+        void subscribe(int lineNumber,SharedBaseScope searchScope,SharedType type)override{
+            calledTimes++;
+        }
 
-    void check()override{};
-};
+        void check()override{};
+    };
+
+}
 
 TEST_CASE("TypeParser tests","[TypeParserTest.cpp]"){
 

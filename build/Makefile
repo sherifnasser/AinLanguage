@@ -155,6 +155,43 @@ unit_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
+#=============================================================================
+# Target rules for targets named pretty_print
+
+# Build rule for target.
+pretty_print: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pretty_print
+.PHONY : pretty_print
+
+# fast build rule for target.
+pretty_print/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pretty_print.dir/build.make CMakeFiles/pretty_print.dir/build
+.PHONY : pretty_print/fast
+
+ExpressionPrettyPrintTest.o: ExpressionPrettyPrintTest.cpp.o
+.PHONY : ExpressionPrettyPrintTest.o
+
+# target to build an object file
+ExpressionPrettyPrintTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pretty_print.dir/build.make CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o
+.PHONY : ExpressionPrettyPrintTest.cpp.o
+
+ExpressionPrettyPrintTest.i: ExpressionPrettyPrintTest.cpp.i
+.PHONY : ExpressionPrettyPrintTest.i
+
+# target to preprocess a source file
+ExpressionPrettyPrintTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pretty_print.dir/build.make CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.i
+.PHONY : ExpressionPrettyPrintTest.cpp.i
+
+ExpressionPrettyPrintTest.s: ExpressionPrettyPrintTest.cpp.s
+.PHONY : ExpressionPrettyPrintTest.s
+
+# target to generate assembly for a file
+ExpressionPrettyPrintTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pretty_print.dir/build.make CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.s
+.PHONY : ExpressionPrettyPrintTest.cpp.s
+
 src/ain_file/AinFile.o: src/ain_file/AinFile.cpp.o
 .PHONY : src/ain_file/AinFile.o
 
@@ -251,6 +288,150 @@ src/expression/FunCallExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.s
 .PHONY : src/expression/FunCallExpression.cpp.s
 
+src/expression/FunInvokeExpression.o: src/expression/FunInvokeExpression.cpp.o
+.PHONY : src/expression/FunInvokeExpression.o
+
+# target to build an object file
+src/expression/FunInvokeExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.o
+.PHONY : src/expression/FunInvokeExpression.cpp.o
+
+src/expression/FunInvokeExpression.i: src/expression/FunInvokeExpression.cpp.i
+.PHONY : src/expression/FunInvokeExpression.i
+
+# target to preprocess a source file
+src/expression/FunInvokeExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.i
+.PHONY : src/expression/FunInvokeExpression.cpp.i
+
+src/expression/FunInvokeExpression.s: src/expression/FunInvokeExpression.cpp.s
+.PHONY : src/expression/FunInvokeExpression.s
+
+# target to generate assembly for a file
+src/expression/FunInvokeExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.s
+.PHONY : src/expression/FunInvokeExpression.cpp.s
+
+src/expression/IExpression.o: src/expression/IExpression.cpp.o
+.PHONY : src/expression/IExpression.o
+
+# target to build an object file
+src/expression/IExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/IExpression.cpp.o
+.PHONY : src/expression/IExpression.cpp.o
+
+src/expression/IExpression.i: src/expression/IExpression.cpp.i
+.PHONY : src/expression/IExpression.i
+
+# target to preprocess a source file
+src/expression/IExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/IExpression.cpp.i
+.PHONY : src/expression/IExpression.cpp.i
+
+src/expression/IExpression.s: src/expression/IExpression.cpp.s
+.PHONY : src/expression/IExpression.s
+
+# target to generate assembly for a file
+src/expression/IExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/IExpression.cpp.s
+.PHONY : src/expression/IExpression.cpp.s
+
+src/expression/LiteralExpression.o: src/expression/LiteralExpression.cpp.o
+.PHONY : src/expression/LiteralExpression.o
+
+# target to build an object file
+src/expression/LiteralExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LiteralExpression.cpp.o
+.PHONY : src/expression/LiteralExpression.cpp.o
+
+src/expression/LiteralExpression.i: src/expression/LiteralExpression.cpp.i
+.PHONY : src/expression/LiteralExpression.i
+
+# target to preprocess a source file
+src/expression/LiteralExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LiteralExpression.cpp.i
+.PHONY : src/expression/LiteralExpression.cpp.i
+
+src/expression/LiteralExpression.s: src/expression/LiteralExpression.cpp.s
+.PHONY : src/expression/LiteralExpression.s
+
+# target to generate assembly for a file
+src/expression/LiteralExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LiteralExpression.cpp.s
+.PHONY : src/expression/LiteralExpression.cpp.s
+
+src/expression/NewObjectExpression.o: src/expression/NewObjectExpression.cpp.o
+.PHONY : src/expression/NewObjectExpression.o
+
+# target to build an object file
+src/expression/NewObjectExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NewObjectExpression.cpp.o
+.PHONY : src/expression/NewObjectExpression.cpp.o
+
+src/expression/NewObjectExpression.i: src/expression/NewObjectExpression.cpp.i
+.PHONY : src/expression/NewObjectExpression.i
+
+# target to preprocess a source file
+src/expression/NewObjectExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NewObjectExpression.cpp.i
+.PHONY : src/expression/NewObjectExpression.cpp.i
+
+src/expression/NewObjectExpression.s: src/expression/NewObjectExpression.cpp.s
+.PHONY : src/expression/NewObjectExpression.s
+
+# target to generate assembly for a file
+src/expression/NewObjectExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NewObjectExpression.cpp.s
+.PHONY : src/expression/NewObjectExpression.cpp.s
+
+src/expression/NonStaticFunInvokeExpression.o: src/expression/NonStaticFunInvokeExpression.cpp.o
+.PHONY : src/expression/NonStaticFunInvokeExpression.o
+
+# target to build an object file
+src/expression/NonStaticFunInvokeExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticFunInvokeExpression.cpp.o
+.PHONY : src/expression/NonStaticFunInvokeExpression.cpp.o
+
+src/expression/NonStaticFunInvokeExpression.i: src/expression/NonStaticFunInvokeExpression.cpp.i
+.PHONY : src/expression/NonStaticFunInvokeExpression.i
+
+# target to preprocess a source file
+src/expression/NonStaticFunInvokeExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticFunInvokeExpression.cpp.i
+.PHONY : src/expression/NonStaticFunInvokeExpression.cpp.i
+
+src/expression/NonStaticFunInvokeExpression.s: src/expression/NonStaticFunInvokeExpression.cpp.s
+.PHONY : src/expression/NonStaticFunInvokeExpression.s
+
+# target to generate assembly for a file
+src/expression/NonStaticFunInvokeExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticFunInvokeExpression.cpp.s
+.PHONY : src/expression/NonStaticFunInvokeExpression.cpp.s
+
+src/expression/NonStaticVarAccessExpression.o: src/expression/NonStaticVarAccessExpression.cpp.o
+.PHONY : src/expression/NonStaticVarAccessExpression.o
+
+# target to build an object file
+src/expression/NonStaticVarAccessExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.o
+.PHONY : src/expression/NonStaticVarAccessExpression.cpp.o
+
+src/expression/NonStaticVarAccessExpression.i: src/expression/NonStaticVarAccessExpression.cpp.i
+.PHONY : src/expression/NonStaticVarAccessExpression.i
+
+# target to preprocess a source file
+src/expression/NonStaticVarAccessExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.i
+.PHONY : src/expression/NonStaticVarAccessExpression.cpp.i
+
+src/expression/NonStaticVarAccessExpression.s: src/expression/NonStaticVarAccessExpression.cpp.s
+.PHONY : src/expression/NonStaticVarAccessExpression.s
+
+# target to generate assembly for a file
+src/expression/NonStaticVarAccessExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.s
+.PHONY : src/expression/NonStaticVarAccessExpression.cpp.s
+
 src/expression/NumberExpression.o: src/expression/NumberExpression.cpp.o
 .PHONY : src/expression/NumberExpression.o
 
@@ -275,6 +456,30 @@ src/expression/NumberExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.s
 .PHONY : src/expression/NumberExpression.cpp.s
 
+src/expression/OperatorFunInvokeExpression.o: src/expression/OperatorFunInvokeExpression.cpp.o
+.PHONY : src/expression/OperatorFunInvokeExpression.o
+
+# target to build an object file
+src/expression/OperatorFunInvokeExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/OperatorFunInvokeExpression.cpp.o
+.PHONY : src/expression/OperatorFunInvokeExpression.cpp.o
+
+src/expression/OperatorFunInvokeExpression.i: src/expression/OperatorFunInvokeExpression.cpp.i
+.PHONY : src/expression/OperatorFunInvokeExpression.i
+
+# target to preprocess a source file
+src/expression/OperatorFunInvokeExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/OperatorFunInvokeExpression.cpp.i
+.PHONY : src/expression/OperatorFunInvokeExpression.cpp.i
+
+src/expression/OperatorFunInvokeExpression.s: src/expression/OperatorFunInvokeExpression.cpp.s
+.PHONY : src/expression/OperatorFunInvokeExpression.s
+
+# target to generate assembly for a file
+src/expression/OperatorFunInvokeExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/OperatorFunInvokeExpression.cpp.s
+.PHONY : src/expression/OperatorFunInvokeExpression.cpp.s
+
 src/expression/StringExpression.o: src/expression/StringExpression.cpp.o
 .PHONY : src/expression/StringExpression.o
 
@@ -298,6 +503,30 @@ src/expression/StringExpression.s: src/expression/StringExpression.cpp.s
 src/expression/StringExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.s
 .PHONY : src/expression/StringExpression.cpp.s
+
+src/expression/VarAccessExpression.o: src/expression/VarAccessExpression.cpp.o
+.PHONY : src/expression/VarAccessExpression.o
+
+# target to build an object file
+src/expression/VarAccessExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.o
+.PHONY : src/expression/VarAccessExpression.cpp.o
+
+src/expression/VarAccessExpression.i: src/expression/VarAccessExpression.cpp.i
+.PHONY : src/expression/VarAccessExpression.i
+
+# target to preprocess a source file
+src/expression/VarAccessExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.i
+.PHONY : src/expression/VarAccessExpression.cpp.i
+
+src/expression/VarAccessExpression.s: src/expression/VarAccessExpression.cpp.s
+.PHONY : src/expression/VarAccessExpression.s
+
+# target to generate assembly for a file
+src/expression/VarAccessExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.s
+.PHONY : src/expression/VarAccessExpression.cpp.s
 
 src/expression/VariableAccessExpression.o: src/expression/VariableAccessExpression.cpp.o
 .PHONY : src/expression/VariableAccessExpression.o
@@ -346,6 +575,30 @@ src/expression/value/IValue.s: src/expression/value/IValue.cpp.s
 src/expression/value/IValue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/IValue.cpp.s
 .PHONY : src/expression/value/IValue.cpp.s
+
+src/expression/value/StringValue.o: src/expression/value/StringValue.cpp.o
+.PHONY : src/expression/value/StringValue.o
+
+# target to build an object file
+src/expression/value/StringValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/StringValue.cpp.o
+.PHONY : src/expression/value/StringValue.cpp.o
+
+src/expression/value/StringValue.i: src/expression/value/StringValue.cpp.i
+.PHONY : src/expression/value/StringValue.i
+
+# target to preprocess a source file
+src/expression/value/StringValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/StringValue.cpp.i
+.PHONY : src/expression/value/StringValue.cpp.i
+
+src/expression/value/StringValue.s: src/expression/value/StringValue.cpp.s
+.PHONY : src/expression/value/StringValue.s
+
+# target to generate assembly for a file
+src/expression/value/StringValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/StringValue.cpp.s
+.PHONY : src/expression/value/StringValue.cpp.s
 
 src/helpers/ainio.o: src/helpers/ainio.cpp.o
 .PHONY : src/helpers/ainio.o
@@ -637,6 +890,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/parser/ExpressionParser.o: src/parser/ExpressionParser.cpp.o
+.PHONY : src/parser/ExpressionParser.o
+
+# target to build an object file
+src/parser/ExpressionParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o
+.PHONY : src/parser/ExpressionParser.cpp.o
+
+src/parser/ExpressionParser.i: src/parser/ExpressionParser.cpp.i
+.PHONY : src/parser/ExpressionParser.i
+
+# target to preprocess a source file
+src/parser/ExpressionParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.i
+.PHONY : src/parser/ExpressionParser.cpp.i
+
+src/parser/ExpressionParser.s: src/parser/ExpressionParser.cpp.s
+.PHONY : src/parser/ExpressionParser.s
+
+# target to generate assembly for a file
+src/parser/ExpressionParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.s
+.PHONY : src/parser/ExpressionParser.cpp.s
 
 src/parser/FileParser.o: src/parser/FileParser.cpp.o
 .PHONY : src/parser/FileParser.o
@@ -1848,7 +2125,11 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ain"
 	@echo "... ainsrc"
+	@echo "... pretty_print"
 	@echo "... unit_tests"
+	@echo "... ExpressionPrettyPrintTest.o"
+	@echo "... ExpressionPrettyPrintTest.i"
+	@echo "... ExpressionPrettyPrintTest.s"
 	@echo "... src/ain_file/AinFile.o"
 	@echo "... src/ain_file/AinFile.i"
 	@echo "... src/ain_file/AinFile.s"
@@ -1861,18 +2142,45 @@ help:
 	@echo "... src/expression/FunCallExpression.o"
 	@echo "... src/expression/FunCallExpression.i"
 	@echo "... src/expression/FunCallExpression.s"
+	@echo "... src/expression/FunInvokeExpression.o"
+	@echo "... src/expression/FunInvokeExpression.i"
+	@echo "... src/expression/FunInvokeExpression.s"
+	@echo "... src/expression/IExpression.o"
+	@echo "... src/expression/IExpression.i"
+	@echo "... src/expression/IExpression.s"
+	@echo "... src/expression/LiteralExpression.o"
+	@echo "... src/expression/LiteralExpression.i"
+	@echo "... src/expression/LiteralExpression.s"
+	@echo "... src/expression/NewObjectExpression.o"
+	@echo "... src/expression/NewObjectExpression.i"
+	@echo "... src/expression/NewObjectExpression.s"
+	@echo "... src/expression/NonStaticFunInvokeExpression.o"
+	@echo "... src/expression/NonStaticFunInvokeExpression.i"
+	@echo "... src/expression/NonStaticFunInvokeExpression.s"
+	@echo "... src/expression/NonStaticVarAccessExpression.o"
+	@echo "... src/expression/NonStaticVarAccessExpression.i"
+	@echo "... src/expression/NonStaticVarAccessExpression.s"
 	@echo "... src/expression/NumberExpression.o"
 	@echo "... src/expression/NumberExpression.i"
 	@echo "... src/expression/NumberExpression.s"
+	@echo "... src/expression/OperatorFunInvokeExpression.o"
+	@echo "... src/expression/OperatorFunInvokeExpression.i"
+	@echo "... src/expression/OperatorFunInvokeExpression.s"
 	@echo "... src/expression/StringExpression.o"
 	@echo "... src/expression/StringExpression.i"
 	@echo "... src/expression/StringExpression.s"
+	@echo "... src/expression/VarAccessExpression.o"
+	@echo "... src/expression/VarAccessExpression.i"
+	@echo "... src/expression/VarAccessExpression.s"
 	@echo "... src/expression/VariableAccessExpression.o"
 	@echo "... src/expression/VariableAccessExpression.i"
 	@echo "... src/expression/VariableAccessExpression.s"
 	@echo "... src/expression/value/IValue.o"
 	@echo "... src/expression/value/IValue.i"
 	@echo "... src/expression/value/IValue.s"
+	@echo "... src/expression/value/StringValue.o"
+	@echo "... src/expression/value/StringValue.i"
+	@echo "... src/expression/value/StringValue.s"
 	@echo "... src/helpers/ainio.o"
 	@echo "... src/helpers/ainio.i"
 	@echo "... src/helpers/ainio.s"
@@ -1909,6 +2217,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/ExpressionParser.o"
+	@echo "... src/parser/ExpressionParser.i"
+	@echo "... src/parser/ExpressionParser.s"
 	@echo "... src/parser/FileParser.o"
 	@echo "... src/parser/FileParser.i"
 	@echo "... src/parser/FileParser.s"

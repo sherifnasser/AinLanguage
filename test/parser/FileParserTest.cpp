@@ -6,12 +6,14 @@
 #include <catch2/catch.hpp>
 #include <memory>
 
-struct FakePackageParser:public BaseParser<SharedPackageScope>{
-    FakePackageParser():BaseParser(nullptr,nullptr){}
-    SharedPackageScope parse() override{
-        return PackageScope::AIN_PACKAGE;
-    }
-};
+namespace{
+    struct FakePackageParser:public BaseParser<SharedPackageScope>{
+        FakePackageParser():BaseParser(nullptr,nullptr){}
+        SharedPackageScope parse() override{
+            return PackageScope::AIN_PACKAGE;
+        }
+    };
+}
 
 TEST_CASE("Test file parser is adding file to parent package","[FileParserTest.cpp]"){
     auto filePath=L"somePath";

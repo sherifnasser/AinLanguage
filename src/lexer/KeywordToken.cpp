@@ -7,7 +7,7 @@ LexerToken(LexerToken::KEYWORD_TOKEN,val){}
 bool KeywordToken::iskeyword(LexerToken t){
     KeywordToken keywords[]={
         VAR,VAL,OPERATOR,FUN,RETURN,
-        PACKAGE,IMPORT,CLASS,INTERFACE,OBJECT,
+        PACKAGE,IMPORT,NEW,CLASS,INTERFACE,OBJECT,
         DATA,ABSTRACT,OPEN,ENUM,ANNOTATION,
         PUBLIC,PRIVATE,PROTECTED,OVERRIDE,
         IF,/*ELSE_IF,*/ELSE,WHEN,

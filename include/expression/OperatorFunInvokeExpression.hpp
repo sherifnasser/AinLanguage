@@ -11,4 +11,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             SharedVector<SharedIExpression> args,
             SharedIExpression inside
         );
+        std::vector<std::wstring> prettyPrint()override;
+        SharedIValue evaluate()override;
+        void check(SharedBaseScope checkScope)override;
 };

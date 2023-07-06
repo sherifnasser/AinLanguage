@@ -21,36 +21,37 @@
 #include "TokensIteratorForTests.hpp"
 #include "UnexpectedTokenException.hpp"
 
-struct FakeTypeParser:public BaseParser<SharedType>{
-    int calledTimes=0;
-    SharedType type;
-    FakeTypeParser():BaseParser(nullptr,nullptr){}
-    SharedType parse()override{
-        calledTimes++;
-        return type;
-    }
+namespace{
+    struct FakeTypeParser:public BaseParser<SharedType>{
+        int calledTimes=0;
+        SharedType type;
+        FakeTypeParser():BaseParser(nullptr,nullptr){}
+        SharedType parse()override{
+            calledTimes++;
+            return type;
+        }
+    };
 
-};
+    struct FakeFunParamParser:public BaseParser<SharedFunParam>{
+        int calledTimes=0;
+        std::vector<FunParam> params;
+        FakeFunParamParser():BaseParser(nullptr,nullptr){}
+        SharedFunParam parse()override{
+            auto param=std::make_shared<FunParam>(params[calledTimes]);
+            calledTimes++;
+            return param;
+        }
 
-struct FakeFunParamParser:public BaseParser<SharedFunParam>{
-    int calledTimes=0;
-    std::vector<FunParam> params;
-    FakeFunParamParser():BaseParser(nullptr,nullptr){}
-    SharedFunParam parse()override{
-        auto param=std::make_shared<FunParam>(params[calledTimes]);
-        calledTimes++;
-        return param;
-    }
-
-    void addParam(std::wstring name,SharedType type){
-        params.push_back(
-            FunParam(
-                std::make_shared<std::wstring>(name),
-                type
-            )
-        );
-    }
-};
+        void addParam(std::wstring name,SharedType type){
+            params.push_back(
+                FunParam(
+                    std::make_shared<std::wstring>(name),
+                    type
+                )
+            );
+        }
+    };
+}
 
 TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
     

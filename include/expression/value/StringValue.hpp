@@ -5,5 +5,7 @@
 class StringValue:public IValue{
     private:
         std::wstring value;
-    StringValue(std::wstring value);
+    public:
+        StringValue(std::wstring value);
+        std::wstring toString()override;
 };

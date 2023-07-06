@@ -11,15 +11,17 @@
 #include <catch2/catch.hpp>
 #include <vector>
 
-struct FakeTypeParser:public BaseParser<SharedType>{
-    int calledTimes=0;
-    SharedType type;
-    FakeTypeParser():BaseParser(nullptr,nullptr){}
-    SharedType parse()override{
-        calledTimes++;
-        return type;
-    }
-};
+namespace {
+    struct FakeTypeParser:public BaseParser<SharedType>{
+        int calledTimes=0;
+        SharedType type;
+        FakeTypeParser():BaseParser(nullptr,nullptr){}
+        SharedType parse()override{
+            calledTimes++;
+            return type;
+        }
+    };
+}
 
 TEST_CASE("VarDeclParser tests","[VarDeclParserTest.cpp]"){
     auto fakeTypeParser=std::make_shared<FakeTypeParser>();

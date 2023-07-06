@@ -13,12 +13,21 @@ add_library(ainsrc
     src/lexer/LiteralToken.cpp
     src/lexer/NumberToken.cpp
     src/lexer/SymbolToken.cpp
+    src/expression/OperatorFunInvokeExpression.cpp
+    src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
     src/expression/BinaryExpression.cpp
+    src/expression/FunInvokeExpression.cpp
+    src/expression/NonStaticFunInvokeExpression.cpp
+    src/expression/LiteralExpression.cpp
     src/expression/BoolExpression.cpp
     src/expression/StringExpression.cpp
     src/expression/FunCallExpression.cpp
     src/expression/VariableAccessExpression.cpp
+    src/expression/VarAccessExpression.cpp
+    src/expression/IExpression.cpp
+    src/expression/NonStaticVarAccessExpression.cpp
+    src/expression/NewObjectExpression.cpp
     src/expression/NumberExpression.cpp
     src/scope/BaseScope.cpp
     src/scope/OldFunScope.cpp
@@ -46,6 +55,7 @@ add_library(ainsrc
     src/helpers/ainio.cpp
     src/helpers/wchar_t_helper.cpp
     src/helpers/number_helper.cpp
+    src/parser/ExpressionParser.cpp
     src/parser/elements/Type.cpp
     src/parser/elements/FunDecl.cpp
     src/parser/elements/FunParam.cpp
@@ -123,3 +133,9 @@ target_include_directories(unit_tests PUBLIC ${TEST_INCLUDE})
 
 # Link Catch2 library to the test executable
 target_link_libraries(unit_tests Catch2::Catch2 ainsrc)
+
+# Add test executable
+add_executable(pretty_print ExpressionPrettyPrintTest.cpp)
+
+# Link Catch2 library to the test executable
+target_link_libraries(pretty_print ainsrc)
