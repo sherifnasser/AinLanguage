@@ -16,41 +16,29 @@ add_library(ainsrc
     src/expression/OperatorFunInvokeExpression.cpp
     src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
-    src/expression/BinaryExpression.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
-    src/expression/BoolExpression.cpp
-    src/expression/StringExpression.cpp
-    src/expression/FunCallExpression.cpp
-    src/expression/VariableAccessExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
     src/expression/NewObjectExpression.cpp
-    src/expression/NumberExpression.cpp
     src/scope/BaseScope.cpp
-    src/scope/OldFunScope.cpp
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
-    src/scope/OldVariable.cpp
     src/scope/StmListScope.cpp
-    src/scope/Scope.cpp
-    src/scope/OldConstant.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
-    src/scope/GlobalScope.cpp
     src/ain_file/AinFile.cpp
     src/semantics/TypeChecker.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
-    src/statement/IOldStatement.cpp
-    src/statement/VarDeclarationStatement.cpp
     src/statement/DoWhileStatement.cpp
     src/statement/ExpressionStatement.cpp
-    src/statement/VarReassignStatement.cpp
+    src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp
+    src/statement/VarStm.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp
     src/helpers/wchar_t_helper.cpp
@@ -67,7 +55,8 @@ add_library(ainsrc
     src/parser/PackageParser.cpp
     src/parser/FunParser.cpp
     src/parser/TokensIterator.cpp
-    src/parser/OldParser.cpp
+    src/parser/StmListParser.cpp
+    src/parser/VarStatementParser.cpp
     src/parser/FileParser.cpp
 )
 
@@ -110,6 +99,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 
 set(TEST_INCLUDE

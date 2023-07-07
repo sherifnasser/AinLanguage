@@ -2,12 +2,11 @@
 #include "SharedPtrTypes.hpp"
 class Variable{
     private:
-        SharedWString name;
-        SharedType type;
-        SharedBool isVal;
+        SharedVarDecl decl;
         SharedIValue value;
     public:
         Variable(SharedWString name,SharedType type,SharedBool isVal);
+        Variable(SharedVarDecl decl);
 
         SharedIValue getValue();
 

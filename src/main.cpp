@@ -6,19 +6,14 @@
 #include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
-#include "GlobalScope.hpp"
-#include "OldFunScope.hpp"
-#include "OldParser.hpp"
 #include "KeywordToken.hpp"
 #include "SymbolToken.hpp"
 
 
-void readAndParse(std::string path, SharedGlobalScope global){
+void readAndParse(std::string path){
     SharedIAinFile file=std::make_shared<AinFile>(path);
     SharedILexer lexer=std::make_shared<Lexer>(file);
     auto tokens=lexer->getTokens();
-    SharedIParser parser=std::make_shared<Parser>();
-    parser->startParse(tokens,global);
 }
 
 bool isMainFileOption(std::string o){
@@ -34,7 +29,6 @@ int main(int argc, char * argv[]){
     }
 
     try{
-        SharedGlobalScope global=std::make_shared<GlobalScope>();
 
         // default is first file
         std::string mainPath(argv[1]);
@@ -52,13 +46,13 @@ int main(int argc, char * argv[]){
                 i--;
                 continue;
             }
-            readAndParse(argv[i],global);
+            readAndParse(argv[i]);
         }
-        readAndParse(mainPath,global);
+        readAndParse(mainPath);
 
-        auto main=global->getMain();
+        //auto main=global->getMain();
 
-        main->call();
+        //main->call();
     }
     catch(std::exception& e){
         std::cout<<e.what()<<std::endl;

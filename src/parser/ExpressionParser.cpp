@@ -15,6 +15,7 @@
 #include "StringValue.hpp"
 #include "SymbolToken.hpp"
 #include "Type.hpp"
+#include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
 #include <memory>
@@ -67,6 +68,8 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
         primary=idEx;
     else if(auto newObjEx=parseNewObjectExpression())
         primary=newObjEx;
+    else
+        return std::make_shared<UnitExpression>(iterator->lineNumber);
 
     if(!iterator->currentMatch(SymbolToken::DOT))
         return primary;

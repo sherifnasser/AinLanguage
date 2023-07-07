@@ -1,18 +1,22 @@
 #pragma once
-#include "IOldStatement.hpp"
+#include "IStatement.hpp"
+#include "SharedPtrTypes.hpp"
 
-class IfStatement:public IOldStatement
+class IfStatement:public IStatement
 {
     private:
-        SharedIOldExpression ifCondition;
-        SharedVector<SharedIOldStatement> ifStmList;
-        SharedVector<SharedIOldStatement> elseStmList;
+        SharedIExpression ifCondition;
+        SharedStmListScope ifScope;
+        SharedStmListScope elseScope;
+
     public:
         IfStatement(
-            SharedOldFunScope runScope,
-            SharedIOldExpression ifCondition,
-            SharedVector<SharedIOldStatement> ifStmList,
-            SharedVector<SharedIOldStatement> elseStmList
+            int lineNumber,
+            SharedStmListScope runScope,
+            SharedIExpression ifCondition,
+            SharedStmListScope ifScope,
+            SharedStmListScope elseScope
         );
+        void check() override;
         void run() override;
 };

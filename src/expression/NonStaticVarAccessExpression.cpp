@@ -35,3 +35,7 @@ SharedIValue NonStaticVarAccessExpression::evaluate() {
 void NonStaticVarAccessExpression::check(SharedBaseScope checkScope) {
     
 }
+
+void NonStaticVarAccessExpression::assign(SharedIValue newVal) {
+    
+}

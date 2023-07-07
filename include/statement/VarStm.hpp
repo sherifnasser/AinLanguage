@@ -1,17 +1,17 @@
 #pragma once
 #include "IStatement.hpp"
 #include "SharedPtrTypes.hpp"
-
-class ReturnStatement:public IStatement
-{
+class VarStm:public IStatement{
     private:
+        SharedVariable var;
         SharedIExpression ex;
     public:
-        ReturnStatement(
+        VarStm(
             int lineNumber,
-            SharedFunScope funScope,
+            SharedBaseScope runScope,
+            SharedVariable var,
             SharedIExpression ex
         );
-        void check() override;
-        void run() override;
+
+        SharedVariable getVar() const;
 };

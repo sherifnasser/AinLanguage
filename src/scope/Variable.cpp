@@ -1,11 +1,13 @@
 #include "Variable.hpp"
 #include "SharedPtrTypes.hpp"
 #include "VarDecl.hpp"
+#include <memory>
 
+Variable::Variable(SharedWString name,SharedType type,SharedBool isVal){
+    this->decl=std::make_shared<VarDecl>(name,type,isVal);
+}
 
-
-Variable::Variable(SharedWString name,SharedType type,SharedBool isVal)
-:name(name),type(type),isVal(isVal){}
+Variable::Variable(SharedVarDecl decl):decl(decl){}
 
 SharedIValue Variable::getValue(){
     return value;
@@ -16,13 +18,13 @@ void Variable::setValue(SharedIValue value){
 }
 
 SharedWString Variable::getName(){
-    return this->name;
+    return this->decl->name;
 }
 
 SharedBool Variable::isValue(){
-    return isVal;
+    return this->decl->isVal;
 }
 
 SharedType Variable::getType(){
-    return this->type;
+    return this->decl->type;
 }

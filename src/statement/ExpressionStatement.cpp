@@ -1,9 +1,17 @@
 #include "ExpressionStatement.hpp"
-#include "IOldExpression.hpp"
+#include "StmListScope.hpp"
 
-ExpressionStatement::ExpressionStatement(SharedScope runScope, SharedIOldExpression ex)
-:IOldStatement(runScope),ex(ex){}
+ExpressionStatement::ExpressionStatement(
+    int lineNumber,
+    SharedStmListScope runScope,
+    SharedIExpression ex
+)
+: IStatement(lineNumber,runScope),ex(ex){}
+
+void ExpressionStatement::check() {
+    
+}
 
 void ExpressionStatement::run(){
-    ex->evaluate(runScope);
+
 }

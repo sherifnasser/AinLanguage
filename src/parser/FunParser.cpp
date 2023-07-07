@@ -32,7 +32,7 @@ SharedFunScope FunParser::parse(){
     auto decl=funDeclParser->parse();
     
     if(decl->hasImplicitReturnType())
-        decl->returnType=Type::UINT;
+        decl->returnType=Type::UNIT;
     
     auto funScope=std::make_shared<FunScope>(
         FunScope(

@@ -3,9 +3,9 @@
 class IStatement{
     protected:
         int lineNumber;
-        SharedStmListScope runScope;
+        SharedBaseScope runScope;
     public:
-        IStatement(int lineNumber,SharedStmListScope runScope);
+        IStatement(int lineNumber,SharedBaseScope runScope);
         virtual void check()=0;
         virtual void run()=0;
 };

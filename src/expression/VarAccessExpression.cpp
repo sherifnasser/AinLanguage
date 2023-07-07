@@ -26,3 +26,7 @@ SharedIValue VarAccessExpression::evaluate() {
 void VarAccessExpression::check(SharedBaseScope checkScope) {
     
 }
+
+void VarAccessExpression::assign(SharedIValue newVal) {
+    
+}

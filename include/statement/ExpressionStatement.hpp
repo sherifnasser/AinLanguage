@@ -1,11 +1,17 @@
 #pragma once
-#include "IOldStatement.hpp"
+#include "IStatement.hpp"
 
-class ExpressionStatement:public IOldStatement
-{
+class ExpressionStatement:public IStatement{
+    
     private:
-        SharedIOldExpression ex;
+        SharedIExpression ex;
     public:
-        ExpressionStatement(SharedScope runScope,SharedIOldExpression ex);
+        ExpressionStatement(
+            int lineNumber,
+            SharedStmListScope runScope,
+            SharedIExpression ex
+        );
+        void check() override;
         void run() override;
+    
 };

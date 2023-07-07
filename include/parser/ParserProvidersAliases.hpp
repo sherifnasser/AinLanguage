@@ -1,6 +1,7 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
 #include <functional>
+#include <memory>
 #include <string>
 
 using TypeParserProvider=std::function<SharedBaseParser<SharedType>(
@@ -22,4 +23,19 @@ using FunDeclParserProvider=std::function<SharedBaseParser<SharedFunDecl>(
 using StmListParserProvider=std::function<SharedBaseParser<SharedStmList>(
     SharedTokensIterator iterator,
     SharedStmListScope scope
+)>;
+
+using VarDeclParserProvider=std::function<SharedBaseParser<SharedVarDecl>(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope
+)>;
+
+using ExpressionParserProvider=std::function<SharedBaseParser<SharedIExpression>(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope
+)>;
+
+using VarStmParserProvider=std::function<SharedBaseParser<SharedVarStm>(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope
 )>;

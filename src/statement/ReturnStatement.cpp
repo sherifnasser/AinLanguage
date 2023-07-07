@@ -1,11 +1,15 @@
 #include "ReturnStatement.hpp"
-#include "IOldExpression.hpp"
-#include "OldFunScope.hpp" // Should be added to enable casting
+#include "FunScope.hpp"
 
-ReturnStatement::ReturnStatement(SharedOldFunScope runScope,SharedIOldExpression ex):IOldStatement(runScope),ex(ex){}
+
+ReturnStatement::ReturnStatement(
+    int lineNumber,
+    SharedFunScope funScope,
+    SharedIExpression ex
+):IStatement(lineNumber,funScope),ex(ex){}
+
+void ReturnStatement::check(){
+}
 
 void ReturnStatement::run(){
-    auto exval=ex->evaluate(runScope);
-    SharedOldFunScope fScope=std::dynamic_pointer_cast<OldFunScope>(runScope);
-    fScope->setReturnValue(exval);
 }

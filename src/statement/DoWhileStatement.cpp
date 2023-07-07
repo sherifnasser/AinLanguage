@@ -1,26 +1,22 @@
 #include "DoWhileStatement.hpp"
-#include "IOldExpression.hpp"
+#include "StmListScope.hpp"
 #include "KeywordToken.hpp"
-#include "OldFunScope.hpp" // Should be added to enable casting
 
 DoWhileStatement::DoWhileStatement(
-    SharedOldFunScope runScope,
-    SharedIOldExpression ex,
-    SharedVector<SharedIOldStatement> stmList
+    int lineNumber,
+    SharedStmListScope runScope,
+    SharedIExpression condition,
+    SharedStmListScope doWhileScope
 )
-:WhileStatement(runScope,ex,stmList){}
+    : IStatement(lineNumber,runScope),
+      condition(condition),
+      doWhileScope(doWhileScope)
+{}
+
+void DoWhileStatement::check(){
+
+}
 
 void DoWhileStatement::run(){
 
-    auto vars_size_before=runScope->getVars()->size();
-
-    do{
-        for(auto stm:*stmList){
-            stm->run();
-        }
-    }while(ex->evaluate(runScope)==KeywordToken::TRUE.getVal());
-
-
-    // pop all defined OldVariables in while IOldStatement
-    runScope->getVars()->resize(vars_size_before);
 }

@@ -18,6 +18,10 @@ SharedMap<std::wstring, SharedVariable> StmListScope::getLocals(){
     return locals;
 }
 
+SharedStmList StmListScope::getStmList() {
+    return this->stmList;
+}
+
 SharedVariable StmListScope::getVarByName(std::wstring varName){
     auto varIterator=locals->find(varName);
     if(varIterator==locals->end())
