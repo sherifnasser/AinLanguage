@@ -10,7 +10,7 @@ class FunctionNotFoundException:public AinException{
     :AinException(
         AinException::errorWString(
             L"في "+trace+L"\n"
-            L"لم يتم العثور على دالة ."+decl
+            L"لم يتم العثور على دالة "+decl+L"."
         )
     ){}
 };

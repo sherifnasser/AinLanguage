@@ -1515,30 +1515,6 @@ src/scope/function/BuiltInFunScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.s
 .PHONY : src/scope/function/BuiltInFunScope.cpp.s
 
-src/scope/function/PrintlnFunScope.o: src/scope/function/PrintlnFunScope.cpp.o
-.PHONY : src/scope/function/PrintlnFunScope.o
-
-# target to build an object file
-src/scope/function/PrintlnFunScope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.o
-.PHONY : src/scope/function/PrintlnFunScope.cpp.o
-
-src/scope/function/PrintlnFunScope.i: src/scope/function/PrintlnFunScope.cpp.i
-.PHONY : src/scope/function/PrintlnFunScope.i
-
-# target to preprocess a source file
-src/scope/function/PrintlnFunScope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.i
-.PHONY : src/scope/function/PrintlnFunScope.cpp.i
-
-src/scope/function/PrintlnFunScope.s: src/scope/function/PrintlnFunScope.cpp.s
-.PHONY : src/scope/function/PrintlnFunScope.s
-
-# target to generate assembly for a file
-src/scope/function/PrintlnFunScope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.s
-.PHONY : src/scope/function/PrintlnFunScope.cpp.s
-
 src/semantics/TypeChecker.o: src/semantics/TypeChecker.cpp.o
 .PHONY : src/semantics/TypeChecker.o
 
@@ -2319,9 +2295,6 @@ help:
 	@echo "... src/scope/function/BuiltInFunScope.o"
 	@echo "... src/scope/function/BuiltInFunScope.i"
 	@echo "... src/scope/function/BuiltInFunScope.s"
-	@echo "... src/scope/function/PrintlnFunScope.o"
-	@echo "... src/scope/function/PrintlnFunScope.i"
-	@echo "... src/scope/function/PrintlnFunScope.s"
 	@echo "... src/semantics/TypeChecker.o"
 	@echo "... src/semantics/TypeChecker.i"
 	@echo "... src/semantics/TypeChecker.s"

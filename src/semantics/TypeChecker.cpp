@@ -1,8 +1,10 @@
 #include "TypeChecker.hpp"
+#include "AinException.hpp"
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include "FileScope.hpp"
+#include "ainio.hpp"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -46,16 +48,18 @@ namespace Semantics {
             SharedFileScope fileScope=BaseScope::getContainingFile(stm.searchScope);
 
             diagnostics.append(
-                 L"لم يتم العثور على هذا النوع "+
-                 *stm.type->getName()
-                 +L"\n\tفي الملف "+fileScope->getName()+
-                 L"\nفي السطر "+
-                 std::to_wstring(stm.lineNumber)
-                 +L"\n\n----------------------------------------------\n\n"
+                AinException::errorWString(
+                    L"لم يتم العثور على هذا النوع "+
+                    *stm.type->getName()
+                    +L"\n\tفي الملف "+fileScope->getName()+
+                    L"\nفي السطر "+
+                    std::to_wstring(stm.lineNumber)
+                    +L"\n\n----------------------------------------------\n\n"
+                )
             );
         }
 
-        std::wcout<<diagnostics;
+        ainprint(diagnostics,false);
     }
 
 }

@@ -1,4 +1,5 @@
 #include "BoolValue.hpp"
+#include "KeywordToken.hpp"
 #include "Type.hpp"
 
 BoolValue::BoolValue(bool value)
@@ -9,4 +10,10 @@ BoolValue::BoolValue(bool value)
 
 void BoolValue::linkWithClass() {
     
+}
+
+std::wstring BoolValue::toString() {
+    if(value)
+        return KeywordToken::TRUE.getVal();
+    return KeywordToken::FALSE.getVal();
 }

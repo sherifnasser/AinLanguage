@@ -55,5 +55,6 @@ SharedFunScope FileScope::findPrivateFunction(std::wstring decl){
 
     if(funIterator!=privateFunctions->end())
         return funIterator->second;
+        
     return nullptr;
 }

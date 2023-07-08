@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "unit_tests"
+			"path" : "ain"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
-			"target_include_directories"
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -26,19 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 138,
+				"line" : 120,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 143,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 140,
+				"line" : 124,
 				"parent" : 0
 			}
 		]
@@ -54,10 +47,6 @@
 			],
 			"includes" : 
 			[
-				{
-					"backtrace" : 3,
-					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/testInclude"
-				},
 				{
 					"backtrace" : 2,
 					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include"
@@ -130,22 +119,7 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
+				0
 			]
 		}
 	],
@@ -156,7 +130,7 @@
 			"id" : "ainsrc::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "unit_tests::@6890427a1f51a3e7e1df",
+	"id" : "ain::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -177,8 +151,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "unit_tests",
-	"nameOnDisk" : "unit_tests",
+	"name" : "ain",
+	"nameOnDisk" : "ain",
 	"paths" : 
 	{
 		"build" : ".",
@@ -190,22 +164,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
+				0
 			]
 		}
 	],
@@ -214,97 +173,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/lexer/LexerTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/lexer/LexerLineTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/ain_file/AinFileTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/PackageParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/FunDeclTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/VarDeclTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/parser/VarDeclParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/parser/FunDeclParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/parser/TypeParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/parser/FunParamParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/TypeTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/elements/FunParamTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/FileParserTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/TokensIteratorTest.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/TokensIteratorForTests.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/parser/FunParserTest.cpp",
+			"path" : "src/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

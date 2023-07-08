@@ -35,4 +35,6 @@ class Type{
         void setClassScope(SharedClassScope classScope);
 
         SharedWString getName();
+
+        static void addBuiltInClassesTo(SharedFileScope fileScope);
 };

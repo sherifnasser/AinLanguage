@@ -35,7 +35,6 @@ add_library(ainsrc
     src/expression/NewObjectExpression.cpp
     src/scope/BaseScope.cpp
     src/scope/function/BuiltInFunScope.cpp
-    src/scope/function/PrintlnFunScope.cpp
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
     src/scope/StmListScope.cpp
@@ -112,13 +111,6 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
-
-
-
-
-
-
-
 
 set(TEST_INCLUDE
     testInclude/

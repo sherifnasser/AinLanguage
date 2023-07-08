@@ -9,6 +9,7 @@
 #include "ULongClassScope.hpp"
 #include "FloatClassScope.hpp"
 #include "DoubleClassScope.hpp"
+#include "FileScope.hpp"
 #include <memory>
 #include <string>
 
@@ -98,3 +99,18 @@ SharedType Type::STRING=std::make_shared<Type>(
     STRING_NAME,
     std::make_shared<StringClassScope>()
 );
+
+
+void Type::addBuiltInClassesTo(SharedFileScope fileScope) {
+    auto builtInCLasses={
+        UNIT,
+        INT,UINT,LONG,ULONG,
+        FLOAT,DOUBLE,
+        CHAR,STRING,
+        BOOL
+    };
+    auto privateClasses=fileScope->getPrivateClasses();
+    for(auto builtInClass:builtInCLasses){
+        (*privateClasses)[*builtInClass->getName()]=builtInClass->getClassScope();
+    }
+}

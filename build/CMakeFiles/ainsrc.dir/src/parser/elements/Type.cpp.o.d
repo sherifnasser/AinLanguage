@@ -167,4 +167,5 @@ CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp

@@ -76,6 +76,8 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
         auto privateFun=containingFileScope->findPrivateFunction(decl.toString());
         if(privateFun){
             this->fun=privateFun;
+            this->returnType=fun->getReturnType();
+            return;
         }
 
         auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
@@ -85,17 +87,17 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
             if(publicFun){
                 this->fun=publicFun;
                 this->returnType=fun->getReturnType();
-                break;
+                return;
             }
         }
         
-        if(!this->fun){
-            // TODO: make trace more readable
-            auto trace=
+        // TODO: make trace more readable
+        auto trace=
             containingFileScope->getName()+
             L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
-            throw FunctionNotFoundException(trace,decl.toString());
-        }
+        
+        throw FunctionNotFoundException(trace,decl.toString());
+        
     }
 }
 

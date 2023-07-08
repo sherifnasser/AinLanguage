@@ -4,4 +4,5 @@ class BoolValue:public PrimitiveValue<bool>{
     public:
         BoolValue(bool value);
         void linkWithClass()override;
+        std::wstring toString() override;
 };

@@ -180,9 +180,10 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \

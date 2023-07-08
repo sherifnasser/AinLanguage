@@ -47,7 +47,7 @@ std::wstring FunDecl::toString(){
         paramsTypes.append(*param->type->getName());
 
         if(i!=params->size()-1)
-            paramsTypes.append(L",");
+            paramsTypes.append(L" ،");
 
         i++;
     }

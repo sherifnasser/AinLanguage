@@ -3,7 +3,6 @@
 #include "LexerToken.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
-#include "PrintlnFunScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "TokensIteratorForTests.hpp"
 #include <catch2/catch.hpp>
@@ -20,7 +19,7 @@ namespace{
     struct FakeFunParser:public BaseParser<SharedFunScope>{
         FakeFunParser():BaseParser(nullptr,nullptr){}
         SharedFunScope parse() override{
-            return std::make_shared<PrintlnFunScope>();
+            return nullptr;
         }
     };
 }

@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 130,
+				"line" : 122,
 				"parent" : 0
 			}
 		]
@@ -183,8 +183,7 @@
 				60,
 				61,
 				62,
-				63,
-				64
+				63
 			]
 		}
 	],
@@ -265,8 +264,7 @@
 				60,
 				61,
 				62,
-				63,
-				64
+				63
 			]
 		}
 	],
@@ -450,12 +448,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/scope/function/BuiltInFunScope.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/scope/function/PrintlnFunScope.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

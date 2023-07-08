@@ -1,4 +1,5 @@
 #include "ExpressionParser.hpp"
+#include "BoolValue.hpp"
 #include "CharValue.hpp"
 #include "DoubleValue.hpp"
 #include "FloatValue.hpp"
@@ -101,12 +102,26 @@ SharedIExpression ExpressionParser::parseParenthesesExpression(){
 }
 
 SharedIExpression ExpressionParser::parseLiteralExpression(){
-    
-    auto literal=std::dynamic_pointer_cast<LiteralToken>(iterator->currentToken());
-    if(!literal)
-        return nullptr;
 
     int lineNumber=iterator->lineNumber;
+
+    if(iterator->currentMatch(KeywordToken::TRUE)){
+        iterator->next();
+        auto value=std::make_shared<BoolValue>(true);
+        return std::make_shared<LiteralExpression>(lineNumber,value);
+    }
+
+    if(iterator->currentMatch(KeywordToken::FALSE)){
+        iterator->next();
+        auto value=std::make_shared<BoolValue>(false);
+        return std::make_shared<LiteralExpression>(lineNumber,value);
+    }
+        
+    
+    auto literal=std::dynamic_pointer_cast<LiteralToken>(iterator->currentToken());
+    
+    if(!literal)
+        return nullptr;
     
     SharedIValue value;
 
@@ -132,9 +147,6 @@ SharedIExpression ExpressionParser::parseLiteralExpression(){
             value=parseNumberValue(numType,literal->getVal());
             break;
         }
-
-        // FIXME bool are keyword tokens
-        case LiteralToken::BOOL: {break;}
     }
 
     iterator->next();

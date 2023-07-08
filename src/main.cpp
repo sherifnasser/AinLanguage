@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "BuiltInFunScope.hpp"
 #include "ExpressionParser.hpp"
 #include "FileParser.hpp"
 #include "FunDeclParser.hpp"
@@ -11,7 +12,6 @@
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
-#include "PrintlnFunScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
@@ -78,29 +78,16 @@ auto funParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
 };
 
 void readAndParse(std::string path){
-    SharedIAinFile file=std::make_shared<AinFile>(path);
-    SharedILexer lexer=std::make_shared<Lexer>(file);
+    auto file=std::make_shared<AinFile>(path);
+    auto lexer=std::make_shared<Lexer>(file);
     auto tokens=lexer->getTokens();
     auto iterator=std::make_shared<TokensIterator>(*tokens);
     auto packageParser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
     auto wpath=toWstring(path);
     auto fileScope=FileParser(iterator,wpath,packageParser,funParserProvider).parse();
 
-    auto privateClasses=fileScope->getPrivateClasses();
-    (*privateClasses)[*Type::INT->getName()]=Type::INT->getClassScope();
-    (*privateClasses)[*Type::UINT->getName()]=Type::UINT->getClassScope();
-    (*privateClasses)[*Type::LONG->getName()]=Type::LONG->getClassScope();
-    (*privateClasses)[*Type::ULONG->getName()]=Type::ULONG->getClassScope();
-    (*privateClasses)[*Type::FLOAT->getName()]=Type::FLOAT->getClassScope();
-    (*privateClasses)[*Type::DOUBLE->getName()]=Type::DOUBLE->getClassScope();
-    (*privateClasses)[*Type::UNIT->getName()]=Type::UNIT->getClassScope();
-    (*privateClasses)[*Type::BOOL->getName()]=Type::BOOL->getClassScope();
-    (*privateClasses)[*Type::CHAR->getName()]=Type::CHAR->getClassScope();
-    (*privateClasses)[*Type::STRING->getName()]=Type::STRING->getClassScope();
-
-
-    auto privateFunctions=fileScope->getPrivateFunctions();
-    (*privateFunctions)[L"اظهر_(نص)"]=std::make_shared<PrintlnFunScope>();
+    Type::addBuiltInClassesTo(fileScope);
+    BuiltInFunScope::addBuiltInFunctionsTo(fileScope);
 
 }
 
