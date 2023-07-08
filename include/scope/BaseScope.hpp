@@ -18,6 +18,7 @@ public:
     static SharedFunScope toFunScope(SharedBaseScope scope);
     static SharedClassScope toClassScope(SharedBaseScope scope);
     static SharedFileScope toFileScope(SharedBaseScope scope);
+    static SharedPackageScope toPackageScope(SharedBaseScope scope);
     static SharedFunScope getContainingFun(SharedStmListScope stmListScope);
     static SharedClassScope getContainingClass(SharedBaseScope scope);
     static SharedFileScope getContainingFile(SharedBaseScope scope);

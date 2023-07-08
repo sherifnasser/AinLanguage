@@ -14,4 +14,6 @@ class VarStm:public IStatement{
         );
 
         SharedVariable getVar() const;
+        void check() override;
+        void run() override;
 };

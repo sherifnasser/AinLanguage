@@ -26,6 +26,9 @@ expressionParser(
 SharedVarStm VarStatementParser::parse(){
     auto decl=varDeclParser->parse();
 
+    if(!decl)
+        return nullptr;
+        
     SharedIExpression ex;
 
     int lineNumber=iterator->lineNumber;

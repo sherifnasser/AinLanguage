@@ -32,7 +32,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 122,
+				"line" : 130,
 				"parent" : 0
 			}
 		]
@@ -79,6 +79,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function"
 				},
 				{
 					"backtrace" : 2,
@@ -179,7 +183,8 @@
 				60,
 				61,
 				62,
-				63
+				63,
+				64
 			]
 		}
 	],
@@ -260,7 +265,8 @@
 				60,
 				61,
 				62,
-				63
+				63,
+				64
 			]
 		}
 	],
@@ -323,6 +329,42 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/IntValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/UnitValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/DoubleValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/CharValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/BoolValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/ULongValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "src/expression/value/StringValue.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -335,7 +377,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/expression/BinaryExpression.cpp",
+			"path" : "src/expression/value/FloatValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/LongValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/expression/value/UIntValue.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -359,25 +413,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/expression/BoolExpression.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/expression/StringExpression.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/expression/FunCallExpression.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/expression/VariableAccessExpression.cpp",
+			"path" : "src/expression/UnitExpression.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -407,19 +443,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/expression/NumberExpression.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/scope/BaseScope.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/scope/OldFunScope.cpp",
+			"path" : "src/scope/function/BuiltInFunScope.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/scope/function/PrintlnFunScope.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -437,25 +473,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/scope/OldVariable.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/scope/StmListScope.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/scope/Scope.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/scope/OldConstant.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -468,12 +486,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/scope/Variable.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/scope/GlobalScope.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -509,18 +521,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/statement/IOldStatement.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/statement/VarDeclarationStatement.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/statement/DoWhileStatement.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -533,13 +533,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/statement/VarReassignStatement.cpp",
+			"path" : "src/statement/AssignStatement.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/statement/ReturnStatement.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/statement/VarStm.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -641,7 +647,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/parser/OldParser.cpp",
+			"path" : "src/parser/StmListParser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/VarStatementParser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

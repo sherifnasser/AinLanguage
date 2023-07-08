@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <locale>
+#include <codecvt>
 #include "string_helper.hpp"
 bool startsWith(std::string str, std::string prefix)
 {
@@ -75,4 +77,10 @@ const char* toCharPointer(const std::wstring& wstr) {
     std::wcstombs(mbstr, wmsg, len + 1);
 
     return mbstr;
+}
+
+std::wstring toWstring(std::string str){
+    // Create a wide string using the codecvt_utf8_utf16 facet
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    return converter.from_bytes(str);
 }

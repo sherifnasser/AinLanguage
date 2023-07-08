@@ -37,16 +37,13 @@ namespace Semantics {
         std::wstring diagnostics;
 
         for(auto& stm:checkStatements){
+
             auto classScope=stm.searchScope->getClassByType(stm.type);
             if(classScope){
                 stm.type->setClassScope(classScope);
-                return;
+                continue;
             }
-            SharedFileScope fileScope;
-            auto parentScope=stm.searchScope->getParentScope();
-            while(!(fileScope=std::dynamic_pointer_cast<FileScope>(parentScope))){
-                parentScope=parentScope->getParentScope();
-            }
+            SharedFileScope fileScope=BaseScope::getContainingFile(stm.searchScope);
 
             diagnostics.append(
                  L"لم يتم العثور على هذا النوع "+

@@ -8,9 +8,9 @@ class StmListScope:public BaseScope{
     protected:
         SharedMap<std::wstring, SharedVariable> locals;
         SharedStmList stmList;
-        StmListScope(std::wstring name,SharedBaseScope parentScope);
 
     public:
+        StmListScope(std::wstring name,SharedBaseScope parentScope);
         SharedMap<std::wstring, SharedVariable> getLocals();
         SharedStmList getStmList();
         SharedVariable getVarByName(std::wstring varName)override;

@@ -14,16 +14,28 @@ add_library(ainsrc
     src/lexer/NumberToken.cpp
     src/lexer/SymbolToken.cpp
     src/expression/OperatorFunInvokeExpression.cpp
+    src/expression/value/IntValue.cpp
+    src/expression/value/UnitValue.cpp
+    src/expression/value/DoubleValue.cpp
+    src/expression/value/CharValue.cpp
+    src/expression/value/BoolValue.cpp
+    src/expression/value/ULongValue.cpp
     src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
+    src/expression/value/FloatValue.cpp
+    src/expression/value/LongValue.cpp
+    src/expression/value/UIntValue.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
+    src/expression/UnitExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
     src/expression/NewObjectExpression.cpp
     src/scope/BaseScope.cpp
+    src/scope/function/BuiltInFunScope.cpp
+    src/scope/function/PrintlnFunScope.cpp
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
     src/scope/StmListScope.cpp
@@ -69,6 +81,7 @@ set(INCLUDE
     include/expression/
     include/expression/value/
     include/scope/
+    include/scope/function/
     include/scope/class/
     include/ain_file/
     include/semantics/
@@ -99,6 +112,11 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
+
+
+
+
 
 
 

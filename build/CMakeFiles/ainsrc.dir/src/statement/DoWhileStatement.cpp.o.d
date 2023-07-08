@@ -2,9 +2,7 @@ CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/DoWhileStatement.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/DoWhileStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IOldStatement.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -158,7 +156,7 @@ CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IOldExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp

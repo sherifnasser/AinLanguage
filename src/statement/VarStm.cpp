@@ -11,3 +11,11 @@ VarStm::VarStm(
       ex(ex){}
 
 SharedVariable VarStm::getVar() const { return var; }
+
+void VarStm::check() {
+    
+}
+
+void VarStm::run() {
+    
+}

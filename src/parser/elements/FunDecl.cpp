@@ -1,6 +1,7 @@
 #include "FunDecl.hpp"
 #include "FunParam.hpp"
 #include "Type.hpp"
+#include <string>
 
 FunDecl::FunDecl(
     SharedWString name,
@@ -35,6 +36,20 @@ bool FunDecl::operator!=(const FunDecl& declaration)const{
 
 bool FunDecl::hasImplicitReturnType()const {
     return this->returnType==nullptr;
+}
+
+std::wstring FunDecl::toString(){
+    std::wstring paramsTypes=L"";
+    int i=0;
+    for(auto param:*params){
+        paramsTypes.append(*param->type->getName());
+
+        if(i!=params->size())
+            paramsTypes.append(L",");
+
+        i++;
+    }
+    return *this->name+L"("+paramsTypes+L")";
 }
 
     

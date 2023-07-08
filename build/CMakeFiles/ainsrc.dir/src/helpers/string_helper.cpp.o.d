@@ -133,5 +133,12 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: \
  /usr/include/c++/12.2/bits/stl_tempbuf.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
- /usr/include/c++/12.2/pstl/execution_defs.h \
+ /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/locale \
+ /usr/include/c++/12.2/bits/locale_facets_nonio.h \
+ /usr/include/c++/12.2/ctime \
+ /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h \
+ /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/12.2/bits/codecvt.h \
+ /usr/include/c++/12.2/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/12.2/bits/locale_conv.h /usr/include/c++/12.2/codecvt \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp

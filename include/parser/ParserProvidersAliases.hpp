@@ -39,3 +39,8 @@ using VarStmParserProvider=std::function<SharedBaseParser<SharedVarStm>(
     SharedTokensIterator iterator,
     SharedBaseScope scope
 )>;
+
+using FunParserProvider=std::function<SharedBaseParser<SharedFunScope>(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope
+)>;

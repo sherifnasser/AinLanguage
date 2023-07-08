@@ -180,18 +180,28 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticVarAccessExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VarAccessExpression.hpp

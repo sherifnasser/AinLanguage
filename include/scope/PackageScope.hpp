@@ -27,6 +27,10 @@ class PackageScope:public BaseScope{
 
         void addFile(SharedFileScope file);
 
+        SharedClassScope getClassByType(SharedType type) override;
+
         static SharedPackageScope AIN_PACKAGE;
+
+        std::map<std::wstring, SharedFileScope> getFiles() const;
 
 };

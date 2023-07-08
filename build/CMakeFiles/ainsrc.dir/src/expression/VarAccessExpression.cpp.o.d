@@ -2,6 +2,7 @@ CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VarAccessExpression.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VarAccessExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
@@ -156,4 +157,5 @@ CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp

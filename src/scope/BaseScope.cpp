@@ -2,6 +2,7 @@
 #include "ClassScope.hpp"
 #include "FileScope.hpp"
 #include "FunScope.hpp"
+#include "PackageScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include <memory>
@@ -40,6 +41,10 @@ SharedClassScope BaseScope::toClassScope(SharedBaseScope scope){
 
 SharedFileScope BaseScope::toFileScope(SharedBaseScope scope) {
     return std::dynamic_pointer_cast<FileScope>(scope);
+}
+
+SharedPackageScope BaseScope::toPackageScope(SharedBaseScope scope) {
+    return std::dynamic_pointer_cast<PackageScope>(scope);
 }
 
 SharedFunScope BaseScope::getContainingFun(SharedStmListScope stmListScope){

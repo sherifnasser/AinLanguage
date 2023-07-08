@@ -1,20 +1,26 @@
 #include "ExpressionParser.hpp"
+#include "CharValue.hpp"
+#include "DoubleValue.hpp"
+#include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
+#include "IntValue.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
 #include "LiteralExpression.hpp"
 #include "LiteralToken.hpp"
+#include "LongValue.hpp"
 #include "NewObjectExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
 #include "OperatorFunInvokeExpression.hpp"
-#include "PrimitiveValue.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "StringValue.hpp"
 #include "SymbolToken.hpp"
 #include "Type.hpp"
+#include "UIntValue.hpp"
+#include "ULongValue.hpp"
 #include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
@@ -115,8 +121,7 @@ SharedIExpression ExpressionParser::parseLiteralExpression(){
         }
 
         case LiteralToken::CHAR:{
-            value=std::make_shared<PrimitiveValue<wchar_t>>(
-                Type::CHAR,
+            value=std::make_shared<CharValue>(
                 literal->getVal().at(1) // remove quotes
             );
             break;
@@ -269,38 +274,32 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
 SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value) {
     switch(numType){
         case NumberToken::INT:
-            return std::make_shared<PrimitiveValue<int>>(
-                Type::INT,
+            return std::make_shared<IntValue>(
                 std::stoi(value)
             );
 
         case NumberToken::UNSIGNED_INT:
-            return std::make_shared<PrimitiveValue<unsigned int>>(
-                Type::UINT,
+            return std::make_shared<UIntValue>(
                 std::stoul(value)
             );
 
         case NumberToken::LONG:
-            return std::make_shared<PrimitiveValue<long long>>(
-                Type::LONG,
+            return std::make_shared<LongValue>(
                 std::stoll(value)
             );
 
         case NumberToken::UNSIGNED_LONG:
-            return std::make_shared<PrimitiveValue<unsigned long long>>(
-                Type::ULONG,
+            return std::make_shared<ULongValue>(
                 std::stoull(value)
             );
 
         case NumberToken::DOUBLE:
-            return std::make_shared<PrimitiveValue<double>>(
-                Type::DOUBLE,
+            return std::make_shared<DoubleValue>(
                 std::stold(value)
             );
 
         case NumberToken::FLOAT:
-            return std::make_shared<PrimitiveValue<float>>(
-                Type::FLOAT,
+            return std::make_shared<FloatValue>(
                 std::stof(value)
             );
     }

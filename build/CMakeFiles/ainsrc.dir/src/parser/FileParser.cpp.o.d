@@ -177,7 +177,11 @@ CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp

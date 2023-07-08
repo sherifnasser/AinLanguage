@@ -147,25 +147,60 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/backward/auto_ptr.h \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2/pstl/execution_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
  /usr/include/c++/12.2/bits/node_handle.h \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+ /usr/include/c++/12.2/functional \
+ /usr/include/c++/12.2/bits/std_function.h \
+ /usr/include/c++/12.2/unordered_map \
+ /usr/include/c++/12.2/bits/hashtable.h \
+ /usr/include/c++/12.2/bits/hashtable_policy.h \
+ /usr/include/c++/12.2/bits/enable_special_members.h \
+ /usr/include/c++/12.2/bits/unordered_map.h /usr/include/c++/12.2/array \
+ /usr/include/c++/12.2/compare /usr/include/c++/12.2/bits/stl_algo.h \
+ /usr/include/c++/12.2/bits/algorithmfwd.h \
+ /usr/include/c++/12.2/bits/stl_heap.h \
+ /usr/include/c++/12.2/bits/uniform_int_dist.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /usr/include/c++/12.2/algorithm \
+ /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/PrintlnFunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/OldFunScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/OldParser.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/OldIParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp

@@ -3,17 +3,105 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "ExpressionParser.hpp"
+#include "FileParser.hpp"
+#include "FunDeclParser.hpp"
+#include "FunParamParser.hpp"
+#include "FunParser.hpp"
+#include "PackageParser.hpp"
+#include "PackageScope.hpp"
+#include "ParserProvidersAliases.hpp"
+#include "PrintlnFunScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
 #include "KeywordToken.hpp"
+#include "StmListParser.hpp"
 #include "SymbolToken.hpp"
+#include "TokensIterator.hpp"
+#include "TypeChecker.hpp"
+#include "TypeParser.hpp"
+#include "VarDeclParser.hpp"
+#include "VarStatementParser.hpp"
+#include "FileScope.hpp"
+#include "FunScope.hpp"
+#include "Type.hpp"
 
+auto typeParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<TypeParser>(
+        iterator,scope,Semantics::TypeChecker::getInstance()
+    );
+};
+
+auto funParamParserProvider=[](
+    SharedTokensIterator iterator,SharedBaseScope scope,TypeParserProvider typeParserProvider
+){
+    return std::make_shared<FunParamParser>(
+        iterator,scope,typeParserProvider
+    );
+};
+
+auto varDeclParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<VarDeclParser>(
+        iterator,scope,typeParserProvider
+    );
+};
+
+auto expressionParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<ExpressionParser>(
+        iterator,scope,typeParserProvider
+    );
+};
+
+auto varStmParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<VarStatementParser>(
+        iterator,scope,varDeclParserProvider,expressionParserProvider
+    );
+};
+
+auto stmListParserProvider=[](SharedTokensIterator iterator,SharedStmListScope scope){
+    return std::make_shared<StmListParser>(
+        iterator,scope,varStmParserProvider,expressionParserProvider
+    );
+};
+
+auto funDeclParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<FunDeclParser>(
+        iterator,scope,typeParserProvider,funParamParserProvider
+    );
+};
+
+auto funParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<FunParser>(
+        iterator,scope,funDeclParserProvider,stmListParserProvider
+    );
+};
 
 void readAndParse(std::string path){
     SharedIAinFile file=std::make_shared<AinFile>(path);
     SharedILexer lexer=std::make_shared<Lexer>(file);
     auto tokens=lexer->getTokens();
+    auto iterator=std::make_shared<TokensIterator>(*tokens);
+    auto packageParser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
+    auto wpath=toWstring(path);
+    auto fileScope=FileParser(iterator,wpath,packageParser,funParserProvider).parse();
+
+    auto privateClasses=fileScope->getPrivateClasses();
+    (*privateClasses)[*Type::INT->getName()]=Type::INT->getClassScope();
+    (*privateClasses)[*Type::UINT->getName()]=Type::UINT->getClassScope();
+    (*privateClasses)[*Type::LONG->getName()]=Type::LONG->getClassScope();
+    (*privateClasses)[*Type::ULONG->getName()]=Type::ULONG->getClassScope();
+    (*privateClasses)[*Type::FLOAT->getName()]=Type::FLOAT->getClassScope();
+    (*privateClasses)[*Type::DOUBLE->getName()]=Type::DOUBLE->getClassScope();
+    (*privateClasses)[*Type::UNIT->getName()]=Type::UNIT->getClassScope();
+    (*privateClasses)[*Type::BOOL->getName()]=Type::BOOL->getClassScope();
+    (*privateClasses)[*Type::CHAR->getName()]=Type::CHAR->getClassScope();
+    (*privateClasses)[*Type::STRING->getName()]=Type::STRING->getClassScope();
+
+
+    auto privateFunctions=fileScope->getPrivateFunctions();
+    (*privateFunctions)[L"اظهر_(نص)"]=std::make_shared<PrintlnFunScope>();
+
 }
 
 bool isMainFileOption(std::string o){
@@ -50,9 +138,26 @@ int main(int argc, char * argv[]){
         }
         readAndParse(mainPath);
 
-        //auto main=global->getMain();
+        Semantics::TypeChecker::getInstance()->check();
 
-        //main->call();
+
+        auto filesIterator=PackageScope::AIN_PACKAGE->getFiles();
+        for(auto fileIterator:filesIterator){
+            auto file=fileIterator.second;
+            for(auto funIterator:*file->getPrivateFunctions()){
+                funIterator.second->check();
+            }
+            for(auto funIterator:*file->getPublicFunctions()){
+                funIterator.second->check();
+            }
+        }
+
+        auto main=PackageScope::AIN_PACKAGE->
+            findFileByPath(toWstring(mainPath))->
+            findPublicFunction(L"البداية");
+
+        main->invoke(std::map<std::wstring, SharedIValue>());
+
     }
     catch(std::exception& e){
         std::cout<<e.what()<<std::endl;

@@ -216,78 +216,6 @@ src/ain_file/AinFile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s
 .PHONY : src/ain_file/AinFile.cpp.s
 
-src/expression/BinaryExpression.o: src/expression/BinaryExpression.cpp.o
-.PHONY : src/expression/BinaryExpression.o
-
-# target to build an object file
-src/expression/BinaryExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o
-.PHONY : src/expression/BinaryExpression.cpp.o
-
-src/expression/BinaryExpression.i: src/expression/BinaryExpression.cpp.i
-.PHONY : src/expression/BinaryExpression.i
-
-# target to preprocess a source file
-src/expression/BinaryExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.i
-.PHONY : src/expression/BinaryExpression.cpp.i
-
-src/expression/BinaryExpression.s: src/expression/BinaryExpression.cpp.s
-.PHONY : src/expression/BinaryExpression.s
-
-# target to generate assembly for a file
-src/expression/BinaryExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.s
-.PHONY : src/expression/BinaryExpression.cpp.s
-
-src/expression/BoolExpression.o: src/expression/BoolExpression.cpp.o
-.PHONY : src/expression/BoolExpression.o
-
-# target to build an object file
-src/expression/BoolExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o
-.PHONY : src/expression/BoolExpression.cpp.o
-
-src/expression/BoolExpression.i: src/expression/BoolExpression.cpp.i
-.PHONY : src/expression/BoolExpression.i
-
-# target to preprocess a source file
-src/expression/BoolExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.i
-.PHONY : src/expression/BoolExpression.cpp.i
-
-src/expression/BoolExpression.s: src/expression/BoolExpression.cpp.s
-.PHONY : src/expression/BoolExpression.s
-
-# target to generate assembly for a file
-src/expression/BoolExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.s
-.PHONY : src/expression/BoolExpression.cpp.s
-
-src/expression/FunCallExpression.o: src/expression/FunCallExpression.cpp.o
-.PHONY : src/expression/FunCallExpression.o
-
-# target to build an object file
-src/expression/FunCallExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o
-.PHONY : src/expression/FunCallExpression.cpp.o
-
-src/expression/FunCallExpression.i: src/expression/FunCallExpression.cpp.i
-.PHONY : src/expression/FunCallExpression.i
-
-# target to preprocess a source file
-src/expression/FunCallExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.i
-.PHONY : src/expression/FunCallExpression.cpp.i
-
-src/expression/FunCallExpression.s: src/expression/FunCallExpression.cpp.s
-.PHONY : src/expression/FunCallExpression.s
-
-# target to generate assembly for a file
-src/expression/FunCallExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.s
-.PHONY : src/expression/FunCallExpression.cpp.s
-
 src/expression/FunInvokeExpression.o: src/expression/FunInvokeExpression.cpp.o
 .PHONY : src/expression/FunInvokeExpression.o
 
@@ -432,30 +360,6 @@ src/expression/NonStaticVarAccessExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.s
 .PHONY : src/expression/NonStaticVarAccessExpression.cpp.s
 
-src/expression/NumberExpression.o: src/expression/NumberExpression.cpp.o
-.PHONY : src/expression/NumberExpression.o
-
-# target to build an object file
-src/expression/NumberExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.o
-.PHONY : src/expression/NumberExpression.cpp.o
-
-src/expression/NumberExpression.i: src/expression/NumberExpression.cpp.i
-.PHONY : src/expression/NumberExpression.i
-
-# target to preprocess a source file
-src/expression/NumberExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.i
-.PHONY : src/expression/NumberExpression.cpp.i
-
-src/expression/NumberExpression.s: src/expression/NumberExpression.cpp.s
-.PHONY : src/expression/NumberExpression.s
-
-# target to generate assembly for a file
-src/expression/NumberExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.s
-.PHONY : src/expression/NumberExpression.cpp.s
-
 src/expression/OperatorFunInvokeExpression.o: src/expression/OperatorFunInvokeExpression.cpp.o
 .PHONY : src/expression/OperatorFunInvokeExpression.o
 
@@ -480,29 +384,29 @@ src/expression/OperatorFunInvokeExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/OperatorFunInvokeExpression.cpp.s
 .PHONY : src/expression/OperatorFunInvokeExpression.cpp.s
 
-src/expression/StringExpression.o: src/expression/StringExpression.cpp.o
-.PHONY : src/expression/StringExpression.o
+src/expression/UnitExpression.o: src/expression/UnitExpression.cpp.o
+.PHONY : src/expression/UnitExpression.o
 
 # target to build an object file
-src/expression/StringExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.o
-.PHONY : src/expression/StringExpression.cpp.o
+src/expression/UnitExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/UnitExpression.cpp.o
+.PHONY : src/expression/UnitExpression.cpp.o
 
-src/expression/StringExpression.i: src/expression/StringExpression.cpp.i
-.PHONY : src/expression/StringExpression.i
+src/expression/UnitExpression.i: src/expression/UnitExpression.cpp.i
+.PHONY : src/expression/UnitExpression.i
 
 # target to preprocess a source file
-src/expression/StringExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.i
-.PHONY : src/expression/StringExpression.cpp.i
+src/expression/UnitExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/UnitExpression.cpp.i
+.PHONY : src/expression/UnitExpression.cpp.i
 
-src/expression/StringExpression.s: src/expression/StringExpression.cpp.s
-.PHONY : src/expression/StringExpression.s
+src/expression/UnitExpression.s: src/expression/UnitExpression.cpp.s
+.PHONY : src/expression/UnitExpression.s
 
 # target to generate assembly for a file
-src/expression/StringExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.s
-.PHONY : src/expression/StringExpression.cpp.s
+src/expression/UnitExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/UnitExpression.cpp.s
+.PHONY : src/expression/UnitExpression.cpp.s
 
 src/expression/VarAccessExpression.o: src/expression/VarAccessExpression.cpp.o
 .PHONY : src/expression/VarAccessExpression.o
@@ -528,29 +432,101 @@ src/expression/VarAccessExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.s
 .PHONY : src/expression/VarAccessExpression.cpp.s
 
-src/expression/VariableAccessExpression.o: src/expression/VariableAccessExpression.cpp.o
-.PHONY : src/expression/VariableAccessExpression.o
+src/expression/value/BoolValue.o: src/expression/value/BoolValue.cpp.o
+.PHONY : src/expression/value/BoolValue.o
 
 # target to build an object file
-src/expression/VariableAccessExpression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o
-.PHONY : src/expression/VariableAccessExpression.cpp.o
+src/expression/value/BoolValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/BoolValue.cpp.o
+.PHONY : src/expression/value/BoolValue.cpp.o
 
-src/expression/VariableAccessExpression.i: src/expression/VariableAccessExpression.cpp.i
-.PHONY : src/expression/VariableAccessExpression.i
+src/expression/value/BoolValue.i: src/expression/value/BoolValue.cpp.i
+.PHONY : src/expression/value/BoolValue.i
 
 # target to preprocess a source file
-src/expression/VariableAccessExpression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.i
-.PHONY : src/expression/VariableAccessExpression.cpp.i
+src/expression/value/BoolValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/BoolValue.cpp.i
+.PHONY : src/expression/value/BoolValue.cpp.i
 
-src/expression/VariableAccessExpression.s: src/expression/VariableAccessExpression.cpp.s
-.PHONY : src/expression/VariableAccessExpression.s
+src/expression/value/BoolValue.s: src/expression/value/BoolValue.cpp.s
+.PHONY : src/expression/value/BoolValue.s
 
 # target to generate assembly for a file
-src/expression/VariableAccessExpression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.s
-.PHONY : src/expression/VariableAccessExpression.cpp.s
+src/expression/value/BoolValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/BoolValue.cpp.s
+.PHONY : src/expression/value/BoolValue.cpp.s
+
+src/expression/value/CharValue.o: src/expression/value/CharValue.cpp.o
+.PHONY : src/expression/value/CharValue.o
+
+# target to build an object file
+src/expression/value/CharValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/CharValue.cpp.o
+.PHONY : src/expression/value/CharValue.cpp.o
+
+src/expression/value/CharValue.i: src/expression/value/CharValue.cpp.i
+.PHONY : src/expression/value/CharValue.i
+
+# target to preprocess a source file
+src/expression/value/CharValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/CharValue.cpp.i
+.PHONY : src/expression/value/CharValue.cpp.i
+
+src/expression/value/CharValue.s: src/expression/value/CharValue.cpp.s
+.PHONY : src/expression/value/CharValue.s
+
+# target to generate assembly for a file
+src/expression/value/CharValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/CharValue.cpp.s
+.PHONY : src/expression/value/CharValue.cpp.s
+
+src/expression/value/DoubleValue.o: src/expression/value/DoubleValue.cpp.o
+.PHONY : src/expression/value/DoubleValue.o
+
+# target to build an object file
+src/expression/value/DoubleValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/DoubleValue.cpp.o
+.PHONY : src/expression/value/DoubleValue.cpp.o
+
+src/expression/value/DoubleValue.i: src/expression/value/DoubleValue.cpp.i
+.PHONY : src/expression/value/DoubleValue.i
+
+# target to preprocess a source file
+src/expression/value/DoubleValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/DoubleValue.cpp.i
+.PHONY : src/expression/value/DoubleValue.cpp.i
+
+src/expression/value/DoubleValue.s: src/expression/value/DoubleValue.cpp.s
+.PHONY : src/expression/value/DoubleValue.s
+
+# target to generate assembly for a file
+src/expression/value/DoubleValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/DoubleValue.cpp.s
+.PHONY : src/expression/value/DoubleValue.cpp.s
+
+src/expression/value/FloatValue.o: src/expression/value/FloatValue.cpp.o
+.PHONY : src/expression/value/FloatValue.o
+
+# target to build an object file
+src/expression/value/FloatValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/FloatValue.cpp.o
+.PHONY : src/expression/value/FloatValue.cpp.o
+
+src/expression/value/FloatValue.i: src/expression/value/FloatValue.cpp.i
+.PHONY : src/expression/value/FloatValue.i
+
+# target to preprocess a source file
+src/expression/value/FloatValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/FloatValue.cpp.i
+.PHONY : src/expression/value/FloatValue.cpp.i
+
+src/expression/value/FloatValue.s: src/expression/value/FloatValue.cpp.s
+.PHONY : src/expression/value/FloatValue.s
+
+# target to generate assembly for a file
+src/expression/value/FloatValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/FloatValue.cpp.s
+.PHONY : src/expression/value/FloatValue.cpp.s
 
 src/expression/value/IValue.o: src/expression/value/IValue.cpp.o
 .PHONY : src/expression/value/IValue.o
@@ -576,6 +552,54 @@ src/expression/value/IValue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/IValue.cpp.s
 .PHONY : src/expression/value/IValue.cpp.s
 
+src/expression/value/IntValue.o: src/expression/value/IntValue.cpp.o
+.PHONY : src/expression/value/IntValue.o
+
+# target to build an object file
+src/expression/value/IntValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.o
+.PHONY : src/expression/value/IntValue.cpp.o
+
+src/expression/value/IntValue.i: src/expression/value/IntValue.cpp.i
+.PHONY : src/expression/value/IntValue.i
+
+# target to preprocess a source file
+src/expression/value/IntValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.i
+.PHONY : src/expression/value/IntValue.cpp.i
+
+src/expression/value/IntValue.s: src/expression/value/IntValue.cpp.s
+.PHONY : src/expression/value/IntValue.s
+
+# target to generate assembly for a file
+src/expression/value/IntValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.s
+.PHONY : src/expression/value/IntValue.cpp.s
+
+src/expression/value/LongValue.o: src/expression/value/LongValue.cpp.o
+.PHONY : src/expression/value/LongValue.o
+
+# target to build an object file
+src/expression/value/LongValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/LongValue.cpp.o
+.PHONY : src/expression/value/LongValue.cpp.o
+
+src/expression/value/LongValue.i: src/expression/value/LongValue.cpp.i
+.PHONY : src/expression/value/LongValue.i
+
+# target to preprocess a source file
+src/expression/value/LongValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/LongValue.cpp.i
+.PHONY : src/expression/value/LongValue.cpp.i
+
+src/expression/value/LongValue.s: src/expression/value/LongValue.cpp.s
+.PHONY : src/expression/value/LongValue.s
+
+# target to generate assembly for a file
+src/expression/value/LongValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/LongValue.cpp.s
+.PHONY : src/expression/value/LongValue.cpp.s
+
 src/expression/value/StringValue.o: src/expression/value/StringValue.cpp.o
 .PHONY : src/expression/value/StringValue.o
 
@@ -599,6 +623,78 @@ src/expression/value/StringValue.s: src/expression/value/StringValue.cpp.s
 src/expression/value/StringValue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/StringValue.cpp.s
 .PHONY : src/expression/value/StringValue.cpp.s
+
+src/expression/value/UIntValue.o: src/expression/value/UIntValue.cpp.o
+.PHONY : src/expression/value/UIntValue.o
+
+# target to build an object file
+src/expression/value/UIntValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UIntValue.cpp.o
+.PHONY : src/expression/value/UIntValue.cpp.o
+
+src/expression/value/UIntValue.i: src/expression/value/UIntValue.cpp.i
+.PHONY : src/expression/value/UIntValue.i
+
+# target to preprocess a source file
+src/expression/value/UIntValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UIntValue.cpp.i
+.PHONY : src/expression/value/UIntValue.cpp.i
+
+src/expression/value/UIntValue.s: src/expression/value/UIntValue.cpp.s
+.PHONY : src/expression/value/UIntValue.s
+
+# target to generate assembly for a file
+src/expression/value/UIntValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UIntValue.cpp.s
+.PHONY : src/expression/value/UIntValue.cpp.s
+
+src/expression/value/ULongValue.o: src/expression/value/ULongValue.cpp.o
+.PHONY : src/expression/value/ULongValue.o
+
+# target to build an object file
+src/expression/value/ULongValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ULongValue.cpp.o
+.PHONY : src/expression/value/ULongValue.cpp.o
+
+src/expression/value/ULongValue.i: src/expression/value/ULongValue.cpp.i
+.PHONY : src/expression/value/ULongValue.i
+
+# target to preprocess a source file
+src/expression/value/ULongValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ULongValue.cpp.i
+.PHONY : src/expression/value/ULongValue.cpp.i
+
+src/expression/value/ULongValue.s: src/expression/value/ULongValue.cpp.s
+.PHONY : src/expression/value/ULongValue.s
+
+# target to generate assembly for a file
+src/expression/value/ULongValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ULongValue.cpp.s
+.PHONY : src/expression/value/ULongValue.cpp.s
+
+src/expression/value/UnitValue.o: src/expression/value/UnitValue.cpp.o
+.PHONY : src/expression/value/UnitValue.o
+
+# target to build an object file
+src/expression/value/UnitValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UnitValue.cpp.o
+.PHONY : src/expression/value/UnitValue.cpp.o
+
+src/expression/value/UnitValue.i: src/expression/value/UnitValue.cpp.i
+.PHONY : src/expression/value/UnitValue.i
+
+# target to preprocess a source file
+src/expression/value/UnitValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UnitValue.cpp.i
+.PHONY : src/expression/value/UnitValue.cpp.i
+
+src/expression/value/UnitValue.s: src/expression/value/UnitValue.cpp.s
+.PHONY : src/expression/value/UnitValue.s
+
+# target to generate assembly for a file
+src/expression/value/UnitValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/UnitValue.cpp.s
+.PHONY : src/expression/value/UnitValue.cpp.s
 
 src/helpers/ainio.o: src/helpers/ainio.cpp.o
 .PHONY : src/helpers/ainio.o
@@ -963,30 +1059,6 @@ src/parser/FunParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.s
 .PHONY : src/parser/FunParser.cpp.s
 
-src/parser/OldParser.o: src/parser/OldParser.cpp.o
-.PHONY : src/parser/OldParser.o
-
-# target to build an object file
-src/parser/OldParser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.o
-.PHONY : src/parser/OldParser.cpp.o
-
-src/parser/OldParser.i: src/parser/OldParser.cpp.i
-.PHONY : src/parser/OldParser.i
-
-# target to preprocess a source file
-src/parser/OldParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.i
-.PHONY : src/parser/OldParser.cpp.i
-
-src/parser/OldParser.s: src/parser/OldParser.cpp.s
-.PHONY : src/parser/OldParser.s
-
-# target to generate assembly for a file
-src/parser/OldParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/OldParser.cpp.s
-.PHONY : src/parser/OldParser.cpp.s
-
 src/parser/PackageParser.o: src/parser/PackageParser.cpp.o
 .PHONY : src/parser/PackageParser.o
 
@@ -1011,6 +1083,30 @@ src/parser/PackageParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.s
 .PHONY : src/parser/PackageParser.cpp.s
 
+src/parser/StmListParser.o: src/parser/StmListParser.cpp.o
+.PHONY : src/parser/StmListParser.o
+
+# target to build an object file
+src/parser/StmListParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o
+.PHONY : src/parser/StmListParser.cpp.o
+
+src/parser/StmListParser.i: src/parser/StmListParser.cpp.i
+.PHONY : src/parser/StmListParser.i
+
+# target to preprocess a source file
+src/parser/StmListParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.i
+.PHONY : src/parser/StmListParser.cpp.i
+
+src/parser/StmListParser.s: src/parser/StmListParser.cpp.s
+.PHONY : src/parser/StmListParser.s
+
+# target to generate assembly for a file
+src/parser/StmListParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.s
+.PHONY : src/parser/StmListParser.cpp.s
+
 src/parser/TokensIterator.o: src/parser/TokensIterator.cpp.o
 .PHONY : src/parser/TokensIterator.o
 
@@ -1034,6 +1130,30 @@ src/parser/TokensIterator.s: src/parser/TokensIterator.cpp.s
 src/parser/TokensIterator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.s
 .PHONY : src/parser/TokensIterator.cpp.s
+
+src/parser/VarStatementParser.o: src/parser/VarStatementParser.cpp.o
+.PHONY : src/parser/VarStatementParser.o
+
+# target to build an object file
+src/parser/VarStatementParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.o
+.PHONY : src/parser/VarStatementParser.cpp.o
+
+src/parser/VarStatementParser.i: src/parser/VarStatementParser.cpp.i
+.PHONY : src/parser/VarStatementParser.i
+
+# target to preprocess a source file
+src/parser/VarStatementParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.i
+.PHONY : src/parser/VarStatementParser.cpp.i
+
+src/parser/VarStatementParser.s: src/parser/VarStatementParser.cpp.s
+.PHONY : src/parser/VarStatementParser.s
+
+# target to generate assembly for a file
+src/parser/VarStatementParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.s
+.PHONY : src/parser/VarStatementParser.cpp.s
 
 src/parser/elements/FunDecl.o: src/parser/elements/FunDecl.cpp.o
 .PHONY : src/parser/elements/FunDecl.o
@@ -1299,102 +1419,6 @@ src/scope/FunScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.s
 .PHONY : src/scope/FunScope.cpp.s
 
-src/scope/GlobalScope.o: src/scope/GlobalScope.cpp.o
-.PHONY : src/scope/GlobalScope.o
-
-# target to build an object file
-src/scope/GlobalScope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o
-.PHONY : src/scope/GlobalScope.cpp.o
-
-src/scope/GlobalScope.i: src/scope/GlobalScope.cpp.i
-.PHONY : src/scope/GlobalScope.i
-
-# target to preprocess a source file
-src/scope/GlobalScope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.i
-.PHONY : src/scope/GlobalScope.cpp.i
-
-src/scope/GlobalScope.s: src/scope/GlobalScope.cpp.s
-.PHONY : src/scope/GlobalScope.s
-
-# target to generate assembly for a file
-src/scope/GlobalScope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.s
-.PHONY : src/scope/GlobalScope.cpp.s
-
-src/scope/OldConstant.o: src/scope/OldConstant.cpp.o
-.PHONY : src/scope/OldConstant.o
-
-# target to build an object file
-src/scope/OldConstant.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.o
-.PHONY : src/scope/OldConstant.cpp.o
-
-src/scope/OldConstant.i: src/scope/OldConstant.cpp.i
-.PHONY : src/scope/OldConstant.i
-
-# target to preprocess a source file
-src/scope/OldConstant.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.i
-.PHONY : src/scope/OldConstant.cpp.i
-
-src/scope/OldConstant.s: src/scope/OldConstant.cpp.s
-.PHONY : src/scope/OldConstant.s
-
-# target to generate assembly for a file
-src/scope/OldConstant.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldConstant.cpp.s
-.PHONY : src/scope/OldConstant.cpp.s
-
-src/scope/OldFunScope.o: src/scope/OldFunScope.cpp.o
-.PHONY : src/scope/OldFunScope.o
-
-# target to build an object file
-src/scope/OldFunScope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.o
-.PHONY : src/scope/OldFunScope.cpp.o
-
-src/scope/OldFunScope.i: src/scope/OldFunScope.cpp.i
-.PHONY : src/scope/OldFunScope.i
-
-# target to preprocess a source file
-src/scope/OldFunScope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.i
-.PHONY : src/scope/OldFunScope.cpp.i
-
-src/scope/OldFunScope.s: src/scope/OldFunScope.cpp.s
-.PHONY : src/scope/OldFunScope.s
-
-# target to generate assembly for a file
-src/scope/OldFunScope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldFunScope.cpp.s
-.PHONY : src/scope/OldFunScope.cpp.s
-
-src/scope/OldVariable.o: src/scope/OldVariable.cpp.o
-.PHONY : src/scope/OldVariable.o
-
-# target to build an object file
-src/scope/OldVariable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.o
-.PHONY : src/scope/OldVariable.cpp.o
-
-src/scope/OldVariable.i: src/scope/OldVariable.cpp.i
-.PHONY : src/scope/OldVariable.i
-
-# target to preprocess a source file
-src/scope/OldVariable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.i
-.PHONY : src/scope/OldVariable.cpp.i
-
-src/scope/OldVariable.s: src/scope/OldVariable.cpp.s
-.PHONY : src/scope/OldVariable.s
-
-# target to generate assembly for a file
-src/scope/OldVariable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/OldVariable.cpp.s
-.PHONY : src/scope/OldVariable.cpp.s
-
 src/scope/PackageScope.o: src/scope/PackageScope.cpp.o
 .PHONY : src/scope/PackageScope.o
 
@@ -1418,30 +1442,6 @@ src/scope/PackageScope.s: src/scope/PackageScope.cpp.s
 src/scope/PackageScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.s
 .PHONY : src/scope/PackageScope.cpp.s
-
-src/scope/Scope.o: src/scope/Scope.cpp.o
-.PHONY : src/scope/Scope.o
-
-# target to build an object file
-src/scope/Scope.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.o
-.PHONY : src/scope/Scope.cpp.o
-
-src/scope/Scope.i: src/scope/Scope.cpp.i
-.PHONY : src/scope/Scope.i
-
-# target to preprocess a source file
-src/scope/Scope.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.i
-.PHONY : src/scope/Scope.cpp.i
-
-src/scope/Scope.s: src/scope/Scope.cpp.s
-.PHONY : src/scope/Scope.s
-
-# target to generate assembly for a file
-src/scope/Scope.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.s
-.PHONY : src/scope/Scope.cpp.s
 
 src/scope/StmListScope.o: src/scope/StmListScope.cpp.o
 .PHONY : src/scope/StmListScope.o
@@ -1491,6 +1491,54 @@ src/scope/Variable.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.s
 .PHONY : src/scope/Variable.cpp.s
 
+src/scope/function/BuiltInFunScope.o: src/scope/function/BuiltInFunScope.cpp.o
+.PHONY : src/scope/function/BuiltInFunScope.o
+
+# target to build an object file
+src/scope/function/BuiltInFunScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.o
+.PHONY : src/scope/function/BuiltInFunScope.cpp.o
+
+src/scope/function/BuiltInFunScope.i: src/scope/function/BuiltInFunScope.cpp.i
+.PHONY : src/scope/function/BuiltInFunScope.i
+
+# target to preprocess a source file
+src/scope/function/BuiltInFunScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.i
+.PHONY : src/scope/function/BuiltInFunScope.cpp.i
+
+src/scope/function/BuiltInFunScope.s: src/scope/function/BuiltInFunScope.cpp.s
+.PHONY : src/scope/function/BuiltInFunScope.s
+
+# target to generate assembly for a file
+src/scope/function/BuiltInFunScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.s
+.PHONY : src/scope/function/BuiltInFunScope.cpp.s
+
+src/scope/function/PrintlnFunScope.o: src/scope/function/PrintlnFunScope.cpp.o
+.PHONY : src/scope/function/PrintlnFunScope.o
+
+# target to build an object file
+src/scope/function/PrintlnFunScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.o
+.PHONY : src/scope/function/PrintlnFunScope.cpp.o
+
+src/scope/function/PrintlnFunScope.i: src/scope/function/PrintlnFunScope.cpp.i
+.PHONY : src/scope/function/PrintlnFunScope.i
+
+# target to preprocess a source file
+src/scope/function/PrintlnFunScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.i
+.PHONY : src/scope/function/PrintlnFunScope.cpp.i
+
+src/scope/function/PrintlnFunScope.s: src/scope/function/PrintlnFunScope.cpp.s
+.PHONY : src/scope/function/PrintlnFunScope.s
+
+# target to generate assembly for a file
+src/scope/function/PrintlnFunScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/PrintlnFunScope.cpp.s
+.PHONY : src/scope/function/PrintlnFunScope.cpp.s
+
 src/semantics/TypeChecker.o: src/semantics/TypeChecker.cpp.o
 .PHONY : src/semantics/TypeChecker.o
 
@@ -1514,6 +1562,30 @@ src/semantics/TypeChecker.s: src/semantics/TypeChecker.cpp.s
 src/semantics/TypeChecker.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/TypeChecker.cpp.s
 .PHONY : src/semantics/TypeChecker.cpp.s
+
+src/statement/AssignStatement.o: src/statement/AssignStatement.cpp.o
+.PHONY : src/statement/AssignStatement.o
+
+# target to build an object file
+src/statement/AssignStatement.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/AssignStatement.cpp.o
+.PHONY : src/statement/AssignStatement.cpp.o
+
+src/statement/AssignStatement.i: src/statement/AssignStatement.cpp.i
+.PHONY : src/statement/AssignStatement.i
+
+# target to preprocess a source file
+src/statement/AssignStatement.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/AssignStatement.cpp.i
+.PHONY : src/statement/AssignStatement.cpp.i
+
+src/statement/AssignStatement.s: src/statement/AssignStatement.cpp.s
+.PHONY : src/statement/AssignStatement.s
+
+# target to generate assembly for a file
+src/statement/AssignStatement.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/AssignStatement.cpp.s
+.PHONY : src/statement/AssignStatement.cpp.s
 
 src/statement/DoWhileStatement.o: src/statement/DoWhileStatement.cpp.o
 .PHONY : src/statement/DoWhileStatement.o
@@ -1562,30 +1634,6 @@ src/statement/ExpressionStatement.s: src/statement/ExpressionStatement.cpp.s
 src/statement/ExpressionStatement.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.s
 .PHONY : src/statement/ExpressionStatement.cpp.s
-
-src/statement/IOldStatement.o: src/statement/IOldStatement.cpp.o
-.PHONY : src/statement/IOldStatement.o
-
-# target to build an object file
-src/statement/IOldStatement.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/IOldStatement.cpp.o
-.PHONY : src/statement/IOldStatement.cpp.o
-
-src/statement/IOldStatement.i: src/statement/IOldStatement.cpp.i
-.PHONY : src/statement/IOldStatement.i
-
-# target to preprocess a source file
-src/statement/IOldStatement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/IOldStatement.cpp.i
-.PHONY : src/statement/IOldStatement.cpp.i
-
-src/statement/IOldStatement.s: src/statement/IOldStatement.cpp.s
-.PHONY : src/statement/IOldStatement.s
-
-# target to generate assembly for a file
-src/statement/IOldStatement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/IOldStatement.cpp.s
-.PHONY : src/statement/IOldStatement.cpp.s
 
 src/statement/IStatement.o: src/statement/IStatement.cpp.o
 .PHONY : src/statement/IStatement.o
@@ -1659,53 +1707,29 @@ src/statement/ReturnStatement.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.s
 .PHONY : src/statement/ReturnStatement.cpp.s
 
-src/statement/VarDeclarationStatement.o: src/statement/VarDeclarationStatement.cpp.o
-.PHONY : src/statement/VarDeclarationStatement.o
+src/statement/VarStm.o: src/statement/VarStm.cpp.o
+.PHONY : src/statement/VarStm.o
 
 # target to build an object file
-src/statement/VarDeclarationStatement.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.o
-.PHONY : src/statement/VarDeclarationStatement.cpp.o
+src/statement/VarStm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarStm.cpp.o
+.PHONY : src/statement/VarStm.cpp.o
 
-src/statement/VarDeclarationStatement.i: src/statement/VarDeclarationStatement.cpp.i
-.PHONY : src/statement/VarDeclarationStatement.i
-
-# target to preprocess a source file
-src/statement/VarDeclarationStatement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.i
-.PHONY : src/statement/VarDeclarationStatement.cpp.i
-
-src/statement/VarDeclarationStatement.s: src/statement/VarDeclarationStatement.cpp.s
-.PHONY : src/statement/VarDeclarationStatement.s
-
-# target to generate assembly for a file
-src/statement/VarDeclarationStatement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.s
-.PHONY : src/statement/VarDeclarationStatement.cpp.s
-
-src/statement/VarReassignStatement.o: src/statement/VarReassignStatement.cpp.o
-.PHONY : src/statement/VarReassignStatement.o
-
-# target to build an object file
-src/statement/VarReassignStatement.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.o
-.PHONY : src/statement/VarReassignStatement.cpp.o
-
-src/statement/VarReassignStatement.i: src/statement/VarReassignStatement.cpp.i
-.PHONY : src/statement/VarReassignStatement.i
+src/statement/VarStm.i: src/statement/VarStm.cpp.i
+.PHONY : src/statement/VarStm.i
 
 # target to preprocess a source file
-src/statement/VarReassignStatement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.i
-.PHONY : src/statement/VarReassignStatement.cpp.i
+src/statement/VarStm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarStm.cpp.i
+.PHONY : src/statement/VarStm.cpp.i
 
-src/statement/VarReassignStatement.s: src/statement/VarReassignStatement.cpp.s
-.PHONY : src/statement/VarReassignStatement.s
+src/statement/VarStm.s: src/statement/VarStm.cpp.s
+.PHONY : src/statement/VarStm.s
 
 # target to generate assembly for a file
-src/statement/VarReassignStatement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.s
-.PHONY : src/statement/VarReassignStatement.cpp.s
+src/statement/VarStm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/statement/VarStm.cpp.s
+.PHONY : src/statement/VarStm.cpp.s
 
 src/statement/WhileStatement.o: src/statement/WhileStatement.cpp.o
 .PHONY : src/statement/WhileStatement.o
@@ -2133,15 +2157,6 @@ help:
 	@echo "... src/ain_file/AinFile.o"
 	@echo "... src/ain_file/AinFile.i"
 	@echo "... src/ain_file/AinFile.s"
-	@echo "... src/expression/BinaryExpression.o"
-	@echo "... src/expression/BinaryExpression.i"
-	@echo "... src/expression/BinaryExpression.s"
-	@echo "... src/expression/BoolExpression.o"
-	@echo "... src/expression/BoolExpression.i"
-	@echo "... src/expression/BoolExpression.s"
-	@echo "... src/expression/FunCallExpression.o"
-	@echo "... src/expression/FunCallExpression.i"
-	@echo "... src/expression/FunCallExpression.s"
 	@echo "... src/expression/FunInvokeExpression.o"
 	@echo "... src/expression/FunInvokeExpression.i"
 	@echo "... src/expression/FunInvokeExpression.s"
@@ -2160,27 +2175,48 @@ help:
 	@echo "... src/expression/NonStaticVarAccessExpression.o"
 	@echo "... src/expression/NonStaticVarAccessExpression.i"
 	@echo "... src/expression/NonStaticVarAccessExpression.s"
-	@echo "... src/expression/NumberExpression.o"
-	@echo "... src/expression/NumberExpression.i"
-	@echo "... src/expression/NumberExpression.s"
 	@echo "... src/expression/OperatorFunInvokeExpression.o"
 	@echo "... src/expression/OperatorFunInvokeExpression.i"
 	@echo "... src/expression/OperatorFunInvokeExpression.s"
-	@echo "... src/expression/StringExpression.o"
-	@echo "... src/expression/StringExpression.i"
-	@echo "... src/expression/StringExpression.s"
+	@echo "... src/expression/UnitExpression.o"
+	@echo "... src/expression/UnitExpression.i"
+	@echo "... src/expression/UnitExpression.s"
 	@echo "... src/expression/VarAccessExpression.o"
 	@echo "... src/expression/VarAccessExpression.i"
 	@echo "... src/expression/VarAccessExpression.s"
-	@echo "... src/expression/VariableAccessExpression.o"
-	@echo "... src/expression/VariableAccessExpression.i"
-	@echo "... src/expression/VariableAccessExpression.s"
+	@echo "... src/expression/value/BoolValue.o"
+	@echo "... src/expression/value/BoolValue.i"
+	@echo "... src/expression/value/BoolValue.s"
+	@echo "... src/expression/value/CharValue.o"
+	@echo "... src/expression/value/CharValue.i"
+	@echo "... src/expression/value/CharValue.s"
+	@echo "... src/expression/value/DoubleValue.o"
+	@echo "... src/expression/value/DoubleValue.i"
+	@echo "... src/expression/value/DoubleValue.s"
+	@echo "... src/expression/value/FloatValue.o"
+	@echo "... src/expression/value/FloatValue.i"
+	@echo "... src/expression/value/FloatValue.s"
 	@echo "... src/expression/value/IValue.o"
 	@echo "... src/expression/value/IValue.i"
 	@echo "... src/expression/value/IValue.s"
+	@echo "... src/expression/value/IntValue.o"
+	@echo "... src/expression/value/IntValue.i"
+	@echo "... src/expression/value/IntValue.s"
+	@echo "... src/expression/value/LongValue.o"
+	@echo "... src/expression/value/LongValue.i"
+	@echo "... src/expression/value/LongValue.s"
 	@echo "... src/expression/value/StringValue.o"
 	@echo "... src/expression/value/StringValue.i"
 	@echo "... src/expression/value/StringValue.s"
+	@echo "... src/expression/value/UIntValue.o"
+	@echo "... src/expression/value/UIntValue.i"
+	@echo "... src/expression/value/UIntValue.s"
+	@echo "... src/expression/value/ULongValue.o"
+	@echo "... src/expression/value/ULongValue.i"
+	@echo "... src/expression/value/ULongValue.s"
+	@echo "... src/expression/value/UnitValue.o"
+	@echo "... src/expression/value/UnitValue.i"
+	@echo "... src/expression/value/UnitValue.s"
 	@echo "... src/helpers/ainio.o"
 	@echo "... src/helpers/ainio.i"
 	@echo "... src/helpers/ainio.s"
@@ -2226,15 +2262,18 @@ help:
 	@echo "... src/parser/FunParser.o"
 	@echo "... src/parser/FunParser.i"
 	@echo "... src/parser/FunParser.s"
-	@echo "... src/parser/OldParser.o"
-	@echo "... src/parser/OldParser.i"
-	@echo "... src/parser/OldParser.s"
 	@echo "... src/parser/PackageParser.o"
 	@echo "... src/parser/PackageParser.i"
 	@echo "... src/parser/PackageParser.s"
+	@echo "... src/parser/StmListParser.o"
+	@echo "... src/parser/StmListParser.i"
+	@echo "... src/parser/StmListParser.s"
 	@echo "... src/parser/TokensIterator.o"
 	@echo "... src/parser/TokensIterator.i"
 	@echo "... src/parser/TokensIterator.s"
+	@echo "... src/parser/VarStatementParser.o"
+	@echo "... src/parser/VarStatementParser.i"
+	@echo "... src/parser/VarStatementParser.s"
 	@echo "... src/parser/elements/FunDecl.o"
 	@echo "... src/parser/elements/FunDecl.i"
 	@echo "... src/parser/elements/FunDecl.s"
@@ -2268,42 +2307,33 @@ help:
 	@echo "... src/scope/FunScope.o"
 	@echo "... src/scope/FunScope.i"
 	@echo "... src/scope/FunScope.s"
-	@echo "... src/scope/GlobalScope.o"
-	@echo "... src/scope/GlobalScope.i"
-	@echo "... src/scope/GlobalScope.s"
-	@echo "... src/scope/OldConstant.o"
-	@echo "... src/scope/OldConstant.i"
-	@echo "... src/scope/OldConstant.s"
-	@echo "... src/scope/OldFunScope.o"
-	@echo "... src/scope/OldFunScope.i"
-	@echo "... src/scope/OldFunScope.s"
-	@echo "... src/scope/OldVariable.o"
-	@echo "... src/scope/OldVariable.i"
-	@echo "... src/scope/OldVariable.s"
 	@echo "... src/scope/PackageScope.o"
 	@echo "... src/scope/PackageScope.i"
 	@echo "... src/scope/PackageScope.s"
-	@echo "... src/scope/Scope.o"
-	@echo "... src/scope/Scope.i"
-	@echo "... src/scope/Scope.s"
 	@echo "... src/scope/StmListScope.o"
 	@echo "... src/scope/StmListScope.i"
 	@echo "... src/scope/StmListScope.s"
 	@echo "... src/scope/Variable.o"
 	@echo "... src/scope/Variable.i"
 	@echo "... src/scope/Variable.s"
+	@echo "... src/scope/function/BuiltInFunScope.o"
+	@echo "... src/scope/function/BuiltInFunScope.i"
+	@echo "... src/scope/function/BuiltInFunScope.s"
+	@echo "... src/scope/function/PrintlnFunScope.o"
+	@echo "... src/scope/function/PrintlnFunScope.i"
+	@echo "... src/scope/function/PrintlnFunScope.s"
 	@echo "... src/semantics/TypeChecker.o"
 	@echo "... src/semantics/TypeChecker.i"
 	@echo "... src/semantics/TypeChecker.s"
+	@echo "... src/statement/AssignStatement.o"
+	@echo "... src/statement/AssignStatement.i"
+	@echo "... src/statement/AssignStatement.s"
 	@echo "... src/statement/DoWhileStatement.o"
 	@echo "... src/statement/DoWhileStatement.i"
 	@echo "... src/statement/DoWhileStatement.s"
 	@echo "... src/statement/ExpressionStatement.o"
 	@echo "... src/statement/ExpressionStatement.i"
 	@echo "... src/statement/ExpressionStatement.s"
-	@echo "... src/statement/IOldStatement.o"
-	@echo "... src/statement/IOldStatement.i"
-	@echo "... src/statement/IOldStatement.s"
 	@echo "... src/statement/IStatement.o"
 	@echo "... src/statement/IStatement.i"
 	@echo "... src/statement/IStatement.s"
@@ -2313,12 +2343,9 @@ help:
 	@echo "... src/statement/ReturnStatement.o"
 	@echo "... src/statement/ReturnStatement.i"
 	@echo "... src/statement/ReturnStatement.s"
-	@echo "... src/statement/VarDeclarationStatement.o"
-	@echo "... src/statement/VarDeclarationStatement.i"
-	@echo "... src/statement/VarDeclarationStatement.s"
-	@echo "... src/statement/VarReassignStatement.o"
-	@echo "... src/statement/VarReassignStatement.i"
-	@echo "... src/statement/VarReassignStatement.s"
+	@echo "... src/statement/VarStm.o"
+	@echo "... src/statement/VarStm.i"
+	@echo "... src/statement/VarStm.s"
 	@echo "... src/statement/WhileStatement.o"
 	@echo "... src/statement/WhileStatement.i"
 	@echo "... src/statement/WhileStatement.s"

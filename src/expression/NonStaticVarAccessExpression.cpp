@@ -5,7 +5,7 @@ NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     std::wstring varName,
     SharedIExpression inside
 ):
-    IExpression(lineNumber,nullptr),
+    AssignStatement::AssignExpression(lineNumber,nullptr),
     varName(varName),
     inside(inside){}
 

@@ -44,10 +44,15 @@ SharedStmList StmListParser::parse(){
 void StmListParser::parseInScope(SharedStmListScope stmListScope){
 
     expectSymbol(SymbolToken::LEFT_CURLY_BRACES);
+    iterator->next();
 
     auto stmList=stmListScope->getStmList();
     
     while(iterator->currentTokenType()!=LexerToken::EOF_TOKEN){
+
+        if(iterator->currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
+            break;
+        
         auto nextStm=parseNextStatement(stmListScope);
         if(nextStm)
             stmListScope->getStmList()->push_back(nextStm);
@@ -226,6 +231,9 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
 
     auto ex=expressionParserProvider(iterator,parentScope)->parse();
 
+    if(!ex)
+        return nullptr;
+    
     if(!iterator->currentMatch(SymbolToken::EQUAL))
         return std::make_shared<ExpressionStatement>(
             lineNumber,

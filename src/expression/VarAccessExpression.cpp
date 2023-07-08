@@ -7,7 +7,7 @@ VarAccessExpression::VarAccessExpression(
     std::wstring varName,
     SharedVariable var
 ):
-IExpression(lineNumber,(var)?var->getType():nullptr),
+AssignStatement::AssignExpression(lineNumber,(var)?var->getType():nullptr),
 varName(varName),
 var(var)
 {}

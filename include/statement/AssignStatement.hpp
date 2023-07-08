@@ -7,6 +7,10 @@
 class AssignStatement:public IStatement{
     public:
         class AssignExpression:public IExpression{
+            protected:
+                AssignExpression
+                (int lineNumber,SharedType returnType)
+                :IExpression(lineNumber, returnType){}
             public:
                 virtual void assign(SharedIValue newVal)=0;
                 virtual ~AssignExpression(){}

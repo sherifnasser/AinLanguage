@@ -4,10 +4,10 @@
 AssignStatement::AssignStatement(
     int lineNumber,
     SharedStmListScope runScope,
-    SharedIExpression left,
-    SharedIExpression right
+    std::shared_ptr<AssignExpression> ex,
+    SharedIExpression newValEx
 )
-:IStatement(lineNumber,runScope),left(left),right(right){}
+:IStatement(lineNumber,runScope),ex(ex),newValEx(newValEx){}
 
 void AssignStatement::check(){
     

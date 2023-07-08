@@ -1,5 +1,6 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
+#include <string>
 struct FunDecl{
     SharedWString name;
     SharedType returnType;
@@ -25,4 +26,6 @@ struct FunDecl{
     bool operator!=(const FunDecl& declaration)const;
 
     bool hasImplicitReturnType()const;
+
+    std::wstring toString();
 };

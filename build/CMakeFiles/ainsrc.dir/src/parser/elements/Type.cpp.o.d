@@ -154,4 +154,17 @@ CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: \
  /usr/include/c++/12.2/bits/node_handle.h \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
- /usr/include/c++/12.2/bits/erase_if.h
+ /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/BoolClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UnitClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UIntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp
