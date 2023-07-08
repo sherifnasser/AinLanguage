@@ -1,6 +1,7 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
 #include <string>
+#include <vector>
 struct FunDecl{
     SharedWString name;
     SharedType returnType;

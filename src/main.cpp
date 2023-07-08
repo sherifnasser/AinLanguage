@@ -156,7 +156,7 @@ int main(int argc, char * argv[]){
             findFileByPath(toWstring(mainPath))->
             findPublicFunction(L"البداية");
 
-        main->invoke(std::map<std::wstring, SharedIValue>());
+        main->invoke(std::make_shared<std::map<std::wstring, SharedIValue>>());
 
     }
     catch(std::exception& e){

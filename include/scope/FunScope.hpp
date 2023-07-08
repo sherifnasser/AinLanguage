@@ -15,6 +15,7 @@ class FunScope:public StmListScope{
             SharedFunDecl decl
         );
         virtual void check();
-        virtual SharedIValue invoke(std::map<std::wstring, SharedIValue> params);
+        virtual SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params);
         SharedType getReturnType();
+        SharedFunDecl getDecl();
 };

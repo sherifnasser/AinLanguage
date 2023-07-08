@@ -47,9 +47,7 @@ SharedPackageScope BaseScope::toPackageScope(SharedBaseScope scope) {
     return std::dynamic_pointer_cast<PackageScope>(scope);
 }
 
-SharedFunScope BaseScope::getContainingFun(SharedStmListScope stmListScope){
-
-    SharedBaseScope scope=stmListScope;
+SharedFunScope BaseScope::getContainingFun(SharedBaseScope scope){
 
     while(scope){
         auto funScope=toFunScope(scope);

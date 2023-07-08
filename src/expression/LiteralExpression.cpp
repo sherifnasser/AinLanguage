@@ -15,7 +15,7 @@ std::vector<std::wstring> LiteralExpression::prettyPrint(){
 }
 
 SharedIValue LiteralExpression::evaluate() {
-    
+    return this->value;
 }
 
 void LiteralExpression::check(SharedBaseScope checkScope) {

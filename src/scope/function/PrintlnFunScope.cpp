@@ -29,8 +29,10 @@ void PrintlnFunScope::check(){
     
 }
 
-SharedIValue PrintlnFunScope::invoke(std::map<std::wstring, SharedIValue> params) {
-    SharedIValue param=params.at(0);
-    ainprint(param->toString(), true);
+SharedIValue PrintlnFunScope::invoke(SharedMap<std::wstring, SharedIValue> params) {
+    for(auto paramIterator:*params){
+        auto paramVal=paramIterator.second->toString();
+        ainprint(paramVal, true);
+    }
     return std::make_shared<UnitValue>();
 }

@@ -1,5 +1,15 @@
 #include "FunInvokeExpression.hpp"
+#include "BaseScope.hpp"
+#include "FunDecl.hpp"
+#include "FunParam.hpp"
+#include "FunScope.hpp"
+#include "ClassScope.hpp"
+#include "FileScope.hpp"
+#include "FunctionNotFoundException.hpp"
+#include "PackageScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -30,11 +40,63 @@ std::vector<std::wstring> FunInvokeExpression::prettyPrint(){
 }
 
 SharedIValue FunInvokeExpression::evaluate() {
-    
+    auto argValues=std::make_shared<std::map<std::wstring,SharedIValue>>();
+    auto params=this->fun->getDecl()->params;
+    for(int i=0;i<args->size();i++){
+        auto argValue=(*args)[i]->evaluate();
+        (*argValues)[*params->at(0)->name]=argValue;
+    }
+
+    return this->fun->invoke(argValues);
 }
 
-void FunInvokeExpression::check(SharedBaseScope checkScope) {
-    
+void FunInvokeExpression::check(SharedBaseScope checkScope){
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
+    for(auto arg:*args){
+        arg->check(checkScope);
+        auto argType=arg->getReturnType();
+        params->push_back(
+            std::make_shared<FunParam>(nullptr,argType)
+        );
+    }
+    auto decl=FunDecl(
+        std::make_shared<std::wstring>(funName),
+        nullptr,
+        std::make_shared<bool>(false),
+        params
+    );
+
+    auto containingClassScope=BaseScope::getContainingClass(checkScope);
+    if(containingClassScope){
+        // TODO
+    }
+
+    auto containingFileScope=BaseScope::getContainingFile(checkScope);
+    if(containingFileScope){
+        auto privateFun=containingFileScope->findPrivateFunction(decl.toString());
+        if(privateFun){
+            this->fun=privateFun;
+        }
+
+        auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
+        
+        for(auto file:package->getFiles()){
+            auto publicFun=file.second->findPublicFunction(decl.toString());
+            if(publicFun){
+                this->fun=publicFun;
+                this->returnType=fun->getReturnType();
+                break;
+            }
+        }
+        
+        if(!this->fun){
+            // TODO: make trace more readable
+            auto trace=
+            containingFileScope->getName()+
+            L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+            throw FunctionNotFoundException(trace,decl.toString());
+        }
+    }
 }
 
 

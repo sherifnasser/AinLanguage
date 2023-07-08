@@ -21,12 +21,17 @@ void FunScope::check(){
     }
 }
 
-SharedIValue FunScope::invoke(std::map<std::wstring, SharedIValue> params){
-    
+SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
+    for(auto stm:*stmList){
+        stm->run();
+    }
     // TODO
     return nullptr;
 }
 
 SharedType FunScope::getReturnType(){
     return this->decl->returnType;
+}
+SharedFunDecl FunScope::getDecl() {
+    return this->decl;
 }

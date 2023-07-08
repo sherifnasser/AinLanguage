@@ -28,4 +28,6 @@ class FileScope:public BaseScope{
         SharedMap<std::wstring,SharedClassScope> getPrivateClasses() const;
 
         SharedFunScope findPublicFunction(std::wstring decl);
+
+        SharedFunScope findPrivateFunction(std::wstring decl);
 };

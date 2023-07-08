@@ -47,5 +47,13 @@ SharedFunScope FileScope::findPublicFunction(std::wstring decl){
     if(funIterator!=publicFunctions->end())
         return funIterator->second;
     
-    throw FunctionNotFoundException(decl);
+    return nullptr;
+}
+
+SharedFunScope FileScope::findPrivateFunction(std::wstring decl){
+    auto funIterator=privateFunctions->find(decl);
+
+    if(funIterator!=privateFunctions->end())
+        return funIterator->second;
+    return nullptr;
 }

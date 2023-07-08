@@ -1,6 +1,8 @@
 #include "FunDecl.hpp"
 #include "FunParam.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
+#include <memory>
 #include <string>
 
 FunDecl::FunDecl(
@@ -44,7 +46,7 @@ std::wstring FunDecl::toString(){
     for(auto param:*params){
         paramsTypes.append(*param->type->getName());
 
-        if(i!=params->size())
+        if(i!=params->size()-1)
             paramsTypes.append(L",");
 
         i++;
