@@ -22,8 +22,17 @@ void FunScope::check(){
 }
 
 SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
+    
+    for(auto local:*locals){
+        local.second->pushNewValue();
+    }
+
     for(auto stm:*stmList){
         stm->run();
+    }
+
+    for(auto local:*locals){
+        local.second->popLastValue();
     }
     // TODO
     return nullptr;

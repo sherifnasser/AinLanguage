@@ -20,13 +20,18 @@ std::vector<std::wstring> VarAccessExpression::prettyPrint(){
 }
 
 SharedIValue VarAccessExpression::evaluate() {
-    
+    return var->getValue();
 }
 
 void VarAccessExpression::check(SharedBaseScope checkScope) {
+    if(var){
+        this->returnType=var->getType();
+        return;
+    }
     
+    // TODO: non-local variables
 }
 
 void VarAccessExpression::assign(SharedIValue newVal) {
-    
+    var->setValue(newVal);
 }

@@ -3,7 +3,7 @@
 class Variable{
     private:
         SharedVarDecl decl;
-        SharedIValue value;
+        SharedVector<SharedIValue> values;
     public:
         Variable(SharedWString name,SharedType type,SharedBool isVal);
         Variable(SharedVarDecl decl);
@@ -16,5 +16,14 @@ class Variable{
 
         SharedBool isValue();
 
+        bool hasImplicitType();
+
+        void pushNewValue();
+
+        void popLastValue();
+
         SharedType getType();
+
+        void setType(SharedType type);
+
 };
