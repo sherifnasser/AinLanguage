@@ -181,7 +181,8 @@ CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OperatorFunShouldHaveSingleParamException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \

@@ -5,9 +5,9 @@
 class NonStaticFunInvokeExpression:public IExpression{
     protected:
         std::wstring funName;
-    private:
-        SharedVector<SharedIExpression> args;
+        SharedFunScope fun;
         SharedIExpression inside;
+        SharedVector<SharedIExpression> args;
     public:
         NonStaticFunInvokeExpression(
             int lineNumber,

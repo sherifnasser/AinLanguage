@@ -189,6 +189,12 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
@@ -198,10 +204,9 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp \

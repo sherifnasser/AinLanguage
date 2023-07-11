@@ -12,6 +12,10 @@ void BoolValue::linkWithClass() {
     
 }
 
+void BoolValue::unlinkWithClass() {
+    
+}
+
 std::wstring BoolValue::toString() {
     if(value)
         return KeywordToken::TRUE.getVal();

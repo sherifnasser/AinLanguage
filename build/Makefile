@@ -1371,6 +1371,30 @@ src/scope/BaseScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.s
 .PHONY : src/scope/BaseScope.cpp.s
 
+src/scope/ClassScope.o: src/scope/ClassScope.cpp.o
+.PHONY : src/scope/ClassScope.o
+
+# target to build an object file
+src/scope/ClassScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o
+.PHONY : src/scope/ClassScope.cpp.o
+
+src/scope/ClassScope.i: src/scope/ClassScope.cpp.i
+.PHONY : src/scope/ClassScope.i
+
+# target to preprocess a source file
+src/scope/ClassScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.i
+.PHONY : src/scope/ClassScope.cpp.i
+
+src/scope/ClassScope.s: src/scope/ClassScope.cpp.s
+.PHONY : src/scope/ClassScope.s
+
+# target to generate assembly for a file
+src/scope/ClassScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.s
+.PHONY : src/scope/ClassScope.cpp.s
+
 src/scope/FileScope.o: src/scope/FileScope.cpp.o
 .PHONY : src/scope/FileScope.o
 
@@ -2277,6 +2301,9 @@ help:
 	@echo "... src/scope/BaseScope.o"
 	@echo "... src/scope/BaseScope.i"
 	@echo "... src/scope/BaseScope.s"
+	@echo "... src/scope/ClassScope.o"
+	@echo "... src/scope/ClassScope.i"
+	@echo "... src/scope/ClassScope.s"
 	@echo "... src/scope/FileScope.o"
 	@echo "... src/scope/FileScope.i"
 	@echo "... src/scope/FileScope.s"

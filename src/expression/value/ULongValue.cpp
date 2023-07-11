@@ -10,3 +10,7 @@ ULongValue::ULongValue(unsigned long long value)
 void ULongValue::linkWithClass() {
     
 }
+
+void ULongValue::unlinkWithClass() {
+    
+}

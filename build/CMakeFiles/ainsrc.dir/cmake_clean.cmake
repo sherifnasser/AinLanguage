@@ -97,6 +97,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o"
   "CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o.d"
+  "CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o"
+  "CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o"
   "CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o"

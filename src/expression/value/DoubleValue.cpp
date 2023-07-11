@@ -10,3 +10,7 @@ DoubleValue::DoubleValue(long double value)
 void DoubleValue::linkWithClass() {
     
 }
+
+void DoubleValue::unlinkWithClass() {
+    
+}

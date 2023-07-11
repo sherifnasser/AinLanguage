@@ -37,6 +37,7 @@ add_library(ainsrc
     src/scope/function/BuiltInFunScope.cpp
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
+    src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
@@ -75,6 +76,8 @@ set(INCLUDE
     include/
     include/exceptions/
     include/exceptions/lexer/
+    include/exceptions/expression/
+    include/exceptions/statement/
     include/exceptions/parser/
     include/lexer/
     include/expression/
@@ -111,6 +114,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 set(TEST_INCLUDE
     testInclude/

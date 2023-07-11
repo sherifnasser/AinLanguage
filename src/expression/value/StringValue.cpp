@@ -8,6 +8,10 @@ void StringValue::linkWithClass() {
     
 }
 
+void StringValue::unlinkWithClass() {
+    
+}
+
 std::wstring StringValue::toString() {
     return this->value;
 }

@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class ULongClassScope:public ClassScope{
+class ULongClassScope:public PrimitiveClassScope<unsigned long long>{
     public:
-        ULongClassScope():ClassScope(*Type::ULONG_NAME,PackageScope::AIN_PACKAGE){}
+        ULongClassScope():
+        PrimitiveClassScope<unsigned long long>(Type::ULONG_NAME){}
 };

@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class DoubleClassScope:public ClassScope{
+class DoubleClassScope:public PrimitiveClassScope<long double>{
     public:
-        DoubleClassScope():ClassScope(*Type::DOUBLE_NAME,PackageScope::AIN_PACKAGE){}
+        DoubleClassScope():
+        PrimitiveClassScope<long double>(Type::DOUBLE_NAME){}
 };

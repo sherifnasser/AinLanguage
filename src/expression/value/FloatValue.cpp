@@ -10,3 +10,7 @@ FloatValue::FloatValue(float value)
 void FloatValue::linkWithClass() {
     
 }
+
+void FloatValue::unlinkWithClass() {
+    
+}

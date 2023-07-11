@@ -1,4 +1,6 @@
 #include "UnitExpression.hpp"
+#include "UnitValue.hpp"
+#include <memory>
 #include <string>
 
 UnitExpression::UnitExpression(int lineNumber):
@@ -9,7 +11,7 @@ std::vector<std::wstring> UnitExpression::prettyPrint() {
 }
 
 SharedIValue UnitExpression::evaluate() {
-    
+    return std::make_shared<UnitValue>();
 }
 
 void UnitExpression::check(SharedBaseScope checkScope) {

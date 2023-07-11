@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class BoolClassScope:public ClassScope{
+class BoolClassScope:public PrimitiveClassScope<bool>{
     public:
-        BoolClassScope():ClassScope(*Type::BOOL_NAME,PackageScope::AIN_PACKAGE){}
+        BoolClassScope():
+        PrimitiveClassScope<bool>(Type::BOOL_NAME){}
 };

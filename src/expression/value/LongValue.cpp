@@ -10,3 +10,7 @@ LongValue::LongValue(long long value)
 void LongValue::linkWithClass() {
     
 }
+
+void LongValue::unlinkWithClass() {
+    
+}

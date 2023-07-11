@@ -2,8 +2,10 @@ CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IntValue.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -157,4 +159,7 @@ CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp

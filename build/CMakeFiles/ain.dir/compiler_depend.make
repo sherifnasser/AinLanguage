@@ -219,6 +219,13 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
   /usr/include/c++/12.2/functional \
   /usr/include/c++/12.2/bits/std_function.h \
   /usr/include/c++/12.2/unordered_map \
@@ -234,8 +241,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
@@ -252,7 +257,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
@@ -265,11 +269,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp
 
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp:
 
@@ -278,6 +279,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
 
 /usr/include/c++/12.2/ext/alloc_traits.h:
 
@@ -318,8 +321,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/types/timer_t.h:
 
 /usr/include/c++/12.2/bits/concept_check.h:
-
-/usr/include/bits/atomic_wide_counter.h:
 
 /usr/include/c++/12.2/pstl/glue_memory_defs.h:
 
@@ -460,8 +461,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/floatn-common.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h:
 
@@ -685,6 +684,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/cwctype:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
@@ -694,6 +695,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp:
 
 /usr/include/c++/12.2/bits/ostream.tcc:
 
@@ -737,11 +740,17 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/uses_allocator.h:
 
+/usr/include/bits/atomic_wide_counter.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp:
+
 /usr/include/c++/12.2/bits/unique_ptr.h:
 
 /usr/include/c++/12.2/ext/aligned_buffer.h:
 
 /usr/include/c++/12.2/bits/shared_ptr_atomic.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp:
 
 /usr/include/c++/12.2/bits/atomic_base.h:
 
@@ -785,9 +794,9 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/pstl/glue_algorithm_defs.h:
 
-/usr/include/bits/types/struct_FILE.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
+
+/usr/include/bits/types/struct_FILE.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp:
 

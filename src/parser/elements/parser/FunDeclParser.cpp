@@ -3,7 +3,8 @@
 #include "FunDecl.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
-#include "OperatorFunShouldHaveSingleParamException.hpp"
+#include "InvalidOperatorFunDeclarationException.hpp"
+#include "OperatorFunctions.hpp"
 #include "ParserProvidersAliases.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
@@ -47,6 +48,13 @@ SharedFunDecl FunDeclParser::parse(){
 
     auto funNameId=expectIdentifier();
 
+    int lineNumber=iterator->lineNumber;
+
+    auto expectedParamsSize=(*isOperator)?OperatorFunctions::isOperatorFunName(funNameId):-1;
+
+    if(*isOperator&&expectedParamsSize==-1)
+        throw InvalidOperatorFunDeclarationException(lineNumber,L"اسم الدالة غير صالح");
+
     auto funName=std::make_shared<std::wstring>(funNameId);
 
     expectNextSymbol(SymbolToken::LEFT_PARENTHESIS);
@@ -72,9 +80,9 @@ SharedFunDecl FunDeclParser::parse(){
         params->push_back(param);
         
     }while(iterator->currentMatch(SymbolToken::COMMA));
-    
-    if(*isOperator&&params->size()!=1)
-        throw OperatorFunShouldHaveSingleParamException(iterator->lineNumber);
+
+    if(*isOperator&&params->size()!=expectedParamsSize)
+        throw InvalidOperatorFunDeclarationException(lineNumber,L"عدد المعاملات غير صالح لدالة "+funNameId);
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 

@@ -9,5 +9,6 @@ class IValue{
         SharedType getType();
         virtual ~IValue();
         virtual void linkWithClass()=0;
+        virtual void unlinkWithClass()=0;
         virtual std::wstring toString()=0;
 };

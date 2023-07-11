@@ -3644,6 +3644,7 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: /
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/StringMaker.hpp \
   /usr/include/catch2/catch.hpp \
@@ -3698,7 +3699,7 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: /
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OperatorFunShouldHaveSingleParamException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
@@ -4583,6 +4584,8 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: /
 
 /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/testInclude/StringMaker.hpp:
@@ -4788,8 +4791,6 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: /
 /usr/include/c++/12.2/bits/stl_construct.h:
 
 /usr/include/c++/12.2/bits/functexcept.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OperatorFunShouldHaveSingleParamException.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:
 
@@ -5274,6 +5275,8 @@ CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: /
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp:
 
 /usr/include/c++/12.2/bits/ostream.tcc:
 

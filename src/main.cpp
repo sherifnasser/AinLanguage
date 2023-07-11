@@ -125,6 +125,8 @@ int main(int argc, char * argv[]){
         }
         readAndParse(mainPath);
 
+        BuiltInFunScope::addBuiltInFunctionsToBuiltInClasses();
+
         Semantics::TypeChecker::getInstance()->check();
 
 

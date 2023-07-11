@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class UIntClassScope:public ClassScope{
+class UIntClassScope:public PrimitiveClassScope<unsigned int>{
     public:
-        UIntClassScope():ClassScope(*Type::UINT_NAME,PackageScope::AIN_PACKAGE){}
+        UIntClassScope():
+        PrimitiveClassScope<unsigned int>(Type::UINT_NAME){}
 };

@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class IntClassScope:public ClassScope{
+class IntClassScope:public PrimitiveClassScope<int>{
     public:
-        IntClassScope():ClassScope(*Type::INT_NAME,PackageScope::AIN_PACKAGE){}
+        IntClassScope():
+        PrimitiveClassScope<int>(Type::INT_NAME){}
 };

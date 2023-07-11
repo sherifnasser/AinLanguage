@@ -1,17 +1,15 @@
 #pragma once
 #include "NonStaticFunInvokeExpression.hpp"
 #include "SharedPtrTypes.hpp"
+#include <string>
 class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
-    private:
-        SharedLexerToken op;
     public:
         OperatorFunInvokeExpression(
             int lineNumber,
-            SharedLexerToken op,
+            std::wstring opName,
             SharedVector<SharedIExpression> args,
             SharedIExpression inside
         );
         std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
 };

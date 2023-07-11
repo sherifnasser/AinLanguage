@@ -10,3 +10,7 @@ UIntValue::UIntValue(unsigned int value)
 void UIntValue::linkWithClass() {
     
 }
+
+void UIntValue::unlinkWithClass() {
+    
+}

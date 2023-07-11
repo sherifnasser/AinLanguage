@@ -2,7 +2,9 @@ CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/function/BuiltInFunScope.cpp \
  /usr/include/stdc-predef.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
  /usr/include/c++/12.2/iostream \
  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -156,8 +158,23 @@ CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
  /usr/include/c++/12.2/functional \
  /usr/include/c++/12.2/bits/std_function.h \
  /usr/include/c++/12.2/unordered_map \
@@ -169,12 +186,15 @@ CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.o: \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UIntClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UnitValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp

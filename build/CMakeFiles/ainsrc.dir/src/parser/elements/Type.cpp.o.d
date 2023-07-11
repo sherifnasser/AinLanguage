@@ -156,6 +156,7 @@ CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \

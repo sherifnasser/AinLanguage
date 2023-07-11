@@ -1,4 +1,5 @@
 #include "BaseParser.hpp"
+#include "OperatorFunctions.hpp"
 #include "ParserProvidersAliases.hpp"
 #include "StringMaker.hpp"
 #include <catch2/catch.hpp>
@@ -12,7 +13,7 @@
 #include "FunDecl.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
-#include "OperatorFunShouldHaveSingleParamException.hpp"
+#include "InvalidOperatorFunDeclarationException.hpp"
 #include "PackageScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
@@ -65,7 +66,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
         return fakeFunParamParser;
     };
 
-    auto FUN_NAME=LexerToken::IdentifierToken(L"الجمع");
+    auto FUN_NAME=LexerToken::IdentifierToken(OperatorFunctions::PLUS_NAME);
     auto PARAM1_NAME=L"رقم";
     auto PARAM2_NAME=L"2رقم";
 
@@ -182,7 +183,7 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
             fakeFunParamParserProvider
         );
 
-        REQUIRE_THROWS_AS(parser.parse(), OperatorFunShouldHaveSingleParamException);
+        REQUIRE_THROWS_AS(parser.parse(), InvalidOperatorFunDeclarationException);
     }
 
     SECTION("throw ConflictingDeclarationException if function parameters have the same name") {

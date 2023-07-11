@@ -57,6 +57,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp" "CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/VarDeclParser.cpp" "CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/BaseScope.cpp" "CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o.d"
+  "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/ClassScope.cpp" "CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FileScope.cpp" "CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FunScope.cpp" "CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o.d"
   "/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/PackageScope.cpp" "CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.o" "gcc" "CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.o.d"

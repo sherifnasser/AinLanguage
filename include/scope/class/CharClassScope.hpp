@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class CharClassScope:public ClassScope{
+class CharClassScope:public PrimitiveClassScope<wchar_t>{
     public:
-        CharClassScope():ClassScope(*Type::CHAR_NAME,PackageScope::AIN_PACKAGE){}
+        CharClassScope():
+        PrimitiveClassScope<wchar_t>(Type::CHAR_NAME){}
 };

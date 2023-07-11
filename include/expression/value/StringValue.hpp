@@ -8,5 +8,6 @@ class StringValue:public IValue{
     public:
         StringValue(std::wstring value);
         void linkWithClass()override;
+        void unlinkWithClass()override;
         std::wstring toString()override;
 };

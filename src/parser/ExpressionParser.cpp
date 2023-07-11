@@ -15,6 +15,7 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "OperatorFunctions.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "StringValue.hpp"
@@ -48,13 +49,13 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 
     while(currentMatchByPrecedence(precedence)){
         int lineNumber=iterator->lineNumber;
-        auto op=iterator->currentToken();
+        auto opName=OperatorFunctions::getOperatorFunNameByToken(*iterator->currentToken());
         iterator->next();
         auto right=parseBinaryOperatorExpression(precedence-1);
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector({right}));
         left=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            op,
+            opName,
             args,
             left
         );

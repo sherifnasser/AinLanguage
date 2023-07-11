@@ -1,8 +1,9 @@
 #pragma once
-#include "ClassScope.hpp"
-#include "PackageScope.hpp"
+#include "PrimitiveClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "Type.hpp"
-class FloatClassScope:public ClassScope{
+class FloatClassScope:public PrimitiveClassScope<float>{
     public:
-        FloatClassScope():ClassScope(*Type::FLOAT_NAME,PackageScope::AIN_PACKAGE){}
+        FloatClassScope():
+        PrimitiveClassScope<float>(Type::FLOAT_NAME){}
 };

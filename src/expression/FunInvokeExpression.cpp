@@ -64,16 +64,38 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
         nullptr,
         std::make_shared<bool>(false),
         params
-    );
+    ).toString();
 
     auto containingClassScope=BaseScope::getContainingClass(checkScope);
     if(containingClassScope){
-        // TODO
+        
+        auto publicFun=containingClassScope->findPublicFunction(decl);
+
+        if(publicFun){
+            this->fun=publicFun;
+            this->returnType=fun->getReturnType();
+            return;
+        }
+
+        auto privateFun=containingClassScope->findPrivateFunction(decl);
+
+        if(privateFun){
+            this->fun=privateFun;
+            this->returnType=fun->getReturnType();
+            return;
+        }
+
+        // TODO: make trace more readable
+        auto trace=
+            containingClassScope->getName()+
+            L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+
+        throw FunctionNotFoundException(trace,decl);
     }
 
     auto containingFileScope=BaseScope::getContainingFile(checkScope);
     if(containingFileScope){
-        auto privateFun=containingFileScope->findPrivateFunction(decl.toString());
+        auto privateFun=containingFileScope->findPrivateFunction(decl);
         if(privateFun){
             this->fun=privateFun;
             this->returnType=fun->getReturnType();
@@ -83,7 +105,7 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
         auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
         
         for(auto file:package->getFiles()){
-            auto publicFun=file.second->findPublicFunction(decl.toString());
+            auto publicFun=file.second->findPublicFunction(decl);
             if(publicFun){
                 this->fun=publicFun;
                 this->returnType=fun->getReturnType();
@@ -96,7 +118,7 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
             containingFileScope->getName()+
             L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
         
-        throw FunctionNotFoundException(trace,decl.toString());
+        throw FunctionNotFoundException(trace,decl);
         
     }
 }

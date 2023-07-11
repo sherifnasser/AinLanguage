@@ -4,4 +4,5 @@ class FloatValue:public PrimitiveValue<float>{
     public:
         FloatValue(float value);
         void linkWithClass()override;
+        void unlinkWithClass()override;
 };
