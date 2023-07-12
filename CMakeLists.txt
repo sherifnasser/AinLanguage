@@ -29,6 +29,7 @@ add_library(ainsrc
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
+    src/expression/CompareToExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
@@ -114,6 +115,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 
 set(TEST_INCLUDE

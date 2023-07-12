@@ -209,7 +209,9 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/map \
   /usr/include/c++/12.2/bits/stl_tree.h \
@@ -217,15 +219,23 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
   /usr/include/c++/12.2/functional \
   /usr/include/c++/12.2/bits/std_function.h \
   /usr/include/c++/12.2/unordered_map \
@@ -281,6 +291,14 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
+
+/usr/include/c++/12.2/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/12.2/ext/alloc_traits.h:
 
@@ -398,6 +416,10 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/ios:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp:
+
+/usr/include/sys/types.h:
+
 /usr/include/bits/wctype-wchar.h:
 
 /usr/include/c++/12.2/ostream:
@@ -425,8 +447,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/typesizes.h:
 
 /usr/include/c++/12.2/bits/stringfwd.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp:
 
 /usr/include/c++/12.2/bits/exception.h:
 
@@ -460,13 +480,13 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/bits/floatn-common.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp:
-
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h:
 
 /usr/include/c++/12.2/bits/stl_uninitialized.h:
 
 /usr/include/c++/12.2/backward/auto_ptr.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp:
 
 /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h:
 
@@ -508,13 +528,15 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/move.h:
 
-/usr/include/c++/12.2/bits/exception_defines.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp:
 
 /usr/include/c++/12.2/pstl/execution_defs.h:
 
 /usr/include/bits/pthreadtypes.h:
 
 /usr/include/c++/12.2/new:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp:
 
 /usr/include/bits/types.h:
 
@@ -550,9 +572,9 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/debug/assertions.h:
 
-/usr/include/bits/types/clockid_t.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp:
+
+/usr/include/bits/types/clockid_t.h:
 
 /usr/include/bits/stdint-intn.h:
 
@@ -576,9 +598,9 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h:
 
-/usr/include/c++/12.2/bits/utility.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp:
+
+/usr/include/c++/12.2/bits/utility.h:
 
 /usr/include/c++/12.2/bits/alloc_traits.h:
 
@@ -597,6 +619,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/functional_hash.h:
 
 /usr/include/c++/12.2/bits/string_view.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp:
 
@@ -650,6 +674,12 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/bits/types/__fpos64_t.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp:
+
+/usr/include/bits/types/struct_FILE.h:
+
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
@@ -685,8 +715,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/cwctype:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
 
@@ -734,6 +762,12 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/bits/hashtable_policy.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+
+/usr/include/c++/12.2/bits/basic_ios.tcc:
+
+/usr/include/c++/12.2/bit:
+
 /usr/include/c++/12.2/cstdlib:
 
 /usr/include/alloca.h:
@@ -756,7 +790,11 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
 
@@ -773,6 +811,16 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/stl_construct.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp:
+
+/usr/include/c++/12.2/bits/exception_defines.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
 
@@ -791,21 +839,3 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
-
-/usr/include/c++/12.2/pstl/glue_algorithm_defs.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
-
-/usr/include/bits/types/struct_FILE.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp:
-
-/usr/include/sys/types.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp:
-
-/usr/include/c++/12.2/bits/basic_ios.tcc:
-
-/usr/include/c++/12.2/bit:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:

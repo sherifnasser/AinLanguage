@@ -3,7 +3,5 @@
 class CharValue:public PrimitiveValue<wchar_t>{
     public:
         CharValue(wchar_t value);
-        void linkWithClass()override;
-        void unlinkWithClass()override;
-        std::wstring toString() override;
+        std::wstring toString()override;
 };

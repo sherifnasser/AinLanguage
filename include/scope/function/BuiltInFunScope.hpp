@@ -71,6 +71,13 @@ class BuiltInFunScope:public FunScope{
             SharedType paramType
         );
 
+        template <typename PrimitiveType, typename ParamValue>
+        static inline std::shared_ptr<BuiltInFunScope> getCompareToFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            std::wstring paramName,
+            SharedType paramType
+        );
+
         template <typename PrimitiveType, typename ReturnValue>
         static inline std::shared_ptr<BuiltInFunScope> getToAnotherTypeFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
@@ -159,7 +166,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getPLusFun(
     SharedType returnType,
     std::wstring paramName,
     SharedType paramType
-) {
+){
     return std::make_shared<BuiltInFunScope>(
         OperatorFunctions::PLUS_NAME,
         returnType,
@@ -179,7 +186,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getMinusFun(
     SharedType returnType,
     std::wstring paramName,
     SharedType paramType
-) {
+){
     return std::make_shared<BuiltInFunScope>(
         OperatorFunctions::MINUS_NAME,
         returnType,
@@ -199,7 +206,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getTimesFun(
     SharedType returnType,
     std::wstring paramName,
     SharedType paramType
-) {
+){
     return std::make_shared<BuiltInFunScope>(
         OperatorFunctions::TIMES_NAME,
         returnType,
@@ -219,7 +226,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getDivFun(
     SharedType returnType,
     std::wstring paramName,
     SharedType paramType
-) {
+){
     return std::make_shared<BuiltInFunScope>(
         OperatorFunctions::DIV_NAME,
         returnType,
@@ -239,7 +246,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getModFun(
     SharedType returnType,
     std::wstring paramName,
     SharedType paramType
-) {
+){
     return std::make_shared<BuiltInFunScope>(
         OperatorFunctions::MOD_NAME,
         returnType,
@@ -248,6 +255,26 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getModFun(
             auto firstVal=classScope->getValue();
             auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
             return std::make_shared<ReturnValue>(firstVal%secondVal);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ParamValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getCompareToFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    std::wstring paramName,
+    SharedType paramType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::COMPARE_TO_NAME,
+        Type::INT,
+        std::map<std::wstring, SharedType>{{paramName,paramType}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
+            auto compareVal=(firstVal>secondVal)?1:(firstVal<secondVal)?-1:0;
+            return std::make_shared<IntValue>(compareVal);
         },
         true
     );

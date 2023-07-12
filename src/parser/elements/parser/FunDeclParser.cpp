@@ -98,6 +98,8 @@ SharedFunDecl FunDeclParser::parse(){
     if(colonFound){
         iterator->next();
         funReturnType=returnTypeParser->parse();
+        if(funNameId==OperatorFunctions::COMPARE_TO_NAME&&*funReturnType->getName()!=*Type::INT_NAME)
+            throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
     }
 
     auto fun=std::make_shared<FunDecl>(

@@ -2,15 +2,4 @@
 #include "Type.hpp"
 
 DoubleValue::DoubleValue(long double value)
-    : PrimitiveValue(Type::DOUBLE,value)
-{
-    
-}
-
-void DoubleValue::linkWithClass() {
-    
-}
-
-void DoubleValue::unlinkWithClass() {
-    
-}
+:PrimitiveValue(Type::DOUBLE,value){}

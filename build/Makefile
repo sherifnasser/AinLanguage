@@ -216,6 +216,30 @@ src/ain_file/AinFile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.s
 .PHONY : src/ain_file/AinFile.cpp.s
 
+src/expression/CompareToExpression.o: src/expression/CompareToExpression.cpp.o
+.PHONY : src/expression/CompareToExpression.o
+
+# target to build an object file
+src/expression/CompareToExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.o
+.PHONY : src/expression/CompareToExpression.cpp.o
+
+src/expression/CompareToExpression.i: src/expression/CompareToExpression.cpp.i
+.PHONY : src/expression/CompareToExpression.i
+
+# target to preprocess a source file
+src/expression/CompareToExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.i
+.PHONY : src/expression/CompareToExpression.cpp.i
+
+src/expression/CompareToExpression.s: src/expression/CompareToExpression.cpp.s
+.PHONY : src/expression/CompareToExpression.s
+
+# target to generate assembly for a file
+src/expression/CompareToExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.s
+.PHONY : src/expression/CompareToExpression.cpp.s
+
 src/expression/FunInvokeExpression.o: src/expression/FunInvokeExpression.cpp.o
 .PHONY : src/expression/FunInvokeExpression.o
 
@@ -2157,6 +2181,9 @@ help:
 	@echo "... src/ain_file/AinFile.o"
 	@echo "... src/ain_file/AinFile.i"
 	@echo "... src/ain_file/AinFile.s"
+	@echo "... src/expression/CompareToExpression.o"
+	@echo "... src/expression/CompareToExpression.i"
+	@echo "... src/expression/CompareToExpression.s"
 	@echo "... src/expression/FunInvokeExpression.o"
 	@echo "... src/expression/FunInvokeExpression.i"
 	@echo "... src/expression/FunInvokeExpression.s"

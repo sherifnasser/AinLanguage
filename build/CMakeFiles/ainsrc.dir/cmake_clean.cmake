@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o"
   "CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o.d"
+  "CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.o"
+  "CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.o"
   "CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.o.d"
   "CMakeFiles/ainsrc.dir/src/expression/IExpression.cpp.o"

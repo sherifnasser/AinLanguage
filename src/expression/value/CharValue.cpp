@@ -3,18 +3,7 @@
 #include <string>
 
 CharValue::CharValue(wchar_t value)
-    : PrimitiveValue(Type::CHAR,value)
-{
-    
-}
-
-void CharValue::linkWithClass() {
-    
-}
-
-void CharValue::unlinkWithClass() {
-    
-}
+:PrimitiveValue(Type::CHAR,value){}
 
 std::wstring CharValue::toString() {
     std::wstring val=L"";

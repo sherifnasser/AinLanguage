@@ -2,15 +2,4 @@
 #include "Type.hpp"
 
 ULongValue::ULongValue(unsigned long long value)
-    : PrimitiveValue(Type::ULONG,value)
-{
-    
-}
-
-void ULongValue::linkWithClass() {
-    
-}
-
-void ULongValue::unlinkWithClass() {
-    
-}
+:PrimitiveValue(Type::ULONG,value){}

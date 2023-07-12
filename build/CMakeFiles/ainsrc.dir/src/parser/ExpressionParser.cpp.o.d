@@ -183,18 +183,19 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/CompareToExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \

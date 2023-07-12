@@ -409,6 +409,30 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         Type::LONG
     );
 
+    auto COMPARE_TO_INT=getCompareToFun<PrimitiveType, IntValue>(
+        classScope,
+        INT_PARAM_NAME,
+        Type::INT
+    );
+
+    auto COMPARE_TO_LONG=getCompareToFun<PrimitiveType, LongValue>(
+        classScope,
+        LONG_PARAM_NAME,
+        Type::LONG
+    );
+
+    auto COMPARE_TO_FLOAT=getCompareToFun<PrimitiveType, FloatValue>(
+        classScope,
+        FLOAT_PARAM_NAME,
+        Type::FLOAT
+    );
+
+    auto COMPARE_TO_DOUBLE=getCompareToFun<PrimitiveType, DoubleValue>(
+        classScope,
+        DOUBLE_PARAM_NAME,
+        Type::DOUBLE
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -444,6 +468,7 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         MOD_INT,MOD_LONG,
+        COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING,TO_CHAR
     };
@@ -531,6 +556,18 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         Type::ULONG
     );
 
+    auto COMPARE_TO_UINT=getCompareToFun<PrimitiveType, UIntValue>(
+        classScope,
+        UINT_PARAM_NAME,
+        Type::UINT
+    );
+
+    auto COMPARE_TO_ULONG=getCompareToFun<PrimitiveType, ULongValue>(
+        classScope,
+        ULONG_PARAM_NAME,
+        Type::ULONG
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -551,6 +588,7 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         TIMES_UINT,TIMES_ULONG,
         DIV_UINT,DIV_ULONG,
         MOD_UINT,MOD_ULONG,
+        COMPARE_TO_UINT,COMPARE_TO_ULONG,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -694,6 +732,30 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         Type::LONG
     );
 
+    auto COMPARE_TO_INT=getCompareToFun<PrimitiveType, IntValue>(
+        classScope,
+        INT_PARAM_NAME,
+        Type::INT
+    );
+
+    auto COMPARE_TO_LONG=getCompareToFun<PrimitiveType, LongValue>(
+        classScope,
+        LONG_PARAM_NAME,
+        Type::LONG
+    );
+
+    auto COMPARE_TO_FLOAT=getCompareToFun<PrimitiveType, FloatValue>(
+        classScope,
+        FLOAT_PARAM_NAME,
+        Type::FLOAT
+    );
+
+    auto COMPARE_TO_DOUBLE=getCompareToFun<PrimitiveType, DoubleValue>(
+        classScope,
+        DOUBLE_PARAM_NAME,
+        Type::DOUBLE
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -714,6 +776,7 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         MOD_INT,MOD_LONG,
+        COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -801,6 +864,18 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         Type::ULONG
     );
 
+    auto COMPARE_TO_UINT=getCompareToFun<PrimitiveType, UIntValue>(
+        classScope,
+        UINT_PARAM_NAME,
+        Type::UINT
+    );
+
+    auto COMPARE_TO_ULONG=getCompareToFun<PrimitiveType, ULongValue>(
+        classScope,
+        ULONG_PARAM_NAME,
+        Type::ULONG
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -821,6 +896,7 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         TIMES_UINT,TIMES_ULONG,
         DIV_UINT,DIV_ULONG,
         MOD_UINT,MOD_ULONG,
+        COMPARE_TO_UINT,COMPARE_TO_ULONG,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -950,6 +1026,30 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         Type::DOUBLE
     );
 
+    auto COMPARE_TO_INT=getCompareToFun<PrimitiveType, IntValue>(
+        classScope,
+        INT_PARAM_NAME,
+        Type::INT
+    );
+
+    auto COMPARE_TO_LONG=getCompareToFun<PrimitiveType, LongValue>(
+        classScope,
+        LONG_PARAM_NAME,
+        Type::LONG
+    );
+
+    auto COMPARE_TO_FLOAT=getCompareToFun<PrimitiveType, FloatValue>(
+        classScope,
+        FLOAT_PARAM_NAME,
+        Type::FLOAT
+    );
+
+    auto COMPARE_TO_DOUBLE=getCompareToFun<PrimitiveType, DoubleValue>(
+        classScope,
+        DOUBLE_PARAM_NAME,
+        Type::DOUBLE
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -969,6 +1069,7 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         MINUS_INT,MINUS_LONG,MINUS_FLOAT,MINUS_DOUBLE,
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
+        COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1098,6 +1199,30 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         Type::DOUBLE
     );
 
+    auto COMPARE_TO_INT=getCompareToFun<PrimitiveType, IntValue>(
+        classScope,
+        INT_PARAM_NAME,
+        Type::INT
+    );
+
+    auto COMPARE_TO_LONG=getCompareToFun<PrimitiveType, LongValue>(
+        classScope,
+        LONG_PARAM_NAME,
+        Type::LONG
+    );
+
+    auto COMPARE_TO_FLOAT=getCompareToFun<PrimitiveType, FloatValue>(
+        classScope,
+        FLOAT_PARAM_NAME,
+        Type::FLOAT
+    );
+
+    auto COMPARE_TO_DOUBLE=getCompareToFun<PrimitiveType, DoubleValue>(
+        classScope,
+        DOUBLE_PARAM_NAME,
+        Type::DOUBLE
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -1117,6 +1242,7 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         MINUS_INT,MINUS_LONG,MINUS_FLOAT,MINUS_DOUBLE,
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
+        COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };

@@ -1,6 +1,7 @@
 #include "ExpressionParser.hpp"
 #include "BoolValue.hpp"
 #include "CharValue.hpp"
+#include "CompareToExpression.hpp"
 #include "DoubleValue.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
@@ -49,16 +50,56 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 
     while(currentMatchByPrecedence(precedence)){
         int lineNumber=iterator->lineNumber;
-        auto opName=OperatorFunctions::getOperatorFunNameByToken(*iterator->currentToken());
+
+        auto op=iterator->currentToken();
+
+        auto opName=OperatorFunctions::getOperatorFunNameByToken(*op);
+
         iterator->next();
+        
         auto right=parseBinaryOperatorExpression(precedence-1);
+
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector({right}));
+
         left=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
             opName,
             args,
             left
         );
+
+        if(opName!=OperatorFunctions::COMPARE_TO_NAME)
+            continue;
+        
+        if(*op==SymbolToken::LEFT_ANGLE_BRACKET)
+            left=std::make_shared<CompareToExpression>(
+                lineNumber,
+                left,
+                CompareToExpression::EVALUATION_FUN::LESS
+            );
+        
+        else if(*op==SymbolToken::LESS_EQUAL)
+            left=std::make_shared<CompareToExpression>(
+                lineNumber,
+                left,
+                CompareToExpression::EVALUATION_FUN::LESS_EQUAL
+            );
+        
+        else if(*op==SymbolToken::GREATER_EQUAL)
+            left=std::make_shared<CompareToExpression>(
+                lineNumber,
+                left,
+                CompareToExpression::EVALUATION_FUN::GREATER_EQUAL
+            );
+        
+        else
+            left=std::make_shared<CompareToExpression>(
+                lineNumber,
+                left,
+                CompareToExpression::EVALUATION_FUN::GREATER
+            );
+        
+        
     }
 
     return left;
