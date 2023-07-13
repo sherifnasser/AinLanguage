@@ -1,4 +1,5 @@
 #pragma once
+#include "BoolValue.hpp"
 #include "DoubleValue.hpp"
 #include "FloatValue.hpp"
 #include "FunScope.hpp"
@@ -6,6 +7,7 @@
 #include "LongValue.hpp"
 #include "OperatorFunctions.hpp"
 #include "PrimitiveClassScope.hpp"
+#include "PrimitiveValue.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StringValue.hpp"
 #include "Type.hpp"
@@ -32,7 +34,7 @@ class BuiltInFunScope:public FunScope{
         static void addBuiltInFunctionsToUnitClass();
 
         template <typename PrimitiveType, typename ParamValue, typename ReturnValue>
-        static inline std::shared_ptr<BuiltInFunScope> getPLusFun(
+        static inline std::shared_ptr<BuiltInFunScope> getPlusFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
             SharedType returnType,
             std::wstring paramName,
@@ -73,6 +75,13 @@ class BuiltInFunScope:public FunScope{
 
         template <typename PrimitiveType, typename ParamValue>
         static inline std::shared_ptr<BuiltInFunScope> getCompareToFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            std::wstring paramName,
+            SharedType paramType
+        );
+
+        template <typename PrimitiveType>
+        static inline std::shared_ptr<BuiltInFunScope> getEqualsFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
             std::wstring paramName,
             SharedType paramType
@@ -140,6 +149,7 @@ class BuiltInFunScope:public FunScope{
         static const inline auto TO_ULONG_NAME=L"ككبير_م";
         static const inline auto TO_FLOAT_NAME=L"كعشري";
         static const inline auto TO_DOUBLE_NAME=L"كعشري_م";
+        static const inline auto TO_BOOL_NAME=L"كمنطقي";
         static const inline auto TO_CHAR_NAME=L"كحرف";
         static const inline auto TO_STRING_NAME=L"كنص";
 
@@ -161,7 +171,7 @@ class BuiltInFunScope:public FunScope{
 
 
 template <typename PrimitiveType, typename ParamValue, typename ReturnValue>
-inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getPLusFun(
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getPlusFun(
     std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
     SharedType returnType,
     std::wstring paramName,
@@ -275,6 +285,26 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getCompareToFun(
             auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
             auto compareVal=(firstVal>secondVal)?1:(firstVal<secondVal)?-1:0;
             return std::make_shared<IntValue>(compareVal);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getEqualsFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    std::wstring paramName,
+    SharedType paramType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::EQUALS_NAME,
+        Type::BOOL,
+        std::map<std::wstring, SharedType>{{paramName,paramType}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(params->at(paramName))->getValue();
+            auto equalsVal=firstVal==secondVal;
+            return std::make_shared<BoolValue>(equalsVal);
         },
         true
     );

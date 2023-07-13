@@ -8,9 +8,9 @@ class TypeMismatchException:public AinException{
             std::wstring second
         ):AinException(
             AinException::errorWString(
-                L"يجب أن يكونا من نفس النوع. "+
+                L"يجب أن يكونا من نفس النوع "+
                 AinException::betweenAngleBrackets(first)+L" و"+
-                AinException::betweenAngleBrackets(second)
+                AinException::betweenAngleBrackets(second)+L" ."
             )
         ){}
 };

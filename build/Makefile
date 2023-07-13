@@ -240,6 +240,30 @@ src/expression/CompareToExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.s
 .PHONY : src/expression/CompareToExpression.cpp.s
 
+src/expression/EqualityExpression.o: src/expression/EqualityExpression.cpp.o
+.PHONY : src/expression/EqualityExpression.o
+
+# target to build an object file
+src/expression/EqualityExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/EqualityExpression.cpp.o
+.PHONY : src/expression/EqualityExpression.cpp.o
+
+src/expression/EqualityExpression.i: src/expression/EqualityExpression.cpp.i
+.PHONY : src/expression/EqualityExpression.i
+
+# target to preprocess a source file
+src/expression/EqualityExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/EqualityExpression.cpp.i
+.PHONY : src/expression/EqualityExpression.cpp.i
+
+src/expression/EqualityExpression.s: src/expression/EqualityExpression.cpp.s
+.PHONY : src/expression/EqualityExpression.s
+
+# target to generate assembly for a file
+src/expression/EqualityExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/EqualityExpression.cpp.s
+.PHONY : src/expression/EqualityExpression.cpp.s
+
 src/expression/FunInvokeExpression.o: src/expression/FunInvokeExpression.cpp.o
 .PHONY : src/expression/FunInvokeExpression.o
 
@@ -311,6 +335,30 @@ src/expression/LiteralExpression.s: src/expression/LiteralExpression.cpp.s
 src/expression/LiteralExpression.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LiteralExpression.cpp.s
 .PHONY : src/expression/LiteralExpression.cpp.s
+
+src/expression/LogicalExpression.o: src/expression/LogicalExpression.cpp.o
+.PHONY : src/expression/LogicalExpression.o
+
+# target to build an object file
+src/expression/LogicalExpression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LogicalExpression.cpp.o
+.PHONY : src/expression/LogicalExpression.cpp.o
+
+src/expression/LogicalExpression.i: src/expression/LogicalExpression.cpp.i
+.PHONY : src/expression/LogicalExpression.i
+
+# target to preprocess a source file
+src/expression/LogicalExpression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LogicalExpression.cpp.i
+.PHONY : src/expression/LogicalExpression.cpp.i
+
+src/expression/LogicalExpression.s: src/expression/LogicalExpression.cpp.s
+.PHONY : src/expression/LogicalExpression.s
+
+# target to generate assembly for a file
+src/expression/LogicalExpression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/LogicalExpression.cpp.s
+.PHONY : src/expression/LogicalExpression.cpp.s
 
 src/expression/NewObjectExpression.o: src/expression/NewObjectExpression.cpp.o
 .PHONY : src/expression/NewObjectExpression.o
@@ -1515,6 +1563,30 @@ src/scope/StmListScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.s
 .PHONY : src/scope/StmListScope.cpp.s
 
+src/scope/StringClassScope.o: src/scope/StringClassScope.cpp.o
+.PHONY : src/scope/StringClassScope.o
+
+# target to build an object file
+src/scope/StringClassScope.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StringClassScope.cpp.o
+.PHONY : src/scope/StringClassScope.cpp.o
+
+src/scope/StringClassScope.i: src/scope/StringClassScope.cpp.i
+.PHONY : src/scope/StringClassScope.i
+
+# target to preprocess a source file
+src/scope/StringClassScope.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StringClassScope.cpp.i
+.PHONY : src/scope/StringClassScope.cpp.i
+
+src/scope/StringClassScope.s: src/scope/StringClassScope.cpp.s
+.PHONY : src/scope/StringClassScope.s
+
+# target to generate assembly for a file
+src/scope/StringClassScope.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/StringClassScope.cpp.s
+.PHONY : src/scope/StringClassScope.cpp.s
+
 src/scope/Variable.o: src/scope/Variable.cpp.o
 .PHONY : src/scope/Variable.o
 
@@ -2184,6 +2256,9 @@ help:
 	@echo "... src/expression/CompareToExpression.o"
 	@echo "... src/expression/CompareToExpression.i"
 	@echo "... src/expression/CompareToExpression.s"
+	@echo "... src/expression/EqualityExpression.o"
+	@echo "... src/expression/EqualityExpression.i"
+	@echo "... src/expression/EqualityExpression.s"
 	@echo "... src/expression/FunInvokeExpression.o"
 	@echo "... src/expression/FunInvokeExpression.i"
 	@echo "... src/expression/FunInvokeExpression.s"
@@ -2193,6 +2268,9 @@ help:
 	@echo "... src/expression/LiteralExpression.o"
 	@echo "... src/expression/LiteralExpression.i"
 	@echo "... src/expression/LiteralExpression.s"
+	@echo "... src/expression/LogicalExpression.o"
+	@echo "... src/expression/LogicalExpression.i"
+	@echo "... src/expression/LogicalExpression.s"
 	@echo "... src/expression/NewObjectExpression.o"
 	@echo "... src/expression/NewObjectExpression.i"
 	@echo "... src/expression/NewObjectExpression.s"
@@ -2343,6 +2421,9 @@ help:
 	@echo "... src/scope/StmListScope.o"
 	@echo "... src/scope/StmListScope.i"
 	@echo "... src/scope/StmListScope.s"
+	@echo "... src/scope/StringClassScope.o"
+	@echo "... src/scope/StringClassScope.i"
+	@echo "... src/scope/StringClassScope.s"
 	@echo "... src/scope/Variable.o"
 	@echo "... src/scope/Variable.i"
 	@echo "... src/scope/Variable.s"

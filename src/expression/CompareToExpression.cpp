@@ -4,47 +4,41 @@
 #include "Type.hpp"
 #include <memory>
 
-CompareToExpression::CompareToExpression(
-    int lineNumber,
-    SharedIExpression compareToFunEx,
-    EVALUATION_FUN evaluationFun
-):
-    IExpression(lineNumber,Type::BOOL),
-    compareToFunEx(compareToFunEx),
-    evaluationFun(
+CompareToExpression::CompareToExpression(int lineNumber,SharedIExpression compareToFunEx)
+    : IExpression(lineNumber,Type::BOOL),
+      compareToFunEx(compareToFunEx){}
 
-        (evaluationFun==EVALUATION_FUN::GREATER)
-        ?[](int compareToResult){
-            return std::make_shared<BoolValue>(compareToResult>0);
-        }:
-
-        (evaluationFun==EVALUATION_FUN::GREATER_EQUAL)
-        ?[](int compareToResult){
-            return std::make_shared<BoolValue>(compareToResult>=0);
-        }:
-
-        (evaluationFun==EVALUATION_FUN::LESS)
-        ?[](int compareToResult){
-            return std::make_shared<BoolValue>(compareToResult<0);
-        }:
-        
-        [](int compareToResult){
-            return std::make_shared<BoolValue>(compareToResult<=0);
-        }
-    )
-{}
-
-std::vector<std::wstring> CompareToExpression::prettyPrint() {
+std::vector<std::wstring> CompareToExpression::prettyPrint(){
     return compareToFunEx->prettyPrint();
 }
 
-SharedIValue CompareToExpression::evaluate(){
+int CompareToExpression::evaluateCompareToFun(){
     auto compareToVal=compareToFunEx->evaluate();
     auto compareToIntVal=std::dynamic_pointer_cast<IntValue>(compareToVal)->getValue();
-    return evaluationFun(compareToIntVal);
+    return compareToIntVal;
 }
 
 void CompareToExpression::check(SharedBaseScope checkScope){
     // The check of the return type of compareTo fun is done when parsing a function declaration
     compareToFunEx->check(checkScope);
+}
+
+SharedIValue CompareToExpression::Less::evaluate(){
+    auto compareToVal=evaluateCompareToFun();
+    return std::make_shared<BoolValue>(compareToVal<0);
+}
+
+SharedIValue CompareToExpression::LessEqual::evaluate(){
+    auto compareToVal=evaluateCompareToFun();
+    return std::make_shared<BoolValue>(compareToVal<=0);
+}
+
+SharedIValue CompareToExpression::Greater::evaluate(){
+    auto compareToVal=evaluateCompareToFun();
+    return std::make_shared<BoolValue>(compareToVal>0);
+}
+
+SharedIValue CompareToExpression::GreaterEqual::evaluate(){
+    auto compareToVal=evaluateCompareToFun();
+    return std::make_shared<BoolValue>(compareToVal>=0);
 }

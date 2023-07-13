@@ -1,4 +1,7 @@
 #include "BuiltInFunScope.hpp"
+#include "BoolClassScope.hpp"
+#include "BoolValue.hpp"
+#include "CharClassScope.hpp"
 #include "CharValue.hpp"
 #include "DoubleClassScope.hpp"
 #include "DoubleValue.hpp"
@@ -7,12 +10,14 @@
 #include "FunParam.hpp"
 #include "IntClassScope.hpp"
 #include "IntValue.hpp"
+#include "KeywordToken.hpp"
 #include "LongClassScope.hpp"
 #include "LongValue.hpp"
 #include "OperatorFunctions.hpp"
 #include "PackageScope.hpp"
 #include "FunDecl.hpp"
 #include "SharedPtrTypes.hpp"
+#include "StringClassScope.hpp"
 #include "StringValue.hpp"
 #include "Type.hpp"
 #include "UIntClassScope.hpp"
@@ -22,9 +27,13 @@
 #include "UnitValue.hpp"
 #include "ainio.hpp"
 #include "FileScope.hpp"
+#include "runtime/NumberFormatException.hpp"
 #include "wchar_t_helper.hpp"
+#include <exception>
+#include <limits>
 #include <map>
 #include <memory>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -283,28 +292,28 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
     
     using PrimitiveType=int;
 
-    auto PLUS_INT=getPLusFun<PrimitiveType, IntValue, IntValue>(
+    auto PLUS_INT=getPlusFun<PrimitiveType, IntValue, IntValue>(
         classScope,
         Type::INT,
         INT_PARAM_NAME,
         Type::INT
     );
 
-    auto PLUS_LONG=getPLusFun<PrimitiveType, LongValue, LongValue>(
+    auto PLUS_LONG=getPlusFun<PrimitiveType, LongValue, LongValue>(
         classScope,
         Type::LONG,
         LONG_PARAM_NAME,
         Type::LONG
     );
 
-    auto PLUS_FLOAT=getPLusFun<PrimitiveType, FloatValue, FloatValue>(
+    auto PLUS_FLOAT=getPlusFun<PrimitiveType, FloatValue, FloatValue>(
         classScope,
         Type::FLOAT,
         FLOAT_PARAM_NAME,
         Type::FLOAT
     );
 
-    auto PLUS_DOUBLE=getPLusFun<PrimitiveType, DoubleValue, DoubleValue>(
+    auto PLUS_DOUBLE=getPlusFun<PrimitiveType, DoubleValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         DOUBLE_PARAM_NAME,
@@ -433,6 +442,12 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         Type::DOUBLE
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        INT_PARAM_NAME,
+        Type::INT
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -469,6 +484,7 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         MOD_INT,MOD_LONG,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING,TO_CHAR
     };
@@ -486,14 +502,14 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
     
     using PrimitiveType=unsigned int;
 
-    auto PLUS_UINT=getPLusFun<PrimitiveType, UIntValue, UIntValue>(
+    auto PLUS_UINT=getPlusFun<PrimitiveType, UIntValue, UIntValue>(
         classScope,
         Type::UINT,
         UINT_PARAM_NAME,
         Type::UINT
     );
 
-    auto PLUS_ULONG=getPLusFun<PrimitiveType, ULongValue, ULongValue>(
+    auto PLUS_ULONG=getPlusFun<PrimitiveType, ULongValue, ULongValue>(
         classScope,
         Type::ULONG,
         ULONG_PARAM_NAME,
@@ -568,6 +584,12 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         Type::ULONG
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        UINT_PARAM_NAME,
+        Type::UINT
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -589,6 +611,7 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         DIV_UINT,DIV_ULONG,
         MOD_UINT,MOD_ULONG,
         COMPARE_TO_UINT,COMPARE_TO_ULONG,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -606,28 +629,28 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
     
     using PrimitiveType=long long;
 
-    auto PLUS_INT=getPLusFun<PrimitiveType, IntValue, LongValue>(
+    auto PLUS_INT=getPlusFun<PrimitiveType, IntValue, LongValue>(
         classScope,
         Type::LONG,
         INT_PARAM_NAME,
         Type::INT
     );
 
-    auto PLUS_LONG=getPLusFun<PrimitiveType, LongValue, LongValue>(
+    auto PLUS_LONG=getPlusFun<PrimitiveType, LongValue, LongValue>(
         classScope,
         Type::LONG,
         LONG_PARAM_NAME,
         Type::LONG
     );
 
-    auto PLUS_FLOAT=getPLusFun<PrimitiveType, FloatValue, FloatValue>(
+    auto PLUS_FLOAT=getPlusFun<PrimitiveType, FloatValue, FloatValue>(
         classScope,
         Type::FLOAT,
         FLOAT_PARAM_NAME,
         Type::FLOAT
     );
 
-    auto PLUS_DOUBLE=getPLusFun<PrimitiveType, DoubleValue, DoubleValue>(
+    auto PLUS_DOUBLE=getPlusFun<PrimitiveType, DoubleValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         DOUBLE_PARAM_NAME,
@@ -756,6 +779,12 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         Type::DOUBLE
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        LONG_PARAM_NAME,
+        Type::LONG
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -777,6 +806,7 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         MOD_INT,MOD_LONG,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -794,14 +824,14 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
     
     using PrimitiveType=unsigned long long;
 
-    auto PLUS_UINT=getPLusFun<PrimitiveType, UIntValue, ULongValue>(
+    auto PLUS_UINT=getPlusFun<PrimitiveType, UIntValue, ULongValue>(
         classScope,
         Type::ULONG,
         UINT_PARAM_NAME,
         Type::UINT
     );
 
-    auto PLUS_ULONG=getPLusFun<PrimitiveType, ULongValue, ULongValue>(
+    auto PLUS_ULONG=getPlusFun<PrimitiveType, ULongValue, ULongValue>(
         classScope,
         Type::ULONG,
         ULONG_PARAM_NAME,
@@ -876,6 +906,12 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         Type::ULONG
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        ULONG_PARAM_NAME,
+        Type::ULONG
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -897,6 +933,7 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         DIV_UINT,DIV_ULONG,
         MOD_UINT,MOD_ULONG,
         COMPARE_TO_UINT,COMPARE_TO_ULONG,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -914,28 +951,28 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
     
     using PrimitiveType=float;
 
-    auto PLUS_INT=getPLusFun<PrimitiveType, IntValue, FloatValue>(
+    auto PLUS_INT=getPlusFun<PrimitiveType, IntValue, FloatValue>(
         classScope,
         Type::FLOAT,
         INT_PARAM_NAME,
         Type::INT
     );
 
-    auto PLUS_LONG=getPLusFun<PrimitiveType, LongValue, FloatValue>(
+    auto PLUS_LONG=getPlusFun<PrimitiveType, LongValue, FloatValue>(
         classScope,
         Type::FLOAT,
         LONG_PARAM_NAME,
         Type::LONG
     );
 
-    auto PLUS_FLOAT=getPLusFun<PrimitiveType, FloatValue, FloatValue>(
+    auto PLUS_FLOAT=getPlusFun<PrimitiveType, FloatValue, FloatValue>(
         classScope,
         Type::FLOAT,
         FLOAT_PARAM_NAME,
         Type::FLOAT
     );
 
-    auto PLUS_DOUBLE=getPLusFun<PrimitiveType, DoubleValue, DoubleValue>(
+    auto PLUS_DOUBLE=getPlusFun<PrimitiveType, DoubleValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         DOUBLE_PARAM_NAME,
@@ -1050,6 +1087,12 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         Type::DOUBLE
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        FLOAT_PARAM_NAME,
+        Type::FLOAT
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -1070,6 +1113,7 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1087,28 +1131,28 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
     
     using PrimitiveType=long double;
 
-    auto PLUS_INT=getPLusFun<PrimitiveType, IntValue, DoubleValue>(
+    auto PLUS_INT=getPlusFun<PrimitiveType, IntValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         INT_PARAM_NAME,
         Type::INT
     );
 
-    auto PLUS_LONG=getPLusFun<PrimitiveType, LongValue, DoubleValue>(
+    auto PLUS_LONG=getPlusFun<PrimitiveType, LongValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         LONG_PARAM_NAME,
         Type::LONG
     );
 
-    auto PLUS_FLOAT=getPLusFun<PrimitiveType, FloatValue, DoubleValue>(
+    auto PLUS_FLOAT=getPlusFun<PrimitiveType, FloatValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         FLOAT_PARAM_NAME,
         Type::FLOAT
     );
 
-    auto PLUS_DOUBLE=getPLusFun<PrimitiveType, DoubleValue, DoubleValue>(
+    auto PLUS_DOUBLE=getPlusFun<PrimitiveType, DoubleValue, DoubleValue>(
         classScope,
         Type::DOUBLE,
         DOUBLE_PARAM_NAME,
@@ -1223,6 +1267,12 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         Type::DOUBLE
     );
 
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        DOUBLE_PARAM_NAME,
+        Type::DOUBLE
+    );
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -1243,6 +1293,7 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         TIMES_INT,TIMES_LONG,TIMES_FLOAT,TIMES_DOUBLE,
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
+        EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1254,18 +1305,336 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
 
 }
 
-void BuiltInFunScope::addBuiltInFunctionsToBoolClass() {
+void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
+
+    auto classScope=std::dynamic_pointer_cast<BoolClassScope>(Type::BOOL->getClassScope());
+    
+    using PrimitiveType=bool;
+
+    auto NOT=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::NOT_NAME,
+        Type::BOOL,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto value=classScope->getValue();
+            return std::make_shared<BoolValue>(!value);
+        },
+        true
+    );
+
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        BOOL_PARAM_NAME,
+        Type::BOOL
+    );
+
+    auto TO_STRING=std::make_shared<BuiltInFunScope>(
+        TO_STRING_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto value=classScope->getValue();
+            return std::make_shared<StringValue>(
+                (value)?KeywordToken::TRUE.getVal():KeywordToken::FALSE.getVal()
+            );
+        },
+        true
+    );
+
+    auto funs={
+        NOT,
+        EQUALS,
+        TO_STRING
+    };
+
+    auto publicFuns=classScope->getPublicFunctions();
+    for(auto fun:funs){
+        (*publicFuns)[fun->getDecl()->toString()]=fun;
+    }
     
 }
 
 void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
     
+    auto classScope=std::dynamic_pointer_cast<CharClassScope>(Type::CHAR->getClassScope());
+    
+    using PrimitiveType=wchar_t;
+
+    auto PLUS_INT=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::PLUS_NAME,
+        Type::CHAR,
+        std::map<std::wstring, SharedType>{{INT_PARAM_NAME,Type::INT}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<IntValue>(params->at(INT_PARAM_NAME))->getValue();
+            auto charValue=static_cast<wchar_t>(firstVal+secondVal);
+            if(isKufrOrUnsupportedCharacter(charValue))
+                throw; // TODO
+            return std::make_shared<CharValue>(charValue);
+        },
+        true
+    );
+
+    auto PLUS_STRING=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::PLUS_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{{STRING_PARAM_NAME,Type::STRING}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
+            std::wstring val=L"";
+            val+=firstVal;
+            val+=secondVal;
+            return std::make_shared<StringValue>(val);
+        },
+        true
+    );
+
+    auto MINUS_INT=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::MINUS_NAME,
+        Type::CHAR,
+        std::map<std::wstring, SharedType>{{INT_PARAM_NAME,Type::INT}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<IntValue>(params->at(INT_PARAM_NAME))->getValue();
+            auto charValue=static_cast<wchar_t>(firstVal-secondVal);
+            if(isKufrOrUnsupportedCharacter(charValue))
+                throw; // TODO
+            return std::make_shared<CharValue>(charValue);
+        },
+        true
+    );
+
+    auto MINUS_CHAR=getMinusFun<PrimitiveType, CharValue, IntValue>(
+        classScope,
+        Type::INT,
+        CHAR_PARAM_NAME,
+        Type::CHAR
+    );
+
+    auto COMPARE_TO_CHAR=getCompareToFun<PrimitiveType, CharValue>(
+        classScope,
+        CHAR_PARAM_NAME,
+        Type::CHAR
+    );
+
+    auto EQUALS=getEqualsFun<PrimitiveType>(
+        classScope,
+        CHAR_PARAM_NAME,
+        Type::CHAR
+    );
+
+    auto TO_CHAR=std::make_shared<BuiltInFunScope>(
+        TO_CHAR_NAME,
+        Type::CHAR,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            // no need to check for kufr or unsupported characters as this method cannot be called from those characters
+            return std::make_shared<CharValue>(val);
+        },
+        true
+    );
+
+    auto TO_STRING=std::make_shared<BuiltInFunScope>(
+        TO_STRING_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto value=classScope->getValue();
+            std::wstring val=L"";
+            val+=value;
+            return std::make_shared<StringValue>(val);
+        },
+        true
+    );
+
+    auto funs={
+        PLUS_INT,PLUS_STRING,
+        MINUS_INT,MINUS_CHAR,
+        COMPARE_TO_CHAR,
+        EQUALS,
+        TO_CHAR,TO_STRING
+    };
+
+    auto publicFuns=classScope->getPublicFunctions();
+    for(auto fun:funs){
+        (*publicFuns)[fun->getDecl()->toString()]=fun;
+    }
+
 }
 
 void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
-    
+        
+    auto classScope=std::dynamic_pointer_cast<StringClassScope>(Type::STRING->getClassScope());
+
+    auto PLUS_STRING=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::PLUS_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{{STRING_PARAM_NAME,Type::STRING}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
+            std::wstring val=L"";
+            val+=firstVal;
+            val+=secondVal;
+            return std::make_shared<StringValue>(val);
+        },
+        true
+    );
+
+    auto EQUALS=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::EQUALS_NAME,
+        Type::BOOL,
+        std::map<std::wstring, SharedType>{{STRING_PARAM_NAME,Type::STRING}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
+            auto equalsVal=firstVal==secondVal;
+            return std::make_shared<BoolValue>(equalsVal);
+        },
+        true
+    );
+
+    auto TO_INT=std::make_shared<BuiltInFunScope>(
+        TO_INT_NAME,
+        Type::INT,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stoi(val);
+                return std::make_shared<IntValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_UINT=std::make_shared<BuiltInFunScope>(
+        TO_UINT_NAME,
+        Type::UINT,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stoull(val);
+
+                if(value>std::numeric_limits<unsigned int>().max())
+                    throw NumberFormatException(val);
+
+                return std::make_shared<UIntValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_LONG=std::make_shared<BuiltInFunScope>(
+        TO_LONG_NAME,
+        Type::LONG,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stoll(val);
+                return std::make_shared<LongValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_ULONG=std::make_shared<BuiltInFunScope>(
+        TO_ULONG_NAME,
+        Type::ULONG,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stoull(val);
+                return std::make_shared<ULongValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_FLOAT=std::make_shared<BuiltInFunScope>(
+        TO_FLOAT_NAME,
+        Type::FLOAT,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stof(val);
+                return std::make_shared<FloatValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_DOUBLE=std::make_shared<BuiltInFunScope>(
+        TO_DOUBLE_NAME,
+        Type::DOUBLE,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            try{
+                auto value=std::stold(val);
+                return std::make_shared<DoubleValue>(value);
+            }catch(std::exception e){
+                throw NumberFormatException(val);
+            }
+        },
+        true
+    );
+
+    auto TO_STRING=std::make_shared<BuiltInFunScope>(
+        TO_STRING_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<StringValue>(val);
+        },
+        true
+    );
+
+    auto funs={
+        EQUALS,
+        TO_INT,TO_UINT,TO_LONG,TO_ULONG,
+        TO_FLOAT,TO_DOUBLE,
+        TO_STRING
+    };
+
+    auto publicFuns=classScope->getPublicFunctions();
+    for(auto fun:funs){
+        (*publicFuns)[fun->getDecl()->toString()]=fun;
+    }
+
 }
 
-void BuiltInFunScope::addBuiltInFunctionsToUnitClass() {
-    
+void BuiltInFunScope::addBuiltInFunctionsToUnitClass(){
+
+    auto TO_STRING=std::make_shared<BuiltInFunScope>(
+        TO_STRING_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            return std::make_shared<StringValue>(*Type::UNIT->getName());
+        },
+        true
+    );
+
+    auto publicFuns=Type::UNIT->getClassScope()->getPublicFunctions();
+   
+    (*publicFuns)[TO_STRING->getDecl()->toString()]=TO_STRING;
+
 }

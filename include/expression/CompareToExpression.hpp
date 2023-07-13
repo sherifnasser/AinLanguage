@@ -6,14 +6,39 @@
 #include <memory>
 class CompareToExpression:public IExpression{
     private:
-        std::function<std::shared_ptr<BoolValue>(int)> evaluationFun;
         SharedIExpression compareToFunEx;
+    protected:
+        int evaluateCompareToFun();
     public:
-        enum class EVALUATION_FUN{
-            GREATER,GREATER_EQUAL,LESS,LESS_EQUAL
-        };
-        CompareToExpression(int lineNumber,SharedIExpression compareToFunEx,EVALUATION_FUN evaluationFun);
+        CompareToExpression(int lineNumber,SharedIExpression compareToFunEx);
         std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
+        class Less;
+        class LessEqual;
+        class Greater;
+        class GreaterEqual;
+};
+
+class CompareToExpression::Less:public CompareToExpression{
+    public:
+        using CompareToExpression::CompareToExpression;
+        SharedIValue evaluate()override;
+};
+
+class CompareToExpression::LessEqual:public CompareToExpression{
+    public:
+        using CompareToExpression::CompareToExpression;
+        SharedIValue evaluate()override;
+};
+
+class CompareToExpression::Greater:public CompareToExpression{
+    public:
+        using CompareToExpression::CompareToExpression;
+        SharedIValue evaluate()override;
+};
+
+class CompareToExpression::GreaterEqual:public CompareToExpression{
+    public:
+        using CompareToExpression::CompareToExpression;
+        SharedIValue evaluate()override;
 };

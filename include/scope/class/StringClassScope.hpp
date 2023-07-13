@@ -2,7 +2,14 @@
 #include "ClassScope.hpp"
 #include "PackageScope.hpp"
 #include "Type.hpp"
+#include <string>
 class StringClassScope:public ClassScope{
+    private:
+        SharedVector<std::wstring> valueStack;
     public:
-        StringClassScope():ClassScope(*Type::STRING_NAME,PackageScope::AIN_PACKAGE){}
+        StringClassScope();
+        std::wstring getValue();
+        void setValue(std::wstring value);
+        void pushNewValue();
+        void popLastValue();
 };

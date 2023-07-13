@@ -192,12 +192,14 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/CompareToExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/EqualityExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LogicalExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
@@ -208,6 +210,7 @@ CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp \

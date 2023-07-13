@@ -18,7 +18,7 @@ class PrimitiveClassScope:public ClassScope{
 template<typename T>
 PrimitiveClassScope<T>::PrimitiveClassScope(SharedWString name)
 :ClassScope(*name,PackageScope::AIN_PACKAGE),
-valueStack(std::make_shared<std::vector<T>>(std::vector<T>{}))
+valueStack(std::make_shared<std::vector<T>>())
 {}
 
 template<typename T>
@@ -27,16 +27,16 @@ T PrimitiveClassScope<T>::getValue(){
 }
 
 template<typename T>
-void PrimitiveClassScope<T>::setValue(T value) {
+void PrimitiveClassScope<T>::setValue(T value){
     (*valueStack)[valueStack->size()-1]=value;
 }
 
 template<typename T>
-void PrimitiveClassScope<T>::pushNewValue() {
+void PrimitiveClassScope<T>::pushNewValue(){
     valueStack->push_back(0);
 }
 
 template<typename T>
-void PrimitiveClassScope<T>::popLastValue() {
+void PrimitiveClassScope<T>::popLastValue(){
     valueStack->pop_back();
 }

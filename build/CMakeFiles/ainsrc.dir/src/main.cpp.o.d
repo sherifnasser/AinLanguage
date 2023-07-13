@@ -148,7 +148,7 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2/pstl/execution_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
@@ -162,6 +162,7 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
@@ -172,6 +173,7 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
  /usr/include/c++/12.2/functional \

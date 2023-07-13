@@ -25,6 +25,7 @@ add_library(ainsrc
     src/expression/value/FloatValue.cpp
     src/expression/value/LongValue.cpp
     src/expression/value/UIntValue.cpp
+    src/expression/EqualityExpression.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
@@ -34,12 +35,14 @@ add_library(ainsrc
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
     src/expression/NewObjectExpression.cpp
+    src/expression/LogicalExpression.cpp
     src/scope/BaseScope.cpp
     src/scope/function/BuiltInFunScope.cpp
     src/scope/PackageScope.cpp
     src/scope/FunScope.cpp
     src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
+    src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/ain_file/AinFile.cpp
@@ -80,6 +83,7 @@ set(INCLUDE
     include/exceptions/expression/
     include/exceptions/statement/
     include/exceptions/parser/
+    include/exceptions/runtime/
     include/lexer/
     include/expression/
     include/expression/value/
@@ -115,8 +119,6 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
-
-
 
 set(TEST_INCLUDE
     testInclude/

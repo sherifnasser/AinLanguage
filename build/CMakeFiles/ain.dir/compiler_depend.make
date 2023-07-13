@@ -209,7 +209,7 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
@@ -224,6 +224,7 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
@@ -234,6 +235,7 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
   /usr/include/c++/12.2/functional \
@@ -300,6 +302,12 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/c++/12.2/pstl/glue_algorithm_defs.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp:
+
+/usr/include/c++/12.2/algorithm:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp:
+
 /usr/include/c++/12.2/ext/alloc_traits.h:
 
 /usr/include/c++/12.2/bits/refwrap.h:
@@ -353,10 +361,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/time.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp:
-
-/usr/include/c++/12.2/algorithm:
 
 /usr/include/bits/types/time_t.h:
 
@@ -431,8 +435,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/c++/12.2/bits/locale_facets.h:
 
 /usr/include/c++/12.2/ext/atomicity.h:
-
-/usr/include/stdc-predef.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h:
 
@@ -588,8 +590,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /usr/include/bits/sched.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp:
-
 /usr/include/bits/wchar.h:
 
 /usr/include/bits/types/struct___jmp_buf_tag.h:
@@ -635,6 +635,10 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /usr/include/stdint.h:
 
 /usr/include/endian.h:
+
+/usr/include/stdc-predef.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp:
 
 /usr/include/bits/uintn-identity.h:
 
@@ -790,7 +794,11 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp:
+
+/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
+
+/usr/include/c++/12.2/bits/std_function.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp:
 
@@ -812,6 +820,8 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp:
@@ -821,10 +831,6 @@ CMakeFiles/ain.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLang
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp:
-
-/usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
-
-/usr/include/c++/12.2/bits/std_function.h:
 
 /usr/include/c++/12.2/unordered_map:
 

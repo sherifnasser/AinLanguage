@@ -100,6 +100,8 @@ SharedFunDecl FunDeclParser::parse(){
         funReturnType=returnTypeParser->parse();
         if(funNameId==OperatorFunctions::COMPARE_TO_NAME&&*funReturnType->getName()!=*Type::INT_NAME)
             throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
+        if(funNameId==OperatorFunctions::EQUALS_NAME&&*funReturnType->getName()!=*Type::BOOL_NAME)
+            throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة يساوي يجب أن ترجع قيمة من نوع منطقي.");
     }
 
     auto fun=std::make_shared<FunDecl>(

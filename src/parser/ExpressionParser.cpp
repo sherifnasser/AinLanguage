@@ -3,6 +3,7 @@
 #include "CharValue.hpp"
 #include "CompareToExpression.hpp"
 #include "DoubleValue.hpp"
+#include "EqualityExpression.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
 #include "IntValue.hpp"
@@ -10,6 +11,7 @@
 #include "LexerToken.hpp"
 #include "LiteralExpression.hpp"
 #include "LiteralToken.hpp"
+#include "LogicalExpression.hpp"
 #include "LongValue.hpp"
 #include "NewObjectExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
@@ -59,6 +61,20 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
         
         auto right=parseBinaryOperatorExpression(precedence-1);
 
+        if(opName==OperatorFunctions::LOGICAL_OR_NAME){
+            left=std::make_shared<LogicalExpression::Or>(
+                lineNumber,left,right
+            );
+            continue;
+        }
+
+        if(opName==OperatorFunctions::LOGICAL_AND_NAME){
+            left=std::make_shared<LogicalExpression::And>(
+                lineNumber,left,right
+            );
+            continue;
+        }
+
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector({right}));
 
         left=std::make_shared<OperatorFunInvokeExpression>(
@@ -68,37 +84,38 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
             left
         );
 
-        if(opName!=OperatorFunctions::COMPARE_TO_NAME)
+        if(opName!=OperatorFunctions::COMPARE_TO_NAME&&opName!=OperatorFunctions::EQUALS_NAME)
             continue;
         
-        if(*op==SymbolToken::LEFT_ANGLE_BRACKET)
-            left=std::make_shared<CompareToExpression>(
-                lineNumber,
-                left,
-                CompareToExpression::EVALUATION_FUN::LESS
+        if(*op==SymbolToken::EQUAL_EQUAL)
+            left=std::make_shared<EqualityExpression::EqualEqual>(
+                lineNumber,left
+            );
+
+        else if(*op==SymbolToken::NOT_EQUAL)
+            left=std::make_shared<EqualityExpression::NotEqual>(
+                lineNumber,left
+            );
+        
+        else if(*op==SymbolToken::LEFT_ANGLE_BRACKET)
+            left=std::make_shared<CompareToExpression::Less>(
+                lineNumber,left
             );
         
         else if(*op==SymbolToken::LESS_EQUAL)
-            left=std::make_shared<CompareToExpression>(
-                lineNumber,
-                left,
-                CompareToExpression::EVALUATION_FUN::LESS_EQUAL
+            left=std::make_shared<CompareToExpression::LessEqual>(
+                lineNumber,left
             );
         
         else if(*op==SymbolToken::GREATER_EQUAL)
-            left=std::make_shared<CompareToExpression>(
-                lineNumber,
-                left,
-                CompareToExpression::EVALUATION_FUN::GREATER_EQUAL
+            left=std::make_shared<CompareToExpression::GreaterEqual>(
+                lineNumber,left
             );
         
         else
-            left=std::make_shared<CompareToExpression>(
-                lineNumber,
-                left,
-                CompareToExpression::EVALUATION_FUN::GREATER
+            left=std::make_shared<CompareToExpression::Greater>(
+                lineNumber,left
             );
-        
         
     }
 
