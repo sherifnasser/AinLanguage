@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.26.3)
 
 project(AinLanguage)
 
+set(CMAKE_C_COMPILER "gcc")
+set(CMAKE_CXX_COMPILER "g++")
+
 ### start files_cmake.cpp ###
 
 add_library(ainsrc
@@ -131,7 +134,7 @@ target_include_directories(ainsrc PUBLIC ${INCLUDE})
 
 target_link_libraries(ain ainsrc)
 
-# Add Catch2 library
+#[[ Add Catch2 library
 find_package(Catch2 REQUIRED)
 
 # Add test executable
@@ -140,7 +143,7 @@ add_executable(unit_tests ${TEST})
 target_include_directories(unit_tests PUBLIC ${TEST_INCLUDE})
 
 # Link Catch2 library to the test executable
-target_link_libraries(unit_tests Catch2::Catch2 ainsrc)
+target_link_libraries(unit_tests Catch2::Catch2 ainsrc)]]
 
 # Add test executable
 add_executable(pretty_print ExpressionPrettyPrintTest.cpp)

@@ -73,15 +73,15 @@ CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o: CMakeFiles/pretty_p
 CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp
 CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o: CMakeFiles/pretty_print.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o -MF CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o.d -o CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o -MF CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o.d -o CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp
 
 CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp > CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp > CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.i
 
 CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp -o CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/ExpressionPrettyPrintTest.cpp -o CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.s
 
 # Object files for target pretty_print
 pretty_print_OBJECTS = \

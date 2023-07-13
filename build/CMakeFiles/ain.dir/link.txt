@@ -1,1 +1,1 @@
-/bin/g++ -g CMakeFiles/ain.dir/src/main.cpp.o -o ain  libainsrc.a 
+g++ -g CMakeFiles/ain.dir/src/main.cpp.o -o ain  libainsrc.a 

@@ -120,18 +120,6 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/usr/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/lib64/cmake/Catch2/Catch2ConfigVersion.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/lib64/cmake/Catch2/Catch2Config.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/lib64/cmake/Catch2/Catch2Targets.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

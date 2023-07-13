@@ -73,225 +73,225 @@ CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: CMakeFiles/unit_tests.dir/
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp > CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/lexer/LexerLineTest.cpp -o CMakeFiles/unit_tests.dir/test/lexer/LexerLineTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp > CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp > CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/ain_file/AinFileTest.cpp -o CMakeFiles/unit_tests.dir/test/ain_file/AinFileTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/PackageParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/PackageParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunDeclTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/FunDeclTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/VarDeclTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/VarDeclTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/VarDeclParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/VarDeclParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunDeclParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunDeclParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/TypeParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/TypeParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/parser/FunParamParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/parser/FunParamParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/TypeTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/TypeTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp > CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/elements/FunParamTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/elements/FunParamTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FileParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/FileParserTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp > CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp > CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorTest.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp > CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp > CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/TokensIteratorForTests.cpp -o CMakeFiles/unit_tests.dir/test/parser/TokensIteratorForTests.cpp.s
 
 CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o: CMakeFiles/unit_tests.dir/flags.make
 CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp
 CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o -MF CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o.d -o CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.o -c /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp
 
 CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.i"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.i
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp > CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.i
 
 CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.s"
-	/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.s
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nasser/Projects/Programming/C++/AinLanguage/test/parser/FunParserTest.cpp -o CMakeFiles/unit_tests.dir/test/parser/FunParserTest.cpp.s
 
 # Object files for target unit_tests
 unit_tests_OBJECTS = \

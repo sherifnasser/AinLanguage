@@ -5,11 +5,36 @@
 
 bool isAinPunct(const wchar_t &c)
 {
-    return (std::iswpunct(c)&&c!=L'_')
-        ||c==L'؟'
-        ||c==L'؛'
-        ||c==L'،'
-    ;
+    switch (c) {
+        case L'؟':
+        case L'؛':
+        case L'،':
+        case L'+':
+        case L'-':
+        case L'*':
+        case L'/':
+        case L'%':
+        case L':':
+        case L'|':
+        case L'&':
+        case L'^':
+        case L'=':
+        case L'>':
+        case L'<':
+        case L'(':
+        case L')':
+        case L'[':
+        case L']':
+        case L'{':
+        case L'}':
+        case L'!':
+        case L'.':
+        case L'\"':
+        case L'\'':
+        case L'\\':
+            return true;
+    }
+    return false;
 }
 
 bool isAinAlpha(const wchar_t &c)

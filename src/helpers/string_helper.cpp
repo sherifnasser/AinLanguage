@@ -63,7 +63,7 @@ wchar_t getEscapeSequenceFromCharacter(const wchar_t& c){
 }
 
 const char* toCharPointer(const std::wstring& wstr) {
-    std::setlocale(0,"en_US.UTF-8");
+    /*std::*/setlocale(0,"en_US.UTF-8");
         
     auto wmsg=wstr.c_str();
     

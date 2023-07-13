@@ -65,7 +65,6 @@ CMAKE_BINARY_DIR = /home/nasser/Projects/Programming/C++/AinLanguage/build
 # The main recursive "all" target.
 all: CMakeFiles/ainsrc.dir/all
 all: CMakeFiles/ain.dir/all
-all: CMakeFiles/unit_tests.dir/all
 all: CMakeFiles/pretty_print.dir/all
 .PHONY : all
 
@@ -76,7 +75,6 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/ainsrc.dir/clean
 clean: CMakeFiles/ain.dir/clean
-clean: CMakeFiles/unit_tests.dir/clean
 clean: CMakeFiles/pretty_print.dir/clean
 .PHONY : clean
 
@@ -131,32 +129,6 @@ ain: CMakeFiles/ain.dir/rule
 CMakeFiles/ain.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/clean
 .PHONY : CMakeFiles/ain.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/unit_tests.dir
-
-# All Build rule for target.
-CMakeFiles/unit_tests.dir/all: CMakeFiles/ainsrc.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91 "Built target unit_tests"
-.PHONY : CMakeFiles/unit_tests.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/unit_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 87
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/unit_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nasser/Projects/Programming/C++/AinLanguage/build/CMakeFiles 0
-.PHONY : CMakeFiles/unit_tests.dir/rule
-
-# Convenience name for target.
-unit_tests: CMakeFiles/unit_tests.dir/rule
-.PHONY : unit_tests
-
-# clean rule for target.
-CMakeFiles/unit_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/clean
-.PHONY : CMakeFiles/unit_tests.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/pretty_print.dir
