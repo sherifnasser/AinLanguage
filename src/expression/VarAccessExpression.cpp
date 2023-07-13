@@ -1,4 +1,9 @@
 #include "VarAccessExpression.hpp"
+#include "BaseScope.hpp"
+#include "ClassScope.hpp"
+#include "FileScope.hpp"
+#include "PackageScope.hpp"
+#include "VariableNotFoundException.hpp"
 #include "Variable.hpp"
 #include <string>
 
@@ -28,8 +33,57 @@ void VarAccessExpression::check(SharedBaseScope checkScope) {
         this->returnType=var->getType();
         return;
     }
+
+    auto containingClassScope=BaseScope::getContainingClass(checkScope);
+    if(containingClassScope){
+        
+        auto publicVar=containingClassScope->findPublicVariable(varName);
+
+        if(publicVar){
+            this->var=publicVar;
+            this->returnType=var->getType();
+            return;
+        }
+
+        auto privateVar=containingClassScope->findPrivateVariable(varName);
+
+        if(privateVar){
+            this->var=privateVar;
+            this->returnType=var->getType();
+            return;
+        }
+    }
+
+    auto containingFileScope=BaseScope::getContainingFile(checkScope);
+    if(containingFileScope){
+
+        auto privateVar=containingFileScope->findPrivateVariable(varName);
+
+        if(privateVar){
+            this->var=privateVar;
+            this->returnType=var->getType();
+            return;
+        }
+
+        auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
+        
+        for(auto file:package->getFiles()){
+            auto publicVar=file.second->findPublicVariable(varName);
+            if(publicVar){
+                this->var=publicVar;
+                this->returnType=var->getType();
+                return;
+            }
+        }
+        
+        // TODO: make trace more readable
+        auto trace=
+            containingFileScope->getName()+
+            L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+        
+        throw VariableNotFoundException(trace,varName);
+    }
     
-    // TODO: non-local variables
 }
 
 void VarAccessExpression::assign(SharedIValue newVal) {

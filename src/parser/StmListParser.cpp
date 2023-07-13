@@ -6,6 +6,8 @@
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
 #include "OnlyVariablesAreAssignableException.hpp"
+#include "OperatorFunInvokeExpression.hpp"
+#include "OperatorFunctions.hpp"
 #include "ParserProvidersAliases.hpp"
 #include "ReturnStatement.hpp"
 #include "SharedPtrTypes.hpp"
@@ -216,11 +218,9 @@ SharedIStatement StmListParser::parseReturnStatement(SharedStmListScope parentSc
 
     auto ex=expressionParserProvider(iterator,scope)->parse();
 
-    auto funScope=BaseScope::getContainingFun(parentScope);
-    
     return std::make_shared<ReturnStatement>(
         lineNumber,
-        funScope,
+        parentScope,
         ex
     );
 }
@@ -234,7 +234,23 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     if(!ex)
         return nullptr;
     
-    if(!iterator->currentMatch(SymbolToken::EQUAL))
+    auto op=iterator->currentToken();
+    
+    if(
+        *op!=SymbolToken::EQUAL
+        &&
+        *op!=SymbolToken::PLUS_EQUAL
+        &&
+        *op!=SymbolToken::MINUS_EQUAL
+        &&
+        *op!=SymbolToken::STAR_EQUAL
+        &&
+        *op!=SymbolToken::SLASH_EQUAL
+        &&
+        *op!=SymbolToken::MODULO_EQUAL
+        &&
+        *op!=SymbolToken::POWER_EQUAL
+    )
         return std::make_shared<ExpressionStatement>(
             lineNumber,
             parentScope,
@@ -252,10 +268,25 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     
     auto assignExRight=expressionParserProvider(iterator,scope)->parse();
 
+    if(*op!=SymbolToken::EQUAL){
+
+        auto opName=OperatorFunctions::getOperatorAssignEqualFunNameByToken(*op);
+
+        auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
+
+        assignExRight=std::make_shared<OperatorFunInvokeExpression>(
+            lineNumber,
+            opName,
+            args,
+            assignExLeft
+        );
+    }
+        
     return std::make_shared<AssignStatement>(
         lineNumber,
         parentScope,
         assignExLeft,
         assignExRight
     );
+    
 }

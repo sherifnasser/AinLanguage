@@ -1,5 +1,6 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
+#include <memory>
 #include <string>
 class IExpression{
     protected:
@@ -12,4 +13,13 @@ class IExpression{
         virtual void check(SharedBaseScope checkScope)=0;
         SharedType getReturnType();
         virtual ~IExpression();
+
+        template<typename T>
+        std::shared_ptr<T> evaluateAs();
 };
+
+template<typename T>
+inline std::shared_ptr<T> IExpression::evaluateAs(){
+    auto eval=evaluate();
+    return std::dynamic_pointer_cast<T>(eval);
+}

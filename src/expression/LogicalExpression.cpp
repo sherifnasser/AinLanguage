@@ -15,12 +15,12 @@ LogicalExpression::LogicalExpression(
       right(right){}
 
 bool LogicalExpression::evaluateLeft(){
-    auto leftVal=std::dynamic_pointer_cast<BoolValue>(left->evaluate())->getValue();
+    auto leftVal=left->evaluateAs<BoolValue>()->getValue();
     return leftVal;
 }
 
 std::shared_ptr<BoolValue> LogicalExpression::evaluateRight(){
-    auto rightVal=std::dynamic_pointer_cast<BoolValue>(right->evaluate())->getValue();
+    auto rightVal=right->evaluateAs<BoolValue>()->getValue();
     return std::make_shared<BoolValue>(rightVal);
 }
 

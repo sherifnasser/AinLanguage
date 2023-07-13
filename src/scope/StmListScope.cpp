@@ -1,5 +1,6 @@
 #include "StmListScope.hpp"
 #include "SharedPtrTypes.hpp"
+#include "IStatement.hpp"
 #include <memory>
 #include <vector>
 
@@ -42,4 +43,11 @@ SharedVariable StmListScope::getLocalByName(std::wstring varName){
         var=stmListScope->getLocalByName(varName);
     
     return var;
+}
+
+void StmListScope::check(){
+    
+    for(auto stm:*stmList){
+        stm->check();
+    }
 }

@@ -16,11 +16,11 @@ publicVariables(std::make_shared<std::map<std::wstring,SharedVariable>>()),
 privateVariables(std::make_shared<std::map<std::wstring,SharedVariable>>())
 {}
 
-SharedMap<std::wstring,SharedFunScope> FileScope::getPublicFunctions() const {
+SharedMap<std::wstring,SharedFunScope> FileScope::getPublicFunctions()const{
     return publicFunctions;
 }
 
-SharedMap<std::wstring,SharedFunScope> FileScope::getPrivateFunctions() const {
+SharedMap<std::wstring,SharedFunScope> FileScope::getPrivateFunctions()const{
     return privateFunctions;
 }
 
@@ -33,11 +33,11 @@ SharedClassScope FileScope::getClassByType(SharedType type){
     return parentScope->getClassByType(type);
 }
 
-SharedMap<std::wstring,SharedClassScope> FileScope::getPublicClasses() const {
+SharedMap<std::wstring,SharedClassScope> FileScope::getPublicClasses()const{
     return publicClasses;
 }
 
-SharedMap<std::wstring,SharedClassScope> FileScope::getPrivateClasses() const {
+SharedMap<std::wstring,SharedClassScope> FileScope::getPrivateClasses()const{
     return privateClasses;
 }
 
@@ -58,3 +58,23 @@ SharedFunScope FileScope::findPrivateFunction(std::wstring decl){
         
     return nullptr;
 }
+
+
+SharedVariable FileScope::findPublicVariable(std::wstring varName){
+    auto varIterator=publicVariables->find(varName);
+
+    if(varIterator!=publicVariables->end())
+        return varIterator->second;
+    
+    return nullptr;
+}
+
+SharedVariable FileScope::findPrivateVariable(std::wstring varName){
+    auto varIterator=privateVariables->find(varName);
+
+    if(varIterator!=privateVariables->end())
+        return varIterator->second;
+    
+    return nullptr;
+}
+

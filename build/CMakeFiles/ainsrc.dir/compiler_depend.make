@@ -2961,6 +2961,19 @@ CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.o: /home/nasser/Pro
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
 
 CMakeFiles/ainsrc.dir/src/expression/value/BoolValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/BoolValue.cpp \
@@ -8641,7 +8654,8 @@ CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o: /home/nasser/Projects/Program
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp
 
 CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FunParser.cpp \
   /usr/include/stdc-predef.h \
@@ -9385,6 +9399,9 @@ CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o: /home/nasser/Projects/Prog
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OnlyVariablesAreAssignableException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
@@ -13061,7 +13078,8 @@ CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.o: /home/nasser/Projects/Progra
   /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
-  /usr/include/c++/12.2/bits/erase_if.h
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
 
 CMakeFiles/ainsrc.dir/src/scope/StringClassScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/StringClassScope.cpp \
   /usr/include/stdc-predef.h \
@@ -14227,7 +14245,17 @@ CMakeFiles/ainsrc.dir/src/statement/AssignStatement.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/DoWhileStatement.cpp \
   /usr/include/stdc-predef.h \
@@ -14445,10 +14473,28 @@ CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: /home/nasser/Project
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp \
   /usr/include/stdc-predef.h \
@@ -15102,8 +15148,26 @@ CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o: /home/nasser/Projects/Pro
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp \
   /usr/include/stdc-predef.h \
@@ -15321,9 +15385,20 @@ CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/VarStm.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarStm.cpp \
   /usr/include/stdc-predef.h \
@@ -15770,15 +15845,35 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_map.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/semantics/TypeChecker.cpp:
 
@@ -15907,6 +16002,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/BoolValue.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VarAccessExpression.cpp:
 

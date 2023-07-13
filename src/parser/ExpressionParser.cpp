@@ -135,7 +135,7 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
     else if(auto newObjEx=parseNewObjectExpression())
         primary=newObjEx;
     else
-        return std::make_shared<UnitExpression>(iterator->lineNumber);
+        return nullptr;
 
     if(!iterator->currentMatch(SymbolToken::DOT))
         return primary;
@@ -374,6 +374,9 @@ SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType
                 std::stof(value)
             );
     }
+
+    // To stop compiler warnings
+    return nullptr;
 }
 
 SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){

@@ -184,4 +184,5 @@ CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp

@@ -14,9 +14,8 @@ std::vector<std::wstring> EqualityExpression::prettyPrint(){
 }
 
 bool EqualityExpression::evaluateEqualsFun(){
-    auto equalsVal=equalsFunEx->evaluate();
-    auto equalsBoolVal=std::dynamic_pointer_cast<BoolValue>(equalsVal)->getValue();
-    return equalsBoolVal;
+    auto equalsVal=equalsFunEx->evaluateAs<BoolValue>()->getValue();
+    return equalsVal;
 }
 
 void EqualityExpression::check(SharedBaseScope checkScope){

@@ -84,13 +84,7 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
             this->returnType=fun->getReturnType();
             return;
         }
-
-        // TODO: make trace more readable
-        auto trace=
-            containingClassScope->getName()+
-            L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
-
-        throw FunctionNotFoundException(trace,decl);
+        
     }
 
     auto containingFileScope=BaseScope::getContainingFile(checkScope);

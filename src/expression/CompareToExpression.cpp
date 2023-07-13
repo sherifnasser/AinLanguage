@@ -13,9 +13,8 @@ std::vector<std::wstring> CompareToExpression::prettyPrint(){
 }
 
 int CompareToExpression::evaluateCompareToFun(){
-    auto compareToVal=compareToFunEx->evaluate();
-    auto compareToIntVal=std::dynamic_pointer_cast<IntValue>(compareToVal)->getValue();
-    return compareToIntVal;
+    auto compareToVal=compareToFunEx->evaluateAs<IntValue>()->getValue();
+    return compareToVal;
 }
 
 void CompareToExpression::check(SharedBaseScope checkScope){

@@ -28,4 +28,8 @@ class ClassScope: public BaseScope{
         SharedFunScope findPublicFunction(std::wstring decl);
 
         SharedFunScope findPrivateFunction(std::wstring decl);
+
+        SharedVariable findPublicVariable(std::wstring varName);
+        
+        SharedVariable findPrivateVariable(std::wstring varName);
 };

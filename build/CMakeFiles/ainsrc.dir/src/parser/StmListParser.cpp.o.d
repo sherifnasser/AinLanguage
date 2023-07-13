@@ -186,6 +186,9 @@ CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OnlyVariablesAreAssignableException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \

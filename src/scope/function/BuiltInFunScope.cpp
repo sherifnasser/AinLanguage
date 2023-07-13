@@ -1483,6 +1483,21 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         true
     );
 
+    auto PLUS_CHAR=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::PLUS_NAME,
+        Type::STRING,
+        std::map<std::wstring, SharedType>{{CHAR_PARAM_NAME,Type::CHAR}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto firstVal=classScope->getValue();
+            auto secondVal=std::dynamic_pointer_cast<CharValue>(params->at(CHAR_PARAM_NAME))->toString();
+            std::wstring val=L"";
+            val+=firstVal;
+            val+=secondVal;
+            return std::make_shared<StringValue>(val);
+        },
+        true
+    );
+
     auto EQUALS=std::make_shared<BuiltInFunScope>(
         OperatorFunctions::EQUALS_NAME,
         Type::BOOL,
@@ -1608,6 +1623,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
     );
 
     auto funs={
+        PLUS_STRING,PLUS_CHAR,
         EQUALS,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,

@@ -76,4 +76,20 @@ namespace OperatorFunctions{
             return COMPARE_TO_NAME;
         return L"";
     }
+
+    inline std::wstring getOperatorAssignEqualFunNameByToken(LexerToken token){
+        if(token==SymbolToken::PLUS_EQUAL)
+            return PLUS_NAME;
+        if(token==SymbolToken::MINUS_EQUAL)
+            return MINUS_NAME;
+        if(token==SymbolToken::STAR_EQUAL)
+            return TIMES_NAME;
+        if(token==SymbolToken::SLASH_EQUAL)
+            return DIV_NAME;
+        if(token==SymbolToken::POWER_EQUAL)
+            return POW_NAME;
+        if(token==SymbolToken::MODULO_EQUAL)
+            return MOD_NAME;
+        return L"";
+    }
 }

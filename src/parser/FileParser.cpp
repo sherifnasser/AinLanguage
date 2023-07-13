@@ -6,6 +6,7 @@
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "SharedPtrTypes.hpp"
+#include "FunDecl.hpp"
 #include <memory>
 
 FileParser::FileParser(
@@ -43,14 +44,15 @@ SharedFileScope FileParser::parse(){
         
         if(funScope){
             auto package=BaseScope::toPackageScope(scope);
+            auto decl=funScope->getDecl()->toString();
             if(isPublic){
                 // TODO: check is added before
-                (*file->getPublicFunctions())[funScope->getName()]=funScope;
+                (*file->getPublicFunctions())[decl]=funScope;
             }
             else{
-                (*file->getPrivateFunctions())[funScope->getName()]=funScope;
+                (*file->getPrivateFunctions())[decl]=funScope;
             }
-        }        
+        }
 
     }
 

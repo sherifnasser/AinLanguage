@@ -81,6 +81,7 @@ set(INCLUDE
     include/exceptions/
     include/exceptions/lexer/
     include/exceptions/expression/
+    include/exceptions/semantics/
     include/exceptions/statement/
     include/exceptions/parser/
     include/exceptions/runtime/
@@ -119,6 +120,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 set(TEST_INCLUDE
     testInclude/

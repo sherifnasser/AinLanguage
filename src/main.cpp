@@ -143,7 +143,7 @@ int main(int argc, char * argv[]){
 
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(mainPath))->
-            findPublicFunction(L"البداية");
+            findPublicFunction(L"البداية()");
 
         main->invoke(std::make_shared<std::map<std::wstring, SharedIValue>>());
 

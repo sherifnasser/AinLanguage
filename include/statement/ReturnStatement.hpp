@@ -9,7 +9,7 @@ class ReturnStatement:public IStatement
     public:
         ReturnStatement(
             int lineNumber,
-            SharedFunScope funScope,
+            SharedStmListScope runScope,
             SharedIExpression ex
         );
         void check() override;
