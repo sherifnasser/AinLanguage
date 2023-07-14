@@ -8686,6 +8686,8 @@ CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o
  /usr/include/c++/12.2/algorithm
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp

@@ -8648,6 +8648,8 @@ CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
@@ -15902,10 +15904,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/BoolClassScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp:
@@ -15925,6 +15923,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/PackageParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FunParser.cpp:
 
@@ -16730,9 +16732,9 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/atomic_base.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp:
 
 /usr/include/c++/12.2/bits/fs_dir.h:
 

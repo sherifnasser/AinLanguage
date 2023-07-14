@@ -7,6 +7,8 @@ class ConflictingDeclarationException:public AinException{
     ConflictingDeclarationException(
         int lineNumber
     ):AinException(
-        L"يوجد إعادة تعريف بنفس الاسم."
+        AinException::errorWString(
+            L"يوجد إعادة تعريف بنفس الاسم."
+        )
     ),lineNumber(lineNumber){}
 };

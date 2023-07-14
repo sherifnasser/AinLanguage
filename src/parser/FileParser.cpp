@@ -1,4 +1,6 @@
 #include "FileParser.hpp"
+#include "ConflictingDeclarationException.hpp"
+#include "InvalidOperatorFunDeclarationException.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
 #include "PackageParser.hpp"
@@ -39,19 +41,40 @@ SharedFileScope FileParser::parse(){
             isPublic=false;
             iterator->next();
         }
+
+        auto lineNumber=iterator->lineNumber;
         
         auto funScope=funParserProvider(iterator,file)->parse();
         
         if(funScope){
-            auto package=BaseScope::toPackageScope(scope);
+            
+            if(*funScope->getDecl()->isOperator)
+                throw InvalidOperatorFunDeclarationException(
+                    lineNumber,
+                    L"يجب أن تكون الدالة داخل تصنيف."
+                );
+
             auto decl=funScope->getDecl()->toString();
+            if(file->findPrivateFunction(decl)){
+                throw ConflictingDeclarationException(lineNumber);
+            }
+
             if(isPublic){
-                // TODO: check is added before
+                auto files=package->getFiles();
+                for(auto fileIt:files){
+                    if(fileIt.second->findPublicFunction(decl)){
+                        throw ConflictingDeclarationException(lineNumber);
+                    }
+                }
                 (*file->getPublicFunctions())[decl]=funScope;
             }
             else{
+                if(file->findPublicFunction(decl)){
+                    throw ConflictingDeclarationException(lineNumber);
+                }
                 (*file->getPrivateFunctions())[decl]=funScope;
             }
+            
         }
 
     }
