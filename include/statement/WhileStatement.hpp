@@ -1,17 +1,20 @@
 #pragma once
 #include "IStatement.hpp"
+#include "SharedPtrTypes.hpp"
 
 class WhileStatement:public IStatement
 {
-    protected:
-        SharedIExpression ex;
-        SharedVector<SharedIStatement> stmList;
+    private:
+        SharedIExpression condition;
+        SharedStmListScope whileScope;
 
     public:
         WhileStatement(
-            SharedFunScope runScope,
-            SharedIExpression ex,
-            SharedVector<SharedIStatement> stmList
+            int lineNumber,
+            SharedStmListScope runScope,
+            SharedIExpression condition,
+            SharedStmListScope whileScope
         );
+        void check() override;
         void run() override;
 };

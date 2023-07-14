@@ -1,26 +1,44 @@
 #include "DoWhileStatement.hpp"
-#include "IExpression.hpp"
+#include "BoolValue.hpp"
+#include "StmListScope.hpp"
 #include "KeywordToken.hpp"
-#include "FunScope.hpp" // Should be added to enable casting
+#include "IExpression.hpp"
+#include "Type.hpp"
+#include "FunScope.hpp"
+#include "semantics/UnexpectedTypeException.hpp"
 
 DoWhileStatement::DoWhileStatement(
-    SharedFunScope runScope,
-    SharedIExpression ex,
-    SharedVector<SharedIStatement> stmList
+    int lineNumber,
+    SharedStmListScope runScope,
+    SharedIExpression condition,
+    SharedStmListScope doWhileScope
 )
-:WhileStatement(runScope,ex,stmList){}
+    : IStatement(lineNumber,runScope),
+      condition(condition),
+      doWhileScope(doWhileScope)
+{}
+
+void DoWhileStatement::check(){
+    condition->check(runScope);
+    
+    if(condition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *condition->getReturnType()->getName()
+        );
+    
+    doWhileScope->check();
+}
 
 void DoWhileStatement::run(){
-
-    auto vars_size_before=runScope->getVars()->size();
-
+    auto stmList=doWhileScope->getStmList();
+    auto funScope=BaseScope::getContainingFun(runScope);
     do{
         for(auto stm:*stmList){
             stm->run();
+            if(funScope->getReturnValue())
+                break;
         }
-    }while(ex->evaluate(runScope)==KeywordToken::TRUE.getVal());
-
-
-    // pop all defined variables in while IStatement
-    runScope->getVars()->resize(vars_size_before);
+    }while(condition->evaluateAs<BoolValue>()->getValue());
 }

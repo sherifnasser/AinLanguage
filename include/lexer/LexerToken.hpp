@@ -22,6 +22,11 @@ public:
     bool operator!= (LexerToken &token) const;
     static bool isNumberLiteral(SharedLexerToken token);
     static bool isStringLiteral(SharedLexerToken token);
+    static std::wstring stringify(TOKEN_TYPE tokenType);
+    static LexerToken IdentifierToken(std::wstring val=L"مُعرِّف");
+    static LexerToken SpaceToken(std::wstring val=L"");
+    static LexerToken EolToken();
+    static LexerToken EofToken();
     virtual ~LexerToken();
 private:
     TOKEN_TYPE tokenType;

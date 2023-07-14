@@ -230,9 +230,14 @@ CMakeFiles/ainsrc.dir/src/ain_file/AinFile.cpp.o: /home/nasser/Projects/Programm
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FileNotFoundException.hpp
 
-CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BinaryExpression.cpp \
+CMakeFiles/ainsrc.dir/src/expression/CompareToExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/CompareToExpression.cpp \
   /usr/include/stdc-predef.h \
-  /usr/include/c++/12.2/cmath \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/CompareToExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
   /usr/include/features.h \
@@ -245,90 +250,6 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/gnu/stubs-64.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/math.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/math-vector.h \
-  /usr/include/bits/libm-simd-decl-stubs.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/include/bits/flt-eval-method.h \
-  /usr/include/bits/fp-logb.h \
-  /usr/include/bits/fp-fast.h \
-  /usr/include/bits/mathcalls-helper-functions.h \
-  /usr/include/bits/mathcalls.h \
-  /usr/include/bits/mathcalls-narrow.h \
-  /usr/include/bits/iscanonical.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/stdlib.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/sys/types.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/endian.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/specfun.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/limits \
-  /usr/include/c++/12.2/tr1/gamma.tcc \
-  /usr/include/c++/12.2/tr1/special_function_util.h \
-  /usr/include/c++/12.2/tr1/bessel_function.tcc \
-  /usr/include/c++/12.2/tr1/beta_function.tcc \
-  /usr/include/c++/12.2/tr1/ell_integral.tcc \
-  /usr/include/c++/12.2/tr1/exp_integral.tcc \
-  /usr/include/c++/12.2/tr1/hypergeometric.tcc \
-  /usr/include/c++/12.2/tr1/legendre_function.tcc \
-  /usr/include/c++/12.2/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/12.2/tr1/poly_hermite.tcc \
-  /usr/include/c++/12.2/tr1/poly_laguerre.tcc \
-  /usr/include/c++/12.2/tr1/riemann_zeta.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BinaryExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/ostream \
   /usr/include/c++/12.2/ios \
   /usr/include/c++/12.2/iosfwd \
@@ -337,6 +258,10 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/postypes.h \
   /usr/include/c++/12.2/cwchar \
   /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
   /usr/include/bits/wchar.h \
   /usr/include/bits/types/wint_t.h \
@@ -344,18 +269,27 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/bits/types/__mbstate_t.h \
   /usr/include/bits/types/__FILE.h \
   /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
   /usr/include/c++/12.2/exception \
   /usr/include/c++/12.2/bits/exception.h \
   /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
   /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
   /usr/include/c++/12.2/typeinfo \
   /usr/include/c++/12.2/bits/hash_bytes.h \
   /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
   /usr/include/c++/12.2/bits/nested_exception.h \
   /usr/include/c++/12.2/bits/char_traits.h \
   /usr/include/c++/12.2/cstdint \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
   /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-uintn.h \
   /usr/include/c++/12.2/bits/localefwd.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
@@ -364,21 +298,36 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/bits/locale.h \
   /usr/include/c++/12.2/cctype \
   /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
   /usr/include/c++/12.2/bits/ios_base.h \
   /usr/include/c++/12.2/ext/atomicity.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
   /usr/include/bits/sched.h \
   /usr/include/bits/types/struct_sched_param.h \
   /usr/include/bits/cpu-set.h \
   /usr/include/time.h \
   /usr/include/bits/time.h \
   /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
   /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
   /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
   /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
   /usr/include/bits/types/struct___jmp_buf_tag.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
@@ -388,10 +337,25 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/allocator.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
   /usr/include/c++/12.2/bits/ostream_insert.h \
   /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
   /usr/include/c++/12.2/bits/stl_function.h \
   /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
   /usr/include/c++/12.2/bits/refwrap.h \
   /usr/include/c++/12.2/bits/invoke.h \
   /usr/include/c++/12.2/bits/range_access.h \
@@ -405,6 +369,19 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/string_view.tcc \
   /usr/include/c++/12.2/ext/string_conversions.h \
   /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
   /usr/include/c++/12.2/cstdio \
   /usr/include/stdio.h \
   /usr/include/bits/types/__fpos_t.h \
@@ -465,19 +442,265 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /usr/include/c++/12.2/functional \
   /usr/include/c++/12.2/bits/std_function.h \
   /usr/include/c++/12.2/unordered_map \
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/EqualityExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/EqualityExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/EqualityExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -485,9 +708,9 @@ CMakeFiles/ainsrc.dir/src/expression/BinaryExpression.cpp.o: /home/nasser/Projec
   /usr/include/c++/12.2/bits/stl_heap.h \
   /usr/include/c++/12.2/bits/uniform_int_dist.h
 
-CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BoolExpression.cpp \
+CMakeFiles/ainsrc.dir/src/expression/FunInvokeExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunInvokeExpression.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
@@ -695,13 +918,2294 @@ CMakeFiles/ainsrc.dir/src/expression/BoolExpression.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/IExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/IExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
+
+CMakeFiles/ainsrc.dir/src/expression/LiteralExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/LiteralExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/LogicalExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/LogicalExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LogicalExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h
+
+CMakeFiles/ainsrc.dir/src/expression/NewObjectExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NewObjectExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/NonStaticFunInvokeExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NonStaticFunInvokeExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/expression/CannotAccessPrivateFunctionException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NonStaticVarAccessExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticVarAccessExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/OperatorFunInvokeExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/OperatorFunInvokeExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/UnitExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/UnitExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UnitValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/VarAccessExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VarAccessExpression.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VarAccessExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/BoolValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/BoolValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
 
-CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp \
+CMakeFiles/ainsrc.dir/src/expression/value/CharValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/CharValue.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunCallExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -908,439 +3412,23 @@ CMakeFiles/ainsrc.dir/src/expression/FunCallExpression.cpp.o: /home/nasser/Proje
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
 
-CMakeFiles/ainsrc.dir/src/expression/NumberExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NumberExpression.cpp \
+CMakeFiles/ainsrc.dir/src/expression/value/DoubleValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/DoubleValue.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NumberExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/bits/wordsize.h \
-  /usr/include/bits/timesize.h \
-  /usr/include/sys/cdefs.h \
-  /usr/include/bits/long-double.h \
-  /usr/include/gnu/stubs.h \
-  /usr/include/gnu/stubs-64.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/ostream \
-  /usr/include/c++/12.2/ios \
-  /usr/include/c++/12.2/iosfwd \
-  /usr/include/c++/12.2/bits/stringfwd.h \
-  /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/postypes.h \
-  /usr/include/c++/12.2/cwchar \
-  /usr/include/wchar.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
-  /usr/include/bits/wchar.h \
-  /usr/include/bits/types/wint_t.h \
-  /usr/include/bits/types/mbstate_t.h \
-  /usr/include/bits/types/__mbstate_t.h \
-  /usr/include/bits/types/__FILE.h \
-  /usr/include/bits/types/FILE.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/c++/12.2/exception \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/exception_ptr.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
-  /usr/include/c++/12.2/typeinfo \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/nested_exception.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
-  /usr/include/c++/12.2/cstdint \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
-  /usr/include/stdint.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/localefwd.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
-  /usr/include/c++/12.2/clocale \
-  /usr/include/locale.h \
-  /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/cctype \
-  /usr/include/ctype.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/c++/12.2/bits/ios_base.h \
-  /usr/include/c++/12.2/ext/atomicity.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/sched.h \
-  /usr/include/bits/types/struct_sched_param.h \
-  /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/types/struct_itimerspec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/bits/setjmp.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/bits/pthread_stack_min-dynamic.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
-  /usr/include/sys/single_threaded.h \
-  /usr/include/c++/12.2/bits/locale_classes.h \
-  /usr/include/c++/12.2/string \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/bits/ostream_insert.h \
-  /usr/include/c++/12.2/bits/cxxabi_forced.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/bits/stl_function.h \
-  /usr/include/c++/12.2/backward/binders.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/bits/refwrap.h \
-  /usr/include/c++/12.2/bits/invoke.h \
-  /usr/include/c++/12.2/bits/range_access.h \
-  /usr/include/c++/12.2/initializer_list \
-  /usr/include/c++/12.2/bits/basic_string.h \
-  /usr/include/c++/12.2/ext/alloc_traits.h \
-  /usr/include/c++/12.2/bits/alloc_traits.h \
-  /usr/include/c++/12.2/bits/stl_construct.h \
-  /usr/include/c++/12.2/string_view \
-  /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/string_view.tcc \
-  /usr/include/c++/12.2/ext/string_conversions.h \
-  /usr/include/c++/12.2/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/c++/12.2/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/bits/types/__fpos_t.h \
-  /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
-  /usr/include/bits/types/cookie_io_functions_t.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/include/c++/12.2/cerrno \
-  /usr/include/errno.h \
-  /usr/include/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/bits/types/error_t.h \
-  /usr/include/c++/12.2/bits/charconv.h \
-  /usr/include/c++/12.2/bits/basic_string.tcc \
-  /usr/include/c++/12.2/bits/locale_classes.tcc \
-  /usr/include/c++/12.2/system_error \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
-  /usr/include/c++/12.2/stdexcept \
-  /usr/include/c++/12.2/streambuf \
-  /usr/include/c++/12.2/bits/streambuf.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.h \
-  /usr/include/c++/12.2/bits/locale_facets.h \
-  /usr/include/c++/12.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/bits/wctype-wchar.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/12.2/bits/streambuf_iterator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
-  /usr/include/c++/12.2/bits/locale_facets.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.tcc \
-  /usr/include/c++/12.2/bits/ostream.tcc \
-  /usr/include/c++/12.2/istream \
-  /usr/include/c++/12.2/bits/istream.tcc \
-  /usr/include/c++/12.2/memory \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/12.2/bits/align.h \
-  /usr/include/c++/12.2/bit \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/unique_ptr.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/shared_ptr.h \
-  /usr/include/c++/12.2/bits/shared_ptr_base.h \
-  /usr/include/c++/12.2/bits/allocated_ptr.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/ext/concurrence.h \
-  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
-  /usr/include/c++/12.2/bits/atomic_base.h \
-  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/12.2/backward/auto_ptr.h \
-  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
-
-CMakeFiles/ainsrc.dir/src/expression/StringExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/StringExpression.cpp \
-  /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/StringExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/bits/wordsize.h \
-  /usr/include/bits/timesize.h \
-  /usr/include/sys/cdefs.h \
-  /usr/include/bits/long-double.h \
-  /usr/include/gnu/stubs.h \
-  /usr/include/gnu/stubs-64.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/ostream \
-  /usr/include/c++/12.2/ios \
-  /usr/include/c++/12.2/iosfwd \
-  /usr/include/c++/12.2/bits/stringfwd.h \
-  /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/postypes.h \
-  /usr/include/c++/12.2/cwchar \
-  /usr/include/wchar.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
-  /usr/include/bits/wchar.h \
-  /usr/include/bits/types/wint_t.h \
-  /usr/include/bits/types/mbstate_t.h \
-  /usr/include/bits/types/__mbstate_t.h \
-  /usr/include/bits/types/__FILE.h \
-  /usr/include/bits/types/FILE.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/c++/12.2/exception \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/exception_ptr.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
-  /usr/include/c++/12.2/typeinfo \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/nested_exception.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
-  /usr/include/c++/12.2/cstdint \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
-  /usr/include/stdint.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/localefwd.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
-  /usr/include/c++/12.2/clocale \
-  /usr/include/locale.h \
-  /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/cctype \
-  /usr/include/ctype.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/c++/12.2/bits/ios_base.h \
-  /usr/include/c++/12.2/ext/atomicity.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/sched.h \
-  /usr/include/bits/types/struct_sched_param.h \
-  /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/types/struct_itimerspec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/bits/setjmp.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/bits/pthread_stack_min-dynamic.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
-  /usr/include/sys/single_threaded.h \
-  /usr/include/c++/12.2/bits/locale_classes.h \
-  /usr/include/c++/12.2/string \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/bits/ostream_insert.h \
-  /usr/include/c++/12.2/bits/cxxabi_forced.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/bits/stl_function.h \
-  /usr/include/c++/12.2/backward/binders.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/bits/refwrap.h \
-  /usr/include/c++/12.2/bits/invoke.h \
-  /usr/include/c++/12.2/bits/range_access.h \
-  /usr/include/c++/12.2/initializer_list \
-  /usr/include/c++/12.2/bits/basic_string.h \
-  /usr/include/c++/12.2/ext/alloc_traits.h \
-  /usr/include/c++/12.2/bits/alloc_traits.h \
-  /usr/include/c++/12.2/bits/stl_construct.h \
-  /usr/include/c++/12.2/string_view \
-  /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/string_view.tcc \
-  /usr/include/c++/12.2/ext/string_conversions.h \
-  /usr/include/c++/12.2/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/c++/12.2/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/bits/types/__fpos_t.h \
-  /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
-  /usr/include/bits/types/cookie_io_functions_t.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/include/c++/12.2/cerrno \
-  /usr/include/errno.h \
-  /usr/include/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/bits/types/error_t.h \
-  /usr/include/c++/12.2/bits/charconv.h \
-  /usr/include/c++/12.2/bits/basic_string.tcc \
-  /usr/include/c++/12.2/bits/locale_classes.tcc \
-  /usr/include/c++/12.2/system_error \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
-  /usr/include/c++/12.2/stdexcept \
-  /usr/include/c++/12.2/streambuf \
-  /usr/include/c++/12.2/bits/streambuf.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.h \
-  /usr/include/c++/12.2/bits/locale_facets.h \
-  /usr/include/c++/12.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/bits/wctype-wchar.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/12.2/bits/streambuf_iterator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
-  /usr/include/c++/12.2/bits/locale_facets.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.tcc \
-  /usr/include/c++/12.2/bits/ostream.tcc \
-  /usr/include/c++/12.2/istream \
-  /usr/include/c++/12.2/bits/istream.tcc \
-  /usr/include/c++/12.2/memory \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/12.2/bits/align.h \
-  /usr/include/c++/12.2/bit \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/unique_ptr.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/shared_ptr.h \
-  /usr/include/c++/12.2/bits/shared_ptr_base.h \
-  /usr/include/c++/12.2/bits/allocated_ptr.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/ext/concurrence.h \
-  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
-  /usr/include/c++/12.2/bits/atomic_base.h \
-  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/12.2/backward/auto_ptr.h \
-  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
-
-CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VariableAccessExpression.cpp \
-  /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -1547,8 +3635,1789 @@ CMakeFiles/ainsrc.dir/src/expression/VariableAccessExpression.cpp.o: /home/nasse
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/FloatValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/FloatValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/IValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/IntValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IntValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/LongValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/LongValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/StringValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/StringValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/UIntValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/UIntValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/ULongValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/ULongValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/expression/value/UnitValue.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/UnitValue.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UnitValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
 
 CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp \
   /usr/include/stdc-predef.h \
@@ -1735,8 +5604,9 @@ CMakeFiles/ainsrc.dir/src/helpers/ainio.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/istream.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/bits/stl_algo.h \
   /usr/include/c++/12.2/bits/algorithmfwd.h \
@@ -2146,6 +6016,16 @@ CMakeFiles/ainsrc.dir/src/helpers/string_helper.cpp.o: /home/nasser/Projects/Pro
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/locale \
+  /usr/include/c++/12.2/bits/locale_facets_nonio.h \
+  /usr/include/c++/12.2/ctime \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12.2/bits/codecvt.h \
+  /usr/include/c++/12.2/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12.2/bits/locale_conv.h \
+  /usr/include/c++/12.2/codecvt \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp
 
 CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp \
@@ -2363,7 +6243,13 @@ CMakeFiles/ainsrc.dir/src/helpers/wchar_t_helper.cpp.o: /home/nasser/Projects/Pr
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp \
   /usr/include/stdc-predef.h \
@@ -2574,7 +6460,13 @@ CMakeFiles/ainsrc.dir/src/lexer/KeywordToken.cpp.o: /home/nasser/Projects/Progra
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp \
   /usr/include/stdc-predef.h \
@@ -2787,6 +6679,12 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C
   /usr/include/c++/12.2/bits/vector.tcc \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
@@ -2799,9 +6697,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: /home/nasser/Projects/Programming/C
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -3041,6 +6937,10 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
@@ -3051,17 +6951,17 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerLine.cpp.o: /home/nasser/Projects/Programmi
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/MissingQouteException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/UnsupportedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/IllegalUnderscoreException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/OutOfRangeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidNumberSystemDigitException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidIdentifierNameException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidLengthCharacterLiteralException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidEscapeSequenceException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidUniversalCharacterCodeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp
 
 CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3272,6 +7172,12 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp \
   /usr/include/c++/12.2/functional \
@@ -3280,9 +7186,7 @@ CMakeFiles/ainsrc.dir/src/lexer/LexerToken.cpp.o: /home/nasser/Projects/Programm
   /usr/include/c++/12.2/bits/hashtable.h \
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
-  /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
-  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/array \
   /usr/include/c++/12.2/compare \
   /usr/include/c++/12.2/bits/stl_algo.h \
@@ -3501,7 +7405,13 @@ CMakeFiles/ainsrc.dir/src/lexer/LiteralToken.cpp.o: /home/nasser/Projects/Progra
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/NumberToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3713,7 +7623,13 @@ CMakeFiles/ainsrc.dir/src/lexer/NumberToken.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/SymbolToken.cpp \
   /usr/include/stdc-predef.h \
@@ -3924,7 +7840,13 @@ CMakeFiles/ainsrc.dir/src/lexer/SymbolToken.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -4133,26 +8055,86 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: /home/nasser/Projects/Programming/C++/AinL
   /usr/include/c++/12.2/backward/auto_ptr.h \
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp
 
-CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/Parser.cpp \
+CMakeFiles/ainsrc.dir/src/parser/ExpressionParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/ExpressionParser.cpp \
   /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -4334,15 +8316,39 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/ostream.tcc \
   /usr/include/c++/12.2/istream \
   /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
   /usr/include/c++/12.2/map \
   /usr/include/c++/12.2/bits/stl_tree.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
   /usr/include/c++/12.2/bits/node_handle.h \
   /usr/include/c++/12.2/bits/stl_map.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
   /usr/include/c++/12.2/bits/stl_multimap.h \
   /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
   /usr/include/c++/12.2/functional \
   /usr/include/c++/12.2/bits/std_function.h \
@@ -4351,6 +8357,1127 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/hashtable_policy.h \
   /usr/include/c++/12.2/bits/enable_special_members.h \
   /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/CompareToExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/EqualityExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LogicalExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticVarAccessExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VarAccessExpression.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/FileParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FileParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/FunParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FunParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/PackageParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/PackageParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/StmListParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/DoWhileStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OnlyVariablesAreAssignableException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/StatementExpectedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/TokensIterator.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/TokensIterator.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_uninitialized.h \
   /usr/include/c++/12.2/bits/stl_vector.h \
@@ -4363,7 +9490,140 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/bits/stl_heap.h \
   /usr/include/c++/12.2/bits/stl_tempbuf.h \
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/sys/types.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/endian.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
   /usr/include/c++/12.2/memory \
   /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
   /usr/include/c++/12.2/bits/align.h \
@@ -4379,39 +9639,17 @@ CMakeFiles/ainsrc.dir/src/parser/Parser.cpp.o: /home/nasser/Projects/Programming
   /usr/include/c++/12.2/backward/auto_ptr.h \
   /usr/include/c++/12.2/pstl/glue_memory_defs.h \
   /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NumberExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/StringExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BinaryExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunCallExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarReassignStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarDeclarationStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/DoWhileStatement.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp
 
-CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Constant.cpp \
+CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/VarStatementParser.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -4617,12 +9855,2581 @@ CMakeFiles/ainsrc.dir/src/scope/Constant.cpp.o: /home/nasser/Projects/Programmin
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/FunDecl.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunDecl.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/FunParam.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/Type.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/Type.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/BoolClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UnitClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UIntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/VarDecl.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/VarDecl.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunDeclParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunDeclParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/FunParamParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/TypeParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp
+
+CMakeFiles/ainsrc.dir/src/parser/elements/parser/VarDeclParser.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/VarDeclParser.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/BaseScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/BaseScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/ClassScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/ClassScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
+
+CMakeFiles/ainsrc.dir/src/scope/FileScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FileScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
 
 CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FunScope.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -4829,12 +12636,23 @@ CMakeFiles/ainsrc.dir/src/scope/FunScope.cpp.o: /home/nasser/Projects/Programmin
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
 
-CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/GlobalScope.cpp \
+CMakeFiles/ainsrc.dir/src/scope/PackageScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/PackageScope.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -5041,8 +12859,1402 @@ CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MainFunctionNotFoundException.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/StmListScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/StmListScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/StringClassScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/StringClassScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp
+
+CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/function/BuiltInFunScope.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/BoolClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UIntClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UnitValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/runtime/NumberFormatException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+  /usr/include/c++/12.2/limits
+
+CMakeFiles/ainsrc.dir/src/semantics/TypeChecker.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/semantics/TypeChecker.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /usr/include/c++/12.2/functional \
+  /usr/include/c++/12.2/bits/std_function.h \
+  /usr/include/c++/12.2/unordered_map \
+  /usr/include/c++/12.2/bits/hashtable.h \
+  /usr/include/c++/12.2/bits/hashtable_policy.h \
+  /usr/include/c++/12.2/bits/enable_special_members.h \
+  /usr/include/c++/12.2/bits/unordered_map.h \
+  /usr/include/c++/12.2/array \
+  /usr/include/c++/12.2/compare \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+
+CMakeFiles/ainsrc.dir/src/statement/AssignStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/AssignStatement.cpp \
+  /usr/include/stdc-predef.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+  /usr/include/c++/12.2/iostream \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
+  /usr/include/c++/12.2/pstl/pstl_config.h \
+  /usr/include/c++/12.2/ostream \
+  /usr/include/c++/12.2/ios \
+  /usr/include/c++/12.2/iosfwd \
+  /usr/include/c++/12.2/bits/stringfwd.h \
+  /usr/include/c++/12.2/bits/memoryfwd.h \
+  /usr/include/c++/12.2/bits/postypes.h \
+  /usr/include/c++/12.2/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/types/wint_t.h \
+  /usr/include/bits/types/mbstate_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/c++/12.2/exception \
+  /usr/include/c++/12.2/bits/exception.h \
+  /usr/include/c++/12.2/bits/exception_ptr.h \
+  /usr/include/c++/12.2/bits/exception_defines.h \
+  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12.2/typeinfo \
+  /usr/include/c++/12.2/bits/hash_bytes.h \
+  /usr/include/c++/12.2/new \
+  /usr/include/c++/12.2/bits/move.h \
+  /usr/include/c++/12.2/type_traits \
+  /usr/include/c++/12.2/bits/nested_exception.h \
+  /usr/include/c++/12.2/bits/char_traits.h \
+  /usr/include/c++/12.2/cstdint \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/c++/12.2/bits/localefwd.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
+  /usr/include/c++/12.2/clocale \
+  /usr/include/locale.h \
+  /usr/include/bits/locale.h \
+  /usr/include/c++/12.2/cctype \
+  /usr/include/ctype.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/c++/12.2/bits/ios_base.h \
+  /usr/include/c++/12.2/ext/atomicity.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/sched.h \
+  /usr/include/bits/types/struct_sched_param.h \
+  /usr/include/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/setjmp.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/sys/single_threaded.h \
+  /usr/include/c++/12.2/bits/locale_classes.h \
+  /usr/include/c++/12.2/string \
+  /usr/include/c++/12.2/bits/allocator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
+  /usr/include/c++/12.2/bits/new_allocator.h \
+  /usr/include/c++/12.2/bits/functexcept.h \
+  /usr/include/c++/12.2/bits/cpp_type_traits.h \
+  /usr/include/c++/12.2/bits/ostream_insert.h \
+  /usr/include/c++/12.2/bits/cxxabi_forced.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12.2/bits/concept_check.h \
+  /usr/include/c++/12.2/debug/assertions.h \
+  /usr/include/c++/12.2/bits/stl_iterator.h \
+  /usr/include/c++/12.2/ext/type_traits.h \
+  /usr/include/c++/12.2/bits/ptr_traits.h \
+  /usr/include/c++/12.2/bits/stl_function.h \
+  /usr/include/c++/12.2/backward/binders.h \
+  /usr/include/c++/12.2/ext/numeric_traits.h \
+  /usr/include/c++/12.2/bits/stl_algobase.h \
+  /usr/include/c++/12.2/bits/stl_pair.h \
+  /usr/include/c++/12.2/bits/utility.h \
+  /usr/include/c++/12.2/debug/debug.h \
+  /usr/include/c++/12.2/bits/predefined_ops.h \
+  /usr/include/c++/12.2/bits/refwrap.h \
+  /usr/include/c++/12.2/bits/invoke.h \
+  /usr/include/c++/12.2/bits/range_access.h \
+  /usr/include/c++/12.2/initializer_list \
+  /usr/include/c++/12.2/bits/basic_string.h \
+  /usr/include/c++/12.2/ext/alloc_traits.h \
+  /usr/include/c++/12.2/bits/alloc_traits.h \
+  /usr/include/c++/12.2/bits/stl_construct.h \
+  /usr/include/c++/12.2/string_view \
+  /usr/include/c++/12.2/bits/functional_hash.h \
+  /usr/include/c++/12.2/bits/string_view.tcc \
+  /usr/include/c++/12.2/ext/string_conversions.h \
+  /usr/include/c++/12.2/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/c++/12.2/bits/std_abs.h \
+  /usr/include/c++/12.2/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/c++/12.2/cerrno \
+  /usr/include/errno.h \
+  /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/bits/types/error_t.h \
+  /usr/include/c++/12.2/bits/charconv.h \
+  /usr/include/c++/12.2/bits/basic_string.tcc \
+  /usr/include/c++/12.2/bits/locale_classes.tcc \
+  /usr/include/c++/12.2/system_error \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
+  /usr/include/c++/12.2/stdexcept \
+  /usr/include/c++/12.2/streambuf \
+  /usr/include/c++/12.2/bits/streambuf.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.h \
+  /usr/include/c++/12.2/bits/locale_facets.h \
+  /usr/include/c++/12.2/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/bits/wctype-wchar.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
+  /usr/include/c++/12.2/bits/streambuf_iterator.h \
+  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
+  /usr/include/c++/12.2/bits/locale_facets.tcc \
+  /usr/include/c++/12.2/bits/basic_ios.tcc \
+  /usr/include/c++/12.2/bits/ostream.tcc \
+  /usr/include/c++/12.2/istream \
+  /usr/include/c++/12.2/bits/istream.tcc \
+  /usr/include/c++/12.2/memory \
+  /usr/include/c++/12.2/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2/bits/stl_tempbuf.h \
+  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12.2/bits/align.h \
+  /usr/include/c++/12.2/bit \
+  /usr/include/c++/12.2/bits/uses_allocator.h \
+  /usr/include/c++/12.2/bits/unique_ptr.h \
+  /usr/include/c++/12.2/tuple \
+  /usr/include/c++/12.2/bits/shared_ptr.h \
+  /usr/include/c++/12.2/bits/shared_ptr_base.h \
+  /usr/include/c++/12.2/bits/allocated_ptr.h \
+  /usr/include/c++/12.2/ext/aligned_buffer.h \
+  /usr/include/c++/12.2/ext/concurrence.h \
+  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12.2/bits/atomic_base.h \
+  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12.2/backward/auto_ptr.h \
+  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
+  /usr/include/c++/12.2/pstl/execution_defs.h \
+  /usr/include/c++/12.2/vector \
+  /usr/include/c++/12.2/bits/stl_vector.h \
+  /usr/include/c++/12.2/bits/stl_bvector.h \
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/bits/stl_algo.h \
   /usr/include/c++/12.2/bits/algorithmfwd.h \
@@ -5050,435 +14262,10 @@ CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: /home/nasser/Projects/Program
   /usr/include/c++/12.2/bits/uniform_int_dist.h \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
-CMakeFiles/ainsrc.dir/src/scope/Scope.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Scope.cpp \
-  /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/bits/wordsize.h \
-  /usr/include/bits/timesize.h \
-  /usr/include/sys/cdefs.h \
-  /usr/include/bits/long-double.h \
-  /usr/include/gnu/stubs.h \
-  /usr/include/gnu/stubs-64.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/ostream \
-  /usr/include/c++/12.2/ios \
-  /usr/include/c++/12.2/iosfwd \
-  /usr/include/c++/12.2/bits/stringfwd.h \
-  /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/postypes.h \
-  /usr/include/c++/12.2/cwchar \
-  /usr/include/wchar.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
-  /usr/include/bits/wchar.h \
-  /usr/include/bits/types/wint_t.h \
-  /usr/include/bits/types/mbstate_t.h \
-  /usr/include/bits/types/__mbstate_t.h \
-  /usr/include/bits/types/__FILE.h \
-  /usr/include/bits/types/FILE.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/c++/12.2/exception \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/exception_ptr.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
-  /usr/include/c++/12.2/typeinfo \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/nested_exception.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
-  /usr/include/c++/12.2/cstdint \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
-  /usr/include/stdint.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/localefwd.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
-  /usr/include/c++/12.2/clocale \
-  /usr/include/locale.h \
-  /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/cctype \
-  /usr/include/ctype.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/c++/12.2/bits/ios_base.h \
-  /usr/include/c++/12.2/ext/atomicity.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/sched.h \
-  /usr/include/bits/types/struct_sched_param.h \
-  /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/types/struct_itimerspec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/bits/setjmp.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/bits/pthread_stack_min-dynamic.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
-  /usr/include/sys/single_threaded.h \
-  /usr/include/c++/12.2/bits/locale_classes.h \
-  /usr/include/c++/12.2/string \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/bits/ostream_insert.h \
-  /usr/include/c++/12.2/bits/cxxabi_forced.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/bits/stl_function.h \
-  /usr/include/c++/12.2/backward/binders.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/bits/refwrap.h \
-  /usr/include/c++/12.2/bits/invoke.h \
-  /usr/include/c++/12.2/bits/range_access.h \
-  /usr/include/c++/12.2/initializer_list \
-  /usr/include/c++/12.2/bits/basic_string.h \
-  /usr/include/c++/12.2/ext/alloc_traits.h \
-  /usr/include/c++/12.2/bits/alloc_traits.h \
-  /usr/include/c++/12.2/bits/stl_construct.h \
-  /usr/include/c++/12.2/string_view \
-  /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/string_view.tcc \
-  /usr/include/c++/12.2/ext/string_conversions.h \
-  /usr/include/c++/12.2/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/c++/12.2/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/bits/types/__fpos_t.h \
-  /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
-  /usr/include/bits/types/cookie_io_functions_t.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/include/c++/12.2/cerrno \
-  /usr/include/errno.h \
-  /usr/include/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/bits/types/error_t.h \
-  /usr/include/c++/12.2/bits/charconv.h \
-  /usr/include/c++/12.2/bits/basic_string.tcc \
-  /usr/include/c++/12.2/bits/locale_classes.tcc \
-  /usr/include/c++/12.2/system_error \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
-  /usr/include/c++/12.2/stdexcept \
-  /usr/include/c++/12.2/streambuf \
-  /usr/include/c++/12.2/bits/streambuf.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.h \
-  /usr/include/c++/12.2/bits/locale_facets.h \
-  /usr/include/c++/12.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/bits/wctype-wchar.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/12.2/bits/streambuf_iterator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
-  /usr/include/c++/12.2/bits/locale_facets.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.tcc \
-  /usr/include/c++/12.2/bits/ostream.tcc \
-  /usr/include/c++/12.2/istream \
-  /usr/include/c++/12.2/bits/istream.tcc \
-  /usr/include/c++/12.2/memory \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/12.2/bits/align.h \
-  /usr/include/c++/12.2/bit \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/unique_ptr.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/shared_ptr.h \
-  /usr/include/c++/12.2/bits/shared_ptr_base.h \
-  /usr/include/c++/12.2/bits/allocated_ptr.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/ext/concurrence.h \
-  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
-  /usr/include/c++/12.2/bits/atomic_base.h \
-  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/12.2/backward/auto_ptr.h \
-  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
-
-CMakeFiles/ainsrc.dir/src/scope/Variable.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp \
-  /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/bits/wordsize.h \
-  /usr/include/bits/timesize.h \
-  /usr/include/sys/cdefs.h \
-  /usr/include/bits/long-double.h \
-  /usr/include/gnu/stubs.h \
-  /usr/include/gnu/stubs-64.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/ostream \
-  /usr/include/c++/12.2/ios \
-  /usr/include/c++/12.2/iosfwd \
-  /usr/include/c++/12.2/bits/stringfwd.h \
-  /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/postypes.h \
-  /usr/include/c++/12.2/cwchar \
-  /usr/include/wchar.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
-  /usr/include/bits/wchar.h \
-  /usr/include/bits/types/wint_t.h \
-  /usr/include/bits/types/mbstate_t.h \
-  /usr/include/bits/types/__mbstate_t.h \
-  /usr/include/bits/types/__FILE.h \
-  /usr/include/bits/types/FILE.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/c++/12.2/exception \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/exception_ptr.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
-  /usr/include/c++/12.2/typeinfo \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/nested_exception.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
-  /usr/include/c++/12.2/cstdint \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
-  /usr/include/stdint.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/localefwd.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
-  /usr/include/c++/12.2/clocale \
-  /usr/include/locale.h \
-  /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/cctype \
-  /usr/include/ctype.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/c++/12.2/bits/ios_base.h \
-  /usr/include/c++/12.2/ext/atomicity.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/sched.h \
-  /usr/include/bits/types/struct_sched_param.h \
-  /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/types/struct_itimerspec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/bits/setjmp.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/bits/pthread_stack_min-dynamic.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
-  /usr/include/sys/single_threaded.h \
-  /usr/include/c++/12.2/bits/locale_classes.h \
-  /usr/include/c++/12.2/string \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/bits/ostream_insert.h \
-  /usr/include/c++/12.2/bits/cxxabi_forced.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/bits/stl_function.h \
-  /usr/include/c++/12.2/backward/binders.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/bits/refwrap.h \
-  /usr/include/c++/12.2/bits/invoke.h \
-  /usr/include/c++/12.2/bits/range_access.h \
-  /usr/include/c++/12.2/initializer_list \
-  /usr/include/c++/12.2/bits/basic_string.h \
-  /usr/include/c++/12.2/ext/alloc_traits.h \
-  /usr/include/c++/12.2/bits/alloc_traits.h \
-  /usr/include/c++/12.2/bits/stl_construct.h \
-  /usr/include/c++/12.2/string_view \
-  /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/string_view.tcc \
-  /usr/include/c++/12.2/ext/string_conversions.h \
-  /usr/include/c++/12.2/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/c++/12.2/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/bits/types/__fpos_t.h \
-  /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
-  /usr/include/bits/types/cookie_io_functions_t.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/include/c++/12.2/cerrno \
-  /usr/include/errno.h \
-  /usr/include/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/bits/types/error_t.h \
-  /usr/include/c++/12.2/bits/charconv.h \
-  /usr/include/c++/12.2/bits/basic_string.tcc \
-  /usr/include/c++/12.2/bits/locale_classes.tcc \
-  /usr/include/c++/12.2/system_error \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
-  /usr/include/c++/12.2/stdexcept \
-  /usr/include/c++/12.2/streambuf \
-  /usr/include/c++/12.2/bits/streambuf.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.h \
-  /usr/include/c++/12.2/bits/locale_facets.h \
-  /usr/include/c++/12.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/bits/wctype-wchar.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/12.2/bits/streambuf_iterator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
-  /usr/include/c++/12.2/bits/locale_facets.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.tcc \
-  /usr/include/c++/12.2/bits/ostream.tcc \
-  /usr/include/c++/12.2/istream \
-  /usr/include/c++/12.2/bits/istream.tcc \
-  /usr/include/c++/12.2/memory \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/12.2/bits/align.h \
-  /usr/include/c++/12.2/bit \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/unique_ptr.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/shared_ptr.h \
-  /usr/include/c++/12.2/bits/shared_ptr_base.h \
-  /usr/include/c++/12.2/bits/allocated_ptr.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/ext/concurrence.h \
-  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
-  /usr/include/c++/12.2/bits/atomic_base.h \
-  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/12.2/backward/auto_ptr.h \
-  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
-
 CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/DoWhileStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/DoWhileStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -5685,16 +14472,39 @@ CMakeFiles/ainsrc.dir/src/statement/DoWhileStatement.cpp.o: /home/nasser/Project
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -5901,12 +14711,19 @@ CMakeFiles/ainsrc.dir/src/statement/ExpressionStatement.cpp.o: /home/nasser/Proj
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp
 
 CMakeFiles/ainsrc.dir/src/statement/IStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -6112,13 +14929,18 @@ CMakeFiles/ainsrc.dir/src/statement/IStatement.cpp.o: /home/nasser/Projects/Prog
   /usr/include/c++/12.2/vector \
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc
+  /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h
 
 CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/IfStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -6325,16 +15147,37 @@ CMakeFiles/ainsrc.dir/src/statement/IfStatement.cpp.o: /home/nasser/Projects/Pro
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -6541,14 +15384,31 @@ CMakeFiles/ainsrc.dir/src/statement/ReturnStatement.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
-CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarDeclarationStatement.cpp \
+CMakeFiles/ainsrc.dir/src/statement/VarStm.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarStm.cpp \
   /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarDeclarationStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -6755,228 +15615,29 @@ CMakeFiles/ainsrc.dir/src/statement/VarDeclarationStatement.cpp.o: /home/nasser/
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
-
-CMakeFiles/ainsrc.dir/src/statement/VarReassignStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarReassignStatement.cpp \
-  /usr/include/stdc-predef.h \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarReassignStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
-  /usr/include/c++/12.2/iostream \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/bits/wordsize.h \
-  /usr/include/bits/timesize.h \
-  /usr/include/sys/cdefs.h \
-  /usr/include/bits/long-double.h \
-  /usr/include/gnu/stubs.h \
-  /usr/include/gnu/stubs-64.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/12.2/pstl/pstl_config.h \
-  /usr/include/c++/12.2/ostream \
-  /usr/include/c++/12.2/ios \
-  /usr/include/c++/12.2/iosfwd \
-  /usr/include/c++/12.2/bits/stringfwd.h \
-  /usr/include/c++/12.2/bits/memoryfwd.h \
-  /usr/include/c++/12.2/bits/postypes.h \
-  /usr/include/c++/12.2/cwchar \
-  /usr/include/wchar.h \
-  /usr/include/bits/libc-header-start.h \
-  /usr/include/bits/floatn.h \
-  /usr/include/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h \
-  /usr/include/bits/wchar.h \
-  /usr/include/bits/types/wint_t.h \
-  /usr/include/bits/types/mbstate_t.h \
-  /usr/include/bits/types/__mbstate_t.h \
-  /usr/include/bits/types/__FILE.h \
-  /usr/include/bits/types/FILE.h \
-  /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h \
-  /usr/include/c++/12.2/exception \
-  /usr/include/c++/12.2/bits/exception.h \
-  /usr/include/c++/12.2/bits/exception_ptr.h \
-  /usr/include/c++/12.2/bits/exception_defines.h \
-  /usr/include/c++/12.2/bits/cxxabi_init_exception.h \
-  /usr/include/c++/12.2/typeinfo \
-  /usr/include/c++/12.2/bits/hash_bytes.h \
-  /usr/include/c++/12.2/new \
-  /usr/include/c++/12.2/bits/move.h \
-  /usr/include/c++/12.2/type_traits \
-  /usr/include/c++/12.2/bits/nested_exception.h \
-  /usr/include/c++/12.2/bits/char_traits.h \
-  /usr/include/c++/12.2/cstdint \
-  /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h \
-  /usr/include/stdint.h \
-  /usr/include/bits/types.h \
-  /usr/include/bits/typesizes.h \
-  /usr/include/bits/time64.h \
-  /usr/include/bits/stdint-intn.h \
-  /usr/include/bits/stdint-uintn.h \
-  /usr/include/c++/12.2/bits/localefwd.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h \
-  /usr/include/c++/12.2/clocale \
-  /usr/include/locale.h \
-  /usr/include/bits/locale.h \
-  /usr/include/c++/12.2/cctype \
-  /usr/include/ctype.h \
-  /usr/include/bits/endian.h \
-  /usr/include/bits/endianness.h \
-  /usr/include/c++/12.2/bits/ios_base.h \
-  /usr/include/c++/12.2/ext/atomicity.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/bits/types/time_t.h \
-  /usr/include/bits/types/struct_timespec.h \
-  /usr/include/bits/sched.h \
-  /usr/include/bits/types/struct_sched_param.h \
-  /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_timeval.h \
-  /usr/include/bits/types/clock_t.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/clockid_t.h \
-  /usr/include/bits/types/timer_t.h \
-  /usr/include/bits/types/struct_itimerspec.h \
-  /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/thread-shared-types.h \
-  /usr/include/bits/pthreadtypes-arch.h \
-  /usr/include/bits/atomic_wide_counter.h \
-  /usr/include/bits/struct_mutex.h \
-  /usr/include/bits/struct_rwlock.h \
-  /usr/include/bits/setjmp.h \
-  /usr/include/bits/types/__sigset_t.h \
-  /usr/include/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/bits/pthread_stack_min-dynamic.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/atomic_word.h \
-  /usr/include/sys/single_threaded.h \
-  /usr/include/c++/12.2/bits/locale_classes.h \
-  /usr/include/c++/12.2/string \
-  /usr/include/c++/12.2/bits/allocator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h \
-  /usr/include/c++/12.2/bits/new_allocator.h \
-  /usr/include/c++/12.2/bits/functexcept.h \
-  /usr/include/c++/12.2/bits/cpp_type_traits.h \
-  /usr/include/c++/12.2/bits/ostream_insert.h \
-  /usr/include/c++/12.2/bits/cxxabi_forced.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_types.h \
-  /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/12.2/bits/concept_check.h \
-  /usr/include/c++/12.2/debug/assertions.h \
-  /usr/include/c++/12.2/bits/stl_iterator.h \
-  /usr/include/c++/12.2/ext/type_traits.h \
-  /usr/include/c++/12.2/bits/ptr_traits.h \
-  /usr/include/c++/12.2/bits/stl_function.h \
-  /usr/include/c++/12.2/backward/binders.h \
-  /usr/include/c++/12.2/ext/numeric_traits.h \
-  /usr/include/c++/12.2/bits/stl_algobase.h \
-  /usr/include/c++/12.2/bits/stl_pair.h \
-  /usr/include/c++/12.2/bits/utility.h \
-  /usr/include/c++/12.2/debug/debug.h \
-  /usr/include/c++/12.2/bits/predefined_ops.h \
-  /usr/include/c++/12.2/bits/refwrap.h \
-  /usr/include/c++/12.2/bits/invoke.h \
-  /usr/include/c++/12.2/bits/range_access.h \
-  /usr/include/c++/12.2/initializer_list \
-  /usr/include/c++/12.2/bits/basic_string.h \
-  /usr/include/c++/12.2/ext/alloc_traits.h \
-  /usr/include/c++/12.2/bits/alloc_traits.h \
-  /usr/include/c++/12.2/bits/stl_construct.h \
-  /usr/include/c++/12.2/string_view \
-  /usr/include/c++/12.2/bits/functional_hash.h \
-  /usr/include/c++/12.2/bits/string_view.tcc \
-  /usr/include/c++/12.2/ext/string_conversions.h \
-  /usr/include/c++/12.2/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h \
-  /usr/include/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/bits/byteswap.h \
-  /usr/include/bits/uintn-identity.h \
-  /usr/include/sys/select.h \
-  /usr/include/bits/select.h \
-  /usr/include/bits/types/sigset_t.h \
-  /usr/include/alloca.h \
-  /usr/include/bits/stdlib-float.h \
-  /usr/include/c++/12.2/bits/std_abs.h \
-  /usr/include/c++/12.2/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/bits/types/__fpos_t.h \
-  /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
-  /usr/include/bits/types/cookie_io_functions_t.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/include/c++/12.2/cerrno \
-  /usr/include/errno.h \
-  /usr/include/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/bits/types/error_t.h \
-  /usr/include/c++/12.2/bits/charconv.h \
-  /usr/include/c++/12.2/bits/basic_string.tcc \
-  /usr/include/c++/12.2/bits/locale_classes.tcc \
-  /usr/include/c++/12.2/system_error \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/error_constants.h \
-  /usr/include/c++/12.2/stdexcept \
-  /usr/include/c++/12.2/streambuf \
-  /usr/include/c++/12.2/bits/streambuf.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.h \
-  /usr/include/c++/12.2/bits/locale_facets.h \
-  /usr/include/c++/12.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/bits/wctype-wchar.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/12.2/bits/streambuf_iterator.h \
-  /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
-  /usr/include/c++/12.2/bits/locale_facets.tcc \
-  /usr/include/c++/12.2/bits/basic_ios.tcc \
-  /usr/include/c++/12.2/bits/ostream.tcc \
-  /usr/include/c++/12.2/istream \
-  /usr/include/c++/12.2/bits/istream.tcc \
-  /usr/include/c++/12.2/memory \
-  /usr/include/c++/12.2/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2/bits/stl_tempbuf.h \
-  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/12.2/bits/align.h \
-  /usr/include/c++/12.2/bit \
-  /usr/include/c++/12.2/bits/uses_allocator.h \
-  /usr/include/c++/12.2/bits/unique_ptr.h \
-  /usr/include/c++/12.2/tuple \
-  /usr/include/c++/12.2/bits/shared_ptr.h \
-  /usr/include/c++/12.2/bits/shared_ptr_base.h \
-  /usr/include/c++/12.2/bits/allocated_ptr.h \
-  /usr/include/c++/12.2/ext/aligned_buffer.h \
-  /usr/include/c++/12.2/ext/concurrence.h \
-  /usr/include/c++/12.2/bits/shared_ptr_atomic.h \
-  /usr/include/c++/12.2/bits/atomic_base.h \
-  /usr/include/c++/12.2/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/12.2/backward/auto_ptr.h \
-  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
-  /usr/include/c++/12.2/pstl/execution_defs.h \
-  /usr/include/c++/12.2/vector \
-  /usr/include/c++/12.2/bits/stl_vector.h \
-  /usr/include/c++/12.2/bits/stl_bvector.h \
-  /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/statement/TypeMismatchException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
 CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp \
   /usr/include/stdc-predef.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
   /usr/include/c++/12.2/iostream \
   /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++config.h \
@@ -7183,43 +15844,109 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
   /usr/include/c++/12.2/bits/stl_vector.h \
   /usr/include/c++/12.2/bits/stl_bvector.h \
   /usr/include/c++/12.2/bits/vector.tcc \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /usr/include/c++/12.2/map \
+  /usr/include/c++/12.2/bits/stl_tree.h \
+  /usr/include/c++/12.2/bits/node_handle.h \
+  /usr/include/c++/12.2/bits/stl_map.h \
+  /usr/include/c++/12.2/bits/stl_multimap.h \
+  /usr/include/c++/12.2/bits/erase_if.h \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
-  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+  /usr/include/c++/12.2/algorithm \
+  /usr/include/c++/12.2/bits/stl_algo.h \
+  /usr/include/c++/12.2/bits/algorithmfwd.h \
+  /usr/include/c++/12.2/bits/stl_heap.h \
+  /usr/include/c++/12.2/bits/uniform_int_dist.h \
+  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h
 
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarReassignStatement.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ReturnStatement.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/statement/ExpressionStatement.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/semantics/UnexpectedTypeException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Scope.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/semantics/TypeChecker.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/PackageScope.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FunScope.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Constant.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/ClassScope.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/VarDeclParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/TypeParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunParamParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/parser/FunDeclParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/VarDecl.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/DoubleClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/ULongClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/BoolClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/VarStatementParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/TokensIterator.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/WhileStatement.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarDeclarationStatement.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarReassignStatement.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/StringClassScope.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/OnlyVariablesAreAssignableException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/BadToken.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp:
 
-/usr/include/c++/12.2/bits/stl_multimap.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/PackageParser.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/Parser.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/CharClassScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/GlobalScope.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/InvalidOperatorFunDeclarationException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FunParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/FileParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/ExpressionParser.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunDecl.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/UnexpectedTokenException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/BuiltInFunScope.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/main.cpp:
 
@@ -7229,55 +15956,115 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerToken.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidUniversalCharacterCodeException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidUniversalCharacterCodeException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidEscapeSequenceException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidEscapeSequenceException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidIdentifierNameException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidLengthCharacterLiteralException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/UnsupportedTokenException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/OutOfRangeException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/UnsupportedTokenException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LexerLine.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/string_helper.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/number_helper.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ULongValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/ULongValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UIntValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/UIntValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/Variable.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/StringValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/StatementExpectedException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/LongValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IntValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/FloatValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/DoubleValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/DoubleValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/IllegalUnderscoreException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/BoolValue.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VarAccessExpression.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/UnitExpression.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/OperatorFunInvokeExpression.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NonStaticVarAccessExpression.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NewObjectExpression.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LiteralExpression.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/LiteralExpression.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/StmListParser.cpp:
+
 /usr/include/c++/12.2/pstl/glue_algorithm_defs.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp:
 
 /usr/include/c++/12.2/algorithm:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/ContainsKufrOrUnsupportedCharacterException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VariableAccessExpression.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/Type.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/StringExpression.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NumberExpression.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarStm.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Constant.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Scope.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunInvokeExpression.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunCallExpression.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/EqualityExpression.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/FunCallExpression.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/EqualityExpression.cpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/IntClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IntValue.hpp:
 
 /usr/include/c++/12.2/bits/stl_algo.h:
 
@@ -7289,24 +16076,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/functional:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/number_helper.hpp:
-
-/usr/include/c++/12.2/pstl/execution_defs.h:
-
-/usr/include/c++/12.2/pstl/glue_memory_defs.h:
-
-/usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/12.2/bits/atomic_base.h:
-
-/usr/include/c++/12.2/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/12.2/bits/align.h:
-
-/usr/include/c++/12.2/bits/hashtable_policy.h:
-
-/usr/include/c++/12.2/bits/stl_tempbuf.h:
-
 /usr/include/c++/12.2/ext/alloc_traits.h:
 
 /usr/include/c++/12.2/bits/refwrap.h:
@@ -7317,27 +16086,17 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/stl_algobase.h:
 
-/usr/include/c++/12.2/bits/node_handle.h:
-
-/usr/include/c++/12.2/bits/fs_dir.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/Parser.cpp:
-
-/usr/include/math.h:
-
 /usr/include/c++/12.2/ext/type_traits.h:
 
 /usr/include/bits/types/struct_timespec.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/IllegalUnderscoreException.hpp:
-
-/usr/include/c++/12.2/bits/stl_construct.h:
-
 /usr/include/c++/12.2/bits/fs_ops.h:
 
-/usr/include/c++/12.2/bits/functexcept.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/IParser.hpp:
+/usr/include/c++/12.2/cerrno:
+
+/usr/include/c++/12.2/bits/functexcept.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:
 
@@ -7347,29 +16106,25 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/struct_mutex.h:
 
-/usr/include/c++/12.2/backward/auto_ptr.h:
-
-/usr/include/c++/12.2/bits/stl_uninitialized.h:
-
 /usr/include/c++/12.2/backward/binders.h:
 
 /usr/include/bits/types/struct_itimerspec.h:
 
 /usr/include/bits/struct_rwlock.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BoolExpression.cpp:
-
 /usr/include/bits/types/timer_t.h:
 
 /usr/include/c++/12.2/bits/concept_check.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IValue.cpp:
 
 /usr/include/c++/12.2/bits/std_function.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/os_defines.h:
 
-/usr/include/c++/12.2/bits/specfun.h:
+/usr/include/c++/12.2/pstl/glue_memory_defs.h:
 
-/usr/include/bits/atomic_wide_counter.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/StmListScope.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp:
 
@@ -7383,10 +16138,6 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/__fpos_t.h:
 
-/usr/include/c++/12.2/cerrno:
-
-/usr/include/bits/mathcalls.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/LiteralToken.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp:
@@ -7397,15 +16148,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/time.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/VarDeclarationStatement.cpp:
-
-/usr/include/c++/12.2/bits/stl_map.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/time.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp:
 
 /usr/include/bits/types/time_t.h:
 
@@ -7417,11 +16164,7 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidLengthCharacterLiteralException.hpp:
-
 /usr/include/c++/12.2/bits/ios_base.h:
-
-/usr/include/c++/12.2/tr1/legendre_function.tcc:
 
 /usr/include/c++/12.2/string:
 
@@ -7429,31 +16172,27 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/struct_sched_param.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticVarAccessExpression.hpp:
+
 /usr/include/ctype.h:
 
 /usr/include/c++/12.2/bits/fs_fwd.h:
-
-/usr/include/bits/iscanonical.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/gthr-default.h:
 
 /usr/include/bits/locale.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp:
+
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdarg.h:
 
 /usr/include/wchar.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NumberExpression.hpp:
 
 /usr/include/c++/12.2/clocale:
 
 /usr/include/c++/12.2/initializer_list:
 
 /usr/include/c++/12.2/bits/stl_pair.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp:
-
-/usr/include/c++/12.2/tr1/poly_hermite.tcc:
 
 /usr/include/c++/12.2/bits/range_access.h:
 
@@ -7464,6 +16203,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/bits/types/struct_tm.h:
 
 /usr/include/c++/12.2/ios:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/expression/CannotAccessPrivateFunctionException.hpp:
 
 /usr/include/sys/types.h:
 
@@ -7479,7 +16222,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/ext/atomicity.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/StringClassScope.hpp:
+
 /usr/include/stdc-predef.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/UnitValue.cpp:
 
 /usr/include/c++/12.2/bits/chrono.h:
 
@@ -7499,13 +16246,15 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/parse_numbers.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UIntClassScope.hpp:
+
 /usr/include/c++/12.2/bits/exception.h:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/c++/12.2/map:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/wchar_t_helper.cpp:
+
+/usr/include/c++/12.2/map:
 
 /usr/include/bits/setjmp.h:
 
@@ -7513,11 +16262,9 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/pthreadtypes-arch.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/InvalidNumberSystemDigitException.hpp:
-
 /usr/include/gnu/stubs.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/GlobalScope.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/LogicalExpression.cpp:
 
 /usr/include/c++/12.2/pstl/pstl_config.h:
 
@@ -7531,13 +16278,17 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/iostream:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/CompareToExpression.cpp:
+
 /usr/include/bits/long-double.h:
 
 /usr/include/bits/floatn-common.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/VariableAccessExpression.cpp:
-
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stddef.h:
+
+/usr/include/c++/12.2/bits/stl_uninitialized.h:
+
+/usr/include/c++/12.2/backward/auto_ptr.h:
 
 /usr/include/c++/12.2/bits/stl_iterator_base_funcs.h:
 
@@ -7547,13 +16298,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/char_traits.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/VarAccessExpression.hpp:
+
 /usr/include/c++/12.2/bits/basic_string.h:
 
 /usr/include/features-time64.h:
-
-/usr/include/c++/12.2/bits/erase_if.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp:
 
 /usr/include/bits/types/mbstate_t.h:
 
@@ -7565,15 +16314,9 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/FILE.h:
 
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/bits/fp-fast.h:
-
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
-
-/usr/include/c++/12.2/tr1/riemann_zeta.tcc:
 
 /usr/include/bits/types/__locale_t.h:
 
@@ -7583,7 +16326,15 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/move.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/StringValue.hpp:
+
 /usr/include/c++/12.2/bits/exception_defines.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/LongValue.hpp:
+
+/usr/include/c++/12.2/pstl/execution_defs.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/ContainsKufrOrUnsupportedCharacterException.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/ain_file/AinFile.cpp:
 
@@ -7593,6 +16344,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types.h:
 
+/usr/include/c++/12.2/bits/stl_multimap.h:
+
 /usr/include/c++/12.2/bits/ostream_insert.h:
 
 /usr/include/c++/12.2/bits/stl_vector.h:
@@ -7600,6 +16353,10 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/c++/12.2/bits/nested_exception.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidNumberSystemDigitException.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp:
 
 /usr/include/c++/12.2/bits/stl_function.h:
 
@@ -7610,6 +16367,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/lib/gcc/x86_64-unknown-linux-gnu/12.2/include/stdint.h:
 
 /usr/include/c++/12.2/tuple:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/FloatClassScope.hpp:
 
 /usr/include/c++/12.2/debug/debug.h:
 
@@ -7623,17 +16382,15 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/debug/assertions.h:
 
-/usr/include/c++/12.2/bits/unordered_map.h:
-
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp:
+
+/usr/include/c++/12.2/bits/unordered_map.h:
 
 /usr/include/c++/12.2/bits/cpp_type_traits.h:
 
 /usr/include/asm-generic/errno.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MissingQouteException.hpp:
-
-/usr/include/bits/fp-logb.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/PackageParser.hpp:
 
 /usr/include/bits/types/clockid_t.h:
 
@@ -7655,13 +16412,27 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/c++locale.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FunParser.hpp:
+
+/usr/include/c++/12.2/bits/utility.h:
+
+/usr/include/c++/12.2/bits/alloc_traits.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/UnitValue.hpp:
+
 /usr/include/bits/byteswap.h:
 
 /usr/include/c++/12.2/bits/shared_ptr.h:
 
+/usr/include/c++/12.2/exception:
+
+/usr/include/c++/12.2/bits/functional_hash.h:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/src/helpers/ainio.cpp:
 
 /usr/include/c++/12.2/bits/string_view.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp:
 
 /usr/include/c++/12.2/bits/cxxabi_init_exception.h:
 
@@ -7675,7 +16446,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/endian.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/LogicalExpression.hpp:
+
 /usr/include/bits/uintn-identity.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/CompareToExpression.hpp:
 
 /usr/include/sys/select.h:
 
@@ -7687,15 +16462,23 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/istream:
 
-/usr/include/c++/12.2/tr1/beta_function.tcc:
-
 /usr/include/bits/select.h:
 
 /usr/include/c++/12.2/bits/streambuf.tcc:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp:
+
 /usr/include/c++/12.2/bits/shared_ptr_base.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/NonStaticFunInvokeExpression.cpp:
+
 /usr/include/bits/types/sigset_t.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/CharValue.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/PackageScope.hpp:
 
 /usr/include/c++/12.2/bits/ptr_traits.h:
 
@@ -7703,13 +16486,13 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/cstdio:
 
+/usr/include/c++/12.2/bits/align.h:
+
 /usr/include/c++/12.2/bits/localefwd.h:
 
 /usr/include/bits/wordsize.h:
 
 /usr/include/stdio.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BinaryExpression.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp:
 
@@ -7717,17 +16500,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/__fpos64_t.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/OutOfRangeException.hpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp:
 
 /usr/include/bits/types/struct_FILE.h:
-
-/usr/include/c++/12.2/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/12.2/string_view:
-
-/usr/include/c++/12.2/bits/locale_classes.tcc:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/KeywordToken.cpp:
 
@@ -7735,7 +16512,11 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
+/usr/include/c++/12.2/bits/atomic_lockfree_defines.h:
+
 /usr/include/errno.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/BaseScope.cpp:
 
 /usr/include/c++/12.2/bits/hashtable.h:
 
@@ -7745,13 +16526,19 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/asm/errno.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/MissingQouteException.hpp:
+
 /usr/include/c++/12.2/locale:
 
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/bits/types/error_t.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/lexer/InvalidIdentifierNameException.hpp:
+
 /usr/include/c++/12.2/bits/charconv.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/IExpression.cpp:
 
 /usr/include/c++/12.2/ext/concurrence.h:
 
@@ -7760,6 +16547,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /usr/include/c++/12.2/cwchar:
 
 /usr/include/c++/12.2/streambuf:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/AssignStatement.cpp:
 
 /usr/include/c++/12.2/cwctype:
 
@@ -7771,13 +16560,13 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/fstream.tcc:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/src/statement/WhileStatement.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp:
+
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_base.h:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/BoolExpression.hpp:
-
 /usr/include/c++/12.2/bits/fs_path.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MainFunctionNotFoundException.hpp:
 
 /usr/include/c++/12.2/bits/streambuf_iterator.h:
 
@@ -7785,9 +16574,19 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/function/BuiltInFunScope.cpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp:
+
 /usr/include/c++/12.2/bits/ostream.tcc:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp:
+
 /usr/include/c++/12.2/limits:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp:
 
 /usr/include/bits/types/wint_t.h:
 
@@ -7799,7 +16598,7 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/vector.tcc:
 
-/usr/include/c++/12.2/tr1/poly_laguerre.tcc:
+/usr/include/c++/12.2/fstream:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/basic_file.h:
 
@@ -7821,11 +16620,17 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/locale_facets_nonio.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp:
+
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/time_members.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/parser/elements/FunParam.cpp:
 
 /usr/include/c++/12.2/bits/uniform_int_dist.h:
 
 /usr/include/c++/12.2/x86_64-unknown-linux-gnu/bits/messages_members.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/statement/TypeMismatchException.hpp:
 
 /usr/include/c++/12.2/bits/invoke.h:
 
@@ -7839,6 +16644,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/locale_facets_nonio.tcc:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/OperatorFunInvokeExpression.cpp:
+
 /usr/include/c++/12.2/bits/locale_conv.h:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp:
@@ -7849,15 +16656,17 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/sstream:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/StringExpression.cpp:
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/c++/12.2/bits/stl_map.h:
 
 /usr/include/c++/12.2/system_error:
 
 /usr/include/c++/12.2/bits/sstream.tcc:
 
-/usr/include/c++/12.2/tr1/special_function_util.h:
-
 /usr/include/c++/12.2/codecvt:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/CharValue.cpp:
 
 /usr/include/c++/12.2/cstdlib:
 
@@ -7865,58 +16674,76 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /usr/include/c++/12.2/bits/uses_allocator.h:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/UnitExpression.hpp:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp:
 
 /usr/include/c++/12.2/ext/aligned_buffer.h:
-
-/usr/include/c++/12.2/bit:
-
-/usr/include/c++/12.2/bits/basic_ios.tcc:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/lexer/Lexer.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/BadFileFormatException.hpp:
 
-/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/BinaryExpression.cpp:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/AssignStatement.hpp:
 
-/usr/include/c++/12.2/exception:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/BoolValue.hpp:
 
-/usr/include/c++/12.2/bits/functional_hash.h:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/PrimitiveValue.hpp:
 
-/usr/include/c++/12.2/cmath:
+/home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/IValue.hpp:
 
-/usr/include/bits/math-vector.h:
-
-/home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
-
-/usr/include/bits/mathcalls-helper-functions.h:
-
-/usr/include/c++/12.2/fstream:
-
-/usr/include/bits/mathcalls-narrow.h:
-
-/usr/include/c++/12.2/tr1/gamma.tcc:
-
-/usr/include/c++/12.2/tr1/bessel_function.tcc:
-
-/usr/include/c++/12.2/tr1/ell_integral.tcc:
-
-/usr/include/c++/12.2/tr1/exp_integral.tcc:
-
-/usr/include/c++/12.2/tr1/hypergeometric.tcc:
-
-/usr/include/c++/12.2/bits/utility.h:
-
-/usr/include/c++/12.2/bits/alloc_traits.h:
-
-/usr/include/c++/12.2/tr1/modified_bessel_func.tcc:
+/home/nasser/Projects/Programming/C++/AinLanguage/src/scope/FileScope.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp:
 
 /usr/include/c++/12.2/bits/algorithmfwd.h:
 
 /usr/include/c++/12.2/memory:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/runtime/NumberFormatException.hpp:
+
+/usr/include/c++/12.2/bits/hashtable_policy.h:
+
+/usr/include/c++/12.2/bits/stl_tempbuf.h:
+
+/usr/include/c++/12.2/string_view:
+
+/usr/include/c++/12.2/bits/locale_classes.tcc:
+
+/usr/include/c++/12.2/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/12.2/bits/basic_ios.tcc:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/AinFile.hpp:
+
+/usr/include/c++/12.2/bit:
+
+/usr/include/c++/12.2/bits/shared_ptr_atomic.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/PrimitiveClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/UnitClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/FloatValue.cpp:
+
+/usr/include/c++/12.2/bits/atomic_base.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/class/LongClassScope.hpp:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ConflictingDeclarationException.hpp:
+
+/usr/include/c++/12.2/bits/fs_dir.h:
+
+/usr/include/c++/12.2/bits/node_handle.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp:
+
+/usr/include/c++/12.2/bits/erase_if.h:
+
+/usr/include/c++/12.2/bits/stl_construct.h:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp:

@@ -1,50 +1,56 @@
 #include "FunScope.hpp"
+#include "FunDecl.hpp"
+#include "SharedPtrTypes.hpp"
+#include "FunParam.hpp"
+#include "StmListScope.hpp"
+#include "Variable.hpp"
 #include "IStatement.hpp"
+#include "FunDecl.hpp"
+#include <string>
 
 FunScope::FunScope(
-    SharedScope parentScope,
-    std::wstring &name,
-    std::wstring &returnType,
-    SharedVector<std::pair<std::wstring,std::wstring>> args
-)
-:returnType(returnType),args(args){
-    this->setParentScope(parentScope);
-    this->name=name;
-    this->vars=std::make_shared<std::vector<SharedVariable>>();
-    this->vals=std::make_shared<std::vector<SharedConstant>>();
-    this->stmList=std::make_shared<std::vector<SharedIStatement>>();
-}
+    SharedBaseScope parentScope,
+    SharedFunDecl decl
+):StmListScope(*decl->name,parentScope),decl(decl)
+{}
 
+SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
 
-std::wstring FunScope::getReturnType(){
-    return this->returnType;
-}
+    for(auto local:*locals){
+        auto varName=local.first;
+        auto var=local.second;
+        var->pushNewValue();
+        auto paramIt=params->find(varName);
+        if(paramIt!=params->end()){
+            var->setValue(paramIt->second);
+        }
+    }
 
-std::wstring FunScope::getReturnValue(){
+    for(auto stm:*stmList){
+        stm->run();
+        if(this->returnValue)
+            break;
+    }
+
+    for(auto local:*locals){
+        local.second->popLastValue();
+    }
+
     return this->returnValue;
 }
 
-SharedVector<std::pair<std::wstring,std::wstring>> FunScope::getArgs(){
-    return this->args;
+SharedType FunScope::getReturnType(){
+    return this->decl->returnType;
 }
 
-void FunScope::setReturnValue(std::wstring returnValue){
+SharedFunDecl FunScope::getDecl(){
+    return this->decl;
+}
+
+void FunScope::setReturnValue(SharedIValue returnValue){
     this->returnValue=returnValue;
 }
 
-SharedVector<SharedIStatement> FunScope::getStmList(){
-    return this->stmList;
+SharedIValue FunScope::getReturnValue(){
+    return this->returnValue;
 }
-
-void FunScope::setStmList(SharedVector<SharedIStatement> stmList){
-    this->stmList=stmList;
-}
-
-void FunScope::call(){
-    for(auto stm:*stmList){
-        stm->run();
-        /*if(returnvalue!=nullptr)
-            break;*/
-    }
-}
-

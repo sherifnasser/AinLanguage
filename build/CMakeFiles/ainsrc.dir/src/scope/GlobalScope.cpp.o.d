@@ -150,9 +150,15 @@ CMakeFiles/ainsrc.dir/src/scope/GlobalScope.cpp.o: \
  /usr/include/c++/12.2/pstl/execution_defs.h /usr/include/c++/12.2/vector \
  /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
- /usr/include/c++/12.2/bits/vector.tcc \
+ /usr/include/c++/12.2/bits/vector.tcc /usr/include/c++/12.2/map \
+ /usr/include/c++/12.2/bits/stl_tree.h \
+ /usr/include/c++/12.2/bits/node_handle.h \
+ /usr/include/c++/12.2/bits/stl_map.h \
+ /usr/include/c++/12.2/bits/stl_multimap.h \
+ /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/MainFunctionNotFoundException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /usr/include/c++/12.2/algorithm /usr/include/c++/12.2/bits/stl_algo.h \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \

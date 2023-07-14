@@ -28,8 +28,9 @@
             "name": "Run",
             "program": "${workspaceFolder}/build/ain",
             "args": [
-                "${workspaceFolder}/AinApp/app.ain",
-                "${workspaceFolder}/AinApp/show.ain"
+                "${workspaceFolder}/AinApp/newApp.ain",
+                //"${workspaceFolder}/AinApp/app.ain",
+                //"${workspaceFolder}/AinApp/show.ain"
             ],
             "cwd": "${workspaceFolder}",
             "setupCommands": [

@@ -1,18 +1,22 @@
 #pragma once
 #include "IStatement.hpp"
+#include "SharedPtrTypes.hpp"
 
 class IfStatement:public IStatement
 {
     private:
         SharedIExpression ifCondition;
-        SharedVector<SharedIStatement> ifStmList;
-        SharedVector<SharedIStatement> elseStmList;
+        SharedStmListScope ifScope;
+        SharedStmListScope elseScope;
+
     public:
         IfStatement(
-            SharedFunScope runScope,
+            int lineNumber,
+            SharedStmListScope runScope,
             SharedIExpression ifCondition,
-            SharedVector<SharedIStatement> ifStmList,
-            SharedVector<SharedIStatement> elseStmList
+            SharedStmListScope ifScope,
+            SharedStmListScope elseScope
         );
+        void check() override;
         void run() override;
 };

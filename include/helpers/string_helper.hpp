@@ -19,3 +19,7 @@ wchar_t getUnicodeCharacterFromCode(std::wstring codePoint);
  * @else @throws std::invalid_argument
 */
 wchar_t getEscapeSequenceFromCharacter(const wchar_t& c);
+
+const char* toCharPointer(const std::wstring& wstr);
+
+std::wstring toWstring(std::string str);

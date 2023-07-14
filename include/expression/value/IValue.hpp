@@ -1,0 +1,14 @@
+#pragma once
+#include "SharedPtrTypes.hpp"
+#include <string>
+class IValue{
+    protected:
+        SharedType type;
+        IValue(SharedType type);
+    public:
+        SharedType getType();
+        virtual ~IValue();
+        virtual void linkWithClass()=0;
+        virtual void unlinkWithClass()=0;
+        virtual std::wstring toString()=0;
+};
