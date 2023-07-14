@@ -9395,6 +9395,7 @@ CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o: /home/nasser/Projects/Prog
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/IExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/DoWhileStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ExpressionStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IfStatement.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
@@ -9403,6 +9404,7 @@ CMakeFiles/ainsrc.dir/src/parser/StmListParser.cpp.o: /home/nasser/Projects/Prog
   /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NonStaticFunInvokeExpression.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/function/OperatorFunctions.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/ReturnStatement.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/StatementExpectedException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp \
@@ -9882,6 +9884,7 @@ CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.o: /home/nasser/Projects
   /usr/include/c++/12.2/algorithm \
   /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
   /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
@@ -15987,6 +15990,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/StringValue.cpp:
 
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/StatementExpectedException.hpp:
+
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/LongValue.cpp:
 
 /home/nasser/Projects/Programming/C++/AinLanguage/src/expression/value/IntValue.cpp:
@@ -16578,6 +16583,8 @@ CMakeFiles/ainsrc.dir/src/statement/WhileStatement.cpp.o: /home/nasser/Projects/
 /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/NewObjectExpression.hpp:
 
 /usr/include/c++/12.2/limits:
+
+/home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp:
 
 /usr/include/bits/types/wint_t.h:
 

@@ -17,6 +17,7 @@ VarStm::VarStm(
 SharedVariable VarStm::getVar() const { return var; }
 
 void VarStm::check(){
+    
     ex->check(runScope);
 
     auto exType=ex->getReturnType();
@@ -36,7 +37,7 @@ void VarStm::check(){
 
 }
 
-void VarStm::run() {
+void VarStm::run(){
     auto val=ex->evaluate();
     var->setValue(val);
 }

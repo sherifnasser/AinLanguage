@@ -7,6 +7,11 @@
 #include "Variable.hpp"
 #include <string>
 
+void VarAccessExpression::setVar(SharedVariable var){
+    this->var=var;
+    this->returnType=var->getType();
+}
+
 VarAccessExpression::VarAccessExpression(
     int lineNumber,
     std::wstring varName,
@@ -24,11 +29,11 @@ std::vector<std::wstring> VarAccessExpression::prettyPrint(){
     };
 }
 
-SharedIValue VarAccessExpression::evaluate() {
+SharedIValue VarAccessExpression::evaluate(){
     return var->getValue();
 }
 
-void VarAccessExpression::check(SharedBaseScope checkScope) {
+void VarAccessExpression::check(SharedBaseScope checkScope){
     if(var){
         this->returnType=var->getType();
         return;
@@ -40,16 +45,14 @@ void VarAccessExpression::check(SharedBaseScope checkScope) {
         auto publicVar=containingClassScope->findPublicVariable(varName);
 
         if(publicVar){
-            this->var=publicVar;
-            this->returnType=var->getType();
+            setVar(publicVar);
             return;
         }
 
         auto privateVar=containingClassScope->findPrivateVariable(varName);
 
         if(privateVar){
-            this->var=privateVar;
-            this->returnType=var->getType();
+            setVar(privateVar);
             return;
         }
     }
@@ -60,8 +63,7 @@ void VarAccessExpression::check(SharedBaseScope checkScope) {
         auto privateVar=containingFileScope->findPrivateVariable(varName);
 
         if(privateVar){
-            this->var=privateVar;
-            this->returnType=var->getType();
+            setVar(privateVar);
             return;
         }
 
@@ -70,8 +72,7 @@ void VarAccessExpression::check(SharedBaseScope checkScope) {
         for(auto file:package->getFiles()){
             auto publicVar=file.second->findPublicVariable(varName);
             if(publicVar){
-                this->var=publicVar;
-                this->returnType=var->getType();
+                setVar(publicVar);
                 return;
             }
         }
@@ -86,6 +87,6 @@ void VarAccessExpression::check(SharedBaseScope checkScope) {
     
 }
 
-void VarAccessExpression::assign(SharedIValue newVal) {
+void VarAccessExpression::assign(SharedIValue newVal){
     var->setValue(newVal);
 }

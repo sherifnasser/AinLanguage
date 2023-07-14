@@ -16,6 +16,7 @@ class StmListParser:public BaseParser<SharedStmList>{
         );
         SharedStmList parse()override;
         void parseInScope(SharedStmListScope stmListScope);
+        void parseEvenWithNoCurlyBracesInScope(SharedStmListScope stmListScope);
         SharedIStatement parseNextStatement(SharedStmListScope parentScope);
         SharedIStatement parseVarStatement(SharedStmListScope parentScope);
         SharedIStatement parseIfStatement(SharedStmListScope parentScope);

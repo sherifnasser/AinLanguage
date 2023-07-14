@@ -1,6 +1,7 @@
 #include "StmListParser.hpp"
 #include "AssignStatement.hpp"
 #include "DoWhileStatement.hpp"
+#include "ExpressionExpectedException.hpp"
 #include "ExpressionStatement.hpp"
 #include "IfStatement.hpp"
 #include "KeywordToken.hpp"
@@ -11,6 +12,7 @@
 #include "ParserProvidersAliases.hpp"
 #include "ReturnStatement.hpp"
 #include "SharedPtrTypes.hpp"
+#include "StatementExpectedException.hpp"
 #include "SymbolToken.hpp"
 #include "StmListScope.hpp"
 #include "Type.hpp"
@@ -63,6 +65,21 @@ void StmListParser::parseInScope(SharedStmListScope stmListScope){
     expectSymbol(SymbolToken::RIGHT_CURLY_BRACES);
 
     iterator->next();
+}
+
+void StmListParser::parseEvenWithNoCurlyBracesInScope(SharedStmListScope stmListScope){
+
+    if(iterator->currentMatch(SymbolToken::LEFT_CURLY_BRACES)){
+        parseInScope(stmListScope);
+        return;
+    }
+
+    auto nextStm=parseNextStatement(stmListScope);
+
+    if(!nextStm)
+        throw StatementExpectedException(iterator->lineNumber);
+    
+    stmListScope->getStmList()->push_back(nextStm);
 }
 
 SharedIStatement StmListParser::parseNextStatement(SharedStmListScope parentScope){
@@ -118,19 +135,24 @@ SharedIStatement StmListParser::parseIfStatement(SharedStmListScope parentScope)
     iterator->next();
 
     auto conditionEx=expressionParserProvider(iterator,parentScope)->parse();
+
+    if(!conditionEx)
+        throw ExpressionExpectedException(iterator->lineNumber);
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
     auto ifScope=std::make_shared<StmListScope>(L"لو",parentScope);
 
     iterator->next();
-    parseInScope(ifScope);
 
-    auto elseScope=std::make_shared<StmListScope>(L"وإلا",parentScope);
+    parseEvenWithNoCurlyBracesInScope(ifScope);
+
+    SharedStmListScope elseScope;
 
     if(iterator->currentMatch(KeywordToken::ELSE)){
         iterator->next();
-        parseInScope(elseScope);
+        elseScope=std::make_shared<StmListScope>(L"وإلا",parentScope);
+        parseEvenWithNoCurlyBracesInScope(elseScope);
     }
 
     return std::make_shared<IfStatement>(
@@ -154,13 +176,17 @@ SharedIStatement StmListParser::parseWhileStatement(SharedStmListScope parentSco
     iterator->next();
 
     auto conditionEx=expressionParserProvider(iterator,parentScope)->parse();
+
+    if(!conditionEx)
+        throw ExpressionExpectedException(iterator->lineNumber);
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
     auto whileScope=std::make_shared<StmListScope>(L"طالما",parentScope);
 
     iterator->next();
-    parseInScope(whileScope);
+
+    parseEvenWithNoCurlyBracesInScope(whileScope);
 
     return std::make_shared<WhileStatement>(
         lineNumber,
@@ -178,8 +204,10 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
     int lineNumber=iterator->lineNumber;
 
     auto doWhileScope=std::make_shared<StmListScope>(L"افعل-طالما",parentScope);
+
     iterator->next();
-    parseInScope(doWhileScope);
+
+    parseEvenWithNoCurlyBracesInScope(doWhileScope);
 
     if(!iterator->currentMatch(KeywordToken::WHILE))
         throw UnexpectedTokenException(
@@ -193,6 +221,9 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
     iterator->next();
 
     auto conditionEx=expressionParserProvider(iterator,parentScope)->parse();
+
+    if(!conditionEx)
+        throw ExpressionExpectedException(iterator->lineNumber);
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
@@ -261,13 +292,16 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     
     if(!assignExLeft)
         throw OnlyVariablesAreAssignableException(lineNumber);
-    
+
     lineNumber=iterator->lineNumber;
 
     iterator->next();
     
     auto assignExRight=expressionParserProvider(iterator,scope)->parse();
 
+    if(!assignExRight)
+        throw ExpressionExpectedException(iterator->lineNumber);
+    
     if(*op!=SymbolToken::EQUAL){
 
         auto opName=OperatorFunctions::getOperatorAssignEqualFunNameByToken(*op);

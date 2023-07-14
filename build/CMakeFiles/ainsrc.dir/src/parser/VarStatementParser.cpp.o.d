@@ -178,6 +178,7 @@ CMakeFiles/ainsrc.dir/src/parser/VarStatementParser.cpp.o: \
  /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/ExpressionExpectedException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/VarDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \

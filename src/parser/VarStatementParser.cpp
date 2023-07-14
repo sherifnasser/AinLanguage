@@ -1,4 +1,5 @@
 #include "VarStatementParser.hpp"
+#include "ExpressionExpectedException.hpp"
 #include "MustHaveExplicitTypeException.hpp"
 #include "ParserProvidersAliases.hpp"
 #include "SharedPtrTypes.hpp"
@@ -36,6 +37,8 @@ SharedVarStm VarStatementParser::parse(){
     if(iterator->currentMatch(SymbolToken::EQUAL)){
         iterator->next();
         ex=expressionParser->parse();
+        if(!ex)
+            throw ExpressionExpectedException(iterator->lineNumber);
     }
     else if(decl->hasImplicitType())
         throw MustHaveExplicitTypeException(lineNumber);
