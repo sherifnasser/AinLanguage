@@ -156,5 +156,22 @@ CMakeFiles/ainsrc.dir/src/expression/NewObjectExpression.cpp.o: \
  /usr/include/c++/12.2/bits/stl_map.h \
  /usr/include/c++/12.2/bits/stl_multimap.h \
  /usr/include/c++/12.2/bits/erase_if.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/AinException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /usr/include/c++/12.2/algorithm /usr/include/c++/12.2/bits/stl_algo.h \
+ /usr/include/c++/12.2/bits/algorithmfwd.h \
+ /usr/include/c++/12.2/bits/stl_heap.h \
+ /usr/include/c++/12.2/bits/uniform_int_dist.h \
+ /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/FunInvokeExpression.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunParam.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FunScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/StmListScope.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/FunctionNotFoundException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/ClassScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/Type.hpp

@@ -30,6 +30,9 @@ stmListParserProvider(stmListParserProvider){}
 SharedFunScope FunParser::parse(){
 
     auto decl=funDeclParser->parse();
+
+    if(!decl)
+        return nullptr;
     
     if(decl->hasImplicitReturnType())
         decl->returnType=Type::UNIT;

@@ -38,8 +38,17 @@ SharedClassScope PackageScope::getClassByType(SharedType type){
     return nullptr;
 }
 
-std::map<std::wstring, SharedFileScope> PackageScope::getFiles() const {
+std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
     return files;
+}
+
+void PackageScope::check(){
+    for(auto fileIterator:files){
+        fileIterator.second->check();
+    }
+    for(auto packageIterator:packages){
+        packageIterator.second->check();
+    }
 }
 
 SharedPackageScope PackageScope::AIN_PACKAGE=std::make_shared<PackageScope>(L"عين");

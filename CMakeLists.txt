@@ -19,6 +19,7 @@ add_library(ainsrc
     src/expression/value/DoubleValue.cpp
     src/expression/value/CharValue.cpp
     src/expression/value/BoolValue.cpp
+    src/expression/value/ObjectValue.cpp
     src/expression/value/ULongValue.cpp
     src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
@@ -72,6 +73,7 @@ add_library(ainsrc
     src/parser/FunParser.cpp
     src/parser/TokensIterator.cpp
     src/parser/StmListParser.cpp
+    src/parser/ClassParser.cpp
     src/parser/VarStatementParser.cpp
     src/parser/FileParser.cpp
 )
@@ -120,6 +122,7 @@ set(TEST
 )
 
 ### end files_cmake.cpp ###
+
 
 
 set(TEST_INCLUDE

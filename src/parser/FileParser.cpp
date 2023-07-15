@@ -6,6 +6,7 @@
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
+#include "ClassScope.hpp"
 #include "FunScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "FunDecl.hpp"
@@ -15,12 +16,14 @@ FileParser::FileParser(
     SharedTokensIterator iterator,
     std::wstring filePath,
     SharedBaseParser<SharedPackageScope> packageParser,
-    FunParserProvider funParserProvider
+    FunParserProvider funParserProvider,
+    ClassParserProvider classParserProvider
 )
 :BaseParser(iterator,nullptr),
 filePath(filePath),
 packageParser(packageParser),
-funParserProvider(funParserProvider)
+funParserProvider(funParserProvider),
+classParserProvider(classParserProvider)
 {}
 
 
@@ -73,6 +76,35 @@ SharedFileScope FileParser::parse(){
                     throw ConflictingDeclarationException(lineNumber);
                 }
                 (*file->getPrivateFunctions())[decl]=funScope;
+            }
+            
+        }
+
+        lineNumber=iterator->lineNumber;
+
+        auto classScope=classParserProvider(iterator,file)->parse();
+        
+        if(classScope){
+
+            auto name=classScope->getName();
+
+            if(file->findPrivateClass(name)){
+                throw ConflictingDeclarationException(lineNumber);
+            }
+            if(isPublic){
+                auto files=package->getFiles();
+                for(auto fileIt:files){
+                    if(fileIt.second->findPublicClass(name)){
+                        throw ConflictingDeclarationException(lineNumber);
+                    }
+                }
+                (*file->getPublicClasses())[name]=classScope;
+            }
+            else{
+                if(file->findPublicClass(name)){
+                    throw ConflictingDeclarationException(lineNumber);
+                }
+                (*file->getPrivateClasses())[name]=classScope;
             }
             
         }

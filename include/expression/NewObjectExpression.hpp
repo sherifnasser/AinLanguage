@@ -5,6 +5,7 @@
 class NewObjectExpression:public IExpression{
     private:
         SharedVector<SharedIExpression> args;
+        SharedFunScope constructor;
     public:
         NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
         std::vector<std::wstring> prettyPrint()override;

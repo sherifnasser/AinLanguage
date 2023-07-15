@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include "BuiltInFunScope.hpp"
+#include "ClassParser.hpp"
 #include "ExpressionParser.hpp"
 #include "FileParser.hpp"
 #include "FunDeclParser.hpp"
@@ -77,6 +78,12 @@ auto funParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     );
 };
 
+auto classParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
+    return std::make_shared<ClassParser>(
+        iterator,scope,funParserProvider
+    );
+};
+
 void readAndParse(std::string path){
     auto file=std::make_shared<AinFile>(path);
     auto lexer=std::make_shared<Lexer>(file);
@@ -84,7 +91,14 @@ void readAndParse(std::string path){
     auto iterator=std::make_shared<TokensIterator>(*tokens);
     auto packageParser=std::make_shared<PackageParser>(iterator,PackageScope::AIN_PACKAGE);
     auto wpath=toWstring(path);
-    auto fileScope=FileParser(iterator,wpath,packageParser,funParserProvider).parse();
+    auto fileScope=
+        FileParser(
+            iterator,
+            wpath,
+            packageParser,
+            funParserProvider,
+            classParserProvider
+        ).parse();
 
     Type::addBuiltInClassesTo(fileScope);
     BuiltInFunScope::addBuiltInFunctionsTo(fileScope);
@@ -129,17 +143,7 @@ int main(int argc, char * argv[]){
 
         Semantics::TypeChecker::getInstance()->check();
 
-
-        auto filesIterator=PackageScope::AIN_PACKAGE->getFiles();
-        for(auto fileIterator:filesIterator){
-            auto file=fileIterator.second;
-            for(auto funIterator:*file->getPrivateFunctions()){
-                funIterator.second->check();
-            }
-            for(auto funIterator:*file->getPublicFunctions()){
-                funIterator.second->check();
-            }
-        }
+        PackageScope::AIN_PACKAGE->check();
 
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(mainPath))->

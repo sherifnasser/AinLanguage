@@ -1,4 +1,5 @@
 #include "ClassScope.hpp"
+#include "FunScope.hpp"
 #include <map>
 #include <memory>
 
@@ -6,6 +7,8 @@ ClassScope::ClassScope(std::wstring name,SharedBaseScope parentScope)
     :BaseScope(name,parentScope),
     publicFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
     privateFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
+    publicConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
+    privateConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
     publicClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
     privateClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
     publicVariables(std::make_shared<std::map<std::wstring,SharedVariable>>()),
@@ -20,6 +23,14 @@ SharedMap<std::wstring,SharedFunScope> ClassScope::getPublicFunctions()const{
 
 SharedMap<std::wstring,SharedFunScope> ClassScope::getPrivateFunctions()const{
     return this->privateFunctions;
+}
+
+SharedMap<std::wstring,SharedFunScope> ClassScope::getPublicConstructors() const {
+    return this->publicConstructors;
+}
+
+SharedMap<std::wstring,SharedFunScope> ClassScope::getPrivateConstructors() const {
+    return this->privateConstructors;
 }
 
 SharedMap<std::wstring,SharedClassScope> ClassScope::getPublicClasses()const{
@@ -48,6 +59,24 @@ SharedFunScope ClassScope::findPrivateFunction(std::wstring decl){
     return nullptr;
 }
 
+SharedFunScope ClassScope::findPublicConstructor(std::wstring decl) {
+    auto constructorIterator=publicConstructors->find(decl);
+
+    if(constructorIterator!=publicConstructors->end())
+        return constructorIterator->second;
+    
+    return nullptr;
+}
+
+SharedFunScope ClassScope::findPrivateConstructor(std::wstring decl) {
+    auto constructorIterator=privateConstructors->find(decl);
+
+    if(constructorIterator!=privateConstructors->end())
+        return constructorIterator->second;
+    
+    return nullptr;
+}
+
 SharedVariable ClassScope::findPublicVariable(std::wstring varName){
     auto varIterator=publicVariables->find(varName);
 
@@ -64,4 +93,13 @@ SharedVariable ClassScope::findPrivateVariable(std::wstring varName){
         return varIterator->second;
     
     return nullptr;
+}
+
+void ClassScope::check(){
+    for(auto funIterator:*privateFunctions){
+        funIterator.second->check();
+    }
+    for(auto funIterator:*publicFunctions){
+        funIterator.second->check();
+    }
 }

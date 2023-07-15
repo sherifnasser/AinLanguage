@@ -22,21 +22,33 @@ namespace{
             return nullptr;
         }
     };
+
+    struct FakeClassParser:public BaseParser<SharedClassScope>{
+        FakeClassParser():BaseParser(nullptr,nullptr){}
+        SharedClassScope parse() override{
+            return nullptr;
+        }
+    };
 }
 
 TEST_CASE("Test file parser is adding file to parent package","[FileParserTest.cpp]"){
     auto filePath=L"somePath";
     auto fakePackageParser=std::make_shared<FakePackageParser>();
     auto fakeFunParser=std::make_shared<FakeFunParser>();
+    auto fakeClassParser=std::make_shared<FakeClassParser>();
     auto fakeFunParserProvider=[&](SharedTokensIterator,SharedBaseScope){
         return fakeFunParser;
+    };
+    auto fakeClassParserProvider=[&](SharedTokensIterator,SharedBaseScope){
+        return fakeClassParser;
     };
     auto parsedPackage=fakePackageParser->parse();
     FileParser fp(
         getTokensIterator({LexerToken::EofToken()}),
         filePath,
         fakePackageParser,
-        fakeFunParserProvider
+        fakeFunParserProvider,
+        fakeClassParserProvider
     );
     fp.parse();
 
