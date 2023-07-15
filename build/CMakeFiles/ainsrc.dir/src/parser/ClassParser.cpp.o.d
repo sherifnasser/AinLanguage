@@ -203,4 +203,7 @@ CMakeFiles/ainsrc.dir/src/parser/ClassParser.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/FunDecl.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/expression/value/ObjectValue.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/ainio.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp

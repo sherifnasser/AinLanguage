@@ -80,7 +80,7 @@ auto funParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
 
 auto classParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     return std::make_shared<ClassParser>(
-        iterator,scope,funParserProvider
+        iterator,scope,funParserProvider,varStmParserProvider
     );
 };
 

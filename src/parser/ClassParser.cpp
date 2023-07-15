@@ -11,16 +11,20 @@
 #include "SymbolToken.hpp"
 #include "Type.hpp"
 #include "ainio.hpp"
+#include "VarStm.hpp"
+#include "Variable.hpp"
 #include <memory>
 #include <string>
 
 ClassParser::ClassParser(
     SharedTokensIterator iterator,
     SharedBaseScope scope,
-    FunParserProvider funParserProvider
+    FunParserProvider funParserProvider,
+    VarStmParserProvider varStmParserProvider
 )
     : BaseParser(iterator,scope),
-      funParserProvider(funParserProvider){}
+      funParserProvider(funParserProvider),
+      varStmParserProvider(varStmParserProvider){}
 
 SharedClassScope ClassParser::parse(){
 
@@ -39,23 +43,21 @@ SharedClassScope ClassParser::parse(){
         className,
         scope
     );
+    classScope->setPrimaryConstructor(
+        std::make_shared<StmListScope>(
+            className,classScope
+        )
+    );
+    
 
     while(iterator->currentTokenType()!=LexerToken::EOF_TOKEN){
 
         if(iterator->currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
             break;
+
+        parseFunScope(classScope);
         
-        auto visibility=VisibilityModifier::PUBLIC;
-
-        if(iterator->currentMatch(KeywordToken::PUBLIC)){
-            iterator->next();
-        }
-        else if(iterator->currentMatch(KeywordToken::PRIVATE)){
-            visibility=VisibilityModifier::PRIVATE;
-            iterator->next();
-        }
-
-        parseFunScope(visibility, classScope);
+        parseVarStm(classScope);
 
     }
     
@@ -75,7 +77,8 @@ SharedClassScope ClassParser::parse(){
             type,
             std::map<std::wstring,SharedType>(),
             [=](SharedMap<std::wstring,SharedIValue>){
-                return std::make_shared<ObjectValue>(type);
+                auto properties=classScope->runPrimaryConstructor();
+                return std::make_shared<ObjectValue>(type,properties);
             }
         );
     }
@@ -84,7 +87,24 @@ SharedClassScope ClassParser::parse(){
 }
 
 
-void ClassParser::parseFunScope(VisibilityModifier visibility,SharedClassScope parentScope){
+ClassParser::VisibilityModifier ClassParser::parseVisibility() {
+    
+    auto visibility=VisibilityModifier::PUBLIC;
+
+    if(iterator->currentMatch(KeywordToken::PUBLIC)){
+        iterator->next();
+    }
+    else if(iterator->currentMatch(KeywordToken::PRIVATE)){
+        visibility=VisibilityModifier::PRIVATE;
+        iterator->next();
+    }
+
+    return visibility;
+}
+
+void ClassParser::parseFunScope(SharedClassScope parentScope){
+
+    auto visibility=parseVisibility();
 
     auto lineNumber=iterator->lineNumber;
     
@@ -105,6 +125,37 @@ void ClassParser::parseFunScope(VisibilityModifier visibility,SharedClassScope p
             break;
         case VisibilityModifier::PRIVATE:
             (*parentScope->getPrivateFunctions())[decl]=funScope;
+            break;
+    }
+}
+
+void ClassParser::parseVarStm(SharedClassScope parentScope) {
+    
+    auto visibility=parseVisibility();
+
+    auto lineNumber=iterator->lineNumber;
+    
+    auto varStm=varStmParserProvider(iterator,parentScope)->parse();
+
+    if(!varStm)
+        return;
+    
+    auto var=varStm->getVar();
+
+    auto varName=*var->getName();
+    auto primaryConstructor=parentScope->getPrimaryConstructor();
+    primaryConstructor->getStmList()->push_back(varStm);
+
+    if(parentScope->findPrivateVariable(varName)||parentScope->findPublicVariable(varName)){
+        throw ConflictingDeclarationException(lineNumber);
+    }
+    
+    switch (visibility){
+        case VisibilityModifier::PUBLIC:
+            (*parentScope->getPublicVariables())[varName]=var;
+            break;
+        case VisibilityModifier::PRIVATE:
+            (*parentScope->getPrivateVariables())[varName]=var;
             break;
     }
 }
