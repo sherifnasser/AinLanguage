@@ -98,9 +98,7 @@ void NonStaticFunInvokeExpression::check(SharedBaseScope checkScope){
     inside->check(checkScope);
     auto insideType=inside->getReturnType();
     auto insideClassScope=insideType->getClassScope();
-
     auto publicFun=insideClassScope->findPublicFunction(decl);
-
     if(publicFun){
         this->fun=publicFun;
         this->returnType=fun->getReturnType();
@@ -120,7 +118,7 @@ void NonStaticFunInvokeExpression::check(SharedBaseScope checkScope){
     if(insideClassScope!=BaseScope::getContainingClass(checkScope))
         throw CannotAccessPrivateFunctionException(trace,decl);
     
-    this->fun=publicFun;
+    this->fun=privateFun;
     this->returnType=fun->getReturnType();
     
 }

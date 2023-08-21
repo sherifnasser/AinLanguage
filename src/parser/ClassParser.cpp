@@ -54,10 +54,12 @@ SharedClassScope ClassParser::parse(){
 
         if(iterator->currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
             break;
-
-        parseFunScope(classScope);
         
-        parseVarStm(classScope);
+        auto visibility=parseVisibility();
+        
+        parseFunScope(visibility,classScope);
+        
+        parseVarStm(visibility,classScope);
 
     }
     
@@ -90,7 +92,6 @@ SharedClassScope ClassParser::parse(){
 ClassParser::VisibilityModifier ClassParser::parseVisibility() {
     
     auto visibility=VisibilityModifier::PUBLIC;
-
     if(iterator->currentMatch(KeywordToken::PUBLIC)){
         iterator->next();
     }
@@ -102,9 +103,7 @@ ClassParser::VisibilityModifier ClassParser::parseVisibility() {
     return visibility;
 }
 
-void ClassParser::parseFunScope(SharedClassScope parentScope){
-
-    auto visibility=parseVisibility();
+void ClassParser::parseFunScope(VisibilityModifier visibility,SharedClassScope parentScope){
 
     auto lineNumber=iterator->lineNumber;
     
@@ -114,7 +113,6 @@ void ClassParser::parseFunScope(SharedClassScope parentScope){
         return;
     
     auto decl=funScope->getDecl()->toString();
-
     if(parentScope->findPrivateFunction(decl)||parentScope->findPublicFunction(decl)){
         throw ConflictingDeclarationException(lineNumber);
     }
@@ -129,12 +127,10 @@ void ClassParser::parseFunScope(SharedClassScope parentScope){
     }
 }
 
-void ClassParser::parseVarStm(SharedClassScope parentScope) {
+void ClassParser::parseVarStm(VisibilityModifier visibility,SharedClassScope parentScope) {
     
-    auto visibility=parseVisibility();
-
-    auto lineNumber=iterator->lineNumber;
-    
+    auto lineNumber=iterator->lineNumber; 
+   
     auto varStm=varStmParserProvider(iterator,parentScope)->parse();
 
     if(!varStm)

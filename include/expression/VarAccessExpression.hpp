@@ -9,6 +9,7 @@ class VarAccessExpression:public AssignStatement::AssignExpression{
         std::wstring varName;
         SharedVariable var;
         void setVar(SharedVariable var);
+        void checkType();
     public:
         VarAccessExpression(int lineNumber,std::wstring varName,SharedVariable var);
         std::vector<std::wstring> prettyPrint()override;

@@ -173,4 +173,5 @@ CMakeFiles/ainsrc.dir/src/expression/NonStaticVarAccessExpression.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/BaseScope.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/Variable.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/scope/FileScope.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/VariableNotFoundException.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/exceptions/parser/MustHaveExplicitTypeException.hpp

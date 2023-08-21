@@ -7,6 +7,7 @@
 #include "VarDecl.hpp"
 #include "VarStm.hpp"
 #include "Variable.hpp"
+#include "ImplicitVarTypeChecker.hpp"
 #include <memory>
 
 VarStatementParser::VarStatementParser(
@@ -51,6 +52,10 @@ SharedVarStm VarStatementParser::parse(){
         var,
         ex
     );
+
+    if(decl->hasImplicitType()){
+        Semantics::ImplicitVarTypeChecker::getInstance()->subscribe(stm);
+    }
 
     return stm;
 }

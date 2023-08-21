@@ -215,6 +215,9 @@ CMakeFiles/ainsrc.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/ImplicitVarTypeChecker.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \

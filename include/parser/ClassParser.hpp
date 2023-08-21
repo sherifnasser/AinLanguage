@@ -10,8 +10,8 @@ class ClassParser:public BaseParser<SharedClassScope>{
             PUBLIC,PRIVATE
         };
         VisibilityModifier parseVisibility();
-        void parseFunScope(SharedClassScope parentScope);
-        void parseVarStm(SharedClassScope parentScope);
+        void parseFunScope(VisibilityModifier visibility,SharedClassScope parentScope);
+        void parseVarStm(VisibilityModifier visibility,SharedClassScope parentScope);
     public:
         ClassParser(
             SharedTokensIterator iterator,

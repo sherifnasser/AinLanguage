@@ -1683,6 +1683,30 @@ src/scope/function/BuiltInFunScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.s
 .PHONY : src/scope/function/BuiltInFunScope.cpp.s
 
+src/semantics/ImplicitVarTypeChecker.o: src/semantics/ImplicitVarTypeChecker.cpp.o
+.PHONY : src/semantics/ImplicitVarTypeChecker.o
+
+# target to build an object file
+src/semantics/ImplicitVarTypeChecker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.o
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.o
+
+src/semantics/ImplicitVarTypeChecker.i: src/semantics/ImplicitVarTypeChecker.cpp.i
+.PHONY : src/semantics/ImplicitVarTypeChecker.i
+
+# target to preprocess a source file
+src/semantics/ImplicitVarTypeChecker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.i
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.i
+
+src/semantics/ImplicitVarTypeChecker.s: src/semantics/ImplicitVarTypeChecker.cpp.s
+.PHONY : src/semantics/ImplicitVarTypeChecker.s
+
+# target to generate assembly for a file
+src/semantics/ImplicitVarTypeChecker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.s
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.s
+
 src/semantics/TypeChecker.o: src/semantics/TypeChecker.cpp.o
 .PHONY : src/semantics/TypeChecker.o
 
@@ -2484,6 +2508,9 @@ help:
 	@echo "... src/scope/function/BuiltInFunScope.o"
 	@echo "... src/scope/function/BuiltInFunScope.i"
 	@echo "... src/scope/function/BuiltInFunScope.s"
+	@echo "... src/semantics/ImplicitVarTypeChecker.o"
+	@echo "... src/semantics/ImplicitVarTypeChecker.i"
+	@echo "... src/semantics/ImplicitVarTypeChecker.s"
 	@echo "... src/semantics/TypeChecker.o"
 	@echo "... src/semantics/TypeChecker.i"
 	@echo "... src/semantics/TypeChecker.s"

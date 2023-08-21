@@ -99,17 +99,19 @@ SharedVariable FileScope::findPrivateVariable(std::wstring varName){
 }
 
 void FileScope::check(){
+    for(auto classIterator:*privateClasses){
+	 classIterator.second->check();
+    }
+    for(auto classIterator:*publicClasses){
+	 classIterator.second->check();
+    }
+
     for(auto funIterator:*privateFunctions){
         funIterator.second->check();
     }
     for(auto funIterator:*publicFunctions){
         funIterator.second->check();
     }
-    for(auto classIterator:*privateClasses){
-        classIterator.second->check();
-    }
-    for(auto classIterator:*publicClasses){
-        classIterator.second->check();
-    }
+    
 }
 

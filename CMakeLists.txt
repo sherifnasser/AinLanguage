@@ -48,6 +48,7 @@ add_library(ainsrc
     src/scope/Variable.cpp
     src/ain_file/AinFile.cpp
     src/semantics/TypeChecker.cpp
+    src/semantics/ImplicitVarTypeChecker.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp

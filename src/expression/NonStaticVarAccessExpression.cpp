@@ -6,6 +6,7 @@
 #include "Variable.hpp"
 #include "FileScope.hpp"
 #include "VariableNotFoundException.hpp"
+#include "MustHaveExplicitTypeException.hpp"
 
 NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     int lineNumber,
@@ -49,6 +50,7 @@ void NonStaticVarAccessExpression::check(SharedBaseScope checkScope){
 
     if(publicVar){
         this->returnType=publicVar->getType();
+        checkType();
         return;
     }
 
@@ -65,8 +67,14 @@ void NonStaticVarAccessExpression::check(SharedBaseScope checkScope){
     if(insideClassScope!=BaseScope::getContainingClass(checkScope))
         throw CannotAccessPrivateVariableException(trace,varName);
 
-    
     this->returnType=privateVar->getType();
+    checkType();
+}
+
+void NonStaticVarAccessExpression::checkType(){
+	if(!this->returnType){
+		throw MustHaveExplicitTypeException(lineNumber);
+	}
 }
 
 void NonStaticVarAccessExpression::assign(SharedIValue newVal){

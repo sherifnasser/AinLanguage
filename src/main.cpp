@@ -21,6 +21,7 @@
 #include "SymbolToken.hpp"
 #include "TokensIterator.hpp"
 #include "TypeChecker.hpp"
+#include "ImplicitVarTypeChecker.hpp"
 #include "TypeParser.hpp"
 #include "VarDeclParser.hpp"
 #include "VarStatementParser.hpp"
@@ -126,7 +127,7 @@ int main(int argc, char * argv[]){
         auto mainOptionUsed=false;
 
         // parse in reverse and make the main file at the end
-        for(int i=argc-1;i>1;i--){
+        for(int i=argc-1;i>=1;i--){
             if(isMainFileOption(argv[i-1])){
                 if(mainOptionUsed)
                     throw std::invalid_argument("\033[1;31mأمر -m أو --main يجب أن يُستخدم مرة واحدة فقط.\033[0m");
@@ -142,6 +143,7 @@ int main(int argc, char * argv[]){
         BuiltInFunScope::addBuiltInFunctionsToBuiltInClasses();
 
         Semantics::TypeChecker::getInstance()->check();
+        Semantics::ImplicitVarTypeChecker::getInstance()->check();
 
         PackageScope::AIN_PACKAGE->check();
 
