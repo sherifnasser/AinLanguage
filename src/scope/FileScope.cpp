@@ -1,6 +1,8 @@
 #include "FileScope.hpp"
 #include "FunctionNotFoundException.hpp"
 #include "PackageScope.hpp"
+#include "FunScope.hpp"
+#include "ClassScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include <memory>
@@ -59,6 +61,24 @@ SharedFunScope FileScope::findPrivateFunction(std::wstring decl){
     return nullptr;
 }
 
+SharedClassScope FileScope::findPublicClass(std::wstring name){
+    auto classIterator=publicClasses->find(name);
+
+    if(classIterator!=publicClasses->end())
+        return classIterator->second;
+        
+    return nullptr;
+}
+
+SharedClassScope FileScope::findPrivateClass(std::wstring name){
+    auto classIterator=privateClasses->find(name);
+
+    if(classIterator!=privateClasses->end())
+        return classIterator->second;
+        
+    return nullptr;
+}
+
 
 SharedVariable FileScope::findPublicVariable(std::wstring varName){
     auto varIterator=publicVariables->find(varName);
@@ -76,5 +96,22 @@ SharedVariable FileScope::findPrivateVariable(std::wstring varName){
         return varIterator->second;
     
     return nullptr;
+}
+
+void FileScope::check(){
+    for(auto classIterator:*privateClasses){
+	 classIterator.second->check();
+    }
+    for(auto classIterator:*publicClasses){
+	 classIterator.second->check();
+    }
+
+    for(auto funIterator:*privateFunctions){
+        funIterator.second->check();
+    }
+    for(auto funIterator:*publicFunctions){
+        funIterator.second->check();
+    }
+    
 }
 

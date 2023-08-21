@@ -1,4 +1,12 @@
 #include "NonStaticVarAccessExpression.hpp"
+#include "CannotAccessPrivateVariableException.hpp"
+#include "ObjectValue.hpp"
+#include "Type.hpp"
+#include "ClassScope.hpp"
+#include "Variable.hpp"
+#include "FileScope.hpp"
+#include "VariableNotFoundException.hpp"
+#include "MustHaveExplicitTypeException.hpp"
 
 NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     int lineNumber,
@@ -28,14 +36,47 @@ std::vector<std::wstring> NonStaticVarAccessExpression::prettyPrint(){
     return prints;
 }
 
-SharedIValue NonStaticVarAccessExpression::evaluate() {
-    
+SharedIValue NonStaticVarAccessExpression::evaluate(){
+    auto propertyVal=inside->evaluateAs<ObjectValue>()->findPropertyValue(varName);
+    return propertyVal;
 }
 
-void NonStaticVarAccessExpression::check(SharedBaseScope checkScope) {
+void NonStaticVarAccessExpression::check(SharedBaseScope checkScope){
+    inside->check(checkScope);
+    auto insideType=inside->getReturnType();
+    auto insideClassScope=insideType->getClassScope();
+
+    auto publicVar=insideClassScope->findPublicVariable(varName);
+
+    if(publicVar){
+        this->returnType=publicVar->getType();
+        checkType();
+        return;
+    }
+
+    auto privateVar=insideClassScope->findPrivateVariable(varName);
+
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+
+    if(!privateVar)
+        throw VariableNotFoundException(trace,insideClassScope->getName()+L"::"+varName);
     
+    if(insideClassScope!=BaseScope::getContainingClass(checkScope))
+        throw CannotAccessPrivateVariableException(trace,varName);
+
+    this->returnType=privateVar->getType();
+    checkType();
 }
 
-void NonStaticVarAccessExpression::assign(SharedIValue newVal) {
-    
+void NonStaticVarAccessExpression::checkType(){
+	if(!this->returnType){
+		throw MustHaveExplicitTypeException(lineNumber);
+	}
+}
+
+void NonStaticVarAccessExpression::assign(SharedIValue newVal){
+    inside->evaluateAs<ObjectValue>()->assignProperty(varName,newVal);
 }

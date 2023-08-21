@@ -5,8 +5,10 @@
 #include "Type.hpp"
 #include "FileScope.hpp"
 #include "ainio.hpp"
+#include <exception>
 #include <iostream>
 #include <memory>
+#include <stdexcept>
 #include <string>
 
 namespace Semantics {
@@ -59,7 +61,8 @@ namespace Semantics {
             );
         }
 
-        ainprint(diagnostics,false);
+        if(!diagnostics.empty())
+            throw AinException(diagnostics);
     }
 
 }

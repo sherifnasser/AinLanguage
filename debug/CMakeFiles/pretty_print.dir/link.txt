@@ -1,0 +1,1 @@
+/bin/c++ -g CMakeFiles/pretty_print.dir/ExpressionPrettyPrintTest.cpp.o -o pretty_print  libainsrc.a 

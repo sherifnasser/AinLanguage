@@ -126,9 +126,7 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/bits/locale_facets.tcc \
  /usr/include/c++/12.2/bits/basic_ios.tcc \
  /usr/include/c++/12.2/bits/ostream.tcc /usr/include/c++/12.2/istream \
- /usr/include/c++/12.2/bits/istream.tcc \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
- /usr/include/c++/12.2/memory \
+ /usr/include/c++/12.2/bits/istream.tcc /usr/include/c++/12.2/memory \
  /usr/include/c++/12.2/bits/stl_uninitialized.h \
  /usr/include/c++/12.2/bits/stl_tempbuf.h \
  /usr/include/c++/12.2/bits/stl_raw_storage_iter.h \
@@ -146,21 +144,23 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/backward/auto_ptr.h \
  /usr/include/c++/12.2/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2/pstl/execution_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/Lexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/ain_file/IAinFile.hpp \
  /usr/include/c++/12.2/vector /usr/include/c++/12.2/bits/stl_vector.h \
  /usr/include/c++/12.2/bits/stl_bvector.h \
  /usr/include/c++/12.2/bits/vector.tcc \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexer.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/SharedPtrTypes.hpp \
+ /usr/include/c++/12.2/map /usr/include/c++/12.2/bits/stl_tree.h \
+ /usr/include/c++/12.2/bits/node_handle.h \
+ /usr/include/c++/12.2/bits/stl_map.h \
+ /usr/include/c++/12.2/bits/stl_multimap.h \
+ /usr/include/c++/12.2/bits/erase_if.h \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerLine.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LexerToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/ILexerLine.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
  /usr/include/c++/12.2/functional \
  /usr/include/c++/12.2/bits/std_function.h \
@@ -168,11 +168,13 @@ CMakeFiles/ainsrc.dir/src/lexer/Lexer.cpp.o: \
  /usr/include/c++/12.2/bits/hashtable.h \
  /usr/include/c++/12.2/bits/hashtable_policy.h \
  /usr/include/c++/12.2/bits/enable_special_members.h \
- /usr/include/c++/12.2/bits/node_handle.h \
- /usr/include/c++/12.2/bits/unordered_map.h \
- /usr/include/c++/12.2/bits/erase_if.h /usr/include/c++/12.2/array \
+ /usr/include/c++/12.2/bits/unordered_map.h /usr/include/c++/12.2/array \
  /usr/include/c++/12.2/compare /usr/include/c++/12.2/bits/stl_algo.h \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedListNode.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/wchar_t_helper.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/SymbolToken.hpp

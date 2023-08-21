@@ -187,7 +187,7 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /usr/include/c++/12.2/bits/algorithmfwd.h \
  /usr/include/c++/12.2/bits/stl_heap.h \
  /usr/include/c++/12.2/bits/uniform_int_dist.h \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ClassParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/BaseParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/TokensIterator.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/LinkedList.hpp \
@@ -197,9 +197,10 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/helpers/string_helper.hpp \
  /usr/include/c++/12.2/algorithm \
  /usr/include/c++/12.2/pstl/glue_algorithm_defs.h \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ExpressionParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/NumberToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/LiteralToken.hpp \
- /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/ParserProvidersAliases.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/FileParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunDeclParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/FunParamParser.hpp \
@@ -214,6 +215,9 @@ CMakeFiles/ain.dir/src/main.cpp.o: \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/lexer/KeywordToken.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/StmListParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/TypeChecker.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/semantics/ImplicitVarTypeChecker.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/VarStm.hpp \
+ /home/nasser/Projects/Programming/C++/AinLanguage/include/statement/IStatement.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/TypeParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/elements/parser/VarDeclParser.hpp \
  /home/nasser/Projects/Programming/C++/AinLanguage/include/parser/VarStatementParser.hpp \

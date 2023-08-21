@@ -44,3 +44,8 @@ using FunParserProvider=std::function<SharedBaseParser<SharedFunScope>(
     SharedTokensIterator iterator,
     SharedBaseScope scope
 )>;
+
+using ClassParserProvider=std::function<SharedBaseParser<SharedClassScope>(
+    SharedTokensIterator iterator,
+    SharedBaseScope scope
+)>;

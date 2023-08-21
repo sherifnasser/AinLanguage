@@ -11,7 +11,8 @@
             "name": "Debug",
             "program": "${workspaceFolder}/debug/ain",
             "args": [
-                "${workspaceFolder}/app.ain"
+                "${workspaceFolder}/AinApp/app.ain",
+                "${workspaceFolder}/AinApp/student.ain"
             ],
             "cwd": "${workspaceFolder}",
             "setupCommands": [
@@ -28,9 +29,8 @@
             "name": "Run",
             "program": "${workspaceFolder}/build/ain",
             "args": [
-                "${workspaceFolder}/AinApp/newApp.ain",
-                //"${workspaceFolder}/AinApp/app.ain",
-                //"${workspaceFolder}/AinApp/show.ain"
+                "${workspaceFolder}/AinApp/app.ain",
+                "${workspaceFolder}/AinApp/student.ain"
             ],
             "cwd": "${workspaceFolder}",
             "setupCommands": [

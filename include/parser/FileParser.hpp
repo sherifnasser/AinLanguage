@@ -7,12 +7,14 @@ class FileParser:public BaseParser<SharedFileScope>{
         std::wstring filePath;
         SharedBaseParser<SharedPackageScope> packageParser;
         FunParserProvider funParserProvider;
+        ClassParserProvider classParserProvider;
     public:
         FileParser(
             SharedTokensIterator iterator,
             std::wstring filePath,
             SharedBaseParser<SharedPackageScope> packageParser,
-            FunParserProvider funParserProvider
+            FunParserProvider funParserProvider,
+            ClassParserProvider classParserProvider
         );
         SharedFileScope parse();
 

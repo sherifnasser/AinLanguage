@@ -7,9 +7,11 @@ class FileScope:public BaseScope{
         // map fun decl to functions
         SharedMap<std::wstring,SharedFunScope> publicFunctions;
         SharedMap<std::wstring,SharedFunScope> privateFunctions;
-        // map fun decl to functions
+        
+        // map classes names to classes
         SharedMap<std::wstring,SharedClassScope> publicClasses;
         SharedMap<std::wstring,SharedClassScope> privateClasses;
+
         // map variable names to variables
         SharedMap<std::wstring,SharedVariable> publicVariables;
         SharedMap<std::wstring,SharedVariable> privateVariables;
@@ -31,7 +33,13 @@ class FileScope:public BaseScope{
 
         SharedFunScope findPrivateFunction(std::wstring decl);
 
+        SharedClassScope findPublicClass(std::wstring name);
+
+        SharedClassScope findPrivateClass(std::wstring name);
+
         SharedVariable findPublicVariable(std::wstring varName);
         
         SharedVariable findPrivateVariable(std::wstring varName);
+
+        void check();
 };

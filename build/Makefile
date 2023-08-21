@@ -672,6 +672,30 @@ src/expression/value/LongValue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/LongValue.cpp.s
 .PHONY : src/expression/value/LongValue.cpp.s
 
+src/expression/value/ObjectValue.o: src/expression/value/ObjectValue.cpp.o
+.PHONY : src/expression/value/ObjectValue.o
+
+# target to build an object file
+src/expression/value/ObjectValue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ObjectValue.cpp.o
+.PHONY : src/expression/value/ObjectValue.cpp.o
+
+src/expression/value/ObjectValue.i: src/expression/value/ObjectValue.cpp.i
+.PHONY : src/expression/value/ObjectValue.i
+
+# target to preprocess a source file
+src/expression/value/ObjectValue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ObjectValue.cpp.i
+.PHONY : src/expression/value/ObjectValue.cpp.i
+
+src/expression/value/ObjectValue.s: src/expression/value/ObjectValue.cpp.s
+.PHONY : src/expression/value/ObjectValue.s
+
+# target to generate assembly for a file
+src/expression/value/ObjectValue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/expression/value/ObjectValue.cpp.s
+.PHONY : src/expression/value/ObjectValue.cpp.s
+
 src/expression/value/StringValue.o: src/expression/value/StringValue.cpp.o
 .PHONY : src/expression/value/StringValue.o
 
@@ -1058,6 +1082,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ain.dir/build.make CMakeFiles/ain.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/parser/ClassParser.o: src/parser/ClassParser.cpp.o
+.PHONY : src/parser/ClassParser.o
+
+# target to build an object file
+src/parser/ClassParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ClassParser.cpp.o
+.PHONY : src/parser/ClassParser.cpp.o
+
+src/parser/ClassParser.i: src/parser/ClassParser.cpp.i
+.PHONY : src/parser/ClassParser.i
+
+# target to preprocess a source file
+src/parser/ClassParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ClassParser.cpp.i
+.PHONY : src/parser/ClassParser.cpp.i
+
+src/parser/ClassParser.s: src/parser/ClassParser.cpp.s
+.PHONY : src/parser/ClassParser.s
+
+# target to generate assembly for a file
+src/parser/ClassParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/parser/ClassParser.cpp.s
+.PHONY : src/parser/ClassParser.cpp.s
 
 src/parser/ExpressionParser.o: src/parser/ExpressionParser.cpp.o
 .PHONY : src/parser/ExpressionParser.o
@@ -1634,6 +1682,30 @@ src/scope/function/BuiltInFunScope.s: src/scope/function/BuiltInFunScope.cpp.s
 src/scope/function/BuiltInFunScope.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/scope/function/BuiltInFunScope.cpp.s
 .PHONY : src/scope/function/BuiltInFunScope.cpp.s
+
+src/semantics/ImplicitVarTypeChecker.o: src/semantics/ImplicitVarTypeChecker.cpp.o
+.PHONY : src/semantics/ImplicitVarTypeChecker.o
+
+# target to build an object file
+src/semantics/ImplicitVarTypeChecker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.o
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.o
+
+src/semantics/ImplicitVarTypeChecker.i: src/semantics/ImplicitVarTypeChecker.cpp.i
+.PHONY : src/semantics/ImplicitVarTypeChecker.i
+
+# target to preprocess a source file
+src/semantics/ImplicitVarTypeChecker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.i
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.i
+
+src/semantics/ImplicitVarTypeChecker.s: src/semantics/ImplicitVarTypeChecker.cpp.s
+.PHONY : src/semantics/ImplicitVarTypeChecker.s
+
+# target to generate assembly for a file
+src/semantics/ImplicitVarTypeChecker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ainsrc.dir/build.make CMakeFiles/ainsrc.dir/src/semantics/ImplicitVarTypeChecker.cpp.s
+.PHONY : src/semantics/ImplicitVarTypeChecker.cpp.s
 
 src/semantics/TypeChecker.o: src/semantics/TypeChecker.cpp.o
 .PHONY : src/semantics/TypeChecker.o
@@ -2310,6 +2382,9 @@ help:
 	@echo "... src/expression/value/LongValue.o"
 	@echo "... src/expression/value/LongValue.i"
 	@echo "... src/expression/value/LongValue.s"
+	@echo "... src/expression/value/ObjectValue.o"
+	@echo "... src/expression/value/ObjectValue.i"
+	@echo "... src/expression/value/ObjectValue.s"
 	@echo "... src/expression/value/StringValue.o"
 	@echo "... src/expression/value/StringValue.i"
 	@echo "... src/expression/value/StringValue.s"
@@ -2358,6 +2433,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/ClassParser.o"
+	@echo "... src/parser/ClassParser.i"
+	@echo "... src/parser/ClassParser.s"
 	@echo "... src/parser/ExpressionParser.o"
 	@echo "... src/parser/ExpressionParser.i"
 	@echo "... src/parser/ExpressionParser.s"
@@ -2430,6 +2508,9 @@ help:
 	@echo "... src/scope/function/BuiltInFunScope.o"
 	@echo "... src/scope/function/BuiltInFunScope.i"
 	@echo "... src/scope/function/BuiltInFunScope.s"
+	@echo "... src/semantics/ImplicitVarTypeChecker.o"
+	@echo "... src/semantics/ImplicitVarTypeChecker.i"
+	@echo "... src/semantics/ImplicitVarTypeChecker.s"
 	@echo "... src/semantics/TypeChecker.o"
 	@echo "... src/semantics/TypeChecker.i"
 	@echo "... src/semantics/TypeChecker.s"

@@ -4,12 +4,14 @@
 #include "FileScope.hpp"
 #include "PackageScope.hpp"
 #include "VariableNotFoundException.hpp"
+#include "MustHaveExplicitTypeException.hpp"
 #include "Variable.hpp"
 #include <string>
 
 void VarAccessExpression::setVar(SharedVariable var){
     this->var=var;
     this->returnType=var->getType();
+    checkType();
 }
 
 VarAccessExpression::VarAccessExpression(
@@ -36,6 +38,7 @@ SharedIValue VarAccessExpression::evaluate(){
 void VarAccessExpression::check(SharedBaseScope checkScope){
     if(var){
         this->returnType=var->getType();
+        checkType();
         return;
     }
 
@@ -85,6 +88,12 @@ void VarAccessExpression::check(SharedBaseScope checkScope){
         throw VariableNotFoundException(trace,varName);
     }
     
+}
+
+void VarAccessExpression::checkType(){
+	if(!this->returnType){
+		throw MustHaveExplicitTypeException(lineNumber);
+	}
 }
 
 void VarAccessExpression::assign(SharedIValue newVal){

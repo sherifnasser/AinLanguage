@@ -7,6 +7,7 @@ class NonStaticVarAccessExpression:public AssignStatement::AssignExpression{
     private:
         std::wstring varName;
         SharedIExpression inside;
+        void checkType();
     public:
         NonStaticVarAccessExpression(
             int lineNumber,
