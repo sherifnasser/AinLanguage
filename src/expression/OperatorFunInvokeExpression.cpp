@@ -59,5 +59,6 @@ void OperatorFunInvokeExpression::check(SharedBaseScope checkScope){
         params
     ).toString();
     
-    throw FunctionNotFoundException(trace,decl);
+     // append operator to decl, so it says "operator function ... not found "
+    throw FunctionNotFoundException(trace,L"مؤثر "+decl);
 }

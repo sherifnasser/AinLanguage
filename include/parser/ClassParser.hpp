@@ -7,11 +7,13 @@ class ClassParser:public BaseParser<SharedClassScope>{
         FunParserProvider funParserProvider;
         VarStmParserProvider varStmParserProvider;
         enum class VisibilityModifier{
-            PUBLIC,PRIVATE
+            NOT_PARSED,PUBLIC,PRIVATE
         };
-        VisibilityModifier parseVisibility();
-        void parseFunScope(VisibilityModifier visibility,SharedClassScope parentScope);
-        void parseVarStm(VisibilityModifier visibility,SharedClassScope parentScope);
+        VisibilityModifier visibility;
+        void resetVisibility();
+        void parseVisibility();
+        void parseFunScope(SharedClassScope parentScope);
+        void parseVarStm(SharedClassScope parentScope);
     public:
         ClassParser(
             SharedTokensIterator iterator,

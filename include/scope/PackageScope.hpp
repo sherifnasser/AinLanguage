@@ -33,6 +33,8 @@ class PackageScope:public BaseScope{
 
         std::map<std::wstring, SharedFileScope> getFiles() const;
 
+        void initGlobalVars();
+
         void check();
 
 };

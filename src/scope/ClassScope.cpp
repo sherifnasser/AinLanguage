@@ -46,6 +46,14 @@ SharedMap<std::wstring,SharedClassScope> ClassScope::getPrivateClasses()const{
     return this->privateClasses;
 }
 
+SharedMap<std::wstring,SharedVariable> ClassScope::getPublicVariables()const{
+    return this->publicVariables;
+}
+
+SharedMap<std::wstring,SharedVariable> ClassScope::getPrivateVariables()const{
+    return this->privateVariables;
+}
+
 SharedFunScope ClassScope::findPublicFunction(std::wstring decl){
     auto funIterator=publicFunctions->find(decl);
 
@@ -114,14 +122,6 @@ void ClassScope::check(){
     for(auto funIterator:*publicFunctions){
         funIterator.second->check();
     }
-}
-
-SharedMap<std::wstring,SharedVariable> ClassScope::getPublicVariables()const{
-    return this->publicVariables;
-}
-
-SharedMap<std::wstring,SharedVariable> ClassScope::getPrivateVariables()const{
-    return this->privateVariables;
 }
 
 SharedStmListScope ClassScope::getPrimaryConstructor()const{

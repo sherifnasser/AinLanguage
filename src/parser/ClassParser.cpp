@@ -48,18 +48,17 @@ SharedClassScope ClassParser::parse(){
             className,classScope
         )
     );
-    
 
+    resetVisibility();
+    
     while(iterator->currentTokenType()!=LexerToken::EOF_TOKEN){
 
         if(iterator->currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
             break;
         
-        auto visibility=parseVisibility();
+        parseFunScope(classScope);
         
-        parseFunScope(visibility,classScope);
-        
-        parseVarStm(visibility,classScope);
+        parseVarStm(classScope);
 
     }
     
@@ -88,22 +87,31 @@ SharedClassScope ClassParser::parse(){
     return classScope;
 }
 
+void ClassParser::resetVisibility(){
+    visibility=VisibilityModifier::NOT_PARSED;
+}
 
-ClassParser::VisibilityModifier ClassParser::parseVisibility() {
+void ClassParser::parseVisibility(){
+
+    if(visibility!=VisibilityModifier::NOT_PARSED)
+        return;
     
-    auto visibility=VisibilityModifier::PUBLIC;
+    visibility=VisibilityModifier::PUBLIC;
+
     if(iterator->currentMatch(KeywordToken::PUBLIC)){
         iterator->next();
     }
+
     else if(iterator->currentMatch(KeywordToken::PRIVATE)){
         visibility=VisibilityModifier::PRIVATE;
         iterator->next();
     }
 
-    return visibility;
 }
 
-void ClassParser::parseFunScope(VisibilityModifier visibility,SharedClassScope parentScope){
+void ClassParser::parseFunScope(SharedClassScope parentScope){
+
+    parseVisibility();
 
     auto lineNumber=iterator->lineNumber;
     
@@ -113,22 +121,29 @@ void ClassParser::parseFunScope(VisibilityModifier visibility,SharedClassScope p
         return;
     
     auto decl=funScope->getDecl()->toString();
-    if(parentScope->findPrivateFunction(decl)||parentScope->findPublicFunction(decl)){
-        throw ConflictingDeclarationException(lineNumber);
-    }
 
+    if(parentScope->findPrivateFunction(decl)||parentScope->findPublicFunction(decl))
+        throw ConflictingDeclarationException(lineNumber);
+    
     switch (visibility){
         case VisibilityModifier::PUBLIC:
             (*parentScope->getPublicFunctions())[decl]=funScope;
             break;
+
         case VisibilityModifier::PRIVATE:
             (*parentScope->getPrivateFunctions())[decl]=funScope;
             break;
+
+        default:{}
     }
+
+    resetVisibility();
 }
 
-void ClassParser::parseVarStm(VisibilityModifier visibility,SharedClassScope parentScope) {
+void ClassParser::parseVarStm(SharedClassScope parentScope){
     
+    parseVisibility();
+
     auto lineNumber=iterator->lineNumber; 
    
     auto varStm=varStmParserProvider(iterator,parentScope)->parse();
@@ -139,19 +154,25 @@ void ClassParser::parseVarStm(VisibilityModifier visibility,SharedClassScope par
     auto var=varStm->getVar();
 
     auto varName=*var->getName();
+
     auto primaryConstructor=parentScope->getPrimaryConstructor();
+
     primaryConstructor->getStmList()->push_back(varStm);
 
-    if(parentScope->findPrivateVariable(varName)||parentScope->findPublicVariable(varName)){
+    if(parentScope->findPrivateVariable(varName)||parentScope->findPublicVariable(varName))
         throw ConflictingDeclarationException(lineNumber);
-    }
     
     switch (visibility){
         case VisibilityModifier::PUBLIC:
             (*parentScope->getPublicVariables())[varName]=var;
             break;
+
         case VisibilityModifier::PRIVATE:
             (*parentScope->getPrivateVariables())[varName]=var;
             break;
+
+        default:{}
     }
+
+    resetVisibility();
 }

@@ -5,6 +5,8 @@
 #include "ClassScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
+#include "IStatement.hpp"
+#include "Variable.hpp"
 #include <memory>
 #include <string>
 
@@ -41,6 +43,14 @@ SharedMap<std::wstring,SharedClassScope> FileScope::getPublicClasses()const{
 
 SharedMap<std::wstring,SharedClassScope> FileScope::getPrivateClasses()const{
     return privateClasses;
+}
+
+SharedMap<std::wstring,SharedVariable> FileScope::getPublicVariables()const{
+    return this->publicVariables;
+}
+
+SharedMap<std::wstring,SharedVariable> FileScope::getPrivateVariables()const{
+    return this->privateVariables;
 }
 
 SharedFunScope FileScope::findPublicFunction(std::wstring decl){
@@ -98,20 +108,41 @@ SharedVariable FileScope::findPrivateVariable(std::wstring varName){
     return nullptr;
 }
 
+SharedStmListScope FileScope::getGlobalVarsInitStmList()const{
+    return this->globalVarsInitStmList;
+}
+
+void FileScope::setGlobalVarsInitStmList(SharedStmListScope globalVarsInitStmList){
+    this->globalVarsInitStmList=globalVarsInitStmList;
+}
+
+void FileScope::initGlobalVars(){
+    for(auto varIt:*publicVariables){
+        varIt.second->pushNewValue();
+    }
+    for(auto varIt:*privateVariables){
+        varIt.second->pushNewValue();
+    }
+    auto stmList=globalVarsInitStmList->getStmList();
+    for(auto stm:*stmList){
+        stm->run();
+    }
+}
+
 void FileScope::check(){
+    for(auto stm:*globalVarsInitStmList->getStmList()){
+        stm->check();
+    }
     for(auto classIterator:*privateClasses){
-	 classIterator.second->check();
+	    classIterator.second->check();
     }
     for(auto classIterator:*publicClasses){
-	 classIterator.second->check();
+	    classIterator.second->check();
     }
-
     for(auto funIterator:*privateFunctions){
         funIterator.second->check();
     }
     for(auto funIterator:*publicFunctions){
         funIterator.second->check();
     }
-    
 }
-

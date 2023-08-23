@@ -206,6 +206,8 @@ SharedIExpression ExpressionParser::parseLiteralExpression(){
             value=parseNumberValue(numType,literal->getVal());
             break;
         }
+
+        default:{}
     }
 
     iterator->next();

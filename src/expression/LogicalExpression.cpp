@@ -1,6 +1,7 @@
 #include "LogicalExpression.hpp"
 #include "BoolValue.hpp"
 #include "Type.hpp"
+#include "UnexpectedTypeException.hpp"
 #include <memory>
 #include <string>
 #include <vector>
@@ -29,10 +30,18 @@ void LogicalExpression::check(SharedBaseScope checkScope){
     right->check(checkScope);
 
     if(left->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw;
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *left->getReturnType()->getName()
+        );
     
     if(right->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw;
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *right->getReturnType()->getName()
+        );
 }
 
 std::vector<std::wstring> LogicalExpression::prettyPrint(){

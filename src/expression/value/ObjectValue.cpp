@@ -34,12 +34,16 @@ void ObjectValue::unlinkWithClass(){
     auto publicVars=type->getClassScope()->getPublicVariables();
 
     for(auto varIt:*privateVars){
+        auto varName=varIt.first;
         auto var=varIt.second;
+        (*properties)[varName]=var->getValue();
         var->popLastValue();
     }
     
     for(auto varIt:*publicVars){
+        auto varName=varIt.first;
         auto var=varIt.second;
+        (*properties)[varName]=var->getValue();
         var->popLastValue();
     }
 }

@@ -98,7 +98,8 @@ void readAndParse(std::string path){
             wpath,
             packageParser,
             funParserProvider,
-            classParserProvider
+            classParserProvider,
+            varStmParserProvider
         ).parse();
 
     Type::addBuiltInClassesTo(fileScope);
@@ -143,9 +144,12 @@ int main(int argc, char * argv[]){
         BuiltInFunScope::addBuiltInFunctionsToBuiltInClasses();
 
         Semantics::TypeChecker::getInstance()->check();
+        
         Semantics::ImplicitVarTypeChecker::getInstance()->check();
 
         PackageScope::AIN_PACKAGE->check();
+
+        PackageScope::AIN_PACKAGE->initGlobalVars();
 
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(mainPath))->

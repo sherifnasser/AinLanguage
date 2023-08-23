@@ -37,6 +37,10 @@ class ClassScope: public BaseScope{
 
         SharedMap<std::wstring,SharedClassScope> getPrivateClasses() const;
 
+        SharedMap<std::wstring,SharedVariable> getPublicVariables()const;
+
+        SharedMap<std::wstring,SharedVariable> getPrivateVariables()const;
+
         SharedFunScope findPublicFunction(std::wstring decl);
 
         SharedFunScope findPrivateFunction(std::wstring decl);
@@ -50,10 +54,6 @@ class ClassScope: public BaseScope{
         SharedVariable findPrivateVariable(std::wstring varName);
 
         virtual void check();
-
-        SharedMap<std::wstring,SharedVariable> getPublicVariables()const;
-
-        SharedMap<std::wstring,SharedVariable> getPrivateVariables()const;
 
         SharedStmListScope getPrimaryConstructor()const;
 

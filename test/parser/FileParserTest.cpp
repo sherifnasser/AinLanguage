@@ -29,6 +29,13 @@ namespace{
             return nullptr;
         }
     };
+
+    struct FakeVarStatementParser:public BaseParser<SharedVarStm>{
+        FakeVarStatementParser():BaseParser(nullptr,nullptr){}
+        SharedVarStm parse() override{
+            return nullptr;
+        }
+    };
 }
 
 TEST_CASE("Test file parser is adding file to parent package","[FileParserTest.cpp]"){
@@ -36,11 +43,15 @@ TEST_CASE("Test file parser is adding file to parent package","[FileParserTest.c
     auto fakePackageParser=std::make_shared<FakePackageParser>();
     auto fakeFunParser=std::make_shared<FakeFunParser>();
     auto fakeClassParser=std::make_shared<FakeClassParser>();
+    auto fakeVarStmParser=std::make_shared<FakeVarStatementParser>();
     auto fakeFunParserProvider=[&](SharedTokensIterator,SharedBaseScope){
         return fakeFunParser;
     };
     auto fakeClassParserProvider=[&](SharedTokensIterator,SharedBaseScope){
         return fakeClassParser;
+    };
+    auto fakeVarStmParserProvider=[&](SharedTokensIterator,SharedBaseScope){
+        return fakeVarStmParser;
     };
     auto parsedPackage=fakePackageParser->parse();
     FileParser fp(
@@ -48,7 +59,8 @@ TEST_CASE("Test file parser is adding file to parent package","[FileParserTest.c
         filePath,
         fakePackageParser,
         fakeFunParserProvider,
-        fakeClassParserProvider
+        fakeClassParserProvider,
+        fakeVarStmParserProvider
     );
     fp.parse();
 

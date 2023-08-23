@@ -42,6 +42,15 @@ std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
     return files;
 }
 
+void PackageScope::initGlobalVars(){
+    for(auto packageIterator:packages){
+        packageIterator.second->initGlobalVars();
+    }
+    for(auto fileIterator:files){
+        fileIterator.second->initGlobalVars();
+    }
+}
+
 void PackageScope::check(){
     for(auto fileIterator:files){
         fileIterator.second->check();

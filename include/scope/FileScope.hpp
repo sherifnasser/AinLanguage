@@ -16,6 +16,8 @@ class FileScope:public BaseScope{
         SharedMap<std::wstring,SharedVariable> publicVariables;
         SharedMap<std::wstring,SharedVariable> privateVariables;
 
+        SharedStmListScope globalVarsInitStmList;
+
     public:
         FileScope(std::wstring filePath,SharedPackageScope parentScope);
 
@@ -29,6 +31,10 @@ class FileScope:public BaseScope{
 
         SharedMap<std::wstring,SharedClassScope> getPrivateClasses() const;
 
+        SharedMap<std::wstring,SharedVariable> getPublicVariables()const;
+
+        SharedMap<std::wstring,SharedVariable> getPrivateVariables()const;
+
         SharedFunScope findPublicFunction(std::wstring decl);
 
         SharedFunScope findPrivateFunction(std::wstring decl);
@@ -40,6 +46,12 @@ class FileScope:public BaseScope{
         SharedVariable findPublicVariable(std::wstring varName);
         
         SharedVariable findPrivateVariable(std::wstring varName);
+
+        SharedStmListScope getGlobalVarsInitStmList()const;
+
+        void setGlobalVarsInitStmList(SharedStmListScope globalVarsInitStmList);
+
+        void initGlobalVars();
 
         void check();
 };

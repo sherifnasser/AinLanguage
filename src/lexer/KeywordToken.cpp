@@ -28,7 +28,7 @@ bool KeywordToken::iskeyword(std::wstring val){
 
 KeywordToken KeywordToken::VAR=KeywordToken(L"متغير");
 KeywordToken KeywordToken::VAL=KeywordToken(L"ثابت");
-KeywordToken KeywordToken::OPERATOR=KeywordToken(L"معامل");
+KeywordToken KeywordToken::OPERATOR=KeywordToken(L"مؤثر");
 KeywordToken KeywordToken::FUN=KeywordToken(L"دالة");
 KeywordToken KeywordToken::RETURN=KeywordToken(L"بقيمة");
 
