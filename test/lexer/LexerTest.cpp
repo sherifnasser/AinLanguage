@@ -1,35 +1,65 @@
-
-#include "LexerToken.hpp"
 #define CATCH_CONFIG_MAIN
+#include <vector>
+#include "LexerToken.hpp"
+#include "SharedPtrTypes.hpp"
 #include <iostream>
 #include <memory>
 #include <catch2/catch.hpp>
 #include "Lexer.hpp"
 #include "LinkedList.hpp"
 
-class FakeAinFile: public IAinFile{
-    private:
+class FakeAinFileWithDelimitedComments: public IAinFile{
+    public:
         void readAinFile(std::string& path) override{}
 
         std::vector<std::wstring> getLines() override{
             return {
-                L"line0",
-                L"\t",
-                L"\tLine1",
-                L"\t   ",
-                L"   \v",
-                L"\v",
-                L"\t\tLine2",
+                L"/*line0/*",
+                L"/*line1*/*/",
+                L"  line2*/",
+                L"//line3 /*",
+                L"/*line4",
+                L"  line5*/id/*",
+                L"*/line6",
             };
         }
 };
 
 SCENARIO("Test Lexer","[LexerTest.cpp]"){
-    WHEN("some lines are empty"){
-        THEN("Ignore lexing these lines"){
-            auto file=std::make_shared<FakeAinFile>();
+    
+    WHEN("File has delimited comments"){
+        THEN("Ignore them"){
+            auto file=std::make_shared<FakeAinFileWithDelimitedComments>();
             Lexer lexer(file);
-            REQUIRE(lexer.getTokens()->tail->val->getTokenType()==LexerToken::EOF_TOKEN);
+            auto tokens=lexer.getTokens();
+            auto lines=file->getLines();
+            std::vector<LexerToken> expectedTokens={
+                LexerToken(LexerToken::COMMENT_TOKEN,lines[0]),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,lines[1]),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,lines[2]),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,lines[3]),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,lines[4]),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,L"  line5*/"),
+                LexerToken::IdentifierToken(L"id"),
+                LexerToken(LexerToken::COMMENT_TOKEN,L"/*"),
+                LexerToken::EolToken(),
+                LexerToken(LexerToken::COMMENT_TOKEN,L"*/"),
+                LexerToken::IdentifierToken(L"line6"),
+                LexerToken::EolToken(),
+                LexerToken::EofToken()
+            };
+
+            REQUIRE(tokens->size==expectedTokens.size());
+            tokens->forEachIndexed([=](SharedLexerToken token,int i){
+                auto expectedToken=expectedTokens[i];
+                REQUIRE(token->operator==(expectedToken));
+            });
+            REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOF_TOKEN);
         }
     }
 }
