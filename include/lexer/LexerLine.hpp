@@ -19,6 +19,8 @@ class LexerLine:public ILexerLine{
         */
         int tokenEndIndex=0;
 
+        static int openedDelimitedCommentsCount;
+
         /**
          * @brief Get the token value from [tokenStartIndex] to [tokenEndIndex]
         */
@@ -32,10 +34,12 @@ class LexerLine:public ILexerLine{
         bool isNotNullToken(SharedLexerToken token);
         SharedLexerToken findStringOrCharToken();
         SharedLexerToken findCommentToken();
+        SharedLexerToken findDelimitedCommentToken();
         SharedLexerToken findSymbolToken();
         SharedLexerToken findNumberToken();
         SharedLexerToken findIdentifierOrKeywordToken();
         SharedLexerToken findSpaceToken();
+        SharedLexerToken getCurrentTokenAsComment();
         void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
         // Skip digits after finding an 'e' in a double number token starting from [tokenEndIndex]

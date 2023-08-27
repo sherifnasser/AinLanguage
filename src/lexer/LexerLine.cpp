@@ -1,5 +1,6 @@
 #include<iostream>
 #include<memory>
+#include <string>
 #include<vector>
 #include<limits>
 #include<algorithm>
@@ -27,6 +28,8 @@ void LexerLine::checkIsKufrOrUnsupportedCharacter(const wchar_t &c){
     if(isKufrOrUnsupportedCharacter(c))
         throw ContainsKufrOrUnsupportedCharacterException(lineNumber,line);
 }
+
+int LexerLine::openedDelimitedCommentsCount=0;
 
 LexerLine::LexerLine(std::wstring &line,int lineNumber){
     this->line=line;
@@ -57,6 +60,11 @@ wchar_t LexerLine::charAt(int index){
 
 void LexerLine::tokenize(){
 
+    while(openedDelimitedCommentsCount>0&&tokenStartIndex<line.size()){
+        auto delimitedCommentToken=findDelimitedCommentToken();
+        isNotNullToken(delimitedCommentToken);
+    }
+
     while(tokenStartIndex<line.size()){
         
         auto stringOrCharToken=findStringOrCharToken();
@@ -65,6 +73,10 @@ void LexerLine::tokenize(){
         
         auto commentToken=findCommentToken();
         if(isNotNullToken(commentToken))
+            continue;
+
+        auto delimitedCommentToken=findDelimitedCommentToken();
+        if(isNotNullToken(delimitedCommentToken))
             continue;
         
         auto symbolToken=findSymbolToken();
@@ -168,15 +180,50 @@ SharedLexerToken LexerLine::findCommentToken(){
     // may be there is a comment in the line but there're tokens before it, so return to tokenize them
     if(commentIndex!=tokenStartIndex)
         return nullptr;
-    
-    auto comment=line.substr(commentIndex);
 
-    for(auto &c:comment)
-        checkIsKufrOrUnsupportedCharacter(c);
-    
-    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
     tokenEndIndex=line.size()-1;  // last character in comment
-    return token;
+    
+    return getCurrentTokenAsComment();
+}
+
+SharedLexerToken LexerLine::findDelimitedCommentToken(){
+
+
+    if(openedDelimitedCommentsCount==0){
+
+        auto openCommentIndex=line.find(L"/*",tokenStartIndex);
+
+        // may be there is a comment in the line but there're tokens before it, so return to tokenize them
+        if(openCommentIndex!=tokenStartIndex)
+            return nullptr;
+
+    }
+
+    int i=tokenStartIndex;
+    
+    for(;i<line.size();i++){
+
+        if(charAt(i)==L'/'&&charAt(i+1)==L'*'){
+            i++;
+            openedDelimitedCommentsCount++;
+        }
+
+        else if(charAt(i)==L'*'&&charAt(i+1)==L'/'){
+            i++;
+            openedDelimitedCommentsCount--;
+        }
+
+        if(openedDelimitedCommentsCount==0){
+            i++;
+            break;
+        }
+        
+    }
+    
+    tokenEndIndex=i-1;
+
+    return getCurrentTokenAsComment();
+
 }
 
 
@@ -517,4 +564,15 @@ SharedLexerToken LexerLine::findSpaceToken(){
     tokenEndIndex=i-1;
 
     return std::make_shared<LexerToken>(LexerToken::SPACE_TOKEN,getCurrentTokenVal());
+}
+
+SharedLexerToken LexerLine::getCurrentTokenAsComment(){
+    auto comment=getCurrentTokenVal();
+
+    for(auto &c:comment)
+        checkIsKufrOrUnsupportedCharacter(c);
+    
+    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
+
+    return token;
 }
