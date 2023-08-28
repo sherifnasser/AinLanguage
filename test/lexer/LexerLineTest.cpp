@@ -14,7 +14,7 @@
 #include "KeywordToken.hpp"
 #include "LinkedList.hpp"
 #include "LinkedListNode.hpp"
-#include "MissingQouteException.hpp"
+#include "MissingQuoteException.hpp"
 #include "InvalidLengthCharacterLiteralException.hpp"
 #include "InvalidEscapeSequenceException.hpp"
 #include "InvalidUniversalCharacterCodeException.hpp"
@@ -58,10 +58,14 @@ void LexerLineTokensTestWithException(
     }
 }
 
-SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
+SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
+
+    /** Required when running all unit tests at same time*/
+    LexerLine::openedDelimitedCommentsCount=0;
+    
     GIVEN("a line"){
 
-        WHEN("Has kufr or unsupported character (in string or char literls)"){
+        WHEN("Has kufr or unsupported character (in string or char literals)"){
             std::vector<std::wstring> illegals={
                 L"\"\\ي0900\"",
                 L"\'\\ي0900\'",
@@ -73,9 +77,9 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
         };
 
         WHEN("the line has string literal"){
-            std::wstring line=L"\"string \\خ\\ف\\س\\ر\\ص\\ج\\\\ literal with\\\'\\\' \\\"QOUTES\\\" \\س and \\ي0041\\ي0042\"";
+            std::wstring line=L"\"string \\خ\\ف\\س\\ر\\ص\\ج\\\\ literal with\\\'\\\' \\\"QUOTES\\\" \\س and \\ي0041\\ي0042\"";
             // expected to replace unescaped characters with escaped versions, also unicode characters
-            std::wstring expected=L"\"string \b\t\n\v\f\r\\ literal with\'\' \"QOUTES\" \n and \u0041\u0042\"";
+            std::wstring expected=L"\"string \b\t\n\v\f\r\\ literal with\'\' \"QUOTES\" \n and \u0041\u0042\"";
 
             THEN("Add LiteralToken::STRING to tokens"){
                 LexerLine lexerLine=LexerLine(line,1);
@@ -117,15 +121,15 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\'\v\'",
                 L"\'\f\'",
                 L"\'\r\'",
-                L"\'\\\'", // '\\'
+                L"\'\\\'",  // '\\'
                 L"\'\'\'", // '\''
                 L"\'\"\'", // '\"'
             };
 
             THEN("Add LiteralToken::CHAR to tokens"){
                 int i=0;
-                for(auto &legeal:legals){
-                    LexerLine lexerLine=LexerLine(legeal,i);
+                for(auto &legal:legals){
+                    LexerLine lexerLine=LexerLine(legal,i);
                     lexerLine.tokenize();
                     auto tokens=lexerLine.getTokens();
                     REQUIRE(tokens->size==2);
@@ -141,7 +145,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
             };
         };
 
-        WHEN("char literal has multiple characters or no characters between qoutes"){
+        WHEN("char literal has multiple characters or no characters between quOtes"){
             std::vector<std::wstring> illegals={
                 L"\'حرف\'",
                 L"\'\'",
@@ -165,14 +169,14 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\"حرف\\k\"",
             };
             auto msgMatcher=[](std::wstring &illegal){
-                return illegal.substr(0,illegal.size()-1); // remove last qoute
+                return illegal.substr(0,illegal.size()-1); // remove last quote
             };
             THEN("Throw InvalidEscapeSequenceException"){
                 LexerLineTokensTestWithException<InvalidEscapeSequenceException>(illegals,msgMatcher);
             };
         };
 
-        WHEN("line has an invalid universal char code (in string or char literls)"){
+        WHEN("line has an invalid universal char code (in string or char literals)"){
             std::vector<std::wstring> illegals={
                 L"\'\\ي\'",
                 L"\'\\يF\'",
@@ -185,16 +189,16 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                 L"\"نص\\يFFFش\"",
             };
             auto msgMatcher=[](std::wstring &illegal){
-                return illegal.substr(0,illegal.size()-1); // remove last qoute
+                return illegal.substr(0,illegal.size()-1); // remove last quote
             };
             THEN("Throw InvalidUniversalCharacterCodeException"){
                 LexerLineTokensTestWithException<InvalidUniversalCharacterCodeException>(illegals,msgMatcher);
             };
         };
 
-        WHEN("Misssing qoute (in string or char literls)"){
+        WHEN("Missing quote (in string or char literals)"){
             std::vector<std::wstring> illegals={
-                L"\"string literal with \\\"DOULBE QOUTES\\\"",
+                L"\"string literal with \\\"DOUBLE QUOTES\\\"",
                 L"\"",
                 L"\"\\\"",
                 L"\'ش",
@@ -302,20 +306,21 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]") {
                     removeUnderscores(&expected);
                     switch(legal.getNumberType()){
                         case NumberToken::LONG:
-                        expected=std::to_wstring(std::stoll(expected));
-                        break;
+                            expected=std::to_wstring(std::stoll(expected));
+                            break;
                         case NumberToken::UNSIGNED_INT:
-                        expected=std::to_wstring(std::stoull(expected));
-                        break;
+                            expected=std::to_wstring(std::stoull(expected));
+                            break;
                         case NumberToken::UNSIGNED_LONG:
-                        expected=std::to_wstring(std::stoull(expected));
-                        break;
+                            expected=std::to_wstring(std::stoull(expected));
+                            break;
                         case NumberToken::DOUBLE:
-                        expected=std::to_wstring(std::stold(expected));
-                        break;
+                            expected=std::to_wstring(std::stold(expected));
+                            break;
                         case NumberToken::FLOAT:
-                        expected=std::to_wstring(std::stof(expected));
-                        break;
+                            expected=std::to_wstring(std::stof(expected));
+                            break;
+                        default:{}
                     }
                     auto tokens=lexerLine.getTokens();
                     REQUIRE(tokens->size==2);

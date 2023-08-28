@@ -1,3 +1,6 @@
+#include "LexerLine.hpp"
+#include "UnclosedCommentException.hpp"
+#include <string>
 #define CATCH_CONFIG_MAIN
 #include <vector>
 #include "LexerToken.hpp"
@@ -8,28 +11,36 @@
 #include "Lexer.hpp"
 #include "LinkedList.hpp"
 
-class FakeAinFileWithDelimitedComments: public IAinFile{
+class FakeAinFile: public IAinFile{
     public:
-        void readAinFile(std::string& path) override{}
-
-        std::vector<std::wstring> getLines() override{
-            return {
-                L"/*line0/*",
-                L"/*line1*/*/",
-                L"  line2*/",
-                L"//line3 /*",
-                L"/*line4",
-                L"  line5*/id/*",
-                L"*/line6",
-            };
+        
+        FakeAinFile(std::vector<std::wstring> lines){
+            this->path="FakeAinFile.ain";
+            this->lines=lines;
         }
+
+        void readAinFile() override{}
+
 };
 
 SCENARIO("Test Lexer","[LexerTest.cpp]"){
+
+    /** Required when running all unit tests at same time*/
+    LexerLine::openedDelimitedCommentsCount=0;
     
     WHEN("File has delimited comments"){
         THEN("Ignore them"){
-            auto file=std::make_shared<FakeAinFileWithDelimitedComments>();
+            auto file=std::make_shared<FakeAinFile>(
+                std::vector<std::wstring>{
+                    L"/*line0/*",
+                    L"/*line1*/*/",
+                    L"  line2*/",
+                    L"//line3 /*",
+                    L"/*line4",
+                    L"  line5*/id/*",
+                    L"*/line6",
+                }
+            );
             Lexer lexer(file);
             auto tokens=lexer.getTokens();
             auto lines=file->getLines();
@@ -60,6 +71,27 @@ SCENARIO("Test Lexer","[LexerTest.cpp]"){
                 REQUIRE(token->operator==(expectedToken));
             });
             REQUIRE(tokens->tail->val->getTokenType()==LexerToken::EOF_TOKEN);
+        }
+    }
+
+    WHEN("A delimited comment is not closed"){
+        THEN("Throw UnclosedCommentException"){
+            auto file=std::make_shared<FakeAinFile>(
+                std::vector<std::wstring>{
+                    L"/*line0/*",
+                    L"/*line1*/*/",
+                }
+            );
+            auto matcher=Catch::Matchers::Predicate<UnclosedCommentException>(
+                [=](UnclosedCommentException e){
+                    return e.whatWstr().find(toWstring(file->getPath()))!=std::wstring::npos;
+                }
+            );
+            REQUIRE_THROWS_MATCHES(
+                Lexer(file),
+                UnclosedCommentException,
+                matcher
+            );
         }
     }
 }

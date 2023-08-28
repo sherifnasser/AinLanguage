@@ -19,8 +19,6 @@ class LexerLine:public ILexerLine{
         */
         int tokenEndIndex=0;
 
-        static int openedDelimitedCommentsCount;
-
         /**
          * @brief Get the token value from [tokenStartIndex] to [tokenEndIndex]
         */
@@ -50,6 +48,7 @@ class LexerLine:public ILexerLine{
         void getFloatNumberToken(std::wstring* number);
         void checkIsKufrOrUnsupportedCharacter(const wchar_t &c);
     public:
+        static int openedDelimitedCommentsCount;
         LexerLine(std::wstring &line,int lineNumber);
         void tokenize()override;
 };

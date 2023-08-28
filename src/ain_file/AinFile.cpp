@@ -22,11 +22,13 @@ AinFile::AinFile(std::string &path){
         throw FileNotFoundException(path);
     }
     
-    readAinFile(path);
+    this->path=path;
+    
+    readAinFile();
     
 }
 
-void AinFile::readAinFile(std::string &path){
+void AinFile::readAinFile(){
 
     wifstream ainFile=wifstream(path);
     ainFile.imbue(std::locale("en_US.UTF-8"));
@@ -36,8 +38,4 @@ void AinFile::readAinFile(std::string &path){
     }
     ainFile.close();
 
-}
-
-vector<std::wstring> AinFile::getLines(){
-    return this->lines;
 }

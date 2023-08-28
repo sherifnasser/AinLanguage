@@ -4,6 +4,7 @@
 #include "LexerToken.hpp"
 #include "LinkedList.hpp"
 #include "LexerLine.hpp"
+#include "UnclosedCommentException.hpp"
 #include "string_helper.hpp"
 #include "wchar_t_helper.hpp"
 #include "KeywordToken.hpp"
@@ -21,15 +22,19 @@ Lexer::Lexer(SharedIAinFile ainFile):ainFile(ainFile){
 
         auto nextLexerLine=std::make_shared<LexerLine>(line,lineNumber);
         nextLexerLine->tokenize();
-        lexerLines->push_back(nextLexerLine);    
+        lexerLines->push_back(nextLexerLine);
     }
+
+    if(LexerLine::openedDelimitedCommentsCount>0)
+        throw UnclosedCommentException(toWstring(ainFile->getPath()));
+    
 }
 
 SharedVector<SharedILexerLine> Lexer::getLexerLines(){
     return lexerLines;
 }
 
-SharedLinkedList<SharedLexerToken> Lexer::getTokens(){
+SharedLinkedList<SharedLexerToken> Lexer::getTokens(){    
     auto tokens=std::make_shared<LinkedList<SharedLexerToken>>();
     for(auto &line:*lexerLines){
         auto lTokens=line->getTokens();
