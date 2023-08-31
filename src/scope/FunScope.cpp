@@ -36,7 +36,11 @@ SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
         local.second->popLastValue();
     }
 
-    return this->returnValue;
+    auto retVal=this->returnValue;
+
+    this->returnValue=nullptr;
+
+    return retVal;
 }
 
 SharedType FunScope::getReturnType(){
