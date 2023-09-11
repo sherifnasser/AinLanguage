@@ -18,6 +18,8 @@ namespace OperatorFunctions{
     inline auto NOT_NAME=L"نفي";
     inline auto UNARY_PLUS_NAME=L"موجب";
     inline auto UNARY_MINUS_NAME=L"سالب";
+    inline auto INC_NAME=L"زد";
+    inline auto DEC_NAME=L"أنقص";
 
     inline int isOperatorFunName(std::wstring name){
 
@@ -52,6 +54,10 @@ namespace OperatorFunctions{
             return UNARY_MINUS_NAME;
         if(token==SymbolToken::EXCLAMATION_MARK)
             return NOT_NAME;
+        if(token==SymbolToken::PLUS_PLUS)
+            return INC_NAME;
+        if(token==SymbolToken::MINUS_MINUS)
+            return DEC_NAME;
         return L"";
     }
 

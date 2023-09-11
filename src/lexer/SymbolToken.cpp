@@ -13,6 +13,7 @@ SymbolToken SymbolToken::LEFT_SQUARE_BRACKET=SymbolToken(L"[");
 SymbolToken SymbolToken::RIGHT_SQUARE_BRACKET=SymbolToken(L"]");
 SymbolToken SymbolToken::COMMA=SymbolToken(L"،");
 SymbolToken SymbolToken::COLON=SymbolToken(L":");
+SymbolToken SymbolToken::DOUBLE_COLONS=SymbolToken(L"::");
 SymbolToken SymbolToken::SEMICOLON=SymbolToken(L"؛");
 
 SymbolToken SymbolToken::QUESTION_MARK=SymbolToken(L"؟");
@@ -31,6 +32,9 @@ SymbolToken SymbolToken::SLASH=SymbolToken(L"/");
 SymbolToken SymbolToken::EQUAL=SymbolToken(L"=");
 SymbolToken SymbolToken::MODULO=SymbolToken(L"%");
 SymbolToken SymbolToken::POWER=SymbolToken(L"^");
+
+SymbolToken SymbolToken::PLUS_PLUS=SymbolToken(L"++");
+SymbolToken SymbolToken::MINUS_MINUS=SymbolToken(L"--");
 
 SymbolToken SymbolToken::GREATER_EQUAL=SymbolToken(L">=");
 SymbolToken SymbolToken::LESS_EQUAL=SymbolToken(L"<=");

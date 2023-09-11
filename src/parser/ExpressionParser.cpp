@@ -127,14 +127,13 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
     
     SharedIExpression primary;
 
-    if(
-        iterator->currentMatch(SymbolToken::PLUS)||
-        iterator->currentMatch(SymbolToken::MINUS)||
-        iterator->currentMatch(SymbolToken::EXCLAMATION_MARK)
-    ){
-        auto opName=OperatorFunctions::getUnaryOperatorFunNameByToken(
-            *iterator->currentToken()
-        );
+    auto unaryOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(
+        *iterator->currentToken()
+    );
+
+    auto isCurrentTokenUnaryOperator=unaryOpName!=L"";
+
+    if(isCurrentTokenUnaryOperator){
 
         iterator->next();
         
@@ -148,7 +147,7 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
 
         return std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            opName,
+            unaryOpName,
             args,
             primary
         );
@@ -156,12 +155,16 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
 
     if(auto parenthesesEx=parseParenthesesExpression())
         primary=parenthesesEx;
+
     else if(auto literalEx=parseLiteralExpression())
         primary=literalEx;
+
     else if(auto idEx=parseIdentifierExpression())
         primary=idEx;
+
     else if(auto newObjEx=parseNewObjectExpression())
         primary=newObjEx;
+
     else
         return nullptr;
 
@@ -169,6 +172,7 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
         return primary;
     
     iterator->next();
+    
     return parseNonStaticAccessExpression(primary);
 }
 
