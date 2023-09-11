@@ -94,6 +94,18 @@ class BuiltInFunScope:public FunScope{
             SharedType returnType
         );
 
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getUnaryPlusFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getUnaryMinusFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
         template <typename PrimitiveType>
         static inline std::shared_ptr<BuiltInFunScope> getToIntFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope
@@ -152,6 +164,8 @@ class BuiltInFunScope:public FunScope{
         static const inline auto TO_BOOL_NAME=L"كمنطقي";
         static const inline auto TO_CHAR_NAME=L"كحرف";
         static const inline auto TO_STRING_NAME=L"كنص";
+        static const inline auto UNARY_PLUS_NAME=L"موجب";
+        static const inline auto UNARY_MINUS_NAME=L"سالب";
 
     public:
         BuiltInFunScope(
@@ -323,6 +337,40 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getToAnotherTypeFun(
         [=](SharedMap<std::wstring, SharedIValue> params){
             auto val=classScope->getValue();
             return std::make_shared<ReturnValue>(val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryPlusFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        UNARY_PLUS_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryMinusFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        UNARY_MINUS_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(-val);
         },
         true
     );

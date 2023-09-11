@@ -45,6 +45,16 @@ namespace OperatorFunctions{
         return -1;
     }
 
+    inline std::wstring getUnaryOperatorFunNameByToken(LexerToken token){
+        if(token==SymbolToken::PLUS)
+            return UNARY_PLUS_NAME;
+        if(token==SymbolToken::MINUS)
+            return UNARY_MINUS_NAME;
+        if(token==SymbolToken::EXCLAMATION_MARK)
+            return NOT_NAME;
+        return L"";
+    }
+
     inline std::wstring getOperatorFunNameByToken(LexerToken token){
         if(token==SymbolToken::PLUS)
             return PLUS_NAME;

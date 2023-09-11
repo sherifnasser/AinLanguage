@@ -126,6 +126,34 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 SharedIExpression ExpressionParser::parsePrimaryExpression(){
     
     SharedIExpression primary;
+
+    if(
+        iterator->currentMatch(SymbolToken::PLUS)||
+        iterator->currentMatch(SymbolToken::MINUS)||
+        iterator->currentMatch(SymbolToken::EXCLAMATION_MARK)
+    ){
+        auto opName=OperatorFunctions::getUnaryOperatorFunNameByToken(
+            *iterator->currentToken()
+        );
+
+        iterator->next();
+        
+        auto lineNumber=iterator->lineNumber;
+
+        primary=parsePrimaryExpression();
+        
+        auto args=std::make_shared<std::vector<SharedIExpression>>(
+            std::vector<SharedIExpression>{}
+        );
+
+        return std::make_shared<OperatorFunInvokeExpression>(
+            lineNumber,
+            opName,
+            args,
+            primary
+        );
+    }
+
     if(auto parenthesesEx=parseParenthesesExpression())
         primary=parenthesesEx;
     else if(auto literalEx=parseLiteralExpression())
