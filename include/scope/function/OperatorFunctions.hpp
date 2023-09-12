@@ -37,7 +37,7 @@ namespace OperatorFunctions{
         }
 
         auto UNARY_OPERATORS_NAMES={
-            UNARY_PLUS_NAME,UNARY_MINUS_NAME,NOT_NAME
+            UNARY_PLUS_NAME,UNARY_MINUS_NAME,NOT_NAME,INC_NAME,DEC_NAME
         };
         for(auto& binOp:UNARY_OPERATORS_NAMES){
             if(name==binOp)

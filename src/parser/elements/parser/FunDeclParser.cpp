@@ -102,6 +102,7 @@ SharedFunDecl FunDeclParser::parse(){
             throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
         if(funNameId==OperatorFunctions::EQUALS_NAME&&*funReturnType->getName()!=*Type::BOOL_NAME)
             throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة يساوي يجب أن ترجع قيمة من نوع منطقي.");
+        // FIXME: inc and dec operators must return current type or subtype of it 
     }
 
     auto fun=std::make_shared<FunDecl>(
