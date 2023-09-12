@@ -148,16 +148,16 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
             unaryOpName==OperatorFunctions::DEC_NAME
         ){
 
-            auto ex=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
+            auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
 
             // TODO: the message
-            if(!ex)
+            if(!assignEx)
                 throw;
             
             return std::make_shared<IncDecExpression::PreIncDecExpression>(
                 lineNumber,
                 unaryOpName,
-                ex
+                assignEx
             );
 
         }
@@ -189,12 +189,39 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
     else
         return nullptr;
 
-    if(!iterator->currentMatch(SymbolToken::DOT))
+    if(iterator->currentMatch(SymbolToken::DOT)){
+        iterator->next();
+        primary=parseNonStaticAccessExpression(primary);
+    }
+
+    if(
+        !iterator->currentMatch(SymbolToken::PLUS_PLUS)
+        &&
+        !iterator->currentMatch(SymbolToken::MINUS_MINUS)
+    ){
         return primary;
+    }
     
+    int lineNumber=iterator->lineNumber;
+
+    auto postOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(
+        *iterator->currentToken()
+    );
+
+    auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
+
+    // TODO: the message
+    if(!assignEx)
+        throw;
+
     iterator->next();
     
-    return parseNonStaticAccessExpression(primary);
+    return std::make_shared<IncDecExpression::PostIncDecExpression>(
+        lineNumber,
+        postOpName,
+        assignEx
+    );
+    
 }
 
 SharedIExpression ExpressionParser::parseParenthesesExpression(){
