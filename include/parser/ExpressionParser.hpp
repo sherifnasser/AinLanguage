@@ -22,6 +22,8 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parsePrimaryExpression();
 
+        SharedIExpression parseUnaryOperatorExpression();
+
         SharedIExpression parseParenthesesExpression();
 
         SharedIExpression parseLiteralExpression();
@@ -31,6 +33,8 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
         SharedIExpression parseNewObjectExpression();
 
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
+
+        SharedIExpression parsePostIncDecExpression(SharedIExpression inside);
         
         bool currentMatchByPrecedence(int precedence);
 

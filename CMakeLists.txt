@@ -154,3 +154,10 @@ add_executable(pretty_print ExpressionPrettyPrintTest.cpp)
 
 # Link Catch2 library to the test executable
 target_link_libraries(pretty_print ainsrc)
+
+# Make executables in build/bin
+set_target_properties(ain PROPERTIES RUNTIME_OUTPUT_DIRECTORY bin/)
+
+set_target_properties(unit_tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY bin/)
+
+set_target_properties(pretty_print PROPERTIES RUNTIME_OUTPUT_DIRECTORY bin/)
