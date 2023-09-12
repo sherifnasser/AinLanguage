@@ -1,4 +1,5 @@
 #include "ExpressionParser.hpp"
+#include "AssignStatement.hpp"
 #include "BoolValue.hpp"
 #include "CharValue.hpp"
 #include "CompareToExpression.hpp"
@@ -6,6 +7,7 @@
 #include "EqualityExpression.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
+#include "IncDecExpression.hpp"
 #include "IntValue.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -122,7 +124,6 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
     return left;
 }
 
-
 SharedIExpression ExpressionParser::parsePrimaryExpression(){
     
     SharedIExpression primary;
@@ -140,6 +141,26 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
         auto lineNumber=iterator->lineNumber;
 
         primary=parsePrimaryExpression();
+        
+        if(
+            unaryOpName==OperatorFunctions::INC_NAME
+            ||
+            unaryOpName==OperatorFunctions::DEC_NAME
+        ){
+
+            auto ex=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
+
+            // TODO: the message
+            if(!ex)
+                throw;
+            
+            return std::make_shared<IncDecExpression::PreIncDecExpression>(
+                lineNumber,
+                unaryOpName,
+                ex
+            );
+
+        }
         
         auto args=std::make_shared<std::vector<SharedIExpression>>(
             std::vector<SharedIExpression>{}

@@ -31,6 +31,7 @@ add_library(ainsrc
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
+    src/expression/IncDecExpression.cpp
     src/expression/CompareToExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
@@ -47,8 +48,8 @@ add_library(ainsrc
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/ain_file/AinFile.cpp
-    src/semantics/TypeChecker.cpp
     src/semantics/ImplicitVarTypeChecker.cpp
+    src/semantics/TypeChecker.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
