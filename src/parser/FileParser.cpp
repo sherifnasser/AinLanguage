@@ -96,7 +96,6 @@ void FileParser::parseFunScope(){
 
     if(*funScope->getDecl()->isOperator)
         throw InvalidOperatorFunDeclarationException(
-            lineNumber,
             L"يجب أن تكون الدالة داخل تصنيف."
         );
 

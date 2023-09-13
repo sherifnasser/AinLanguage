@@ -21,30 +21,25 @@ namespace OperatorFunctions{
     inline auto INC_NAME=L"زد";
     inline auto DEC_NAME=L"أنقص";
 
-    inline int isOperatorFunName(std::wstring name){
-
-        auto BINARY_OPERATORS_NAMES={
+    inline bool isOperatorFunName(std::wstring name){
+        
+        auto OPERATORS_NAMES={
+            // Binary operators
             PLUS_NAME,MINUS_NAME,
             TIMES_NAME,DIV_NAME,
             MOD_NAME,POW_NAME,
             LOGICAL_AND_NAME,LOGICAL_OR_NAME,
-            COMPARE_TO_NAME,EQUALS_NAME
-        };
-
-        for(auto& binOp:BINARY_OPERATORS_NAMES){
-            if(name==binOp)
-                return 1;
-        }
-
-        auto UNARY_OPERATORS_NAMES={
+            COMPARE_TO_NAME,EQUALS_NAME,
+            // Unary operators
             UNARY_PLUS_NAME,UNARY_MINUS_NAME,NOT_NAME,INC_NAME,DEC_NAME
         };
-        for(auto& binOp:UNARY_OPERATORS_NAMES){
+
+        for(auto& binOp:OPERATORS_NAMES){
             if(name==binOp)
-                return 0;
+                return true;
         }
 
-        return -1;
+        return false;
     }
 
     inline std::wstring getUnaryOperatorFunNameByToken(LexerToken token){

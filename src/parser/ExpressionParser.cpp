@@ -19,6 +19,7 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
+#include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
 #include "SharedPtrTypes.hpp"
@@ -188,9 +189,8 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     
     auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
 
-    // TODO: the message
     if(!assignEx)
-        throw;
+        throw OnlyVariablesAreAssignableException(lineNumber);
     
     return std::make_shared<IncDecExpression::PreIncDecExpression>(
         lineNumber,
@@ -328,14 +328,16 @@ SharedIExpression ExpressionParser::parseNewObjectExpression(){
 
 SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside){
 
+    auto ex=parsePostIncDecExpression(inside);
+
     if(!iterator->currentMatch(SymbolToken::DOT))
-        return inside;
+        return ex;
+    
+    iterator->next();
     
     int lineNumber=iterator->lineNumber;
 
     // TODO: right might be inner class instantiation
-
-    SharedIExpression ex;
 
     auto id=expectIdentifier();
     
@@ -353,8 +355,6 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
             inside
         );
     
-    ex=parsePostIncDecExpression(ex);
-    
     return parseNonStaticAccessExpression(ex);
 }
 
@@ -369,9 +369,8 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
 
     auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(inside);
 
-    // TODO: the message
     if(!assignEx)
-        throw;
+        throw OnlyVariablesAreAssignableException(lineNumber);
 
     iterator->next();
 
