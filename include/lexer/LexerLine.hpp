@@ -32,12 +32,15 @@ class LexerLine:public ILexerLine{
         bool isNotNullToken(SharedLexerToken token);
         SharedLexerToken findStringOrCharToken();
         SharedLexerToken findCommentToken();
+        SharedLexerToken findDelimitedCommentToken();
         SharedLexerToken findSymbolToken();
         SharedLexerToken findNumberToken();
         SharedLexerToken findIdentifierOrKeywordToken();
+        SharedLexerToken findSpaceToken();
+        SharedLexerToken getCurrentTokenAsComment();
         void skipAfterNonDecIntDigitArray(NUM_SYS numSys);
         NumberToken::NUMBER_TYPE skipAfterDecDigitArray();
-        // Skip digits after findng an 'e' in a double number token starting from [tokenEndIndex]
+        // Skip digits after finding an 'e' in a double number token starting from [tokenEndIndex]
         void skipDigitsAfterExponent();
         void skipAfterDigitArray(int startFrom,NUM_SYS numSys=NUM_SYS::DEC); // Default is decimal
         void getIntNumberToken(std::wstring* number,NumberToken::NUMBER_TYPE* numType,NUM_SYS numSys);
@@ -45,6 +48,7 @@ class LexerLine:public ILexerLine{
         void getFloatNumberToken(std::wstring* number);
         void checkIsKufrOrUnsupportedCharacter(const wchar_t &c);
     public:
+        static int openedDelimitedCommentsCount;
         LexerLine(std::wstring &line,int lineNumber);
         void tokenize()override;
 };

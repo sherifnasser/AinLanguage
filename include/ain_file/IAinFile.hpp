@@ -6,9 +6,17 @@
 class IAinFile{
 
     protected:
-        virtual void readAinFile(std::string &path)=0;
+        std::string path;
+        std::vector<std::wstring> lines;
+        virtual void readAinFile()=0;
 
     public:
-        virtual std::vector<std::wstring> getLines()=0;
+        std::vector<std::wstring> getLines(){
+            return lines;
+        }
 
+        std::string getPath()const{
+            return path;
+        }
+        
 };

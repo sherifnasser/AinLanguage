@@ -10,11 +10,13 @@ public:
     static bool iskeyword(LexerToken t);
     static KeywordToken VAR;
     static KeywordToken VAL;
+    static KeywordToken OPERATOR;
     static KeywordToken FUN;
     static KeywordToken RETURN;
 
     static KeywordToken PACKAGE;
     static KeywordToken IMPORT;
+    static KeywordToken NEW;
     static KeywordToken CLASS;
     static KeywordToken INTERFACE;
     static KeywordToken OBJECT;

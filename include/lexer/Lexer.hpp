@@ -13,5 +13,5 @@ class Lexer:public ILexer{
     public:
         Lexer(SharedIAinFile ainFile);
         SharedVector<SharedILexerLine> getLexerLines() override;
-        SharedVector<SharedLexerToken> getTokens() override;
+        SharedLinkedList<SharedLexerToken> getTokens() override;
 };

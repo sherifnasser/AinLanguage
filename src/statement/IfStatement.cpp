@@ -1,26 +1,54 @@
 #include "IfStatement.hpp"
+#include "BoolValue.hpp"
+#include "SharedPtrTypes.hpp"
+#include "FunScope.hpp"
 #include "IExpression.hpp"
-#include "KeywordToken.hpp"
-#include "FunScope.hpp" // Should be added to enable casting
+#include "Type.hpp"
+#include "semantics/UnexpectedTypeException.hpp"
 
 IfStatement::IfStatement(
-    SharedFunScope runScope,
+    int lineNumber,
+    SharedStmListScope runScope,
     SharedIExpression ifCondition,
-    SharedVector<SharedIStatement> ifStmList,
-    SharedVector<SharedIStatement> elseStmList
-):IStatement(runScope),
-ifCondition(ifCondition),
-ifStmList(ifStmList),
-elseStmList(elseStmList)
+    SharedStmListScope ifScope,
+    SharedStmListScope elseScope
+)
+    : IStatement(lineNumber,runScope),
+      ifCondition(ifCondition),
+      ifScope(ifScope),
+      elseScope(elseScope)
 {}
 
+void IfStatement::check(){
+    ifCondition->check(runScope);
+
+    if(ifCondition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *ifCondition->getReturnType()->getName()
+        );
+    
+    ifScope->check();
+    elseScope->check();
+}
+
 void IfStatement::run(){
-    auto vars_size_before=runScope->getVars()->size();
-    auto isIfConditionTrue=ifCondition->evaluate(runScope) == KeywordToken::TRUE.getVal();
-    auto stmList=(isIfConditionTrue)?ifStmList:elseStmList;
+
+    SharedStmList stmList;
+
+    if(ifCondition->evaluateAs<BoolValue>()->getValue()){
+        stmList=ifScope->getStmList();
+    }
+    else if(elseScope){
+        stmList=elseScope->getStmList();
+    }
+    else return;
+    
+    auto funScope=BaseScope::getContainingFun(runScope);
     for(auto stm:*stmList){
         stm->run();
+        if(funScope->getReturnValue())
+            break;
     }
-    // pop all defined variables in if statement
-    runScope->getVars()->resize(vars_size_before);
 }

@@ -1,16 +1,19 @@
 #include<iostream>
 #include<memory>
+#include <string>
 #include<vector>
 #include<limits>
 #include<algorithm>
+#include"LinkedList.hpp"
 #include"LexerLine.hpp"
 #include"LiteralToken.hpp"
 #include"NumberToken.hpp"
+#include "SharedPtrTypes.hpp"
 #include"SymbolToken.hpp"
 #include"KeywordToken.hpp"
 #include"wchar_t_helper.hpp"
 #include"string_helper.hpp"
-#include"MissingQouteException.hpp"
+#include"MissingQuoteException.hpp"
 #include"UnsupportedTokenException.hpp"
 #include"IllegalUnderscoreException.hpp"
 #include"OutOfRangeException.hpp"
@@ -26,16 +29,18 @@ void LexerLine::checkIsKufrOrUnsupportedCharacter(const wchar_t &c){
         throw ContainsKufrOrUnsupportedCharacterException(lineNumber,line);
 }
 
+int LexerLine::openedDelimitedCommentsCount=0;
+
 LexerLine::LexerLine(std::wstring &line,int lineNumber){
     this->line=line;
     this->lineNumber=lineNumber;
-    this->tokens=std::make_shared<std::vector<SharedLexerToken>>();
+    this->tokens=std::make_shared<LinkedList<SharedLexerToken>>();
 }
 
 bool LexerLine::isNotNullToken(SharedLexerToken token){
     if(token==nullptr)
         return false;
-    tokens->push_back(token);
+    tokens->insert(token);
 
     // move to the next token, start and end will be equal
     tokenStartIndex=++tokenEndIndex;
@@ -55,6 +60,11 @@ wchar_t LexerLine::charAt(int index){
 
 void LexerLine::tokenize(){
 
+    while(openedDelimitedCommentsCount>0&&tokenStartIndex<line.size()){
+        auto delimitedCommentToken=findDelimitedCommentToken();
+        isNotNullToken(delimitedCommentToken);
+    }
+
     while(tokenStartIndex<line.size()){
         
         auto stringOrCharToken=findStringOrCharToken();
@@ -63,6 +73,10 @@ void LexerLine::tokenize(){
         
         auto commentToken=findCommentToken();
         if(isNotNullToken(commentToken))
+            continue;
+
+        auto delimitedCommentToken=findDelimitedCommentToken();
+        if(isNotNullToken(delimitedCommentToken))
             continue;
         
         auto symbolToken=findSymbolToken();
@@ -77,16 +91,23 @@ void LexerLine::tokenize(){
         if(isNotNullToken(identifierOrKeywordToken))
             continue;
         
+        auto spaceToken=findSpaceToken();
+        if(isNotNullToken(spaceToken))
+            continue;
+        
         // To skip spaces and tabs, move to the next token, start and end will be equal
-        tokenStartIndex=++tokenEndIndex;
+        //tokenStartIndex=++tokenEndIndex;
     }
+
+    auto eol=std::make_shared<LexerToken>(LexerToken::EOL_TOKEN,getCurrentTokenVal());
+    tokens->insert(eol);
 }
 
 SharedLexerToken LexerLine::findStringOrCharToken(){
     
-    auto qoute=charAt(tokenStartIndex);
-    auto isChar=qoute==L'\'';
-    auto isString=qoute==L'\"';
+    auto quote=charAt(tokenStartIndex);
+    auto isChar=quote==L'\'';
+    auto isString=quote==L'\"';
 
     if(!isChar&&!isString)
         return nullptr;
@@ -95,19 +116,19 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
     
     // append every char in the line until finding another " or '
     std::wstring tokenVal=L"";
-    tokenVal+=qoute; // append first qoute
+    tokenVal+=quote; // append first quote
 
     for(
-        tokenEndIndex=tokenStartIndex+1 /*Start after first qoute*/;
+        tokenEndIndex=tokenStartIndex+1 /*Start after first quote*/;
         tokenEndIndex<line.size();
         tokenEndIndex++
     ){
         auto currentChar=charAt(tokenEndIndex);
 
-        /*If it's qoute (" or ') retuen the token*/
-        if(currentChar==qoute){
-            tokenVal+=qoute;
-            // the size should be 3 for the first, last qoutes and the character between them
+        /*If it's quote (" or ') return the token*/
+        if(currentChar==quote){
+            tokenVal+=quote;
+            // the size should be 3 for the first, last quotes and the character between them
             if(isChar&&tokenVal.size()!=3)
                 throw InvalidLengthCharacterLiteralException(lineNumber,getCurrentTokenVal());
             
@@ -125,7 +146,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         tokenEndIndex++; // get next control char
         currentChar=charAt(tokenEndIndex);
 
-        /*Unicode charaters parsing*/
+        /*Unicode characters parsing*/
         if(currentChar==L'ي'){
             auto codePoint=line.substr(tokenEndIndex+1,4);
             try{
@@ -149,7 +170,7 @@ SharedLexerToken LexerLine::findStringOrCharToken(){
         }
 
     }
-    throw MissingQouteException(lineNumber,getCurrentTokenVal());
+    throw MissingQuoteException(lineNumber,getCurrentTokenVal());
 }
 
 SharedLexerToken LexerLine::findCommentToken(){
@@ -159,15 +180,50 @@ SharedLexerToken LexerLine::findCommentToken(){
     // may be there is a comment in the line but there're tokens before it, so return to tokenize them
     if(commentIndex!=tokenStartIndex)
         return nullptr;
-    
-    auto comment=line.substr(commentIndex);
 
-    for(auto &c:comment)
-        checkIsKufrOrUnsupportedCharacter(c);
-    
-    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
     tokenEndIndex=line.size()-1;  // last character in comment
-    return token;
+    
+    return getCurrentTokenAsComment();
+}
+
+SharedLexerToken LexerLine::findDelimitedCommentToken(){
+
+
+    if(openedDelimitedCommentsCount==0){
+
+        auto openCommentIndex=line.find(L"/*",tokenStartIndex);
+
+        // may be there is a comment in the line but there're tokens before it, so return to tokenize them
+        if(openCommentIndex!=tokenStartIndex)
+            return nullptr;
+
+    }
+
+    int i=tokenStartIndex;
+    
+    for(;i<line.size();i++){
+
+        if(charAt(i)==L'/'&&charAt(i+1)==L'*'){
+            i++;
+            openedDelimitedCommentsCount++;
+        }
+
+        else if(charAt(i)==L'*'&&charAt(i+1)==L'/'){
+            i++;
+            openedDelimitedCommentsCount--;
+        }
+
+        if(openedDelimitedCommentsCount==0){
+            i++;
+            break;
+        }
+        
+    }
+    
+    tokenEndIndex=i-1;
+
+    return getCurrentTokenAsComment();
+
 }
 
 
@@ -227,7 +283,7 @@ SharedLexerToken LexerLine::findNumberToken(){
     }
 
     /**
-     * If numSys didn't change from previos loop,
+     * If numSys didn't change from previous loop,
      * then skip after a digit array in decimal and change the number type (int, double or float)
     */
     if(numSys==NUM_SYS::DEC)
@@ -333,7 +389,7 @@ NumberToken::NUMBER_TYPE LexerLine::skipAfterDecDigitArray(){
         throw UnsupportedTokenException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
     // numType is int
-    // checking for stopChar after unsinged and long types is in getIntNumberToken
+    // checking for stopChar after unsigned and long types is in getIntNumberToken
     if(stopChar!=L'u'&&stopChar!=L'l')
         throw InvalidIdentifierNameException(lineNumber,getCurrentTokenVal()+stopChar); // append stopChar
     
@@ -495,5 +551,28 @@ SharedLexerToken LexerLine::findIdentifierOrKeywordToken(){
     }
 
     auto token=std::make_shared<LexerToken>(tokenType,val);
+    return token;
+}
+
+SharedLexerToken LexerLine::findSpaceToken(){
+    if(!iswempty(charAt(tokenStartIndex)))
+        return nullptr;
+    int i=tokenStartIndex;
+    while(iswempty(charAt(i)))
+        i++;
+    
+    tokenEndIndex=i-1;
+
+    return std::make_shared<LexerToken>(LexerToken::SPACE_TOKEN,getCurrentTokenVal());
+}
+
+SharedLexerToken LexerLine::getCurrentTokenAsComment(){
+    auto comment=getCurrentTokenVal();
+
+    for(auto &c:comment)
+        checkIsKufrOrUnsupportedCharacter(c);
+    
+    auto token=std::make_shared<LexerToken>(LexerToken::COMMENT_TOKEN,comment);
+
     return token;
 }

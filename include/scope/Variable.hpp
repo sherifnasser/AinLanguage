@@ -1,19 +1,29 @@
 #pragma once
-#include"Scope.hpp"
-
-class Variable
-{
-protected:
-    SharedScope parentScope;
-    std::wstring name;
-    std::wstring type;
-    std::wstring currentVal;
-    bool isInitialized=false;
-
+#include "SharedPtrTypes.hpp"
+class Variable{
+    private:
+        SharedVarDecl decl;
+        SharedVector<SharedIValue> values;
     public:
-        Variable(SharedScope parentScope, std::wstring &name, std::wstring &type);
-        std::wstring getName();
-        std::wstring getType();
-        std::wstring getCurrentValue();
-        virtual void setCurrentValue(std::wstring value);
+        Variable(SharedWString name,SharedType type,SharedBool isVal);
+        Variable(SharedVarDecl decl);
+
+        SharedIValue getValue();
+
+        void setValue(SharedIValue value);
+
+        SharedWString getName();
+
+        SharedBool isValue();
+
+        bool hasImplicitType();
+
+        void pushNewValue();
+
+        void popLastValue();
+
+        SharedType getType();
+
+        void setType(SharedType type);
+
 };

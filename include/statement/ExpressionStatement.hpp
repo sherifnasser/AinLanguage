@@ -1,11 +1,17 @@
 #pragma once
 #include "IStatement.hpp"
 
-class ExpressionStatement:public IStatement
-{
+class ExpressionStatement:public IStatement{
+    
     private:
         SharedIExpression ex;
     public:
-        ExpressionStatement(SharedScope runScope,SharedIExpression ex);
+        ExpressionStatement(
+            int lineNumber,
+            SharedStmListScope runScope,
+            SharedIExpression ex
+        );
+        void check() override;
         void run() override;
+    
 };

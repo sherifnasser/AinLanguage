@@ -1,26 +1,44 @@
 #include "WhileStatement.hpp"
-#include "IExpression.hpp"
+#include "BoolValue.hpp"
+#include "StmListScope.hpp"
 #include "KeywordToken.hpp"
-#include "FunScope.hpp" // Should be added to enable casting
+#include "IExpression.hpp"
+#include "Type.hpp"
+#include "FunScope.hpp"
+#include "semantics/UnexpectedTypeException.hpp"
 
 WhileStatement::WhileStatement(
-    SharedFunScope runScope,
-    SharedIExpression ex,
-    SharedVector<SharedIStatement> stmList
+    int lineNumber,
+    SharedStmListScope runScope,
+    SharedIExpression condition,
+    SharedStmListScope whileScope
 )
-:IStatement(runScope),ex(ex),stmList(stmList){}
+    : IStatement(lineNumber,runScope),
+      condition(condition),
+      whileScope(whileScope)
+{}
+
+void WhileStatement::check(){
+    condition->check(runScope);
+
+    if(condition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *condition->getReturnType()->getName()
+        );
+    
+    whileScope->check();
+}
 
 void WhileStatement::run(){
-
-    auto vars_size_before=runScope->getVars()->size();
-
-    while(ex->evaluate(runScope)==KeywordToken::TRUE.getVal()){ // while the condition is true
+    auto stmList=whileScope->getStmList();
+    auto funScope=BaseScope::getContainingFun(runScope);
+    while(condition->evaluateAs<BoolValue>()->getValue()){
         for(auto stm:*stmList){
             stm->run();
+            if(funScope->getReturnValue())
+                break;
         }
     }
-
-    // pop all defined variables in while IStatement
-    runScope->getVars()->resize(vars_size_before);
-
 }

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <locale>
+#include <codecvt>
 #include "string_helper.hpp"
 bool startsWith(std::string str, std::string prefix)
 {
@@ -58,4 +60,27 @@ wchar_t getEscapeSequenceFromCharacter(const wchar_t& c){
         default:
             std::__throw_invalid_argument("Invalid escape sequence.");
     }
+}
+
+const char* toCharPointer(const std::wstring& wstr) {
+    std::setlocale(0,"en_US.UTF-8");
+        
+    auto wmsg=wstr.c_str();
+    
+    // Get the length of the multibyte string
+    std::size_t len = std::wcstombs(nullptr, wmsg, 0);
+
+    // Allocate a buffer to hold the multibyte string
+    char* mbstr = new char[len + 1];
+
+    // Convert the wide character string to a multibyte character string
+    std::wcstombs(mbstr, wmsg, len + 1);
+
+    return mbstr;
+}
+
+std::wstring toWstring(std::string str){
+    // Create a wide string using the codecvt_utf8_utf16 facet
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    return converter.from_bytes(str);
 }
