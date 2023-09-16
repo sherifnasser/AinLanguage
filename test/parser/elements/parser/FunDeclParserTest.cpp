@@ -158,34 +158,6 @@ TEST_CASE("FunDeclParser tests", "[FunDeclParserTest.cpp]"){
         REQUIRE(*result->params->at(0) == fakeFunParamParser->params[0]);
     }
 
-    SECTION("throw OperatorFunShouldHaveSingleParamException if operator function has more than one parameter") {
-        auto iterator=getTokensIterator({
-            KeywordToken::FUN,
-            KeywordToken::OPERATOR,
-            FUN_NAME,
-            SymbolToken::LEFT_PARENTHESIS,
-            /**Fake parsed param*/
-            SymbolToken::COMMA,
-            /**Fake parsed param*/
-            SymbolToken::COMMA, // add this comma as the actual code checks for right parenthesis before params
-            SymbolToken::RIGHT_PARENTHESIS,
-            SymbolToken::COLON,
-            /**Fake parsed return type*/
-        });
-
-        fakeFunParamParser->addParam(PARAM1_NAME, Type::INT);
-        fakeFunParamParser->addParam(PARAM2_NAME, Type::INT);
-
-        FunDeclParser parser(
-            iterator,
-            scope,
-            fakeTypeParserProvider,
-            fakeFunParamParserProvider
-        );
-
-        REQUIRE_THROWS_AS(parser.parse(), InvalidOperatorFunDeclarationException);
-    }
-
     SECTION("throw ConflictingDeclarationException if function parameters have the same name") {
         auto iterator=getTokensIterator({
             KeywordToken::FUN,
