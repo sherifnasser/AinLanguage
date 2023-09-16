@@ -1,4 +1,5 @@
 #include "ExpressionParser.hpp"
+#include "AssignStatement.hpp"
 #include "BoolValue.hpp"
 #include "CharValue.hpp"
 #include "CompareToExpression.hpp"
@@ -6,6 +7,7 @@
 #include "EqualityExpression.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
+#include "IncDecExpression.hpp"
 #include "IntValue.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -17,6 +19,7 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
+#include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
 #include "SharedPtrTypes.hpp"
@@ -122,26 +125,79 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
     return left;
 }
 
-
 SharedIExpression ExpressionParser::parsePrimaryExpression(){
     
+    if(auto unaryOpEx=parseUnaryOperatorExpression())
+        return unaryOpEx;
+    
     SharedIExpression primary;
+
     if(auto parenthesesEx=parseParenthesesExpression())
         primary=parenthesesEx;
+
     else if(auto literalEx=parseLiteralExpression())
         primary=literalEx;
+
     else if(auto idEx=parseIdentifierExpression())
         primary=idEx;
+
     else if(auto newObjEx=parseNewObjectExpression())
         primary=newObjEx;
+
     else
         return nullptr;
 
-    if(!iterator->currentMatch(SymbolToken::DOT))
-        return primary;
+    return parseNonStaticAccessExpression(primary);
+    
+}
+
+SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
+    
+    auto unaryOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(
+        *iterator->currentToken()
+    );
+
+    auto isCurrentTokenUnaryOperator=unaryOpName!=L"";
+
+    if(!isCurrentTokenUnaryOperator)
+        return nullptr;
     
     iterator->next();
-    return parseNonStaticAccessExpression(primary);
+    
+    auto lineNumber=iterator->lineNumber;
+
+    auto primary=parsePrimaryExpression();
+    
+    if(
+        unaryOpName!=OperatorFunctions::INC_NAME
+        &&
+        unaryOpName!=OperatorFunctions::DEC_NAME
+    ){
+
+        auto args=std::make_shared<std::vector<SharedIExpression>>(
+            std::vector<SharedIExpression>{}
+        );
+
+        return std::make_shared<OperatorFunInvokeExpression>(
+            lineNumber,
+            unaryOpName,
+            args,
+            primary
+        );
+
+    }
+    
+    auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
+
+    if(!assignEx)
+        throw OnlyVariablesAreAssignableException(lineNumber);
+    
+    return std::make_shared<IncDecExpression::PreIncDecExpression>(
+        lineNumber,
+        unaryOpName,
+        assignEx
+    );
+    
 }
 
 SharedIExpression ExpressionParser::parseParenthesesExpression(){
@@ -270,13 +326,18 @@ SharedIExpression ExpressionParser::parseNewObjectExpression(){
     return newObjEx;
 }
 
-SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside) {
+SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside){
+
+    auto ex=parsePostIncDecExpression(inside);
+
+    if(!iterator->currentMatch(SymbolToken::DOT))
+        return ex;
+    
+    iterator->next();
     
     int lineNumber=iterator->lineNumber;
 
     // TODO: right might be inner class instantiation
-
-    SharedIExpression ex;
 
     auto id=expectIdentifier();
     
@@ -293,13 +354,31 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
             id,
             inside
         );
-
-    if(!iterator->currentMatch(SymbolToken::DOT))
-        return ex;
-    
-    iterator->next();
     
     return parseNonStaticAccessExpression(ex);
+}
+
+SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression inside){
+
+    auto postOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(*iterator->currentToken());
+
+    if(postOpName!=OperatorFunctions::INC_NAME&&postOpName!=OperatorFunctions::DEC_NAME)
+        return inside;
+
+    auto lineNumber=iterator->lineNumber;
+
+    auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(inside);
+
+    if(!assignEx)
+        throw OnlyVariablesAreAssignableException(lineNumber);
+
+    iterator->next();
+
+    return std::make_shared<IncDecExpression::PostIncDecExpression>(
+        lineNumber,
+        postOpName,
+        assignEx
+    );
 }
 
 bool ExpressionParser::currentMatchByPrecedence(int precedence){

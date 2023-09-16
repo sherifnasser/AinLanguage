@@ -94,6 +94,30 @@ class BuiltInFunScope:public FunScope{
             SharedType returnType
         );
 
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getUnaryPlusFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getUnaryMinusFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getIncFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getDecFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
         template <typename PrimitiveType>
         static inline std::shared_ptr<BuiltInFunScope> getToIntFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope
@@ -161,11 +185,13 @@ class BuiltInFunScope:public FunScope{
             std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> invokeFun,
             bool isOperator=false
         );
+
         ~BuiltInFunScope();
         
         SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params) override;
 
         static void addBuiltInFunctionsTo(SharedFileScope fileScope);
+
         static void addBuiltInFunctionsToBuiltInClasses();
 };
 
@@ -323,6 +349,74 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getToAnotherTypeFun(
         [=](SharedMap<std::wstring, SharedIValue> params){
             auto val=classScope->getValue();
             return std::make_shared<ReturnValue>(val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryPlusFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::UNARY_PLUS_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryMinusFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::UNARY_MINUS_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(-val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getIncFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::INC_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(++val);
+        },
+        true
+    );
+}
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getDecFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::DEC_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto val=classScope->getValue();
+            return std::make_shared<ReturnValue>(--val);
         },
         true
     );

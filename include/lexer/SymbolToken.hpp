@@ -17,6 +17,7 @@ public:
 
     static SymbolToken COMMA;
     static SymbolToken COLON;
+    static SymbolToken DOUBLE_COLONS;
     static SymbolToken SEMICOLON;
 
     static SymbolToken QUESTION_MARK;
@@ -35,6 +36,9 @@ public:
     static SymbolToken EQUAL;
     static SymbolToken MODULO;
     static SymbolToken POWER;
+
+    static SymbolToken PLUS_PLUS;
+    static SymbolToken MINUS_MINUS;
 
     static SymbolToken GREATER_EQUAL;
     static SymbolToken LESS_EQUAL;

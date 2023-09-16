@@ -52,8 +52,8 @@ SharedFunDecl FunDeclParser::parse(){
 
     auto expectedParamsSize=(*isOperator)?OperatorFunctions::isOperatorFunName(funNameId):-1;
 
-    if(*isOperator&&expectedParamsSize==-1)
-        throw InvalidOperatorFunDeclarationException(lineNumber,L"اسم الدالة غير صالح");
+    if(*isOperator&&!OperatorFunctions::isOperatorFunName(funNameId))
+        throw InvalidOperatorFunDeclarationException(L"اسم الدالة غير صالح");
 
     auto funName=std::make_shared<std::wstring>(funNameId);
 
@@ -81,27 +81,13 @@ SharedFunDecl FunDeclParser::parse(){
         
     }while(iterator->currentMatch(SymbolToken::COMMA));
 
-    if(*isOperator&&params->size()!=expectedParamsSize)
-        throw InvalidOperatorFunDeclarationException(lineNumber,L"عدد المعاملات غير صالح لدالة "+funNameId);
-
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
     SharedType funReturnType;
 
-    auto colonFound=false;
-    
-    try{
-        expectNextSymbol(SymbolToken::COLON);
-        colonFound=true;
-    }catch(UnexpectedTokenException& e){}
-
-    if(colonFound){
+    if(iterator->nextMatch(SymbolToken::COLON)){
         iterator->next();
         funReturnType=returnTypeParser->parse();
-        if(funNameId==OperatorFunctions::COMPARE_TO_NAME&&*funReturnType->getName()!=*Type::INT_NAME)
-            throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
-        if(funNameId==OperatorFunctions::EQUALS_NAME&&*funReturnType->getName()!=*Type::BOOL_NAME)
-            throw InvalidOperatorFunDeclarationException(lineNumber,L"دالة يساوي يجب أن ترجع قيمة من نوع منطقي.");
     }
 
     auto fun=std::make_shared<FunDecl>(

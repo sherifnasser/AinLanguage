@@ -8,7 +8,10 @@
 SCENARIO("Test AinFile.cpp","[AinFileTest.cpp]"){
     GIVEN("A file"){
         WHEN("format is *.ain, file exists"){
-            std::string path="../test/ain_file/testPass.ain";
+            /*
+            You should run tests from the directory of unit_tests test as it is in build/bin
+            */
+            std::string path="../../test/ain_file/testPass.ain";
             AinFile file(path);
             std::vector<std::wstring> LINES={L"##",L"This for testing AinFile.cpp",L"##"};
             THEN("read lines in file"){
