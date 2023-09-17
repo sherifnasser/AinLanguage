@@ -58,8 +58,8 @@ KeywordToken KeywordToken::WHEN=KeywordToken(L"عندما"); // as switch
 KeywordToken KeywordToken::FOR=KeywordToken(L"لأجل");
 KeywordToken KeywordToken::DO=KeywordToken(L"افعل");
 KeywordToken KeywordToken::WHILE=KeywordToken(L"طالما");
-KeywordToken KeywordToken::BREAK=KeywordToken(L"اكسر");
-KeywordToken KeywordToken::CONTINUE=KeywordToken(L"استكمل");
+KeywordToken KeywordToken::BREAK=KeywordToken(L"أخرج");
+KeywordToken KeywordToken::CONTINUE=KeywordToken(L"أكمل");
 
 KeywordToken KeywordToken::THROW=KeywordToken(L"اعترض");
 KeywordToken KeywordToken::TRY=KeywordToken(L"حاول");

@@ -1,11 +1,14 @@
 #include "StmListParser.hpp"
 #include "AssignStatement.hpp"
+#include "BreakStatement.hpp"
+#include "ContinueStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "ExpressionExpectedException.hpp"
 #include "ExpressionStatement.hpp"
 #include "IfStatement.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
+#include "LoopScope.hpp"
 #include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
@@ -13,6 +16,7 @@
 #include "ReturnStatement.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StatementExpectedException.hpp"
+#include "StmShouldBeUsedInsideLoopException.hpp"
 #include "SymbolToken.hpp"
 #include "StmListScope.hpp"
 #include "Type.hpp"
@@ -104,6 +108,10 @@ SharedIStatement StmListParser::parseNextStatement(SharedStmListScope parentScop
     if(returnStm)
         return returnStm;
 
+    auto breakContinueStm=parseBreakContinueStatement(parentScope);
+    if(breakContinueStm)
+        return breakContinueStm;
+
     auto exStm=parseExpressionStatement(parentScope);
 
     return exStm;
@@ -182,7 +190,7 @@ SharedIStatement StmListParser::parseWhileStatement(SharedStmListScope parentSco
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto whileScope=std::make_shared<StmListScope>(L"طالما",parentScope);
+    auto whileScope=std::make_shared<LoopScope>(parentScope);
 
     iterator->next();
 
@@ -203,7 +211,7 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
 
     int lineNumber=iterator->lineNumber;
 
-    auto doWhileScope=std::make_shared<StmListScope>(L"افعل-طالما",parentScope);
+    auto doWhileScope=std::make_shared<LoopScope>(parentScope);
 
     iterator->next();
 
@@ -254,6 +262,32 @@ SharedIStatement StmListParser::parseReturnStatement(SharedStmListScope parentSc
         parentScope,
         ex
     );
+}
+
+SharedIStatement StmListParser::parseBreakContinueStatement(SharedStmListScope parentScope){
+
+    auto isBreak=iterator->currentMatch(KeywordToken::BREAK);
+    auto isContinue=iterator->currentMatch(KeywordToken::CONTINUE);
+
+    if(!isBreak&&!isContinue)
+        return nullptr;
+
+    auto loopScope=BaseScope::getContainingLoop(parentScope);
+    
+    int lineNumber=iterator->lineNumber;
+
+    if(!loopScope)
+        throw StmShouldBeUsedInsideLoopException(
+            lineNumber,
+            ((isBreak)?KeywordToken::BREAK.getVal():KeywordToken::CONTINUE.getVal())
+        );
+    
+    iterator->next();
+
+    if(isBreak)
+        return std::make_shared<BreakStatement>(lineNumber,parentScope,loopScope);
+
+    return std::make_shared<ContinueStatement>(lineNumber,parentScope,loopScope);
 }
 
 SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope parentScope){

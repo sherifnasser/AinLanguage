@@ -8,6 +8,7 @@ class IfStatement:public IStatement
         SharedIExpression ifCondition;
         SharedStmListScope ifScope;
         SharedStmListScope elseScope;
+        SharedFunScope containingFunScope;
 
     public:
         IfStatement(

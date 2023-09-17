@@ -4,7 +4,7 @@
 #include "FunScope.hpp"
 #include "IExpression.hpp"
 #include "Type.hpp"
-#include "semantics/UnexpectedTypeException.hpp"
+#include "UnexpectedTypeException.hpp"
 
 IfStatement::IfStatement(
     int lineNumber,
@@ -16,7 +16,8 @@ IfStatement::IfStatement(
     : IStatement(lineNumber,runScope),
       ifCondition(ifCondition),
       ifScope(ifScope),
-      elseScope(elseScope)
+      elseScope(elseScope),
+      containingFunScope(BaseScope::getContainingFun(runScope))
 {}
 
 void IfStatement::check(){
@@ -30,7 +31,9 @@ void IfStatement::check(){
         );
     
     ifScope->check();
-    elseScope->check();
+
+    if(elseScope)
+        elseScope->check();
 }
 
 void IfStatement::run(){
@@ -45,10 +48,9 @@ void IfStatement::run(){
     }
     else return;
     
-    auto funScope=BaseScope::getContainingFun(runScope);
     for(auto stm:*stmList){
         stm->run();
-        if(funScope->getReturnValue())
+        if(containingFunScope->getReturnValue())
             break;
     }
 }
