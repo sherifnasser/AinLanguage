@@ -36,21 +36,24 @@ paramsParser(
 
 SharedFunDecl FunDeclParser::parse(){
 
-    if(!iterator->currentMatch(KeywordToken::FUN))
+    bool isConstructor=false;
+
+    if(iterator->currentMatch(KeywordToken::NEW))
+        isConstructor=true;
+
+    else if(!iterator->currentMatch(KeywordToken::FUN))
         return nullptr;
     
     auto isOperator=std::make_shared<bool>(false);
 
-    if(iterator->nextMatch(KeywordToken::OPERATOR)){
+    if(!isConstructor&&iterator->nextMatch(KeywordToken::OPERATOR)){
         *isOperator=true;
         iterator->next();
     }
 
-    auto funNameId=expectIdentifier();
+    auto funNameId=(isConstructor)?KeywordToken::NEW.getVal():expectIdentifier();
 
     int lineNumber=iterator->lineNumber;
-
-    auto expectedParamsSize=(*isOperator)?OperatorFunctions::isOperatorFunName(funNameId):-1;
 
     if(*isOperator&&!OperatorFunctions::isOperatorFunName(funNameId))
         throw InvalidOperatorFunDeclarationException(L"اسم الدالة غير صالح");
@@ -85,17 +88,25 @@ SharedFunDecl FunDeclParser::parse(){
 
     SharedType funReturnType;
 
+    if(isConstructor)
+        funReturnType=Type::UNIT;
+
     if(iterator->nextMatch(SymbolToken::COLON)){
         iterator->next();
-        funReturnType=returnTypeParser->parse();
+        
+        // TODO: support calling other constructors and inheriting super constructors
+        if(isConstructor)
+            throw;
+            
+        else
+            funReturnType=returnTypeParser->parse();
+       
     }
 
-    auto fun=std::make_shared<FunDecl>(
+    return std::make_shared<FunDecl>(
         funName,
         funReturnType,
         isOperator,
         params
     );
-
-    return fun;
 }

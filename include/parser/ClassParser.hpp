@@ -12,8 +12,8 @@ class ClassParser:public BaseParser<SharedClassScope>{
         VisibilityModifier visibility;
         void resetVisibility();
         void parseVisibility();
-        void parseFunScope(SharedClassScope parentScope);
-        void parseVarStm(SharedClassScope parentScope);
+        void parseFunScope(SharedType parentType);
+        void parseVarStm(SharedType parentType);
     public:
         ClassParser(
             SharedTokensIterator iterator,

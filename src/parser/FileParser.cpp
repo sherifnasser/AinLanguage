@@ -1,5 +1,6 @@
 #include "FileParser.hpp"
 #include "ConflictingDeclarationException.hpp"
+#include "InvalidConstructorDeclarationException.hpp"
 #include "InvalidOperatorFunDeclarationException.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -96,6 +97,11 @@ void FileParser::parseFunScope(){
 
     if(*funScope->getDecl()->isOperator)
         throw InvalidOperatorFunDeclarationException(
+            L"يجب أن تكون الدالة داخل تصنيف."
+        );
+
+    if(funScope->getDecl()->isConstructor())
+        throw InvalidConstructorDeclarationException(
             L"يجب أن تكون الدالة داخل تصنيف."
         );
 

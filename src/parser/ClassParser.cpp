@@ -49,6 +49,11 @@ SharedClassScope ClassParser::parse(){
         )
     );
 
+    auto type=std::make_shared<Type>(
+        std::make_shared<std::wstring>(className),
+        classScope
+    );
+
     resetVisibility();
     
     while(iterator->currentTokenType()!=LexerToken::EOF_TOKEN){
@@ -56,19 +61,15 @@ SharedClassScope ClassParser::parse(){
         if(iterator->currentMatch(SymbolToken::RIGHT_CURLY_BRACES))
             break;
         
-        parseFunScope(classScope);
+        parseFunScope(type);
         
-        parseVarStm(classScope);
+        parseVarStm(type);
 
     }
     
     expectSymbol(SymbolToken::RIGHT_CURLY_BRACES);
-    iterator->next();
 
-    auto type=std::make_shared<Type>(
-        std::make_shared<std::wstring>(className),
-        classScope
-    );
+    iterator->next();
 
     if(classScope->getPublicConstructors()->empty()&&classScope->getPrivateConstructors()->empty()){
         // Add default constructor
@@ -78,7 +79,8 @@ SharedClassScope ClassParser::parse(){
             type,
             std::map<std::wstring,SharedType>(),
             [=](SharedMap<std::wstring,SharedIValue>){
-                auto properties=classScope->runPrimaryConstructor();
+                classScope->runPrimaryConstructor();
+                auto properties=classScope->popLastProperties();
                 return std::make_shared<ObjectValue>(type,properties);
             }
         );
@@ -109,29 +111,55 @@ void ClassParser::parseVisibility(){
 
 }
 
-void ClassParser::parseFunScope(SharedClassScope parentScope){
+void ClassParser::parseFunScope(SharedType parentType){
 
     parseVisibility();
 
     auto lineNumber=iterator->lineNumber;
+
+    auto parentScope=parentType->getClassScope();
     
     auto funScope=funParserProvider(iterator,parentScope)->parse();
 
     if(!funScope)
         return;
+        
+    auto decl=funScope->getDecl();
     
-    auto decl=funScope->getDecl()->toString();
+    auto declStr=decl->toString();
 
-    if(parentScope->findPrivateFunction(decl)||parentScope->findPublicFunction(decl))
+    auto isConstructor=decl->isConstructor();
+
+    if(isConstructor)
+        decl->returnType=parentType;
+
+    if(
+        isConstructor
+        &&
+        (parentScope->findPublicConstructor(declStr)||parentScope->findPrivateConstructor(declStr))
+
+        ||
+
+        !isConstructor
+        &&
+        (parentScope->findPrivateFunction(declStr)||parentScope->findPublicFunction(declStr))
+
+    )
         throw ConflictingDeclarationException(lineNumber);
     
     switch (visibility){
         case VisibilityModifier::PUBLIC:
-            (*parentScope->getPublicFunctions())[decl]=funScope;
+            ((isConstructor)?
+                *parentScope->getPublicConstructors():
+                *parentScope->getPublicFunctions()
+            )[declStr]=funScope;
             break;
 
         case VisibilityModifier::PRIVATE:
-            (*parentScope->getPrivateFunctions())[decl]=funScope;
+            ((isConstructor)?
+                *parentScope->getPrivateConstructors():
+                *parentScope->getPrivateFunctions()
+            )[declStr]=funScope;
             break;
 
         default:{}
@@ -140,11 +168,13 @@ void ClassParser::parseFunScope(SharedClassScope parentScope){
     resetVisibility();
 }
 
-void ClassParser::parseVarStm(SharedClassScope parentScope){
+void ClassParser::parseVarStm(SharedType parentType){
     
     parseVisibility();
 
-    auto lineNumber=iterator->lineNumber; 
+    auto lineNumber=iterator->lineNumber;
+
+    auto parentScope=parentType->getClassScope();
    
     auto varStm=varStmParserProvider(iterator,parentScope)->parse();
 

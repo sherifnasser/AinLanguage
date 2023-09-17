@@ -132,19 +132,28 @@ void ClassScope::setPrimaryConstructor(SharedStmListScope primaryConstructor){
     this->primaryConstructor=primaryConstructor;
 }
 
-SharedMap<std::wstring, SharedIValue> ClassScope::runPrimaryConstructor(){
+void ClassScope::runPrimaryConstructor(){
+
+    pushNewProperties();
+
+    auto stmList=primaryConstructor->getStmList();
+
+    for(auto stm:*stmList){
+        stm->run();
+    }
+}
+
+void ClassScope::pushNewProperties(){
     for(auto varIt:*privateVariables){
         varIt.second->pushNewValue();
     }
     for(auto varIt:*publicVariables){
         varIt.second->pushNewValue();
     }
-    auto stmList=primaryConstructor->getStmList();
+}
 
-    for(auto stm:*stmList){
-        stm->run();
-    }
-
+SharedMap<std::wstring, SharedIValue> ClassScope::popLastProperties(){
+    
     auto properties=std::make_shared<std::map<std::wstring, SharedIValue>>();
     for(auto varIt:*privateVariables){
         (*properties)[varIt.first]=varIt.second->getValue();

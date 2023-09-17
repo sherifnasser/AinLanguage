@@ -59,5 +59,9 @@ class ClassScope: public BaseScope{
 
         void setPrimaryConstructor(SharedStmListScope primaryConstructor);
 
-        SharedMap<std::wstring, SharedIValue> runPrimaryConstructor(); 
+        void runPrimaryConstructor();
+
+        void pushNewProperties();
+
+        SharedMap<std::wstring, SharedIValue> popLastProperties();
 };
