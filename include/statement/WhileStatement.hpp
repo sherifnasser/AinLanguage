@@ -4,16 +4,16 @@
 
 class WhileStatement:public IStatement
 {
-    private:
+    protected:
         SharedIExpression condition;
-        SharedStmListScope whileScope;
+        SharedLoopScope loopScope;
 
     public:
         WhileStatement(
             int lineNumber,
             SharedStmListScope runScope,
             SharedIExpression condition,
-            SharedStmListScope whileScope
+            SharedLoopScope loopScope
         );
         void check() override;
         void run() override;

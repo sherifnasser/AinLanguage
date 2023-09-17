@@ -1,20 +1,10 @@
 #pragma once
-#include "IStatement.hpp"
 #include "SharedPtrTypes.hpp"
+#include "WhileStatement.hpp"
 
-class DoWhileStatement:public IStatement
+class DoWhileStatement:public WhileStatement
 {
-    private:
-        SharedIExpression condition;
-        SharedStmListScope doWhileScope;
-    
     public:
-        DoWhileStatement(
-            int lineNumber,
-            SharedStmListScope runScope,
-            SharedIExpression condition,
-            SharedStmListScope doWhileScope
-        );
-        void check() override;
+        using WhileStatement::WhileStatement;
         void run() override;
 };
