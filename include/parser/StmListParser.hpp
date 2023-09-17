@@ -23,5 +23,6 @@ class StmListParser:public BaseParser<SharedStmList>{
         SharedIStatement parseWhileStatement(SharedStmListScope parentScope);
         SharedIStatement parseDoWhileStatement(SharedStmListScope parentScope);
         SharedIStatement parseReturnStatement(SharedStmListScope parentScope);
+        SharedIStatement parseBreakContinueStatement(SharedStmListScope parentScope);
         SharedIStatement parseExpressionStatement(SharedStmListScope parentScope);
 };

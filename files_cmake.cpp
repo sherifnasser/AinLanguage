@@ -60,13 +60,19 @@ void write_to_cmake_file(){
         new_cmake_lines.push_back(SRC_FILES+"\n");
         new_cmake_lines.push_back(INCLUDE+"\n");
         new_cmake_lines.push_back(TEST_SRC_FILES+"\n");
-        new_cmake_lines.push_back(end+"\n");
+        new_cmake_lines.push_back(end);
     }
     
     std::ofstream file("CMakeLists.txt");
-    for(auto &line:new_cmake_lines){
+
+    auto lastLineIndex=new_cmake_lines.size()-1;
+
+    for(int i=0;i<lastLineIndex;i++){
+        auto &line=new_cmake_lines[i];
         file<<line<<endl;
     }
+    file<<new_cmake_lines[lastLineIndex];
+
     file.close();
 }
 

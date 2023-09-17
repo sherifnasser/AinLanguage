@@ -41,6 +41,7 @@ add_library(ainsrc
     src/scope/BaseScope.cpp
     src/scope/function/BuiltInFunScope.cpp
     src/scope/PackageScope.cpp
+    src/scope/LoopScope.cpp
     src/scope/FunScope.cpp
     src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
@@ -53,10 +54,12 @@ add_library(ainsrc
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
+    src/statement/ContinueStatement.cpp
     src/statement/DoWhileStatement.cpp
     src/statement/ExpressionStatement.cpp
     src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp
+    src/statement/BreakStatement.cpp
     src/statement/VarStm.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp
