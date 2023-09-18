@@ -1,5 +1,6 @@
 #include "ClassScope.hpp"
 #include "FunScope.hpp"
+#include "ConstructorScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "IStatement.hpp"
@@ -12,8 +13,8 @@ ClassScope::ClassScope(std::wstring name,SharedBaseScope parentScope)
     :BaseScope(name,parentScope),
     publicFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
     privateFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    publicConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    privateConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
+    publicConstructors(std::make_shared<std::map<std::wstring,SharedConstructorScope>>()),
+    privateConstructors(std::make_shared<std::map<std::wstring,SharedConstructorScope>>()),
     publicClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
     privateClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
     publicVariables(std::make_shared<std::map<std::wstring,SharedVariable>>()),
@@ -30,11 +31,11 @@ SharedMap<std::wstring,SharedFunScope> ClassScope::getPrivateFunctions()const{
     return this->privateFunctions;
 }
 
-SharedMap<std::wstring,SharedFunScope> ClassScope::getPublicConstructors() const {
+SharedMap<std::wstring,SharedConstructorScope> ClassScope::getPublicConstructors() const {
     return this->publicConstructors;
 }
 
-SharedMap<std::wstring,SharedFunScope> ClassScope::getPrivateConstructors() const {
+SharedMap<std::wstring,SharedConstructorScope> ClassScope::getPrivateConstructors() const {
     return this->privateConstructors;
 }
 
@@ -72,7 +73,7 @@ SharedFunScope ClassScope::findPrivateFunction(std::wstring decl){
     return nullptr;
 }
 
-SharedFunScope ClassScope::findPublicConstructor(std::wstring decl) {
+SharedConstructorScope ClassScope::findPublicConstructor(std::wstring decl) {
     auto constructorIterator=publicConstructors->find(decl);
 
     if(constructorIterator!=publicConstructors->end())
@@ -81,7 +82,7 @@ SharedFunScope ClassScope::findPublicConstructor(std::wstring decl) {
     return nullptr;
 }
 
-SharedFunScope ClassScope::findPrivateConstructor(std::wstring decl) {
+SharedConstructorScope ClassScope::findPrivateConstructor(std::wstring decl) {
     auto constructorIterator=privateConstructors->find(decl);
 
     if(constructorIterator!=privateConstructors->end())
@@ -132,19 +133,28 @@ void ClassScope::setPrimaryConstructor(SharedStmListScope primaryConstructor){
     this->primaryConstructor=primaryConstructor;
 }
 
-SharedMap<std::wstring, SharedIValue> ClassScope::runPrimaryConstructor(){
+void ClassScope::runPrimaryConstructor(){
+
+    pushNewProperties();
+
+    auto stmList=primaryConstructor->getStmList();
+
+    for(auto stm:*stmList){
+        stm->run();
+    }
+}
+
+void ClassScope::pushNewProperties(){
     for(auto varIt:*privateVariables){
         varIt.second->pushNewValue();
     }
     for(auto varIt:*publicVariables){
         varIt.second->pushNewValue();
     }
-    auto stmList=primaryConstructor->getStmList();
+}
 
-    for(auto stm:*stmList){
-        stm->run();
-    }
-
+SharedMap<std::wstring, SharedIValue> ClassScope::popLastProperties(){
+    
     auto properties=std::make_shared<std::map<std::wstring, SharedIValue>>();
     for(auto varIt:*privateVariables){
         (*properties)[varIt.first]=varIt.second->getValue();

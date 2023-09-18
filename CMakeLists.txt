@@ -45,6 +45,7 @@ add_library(ainsrc
     src/scope/FunScope.cpp
     src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
+    src/scope/ConstructorScope.cpp
     src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp

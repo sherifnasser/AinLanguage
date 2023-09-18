@@ -4,7 +4,7 @@
 #include "FunDecl.hpp"
 #include "FunInvokeExpression.hpp"
 #include "FunParam.hpp"
-#include "FunScope.hpp"
+#include "ConstructorScope.hpp"
 #include "FunctionNotFoundException.hpp"
 #include "IExpression.hpp"
 #include "KeywordToken.hpp"

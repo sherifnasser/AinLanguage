@@ -14,6 +14,4 @@ SharedIValue UnitExpression::evaluate() {
     return std::make_shared<UnitValue>();
 }
 
-void UnitExpression::check(SharedBaseScope checkScope) {
-    
-}
+void UnitExpression::check(SharedBaseScope checkScope){}

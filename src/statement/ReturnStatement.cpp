@@ -4,8 +4,10 @@
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include "IExpression.hpp"
-#include "semantics/UnexpectedTypeException.hpp"
-
+#include "UnexpectedTypeException.hpp"
+#include "FunDecl.hpp"
+#include "UnitExpression.hpp"
+#include <memory>
 
 ReturnStatement::ReturnStatement(
     int lineNumber,
@@ -14,16 +16,23 @@ ReturnStatement::ReturnStatement(
 ):IStatement(lineNumber,runScope),ex(ex){}
 
 void ReturnStatement::check(){
-    SharedType exType;
-    if(ex){
-        ex->check(runScope);
-        exType=ex->getReturnType();
-    }
-    else exType=Type::UNIT;
+
+    ex->check(runScope);
+
+    auto exType=ex->getReturnType();
 
     auto funScope=BaseScope::getContainingFun(runScope);
-
-    if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
+    
+    // Return statements in constructors should return Unit
+    if(funScope->getDecl()->isConstructor()){
+        if(exType->getClassScope()!=Type::UNIT->getClassScope())
+            throw UnexpectedTypeException(
+                lineNumber,
+                *Type::UNIT_NAME,
+                *exType->getName()
+            );
+    }
+    else if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
         throw UnexpectedTypeException(
             lineNumber,
             *funScope->getReturnType()->getName(),

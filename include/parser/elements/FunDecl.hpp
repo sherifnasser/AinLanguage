@@ -28,5 +28,7 @@ struct FunDecl{
 
     bool hasImplicitReturnType()const;
 
+    bool isConstructor();
+
     std::wstring toString();
 };

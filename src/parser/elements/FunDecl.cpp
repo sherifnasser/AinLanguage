@@ -1,5 +1,6 @@
 #include "FunDecl.hpp"
 #include "FunParam.hpp"
+#include "KeywordToken.hpp"
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include <memory>
@@ -38,6 +39,10 @@ bool FunDecl::operator!=(const FunDecl& declaration)const{
 
 bool FunDecl::hasImplicitReturnType()const {
     return this->returnType==nullptr;
+}
+
+bool FunDecl::isConstructor(){
+    return *this->name==KeywordToken::NEW.getVal();
 }
 
 std::wstring FunDecl::toString(){

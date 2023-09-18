@@ -50,8 +50,6 @@ SharedFunDecl FunDeclParser::parse(){
 
     int lineNumber=iterator->lineNumber;
 
-    auto expectedParamsSize=(*isOperator)?OperatorFunctions::isOperatorFunName(funNameId):-1;
-
     if(*isOperator&&!OperatorFunctions::isOperatorFunName(funNameId))
         throw InvalidOperatorFunDeclarationException(L"اسم الدالة غير صالح");
 
@@ -90,12 +88,11 @@ SharedFunDecl FunDeclParser::parse(){
         funReturnType=returnTypeParser->parse();
     }
 
-    auto fun=std::make_shared<FunDecl>(
+    return std::make_shared<FunDecl>(
         funName,
         funReturnType,
         isOperator,
         params
     );
 
-    return fun;
 }
