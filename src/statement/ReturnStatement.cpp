@@ -16,27 +16,23 @@ ReturnStatement::ReturnStatement(
 ):IStatement(lineNumber,runScope),ex(ex){}
 
 void ReturnStatement::check(){
-    SharedType exType;
-    if(ex){
-        ex->check(runScope);
-        exType=ex->getReturnType();
-    }
-    else{
-        ex=std::make_shared<UnitExpression>(lineNumber);
-        exType=Type::UNIT;
-    }
+
+    ex->check(runScope);
+
+    auto exType=ex->getReturnType();
 
     auto funScope=BaseScope::getContainingFun(runScope);
     
     // Return statements in constructors should return Unit
-    if(funScope->getDecl()->isConstructor()&&exType->getClassScope()!=Type::UNIT->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::UNIT_NAME,
-            *exType->getName()
-        );
-    
-    if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
+    if(funScope->getDecl()->isConstructor()){
+        if(exType->getClassScope()!=Type::UNIT->getClassScope())
+            throw UnexpectedTypeException(
+                lineNumber,
+                *Type::UNIT_NAME,
+                *exType->getName()
+            );
+    }
+    else if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
         throw UnexpectedTypeException(
             lineNumber,
             *funScope->getReturnType()->getName(),

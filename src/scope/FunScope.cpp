@@ -1,8 +1,6 @@
 #include "FunScope.hpp"
-#include "BaseScope.hpp"
 #include "ClassScope.hpp"
 #include "FunDecl.hpp"
-#include "ObjectValue.hpp"
 #include "OperatorFunctions.hpp"
 #include "SharedPtrTypes.hpp"
 #include "FunParam.hpp"
@@ -21,11 +19,6 @@ FunScope::FunScope(
 {}
 
 SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
-
-    // TODO: primary constructor with parameters
-    if(decl->isConstructor()){
-        decl->returnType->getClassScope()->runPrimaryConstructor();
-    }
 
     for(auto local:*locals){
         auto varName=local.first;
@@ -50,13 +43,8 @@ SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
     auto retVal=this->returnValue;
 
     this->returnValue=nullptr;
-    
-    if(!decl->isConstructor())
-        return retVal;
-    
-    auto properties=decl->returnType->getClassScope()->popLastProperties();
-    
-    return std::make_shared<ObjectValue>(decl->returnType,properties);
+
+    return retVal;
 }
 
 SharedType FunScope::getReturnType(){

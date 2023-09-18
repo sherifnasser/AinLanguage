@@ -12,8 +12,8 @@ class ClassScope: public BaseScope{
         SharedMap<std::wstring,SharedFunScope> privateFunctions;
 
         // map constructor decl to constructors
-        SharedMap<std::wstring,SharedFunScope> publicConstructors;
-        SharedMap<std::wstring,SharedFunScope> privateConstructors;
+        SharedMap<std::wstring,SharedConstructorScope> publicConstructors;
+        SharedMap<std::wstring,SharedConstructorScope> privateConstructors;
 
         // map classes names to classes
         SharedMap<std::wstring,SharedClassScope> publicClasses;
@@ -29,9 +29,9 @@ class ClassScope: public BaseScope{
 
         SharedMap<std::wstring,SharedFunScope> getPrivateFunctions() const;
 
-        SharedMap<std::wstring,SharedFunScope> getPublicConstructors() const;
+        SharedMap<std::wstring,SharedConstructorScope> getPublicConstructors() const;
 
-        SharedMap<std::wstring,SharedFunScope> getPrivateConstructors() const;
+        SharedMap<std::wstring,SharedConstructorScope> getPrivateConstructors() const;
 
         SharedMap<std::wstring,SharedClassScope> getPublicClasses() const;
 
@@ -45,9 +45,9 @@ class ClassScope: public BaseScope{
 
         SharedFunScope findPrivateFunction(std::wstring decl);
 
-        SharedFunScope findPublicConstructor(std::wstring decl);
+        SharedConstructorScope findPublicConstructor(std::wstring decl);
 
-        SharedFunScope findPrivateConstructor(std::wstring decl);
+        SharedConstructorScope findPrivateConstructor(std::wstring decl);
 
         SharedVariable findPublicVariable(std::wstring varName);
         

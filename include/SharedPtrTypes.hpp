@@ -21,6 +21,7 @@ class FileScope;
 class StmListScope;
 class LoopScope;
 class FunScope;
+class ConstructorScope;
 class ClassScope;
 struct FunDecl;
 struct VarDecl;
@@ -68,6 +69,8 @@ using SharedPackageScope=std::shared_ptr<PackageScope>;
 using SharedFileScope=std::shared_ptr<FileScope>;
 
 using SharedClassScope=std::shared_ptr<ClassScope>;
+
+using SharedConstructorScope=std::shared_ptr<ConstructorScope>;
 
 using SharedFunScope=std::shared_ptr<FunScope>;
 

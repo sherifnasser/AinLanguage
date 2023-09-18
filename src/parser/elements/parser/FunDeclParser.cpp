@@ -36,22 +36,17 @@ paramsParser(
 
 SharedFunDecl FunDeclParser::parse(){
 
-    bool isConstructor=false;
-
-    if(iterator->currentMatch(KeywordToken::NEW))
-        isConstructor=true;
-
-    else if(!iterator->currentMatch(KeywordToken::FUN))
+    if(!iterator->currentMatch(KeywordToken::FUN))
         return nullptr;
     
     auto isOperator=std::make_shared<bool>(false);
 
-    if(!isConstructor&&iterator->nextMatch(KeywordToken::OPERATOR)){
+    if(iterator->nextMatch(KeywordToken::OPERATOR)){
         *isOperator=true;
         iterator->next();
     }
 
-    auto funNameId=(isConstructor)?KeywordToken::NEW.getVal():expectIdentifier();
+    auto funNameId=expectIdentifier();
 
     int lineNumber=iterator->lineNumber;
 
@@ -88,19 +83,9 @@ SharedFunDecl FunDeclParser::parse(){
 
     SharedType funReturnType;
 
-    if(isConstructor)
-        funReturnType=Type::UNIT;
-
     if(iterator->nextMatch(SymbolToken::COLON)){
         iterator->next();
-        
-        // TODO: support calling other constructors and inheriting super constructors
-        if(isConstructor)
-            throw;
-            
-        else
-            funReturnType=returnTypeParser->parse();
-       
+        funReturnType=returnTypeParser->parse();
     }
 
     return std::make_shared<FunDecl>(
@@ -109,4 +94,5 @@ SharedFunDecl FunDeclParser::parse(){
         isOperator,
         params
     );
+
 }
