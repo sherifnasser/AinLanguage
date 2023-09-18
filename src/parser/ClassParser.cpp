@@ -50,7 +50,7 @@ SharedClassScope ClassParser::parse(){
         className,
         scope
     );
-    classScope->setPrimaryConstructor(
+    classScope->setVarsInitStmList(
         std::make_shared<StmListScope>(
             className,classScope
         )
@@ -156,10 +156,7 @@ void ClassParser::parseConstructor(SharedType parentType){
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    if(iterator->nextMatch(SymbolToken::COLON)){
-        iterator->next();
-        throw AinException(L"الاعتماد على دالة إنشاء أخرى غير مدعوم حالياً.");
-    }
+    iterator->next();
 
     auto decl=std::make_shared<FunDecl>(
         std::make_shared<std::wstring>(KeywordToken::NEW.getVal()),
@@ -260,7 +257,7 @@ void ClassParser::parseVarStm(SharedType parentType){
 
     auto varName=*var->getName();
 
-    auto primaryConstructor=parentScope->getPrimaryConstructor();
+    auto primaryConstructor=parentScope->getVarsInitStmList();
 
     primaryConstructor->getStmList()->push_back(varStm);
 

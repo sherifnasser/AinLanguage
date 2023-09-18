@@ -110,7 +110,7 @@ SharedVariable ClassScope::findPrivateVariable(std::wstring varName){
 }
 
 void ClassScope::check(){
-    primaryConstructor->check();
+    varsInitStmList->check();
     for(auto constructorIterator:*privateConstructors){
         constructorIterator.second->check();
     }
@@ -125,19 +125,19 @@ void ClassScope::check(){
     }
 }
 
-SharedStmListScope ClassScope::getPrimaryConstructor()const{
-    return this->primaryConstructor;
+SharedStmListScope ClassScope::getVarsInitStmList()const{
+    return this->varsInitStmList;
 }
 
-void ClassScope::setPrimaryConstructor(SharedStmListScope primaryConstructor){
-    this->primaryConstructor=primaryConstructor;
+void ClassScope::setVarsInitStmList(SharedStmListScope varsInitStmList){
+    this->varsInitStmList=varsInitStmList;
 }
 
-void ClassScope::runPrimaryConstructor(){
+void ClassScope::runVarsInitStmList(){
 
     pushNewProperties();
 
-    auto stmList=primaryConstructor->getStmList();
+    auto stmList=varsInitStmList->getStmList();
 
     for(auto stm:*stmList){
         stm->run();

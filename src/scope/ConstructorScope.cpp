@@ -14,7 +14,7 @@ ConstructorScope::ConstructorScope(
 SharedIValue ConstructorScope::invoke(SharedMap<std::wstring, SharedIValue> params){
     
     // TODO: Primary constructor with parameters
-    decl->returnType->getClassScope()->runPrimaryConstructor();
+    decl->returnType->getClassScope()->runVarsInitStmList();
 
     for(auto local:*locals){
         auto varName=local.first;
