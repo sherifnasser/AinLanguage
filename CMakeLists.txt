@@ -106,6 +106,7 @@ set(INCLUDE
     include/parser/
     include/parser/elements/
     include/parser/elements/parser/
+    include/parser/AST/
 )
 
 set(TEST
