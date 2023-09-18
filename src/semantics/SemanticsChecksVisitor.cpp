@@ -1,8 +1,6 @@
 #include "SemanticsChecksVisitor.hpp"
 
 void SemanticsChecksVisitor::visit(PackageScope* scope){
-    std::wcout<<L"Package: "<<scope->getName()<<std::endl;
-    
     for(auto fileIt:scope->getFiles()){
         fileIt.second->accept(this);
     }
@@ -13,8 +11,22 @@ void SemanticsChecksVisitor::visit(PackageScope* scope){
 
 }
 
-void SemanticsChecksVisitor::visit(FileScope* scope) {
-    std::wcout<<L"File: "<<scope->getName()<<std::endl;
+void SemanticsChecksVisitor::visit(FileScope* scope){
+    for(auto stm:*scope->getGlobalVarsInitStmList()->getStmList()){
+        stm->check();
+    }
+    for(auto classIterator:*scope->getPrivateClasses()){
+	    classIterator.second->check();
+    }
+    for(auto classIterator:*scope->getPublicClasses()){
+	    classIterator.second->check();
+    }
+    for(auto funIterator:*scope->getPrivateFunctions()){
+        funIterator.second->check();
+    }
+    for(auto funIterator:*scope->getPublicFunctions()){
+        funIterator.second->check();
+    }
 }
 
 void SemanticsChecksVisitor::visit(ClassScope* scope) {

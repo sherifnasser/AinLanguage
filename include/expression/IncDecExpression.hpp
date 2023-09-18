@@ -20,6 +20,7 @@ class IncDecExpression:public OperatorFunInvokeExpression{
             std::wstring opName,
             std::shared_ptr<AssignStatement::AssignExpression> ex
         );
+        void accept(ASTVisitor *visitor) override;
         class PreIncDecExpression;
         class PostIncDecExpression;
 };

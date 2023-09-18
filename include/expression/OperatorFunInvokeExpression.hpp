@@ -10,6 +10,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             SharedVector<SharedIExpression> args,
             SharedIExpression inside
         );
+        void accept(ASTVisitor *visitor) override;
         std::vector<std::wstring> prettyPrint()override;
         void check(SharedBaseScope checkScope)override;
 };

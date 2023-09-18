@@ -3,7 +3,7 @@
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class FileScope:public BaseScope,public ASTNode{
+class FileScope:public BaseScope{
     private:
         // map fun decl to functions
         SharedMap<std::wstring,SharedFunScope> publicFunctions;

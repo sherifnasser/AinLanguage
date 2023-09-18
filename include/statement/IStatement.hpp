@@ -1,6 +1,7 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "SharedPtrTypes.hpp"
-class IStatement{
+class IStatement:public ASTNode{
     protected:
         int lineNumber;
         SharedBaseScope runScope;

@@ -4,7 +4,7 @@
 #include "SharedPtrTypes.hpp"
 #include <map>
 #include <string>
-class PackageScope:public BaseScope,public ASTNode{
+class PackageScope:public BaseScope{
     private:
         std::map<std::wstring, SharedPackageScope> packages;
         std::map<std::wstring, SharedFileScope> files;

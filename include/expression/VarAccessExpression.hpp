@@ -12,6 +12,7 @@ class VarAccessExpression:public AssignStatement::AssignExpression{
         void checkType();
     public:
         VarAccessExpression(int lineNumber,std::wstring varName,SharedVariable var);
+        void accept(ASTVisitor *visitor) override;
         std::vector<std::wstring> prettyPrint()override;
         SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;

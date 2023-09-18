@@ -1,8 +1,9 @@
 #pragma once
 // TODO: change name
+#include "ASTNode.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class BaseScope{
+class BaseScope:public ASTNode{
 protected:
     SharedBaseScope parentScope;
 

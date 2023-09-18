@@ -11,6 +11,7 @@ class ExpressionStatement:public IStatement{
             SharedStmListScope runScope,
             SharedIExpression ex
         );
+        void accept(ASTVisitor *visitor) override;
         void check() override;
         void run() override;
     

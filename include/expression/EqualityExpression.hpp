@@ -11,6 +11,7 @@ class EqualityExpression:public IExpression{
         bool evaluateEqualsFun();
     public:
         EqualityExpression(int lineNumber,SharedIExpression equalsFunEx);
+        void accept(ASTVisitor *visitor) override;
         std::vector<std::wstring> prettyPrint()override;
         void check(SharedBaseScope checkScope)override;
 

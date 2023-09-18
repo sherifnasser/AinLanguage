@@ -18,6 +18,7 @@ class LogicalExpression:public IExpression{
             SharedIExpression left,
             SharedIExpression right
         );
+        void accept(ASTVisitor *visitor) override;
         void check(SharedBaseScope checkScope)override;
 
         std::vector<std::wstring> prettyPrint()override;

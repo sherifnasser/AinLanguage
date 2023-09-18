@@ -15,6 +15,9 @@ class FunScope:public StmListScope{
             SharedBaseScope parentScope,
             SharedFunDecl decl
         );
+
+        void accept(ASTVisitor *visitor) override;
+        
         virtual SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params);
         SharedType getReturnType();
         SharedFunDecl getDecl();

@@ -11,6 +11,8 @@ class ContinueStatement:public IStatement{
             SharedLoopScope loopScope
         );
 
+        void accept(ASTVisitor *visitor) override;
+
         void check() override;
         
         void run() override;

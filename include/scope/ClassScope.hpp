@@ -4,6 +4,8 @@
 class ClassScope: public BaseScope{
     public:
         ClassScope(std::wstring name,SharedBaseScope parentScope);
+
+        void accept(ASTVisitor *visitor) override;
         
         // TODO: add protected and static members
 

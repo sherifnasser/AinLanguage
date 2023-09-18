@@ -83,6 +83,7 @@ add_library(ainsrc
     src/parser/ClassParser.cpp
     src/parser/VarStatementParser.cpp
     src/parser/FileParser.cpp
+    src/parser/ASTVisitor.cpp
 )
 
 set(INCLUDE

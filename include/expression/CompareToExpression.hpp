@@ -11,6 +11,7 @@ class CompareToExpression:public IExpression{
         int evaluateCompareToFun();
     public:
         CompareToExpression(int lineNumber,SharedIExpression compareToFunEx);
+        void accept(ASTVisitor *visitor) override;
         std::vector<std::wstring> prettyPrint()override;
         void check(SharedBaseScope checkScope)override;
         class Less;

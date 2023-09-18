@@ -22,6 +22,9 @@ class AssignStatement:public IStatement{
             std::shared_ptr<AssignExpression> ex,
             SharedIExpression newValEx
         );
+
+        void accept(ASTVisitor *visitor) override;
+
         void check() override;
         void run() override;
     

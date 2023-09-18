@@ -6,5 +6,6 @@ class DoWhileStatement:public WhileStatement
 {
     public:
         using WhileStatement::WhileStatement;
+        void accept(ASTVisitor *visitor) override;
         void run() override;
 };

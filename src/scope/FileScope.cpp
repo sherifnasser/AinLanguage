@@ -10,10 +10,6 @@
 #include <memory>
 #include <string>
 
-void FileScope::accept(ASTVisitor *visitor){
-    visitor->visit(this);
-}
-
 FileScope::FileScope(std::wstring filePath,SharedPackageScope parentScope)
 :BaseScope(filePath,parentScope),
 publicFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),

@@ -1,8 +1,9 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "SharedPtrTypes.hpp"
 #include <memory>
 #include <string>
-class IExpression{
+class IExpression:public ASTNode{
     protected:
         int lineNumber;
         SharedType returnType;

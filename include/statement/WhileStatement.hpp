@@ -15,6 +15,9 @@ class WhileStatement:public IStatement
             SharedIExpression condition,
             SharedLoopScope loopScope
         );
+
+        void accept(ASTVisitor *visitor) override;
+
         void check() override;
         void run() override;
 };
