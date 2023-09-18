@@ -1,8 +1,9 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class FileScope:public BaseScope{
+class FileScope:public BaseScope,public ASTNode{
     private:
         // map fun decl to functions
         SharedMap<std::wstring,SharedFunScope> publicFunctions;
@@ -19,6 +20,9 @@ class FileScope:public BaseScope{
         SharedStmListScope globalVarsInitStmList;
 
     public:
+
+        void accept(ASTVisitor *visitor) override;
+        
         FileScope(std::wstring filePath,SharedPackageScope parentScope);
 
         SharedMap<std::wstring,SharedFunScope> getPublicFunctions() const;

@@ -3,6 +3,11 @@
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include <memory>
+
+void PackageScope::accept(ASTVisitor *visitor){
+    visitor->visit(this);
+}
+
 PackageScope::PackageScope(std::wstring name,SharedPackageScope parentScope)
 :BaseScope(name,parentScope){}
 
@@ -38,8 +43,12 @@ SharedClassScope PackageScope::getClassByType(SharedType type){
     return nullptr;
 }
 
+std::map<std::wstring, SharedPackageScope> PackageScope::getPackages()const{
+    return this->packages;
+}
+
 std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
-    return files;
+    return this->files;
 }
 
 void PackageScope::initGlobalVars(){

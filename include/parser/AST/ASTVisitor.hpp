@@ -1,37 +1,37 @@
 #pragma once
 
-#include "PackageScope.hpp"
-#include "FileScope.hpp"
-#include "ClassScope.hpp"
-#include "ConstructorScope.hpp"
-#include "FunScope.hpp"
-#include "LoopScope.hpp"
-#include "StmListScope.hpp"
+class PackageScope;
+class FileScope;
+class ClassScope;
+class ConstructorScope;
+class FunScope;
+class LoopScope;
+class StmListScope;
 
-#include "VarStm.hpp"
-#include "IfStatement.hpp"
-#include "AssignStatement.hpp"
-#include "WhileStatement.hpp"
-#include "DoWhileStatement.hpp"
-#include "BreakStatement.hpp"
-#include "ContinueStatement.hpp"
-#include "ReturnStatement.hpp"
-#include "ExpressionStatement.hpp"
+class VarStm;
+class IfStatement;
+class AssignStatement;
+class WhileStatement;
+class DoWhileStatement;
+class BreakStatement;
+class ContinueStatement;
+class ReturnStatement;
+class ExpressionStatement;
 
-#include "VarAccessExpression.hpp"
-#include "FunInvokeExpression.hpp"
-#include "NewObjectExpression.hpp"
-#include "LiteralExpression.hpp"
-#include "UnitExpression.hpp"
+class VarAccessExpression;
+class FunInvokeExpression;
+class NewObjectExpression;
+class LiteralExpression;
+class UnitExpression;
 
-#include "LogicalExpression.hpp"
-#include "IncDecExpression.hpp"
-#include "EqualityExpression.hpp"
-#include "CompareToExpression.hpp"
+class LogicalExpression;
+class IncDecExpression;
+class EqualityExpression;
+class CompareToExpression;
 
-#include "NonStaticVarAccessExpression.hpp"
-#include "NonStaticFunInvokeExpression.hpp"
-#include "OperatorFunInvokeExpression.hpp"
+class NonStaticVarAccessExpression;
+class NonStaticFunInvokeExpression;
+class OperatorFunInvokeExpression;
 
 class ASTVisitor{
     public:
@@ -68,5 +68,6 @@ class ASTVisitor{
         virtual void visit(NonStaticFunInvokeExpression* ex)=0;
         virtual void visit(OperatorFunInvokeExpression* ex)=0;
 
+        virtual ~ASTVisitor(){}
 
 };

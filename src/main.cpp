@@ -13,6 +13,7 @@
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
+#include "SemanticsChecksVisitor.hpp"
 #include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
@@ -152,6 +153,10 @@ int main(int argc, char * argv[]){
         Semantics::TypeChecker::getInstance()->check();
         
         Semantics::ImplicitVarTypeChecker::getInstance()->check();
+
+        auto checker=new SemanticsChecksVisitor;
+        PackageScope::AIN_PACKAGE->accept(checker);
+        delete checker;
 
         PackageScope::AIN_PACKAGE->check();
 

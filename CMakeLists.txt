@@ -50,6 +50,7 @@ add_library(ainsrc
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/ain_file/AinFile.cpp
+    src/semantics/SemanticsChecksVisitor.cpp
     src/semantics/ImplicitVarTypeChecker.cpp
     src/semantics/TypeChecker.cpp
     src/statement/IStatement.cpp
