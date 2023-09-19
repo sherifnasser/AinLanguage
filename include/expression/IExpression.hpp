@@ -17,7 +17,10 @@ class IExpression:public ASTNode{
         template<typename T>
         std::shared_ptr<T> evaluateAs();
 
-        int getLineNumber() const;
+        int getLineNumber()const;
+
+        static bool isAssignableExpression(SharedIExpression ex);
+
 };
 
 template<typename T>
@@ -28,4 +31,13 @@ inline std::shared_ptr<T> IExpression::evaluateAs(){
 
 inline int IExpression::getLineNumber()const{
     return lineNumber;
+}
+
+
+bool IExpression::isAssignableExpression(SharedIExpression ex){
+    return
+        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
+        ||
+        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
+    ;
 }

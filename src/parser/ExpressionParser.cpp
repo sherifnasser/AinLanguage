@@ -5,6 +5,7 @@
 #include "DoubleValue.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
+#include "IExpression.hpp"
 #include "IntValue.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -146,7 +147,7 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
             unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
         )
         &&
-        !isAssignableExpression(primary)
+        !IExpression::isAssignableExpression(primary)
     )
         throw OnlyVariablesAreAssignableException(lineNumber);
         
@@ -340,7 +341,7 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
 
     auto lineNumber=iterator->lineNumber;
 
-    if(!isAssignableExpression(inside))
+    if(!IExpression::isAssignableExpression(inside))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     iterator->next();
@@ -488,12 +489,4 @@ SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){
     iterator->next();
 
     return args;
-}
-
-bool ExpressionParser::isAssignableExpression(SharedIExpression ex){
-    return
-        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
-        ||
-        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
-    ;
 }

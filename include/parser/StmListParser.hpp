@@ -8,7 +8,6 @@ class StmListParser:public BaseParser<SharedStmList>{
     private:
         SharedBaseParser<SharedVarStm> varStmParser;
         ExpressionParserProvider expressionParserProvider;
-        bool isAssignableExpression(SharedIExpression ex);
     public:
         StmListParser(
             SharedTokensIterator iterator,

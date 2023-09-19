@@ -23,21 +23,11 @@
 #include "Type.hpp"
 #include "UnexpectedTokenException.hpp"
 #include "UnitExpression.hpp"
-#include "VarAccessExpression.hpp"
-#include "NonStaticVarAccessExpression.hpp"
 #include "VarStm.hpp"
 #include "Variable.hpp"
 #include "WhileStatement.hpp"
 #include <memory>
 #include <vector>
-
-bool StmListParser::isAssignableExpression(SharedIExpression ex){
-    return
-        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
-        ||
-        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
-    ;
-}
 
 StmListParser::StmListParser(
     SharedTokensIterator iterator,
@@ -337,8 +327,7 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
             ex
         );
     
-    
-    if(!isAssignableExpression(ex))
+    if(!IExpression::isAssignableExpression(ex))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     lineNumber=iterator->lineNumber;
