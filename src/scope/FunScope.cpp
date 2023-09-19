@@ -106,7 +106,7 @@ void FunScope::checkOperatorFunParamsSize(){
         ||
         opName==OperatorFunctions::UNARY_MINUS_NAME
         ||
-        opName==OperatorFunctions::NOT_NAME
+        opName==OperatorFunctions::LOGICAL_NOT_NAME
         ||
         opName==OperatorFunctions::INC_NAME
         ||

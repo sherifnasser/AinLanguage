@@ -2,12 +2,9 @@
 #include "AssignStatement.hpp"
 #include "BoolValue.hpp"
 #include "CharValue.hpp"
-#include "CompareToExpression.hpp"
 #include "DoubleValue.hpp"
-#include "EqualityExpression.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
-#include "IncDecExpression.hpp"
 #include "IntValue.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -58,22 +55,20 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 
         auto op=iterator->currentToken();
 
-        auto opName=OperatorFunctions::getOperatorFunNameByToken(*op);
-
         iterator->next();
         
         auto right=parseBinaryOperatorExpression(precedence-1);
 
-        if(opName==OperatorFunctions::LOGICAL_OR_NAME){
-            left=std::make_shared<LogicalExpression::Or>(
-                lineNumber,left,right
+        if(*op==SymbolToken::LOGICAL_OR){
+            left=std::make_shared<LogicalExpression>(
+                lineNumber,LogicalExpression::Operation::OR,left,right
             );
             continue;
         }
 
-        if(opName==OperatorFunctions::LOGICAL_AND_NAME){
-            left=std::make_shared<LogicalExpression::And>(
-                lineNumber,left,right
+        if(*op==SymbolToken::LOGICAL_AND){
+            left=std::make_shared<LogicalExpression>(
+                lineNumber,LogicalExpression::Operation::AND,left,right
             );
             continue;
         }
@@ -82,43 +77,10 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 
         left=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            opName,
+            getBinOpFromToken(*op),
             args,
             left
         );
-
-        if(opName!=OperatorFunctions::COMPARE_TO_NAME&&opName!=OperatorFunctions::EQUALS_NAME)
-            continue;
-        
-        if(*op==SymbolToken::EQUAL_EQUAL)
-            left=std::make_shared<EqualityExpression::EqualEqual>(
-                lineNumber,left
-            );
-
-        else if(*op==SymbolToken::NOT_EQUAL)
-            left=std::make_shared<EqualityExpression::NotEqual>(
-                lineNumber,left
-            );
-        
-        else if(*op==SymbolToken::LEFT_ANGLE_BRACKET)
-            left=std::make_shared<CompareToExpression::Less>(
-                lineNumber,left
-            );
-        
-        else if(*op==SymbolToken::LESS_EQUAL)
-            left=std::make_shared<CompareToExpression::LessEqual>(
-                lineNumber,left
-            );
-        
-        else if(*op==SymbolToken::GREATER_EQUAL)
-            left=std::make_shared<CompareToExpression::GreaterEqual>(
-                lineNumber,left
-            );
-        
-        else
-            left=std::make_shared<CompareToExpression::Greater>(
-                lineNumber,left
-            );
         
     }
 
@@ -152,50 +114,54 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
 }
 
 SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
-    
-    auto unaryOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(
-        *iterator->currentToken()
-    );
 
-    auto isCurrentTokenUnaryOperator=unaryOpName!=L"";
+    OperatorFunInvokeExpression::Operator unaryOp;
 
-    if(!isCurrentTokenUnaryOperator)
+    if(iterator->currentMatch(SymbolToken::PLUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::UNARY_PLUS;
+
+    else if(iterator->currentMatch(SymbolToken::MINUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::UNARY_MINUS;
+
+    else if(iterator->currentMatch(SymbolToken::EXCLAMATION_MARK))
+        unaryOp=OperatorFunInvokeExpression::Operator::LOGICAL_NOT;
+
+    else if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::PRE_INC;
+
+    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::PRE_DEC;
+
+    else
         return nullptr;
-    
-    iterator->next();
     
     auto lineNumber=iterator->lineNumber;
 
     auto primary=parsePrimaryExpression();
-    
+
     if(
-        unaryOpName!=OperatorFunctions::INC_NAME
+        (
+            unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC
+            ||
+            unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
+        )
         &&
-        unaryOpName!=OperatorFunctions::DEC_NAME
-    ){
-
-        auto args=std::make_shared<std::vector<SharedIExpression>>(
-            std::vector<SharedIExpression>{}
-        );
-
-        return std::make_shared<OperatorFunInvokeExpression>(
-            lineNumber,
-            unaryOpName,
-            args,
-            primary
-        );
-
-    }
-    
-    auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary);
-
-    if(!assignEx)
+        !std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary)
+    )
         throw OnlyVariablesAreAssignableException(lineNumber);
+        
     
-    return std::make_shared<IncDecExpression::PreIncDecExpression>(
+    iterator->next();
+
+    auto args=std::make_shared<std::vector<SharedIExpression>>(
+        std::vector<SharedIExpression>{}
+    );
+    
+    return std::make_shared<OperatorFunInvokeExpression>(
         lineNumber,
-        unaryOpName,
-        assignEx
+        unaryOp,
+        args,
+        primary
     );
     
 }
@@ -360,25 +326,36 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
 
 SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression inside){
 
-    auto postOpName=OperatorFunctions::getUnaryOperatorFunNameByToken(*iterator->currentToken());
 
-    if(postOpName!=OperatorFunctions::INC_NAME&&postOpName!=OperatorFunctions::DEC_NAME)
+    OperatorFunInvokeExpression::Operator unaryOp;
+
+    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::POST_INC;
+
+    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
+        unaryOp=OperatorFunInvokeExpression::Operator::POST_DEC;
+
+    else
         return inside;
 
     auto lineNumber=iterator->lineNumber;
 
-    auto assignEx=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(inside);
-
-    if(!assignEx)
+    if(!std::dynamic_pointer_cast<AssignStatement::AssignExpression>(inside))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     iterator->next();
 
-    return std::make_shared<IncDecExpression::PostIncDecExpression>(
-        lineNumber,
-        postOpName,
-        assignEx
+    auto args=std::make_shared<std::vector<SharedIExpression>>(
+        std::vector<SharedIExpression>{}
     );
+    
+    return std::make_shared<OperatorFunInvokeExpression>(
+        lineNumber,
+        unaryOp,
+        args,
+        inside
+    );
+    
 }
 
 bool ExpressionParser::currentMatchByPrecedence(int precedence){
@@ -421,6 +398,35 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
             return iterator->currentMatch(SymbolToken::POWER);
     }
     return false;
+}
+
+OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerToken op){
+        
+    if(op==SymbolToken::PLUS)
+        return OperatorFunInvokeExpression::Operator::PLUS;
+    if(op==SymbolToken::MINUS)
+        return OperatorFunInvokeExpression::Operator::MINUS;
+    if(op==SymbolToken::STAR)
+        return OperatorFunInvokeExpression::Operator::TIMES;
+    if(op==SymbolToken::SLASH)
+        return OperatorFunInvokeExpression::Operator::DIV;
+    if(op==SymbolToken::MODULO)
+        return OperatorFunInvokeExpression::Operator::MOD;
+    if(op==SymbolToken::POWER)
+        return OperatorFunInvokeExpression::Operator::POW;
+    if(op==SymbolToken::EQUAL_EQUAL)
+        return OperatorFunInvokeExpression::Operator::EQUAL_EQUAL;
+    if(op==SymbolToken::NOT_EQUAL)
+        return OperatorFunInvokeExpression::Operator::NOT_EQUAL;
+    if(op==SymbolToken::LEFT_ANGLE_BRACKET)
+        return OperatorFunInvokeExpression::Operator::LESS;
+    if(op==SymbolToken::LESS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::LESS_EQUAL;
+    if(op==SymbolToken::RIGHT_ANGLE_BRACKET)
+        return OperatorFunInvokeExpression::Operator::GREATER;
+    if(op==SymbolToken::GREATER_EQUAL)
+        return OperatorFunInvokeExpression::Operator::GREATER_EQUAL;
+    
 }
 
 SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value) {

@@ -342,13 +342,11 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     
     if(*op!=SymbolToken::EQUAL){
 
-        auto opName=OperatorFunctions::getOperatorAssignEqualFunNameByToken(*op);
-
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
 
         assignExRight=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            opName,
+            getAssignEqualOpFromToken(*op),
             args,
             assignExLeft
         );
@@ -360,5 +358,21 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
         assignExLeft,
         assignExRight
     );
+    
+}
+OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(LexerToken op){
+
+    if(op==SymbolToken::PLUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::PLUS;
+    if(op==SymbolToken::MINUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MINUS;
+    if(op==SymbolToken::STAR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::TIMES;
+    if(op==SymbolToken::SLASH_EQUAL)
+        return OperatorFunInvokeExpression::Operator::DIV;
+    if(op==SymbolToken::MODULO_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MOD;
+    if(op==SymbolToken::POWER_EQUAL)
+        return OperatorFunInvokeExpression::Operator::POW;
     
 }

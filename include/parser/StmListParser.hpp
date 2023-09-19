@@ -2,6 +2,7 @@
 #include "BaseParser.hpp"
 #include "ParserProvidersAliases.hpp"
 #include "SharedPtrTypes.hpp"
+#include "OperatorFunInvokeExpression.hpp"
 #include <memory>
 class StmListParser:public BaseParser<SharedStmList>{
     private:
@@ -25,4 +26,6 @@ class StmListParser:public BaseParser<SharedStmList>{
         SharedIStatement parseReturnStatement(SharedStmListScope parentScope);
         SharedIStatement parseBreakContinueStatement(SharedStmListScope parentScope);
         SharedIStatement parseExpressionStatement(SharedStmListScope parentScope);
+        OperatorFunInvokeExpression::Operator getAssignEqualOpFromToken(LexerToken op);
+
 };

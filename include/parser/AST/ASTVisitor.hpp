@@ -25,49 +25,41 @@ class LiteralExpression;
 class UnitExpression;
 
 class LogicalExpression;
-class IncDecExpression;
-class EqualityExpression;
-class CompareToExpression;
-
 class NonStaticVarAccessExpression;
 class NonStaticFunInvokeExpression;
 class OperatorFunInvokeExpression;
 
 class ASTVisitor{
     public:
-        virtual void visit(PackageScope* scope)=0;
-        virtual void visit(FileScope* scope)=0;
-        virtual void visit(ClassScope* scope)=0;
-        virtual void visit(ConstructorScope* scope)=0;
-        virtual void visit(FunScope* scope)=0;
-        virtual void visit(LoopScope* scope)=0;
-        virtual void visit(StmListScope* scope)=0;
+        virtual void visit(PackageScope* scope);
+        virtual void visit(FileScope* scope);
+        virtual void visit(ClassScope* scope);
+        virtual void visit(ConstructorScope* scope);
+        virtual void visit(FunScope* scope);
+        virtual void visit(LoopScope* scope);
+        virtual void visit(StmListScope* scope);
 
-        virtual void visit(VarStm* stm)=0;
-        virtual void visit(AssignStatement* stm)=0;
-        virtual void visit(IfStatement* stm)=0;
-        virtual void visit(WhileStatement* stm)=0;
-        virtual void visit(DoWhileStatement* stm)=0;
-        virtual void visit(BreakStatement* stm)=0;
-        virtual void visit(ContinueStatement* stm)=0;
-        virtual void visit(ReturnStatement* stm)=0;
-        virtual void visit(ExpressionStatement* stm)=0;
+        virtual void visit(VarStm* stm);
+        virtual void visit(AssignStatement* stm);
+        virtual void visit(IfStatement* stm);
+        virtual void visit(WhileStatement* stm);
+        virtual void visit(DoWhileStatement* stm);
+        virtual void visit(BreakStatement* stm);
+        virtual void visit(ContinueStatement* stm);
+        virtual void visit(ReturnStatement* stm);
+        virtual void visit(ExpressionStatement* stm);
 
-        virtual void visit(VarAccessExpression* ex)=0;
-        virtual void visit(FunInvokeExpression* ex)=0;
-        virtual void visit(NewObjectExpression* ex)=0;
-        virtual void visit(LiteralExpression* ex)=0;
-        virtual void visit(UnitExpression* ex)=0;
+        virtual void visit(VarAccessExpression* ex);
+        virtual void visit(FunInvokeExpression* ex);
+        virtual void visit(NewObjectExpression* ex);
+        virtual void visit(LiteralExpression* ex);
+        virtual void visit(UnitExpression* ex);
 
-        virtual void visit(LogicalExpression* ex)=0;
-        virtual void visit(IncDecExpression* ex)=0;
-        virtual void visit(EqualityExpression* ex)=0;
-        virtual void visit(CompareToExpression* ex)=0;
-        
-        virtual void visit(NonStaticVarAccessExpression* ex)=0;
-        virtual void visit(NonStaticFunInvokeExpression* ex)=0;
-        virtual void visit(OperatorFunInvokeExpression* ex)=0;
+        virtual void visit(LogicalExpression* ex);
+        virtual void visit(NonStaticVarAccessExpression* ex);
+        virtual void visit(NonStaticFunInvokeExpression* ex);
+        virtual void visit(OperatorFunInvokeExpression* ex);
 
-        virtual ~ASTVisitor(){}
+        virtual ~ASTVisitor();
 
 };

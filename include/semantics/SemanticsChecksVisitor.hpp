@@ -23,12 +23,10 @@
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
-#include "IncDecExpression.hpp"
-#include "EqualityExpression.hpp"
-#include "CompareToExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+
 class SemanticsChecksVisitor:public ASTVisitor{
     public:
         void visit(PackageScope* scope)override;
@@ -56,10 +54,6 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(UnitExpression* ex)override;
 
         void visit(LogicalExpression* ex)override;
-        void visit(IncDecExpression* ex)override;
-        void visit(EqualityExpression* ex)override;
-        void visit(CompareToExpression* ex)override;
-        
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;

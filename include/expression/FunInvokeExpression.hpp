@@ -10,7 +10,10 @@ class FunInvokeExpression:public IExpression{
     public:
         FunInvokeExpression(int lineNumber,std::wstring funName,SharedVector<SharedIExpression> args);
         void accept(ASTVisitor *visitor) override;
-        std::vector<std::wstring> prettyPrint()override;
         SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
+
+        std::wstring getFunName() const;
+
+        SharedVector<SharedIExpression> getArgs() const;
 };

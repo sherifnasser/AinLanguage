@@ -109,18 +109,6 @@ void SemanticsChecksVisitor::visit(LogicalExpression* ex) {
     
 }
 
-void SemanticsChecksVisitor::visit(IncDecExpression* ex) {
-    
-}
-
-void SemanticsChecksVisitor::visit(EqualityExpression* ex) {
-    
-}
-
-void SemanticsChecksVisitor::visit(CompareToExpression* ex) {
-    
-}
-
 void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex) {
     
 }

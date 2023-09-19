@@ -4,32 +4,57 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "FunScope.hpp"
 #include "FunDecl.hpp"
+#include "OperatorFunctions.hpp"
 #include "Type.hpp"
 #include "ClassScope.hpp"
 #include "FunParam.hpp"
 
 OperatorFunInvokeExpression::OperatorFunInvokeExpression(
     int lineNumber,
-    std::wstring opName,
+    Operator op,
     SharedVector<SharedIExpression> args,
     SharedIExpression inside
 ):
 NonStaticFunInvokeExpression(
     lineNumber,
-    opName,
+    L"",
     args,
     inside
-){}
-
-std::vector<std::wstring> OperatorFunInvokeExpression::prettyPrint(){
-
-    auto superPrints=NonStaticFunInvokeExpression::prettyPrint();
-
-    auto lineNumStr=std::to_wstring(lineNumber);
-
-    superPrints[0]=L"\033[36;1mOperatorFunInvokeExpression \'"+funName+L"\' at "+lineNumStr+L"\033[0m";
-
-    return superPrints;
+){
+    switch(op){
+        case Operator::PLUS:
+            this->funName=OperatorFunctions::PLUS_NAME;break;
+        case Operator::MINUS:
+            this->funName=OperatorFunctions::MINUS_NAME;break;
+        case Operator::TIMES:
+            this->funName=OperatorFunctions::TIMES_NAME;break;
+        case Operator::DIV:
+            this->funName=OperatorFunctions::DIV_NAME;break;
+        case Operator::MOD:
+            this->funName=OperatorFunctions::MOD_NAME;break;
+        case Operator::POW:
+            this->funName=OperatorFunctions::POW_NAME;break;
+        case Operator::EQUAL_EQUAL:
+        case Operator::NOT_EQUAL:
+            this->funName=OperatorFunctions::EQUALS_NAME;break;
+        case Operator::LESS:
+        case Operator::LESS_EQUAL:
+        case Operator::GREATER:
+        case Operator::GREATER_EQUAL:
+            this->funName=OperatorFunctions::COMPARE_TO_NAME;break;
+        case Operator::UNARY_PLUS:
+            this->funName=OperatorFunctions::UNARY_PLUS_NAME;break;
+        case Operator::UNARY_MINUS:
+            this->funName=OperatorFunctions::UNARY_MINUS_NAME;break;
+        case Operator::LOGICAL_NOT:
+            this->funName=OperatorFunctions::LOGICAL_NOT_NAME;break;
+        case Operator::PRE_INC:
+        case Operator::POST_INC:
+            this->funName=OperatorFunctions::INC_NAME;break;
+        case Operator::PRE_DEC:
+        case Operator::POST_DEC:
+            this->funName=OperatorFunctions::DEC_NAME;break;
+    }
 }
 
 void OperatorFunInvokeExpression::check(SharedBaseScope checkScope){

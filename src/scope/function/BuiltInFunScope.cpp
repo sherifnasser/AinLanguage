@@ -1362,7 +1362,7 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
     using PrimitiveType=bool;
 
     auto NOT=std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::NOT_NAME,
+        OperatorFunctions::LOGICAL_NOT_NAME,
         Type::BOOL,
         std::map<std::wstring, SharedType>{},
         [=](SharedMap<std::wstring, SharedIValue> params){

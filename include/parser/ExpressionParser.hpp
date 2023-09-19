@@ -1,8 +1,10 @@
 #pragma once
 #include "BaseParser.hpp"
 #include "NumberToken.hpp"
+#include "OperatorFunInvokeExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include "ParserProvidersAliases.hpp"
+#include "SymbolToken.hpp"
 #include <string>
 class ExpressionParser:public BaseParser<SharedIExpression>{
     public:
@@ -37,6 +39,8 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
         SharedIExpression parsePostIncDecExpression(SharedIExpression inside);
         
         bool currentMatchByPrecedence(int precedence);
+
+        OperatorFunInvokeExpression::Operator getBinOpFromToken(LexerToken op);
 
         SharedIValue parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value);
 

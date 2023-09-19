@@ -18,27 +18,6 @@ FunInvokeExpression::FunInvokeExpression(int lineNumber,std::wstring funName, Sh
       funName(funName),
       args(args){}
 
-std::vector<std::wstring> FunInvokeExpression::prettyPrint(){
-    auto prints=std::vector<std::wstring>();
-    auto lineNumStr=std::to_wstring(lineNumber);
-    prints.push_back(L"FunExpression \'"+funName+L"\' at "+lineNumStr);
-
-    for(int i=0;i<args->size();i++){
-        auto argPrints=args->at(i)->prettyPrint();
-        
-        argPrints[0]=
-            ((i==args->size()-1)?L"└──":L"├──")+argPrints[0];
-
-        for(int j=1;j<argPrints.size();j++){
-            argPrints[j]=
-                ((i==args->size()-1)?L"    ":L"│   ")+argPrints[j];
-        }
-
-        prints.insert(prints.end(),argPrints.begin(),argPrints.end());
-    }
-    return prints;
-}
-
 SharedIValue FunInvokeExpression::evaluate(){
     auto argValues=std::make_shared<std::map<std::wstring,SharedIValue>>();
     auto params=this->fun->getDecl()->params;
@@ -117,4 +96,10 @@ void FunInvokeExpression::check(SharedBaseScope checkScope){
     }
 }
 
+std::wstring FunInvokeExpression::getFunName()const{
+    return funName;
+}
 
+SharedVector<SharedIExpression> FunInvokeExpression::getArgs()const{
+    return args;
+}

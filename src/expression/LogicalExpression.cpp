@@ -8,12 +8,14 @@
 
 LogicalExpression::LogicalExpression(
     int lineNumber,
+    Operation logicalOp,
     SharedIExpression left,
     SharedIExpression right
 )
     : IExpression(lineNumber,Type::BOOL),
-      left(left),
-      right(right){}
+    logicalOp(logicalOp),
+    left(left),
+    right(right){}
 
 bool LogicalExpression::evaluateLeft(){
     auto leftVal=left->evaluateAs<BoolValue>()->getValue();
@@ -44,60 +46,18 @@ void LogicalExpression::check(SharedBaseScope checkScope){
         );
 }
 
-std::vector<std::wstring> LogicalExpression::prettyPrint(){
-    auto prints=std::vector<std::wstring>();
-
-    prints.push_back(L"LogicalExpression");
-
-    auto leftPrints=left->prettyPrint();
-
-    leftPrints[0]=L"├──"+leftPrints[0];
-    for(int j=1;j<leftPrints.size();j++){
-        leftPrints[j]=L"│   "+leftPrints[j];
-    }
-    prints.insert(prints.end(),leftPrints.begin(),leftPrints.end());
-    
-    auto rightPrints=right->prettyPrint();
-    rightPrints[0]=L"└──"+rightPrints[0];
-    for(int j=1;j<rightPrints.size();j++){
-        rightPrints[j]=L"    "+rightPrints[j];
-    }
-
-    prints.insert(prints.end(),rightPrints.begin(),rightPrints.end());
-
-    return prints;
+SharedIValue LogicalExpression::evaluate(){
+    return nullptr;
 }
 
-std::vector<std::wstring> LogicalExpression::Or::prettyPrint(){
-    auto prints=LogicalExpression::prettyPrint();
-
-    auto lineNumStr=std::to_wstring(lineNumber);
-    
-    prints[0]=L"LogicalExpression \'||\' at "+lineNumStr;
-
-    return prints;
+SharedIExpression LogicalExpression::getLeft()const{
+    return left;
 }
 
-SharedIValue LogicalExpression::Or::evaluate(){
-    if(evaluateLeft())
-        return std::make_shared<BoolValue>(true);
-    
-    return evaluateRight();
+SharedIExpression LogicalExpression::getRight()const{
+    return right;
 }
 
-std::vector<std::wstring> LogicalExpression::And::prettyPrint() {
-    auto prints=LogicalExpression::prettyPrint();
-
-    auto lineNumStr=std::to_wstring(lineNumber);
-    
-    prints[0]=L"LogicalExpression \'&&\' at "+lineNumStr;
-
-    return prints;
-}
-
-SharedIValue LogicalExpression::And::evaluate(){
-    if(!evaluateLeft())
-        return std::make_shared<BoolValue>(false);
-    
-    return evaluateRight();
+LogicalExpression::Operation LogicalExpression::getLogicalOp()const{
+    return logicalOp;
 }

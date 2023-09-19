@@ -22,12 +22,61 @@
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
-#include "IncDecExpression.hpp"
-#include "EqualityExpression.hpp"
-#include "CompareToExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+
+ASTVisitor::~ASTVisitor(){}
+
+void ASTVisitor::visit(PackageScope* scope){}
+
+void ASTVisitor::visit(FileScope* scope){}
+
+void ASTVisitor::visit(ClassScope* scope){}
+
+void ASTVisitor::visit(ConstructorScope* scope){}
+
+void ASTVisitor::visit(FunScope* scope){}
+
+void ASTVisitor::visit(LoopScope* scope){}
+
+void ASTVisitor::visit(StmListScope* scope){}
+
+void ASTVisitor::visit(VarStm* stm){}
+
+void ASTVisitor::visit(AssignStatement* stm){}
+
+void ASTVisitor::visit(IfStatement* stm){}
+
+void ASTVisitor::visit(WhileStatement* stm){}
+
+void ASTVisitor::visit(DoWhileStatement* stm){}
+
+void ASTVisitor::visit(BreakStatement* stm){}
+
+void ASTVisitor::visit(ContinueStatement* stm){}
+
+void ASTVisitor::visit(ReturnStatement* stm){}
+
+void ASTVisitor::visit(ExpressionStatement* stm){}
+
+void ASTVisitor::visit(VarAccessExpression* ex){}
+
+void ASTVisitor::visit(FunInvokeExpression* ex){}
+
+void ASTVisitor::visit(NewObjectExpression* ex){}
+
+void ASTVisitor::visit(LiteralExpression* ex){}
+
+void ASTVisitor::visit(UnitExpression* ex){}
+
+void ASTVisitor::visit(LogicalExpression* ex){}
+
+void ASTVisitor::visit(NonStaticVarAccessExpression* ex){}
+
+void ASTVisitor::visit(NonStaticFunInvokeExpression* ex){}
+
+void ASTVisitor::visit(OperatorFunInvokeExpression* ex){}
 
 void PackageScope::accept(ASTVisitor* visitor){
     visitor->visit(this);
@@ -114,18 +163,6 @@ void UnitExpression::accept(ASTVisitor* visitor){
 }
 
 void LogicalExpression::accept(ASTVisitor* visitor){
-    visitor->visit(this);
-}
-
-void IncDecExpression::accept(ASTVisitor* visitor){
-    visitor->visit(this);
-}
-
-void EqualityExpression::accept(ASTVisitor* visitor){
-    visitor->visit(this);
-}
-
-void CompareToExpression::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 

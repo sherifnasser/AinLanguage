@@ -15,8 +15,11 @@ class NonStaticVarAccessExpression:public AssignStatement::AssignExpression{
             SharedIExpression inside
         );
         void accept(ASTVisitor *visitor) override;
-        std::vector<std::wstring> prettyPrint()override;
         SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
         void assign(SharedIValue newVal)override;
+
+        std::wstring getVarName() const;
+
+        SharedIExpression getInside() const;
 };

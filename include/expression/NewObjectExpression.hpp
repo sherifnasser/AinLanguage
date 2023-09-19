@@ -9,7 +9,8 @@ class NewObjectExpression:public IExpression{
     public:
         NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
         void accept(ASTVisitor *visitor) override;
-        std::vector<std::wstring> prettyPrint()override;
         SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
+
+        SharedVector<SharedIExpression> getArgs() const;
 };

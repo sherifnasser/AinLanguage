@@ -24,13 +24,6 @@ varName(varName),
 var(var)
 {}
 
-std::vector<std::wstring> VarAccessExpression::prettyPrint(){
-    return{
-        L"VarAccessExpression \'"+varName+
-        L"\' at "+std::to_wstring(lineNumber)
-    };
-}
-
 SharedIValue VarAccessExpression::evaluate(){
     return var->getValue();
 }
@@ -98,4 +91,12 @@ void VarAccessExpression::checkType(){
 
 void VarAccessExpression::assign(SharedIValue newVal){
     var->setValue(newVal);
+}
+
+SharedVariable VarAccessExpression::getVar()const{
+    return var;
+}
+
+std::wstring VarAccessExpression::getVarName()const{
+    return varName;
 }

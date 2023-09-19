@@ -26,13 +26,10 @@ add_library(ainsrc
     src/expression/value/FloatValue.cpp
     src/expression/value/LongValue.cpp
     src/expression/value/UIntValue.cpp
-    src/expression/EqualityExpression.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
-    src/expression/IncDecExpression.cpp
-    src/expression/CompareToExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
