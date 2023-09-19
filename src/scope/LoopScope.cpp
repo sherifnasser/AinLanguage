@@ -17,10 +17,6 @@ void LoopScope::runStmList(){
     }
 }
 
-void LoopScope::check(){
-    StmListScope::check();
-}
-
 bool LoopScope::isBreak(){
     return this->toBreak;
 }

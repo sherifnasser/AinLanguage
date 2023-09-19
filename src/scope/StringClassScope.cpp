@@ -20,5 +20,3 @@ void StringClassScope::pushNewValue(){
 void StringClassScope::popLastValue(){
     valueStack->pop_back();
 }
-
-void StringClassScope::check(){}

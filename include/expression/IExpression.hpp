@@ -26,4 +26,6 @@ inline std::shared_ptr<T> IExpression::evaluateAs(){
     return std::dynamic_pointer_cast<T>(eval);
 }
 
-inline int IExpression::getLineNumber() const { return lineNumber; }
+inline int IExpression::getLineNumber()const{
+    return lineNumber;
+}

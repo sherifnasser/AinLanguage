@@ -2,6 +2,7 @@
 #include "BaseScope.hpp"
 #include "ClassScope.hpp"
 #include "FileScope.hpp"
+#include "IExpression.hpp"
 #include "PackageScope.hpp"
 #include "VariableNotFoundException.hpp"
 #include "MustHaveExplicitTypeException.hpp"
@@ -19,7 +20,7 @@ VarAccessExpression::VarAccessExpression(
     std::wstring varName,
     SharedVariable var
 ):
-AssignStatement::AssignExpression(lineNumber,(var)?var->getType():nullptr),
+IExpression(lineNumber,(var)?var->getType():nullptr),
 varName(varName),
 var(var)
 {}
@@ -87,10 +88,6 @@ void VarAccessExpression::checkType(){
 	if(!this->returnType){
 		throw MustHaveExplicitTypeException(lineNumber);
 	}
-}
-
-void VarAccessExpression::assign(SharedIValue newVal){
-    var->setValue(newVal);
 }
 
 SharedVariable VarAccessExpression::getVar()const{

@@ -1,9 +1,8 @@
 #pragma once
-#include "AssignStatement.hpp"
 #include "IExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class NonStaticVarAccessExpression:public AssignStatement::AssignExpression{
+class NonStaticVarAccessExpression:public IExpression{
     private:
         std::wstring varName;
         SharedIExpression inside;
@@ -17,7 +16,6 @@ class NonStaticVarAccessExpression:public AssignStatement::AssignExpression{
         void accept(ASTVisitor *visitor) override;
         SharedIValue evaluate()override;
         void check(SharedBaseScope checkScope)override;
-        void assign(SharedIValue newVal)override;
 
         std::wstring getVarName() const;
 

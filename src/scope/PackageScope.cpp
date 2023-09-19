@@ -56,13 +56,4 @@ void PackageScope::initGlobalVars(){
     }
 }
 
-void PackageScope::check(){
-    for(auto fileIterator:files){
-        fileIterator.second->check();
-    }
-    for(auto packageIterator:packages){
-        packageIterator.second->check();
-    }
-}
-
 SharedPackageScope PackageScope::AIN_PACKAGE=std::make_shared<PackageScope>(L"عين");

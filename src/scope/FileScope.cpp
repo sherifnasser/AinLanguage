@@ -128,21 +128,3 @@ void FileScope::initGlobalVars(){
         stm->run();
     }
 }
-
-void FileScope::check(){
-    for(auto stm:*globalVarsInitStmList->getStmList()){
-        stm->check();
-    }
-    for(auto classIterator:*privateClasses){
-	    classIterator.second->check();
-    }
-    for(auto classIterator:*publicClasses){
-	    classIterator.second->check();
-    }
-    for(auto funIterator:*privateFunctions){
-        funIterator.second->check();
-    }
-    for(auto funIterator:*publicFunctions){
-        funIterator.second->check();
-    }
-}

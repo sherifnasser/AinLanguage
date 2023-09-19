@@ -109,22 +109,6 @@ SharedVariable ClassScope::findPrivateVariable(std::wstring varName){
     return nullptr;
 }
 
-void ClassScope::check(){
-    varsInitStmList->check();
-    for(auto constructorIterator:*privateConstructors){
-        constructorIterator.second->check();
-    }
-    for(auto constructorIterator:*publicConstructors){
-        constructorIterator.second->check();
-    }
-    for(auto funIterator:*privateFunctions){
-        funIterator.second->check();
-    }
-    for(auto funIterator:*publicFunctions){
-        funIterator.second->check();
-    }
-}
-
 SharedStmListScope ClassScope::getVarsInitStmList()const{
     return this->varsInitStmList;
 }

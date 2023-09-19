@@ -6,29 +6,22 @@
 
 class AssignStatement:public IStatement{
     public:
-        class AssignExpression:public IExpression{
-            protected:
-                AssignExpression
-                (int lineNumber,SharedType returnType)
-                :IExpression(lineNumber, returnType){}
-            public:
-                virtual void assign(SharedIValue newVal)=0;
-                virtual ~AssignExpression(){}
-        };
-
         AssignStatement(
             int lineNumber,
             SharedStmListScope runScope,
-            std::shared_ptr<AssignExpression> ex,
+            SharedIExpression ex,
             SharedIExpression newValEx
         );
 
         void accept(ASTVisitor *visitor) override;
 
-        void check() override;
-        void run() override;
+        void run() override{};
+
+        SharedIExpression getEx()const;
+
+        SharedIExpression getNewValEx()const;
     
     private:
-        std::shared_ptr<AssignExpression> ex;
+        SharedIExpression ex;
         SharedIExpression newValEx;
 };

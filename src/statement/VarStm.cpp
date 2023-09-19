@@ -14,30 +14,15 @@ VarStm::VarStm(
       var(var),
       ex(ex){}
 
-SharedVariable VarStm::getVar() const { return var; }
-
-void VarStm::check(){
-    
-    ex->check(runScope);
-
-    auto exType=ex->getReturnType();
-
-    if(var->hasImplicitType()){
-        var->setType(exType);
-        return;
-    }
-
-    if(*var->getType()==*exType)
-        return;
-    
-    // TODO: message
-    throw TypeMismatchException(
-        L"متغير "+*var->getName()+L": "+*var->getType()->getName(),
-        L"تعبير: "+*ex->getReturnType()->getName());
-
+SharedVariable VarStm::getVar()const{
+    return var;
 }
 
 void VarStm::run(){
     auto val=ex->evaluate();
     var->setValue(val);
+}
+
+SharedIExpression VarStm::getEx()const{
+    return ex;
 }

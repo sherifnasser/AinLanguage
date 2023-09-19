@@ -9,8 +9,6 @@ BreakStatement::BreakStatement(
     : IStatement(lineNumber,runScope),
       loopScope(loopScope){}
 
-void BreakStatement::check(){}
-
 void BreakStatement::run(){
     loopScope->makeBreak();
 }

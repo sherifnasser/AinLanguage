@@ -17,19 +17,6 @@ WhileStatement::WhileStatement(
       loopScope(loopScope)
 {}
 
-void WhileStatement::check(){
-    condition->check(runScope);
-
-    if(condition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *condition->getReturnType()->getName()
-        );
-    
-    loopScope->check();
-}
-
 void WhileStatement::run(){
     while(condition->evaluateAs<BoolValue>()->getValue()){
 
@@ -49,4 +36,12 @@ void WhileStatement::run(){
             break;
         
     }
+}
+
+SharedIExpression WhileStatement::getCondition()const{
+    return condition;
+}
+
+SharedLoopScope WhileStatement::getLoopScope()const{
+    return loopScope;
 }

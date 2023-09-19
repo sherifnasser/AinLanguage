@@ -45,4 +45,6 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
         SharedIValue parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value);
 
         SharedVector<SharedIExpression> expectFunArgs();
+
+        bool isAssignableExpression(SharedIExpression ex);
 };

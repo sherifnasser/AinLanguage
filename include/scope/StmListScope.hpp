@@ -16,5 +16,4 @@ class StmListScope:public BaseScope{
         SharedStmList getStmList();
         SharedVariable getVarByName(std::wstring varName)override;
         SharedVariable getLocalByName(std::wstring varName);
-        virtual void check();
 };

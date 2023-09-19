@@ -15,6 +15,7 @@ class ReturnStatement:public IStatement
 
         void accept(ASTVisitor *visitor) override;
 
-        void check() override;
         void run() override;
+
+        SharedIExpression getEx()const;
 };

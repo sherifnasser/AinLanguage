@@ -41,6 +41,4 @@ class PackageScope:public BaseScope{
 
         void initGlobalVars();
 
-        void check();
-
 };

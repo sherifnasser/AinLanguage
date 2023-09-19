@@ -20,6 +20,13 @@ class IfStatement:public IStatement
         );
 
         void accept(ASTVisitor *visitor) override;
-        void check() override;
         void run() override;
+
+        SharedIExpression getIfCondition()const;
+
+        SharedStmListScope getIfScope()const;
+
+        SharedStmListScope getElseScope()const;
+
+        SharedFunScope getContainingFunScope()const;
 };

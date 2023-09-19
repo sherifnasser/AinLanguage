@@ -20,22 +20,6 @@ IfStatement::IfStatement(
       containingFunScope(BaseScope::getContainingFun(runScope))
 {}
 
-void IfStatement::check(){
-    ifCondition->check(runScope);
-
-    if(ifCondition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *ifCondition->getReturnType()->getName()
-        );
-    
-    ifScope->check();
-
-    if(elseScope)
-        elseScope->check();
-}
-
 void IfStatement::run(){
 
     SharedStmList stmList;
@@ -53,4 +37,20 @@ void IfStatement::run(){
         if(containingFunScope->getReturnValue())
             break;
     }
+}
+
+SharedIExpression IfStatement::getIfCondition()const{
+    return ifCondition;
+}
+
+SharedStmListScope IfStatement::getIfScope()const{
+    return ifScope;
+}
+
+SharedStmListScope IfStatement::getElseScope()const{
+    return elseScope;
+}
+
+SharedFunScope IfStatement::getContainingFunScope()const{
+    return containingFunScope;
 }

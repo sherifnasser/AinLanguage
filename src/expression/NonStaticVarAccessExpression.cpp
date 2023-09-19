@@ -1,5 +1,6 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "CannotAccessPrivateVariableException.hpp"
+#include "IExpression.hpp"
 #include "ObjectValue.hpp"
 #include "Type.hpp"
 #include "ClassScope.hpp"
@@ -13,7 +14,7 @@ NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     std::wstring varName,
     SharedIExpression inside
 ):
-    AssignStatement::AssignExpression(lineNumber,nullptr),
+    IExpression(lineNumber,nullptr),
     varName(varName),
     inside(inside){}
 
@@ -58,9 +59,6 @@ void NonStaticVarAccessExpression::checkType(){
 	}
 }
 
-void NonStaticVarAccessExpression::assign(SharedIValue newVal){
-    inside->evaluateAs<ObjectValue>()->assignProperty(varName,newVal);
-}
 std::wstring NonStaticVarAccessExpression::getVarName()const{
     return varName;
 }

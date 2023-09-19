@@ -9,8 +9,6 @@ ContinueStatement::ContinueStatement(
     : IStatement(lineNumber,runScope),
       loopScope(loopScope){}
 
-void ContinueStatement::check(){}
-
 void ContinueStatement::run(){
     loopScope->makeContinue();
 }

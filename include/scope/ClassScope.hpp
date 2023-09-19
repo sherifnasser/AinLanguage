@@ -55,8 +55,6 @@ class ClassScope: public BaseScope{
         
         SharedVariable findPrivateVariable(std::wstring varName);
 
-        virtual void check();
-
         SharedStmListScope getVarsInitStmList()const;
 
         void setVarsInitStmList(SharedStmListScope varsInitStmList);

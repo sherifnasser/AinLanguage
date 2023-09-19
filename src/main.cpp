@@ -26,6 +26,7 @@
 #include "TypeParser.hpp"
 #include "VarDeclParser.hpp"
 #include "VarStatementParser.hpp"
+#include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "Type.hpp"
@@ -152,13 +153,14 @@ int main(int argc, char * argv[]){
 
         Semantics::TypeChecker::getInstance()->check();
         
-        Semantics::ImplicitVarTypeChecker::getInstance()->check();
 
         auto checker=new SemanticsChecksVisitor;
-        PackageScope::AIN_PACKAGE->accept(checker);
-        delete checker;
 
-        PackageScope::AIN_PACKAGE->check();
+        Semantics::ImplicitVarTypeChecker::getInstance()->check(checker);
+
+        PackageScope::AIN_PACKAGE->accept(checker);
+        
+        delete checker;
 
         PackageScope::AIN_PACKAGE->initGlobalVars();
 

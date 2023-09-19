@@ -23,9 +23,4 @@ class FunScope:public StmListScope{
         SharedFunDecl getDecl();
         void setReturnValue(SharedIValue returnValue);
         SharedIValue getReturnValue();
-        void check()override;
-    private:
-        void doOperatorFunChecks();
-        void checkOperatorFunParamsSize();
-        void checkOperatorFunReturnType();
 };

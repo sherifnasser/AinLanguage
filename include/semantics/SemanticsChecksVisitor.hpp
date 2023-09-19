@@ -42,8 +42,6 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
         void visit(DoWhileStatement* stm)override;
-        void visit(BreakStatement* stm)override;
-        void visit(ContinueStatement* stm)override;
         void visit(ReturnStatement* stm)override;
         void visit(ExpressionStatement* stm)override;
 
@@ -57,4 +55,11 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
+
+    private:
+        void doWhileStmChecks(WhileStatement* stm);
+        void doStmListScopeChecks(StmListScope* scope);
+        void doOperatorFunChecks(FunScope* scope);
+        void checkOperatorFunParamsSize(FunScope* scope);
+        void checkOperatorFunReturnType(FunScope* scope);
 };

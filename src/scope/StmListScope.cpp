@@ -44,10 +44,3 @@ SharedVariable StmListScope::getLocalByName(std::wstring varName){
     
     return var;
 }
-
-void StmListScope::check(){
-    
-    for(auto stm:*stmList){
-        stm->check();
-    }
-}

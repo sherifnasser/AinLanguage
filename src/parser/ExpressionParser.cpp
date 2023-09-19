@@ -146,7 +146,7 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
             unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
         )
         &&
-        !std::dynamic_pointer_cast<AssignStatement::AssignExpression>(primary)
+        !isAssignableExpression(primary)
     )
         throw OnlyVariablesAreAssignableException(lineNumber);
         
@@ -340,7 +340,7 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
 
     auto lineNumber=iterator->lineNumber;
 
-    if(!std::dynamic_pointer_cast<AssignStatement::AssignExpression>(inside))
+    if(!isAssignableExpression(inside))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     iterator->next();
@@ -488,4 +488,12 @@ SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){
     iterator->next();
 
     return args;
+}
+
+bool ExpressionParser::isAssignableExpression(SharedIExpression ex){
+    return
+        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
+        ||
+        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
+    ;
 }

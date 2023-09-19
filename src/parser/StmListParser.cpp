@@ -1,4 +1,5 @@
 #include "StmListParser.hpp"
+#include "ASTVisitor.hpp"
 #include "AssignStatement.hpp"
 #include "BreakStatement.hpp"
 #include "ContinueStatement.hpp"
@@ -22,11 +23,21 @@
 #include "Type.hpp"
 #include "UnexpectedTokenException.hpp"
 #include "UnitExpression.hpp"
+#include "VarAccessExpression.hpp"
+#include "NonStaticVarAccessExpression.hpp"
 #include "VarStm.hpp"
 #include "Variable.hpp"
 #include "WhileStatement.hpp"
 #include <memory>
 #include <vector>
+
+bool StmListParser::isAssignableExpression(SharedIExpression ex){
+    return
+        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
+        ||
+        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
+    ;
+}
 
 StmListParser::StmListParser(
     SharedTokensIterator iterator,
@@ -326,9 +337,8 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
             ex
         );
     
-    auto assignExLeft=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(ex);
     
-    if(!assignExLeft)
+    if(!isAssignableExpression(ex))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     lineNumber=iterator->lineNumber;
@@ -348,14 +358,14 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
             lineNumber,
             getAssignEqualOpFromToken(*op),
             args,
-            assignExLeft
+            ex
         );
     }
         
     return std::make_shared<AssignStatement>(
         lineNumber,
         parentScope,
-        assignExLeft,
+        ex,
         assignExRight
     );
     

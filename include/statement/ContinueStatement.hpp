@@ -13,8 +13,6 @@ class ContinueStatement:public IStatement{
 
         void accept(ASTVisitor *visitor) override;
 
-        void check() override;
-        
         void run() override;
 
 };
