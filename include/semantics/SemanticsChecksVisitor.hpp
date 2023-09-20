@@ -1,12 +1,14 @@
 #pragma once
 #include "ASTVisitor.hpp"
 
+#include "IStatement.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
 #include "ConstructorScope.hpp"
 #include "FunScope.hpp"
 #include "LoopScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
@@ -48,8 +50,6 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(VarAccessExpression* ex)override;
         void visit(FunInvokeExpression* ex)override;
         void visit(NewObjectExpression* ex)override;
-        void visit(LiteralExpression* ex)override;
-        void visit(UnitExpression* ex)override;
 
         void visit(LogicalExpression* ex)override;
         void visit(NonStaticVarAccessExpression* ex)override;
@@ -57,9 +57,12 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(OperatorFunInvokeExpression* ex)override;
 
     private:
+        SharedBaseScope checkScope;
+        void initStmRunScope(IStatement* stm);
         void doWhileStmChecks(WhileStatement* stm);
         void doStmListScopeChecks(StmListScope* scope);
         void doOperatorFunChecks(FunScope* scope);
         void checkOperatorFunParamsSize(FunScope* scope);
         void checkOperatorFunReturnType(FunScope* scope);
+        void checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex);
 };

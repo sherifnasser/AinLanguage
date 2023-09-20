@@ -7,12 +7,8 @@ LiteralExpression::LiteralExpression(int lineNumber,SharedIValue value)
     : IExpression(lineNumber,value->getType()),
       value(value){}
 
-SharedIValue LiteralExpression::evaluate() {
+SharedIValue LiteralExpression::evaluate(){
     return this->value;
-}
-
-void LiteralExpression::check(SharedBaseScope checkScope){
-    
 }
 
 SharedIValue LiteralExpression::getValue()const{

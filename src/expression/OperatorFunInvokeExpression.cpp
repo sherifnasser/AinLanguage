@@ -56,34 +56,3 @@ NonStaticFunInvokeExpression(
             this->funName=OperatorFunctions::DEC_NAME;break;
     }
 }
-
-void OperatorFunInvokeExpression::check(SharedBaseScope checkScope){
-
-    NonStaticFunInvokeExpression::check(checkScope);
-
-    if(*this->fun->getDecl()->isOperator)
-        return;
-    
-    // TODO: make trace more readable
-    auto trace=
-        inside->getReturnType()->getClassScope()->getName()+
-        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
-
-    auto params=std::make_shared<std::vector<SharedFunParam>>();
-    for(auto arg:*args){
-        arg->check(checkScope);
-        auto argType=arg->getReturnType();
-        params->push_back(
-            std::make_shared<FunParam>(nullptr,argType)
-        );
-    }
-    auto decl=FunDecl(
-        std::make_shared<std::wstring>(funName),
-        nullptr,
-        std::make_shared<bool>(false),
-        params
-    ).toString();
-    
-     // append operator to decl, so it says "operator function ... not found "
-    throw FunctionNotFoundException(trace,L"مؤثر "+decl);
-}

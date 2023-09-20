@@ -1,11 +1,20 @@
 #include "SemanticsChecksVisitor.hpp"
 #include "BaseScope.hpp"
+#include "CannotAccessPrivateFunctionException.hpp"
+#include "CannotAccessPrivateVariableException.hpp"
 #include "FunDecl.hpp"
+#include "FunctionNotFoundException.hpp"
 #include "InvalidOperatorFunDeclarationException.hpp"
+#include "MustHaveExplicitTypeException.hpp"
 #include "OperatorFunctions.hpp"
+#include "SharedPtrTypes.hpp"
+#include "Type.hpp"
 #include "TypeMismatchException.hpp"
 #include "UnexpectedTypeException.hpp"
 #include "Variable.hpp"
+#include "VariableNotFoundException.hpp"
+#include "KeywordToken.hpp"
+#include "FunParam.hpp"
 
 void SemanticsChecksVisitor::visit(PackageScope* scope){
     for(auto fileIt:scope->getFiles()){
@@ -15,7 +24,6 @@ void SemanticsChecksVisitor::visit(PackageScope* scope){
     for(auto packageIt:scope->getPackages()){
         packageIt.second->accept(this);
     }
-
 }
 
 void SemanticsChecksVisitor::visit(FileScope* scope){
@@ -37,6 +45,29 @@ void SemanticsChecksVisitor::visit(FileScope* scope){
 }
 
 void SemanticsChecksVisitor::visit(ClassScope* scope){
+
+    if(
+        scope==Type::INT->getClassScope().get()
+        ||
+        scope==Type::UINT->getClassScope().get()
+        ||
+        scope==Type::LONG->getClassScope().get()
+        ||
+        scope==Type::ULONG->getClassScope().get()
+        ||
+        scope==Type::UNIT->getClassScope().get()
+        ||
+        scope==Type::DOUBLE->getClassScope().get()
+        ||
+        scope==Type::FLOAT->getClassScope().get()
+        ||
+        scope==Type::CHAR->getClassScope().get()
+        ||
+        scope==Type::BOOL->getClassScope().get()
+        ||
+        scope==Type::STRING->getClassScope().get()
+    )
+        return;
 
     scope->getVarsInitStmList()->accept(this);
 
@@ -75,6 +106,8 @@ void SemanticsChecksVisitor::visit(StmListScope* scope){
 
 void SemanticsChecksVisitor::visit(VarStm* stm){
 
+    initStmRunScope(stm);
+
     auto var=stm->getVar();
 
     auto ex=stm->getEx();
@@ -100,11 +133,14 @@ void SemanticsChecksVisitor::visit(VarStm* stm){
 
 void SemanticsChecksVisitor::visit(AssignStatement* stm){
 
+    initStmRunScope(stm);
+
     auto ex=stm->getEx();
 
     auto newValEx=stm->getNewValEx();
 
     ex->accept(this);
+
     newValEx->accept(this);
 
     auto t1=ex->getReturnType();
@@ -120,6 +156,8 @@ void SemanticsChecksVisitor::visit(AssignStatement* stm){
 }
 
 void SemanticsChecksVisitor::visit(IfStatement* stm){
+
+    initStmRunScope(stm);
 
     auto ifCondition=stm->getIfCondition();
 
@@ -139,7 +177,7 @@ void SemanticsChecksVisitor::visit(IfStatement* stm){
 }
 
 void SemanticsChecksVisitor::visit(WhileStatement* stm){
-    doWhileStmChecks(stm);    
+    doWhileStmChecks(stm);
 }
 
 void SemanticsChecksVisitor::visit(DoWhileStatement* stm){
@@ -147,6 +185,9 @@ void SemanticsChecksVisitor::visit(DoWhileStatement* stm){
 }
 
 void SemanticsChecksVisitor::visit(ReturnStatement* stm){
+
+    initStmRunScope(stm);
+
     auto ex=stm->getEx();
 
     ex->accept(this);
@@ -173,46 +214,274 @@ void SemanticsChecksVisitor::visit(ReturnStatement* stm){
 }
 
 void SemanticsChecksVisitor::visit(ExpressionStatement* stm){
+    initStmRunScope(stm);
+
     stm->getEx()->accept(this);
 }
 
 void SemanticsChecksVisitor::visit(VarAccessExpression* ex){
+
+    auto lineNumber=ex->getLineNumber();
+
+    auto setVar=[=](SharedVariable newVar){
+        if(!newVar)
+            return false;
+        if(!newVar->getType())
+            throw MustHaveExplicitTypeException(lineNumber);
+        ex->setVar(newVar);
+        ex->setReturnType(newVar->getType());
+        return true;
+    };
+
+    // To enable implicit var type checks when throwing MustHaveExplicitTypeException
+    if(auto var=ex->getVar()){
+        auto varType=var->getType();
+        if(!varType)
+            throw MustHaveExplicitTypeException(lineNumber);
+        ex->setReturnType(varType);
+        return;
+    }
+
+    auto varName=ex->getVarName();
+    auto containingClassScope=BaseScope::getContainingClass(checkScope);
+    if(
+        containingClassScope
+        &&
+        (
+            setVar(containingClassScope->findPublicVariable(varName))
+            ||
+            setVar(containingClassScope->findPrivateVariable(varName))
+        )
+    )
+        return;
+    
+    auto containingFileScope=BaseScope::getContainingFile(checkScope);
+    if(
+        containingFileScope
+        &&
+        setVar(containingFileScope->findPrivateVariable(varName))
+    )
+        return;
+    
+
+    auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
+    for(auto fileIt:package->getFiles()){
+        if(setVar(fileIt.second->findPublicVariable(varName)))
+            return;
+    }
+    
+    // TODO: make trace more readable
+    auto trace=
+        containingFileScope->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+    
+    throw VariableNotFoundException(trace,varName);
+}
+
+void SemanticsChecksVisitor::visit(FunInvokeExpression* ex){
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
+    auto args=ex->getArgs();
+    auto funName=ex->getFunName();
+    auto lineNumber=ex->getLineNumber();
+
+    for(auto arg:*args){
+        arg->accept(this);
+        auto argType=arg->getReturnType();
+        params->push_back(
+            std::make_shared<FunParam>(nullptr,argType)
+        );
+    }
+    auto decl=FunDecl(
+        std::make_shared<std::wstring>(funName),
+        nullptr,
+        std::make_shared<bool>(false),
+        params
+    ).toString();
+
+    auto setFun=[=](SharedFunScope fun){
+        if(!fun)
+            return false;
+        if(!fun->getReturnType())
+            throw MustHaveExplicitTypeException(lineNumber);
+        ex->setFun(fun);
+        ex->setReturnType(fun->getReturnType());
+        return true;
+    };
+
+    auto containingClassScope=BaseScope::getContainingClass(checkScope);
+    if(
+        containingClassScope
+        &&
+        (
+            setFun(containingClassScope->findPublicFunction(decl))
+            ||
+            setFun(containingClassScope->findPrivateFunction(decl))
+        )
+    )
+        return;
+
+    auto containingFileScope=BaseScope::getContainingFile(checkScope);
+    if(
+        containingFileScope
+        &&
+        setFun(containingFileScope->findPrivateFunction(decl))
+    )
+        return;
+    
+    auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
+    for(auto fileIt:package->getFiles()){
+        if(setFun(fileIt.second->findPublicFunction(decl)))
+            return;
+    }
+        
+    // TODO: make trace more readable
+    auto trace=
+        containingFileScope->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+    
+    throw FunctionNotFoundException(trace,decl);
     
 }
 
-void SemanticsChecksVisitor::visit(FunInvokeExpression* ex) {
+void SemanticsChecksVisitor::visit(NewObjectExpression* ex){
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
+    auto args=ex->getArgs();
+    auto type=ex->getReturnType();
+    auto returnClassScope=type->getClassScope();
+
+    for(auto arg:*args){
+        arg->accept(this);
+        auto argType=arg->getReturnType();
+        params->push_back(
+            std::make_shared<FunParam>(nullptr,argType)
+        );
+    }
+    auto decl=FunDecl(
+        std::make_shared<std::wstring>(KeywordToken::NEW.getVal()),
+        type,
+        std::make_shared<bool>(false),
+        params
+    ).toString();
     
+    auto containingClassScope=BaseScope::getContainingClass(checkScope);
+    if(containingClassScope==returnClassScope){
+        auto privateConstructor=returnClassScope->findPrivateConstructor(decl);
+        if(privateConstructor){
+            ex->setConstructor(privateConstructor);
+            return;
+        }
+    }
+
+    // TODO: check for protected constructor if parent class of checkScope is child of object class scope
+
+    // TODO: check for protected constructors
+
+    auto publicConstructor=returnClassScope->findPublicConstructor(decl);
+    if(publicConstructor){
+        ex->setConstructor(publicConstructor);
+        return;
+    }
+    
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
+
+    throw FunctionNotFoundException(
+        trace,
+        decl+L" للنوع "+AinException::betweenAngleBrackets(*type->getName())
+    );
+
 }
 
-void SemanticsChecksVisitor::visit(NewObjectExpression* ex) {
+void SemanticsChecksVisitor::visit(LogicalExpression* ex){
+    auto left=ex->getLeft();
+    auto right=ex->getRight();
+    auto lineNumber=ex->getLineNumber();
+
+    left->accept(this);
+    right->accept(this);
+
+    if(left->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *left->getReturnType()->getName()
+        );
     
+    if(right->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+        throw UnexpectedTypeException(
+            lineNumber,
+            *Type::BOOL_NAME,
+            *right->getReturnType()->getName()
+        );
 }
 
-void SemanticsChecksVisitor::visit(LiteralExpression* ex) {
+void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
+    auto lineNumber=ex->getLineNumber();
+    auto varName=ex->getVarName();
+    auto inside=ex->getInside();
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    auto insideClassScope=insideType->getClassScope();
+
+    auto publicVar=insideClassScope->findPublicVariable(varName);
+
+    if(publicVar){
+        if(!publicVar->getType())
+            throw MustHaveExplicitTypeException(lineNumber);
+        
+        ex->setReturnType(publicVar->getType());
+        return;
+    }
+
+    auto privateVar=insideClassScope->findPrivateVariable(varName);
+
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+
+    if(!privateVar)
+        throw VariableNotFoundException(trace,insideClassScope->getName()+L"::"+varName);
     
+    if(insideClassScope!=BaseScope::getContainingClass(checkScope))
+        throw CannotAccessPrivateVariableException(trace,varName);
+
+    if(!privateVar->getType())
+        throw MustHaveExplicitTypeException(lineNumber);
+        
+    ex->setReturnType(privateVar->getType());
 }
 
-void SemanticsChecksVisitor::visit(UnitExpression* ex) {
-    
+void SemanticsChecksVisitor::visit(NonStaticFunInvokeExpression* ex){
+    checkNonStaticFunInvokeEx(ex);
 }
 
-void SemanticsChecksVisitor::visit(LogicalExpression* ex) {
+void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
+    auto decl=ex->getFun()->getDecl();
+
+    if(*decl->isOperator){
+        checkNonStaticFunInvokeEx(ex);
+        return;
+    }
+
+    // TODO: make trace more readable
+    auto trace=
+        ex->getInside()->getReturnType()->getClassScope()->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
     
+     // append operator to decl, so it says "operator function ... not found "
+    throw FunctionNotFoundException(trace,L"مؤثر "+decl->toString());
 }
 
-void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex) {
-    
-}
-
-void SemanticsChecksVisitor::visit(NonStaticFunInvokeExpression* ex) {
-    
-}
-
-void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex) {
-    
+void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){
+    checkScope=stm->getRunScope();
 }
 
 void SemanticsChecksVisitor::doWhileStmChecks(WhileStatement* stm){
+
+    initStmRunScope(stm);
+
     auto condition=stm->getCondition();
 
     condition->accept(this);
@@ -299,4 +568,52 @@ void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
             L" يجب أن ترجع قيمة من نفس نوع "+parentClass->getName()
         );
     
+}
+
+void SemanticsChecksVisitor::checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex){
+    auto args=ex->getArgs();
+    auto funName=ex->getFunName();
+    auto inside=ex->getInside();
+    auto lineNumber=ex->getLineNumber();
+
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
+    for(auto arg:*args){
+        arg->accept(this);
+        auto argType=arg->getReturnType();
+        params->push_back(
+            std::make_shared<FunParam>(nullptr,argType)
+        );
+    }
+    auto decl=FunDecl(
+        std::make_shared<std::wstring>(funName),
+        nullptr,
+        std::make_shared<bool>(false),
+        params
+    ).toString();
+
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    auto insideClassScope=insideType->getClassScope();
+    auto publicFun=insideClassScope->findPublicFunction(decl);
+    if(publicFun){
+        ex->setFun(publicFun);
+        ex->setReturnType(publicFun->getReturnType());
+        return;
+    }
+
+    auto privateFun=insideClassScope->findPrivateFunction(decl);
+
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+
+    if(!privateFun)
+        throw FunctionNotFoundException(trace,insideClassScope->getName()+L"::"+decl);
+    
+    if(insideClassScope!=BaseScope::getContainingClass(checkScope))
+        throw CannotAccessPrivateFunctionException(trace,decl);
+    
+    ex->setFun(privateFun);
+    ex->setReturnType(privateFun->getReturnType());
 }

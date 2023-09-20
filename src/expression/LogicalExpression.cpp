@@ -27,25 +27,6 @@ std::shared_ptr<BoolValue> LogicalExpression::evaluateRight(){
     return std::make_shared<BoolValue>(rightVal);
 }
 
-void LogicalExpression::check(SharedBaseScope checkScope){
-    left->check(checkScope);
-    right->check(checkScope);
-
-    if(left->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *left->getReturnType()->getName()
-        );
-    
-    if(right->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *right->getReturnType()->getName()
-        );
-}
-
 SharedIValue LogicalExpression::evaluate(){
     return nullptr;
 }

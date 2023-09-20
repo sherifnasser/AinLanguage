@@ -10,7 +10,6 @@ class NewObjectExpression:public IExpression{
         NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
         void accept(ASTVisitor *visitor) override;
         SharedIValue evaluate()override;
-        void check(SharedBaseScope checkScope)override;
-
         SharedVector<SharedIExpression> getArgs() const;
+        void setConstructor(SharedConstructorScope constructor);
 };

@@ -20,8 +20,6 @@ class LogicalExpression:public IExpression{
         );
         void accept(ASTVisitor *visitor) override;
 
-        void check(SharedBaseScope checkScope)override;
-
         SharedIValue evaluate() override;
         
         SharedIExpression getLeft() const;

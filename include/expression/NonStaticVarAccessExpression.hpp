@@ -6,7 +6,6 @@ class NonStaticVarAccessExpression:public IExpression{
     private:
         std::wstring varName;
         SharedIExpression inside;
-        void checkType();
     public:
         NonStaticVarAccessExpression(
             int lineNumber,
@@ -15,7 +14,6 @@ class NonStaticVarAccessExpression:public IExpression{
         );
         void accept(ASTVisitor *visitor) override;
         SharedIValue evaluate()override;
-        void check(SharedBaseScope checkScope)override;
 
         std::wstring getVarName() const;
 

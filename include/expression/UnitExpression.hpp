@@ -6,5 +6,4 @@ class UnitExpression:public IExpression{
         UnitExpression(int lineNumber);
         void accept(ASTVisitor *visitor) override;
         SharedIValue evaluate() override;
-        void check(SharedBaseScope checkScope) override;
 };

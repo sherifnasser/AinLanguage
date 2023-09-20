@@ -10,8 +10,8 @@ class IExpression:public ASTNode{
     public:
         IExpression(int lineNumber,SharedType returnType);
         virtual SharedIValue evaluate()=0;
-        virtual void check(SharedBaseScope checkScope)=0;
         SharedType getReturnType();
+        void setReturnType(SharedType returnType);
         virtual ~IExpression();
 
         template<typename T>
@@ -27,17 +27,4 @@ template<typename T>
 inline std::shared_ptr<T> IExpression::evaluateAs(){
     auto eval=evaluate();
     return std::dynamic_pointer_cast<T>(eval);
-}
-
-inline int IExpression::getLineNumber()const{
-    return lineNumber;
-}
-
-
-bool IExpression::isAssignableExpression(SharedIExpression ex){
-    return
-        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
-        ||
-        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
-    ;
 }

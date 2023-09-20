@@ -19,7 +19,6 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             SharedIExpression inside
         );
         void accept(ASTVisitor *visitor) override;
-        void check(SharedBaseScope checkScope)override;
 
     private:
         Operator op;
