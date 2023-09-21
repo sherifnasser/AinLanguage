@@ -8,7 +8,6 @@ class IfStatement:public IStatement
         SharedIExpression ifCondition;
         SharedStmListScope ifScope;
         SharedStmListScope elseScope;
-        SharedFunScope containingFunScope;
 
     public:
         IfStatement(
@@ -26,6 +25,4 @@ class IfStatement:public IStatement
         SharedStmListScope getIfScope()const;
 
         SharedStmListScope getElseScope()const;
-
-        SharedFunScope getContainingFunScope()const;
 };

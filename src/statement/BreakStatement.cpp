@@ -3,8 +3,5 @@
 
 BreakStatement::BreakStatement(
     int lineNumber,
-    SharedBaseScope runScope,
-    SharedLoopScope loopScope
-)
-    : IStatement(lineNumber,runScope),
-      loopScope(loopScope){}
+    SharedBaseScope runScope
+):IStatement(lineNumber,runScope){}

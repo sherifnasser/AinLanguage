@@ -290,9 +290,9 @@ SharedIStatement StmListParser::parseBreakContinueStatement(SharedStmListScope p
     iterator->next();
 
     if(isBreak)
-        return std::make_shared<BreakStatement>(lineNumber,parentScope,loopScope);
+        return std::make_shared<BreakStatement>(lineNumber,parentScope);
 
-    return std::make_shared<ContinueStatement>(lineNumber,parentScope,loopScope);
+    return std::make_shared<ContinueStatement>(lineNumber,parentScope);
 }
 
 SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope parentScope){

@@ -16,8 +16,7 @@ IfStatement::IfStatement(
     : IStatement(lineNumber,runScope),
       ifCondition(ifCondition),
       ifScope(ifScope),
-      elseScope(elseScope),
-      containingFunScope(BaseScope::getContainingFun(runScope))
+      elseScope(elseScope)
 {}
 
 SharedIExpression IfStatement::getIfCondition()const{
@@ -30,8 +29,4 @@ SharedStmListScope IfStatement::getIfScope()const{
 
 SharedStmListScope IfStatement::getElseScope()const{
     return elseScope;
-}
-
-SharedFunScope IfStatement::getContainingFunScope()const{
-    return containingFunScope;
 }
