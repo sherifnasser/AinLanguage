@@ -20,7 +20,6 @@ class IfStatement:public IStatement
         );
 
         void accept(ASTVisitor *visitor) override;
-        void run() override;
 
         SharedIExpression getIfCondition()const;
 

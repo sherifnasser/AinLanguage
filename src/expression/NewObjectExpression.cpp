@@ -4,7 +4,6 @@
 #include "FunDecl.hpp"
 #include "FunInvokeExpression.hpp"
 #include "FunParam.hpp"
-#include "ConstructorScope.hpp"
 #include "FunctionNotFoundException.hpp"
 #include "IExpression.hpp"
 #include "SharedPtrTypes.hpp"
@@ -20,20 +19,14 @@ NewObjectExpression::NewObjectExpression(
     SharedVector<SharedIExpression> args
 ):IExpression(lineNumber,type),args(args){}
 
-SharedIValue NewObjectExpression::evaluate(){
-    auto argValues=std::make_shared<std::map<std::wstring,SharedIValue>>();
-    auto params=this->constructor->getDecl()->params;
-    for(int i=0;i<args->size();i++){
-        auto argValue=(*args)[i]->evaluate();
-        (*argValues)[*params->at(i)->name]=argValue;
-    }
-
-    return this->constructor->invoke(argValues);
-}
-
 SharedVector<SharedIExpression> NewObjectExpression::getArgs()const{
     return args;
 }
-void NewObjectExpression::setConstructor(SharedConstructorScope constructor){
+
+SharedFunScope NewObjectExpression::getConstructor()const{
+    return constructor;
+}
+
+void NewObjectExpression::setConstructor(SharedFunScope constructor){
     this->constructor=constructor;
 }

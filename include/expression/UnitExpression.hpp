@@ -5,5 +5,4 @@ class UnitExpression:public IExpression{
     public:
         UnitExpression(int lineNumber);
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate() override;
 };

@@ -18,11 +18,6 @@ SharedVariable VarStm::getVar()const{
     return var;
 }
 
-void VarStm::run(){
-    auto val=ex->evaluate();
-    var->setValue(val);
-}
-
 SharedIExpression VarStm::getEx()const{
     return ex;
 }

@@ -10,6 +10,7 @@
 #include "FunDeclParser.hpp"
 #include "FunParamParser.hpp"
 #include "FunParser.hpp"
+#include "Interpreter.hpp"
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
@@ -170,13 +171,18 @@ int main(int argc, char * argv[]){
         
         delete checker;
 
-        PackageScope::AIN_PACKAGE->initGlobalVars();
-
+        auto interpreter=new Interpreter;
+        auto assigner=new Interpreter::Assigner(interpreter);
+        interpreter->assigner=assigner;
+        
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
 
-        main->invoke(std::make_shared<std::map<std::wstring, SharedIValue>>());
+        main->accept(interpreter);
+
+        delete assigner;
+        delete interpreter;
 
     }
     catch(std::exception& e){

@@ -15,8 +15,6 @@ class AssignStatement:public IStatement{
 
         void accept(ASTVisitor *visitor) override;
 
-        void run() override{};
-
         SharedIExpression getEx()const;
 
         SharedIExpression getNewValEx()const;

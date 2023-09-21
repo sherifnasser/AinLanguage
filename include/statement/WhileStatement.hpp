@@ -18,8 +18,6 @@ class WhileStatement:public IStatement
 
         void accept(ASTVisitor *visitor) override;
 
-        void run() override;
-
         SharedIExpression getCondition()const;
 
         SharedLoopScope getLoopScope()const;

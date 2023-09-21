@@ -10,8 +10,6 @@ class VarAccessExpression:public IExpression{
     public:
         VarAccessExpression(int lineNumber,std::wstring varName,SharedVariable var);
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate()override;
-
         SharedVariable getVar() const;
         std::wstring getVarName() const;
         void setVar(SharedVariable var);

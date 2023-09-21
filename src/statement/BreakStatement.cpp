@@ -8,7 +8,3 @@ BreakStatement::BreakStatement(
 )
     : IStatement(lineNumber,runScope),
       loopScope(loopScope){}
-
-void BreakStatement::run(){
-    loopScope->makeBreak();
-}

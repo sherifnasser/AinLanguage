@@ -16,7 +16,7 @@ class NonStaticFunInvokeExpression:public IExpression{
             SharedIExpression inside
         );
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate()override;
+        
         virtual ~NonStaticFunInvokeExpression();
 
         std::wstring getFunName() const;

@@ -85,10 +85,6 @@ void SemanticsChecksVisitor::visit(ClassScope* scope){
     }
 }
 
-void SemanticsChecksVisitor::visit(ConstructorScope* scope){
-    doStmListScopeChecks(scope);
-}
-
 void SemanticsChecksVisitor::visit(FunScope* scope){
     if(*scope->getDecl()->isOperator)
         doOperatorFunChecks(scope);
@@ -458,20 +454,30 @@ void SemanticsChecksVisitor::visit(NonStaticFunInvokeExpression* ex){
 }
 
 void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
+
+    checkNonStaticFunInvokeEx(ex);
+
     auto decl=ex->getFun()->getDecl();
 
-    if(*decl->isOperator){
-        checkNonStaticFunInvokeEx(ex);
-        return;
+    if(!*decl->isOperator){
+        // TODO: make trace more readable
+        auto trace=
+            ex->getInside()->getReturnType()->getClassScope()->getName()+
+            L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
+        
+        // append operator to decl, so it says "operator function ... not found "
+        throw FunctionNotFoundException(trace,L"مؤثر "+decl->toString());
     }
-
-    // TODO: make trace more readable
-    auto trace=
-        ex->getInside()->getReturnType()->getClassScope()->getName()+
-        L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
     
-     // append operator to decl, so it says "operator function ... not found "
-    throw FunctionNotFoundException(trace,L"مؤثر "+decl->toString());
+    switch(ex->getOp()){
+        case OperatorFunInvokeExpression::Operator::LESS:
+        case OperatorFunInvokeExpression::Operator::LESS_EQUAL:
+        case OperatorFunInvokeExpression::Operator::GREATER:
+        case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:
+            ex->setReturnType(Type::BOOL);
+        default:
+            break;
+    }
 }
 
 void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){

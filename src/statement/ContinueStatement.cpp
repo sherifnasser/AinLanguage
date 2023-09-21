@@ -8,7 +8,3 @@ ContinueStatement::ContinueStatement(
 )
     : IStatement(lineNumber,runScope),
       loopScope(loopScope){}
-
-void ContinueStatement::run(){
-    loopScope->makeContinue();
-}

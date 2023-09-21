@@ -13,6 +13,4 @@ class BreakStatement:public IStatement{
         );
 
         void accept(ASTVisitor *visitor) override;
-
-        void run() override;
 };

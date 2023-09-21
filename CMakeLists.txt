@@ -6,6 +6,7 @@ project(AinLanguage)
 
 add_library(ainsrc
     src/main.cpp
+    src/Interpreter.cpp
     src/lexer/LexerToken.cpp
     src/lexer/Lexer.cpp
     src/lexer/KeywordToken.cpp
@@ -42,7 +43,6 @@ add_library(ainsrc
     src/scope/FunScope.cpp
     src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
-    src/scope/ConstructorScope.cpp
     src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
@@ -54,7 +54,6 @@ add_library(ainsrc
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
     src/statement/ContinueStatement.cpp
-    src/statement/DoWhileStatement.cpp
     src/statement/ExpressionStatement.cpp
     src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp

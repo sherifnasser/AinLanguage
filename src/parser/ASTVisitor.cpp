@@ -3,8 +3,8 @@
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
-#include "ConstructorScope.hpp"
 #include "FunScope.hpp"
+#include "BuiltInFunScope.hpp"
 #include "LoopScope.hpp"
 #include "StmListScope.hpp"
 #include "VarStm.hpp"
@@ -34,9 +34,9 @@ void ASTVisitor::visit(FileScope* scope){}
 
 void ASTVisitor::visit(ClassScope* scope){}
 
-void ASTVisitor::visit(ConstructorScope* scope){}
-
 void ASTVisitor::visit(FunScope* scope){}
+
+void ASTVisitor::visit(BuiltInFunScope* scope){}
 
 void ASTVisitor::visit(LoopScope* scope){}
 
@@ -90,11 +90,11 @@ void ClassScope::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 
-void ConstructorScope::accept(ASTVisitor* visitor){
+void FunScope::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 
-void FunScope::accept(ASTVisitor* visitor){
+void BuiltInFunScope::accept(ASTVisitor *visitor){
     visitor->visit(this);
 }
 

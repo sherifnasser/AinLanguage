@@ -18,35 +18,6 @@ FunScope::FunScope(
 ):StmListScope(*decl->name,parentScope),decl(decl)
 {}
 
-SharedIValue FunScope::invoke(SharedMap<std::wstring, SharedIValue> params){
-
-    for(auto local:*locals){
-        auto varName=local.first;
-        auto var=local.second;
-        var->pushNewValue();
-        auto paramIt=params->find(varName);
-        if(paramIt!=params->end()){
-            var->setValue(paramIt->second);
-        }
-    }
-
-    for(auto stm:*stmList){
-        stm->run();
-        if(this->returnValue)
-            break;
-    }
-
-    for(auto local:*locals){
-        local.second->popLastValue();
-    }
-
-    auto retVal=this->returnValue;
-
-    this->returnValue=nullptr;
-
-    return retVal;
-}
-
 SharedType FunScope::getReturnType(){
     return this->decl->returnType;
 }

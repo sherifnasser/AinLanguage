@@ -54,6 +54,4 @@ class FileScope:public BaseScope{
         SharedStmListScope getGlobalVarsInitStmList()const;
 
         void setGlobalVarsInitStmList(SharedStmListScope globalVarsInitStmList);
-
-        void initGlobalVars();
 };

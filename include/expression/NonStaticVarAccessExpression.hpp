@@ -13,7 +13,6 @@ class NonStaticVarAccessExpression:public IExpression{
             SharedIExpression inside
         );
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate()override;
 
         std::wstring getVarName() const;
 

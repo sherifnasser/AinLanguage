@@ -5,7 +5,3 @@
 
 UnitExpression::UnitExpression(int lineNumber):
 IExpression(lineNumber,Type::UNIT){}
-
-SharedIValue UnitExpression::evaluate() {
-    return std::make_shared<UnitValue>();
-}

@@ -20,25 +20,6 @@ IfStatement::IfStatement(
       containingFunScope(BaseScope::getContainingFun(runScope))
 {}
 
-void IfStatement::run(){
-
-    SharedStmList stmList;
-
-    if(ifCondition->evaluateAs<BoolValue>()->getValue()){
-        stmList=ifScope->getStmList();
-    }
-    else if(elseScope){
-        stmList=elseScope->getStmList();
-    }
-    else return;
-    
-    for(auto stm:*stmList){
-        stm->run();
-        if(containingFunScope->getReturnValue())
-            break;
-    }
-}
-
 SharedIExpression IfStatement::getIfCondition()const{
     return ifCondition;
 }

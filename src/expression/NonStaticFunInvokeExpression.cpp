@@ -22,27 +22,6 @@ NonStaticFunInvokeExpression::NonStaticFunInvokeExpression(
       args(args),
       inside(inside){}
 
-SharedIValue NonStaticFunInvokeExpression::evaluate(){
-    
-    auto insideVal=inside->evaluate();
-    
-    insideVal->linkWithClass();
-
-    auto argValues=std::make_shared<std::map<std::wstring,SharedIValue>>();
-
-    auto params=this->fun->getDecl()->params;
-    for(int i=0;i<args->size();i++){
-        auto argValue=(*args)[i]->evaluate();
-        (*argValues)[*params->at(i)->name]=argValue;
-    }
-
-    auto val=this->fun->invoke(argValues);
-
-    insideVal->unlinkWithClass();
-
-    return val;
-}
-
 NonStaticFunInvokeExpression::~NonStaticFunInvokeExpression(){}
 
 std::wstring NonStaticFunInvokeExpression::getFunName()const{

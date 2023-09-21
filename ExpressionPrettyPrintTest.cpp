@@ -13,7 +13,6 @@
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
-#include "ConstructorScope.hpp"
 #include "FunScope.hpp"
 #include "LoopScope.hpp"
 #include "StmListScope.hpp"

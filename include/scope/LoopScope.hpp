@@ -8,7 +8,6 @@ class LoopScope:public StmListScope{
     public:
         LoopScope(SharedBaseScope parentScope);
         void accept(ASTVisitor *visitor) override;
-        void runStmList();
         bool isBreak();
         bool isContinue();
         bool isReturn();

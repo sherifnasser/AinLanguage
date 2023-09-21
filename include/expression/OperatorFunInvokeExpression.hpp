@@ -20,6 +20,8 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
         );
         void accept(ASTVisitor *visitor) override;
 
+        Operator getOp()const;
+
     private:
         Operator op;
 };

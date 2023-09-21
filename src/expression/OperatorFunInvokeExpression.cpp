@@ -20,7 +20,7 @@ NonStaticFunInvokeExpression(
     L"",
     args,
     inside
-){
+),op(op){
     switch(op){
         case Operator::PLUS:
             this->funName=OperatorFunctions::PLUS_NAME;break;
@@ -55,4 +55,8 @@ NonStaticFunInvokeExpression(
         case Operator::POST_DEC:
             this->funName=OperatorFunctions::DEC_NAME;break;
     }
+}
+
+OperatorFunInvokeExpression::Operator OperatorFunInvokeExpression::getOp()const{
+    return op;
 }

@@ -20,8 +20,8 @@ int IExpression::getLineNumber()const{
 
 bool IExpression::isAssignableExpression(SharedIExpression ex){
     return
-        std::dynamic_pointer_cast<VarAccessExpression>(ex)!=nullptr
+        std::dynamic_pointer_cast<VarAccessExpression>(ex)
         ||
-        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)!=nullptr
+        std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)
     ;
 }

@@ -5,11 +5,11 @@
 class NewObjectExpression:public IExpression{
     private:
         SharedVector<SharedIExpression> args;
-        SharedConstructorScope constructor;
+        SharedFunScope constructor;
     public:
         NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate()override;
         SharedVector<SharedIExpression> getArgs() const;
-        void setConstructor(SharedConstructorScope constructor);
+        SharedFunScope getConstructor()const;
+        void setConstructor(SharedFunScope constructor);
 };

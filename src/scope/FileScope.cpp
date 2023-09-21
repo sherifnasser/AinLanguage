@@ -115,16 +115,3 @@ SharedStmListScope FileScope::getGlobalVarsInitStmList()const{
 void FileScope::setGlobalVarsInitStmList(SharedStmListScope globalVarsInitStmList){
     this->globalVarsInitStmList=globalVarsInitStmList;
 }
-
-void FileScope::initGlobalVars(){
-    for(auto varIt:*publicVariables){
-        varIt.second->pushNewValue();
-    }
-    for(auto varIt:*privateVariables){
-        varIt.second->pushNewValue();
-    }
-    auto stmList=globalVarsInitStmList->getStmList();
-    for(auto stm:*stmList){
-        stm->run();
-    }
-}

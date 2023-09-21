@@ -7,7 +7,6 @@ class IStatement:public ASTNode{
         SharedBaseScope runScope;
     public:
         IStatement(int lineNumber,SharedBaseScope runScope);
-        virtual void run()=0;
 
         int getLineNumber()const;
 

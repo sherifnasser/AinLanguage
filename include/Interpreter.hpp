@@ -1,7 +1,7 @@
 #pragma once
 #include "ASTVisitor.hpp"
 
-#include "IStatement.hpp"
+#include "BuiltInFunScope.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
@@ -27,40 +27,63 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include <memory>
+#include <stack>
 
-class SemanticsChecksVisitor:public ASTVisitor{
+class Interpreter:public ASTVisitor{
     public:
+        class Assigner:public ASTVisitor{
+            private:
+                Interpreter* interpreter;
+            public:
+                Assigner(Interpreter* interpreter);
+                void visit(VarAccessExpression* ex)override;
+                void visit(NonStaticVarAccessExpression* ex)override;
+        };
+        Assigner* assigner;
+    private:
+        bool funReturn;
+        bool loopBreak;
+        bool loopContinue;
+        std::stack<SharedIValue> valuesStack;
+        void push(SharedIValue val);
+        SharedIValue top();
+        SharedIValue pop();
+        void runStmList(StmListScope* scope);
+        template<typename T>
+        std::shared_ptr<T> popAs();
+        void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
+    public:
+        Interpreter();
+        Interpreter(Assigner* assigner);
         void visit(PackageScope* scope)override;
         void visit(FileScope* scope)override;
         void visit(ClassScope* scope)override;
         void visit(FunScope* scope)override;
+        void visit(BuiltInFunScope* scope)override;
         void visit(LoopScope* scope)override;
         void visit(StmListScope* scope)override;
-
         void visit(VarStm* stm)override;
         void visit(AssignStatement* stm)override;
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
         void visit(DoWhileStatement* stm)override;
+        void visit(BreakStatement* stm)override;
+        void visit(ContinueStatement* stm)override;
         void visit(ReturnStatement* stm)override;
         void visit(ExpressionStatement* stm)override;
-
         void visit(VarAccessExpression* ex)override;
         void visit(FunInvokeExpression* ex)override;
         void visit(NewObjectExpression* ex)override;
-
+        void visit(LiteralExpression* ex)override;
+        void visit(UnitExpression* ex)override;
         void visit(LogicalExpression* ex)override;
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
-
-    private:
-        SharedBaseScope checkScope;
-        void initStmRunScope(IStatement* stm);
-        void doWhileStmChecks(WhileStatement* stm);
-        void doStmListScopeChecks(StmListScope* scope);
-        void doOperatorFunChecks(FunScope* scope);
-        void checkOperatorFunParamsSize(FunScope* scope);
-        void checkOperatorFunReturnType(FunScope* scope);
-        void checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex);
 };
+
+template<typename T>
+inline std::shared_ptr<T> Interpreter::popAs(){
+    return std::dynamic_pointer_cast<T>(pop());
+}

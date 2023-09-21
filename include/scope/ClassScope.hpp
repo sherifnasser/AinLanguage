@@ -2,11 +2,7 @@
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 class ClassScope: public BaseScope{
-    public:
-        ClassScope(std::wstring name,SharedBaseScope parentScope);
-
-        void accept(ASTVisitor *visitor) override;
-        
+    private:
         // TODO: add protected and static members
 
         // map fun decl to functions
@@ -14,8 +10,8 @@ class ClassScope: public BaseScope{
         SharedMap<std::wstring,SharedFunScope> privateFunctions;
 
         // map constructor decl to constructors
-        SharedMap<std::wstring,SharedConstructorScope> publicConstructors;
-        SharedMap<std::wstring,SharedConstructorScope> privateConstructors;
+        SharedMap<std::wstring,SharedFunScope> publicConstructors;
+        SharedMap<std::wstring,SharedFunScope> privateConstructors;
 
         // map classes names to classes
         SharedMap<std::wstring,SharedClassScope> publicClasses;
@@ -26,14 +22,18 @@ class ClassScope: public BaseScope{
         SharedMap<std::wstring,SharedVariable> privateVariables;
 
         SharedStmListScope varsInitStmList;
+    public:
+        ClassScope(std::wstring name,SharedBaseScope parentScope);
+
+        void accept(ASTVisitor *visitor) override;
 
         SharedMap<std::wstring,SharedFunScope> getPublicFunctions() const;
 
         SharedMap<std::wstring,SharedFunScope> getPrivateFunctions() const;
 
-        SharedMap<std::wstring,SharedConstructorScope> getPublicConstructors() const;
+        SharedMap<std::wstring,SharedFunScope> getPublicConstructors() const;
 
-        SharedMap<std::wstring,SharedConstructorScope> getPrivateConstructors() const;
+        SharedMap<std::wstring,SharedFunScope> getPrivateConstructors() const;
 
         SharedMap<std::wstring,SharedClassScope> getPublicClasses() const;
 
@@ -47,9 +47,9 @@ class ClassScope: public BaseScope{
 
         SharedFunScope findPrivateFunction(std::wstring decl);
 
-        SharedConstructorScope findPublicConstructor(std::wstring decl);
+        SharedFunScope findPublicConstructor(std::wstring decl);
 
-        SharedConstructorScope findPrivateConstructor(std::wstring decl);
+        SharedFunScope findPrivateConstructor(std::wstring decl);
 
         SharedVariable findPublicVariable(std::wstring varName);
         
@@ -58,10 +58,4 @@ class ClassScope: public BaseScope{
         SharedStmListScope getVarsInitStmList()const;
 
         void setVarsInitStmList(SharedStmListScope varsInitStmList);
-
-        void runVarsInitStmList();
-
-        void pushNewProperties();
-
-        SharedMap<std::wstring, SharedIValue> popLastProperties();
 };

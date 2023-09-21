@@ -18,7 +18,6 @@ class VarStm:public IStatement{
         void accept(ASTVisitor *visitor)override;
 
         SharedVariable getVar()const;
-        void run() override;
 
         SharedIExpression getEx()const;
 };

@@ -17,27 +17,6 @@ WhileStatement::WhileStatement(
       loopScope(loopScope)
 {}
 
-void WhileStatement::run(){
-    while(condition->evaluateAs<BoolValue>()->getValue()){
-
-        loopScope->runStmList();
-
-        if(loopScope->isContinue()){
-            loopScope->resetContinue();
-            continue;
-        }
-
-        if(loopScope->isBreak()){
-            loopScope->resetBreak();
-            break;
-        }
-
-        if(loopScope->isReturn())
-            break;
-        
-    }
-}
-
 SharedIExpression WhileStatement::getCondition()const{
     return condition;
 }

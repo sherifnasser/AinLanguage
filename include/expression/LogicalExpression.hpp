@@ -19,8 +19,6 @@ class LogicalExpression:public IExpression{
             SharedIExpression right
         );
         void accept(ASTVisitor *visitor) override;
-
-        SharedIValue evaluate() override;
         
         SharedIExpression getLeft() const;
 
@@ -32,5 +30,4 @@ class LogicalExpression:public IExpression{
         SharedIExpression left;
         SharedIExpression right;
         Operation logicalOp;
-        bool evaluateLeft();
 };

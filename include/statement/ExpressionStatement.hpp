@@ -12,8 +12,6 @@ class ExpressionStatement:public IStatement{
             SharedIExpression ex
         );
         void accept(ASTVisitor *visitor) override;
-        
-        void run() override;
 
         SharedIExpression getEx()const;
     

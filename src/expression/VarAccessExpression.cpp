@@ -19,10 +19,6 @@ varName(varName),
 var(var)
 {}
 
-SharedIValue VarAccessExpression::evaluate(){
-    return var->getValue();
-}
-
 SharedVariable VarAccessExpression::getVar()const{
     return var;
 }

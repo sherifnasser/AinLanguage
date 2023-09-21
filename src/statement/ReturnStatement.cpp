@@ -15,11 +15,6 @@ ReturnStatement::ReturnStatement(
     SharedIExpression ex
 ):IStatement(lineNumber,runScope),ex(ex){}
 
-void ReturnStatement::run(){
-    auto funScope=BaseScope::getContainingFun(runScope);
-    funScope->setReturnValue(ex->evaluate());
-}
-
 SharedIExpression ReturnStatement::getEx()const{
     return ex;
 }

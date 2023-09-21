@@ -3,8 +3,8 @@
 class PackageScope;
 class FileScope;
 class ClassScope;
-class ConstructorScope;
 class FunScope;
+class BuiltInFunScope;
 class LoopScope;
 class StmListScope;
 
@@ -34,8 +34,8 @@ class ASTVisitor{
         virtual void visit(PackageScope* scope);
         virtual void visit(FileScope* scope);
         virtual void visit(ClassScope* scope);
-        virtual void visit(ConstructorScope* scope);
         virtual void visit(FunScope* scope);
+        virtual void visit(BuiltInFunScope* scope);
         virtual void visit(LoopScope* scope);
         virtual void visit(StmListScope* scope);
 

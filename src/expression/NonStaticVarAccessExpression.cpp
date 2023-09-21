@@ -18,11 +18,6 @@ NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     varName(varName),
     inside(inside){}
 
-SharedIValue NonStaticVarAccessExpression::evaluate(){
-    auto propertyVal=inside->evaluateAs<ObjectValue>()->findPropertyValue(varName);
-    return propertyVal;
-}
-
 std::wstring NonStaticVarAccessExpression::getVarName()const{
     return varName;
 }

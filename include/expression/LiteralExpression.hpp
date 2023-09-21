@@ -7,6 +7,5 @@ class LiteralExpression:public IExpression{
     public:
         LiteralExpression(int lineNumber,SharedIValue value);
         void accept(ASTVisitor *visitor) override;
-        SharedIValue evaluate()override;
         SharedIValue getValue() const;
 };

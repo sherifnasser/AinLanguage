@@ -138,6 +138,8 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     
     auto lineNumber=iterator->lineNumber;
 
+    iterator->next();
+
     auto primary=parsePrimaryExpression();
 
     if(
@@ -150,9 +152,6 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
         !IExpression::isAssignableExpression(primary)
     )
         throw OnlyVariablesAreAssignableException(lineNumber);
-        
-    
-    iterator->next();
 
     auto args=std::make_shared<std::vector<SharedIExpression>>(
         std::vector<SharedIExpression>{}

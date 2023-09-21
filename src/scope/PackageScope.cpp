@@ -47,13 +47,4 @@ std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
     return this->files;
 }
 
-void PackageScope::initGlobalVars(){
-    for(auto packageIterator:packages){
-        packageIterator.second->initGlobalVars();
-    }
-    for(auto fileIterator:files){
-        fileIterator.second->initGlobalVars();
-    }
-}
-
 SharedPackageScope PackageScope::AIN_PACKAGE=std::make_shared<PackageScope>(L"عين");

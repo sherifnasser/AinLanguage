@@ -20,8 +20,6 @@
 class BuiltInFunScope:public FunScope{
     private:
         std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> invokeFun;
-        static std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> PRINT_INVOKE_FUN;
-        static std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> PRINTLN_INVOKE_FUN;
         static void addBuiltInFunctionsToIntClass();
         static void addBuiltInFunctionsToUIntClass();
         static void addBuiltInFunctionsToLongClass();
@@ -32,6 +30,7 @@ class BuiltInFunScope:public FunScope{
         static void addBuiltInFunctionsToCharClass();
         static void addBuiltInFunctionsToStringClass();
         static void addBuiltInFunctionsToUnitClass();
+        void accept(ASTVisitor *visitor) override;
 
         template <typename PrimitiveType, typename ParamValue, typename ReturnValue>
         static inline std::shared_ptr<BuiltInFunScope> getPlusFun(
@@ -188,7 +187,7 @@ class BuiltInFunScope:public FunScope{
 
         ~BuiltInFunScope();
         
-        SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params) override;
+        SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params);
 
         static void addBuiltInFunctionsTo(SharedFileScope fileScope);
 

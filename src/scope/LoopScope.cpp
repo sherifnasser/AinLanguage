@@ -9,13 +9,6 @@ LoopScope::LoopScope(SharedBaseScope parentScope):
     toBreak(false),toContinue(false)
 {}
 
-void LoopScope::runStmList(){
-    for(auto stm:*stmList){
-        stm->run();
-        if(isReturn()||isContinue()||isBreak())
-            break;
-    }
-}
 
 bool LoopScope::isBreak(){
     return this->toBreak;

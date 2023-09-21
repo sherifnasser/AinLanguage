@@ -18,17 +18,6 @@ FunInvokeExpression::FunInvokeExpression(int lineNumber,std::wstring funName, Sh
       funName(funName),
       args(args){}
 
-SharedIValue FunInvokeExpression::evaluate(){
-    auto argValues=std::make_shared<std::map<std::wstring,SharedIValue>>();
-    auto params=this->fun->getDecl()->params;
-    for(int i=0;i<args->size();i++){
-        auto argValue=(*args)[i]->evaluate();
-        (*argValues)[*params->at(i)->name]=argValue;
-    }
-
-    return this->fun->invoke(argValues);
-}
-
 std::wstring FunInvokeExpression::getFunName()const{
     return funName;
 }
@@ -36,6 +25,11 @@ std::wstring FunInvokeExpression::getFunName()const{
 SharedVector<SharedIExpression> FunInvokeExpression::getArgs()const{
     return args;
 }
+
+SharedFunScope FunInvokeExpression::getFun() const{
+    return fun;
+}
+
 void FunInvokeExpression::setFun(SharedFunScope fun){
     this->fun=fun;
 }
