@@ -338,8 +338,10 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
 
     if(!assignExRight)
         throw ExpressionExpectedException(iterator->lineNumber);
+
+    auto isAugmented=*op!=SymbolToken::EQUAL;
     
-    if(*op!=SymbolToken::EQUAL){
+    if(isAugmented){
 
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
 
@@ -355,7 +357,8 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
         lineNumber,
         parentScope,
         ex,
-        assignExRight
+        assignExRight,
+        isAugmented
     );
     
 }

@@ -35,11 +35,14 @@ SharedIValue Interpreter::pop(){
 }
 
 void Interpreter::runStmList(StmListScope* scope){
-    
+    for(auto stm:*scope->getStmList()){
+        stm->accept(this);
+        if(funReturn||loopBreak||loopContinue)
+            break;
+    }
 }
 
 void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
-    ex->getInside()->accept(this);
 
     auto insideVal=pop();
 
@@ -65,13 +68,29 @@ Interpreter::Assigner::Assigner(Interpreter* interpreter)
 :interpreter(interpreter){}
 
 void Interpreter::Assigner::visit(VarAccessExpression* ex){
-    interpreter->pop();
-    ex->getVar()->setValue(interpreter->pop());
+    if(!assign){
+        ex->accept(interpreter);
+    }else{
+        ex->getVar()->setValue(interpreter->pop());
+    }
+    assign=!assign;
 }
 
 void Interpreter::Assigner::visit(NonStaticVarAccessExpression* ex){
-    auto var=interpreter->popAs<ObjectValue>();
-    var->assignProperty(ex->getVarName(),interpreter->pop());
+    if(!assign){
+        ex->getInside()->accept(interpreter);
+        auto var=interpreter->topAs<ObjectValue>();
+        interpreter->push(var->findPropertyValue(ex->getVarName()));
+    }else{
+        auto val=interpreter->pop();
+        auto var=interpreter->popAs<ObjectValue>();
+        var->assignProperty(ex->getVarName(),val);
+    }
+    assign=!assign;
+}
+
+void Interpreter::Assigner::visit(OperatorFunInvokeExpression* ex){
+    interpreter->invokeNonStaticFun(ex);
 }
 
 void Interpreter::visit(PackageScope* scope){
@@ -172,19 +191,11 @@ void Interpreter::visit(BuiltInFunScope* scope){
 }
 
 void Interpreter::visit(LoopScope* scope){
-    for(auto stm:*scope->getStmList()){
-        stm->accept(this);
-        if(funReturn||loopBreak||loopContinue)
-            break;
-    }
+    runStmList(scope);
 }
 
 void Interpreter::visit(StmListScope* scope){
-    for(auto stm:*scope->getStmList()){
-        stm->accept(this);
-        if(funReturn||loopBreak||loopContinue)
-            break;
-    }
+    runStmList(scope);
 }
 
 void Interpreter::visit(VarStm* stm){
@@ -193,8 +204,16 @@ void Interpreter::visit(VarStm* stm){
 }
 
 void Interpreter::visit(AssignStatement* stm){
-    stm->getNewValEx()->accept(this);
-    stm->getEx()->accept(this);
+    
+    stm->getEx()->accept(assigner);
+    
+    if(!stm->isAugmentedAssignment()){
+        pop();
+        stm->getNewValEx()->accept(this);
+    }else{
+        stm->getNewValEx()->accept(assigner);
+    }
+
     stm->getEx()->accept(assigner);
 }
 
@@ -339,6 +358,7 @@ void Interpreter::visit(NonStaticVarAccessExpression* ex){
 }
 
 void Interpreter::visit(NonStaticFunInvokeExpression* ex){
+    ex->getInside()->accept(this);
     invokeNonStaticFun(ex);
 }
 
@@ -381,7 +401,7 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         return;
     }
 
-
+    ex->getInside()->accept(this);
     invokeNonStaticFun(ex);
     switch(op){
         case OperatorFunInvokeExpression::Operator::NOT_EQUAL:{

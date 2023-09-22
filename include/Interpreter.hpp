@@ -35,10 +35,12 @@ class Interpreter:public ASTVisitor{
         class Assigner:public ASTVisitor{
             private:
                 Interpreter* interpreter;
+                bool assign=false;
             public:
                 Assigner(Interpreter* interpreter);
                 void visit(VarAccessExpression* ex)override;
                 void visit(NonStaticVarAccessExpression* ex)override;
+                void visit(OperatorFunInvokeExpression* ex)override;
         };
         Assigner* assigner;
     private:
@@ -52,6 +54,8 @@ class Interpreter:public ASTVisitor{
         void runStmList(StmListScope* scope);
         template<typename T>
         std::shared_ptr<T> popAs();
+        template<typename T>
+        std::shared_ptr<T> topAs();
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
     public:
         Interpreter();
@@ -86,4 +90,9 @@ class Interpreter:public ASTVisitor{
 template<typename T>
 inline std::shared_ptr<T> Interpreter::popAs(){
     return std::dynamic_pointer_cast<T>(pop());
+}
+
+template<typename T>
+inline std::shared_ptr<T> Interpreter::topAs(){
+    return std::dynamic_pointer_cast<T>(top());
 }

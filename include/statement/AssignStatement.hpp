@@ -10,7 +10,8 @@ class AssignStatement:public IStatement{
             int lineNumber,
             SharedStmListScope runScope,
             SharedIExpression ex,
-            SharedIExpression newValEx
+            SharedIExpression newValEx,
+            bool isAugmented
         );
 
         void accept(ASTVisitor *visitor) override;
@@ -18,8 +19,11 @@ class AssignStatement:public IStatement{
         SharedIExpression getEx()const;
 
         SharedIExpression getNewValEx()const;
+
+        bool isAugmentedAssignment()const;
     
     private:
+        bool isAugmented;
         SharedIExpression ex;
         SharedIExpression newValEx;
 };
