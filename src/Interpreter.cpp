@@ -375,15 +375,14 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         op==OperatorFunInvokeExpression::Operator::POST_DEC
     ){
 
-        ex->getInside()->accept(this);
-        auto insideVal=pop();
+        ex->getInside()->accept(assigner);
 
-        insideVal->linkWithClass();
-        ex->getFun()->accept(this);
-        insideVal->unlinkWithClass();
+        auto oldVal=top();
+        
+        invokeNonStaticFun(ex);
 
         auto newVal=top();
-        push(insideVal);
+
         ex->getInside()->accept(assigner);
         
         switch(op){
@@ -393,7 +392,7 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
                 break;
             case OperatorFunInvokeExpression::Operator::POST_INC:
             case OperatorFunInvokeExpression::Operator::POST_DEC:
-                push(insideVal);
+                push(oldVal);
                 break;
             default:break;
         }
