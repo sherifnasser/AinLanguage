@@ -15,6 +15,10 @@ class WhileStatement:public IStatement
             SharedIExpression condition,
             SharedLoopScope loopScope
         );
-        void check() override;
-        void run() override;
+
+        void accept(ASTVisitor *visitor) override;
+
+        SharedIExpression getCondition()const;
+
+        SharedLoopScope getLoopScope()const;
 };

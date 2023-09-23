@@ -8,96 +8,23 @@
 
 LogicalExpression::LogicalExpression(
     int lineNumber,
+    Operation logicalOp,
     SharedIExpression left,
     SharedIExpression right
 )
     : IExpression(lineNumber,Type::BOOL),
-      left(left),
-      right(right){}
+    logicalOp(logicalOp),
+    left(left),
+    right(right){}
 
-bool LogicalExpression::evaluateLeft(){
-    auto leftVal=left->evaluateAs<BoolValue>()->getValue();
-    return leftVal;
+SharedIExpression LogicalExpression::getLeft()const{
+    return left;
 }
 
-std::shared_ptr<BoolValue> LogicalExpression::evaluateRight(){
-    auto rightVal=right->evaluateAs<BoolValue>()->getValue();
-    return std::make_shared<BoolValue>(rightVal);
+SharedIExpression LogicalExpression::getRight()const{
+    return right;
 }
 
-void LogicalExpression::check(SharedBaseScope checkScope){
-    left->check(checkScope);
-    right->check(checkScope);
-
-    if(left->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *left->getReturnType()->getName()
-        );
-    
-    if(right->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *right->getReturnType()->getName()
-        );
-}
-
-std::vector<std::wstring> LogicalExpression::prettyPrint(){
-    auto prints=std::vector<std::wstring>();
-
-    prints.push_back(L"LogicalExpression");
-
-    auto leftPrints=left->prettyPrint();
-
-    leftPrints[0]=L"├──"+leftPrints[0];
-    for(int j=1;j<leftPrints.size();j++){
-        leftPrints[j]=L"│   "+leftPrints[j];
-    }
-    prints.insert(prints.end(),leftPrints.begin(),leftPrints.end());
-    
-    auto rightPrints=right->prettyPrint();
-    rightPrints[0]=L"└──"+rightPrints[0];
-    for(int j=1;j<rightPrints.size();j++){
-        rightPrints[j]=L"    "+rightPrints[j];
-    }
-
-    prints.insert(prints.end(),rightPrints.begin(),rightPrints.end());
-
-    return prints;
-}
-
-std::vector<std::wstring> LogicalExpression::Or::prettyPrint(){
-    auto prints=LogicalExpression::prettyPrint();
-
-    auto lineNumStr=std::to_wstring(lineNumber);
-    
-    prints[0]=L"LogicalExpression \'||\' at "+lineNumStr;
-
-    return prints;
-}
-
-SharedIValue LogicalExpression::Or::evaluate(){
-    if(evaluateLeft())
-        return std::make_shared<BoolValue>(true);
-    
-    return evaluateRight();
-}
-
-std::vector<std::wstring> LogicalExpression::And::prettyPrint() {
-    auto prints=LogicalExpression::prettyPrint();
-
-    auto lineNumStr=std::to_wstring(lineNumber);
-    
-    prints[0]=L"LogicalExpression \'&&\' at "+lineNumStr;
-
-    return prints;
-}
-
-SharedIValue LogicalExpression::And::evaluate(){
-    if(!evaluateLeft())
-        return std::make_shared<BoolValue>(false);
-    
-    return evaluateRight();
+LogicalExpression::Operation LogicalExpression::getLogicalOp()const{
+    return logicalOp;
 }

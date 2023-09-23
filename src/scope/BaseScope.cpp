@@ -36,6 +36,10 @@ SharedLoopScope BaseScope::toLoopScope(SharedBaseScope scope){
     return std::dynamic_pointer_cast<LoopScope>(scope);
 }
 
+SharedStmListScope BaseScope::toStmListScope(SharedBaseScope scope){
+    return std::dynamic_pointer_cast<StmListScope>(scope);
+}
+
 SharedFunScope BaseScope::toFunScope(SharedBaseScope scope){
     return std::dynamic_pointer_cast<FunScope>(scope);
 }

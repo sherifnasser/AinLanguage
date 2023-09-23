@@ -70,8 +70,6 @@ using SharedFileScope=std::shared_ptr<FileScope>;
 
 using SharedClassScope=std::shared_ptr<ClassScope>;
 
-using SharedConstructorScope=std::shared_ptr<ConstructorScope>;
-
 using SharedFunScope=std::shared_ptr<FunScope>;
 
 using SharedLoopScope=std::shared_ptr<LoopScope>;

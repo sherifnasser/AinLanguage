@@ -1,4 +1,5 @@
 #include "StmListParser.hpp"
+#include "ASTVisitor.hpp"
 #include "AssignStatement.hpp"
 #include "BreakStatement.hpp"
 #include "ContinueStatement.hpp"
@@ -289,9 +290,9 @@ SharedIStatement StmListParser::parseBreakContinueStatement(SharedStmListScope p
     iterator->next();
 
     if(isBreak)
-        return std::make_shared<BreakStatement>(lineNumber,parentScope,loopScope);
+        return std::make_shared<BreakStatement>(lineNumber,parentScope);
 
-    return std::make_shared<ContinueStatement>(lineNumber,parentScope,loopScope);
+    return std::make_shared<ContinueStatement>(lineNumber,parentScope);
 }
 
 SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope parentScope){
@@ -326,9 +327,7 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
             ex
         );
     
-    auto assignExLeft=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(ex);
-    
-    if(!assignExLeft)
+    if(!IExpression::isAssignableExpression(ex))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     lineNumber=iterator->lineNumber;
@@ -339,26 +338,43 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
 
     if(!assignExRight)
         throw ExpressionExpectedException(iterator->lineNumber);
-    
-    if(*op!=SymbolToken::EQUAL){
 
-        auto opName=OperatorFunctions::getOperatorAssignEqualFunNameByToken(*op);
+    auto isAugmented=*op!=SymbolToken::EQUAL;
+    
+    if(isAugmented){
 
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
 
         assignExRight=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            opName,
+            getAssignEqualOpFromToken(*op),
             args,
-            assignExLeft
+            ex
         );
     }
         
     return std::make_shared<AssignStatement>(
         lineNumber,
         parentScope,
-        assignExLeft,
-        assignExRight
+        ex,
+        assignExRight,
+        isAugmented
     );
+    
+}
+OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(LexerToken op){
+
+    if(op==SymbolToken::PLUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::PLUS;
+    if(op==SymbolToken::MINUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MINUS;
+    if(op==SymbolToken::STAR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::TIMES;
+    if(op==SymbolToken::SLASH_EQUAL)
+        return OperatorFunInvokeExpression::Operator::DIV;
+    if(op==SymbolToken::MODULO_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MOD;
+    if(op==SymbolToken::POWER_EQUAL)
+        return OperatorFunInvokeExpression::Operator::POW;
     
 }

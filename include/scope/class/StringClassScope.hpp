@@ -12,5 +12,4 @@ class StringClassScope:public ClassScope{
         void setValue(std::wstring value);
         void pushNewValue();
         void popLastValue();
-        void check()override;
 };

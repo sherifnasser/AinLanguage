@@ -8,7 +8,6 @@ class IfStatement:public IStatement
         SharedIExpression ifCondition;
         SharedStmListScope ifScope;
         SharedStmListScope elseScope;
-        SharedFunScope containingFunScope;
 
     public:
         IfStatement(
@@ -18,6 +17,12 @@ class IfStatement:public IStatement
             SharedStmListScope ifScope,
             SharedStmListScope elseScope
         );
-        void check() override;
-        void run() override;
+
+        void accept(ASTVisitor *visitor) override;
+
+        SharedIExpression getIfCondition()const;
+
+        SharedStmListScope getIfScope()const;
+
+        SharedStmListScope getElseScope()const;
 };

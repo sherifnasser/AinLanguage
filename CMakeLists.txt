@@ -6,6 +6,7 @@ project(AinLanguage)
 
 add_library(ainsrc
     src/main.cpp
+    src/Interpreter.cpp
     src/lexer/LexerToken.cpp
     src/lexer/Lexer.cpp
     src/lexer/KeywordToken.cpp
@@ -26,13 +27,10 @@ add_library(ainsrc
     src/expression/value/FloatValue.cpp
     src/expression/value/LongValue.cpp
     src/expression/value/UIntValue.cpp
-    src/expression/EqualityExpression.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
-    src/expression/IncDecExpression.cpp
-    src/expression/CompareToExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
@@ -45,18 +43,17 @@ add_library(ainsrc
     src/scope/FunScope.cpp
     src/scope/ClassScope.cpp
     src/scope/StmListScope.cpp
-    src/scope/ConstructorScope.cpp
     src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
     src/ain_file/AinFile.cpp
+    src/semantics/SemanticsChecksVisitor.cpp
     src/semantics/ImplicitVarTypeChecker.cpp
     src/semantics/TypeChecker.cpp
     src/statement/IStatement.cpp
     src/statement/WhileStatement.cpp
     src/statement/IfStatement.cpp
     src/statement/ContinueStatement.cpp
-    src/statement/DoWhileStatement.cpp
     src/statement/ExpressionStatement.cpp
     src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp
@@ -82,6 +79,7 @@ add_library(ainsrc
     src/parser/ClassParser.cpp
     src/parser/VarStatementParser.cpp
     src/parser/FileParser.cpp
+    src/parser/ASTVisitor.cpp
 )
 
 set(INCLUDE
@@ -106,6 +104,7 @@ set(INCLUDE
     include/parser/
     include/parser/elements/
     include/parser/elements/parser/
+    include/parser/AST/
 )
 
 set(TEST

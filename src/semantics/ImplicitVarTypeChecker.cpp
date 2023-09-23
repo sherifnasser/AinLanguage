@@ -1,7 +1,6 @@
 #include "ImplicitVarTypeChecker.hpp"
 #include "Variable.hpp"
 #include "MustHaveExplicitTypeException.hpp"
-
 namespace Semantics {
 
     ImplicitVarTypeChecker::ImplicitVarTypeChecker(){}
@@ -18,13 +17,13 @@ namespace Semantics {
         checkStatements.push_back(varStm);
     }
 
-    void ImplicitVarTypeChecker::check(){
+    void ImplicitVarTypeChecker::check(SemanticsChecksVisitor* checker){
     	static int checkTimes=0;
     	checkTimes++;
         auto remainingStms=std::vector<std::shared_ptr<VarStm>>{};
         for(auto& stm:checkStatements){
             try{
-            	stm->check();
+            	stm->accept(checker);
             }catch(MustHaveExplicitTypeException& e){
                 remainingStms.push_back(stm);
             }
@@ -39,6 +38,6 @@ namespace Semantics {
         }	
         	
         this->checkStatements=remainingStms;
-        this->check();
+        this->check(checker);
     }
 }

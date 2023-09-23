@@ -15,8 +15,17 @@ class NonStaticFunInvokeExpression:public IExpression{
             SharedVector<SharedIExpression> args,
             SharedIExpression inside
         );
-        std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
-        void check(SharedBaseScope checkScope)override;
+        void accept(ASTVisitor *visitor) override;
+        
         virtual ~NonStaticFunInvokeExpression();
+
+        std::wstring getFunName() const;
+
+        SharedIExpression getInside() const;
+
+        SharedVector<SharedIExpression> getArgs() const;
+
+        SharedFunScope getFun()const;
+
+        void setFun(SharedFunScope fun);
 };

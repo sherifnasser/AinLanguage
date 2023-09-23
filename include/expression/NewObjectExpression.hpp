@@ -5,10 +5,11 @@
 class NewObjectExpression:public IExpression{
     private:
         SharedVector<SharedIExpression> args;
-        SharedConstructorScope constructor;
+        SharedFunScope constructor;
     public:
         NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
-        std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
-        void check(SharedBaseScope checkScope)override;
+        void accept(ASTVisitor *visitor) override;
+        SharedVector<SharedIExpression> getArgs() const;
+        SharedFunScope getConstructor()const;
+        void setConstructor(SharedFunScope constructor);
 };

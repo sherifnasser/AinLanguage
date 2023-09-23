@@ -13,7 +13,6 @@ class PrimitiveClassScope:public ClassScope{
         void setValue(T value);
         void pushNewValue();
         void popLastValue();
-        void check() override;
 };
 
 template<typename T>
@@ -41,6 +40,3 @@ template<typename T>
 void PrimitiveClassScope<T>::popLastValue(){
     valueStack->pop_back();
 }
-
-template<typename T>
-void PrimitiveClassScope<T>::check(){}

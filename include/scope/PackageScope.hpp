@@ -1,4 +1,5 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include <map>
@@ -8,6 +9,9 @@ class PackageScope:public BaseScope{
         std::map<std::wstring, SharedPackageScope> packages;
         std::map<std::wstring, SharedFileScope> files;
     public:
+    
+        void accept(ASTVisitor *visitor) override;
+
         PackageScope(std::wstring name,SharedPackageScope parentScope=nullptr);
         /**
         @brief search for an internal package by @param[name]
@@ -31,10 +35,8 @@ class PackageScope:public BaseScope{
 
         static SharedPackageScope AIN_PACKAGE;
 
+        std::map<std::wstring, SharedPackageScope> getPackages() const;
+
         std::map<std::wstring, SharedFileScope> getFiles() const;
-
-        void initGlobalVars();
-
-        void check();
 
 };

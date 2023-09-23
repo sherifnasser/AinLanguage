@@ -16,41 +16,17 @@ IfStatement::IfStatement(
     : IStatement(lineNumber,runScope),
       ifCondition(ifCondition),
       ifScope(ifScope),
-      elseScope(elseScope),
-      containingFunScope(BaseScope::getContainingFun(runScope))
+      elseScope(elseScope)
 {}
 
-void IfStatement::check(){
-    ifCondition->check(runScope);
-
-    if(ifCondition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *Type::BOOL_NAME,
-            *ifCondition->getReturnType()->getName()
-        );
-    
-    ifScope->check();
-
-    if(elseScope)
-        elseScope->check();
+SharedIExpression IfStatement::getIfCondition()const{
+    return ifCondition;
 }
 
-void IfStatement::run(){
+SharedStmListScope IfStatement::getIfScope()const{
+    return ifScope;
+}
 
-    SharedStmList stmList;
-
-    if(ifCondition->evaluateAs<BoolValue>()->getValue()){
-        stmList=ifScope->getStmList();
-    }
-    else if(elseScope){
-        stmList=elseScope->getStmList();
-    }
-    else return;
-    
-    for(auto stm:*stmList){
-        stm->run();
-        if(containingFunScope->getReturnValue())
-            break;
-    }
+SharedStmListScope IfStatement::getElseScope()const{
+    return elseScope;
 }

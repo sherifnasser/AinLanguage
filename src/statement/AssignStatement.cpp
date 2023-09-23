@@ -1,4 +1,5 @@
 #include "AssignStatement.hpp"
+#include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "Type.hpp"
 #include "semantics/UnexpectedTypeException.hpp"
@@ -6,26 +7,20 @@
 AssignStatement::AssignStatement(
     int lineNumber,
     SharedStmListScope runScope,
-    std::shared_ptr<AssignExpression> ex,
-    SharedIExpression newValEx
+    SharedIExpression ex,
+    SharedIExpression newValEx,
+    bool isAugmented
 )
-:IStatement(lineNumber,runScope),ex(ex),newValEx(newValEx){}
+:IStatement(lineNumber,runScope),ex(ex),newValEx(newValEx),isAugmented(isAugmented){}
 
-void AssignStatement::check(){
-    ex->check(runScope);
-    newValEx->check(runScope);
-    auto t1=ex->getReturnType();
-    auto t2=newValEx->getReturnType();
-    if(t1->getClassScope()!=t2->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *t1->getName(),
-            *t2->getName()
-        );
+SharedIExpression AssignStatement::getEx()const{
+    return ex;
 }
 
-void AssignStatement::run(){
-    ex->assign(
-        newValEx->evaluate()
-    );
+SharedIExpression AssignStatement::getNewValEx()const{
+    return newValEx;
+}
+
+bool AssignStatement::isAugmentedAssignment()const{
+    return isAugmented;
 }

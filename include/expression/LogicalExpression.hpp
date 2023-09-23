@@ -6,37 +6,28 @@
 #include <memory>
 
 class LogicalExpression:public IExpression{
-    private:
-        SharedIExpression left;
-        SharedIExpression right;
-        bool evaluateLeft();
     protected:
         std::shared_ptr<BoolValue> evaluateRight();
     public:
+        enum class Operation{
+            OR,AND
+        };
         LogicalExpression(
             int lineNumber,
+            Operation logicalOp,
             SharedIExpression left,
             SharedIExpression right
         );
-        void check(SharedBaseScope checkScope)override;
+        void accept(ASTVisitor *visitor) override;
+        
+        SharedIExpression getLeft() const;
 
-        std::vector<std::wstring> prettyPrint()override;
+        SharedIExpression getRight() const;
 
-        class Or;
-
-        class And;
-};
-
-class LogicalExpression::Or:public LogicalExpression{
-    public:
-        using LogicalExpression::LogicalExpression;
-        std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
-};
-
-class LogicalExpression::And:public LogicalExpression{
-    public:
-        using LogicalExpression::LogicalExpression;
-        std::vector<std::wstring> prettyPrint()override;
-        SharedIValue evaluate()override;
+        Operation getLogicalOp() const;
+        
+    private:
+        SharedIExpression left;
+        SharedIExpression right;
+        Operation logicalOp;
 };

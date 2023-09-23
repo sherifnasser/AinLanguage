@@ -3,14 +3,5 @@
 
 ContinueStatement::ContinueStatement(
     int lineNumber,
-    SharedBaseScope runScope,
-    SharedLoopScope loopScope
-)
-    : IStatement(lineNumber,runScope),
-      loopScope(loopScope){}
-
-void ContinueStatement::check(){}
-
-void ContinueStatement::run(){
-    loopScope->makeContinue();
-}
+    SharedBaseScope runScope
+):IStatement(lineNumber,runScope){}

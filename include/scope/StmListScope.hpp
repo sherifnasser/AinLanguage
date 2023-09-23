@@ -11,9 +11,9 @@ class StmListScope:public BaseScope{
 
     public:
         StmListScope(std::wstring name,SharedBaseScope parentScope);
+        void accept(ASTVisitor *visitor) override;
         SharedMap<std::wstring, SharedVariable> getLocals();
         SharedStmList getStmList();
         SharedVariable getVarByName(std::wstring varName)override;
         SharedVariable getLocalByName(std::wstring varName);
-        virtual void check();
 };

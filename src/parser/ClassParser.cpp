@@ -4,7 +4,7 @@
 #include "ConflictingDeclarationException.hpp"
 #include "FunDecl.hpp"
 #include "FunParam.hpp"
-#include "ConstructorScope.hpp"
+#include "FunScope.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
 #include "ObjectValue.hpp"
@@ -90,7 +90,7 @@ SharedClassScope ClassParser::parse(){
         );
 
         (*classScope->getPublicConstructors())[decl->toString()]=
-            std::make_shared<ConstructorScope>(decl);
+            std::make_shared<FunScope>(classScope,decl);
     }
 
     return classScope;
@@ -167,7 +167,7 @@ void ClassParser::parseConstructor(SharedType parentType){
 
     auto declStr=decl->toString();
     
-    auto constructorScope=std::make_shared<ConstructorScope>(decl);
+    auto constructorScope=std::make_shared<FunScope>(parentScope,decl);
 
     if(parentScope->findPublicConstructor(declStr)||parentScope->findPrivateConstructor(declStr))
         throw ConflictingDeclarationException(lineNumber);
