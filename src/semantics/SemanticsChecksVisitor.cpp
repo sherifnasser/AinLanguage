@@ -239,31 +239,37 @@ void SemanticsChecksVisitor::visit(VarAccessExpression* ex){
     }
 
     auto varName=ex->getVarName();
-    auto containingClassScope=BaseScope::getContainingClass(checkScope);
-    if(
-        containingClassScope
-        &&
-        (
-            setVar(containingClassScope->findPublicVariable(varName))
-            ||
-            setVar(containingClassScope->findPrivateVariable(varName))
-        )
-    )
-        return;
-    
-    auto containingFileScope=BaseScope::getContainingFile(checkScope);
-    if(
-        containingFileScope
-        &&
-        setVar(containingFileScope->findPrivateVariable(varName))
-    )
-        return;
-    
 
-    auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
-    for(auto fileIt:package->getFiles()){
-        if(setVar(fileIt.second->findPublicVariable(varName)))
+    auto parentStmListScope=BaseScope::toStmListScope(checkScope);
+
+    if(parentStmListScope){
+
+        auto containingClassScope=BaseScope::getContainingClass(checkScope);
+        if(
+            containingClassScope
+            &&
+            (
+                setVar(containingClassScope->findPublicVariable(varName))
+                ||
+                setVar(containingClassScope->findPrivateVariable(varName))
+            )
+        )
             return;
+        
+    }
+
+    auto containingFileScope=BaseScope::getContainingFile(checkScope);
+    
+    if(parentStmListScope||BaseScope::toClassScope(checkScope)){
+        
+        if(setVar(containingFileScope->findPrivateVariable(varName)))
+            return;
+        
+        auto package=BaseScope::toPackageScope(containingFileScope->getParentScope());
+        for(auto fileIt:package->getFiles()){
+            if(setVar(fileIt.second->findPublicVariable(varName)))
+                return;
+        }
     }
     
     // TODO: make trace more readable

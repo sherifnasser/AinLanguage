@@ -2,7 +2,9 @@
 #include "AssignStatement.hpp"
 #include "BoolValue.hpp"
 #include "CharValue.hpp"
+#include "ClassScope.hpp"
 #include "DoubleValue.hpp"
+#include "FileScope.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
 #include "IExpression.hpp"
@@ -259,11 +261,19 @@ SharedIExpression ExpressionParser::parseIdentifierExpression(){
 
     SharedVariable var;
 
-    auto stmListScope=std::dynamic_pointer_cast<StmListScope>(scope);
-
-    if(stmListScope)
+    if(auto stmListScope=BaseScope::toStmListScope(scope))
         var=stmListScope->getLocalByName(id);
-    
+    else if(auto classScope=BaseScope::toClassScope(scope)){
+        var=classScope->findPublicVariable(id);
+        if(!var)
+            var=classScope->findPrivateVariable(id);
+    }
+    else if(auto fileScope=BaseScope::toFileScope(scope)){
+        var=fileScope->findPublicVariable(id);
+        if(!var)
+            var=fileScope->findPrivateVariable(id);
+    }
+
     auto varEx=std::make_shared<VarAccessExpression>(lineNumber,id,var);
 
     return varEx;

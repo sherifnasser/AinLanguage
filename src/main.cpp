@@ -173,18 +173,16 @@ int main(int argc, char * argv[]){
 
         auto interpreter=new Interpreter;
         auto assigner=new Interpreter::Assigner(interpreter);
-        auto augmentedAssigner=new Interpreter::Assigner(interpreter);
         interpreter->assigner=assigner;
-        interpreter->assigner=augmentedAssigner;
         
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
-
+        
+        PackageScope::AIN_PACKAGE->accept(interpreter);
         main->accept(interpreter);
 
         delete assigner;
-        delete augmentedAssigner;
         delete interpreter;
 
     }

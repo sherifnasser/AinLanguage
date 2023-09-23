@@ -17,6 +17,7 @@ public:
     virtual SharedVariable getVarByName(std::wstring varName);
     virtual SharedVariable getFunByDecl(SharedFunDecl funDecl);
     static SharedLoopScope toLoopScope(SharedBaseScope scope);
+    static SharedStmListScope toStmListScope(SharedBaseScope scope);
     static SharedFunScope toFunScope(SharedBaseScope scope);
     static SharedClassScope toClassScope(SharedBaseScope scope);
     static SharedFileScope toFileScope(SharedBaseScope scope);
