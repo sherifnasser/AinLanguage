@@ -243,10 +243,8 @@ void Interpreter::visit(WhileStatement* stm){
         
         stm->getLoopScope()->accept(this);
 
-        if(loopContinue){
+        if(loopContinue)
             loopContinue=false;
-            continue;
-        }
 
         if(loopBreak){
             loopBreak=false;
@@ -263,10 +261,8 @@ void Interpreter::visit(DoWhileStatement* stm){
     do{
         stm->getLoopScope()->accept(this);
 
-        if(loopContinue){
+        if(loopContinue)
             loopContinue=false;
-            continue;
-        }
 
         if(loopBreak){
             loopBreak=false;
