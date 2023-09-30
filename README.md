@@ -10,9 +10,9 @@ A new **Arabic** programming language, built from scratch with **C++**, with no 
 
 We plan to make the language self-hosted, which means, **Ain** should be written in **Ain**.
 
-**Warning!** The language is under development and the code base may be changed in the future. [See open issues](https://github.com/sherifnasser/AinLanguage/issues)
+**Warning!** The language is under development and the code base may be changed in the future. [See open issues](https://github.com/sherifnasser/AinLanguage/issues).
 
-[Follow us on YoouTube](https://www.youtube.com/@AinProgrammingLanguage)
+[Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
 # What's new in v0.1
 
