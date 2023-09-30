@@ -12,9 +12,7 @@ We plan to make the language self-hosted, which means, **Ain** should be written
 
 **Warning!** The language is under development and the code base may be changed in the future. [See open issues](https://github.com/sherifnasser/AinLanguage/issues)
 
-# Quick demo
-
-[See the video](https://youtu.be/eHRMpJHq0so)
+[Follow us on YoouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
 # What's new in v0.1
 
