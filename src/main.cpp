@@ -10,9 +10,11 @@
 #include "FunDeclParser.hpp"
 #include "FunParamParser.hpp"
 #include "FunParser.hpp"
+#include "Interpreter.hpp"
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
+#include "SemanticsChecksVisitor.hpp"
 #include "SharedPtrTypes.hpp"
 #include "AinFile.hpp"
 #include "Lexer.hpp"
@@ -25,6 +27,7 @@
 #include "TypeParser.hpp"
 #include "VarDeclParser.hpp"
 #include "VarStatementParser.hpp"
+#include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "Type.hpp"
@@ -81,7 +84,13 @@ auto funParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
 
 auto classParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     return std::make_shared<ClassParser>(
-        iterator,scope,funParserProvider,varStmParserProvider
+        iterator,
+        scope,
+        stmListParserProvider,
+        typeParserProvider,
+        funParamParserProvider,
+        funParserProvider,
+        varStmParserProvider
     );
 };
 
@@ -119,43 +128,62 @@ int main(int argc, char * argv[]){
         return -1;
     }
 
+    auto filesStack=std::vector<std::string>();
+
+    // to make sure that -m or --main is used only once 
+    auto mainOptionUsed=false;
+    for(int i=1;i<argc;i++){
+
+        if(!isMainFileOption(argv[i])){
+            filesStack.push_back(argv[i]);
+            continue;
+        }
+
+        if(mainOptionUsed)
+            throw std::invalid_argument("\033[1;31mأمر -m أو --main يجب أن يُستخدم مرة واحدة فقط.\033[0m");
+        
+        mainOptionUsed=true;
+
+        if(++i==argc)
+            throw std::invalid_argument("يُتوقّع ملف بعد الأمر "+std::string(argv[i-1]));
+        
+        auto temp=filesStack[0];
+        filesStack[0]=argv[i];
+        filesStack.push_back(temp);
+    }
+
     try{
 
-        // default is first file
-        std::string mainPath(argv[1]);
-
-        // to make sure that -m or --main is used only once 
-        auto mainOptionUsed=false;
-
         // parse in reverse and make the main file at the end
-        for(int i=argc-1;i>=1;i--){
-            if(isMainFileOption(argv[i-1])){
-                if(mainOptionUsed)
-                    throw std::invalid_argument("\033[1;31mأمر -m أو --main يجب أن يُستخدم مرة واحدة فقط.\033[0m");
-                mainPath=std::string(argv[i]);
-                mainOptionUsed=true;
-                i--;
-                continue;
-            }
-            readAndParse(argv[i]);
+        for(int i=filesStack.size()-1;i>=0;i--){
+            readAndParse(filesStack[i]);
         }
-        readAndParse(mainPath);
 
         BuiltInFunScope::addBuiltInFunctionsToBuiltInClasses();
 
         Semantics::TypeChecker::getInstance()->check();
+
+        auto checker=new SemanticsChecksVisitor;
+
+        Semantics::ImplicitVarTypeChecker::getInstance()->check(checker);
+
+        PackageScope::AIN_PACKAGE->accept(checker);
         
-        Semantics::ImplicitVarTypeChecker::getInstance()->check();
+        delete checker;
 
-        PackageScope::AIN_PACKAGE->check();
-
-        PackageScope::AIN_PACKAGE->initGlobalVars();
-
+        auto interpreter=new Interpreter;
+        auto assigner=new Interpreter::Assigner(interpreter);
+        interpreter->assigner=assigner;
+        
         auto main=PackageScope::AIN_PACKAGE->
-            findFileByPath(toWstring(mainPath))->
+            findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
+        
+        PackageScope::AIN_PACKAGE->accept(interpreter);
+        main->accept(interpreter);
 
-        main->invoke(std::make_shared<std::map<std::wstring, SharedIValue>>());
+        delete assigner;
+        delete interpreter;
 
     }
     catch(std::exception& e){

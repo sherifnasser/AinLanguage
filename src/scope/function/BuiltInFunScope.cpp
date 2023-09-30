@@ -448,6 +448,14 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         Type::INT
     );
 
+    auto UNARY_PLUS=getUnaryPlusFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
+    auto UNARY_MINUS=getUnaryMinusFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
+    auto INC=getIncFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
+    auto DEC=getDecFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -485,6 +493,8 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         MOD_INT,MOD_LONG,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         EQUALS,
+        UNARY_PLUS,UNARY_MINUS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING,TO_CHAR
     };
@@ -590,6 +600,10 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         Type::UINT
     );
 
+    auto INC=getIncFun<PrimitiveType,UIntValue>(classScope,Type::UINT);
+
+    auto DEC=getDecFun<PrimitiveType,UIntValue>(classScope,Type::UINT);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -612,6 +626,7 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         MOD_UINT,MOD_ULONG,
         COMPARE_TO_UINT,COMPARE_TO_ULONG,
         EQUALS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -785,6 +800,14 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         Type::LONG
     );
 
+    auto UNARY_PLUS=getUnaryPlusFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
+    auto UNARY_MINUS=getUnaryMinusFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
+    auto INC=getIncFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
+    auto DEC=getDecFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -807,6 +830,8 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         MOD_INT,MOD_LONG,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         EQUALS,
+        UNARY_PLUS,UNARY_MINUS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -912,6 +937,10 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         Type::ULONG
     );
 
+    auto INC=getIncFun<PrimitiveType,ULongValue>(classScope,Type::ULONG);
+
+    auto DEC=getDecFun<PrimitiveType,ULongValue>(classScope,Type::ULONG);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -934,6 +963,7 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         MOD_UINT,MOD_ULONG,
         COMPARE_TO_UINT,COMPARE_TO_ULONG,
         EQUALS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1093,6 +1123,14 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         Type::FLOAT
     );
 
+    auto UNARY_PLUS=getUnaryPlusFun<PrimitiveType,FloatValue>(classScope,Type::FLOAT);
+
+    auto UNARY_MINUS=getUnaryMinusFun<PrimitiveType,FloatValue>(classScope,Type::FLOAT);
+
+    auto INC=getIncFun<PrimitiveType,FloatValue>(classScope,Type::FLOAT);
+
+    auto DEC=getDecFun<PrimitiveType,FloatValue>(classScope,Type::FLOAT);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -1114,6 +1152,8 @@ void BuiltInFunScope::addBuiltInFunctionsToFloatClass(){
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         EQUALS,
+        UNARY_PLUS,UNARY_MINUS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1273,6 +1313,14 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         Type::DOUBLE
     );
 
+    auto UNARY_PLUS=getUnaryPlusFun<PrimitiveType,DoubleValue>(classScope,Type::DOUBLE);
+
+    auto UNARY_MINUS=getUnaryMinusFun<PrimitiveType,DoubleValue>(classScope,Type::DOUBLE);
+
+    auto INC=getIncFun<PrimitiveType,DoubleValue>(classScope,Type::DOUBLE);
+
+    auto DEC=getDecFun<PrimitiveType,DoubleValue>(classScope,Type::DOUBLE);
+
     auto TO_INT=getToIntFun<PrimitiveType>(classScope);
 
     auto TO_UINT=getToUIntFun<PrimitiveType>(classScope);
@@ -1294,6 +1342,8 @@ void BuiltInFunScope::addBuiltInFunctionsToDoubleClass(){
         DIV_INT,DIV_LONG,DIV_FLOAT,DIV_DOUBLE,
         COMPARE_TO_INT,COMPARE_TO_LONG,COMPARE_TO_FLOAT,COMPARE_TO_DOUBLE,
         EQUALS,
+        UNARY_PLUS,UNARY_MINUS,
+        INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
         TO_FLOAT,TO_DOUBLE,TO_STRING
     };
@@ -1312,7 +1362,7 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
     using PrimitiveType=bool;
 
     auto NOT=std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::NOT_NAME,
+        OperatorFunctions::LOGICAL_NOT_NAME,
         Type::BOOL,
         std::map<std::wstring, SharedType>{},
         [=](SharedMap<std::wstring, SharedIValue> params){

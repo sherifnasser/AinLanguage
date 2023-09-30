@@ -2,9 +2,7 @@
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 class ClassScope: public BaseScope{
-    public:
-        ClassScope(std::wstring name,SharedBaseScope parentScope);
-        
+    private:
         // TODO: add protected and static members
 
         // map fun decl to functions
@@ -23,7 +21,11 @@ class ClassScope: public BaseScope{
         SharedMap<std::wstring,SharedVariable> publicVariables;
         SharedMap<std::wstring,SharedVariable> privateVariables;
 
-        SharedStmListScope primaryConstructor;
+        SharedStmListScope varsInitStmList;
+    public:
+        ClassScope(std::wstring name,SharedBaseScope parentScope);
+
+        void accept(ASTVisitor *visitor) override;
 
         SharedMap<std::wstring,SharedFunScope> getPublicFunctions() const;
 
@@ -53,11 +55,7 @@ class ClassScope: public BaseScope{
         
         SharedVariable findPrivateVariable(std::wstring varName);
 
-        virtual void check();
+        SharedStmListScope getVarsInitStmList()const;
 
-        SharedStmListScope getPrimaryConstructor()const;
-
-        void setPrimaryConstructor(SharedStmListScope primaryConstructor);
-
-        SharedMap<std::wstring, SharedIValue> runPrimaryConstructor(); 
+        void setVarsInitStmList(SharedStmListScope varsInitStmList);
 };

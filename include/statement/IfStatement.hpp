@@ -17,6 +17,12 @@ class IfStatement:public IStatement
             SharedStmListScope ifScope,
             SharedStmListScope elseScope
         );
-        void check() override;
-        void run() override;
+
+        void accept(ASTVisitor *visitor) override;
+
+        SharedIExpression getIfCondition()const;
+
+        SharedStmListScope getIfScope()const;
+
+        SharedStmListScope getElseScope()const;
 };

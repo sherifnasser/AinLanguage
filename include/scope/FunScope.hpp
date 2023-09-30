@@ -8,14 +8,14 @@ class FunScope:public StmListScope{
     protected:
         SharedFunDecl decl;
         SharedIValue returnValue;
-        // TODO add params for shadowing
+        // TODO: add params for shadowing
         // SharedMap<std::wstring, SharedVariable> params;
     public:
         FunScope(
             SharedBaseScope parentScope,
             SharedFunDecl decl
         );
-        virtual SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params);
+        void accept(ASTVisitor *visitor) override;
         SharedType getReturnType();
         SharedFunDecl getDecl();
         void setReturnValue(SharedIValue returnValue);

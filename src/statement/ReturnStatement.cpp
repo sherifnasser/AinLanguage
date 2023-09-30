@@ -4,8 +4,10 @@
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include "IExpression.hpp"
-#include "semantics/UnexpectedTypeException.hpp"
-
+#include "UnexpectedTypeException.hpp"
+#include "FunDecl.hpp"
+#include "UnitExpression.hpp"
+#include <memory>
 
 ReturnStatement::ReturnStatement(
     int lineNumber,
@@ -13,25 +15,6 @@ ReturnStatement::ReturnStatement(
     SharedIExpression ex
 ):IStatement(lineNumber,runScope),ex(ex){}
 
-void ReturnStatement::check(){
-    SharedType exType;
-    if(ex){
-        ex->check(runScope);
-        exType=ex->getReturnType();
-    }
-    else exType=Type::UNIT;
-
-    auto funScope=BaseScope::getContainingFun(runScope);
-
-    if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
-        throw UnexpectedTypeException(
-            lineNumber,
-            *funScope->getReturnType()->getName(),
-            *exType->getName()
-        );
-}
-
-void ReturnStatement::run(){
-    auto funScope=BaseScope::getContainingFun(runScope);
-    funScope->setReturnValue(ex->evaluate());
+SharedIExpression ReturnStatement::getEx()const{
+    return ex;
 }

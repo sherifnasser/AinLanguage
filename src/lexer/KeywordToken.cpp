@@ -30,7 +30,7 @@ KeywordToken KeywordToken::VAR=KeywordToken(L"متغير");
 KeywordToken KeywordToken::VAL=KeywordToken(L"ثابت");
 KeywordToken KeywordToken::OPERATOR=KeywordToken(L"مؤثر");
 KeywordToken KeywordToken::FUN=KeywordToken(L"دالة");
-KeywordToken KeywordToken::RETURN=KeywordToken(L"بقيمة");
+KeywordToken KeywordToken::RETURN=KeywordToken(L"أرجع");
 
 KeywordToken KeywordToken::PACKAGE=KeywordToken(L"حزمة");
 KeywordToken KeywordToken::IMPORT=KeywordToken(L"استيراد");
@@ -58,8 +58,8 @@ KeywordToken KeywordToken::WHEN=KeywordToken(L"عندما"); // as switch
 KeywordToken KeywordToken::FOR=KeywordToken(L"لأجل");
 KeywordToken KeywordToken::DO=KeywordToken(L"افعل");
 KeywordToken KeywordToken::WHILE=KeywordToken(L"طالما");
-KeywordToken KeywordToken::BREAK=KeywordToken(L"اكسر");
-KeywordToken KeywordToken::CONTINUE=KeywordToken(L"استكمل");
+KeywordToken KeywordToken::BREAK=KeywordToken(L"اقطع");
+KeywordToken KeywordToken::CONTINUE=KeywordToken(L"أعد");
 
 KeywordToken KeywordToken::THROW=KeywordToken(L"اعترض");
 KeywordToken KeywordToken::TRY=KeywordToken(L"حاول");

@@ -3,6 +3,7 @@
 #include "SharedPtrTypes.hpp"
 #include "Type.hpp"
 #include <memory>
+
 PackageScope::PackageScope(std::wstring name,SharedPackageScope parentScope)
 :BaseScope(name,parentScope){}
 
@@ -38,26 +39,12 @@ SharedClassScope PackageScope::getClassByType(SharedType type){
     return nullptr;
 }
 
+std::map<std::wstring, SharedPackageScope> PackageScope::getPackages()const{
+    return this->packages;
+}
+
 std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
-    return files;
-}
-
-void PackageScope::initGlobalVars(){
-    for(auto packageIterator:packages){
-        packageIterator.second->initGlobalVars();
-    }
-    for(auto fileIterator:files){
-        fileIterator.second->initGlobalVars();
-    }
-}
-
-void PackageScope::check(){
-    for(auto fileIterator:files){
-        fileIterator.second->check();
-    }
-    for(auto packageIterator:packages){
-        packageIterator.second->check();
-    }
+    return this->files;
 }
 
 SharedPackageScope PackageScope::AIN_PACKAGE=std::make_shared<PackageScope>(L"عين");

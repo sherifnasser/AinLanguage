@@ -1,8 +1,9 @@
 #pragma once
 // TODO: change name
+#include "ASTNode.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class BaseScope{
+class BaseScope:public ASTNode{
 protected:
     SharedBaseScope parentScope;
 
@@ -15,10 +16,13 @@ public:
     virtual SharedClassScope getClassByType(SharedType type);
     virtual SharedVariable getVarByName(std::wstring varName);
     virtual SharedVariable getFunByDecl(SharedFunDecl funDecl);
+    static SharedLoopScope toLoopScope(SharedBaseScope scope);
+    static SharedStmListScope toStmListScope(SharedBaseScope scope);
     static SharedFunScope toFunScope(SharedBaseScope scope);
     static SharedClassScope toClassScope(SharedBaseScope scope);
     static SharedFileScope toFileScope(SharedBaseScope scope);
     static SharedPackageScope toPackageScope(SharedBaseScope scope);
+    static SharedLoopScope getContainingLoop(SharedBaseScope scope);
     static SharedFunScope getContainingFun(SharedBaseScope scope);
     static SharedClassScope getContainingClass(SharedBaseScope scope);
     static SharedFileScope getContainingFile(SharedBaseScope scope);

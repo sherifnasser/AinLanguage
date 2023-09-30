@@ -2,6 +2,7 @@
 #include "ClassScope.hpp"
 #include "FileScope.hpp"
 #include "FunScope.hpp"
+#include "LoopScope.hpp"
 #include "PackageScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
@@ -31,6 +32,14 @@ SharedVariable BaseScope::getFunByDecl(SharedFunDecl funDecl) {
     return getParentScope()->getFunByDecl(funDecl);
 }
 
+SharedLoopScope BaseScope::toLoopScope(SharedBaseScope scope){
+    return std::dynamic_pointer_cast<LoopScope>(scope);
+}
+
+SharedStmListScope BaseScope::toStmListScope(SharedBaseScope scope){
+    return std::dynamic_pointer_cast<StmListScope>(scope);
+}
+
 SharedFunScope BaseScope::toFunScope(SharedBaseScope scope){
     return std::dynamic_pointer_cast<FunScope>(scope);
 }
@@ -45,6 +54,17 @@ SharedFileScope BaseScope::toFileScope(SharedBaseScope scope) {
 
 SharedPackageScope BaseScope::toPackageScope(SharedBaseScope scope) {
     return std::dynamic_pointer_cast<PackageScope>(scope);
+}
+
+SharedLoopScope BaseScope::getContainingLoop(SharedBaseScope scope){
+    while(scope){
+        auto loopScope=toLoopScope(scope);
+        if(loopScope)
+            return loopScope;
+        scope=scope->parentScope;
+    }
+    
+    return nullptr;
 }
 
 SharedFunScope BaseScope::getContainingFun(SharedBaseScope scope){

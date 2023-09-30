@@ -229,7 +229,11 @@ SharedLexerToken LexerLine::findDelimitedCommentToken(){
 
 SharedLexerToken LexerLine::findSymbolToken(){
     
-    // find a double-symbol token (>=, <=, ==, !=, &&, ||) also assignment operators
+    /*
+    find a double-symbol token (>=, <=, ==, !=, &&, ||),
+    '::' static access operator ,'**' power operator,
+    assignment operators and inc-dec operators
+    */
     SymbolToken doubleSymbolTokens[]={
         SymbolToken::GREATER_EQUAL,
         SymbolToken::LESS_EQUAL,
@@ -242,7 +246,10 @@ SharedLexerToken LexerLine::findSymbolToken(){
         SymbolToken::STAR_EQUAL,
         SymbolToken::SLASH_EQUAL,
         SymbolToken::MODULO_EQUAL,
-        SymbolToken::POWER_EQUAL
+        SymbolToken::POWER_EQUAL,
+        SymbolToken::DOUBLE_COLONS,
+        SymbolToken::PLUS_PLUS,
+        SymbolToken::MINUS_MINUS
     };
     for(auto &s:doubleSymbolTokens){
         auto found=line.find(s.getVal(),tokenStartIndex);

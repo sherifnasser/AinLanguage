@@ -1,4 +1,5 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "BaseScope.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
@@ -19,6 +20,9 @@ class FileScope:public BaseScope{
         SharedStmListScope globalVarsInitStmList;
 
     public:
+
+        void accept(ASTVisitor *visitor) override;
+        
         FileScope(std::wstring filePath,SharedPackageScope parentScope);
 
         SharedMap<std::wstring,SharedFunScope> getPublicFunctions() const;
@@ -50,8 +54,4 @@ class FileScope:public BaseScope{
         SharedStmListScope getGlobalVarsInitStmList()const;
 
         void setGlobalVarsInitStmList(SharedStmListScope globalVarsInitStmList);
-
-        void initGlobalVars();
-
-        void check();
 };

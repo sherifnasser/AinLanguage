@@ -8,69 +8,57 @@
 
 A new **Arabic** programming language, built from scratch with **C++**, with no external libraries.
 
-# Quick demo
+We plan to make the language self-hosted, which means, **Ain** will be written in **Ain**.
 
-[See the video](https://youtu.be/eHRMpJHq0so)
+**Warning!** The language is under development and the code base may be changed in the future. [See open issues](https://github.com/sherifnasser/AinLanguage/issues).
 
+[Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
-# What's new in v0.0.5
-
-***This version has a lot of super changes!***
+# What's new in v0.1
 
 #### New in the language
 
-* Support working in multiple files
+* Support unary operators
 
-* Support visibility modifiers for members between files
-
-* Support global variables
-
-* Support type checking and type deduction
-
-* Treat primitives as types with their built-in functions, which fixes treating integers as doubles
-	* We're planning to remove the functions overhead when compile to native code
-
-* Support delimited comments
-
-* Basic support for classes
-	* Defining properties and methods inside a class
-	* Visibility modifiers for members inside it
-	* Operator functions
-	* Basic primary constructor (without parameters)
-
-* Support checking for statements and expressions including checking for classes that have certain members, functions, or visibility when accessing them
-
-#### New for contributors
-
-* Add pretty printers for expressions
-
-* Split parser to [`PackageParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/PackageParser.hpp), [`FileParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/FileParser.hpp), [`ClassParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/ClassParser.hpp), [`FunParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/FunParser.hpp), [`StmListParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/StmListParser.hpp), [`VarStatementParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/VarStatementParser.hpp), [`ExpressionParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/ExpressionParser.hpp)
-
-* Add parsers for common elements [`TypeParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/elements/parser/TypeParser.hpp), [`FunParamParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/elements/parser/FunParamParser.hpp), [`FunDeclParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/elements/parser/FunDeclParser.hpp), [`VarDeclParser`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/elements/parser/VarDeclParser.hpp)
-
-* Add tests for some of the parsers
-
-* Add [`PackageScope`](https://github.com/sherifnasser/AinLanguage/blob/main/include/scope/PackageScope.hpp), [`StmListScope`](https://github.com/sherifnasser/AinLanguage/blob/main/include/scope/StmListScope.hpp)
-
-* Add a check method for every scope, statement, and expression
-
-# TODO in v0.0.6
+* Support break and continue statements
 
 * Support multiple constructors in a class
 
-* Support params in class constructors
+* Fix [#26](https://github.com/sherifnasser/AinLanguage/issues/26) and [#27](https://github.com/sherifnasser/AinLanguage/issues/27)
 
-* Support init blocks in classes
+#### New for contributors
 
-* Support unary operators
+* Use visitor pattern
+  
+* Add [`ASTNode`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/AST/ASTNode.hpp) and [`ASTVistior`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/AST/ASTVistior.hpp)
+
+* Move checking to [`SemanticsChecksVisitor`](https://github.com/sherifnasser/AinLanguage/blob/main/include/semantics/SemanticsChecksVisitor.hpp)
+
+* Move interpretation to [`Interpreter`](https://github.com/sherifnasser/AinLanguage/blob/main/include/Interpreter.hpp)
+
+# TODO in v0.2
+
+* Basic support for arrays
+
+* Support bitwise operators
 
 # Ain and Unicode
 **Ain** currently doesn't support some Unicode characters for some languages.
 
 Also, **Ain** prevents Unicode characters that are considered Kufr or prohibited in Islam (Crosses, pride, music, etc.).
 
+# Terminal RTL support
+To support autodetecting of RTL text in your terminal emulator, you could run the command
+
+```console
+printf "\e[?2501h"
+```
+This will make your Arabic text appear from right to left.
+You could also add this command at the end of `~/.bashrc` file to enable it permanently.
+
 # Editor support
-[`ain.lang`](https://github.com/sherifnasser/AinLanguage/blob/main/editor-support/ain.lang) is a syntax highlighting definition file that introduces the support for Ain in editors that use GtkSourceView (e.g. GNOME text editor gedit, GNOME Builder, mousepad etc.)
+[`ain.lang`](https://github.com/sherifnasser/AinLanguage/blob/main/editor-support/ain.lang) is a syntax highlighting definition file that introduces the support for Ain in editors that use GtkSourceView (e.g. GNOME text editor gedit, GNOME Builder, mousepad, etc.)
+
 #### How to install
 
 * Create the directories for custom language files in your home directory
@@ -124,3 +112,4 @@ Ain uses [Catch2](https://github.com/catchorg/Catch2) for unit testing. All test
 Once you've built the project the output executable **unit_tests** will be in the build/bin directory.
 
 If you added new tests, you could run [`files_cmake`](https://github.com/sherifnasser/AinLanguage/blob/main/files_cmake.cpp) to automatically add them.
+

@@ -1,4 +1,5 @@
 #pragma once
+#include "ASTNode.hpp"
 #include "IStatement.hpp"
 #include "SharedPtrTypes.hpp"
 class VarStm:public IStatement{
@@ -6,6 +7,7 @@ class VarStm:public IStatement{
         SharedVariable var;
         SharedIExpression ex;
     public:
+
         VarStm(
             int lineNumber,
             SharedBaseScope runScope,
@@ -13,7 +15,9 @@ class VarStm:public IStatement{
             SharedIExpression ex
         );
 
-        SharedVariable getVar() const;
-        void check() override;
-        void run() override;
+        void accept(ASTVisitor *visitor)override;
+
+        SharedVariable getVar()const;
+
+        SharedIExpression getEx()const;
 };

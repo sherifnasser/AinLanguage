@@ -4,6 +4,9 @@
 #include "SharedPtrTypes.hpp"
 class ClassParser:public BaseParser<SharedClassScope>{
     private:
+        StmListParserProvider stmListParserProvider;
+        TypeParserProvider typeParserProvider;
+        FunParamParserProvider paramsParserProvider;
         FunParserProvider funParserProvider;
         VarStmParserProvider varStmParserProvider;
         enum class VisibilityModifier{
@@ -12,12 +15,16 @@ class ClassParser:public BaseParser<SharedClassScope>{
         VisibilityModifier visibility;
         void resetVisibility();
         void parseVisibility();
-        void parseFunScope(SharedClassScope parentScope);
-        void parseVarStm(SharedClassScope parentScope);
+        void parseConstructor(SharedType parentType);
+        void parseFunScope(SharedType parentType);
+        void parseVarStm(SharedType parentType);
     public:
         ClassParser(
             SharedTokensIterator iterator,
             SharedBaseScope scope,
+            StmListParserProvider stmListParserProvider,
+            TypeParserProvider typeParserProvider,
+            FunParamParserProvider paramsParserProvider,
             FunParserProvider funParserProvider,
             VarStmParserProvider varStmParserProvider
         );

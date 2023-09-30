@@ -108,52 +108,10 @@ SharedVariable ClassScope::findPrivateVariable(std::wstring varName){
     return nullptr;
 }
 
-void ClassScope::check(){
-    primaryConstructor->check();
-    for(auto constructorIterator:*privateConstructors){
-        constructorIterator.second->check();
-    }
-    for(auto constructorIterator:*publicConstructors){
-        constructorIterator.second->check();
-    }
-    for(auto funIterator:*privateFunctions){
-        funIterator.second->check();
-    }
-    for(auto funIterator:*publicFunctions){
-        funIterator.second->check();
-    }
+SharedStmListScope ClassScope::getVarsInitStmList()const{
+    return this->varsInitStmList;
 }
 
-SharedStmListScope ClassScope::getPrimaryConstructor()const{
-    return this->primaryConstructor;
-}
-
-void ClassScope::setPrimaryConstructor(SharedStmListScope primaryConstructor){
-    this->primaryConstructor=primaryConstructor;
-}
-
-SharedMap<std::wstring, SharedIValue> ClassScope::runPrimaryConstructor(){
-    for(auto varIt:*privateVariables){
-        varIt.second->pushNewValue();
-    }
-    for(auto varIt:*publicVariables){
-        varIt.second->pushNewValue();
-    }
-    auto stmList=primaryConstructor->getStmList();
-
-    for(auto stm:*stmList){
-        stm->run();
-    }
-
-    auto properties=std::make_shared<std::map<std::wstring, SharedIValue>>();
-    for(auto varIt:*privateVariables){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-    for(auto varIt:*publicVariables){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-
-    return properties;
+void ClassScope::setVarsInitStmList(SharedStmListScope varsInitStmList){
+    this->varsInitStmList=varsInitStmList;
 }

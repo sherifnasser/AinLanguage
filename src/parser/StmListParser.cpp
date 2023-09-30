@@ -1,11 +1,15 @@
 #include "StmListParser.hpp"
+#include "ASTVisitor.hpp"
 #include "AssignStatement.hpp"
+#include "BreakStatement.hpp"
+#include "ContinueStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "ExpressionExpectedException.hpp"
 #include "ExpressionStatement.hpp"
 #include "IfStatement.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
+#include "LoopScope.hpp"
 #include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
@@ -13,10 +17,12 @@
 #include "ReturnStatement.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StatementExpectedException.hpp"
+#include "StmShouldBeUsedInsideLoopException.hpp"
 #include "SymbolToken.hpp"
 #include "StmListScope.hpp"
 #include "Type.hpp"
 #include "UnexpectedTokenException.hpp"
+#include "UnitExpression.hpp"
 #include "VarStm.hpp"
 #include "Variable.hpp"
 #include "WhileStatement.hpp"
@@ -104,6 +110,10 @@ SharedIStatement StmListParser::parseNextStatement(SharedStmListScope parentScop
     if(returnStm)
         return returnStm;
 
+    auto breakContinueStm=parseBreakContinueStatement(parentScope);
+    if(breakContinueStm)
+        return breakContinueStm;
+
     auto exStm=parseExpressionStatement(parentScope);
 
     return exStm;
@@ -182,7 +192,7 @@ SharedIStatement StmListParser::parseWhileStatement(SharedStmListScope parentSco
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto whileScope=std::make_shared<StmListScope>(L"طالما",parentScope);
+    auto whileScope=std::make_shared<LoopScope>(parentScope);
 
     iterator->next();
 
@@ -203,7 +213,7 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
 
     int lineNumber=iterator->lineNumber;
 
-    auto doWhileScope=std::make_shared<StmListScope>(L"افعل-طالما",parentScope);
+    auto doWhileScope=std::make_shared<LoopScope>(parentScope);
 
     iterator->next();
 
@@ -249,11 +259,40 @@ SharedIStatement StmListParser::parseReturnStatement(SharedStmListScope parentSc
 
     auto ex=expressionParserProvider(iterator,scope)->parse();
 
+    if(!ex)
+        ex=std::make_shared<UnitExpression>(lineNumber);
+
     return std::make_shared<ReturnStatement>(
         lineNumber,
         parentScope,
         ex
     );
+}
+
+SharedIStatement StmListParser::parseBreakContinueStatement(SharedStmListScope parentScope){
+
+    auto isBreak=iterator->currentMatch(KeywordToken::BREAK);
+    auto isContinue=iterator->currentMatch(KeywordToken::CONTINUE);
+
+    if(!isBreak&&!isContinue)
+        return nullptr;
+
+    auto loopScope=BaseScope::getContainingLoop(parentScope);
+    
+    int lineNumber=iterator->lineNumber;
+
+    if(!loopScope)
+        throw StmShouldBeUsedInsideLoopException(
+            lineNumber,
+            ((isBreak)?KeywordToken::BREAK.getVal():KeywordToken::CONTINUE.getVal())
+        );
+    
+    iterator->next();
+
+    if(isBreak)
+        return std::make_shared<BreakStatement>(lineNumber,parentScope);
+
+    return std::make_shared<ContinueStatement>(lineNumber,parentScope);
 }
 
 SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope parentScope){
@@ -288,9 +327,7 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
             ex
         );
     
-    auto assignExLeft=std::dynamic_pointer_cast<AssignStatement::AssignExpression>(ex);
-    
-    if(!assignExLeft)
+    if(!IExpression::isAssignableExpression(ex))
         throw OnlyVariablesAreAssignableException(lineNumber);
 
     lineNumber=iterator->lineNumber;
@@ -301,26 +338,43 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
 
     if(!assignExRight)
         throw ExpressionExpectedException(iterator->lineNumber);
-    
-    if(*op!=SymbolToken::EQUAL){
 
-        auto opName=OperatorFunctions::getOperatorAssignEqualFunNameByToken(*op);
+    auto isAugmented=*op!=SymbolToken::EQUAL;
+    
+    if(isAugmented){
 
         auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
 
         assignExRight=std::make_shared<OperatorFunInvokeExpression>(
             lineNumber,
-            opName,
+            getAssignEqualOpFromToken(*op),
             args,
-            assignExLeft
+            ex
         );
     }
         
     return std::make_shared<AssignStatement>(
         lineNumber,
         parentScope,
-        assignExLeft,
-        assignExRight
+        ex,
+        assignExRight,
+        isAugmented
     );
+    
+}
+OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(LexerToken op){
+
+    if(op==SymbolToken::PLUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::PLUS;
+    if(op==SymbolToken::MINUS_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MINUS;
+    if(op==SymbolToken::STAR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::TIMES;
+    if(op==SymbolToken::SLASH_EQUAL)
+        return OperatorFunInvokeExpression::Operator::DIV;
+    if(op==SymbolToken::MODULO_EQUAL)
+        return OperatorFunInvokeExpression::Operator::MOD;
+    if(op==SymbolToken::POWER_EQUAL)
+        return OperatorFunInvokeExpression::Operator::POW;
     
 }
