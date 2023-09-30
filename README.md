@@ -38,7 +38,7 @@ We plan to make the language self-hosted, which means, **Ain** will be written i
 
 # TODO in v0.2
 
-* Basic support for generic types
+* Basic support for arrays
 
 * Support bitwise operators
 
