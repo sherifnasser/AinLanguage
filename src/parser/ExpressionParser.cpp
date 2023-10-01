@@ -309,6 +309,8 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
     if(!iterator->currentMatch(SymbolToken::DOT))
         return ex;
     
+    inside=ex;
+    
     iterator->next();
     
     int lineNumber=iterator->lineNumber;
