@@ -484,6 +484,32 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         true
     );
 
+    auto SHR=getShrFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
+    auto SHL=getShlFun<PrimitiveType,IntValue>(classScope,Type::INT);
+
+    auto BIT_AND=getBitAndFun<PrimitiveType,IntValue>(
+        classScope,
+        Type::INT,
+        INT_PARAM_NAME
+    );
+
+    auto XOR=getXorFun<PrimitiveType,IntValue>(
+        classScope,
+        Type::INT,
+        INT_PARAM_NAME
+    );
+
+    auto BIT_OR=getBitOrFun<PrimitiveType,IntValue>(
+        classScope,
+        Type::INT,
+        INT_PARAM_NAME
+    );
+
+    auto BIT_NOT=getBitNotFun<PrimitiveType,IntValue>(
+        classScope,
+        Type::INT
+    );
 
     auto funs={
         PLUS_INT,PLUS_LONG,PLUS_FLOAT,PLUS_DOUBLE,
@@ -496,7 +522,8 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         UNARY_PLUS,UNARY_MINUS,
         INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
-        TO_FLOAT,TO_DOUBLE,TO_STRING,TO_CHAR
+        TO_FLOAT,TO_DOUBLE,TO_STRING,TO_CHAR,
+        SHR,SHL,BIT_AND,XOR,BIT_OR,BIT_NOT
     };
 
     auto publicFuns=classScope->getPublicFunctions();
@@ -618,6 +645,33 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
 
     auto TO_STRING=getToStringFun<PrimitiveType>(classScope);
 
+    auto SHR=getShrFun<PrimitiveType,UIntValue>(classScope,Type::UINT);
+
+    auto SHL=getShlFun<PrimitiveType,UIntValue>(classScope,Type::UINT);
+
+    auto BIT_AND=getBitAndFun<PrimitiveType,UIntValue>(
+        classScope,
+        Type::UINT,
+        UINT_PARAM_NAME
+    );
+
+    auto XOR=getXorFun<PrimitiveType,UIntValue>(
+        classScope,
+        Type::UINT,
+        UINT_PARAM_NAME
+    );
+
+    auto BIT_OR=getBitOrFun<PrimitiveType,UIntValue>(
+        classScope,
+        Type::UINT,
+        UINT_PARAM_NAME
+    );
+
+    auto BIT_NOT=getBitNotFun<PrimitiveType,UIntValue>(
+        classScope,
+        Type::UINT
+    );
+
     auto funs={
         PLUS_UINT,PLUS_ULONG,
         MINUS_UINT,MINUS_ULONG,
@@ -628,7 +682,8 @@ void BuiltInFunScope::addBuiltInFunctionsToUIntClass(){
         EQUALS,
         INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
-        TO_FLOAT,TO_DOUBLE,TO_STRING
+        TO_FLOAT,TO_DOUBLE,TO_STRING,
+        SHR,SHL,BIT_AND,XOR,BIT_OR,BIT_NOT
     };
 
     auto publicFuns=classScope->getPublicFunctions();
@@ -822,6 +877,33 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
 
     auto TO_STRING=getToStringFun<PrimitiveType>(classScope);
 
+    auto SHR=getShrFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
+    auto SHL=getShlFun<PrimitiveType,LongValue>(classScope,Type::LONG);
+
+    auto BIT_AND=getBitAndFun<PrimitiveType,LongValue>(
+        classScope,
+        Type::LONG,
+        LONG_PARAM_NAME
+    );
+
+    auto XOR=getXorFun<PrimitiveType,LongValue>(
+        classScope,
+        Type::LONG,
+        LONG_PARAM_NAME
+    );
+
+    auto BIT_OR=getBitOrFun<PrimitiveType,LongValue>(
+        classScope,
+        Type::LONG,
+        LONG_PARAM_NAME
+    );
+
+    auto BIT_NOT=getBitNotFun<PrimitiveType,LongValue>(
+        classScope,
+        Type::LONG
+    );
+
     auto funs={
         PLUS_INT,PLUS_LONG,PLUS_FLOAT,PLUS_DOUBLE,
         MINUS_INT,MINUS_LONG,MINUS_FLOAT,MINUS_DOUBLE,
@@ -833,7 +915,8 @@ void BuiltInFunScope::addBuiltInFunctionsToLongClass(){
         UNARY_PLUS,UNARY_MINUS,
         INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
-        TO_FLOAT,TO_DOUBLE,TO_STRING
+        TO_FLOAT,TO_DOUBLE,TO_STRING,
+        SHR,SHL,BIT_AND,XOR,BIT_OR,BIT_NOT
     };
 
     auto publicFuns=classScope->getPublicFunctions();
@@ -955,6 +1038,33 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
 
     auto TO_STRING=getToStringFun<PrimitiveType>(classScope);
 
+    auto SHR=getShrFun<PrimitiveType,ULongValue>(classScope,Type::ULONG);
+
+    auto SHL=getShlFun<PrimitiveType,ULongValue>(classScope,Type::ULONG);
+
+    auto BIT_AND=getBitAndFun<PrimitiveType,ULongValue>(
+        classScope,
+        Type::ULONG,
+        ULONG_PARAM_NAME
+    );
+
+    auto XOR=getXorFun<PrimitiveType,ULongValue>(
+        classScope,
+        Type::ULONG,
+        ULONG_PARAM_NAME
+    );
+
+    auto BIT_OR=getBitOrFun<PrimitiveType,ULongValue>(
+        classScope,
+        Type::ULONG,
+        ULONG_PARAM_NAME
+    );
+
+    auto BIT_NOT=getBitNotFun<PrimitiveType,ULongValue>(
+        classScope,
+        Type::ULONG
+    );
+
     auto funs={
         PLUS_UINT,PLUS_ULONG,
         MINUS_UINT,MINUS_ULONG,
@@ -965,7 +1075,8 @@ void BuiltInFunScope::addBuiltInFunctionsToULongClass(){
         EQUALS,
         INC,DEC,
         TO_INT,TO_UINT,TO_LONG,TO_ULONG,
-        TO_FLOAT,TO_DOUBLE,TO_STRING
+        TO_FLOAT,TO_DOUBLE,TO_STRING,
+        SHR,SHL,BIT_AND,XOR,BIT_OR,BIT_NOT
     };
 
     auto publicFuns=classScope->getPublicFunctions();
