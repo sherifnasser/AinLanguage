@@ -13,6 +13,8 @@ namespace OperatorFunctions{
     inline auto POW_NAME=L"أس";
     inline auto COMPARE_TO_NAME=L"قارن_مع";
     inline auto EQUALS_NAME=L"يساوي";
+    inline auto BIT_AND=L"و";
+    inline auto BIT_OR=L"أو";
     inline auto LOGICAL_NOT_NAME=L"نفي";
     inline auto UNARY_PLUS_NAME=L"موجب";
     inline auto UNARY_MINUS_NAME=L"سالب";
@@ -27,12 +29,13 @@ namespace OperatorFunctions{
             TIMES_NAME,DIV_NAME,
             MOD_NAME,POW_NAME,
             COMPARE_TO_NAME,EQUALS_NAME,
+            BIT_AND,BIT_OR,
             // Unary operators
             UNARY_PLUS_NAME,UNARY_MINUS_NAME,LOGICAL_NOT_NAME,INC_NAME,DEC_NAME
         };
 
-        for(auto& binOp:OPERATORS_NAMES){
-            if(name==binOp)
+        for(auto& op:OPERATORS_NAMES){
+            if(name==op)
                 return true;
         }
 
