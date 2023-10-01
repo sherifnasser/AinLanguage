@@ -129,6 +129,9 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     else if(iterator->currentMatch(SymbolToken::EXCLAMATION_MARK))
         unaryOp=OperatorFunInvokeExpression::Operator::LOGICAL_NOT;
 
+    else if(iterator->currentMatch(SymbolToken::BIT_NOT))
+        unaryOp=OperatorFunInvokeExpression::Operator::BIT_NOT;
+
     else if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
         unaryOp=OperatorFunInvokeExpression::Operator::PRE_INC;
 

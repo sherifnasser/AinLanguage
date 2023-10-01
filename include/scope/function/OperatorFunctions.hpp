@@ -19,6 +19,7 @@ namespace OperatorFunctions{
     inline auto XOR_NAME=L"أو_حصرية"; // FIXME: Change the Arabic name
     inline auto BIT_OR_NAME=L"أو";
     inline auto LOGICAL_NOT_NAME=L"نفي";
+    inline auto BIT_NOT_NAME=L"نفي_بت";
     inline auto UNARY_PLUS_NAME=L"موجب";
     inline auto UNARY_MINUS_NAME=L"سالب";
     inline auto INC_NAME=L"زد";
@@ -32,9 +33,12 @@ namespace OperatorFunctions{
             TIMES_NAME,DIV_NAME,
             MOD_NAME,POW_NAME,
             COMPARE_TO_NAME,EQUALS_NAME,
+            SHL_NAME,SHR_NAME,
             BIT_AND_NAME,XOR_NAME,BIT_OR_NAME,
             // Unary operators
-            UNARY_PLUS_NAME,UNARY_MINUS_NAME,LOGICAL_NOT_NAME,INC_NAME,DEC_NAME
+            UNARY_PLUS_NAME,UNARY_MINUS_NAME,
+            LOGICAL_NOT_NAME,BIT_NOT_NAME,
+            INC_NAME,DEC_NAME
         };
 
         for(auto& op:OPERATORS_NAMES){

@@ -58,6 +58,8 @@ NonStaticFunInvokeExpression(
             this->funName=OperatorFunctions::UNARY_MINUS_NAME;break;
         case Operator::LOGICAL_NOT:
             this->funName=OperatorFunctions::LOGICAL_NOT_NAME;break;
+        case Operator::BIT_NOT:
+            this->funName=OperatorFunctions::BIT_NOT_NAME;break;
         case Operator::PRE_INC:
         case Operator::POST_INC:
             this->funName=OperatorFunctions::INC_NAME;break;

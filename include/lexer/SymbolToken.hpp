@@ -19,9 +19,9 @@ public:
     static SymbolToken COLON;
     static SymbolToken DOUBLE_COLONS;
     static SymbolToken SEMICOLON;
-
     static SymbolToken QUESTION_MARK;
     static SymbolToken EXCLAMATION_MARK;
+    static SymbolToken BIT_NOT;
     static SymbolToken SHL;
     static SymbolToken SHR;
     static SymbolToken AMPERSAND;

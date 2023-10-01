@@ -562,6 +562,8 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
         ||
         opName==OperatorFunctions::LOGICAL_NOT_NAME
         ||
+        opName==OperatorFunctions::BIT_NOT_NAME
+        ||
         opName==OperatorFunctions::INC_NAME
         ||
         opName==OperatorFunctions::DEC_NAME

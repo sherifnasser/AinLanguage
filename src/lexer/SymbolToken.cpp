@@ -18,6 +18,7 @@ SymbolToken SymbolToken::SEMICOLON=SymbolToken(L"؛");
 
 SymbolToken SymbolToken::QUESTION_MARK=SymbolToken(L"؟");
 SymbolToken SymbolToken::EXCLAMATION_MARK=SymbolToken(L"!");
+SymbolToken SymbolToken::BIT_NOT=SymbolToken(L"~");
 SymbolToken SymbolToken::SHL=SymbolToken(L"زح>"); // FIXME: Change the value
 SymbolToken SymbolToken::SHR=SymbolToken(L"زح<"); // FIXME: Change the value
 SymbolToken SymbolToken::AMPERSAND=SymbolToken(L"&");
