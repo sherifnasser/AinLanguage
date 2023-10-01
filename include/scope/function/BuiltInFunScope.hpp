@@ -389,7 +389,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getShrFun(
     SharedType paramType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::PLUS_NAME,
+        OperatorFunctions::SHR_NAME,
         returnType,
         std::map<std::wstring, SharedType>{{paramName,paramType}},
         [=](SharedMap<std::wstring, SharedIValue> params){
@@ -409,7 +409,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getShlFun(
     SharedType paramType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::PLUS_NAME,
+        OperatorFunctions::SHL_NAME,
         returnType,
         std::map<std::wstring, SharedType>{{paramName,paramType}},
         [=](SharedMap<std::wstring, SharedIValue> params){
@@ -429,7 +429,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitAndFun(
     SharedType paramType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::PLUS_NAME,
+        OperatorFunctions::BIT_AND_NAME,
         returnType,
         std::map<std::wstring, SharedType>{{paramName,paramType}},
         [=](SharedMap<std::wstring, SharedIValue> params){
@@ -449,7 +449,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getXorFun(
     SharedType paramType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::PLUS_NAME,
+        OperatorFunctions::XOR_NAME,
         returnType,
         std::map<std::wstring, SharedType>{{paramName,paramType}},
         [=](SharedMap<std::wstring, SharedIValue> params){
@@ -469,7 +469,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitOrFun(
     SharedType paramType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::PLUS_NAME,
+        OperatorFunctions::BIT_OR_NAME,
         returnType,
         std::map<std::wstring, SharedType>{{paramName,paramType}},
         [=](SharedMap<std::wstring, SharedIValue> params){
@@ -505,7 +505,7 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitNotFun(
     SharedType returnType
 ){
     return std::make_shared<BuiltInFunScope>(
-        OperatorFunctions::UNARY_PLUS_NAME,
+        OperatorFunctions::BIT_NOT_NAME,
         returnType,
         std::map<std::wstring, SharedType>{},
         [=](SharedMap<std::wstring, SharedIValue> params){

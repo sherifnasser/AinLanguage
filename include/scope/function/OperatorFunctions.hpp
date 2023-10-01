@@ -16,7 +16,7 @@ namespace OperatorFunctions{
     inline auto SHR_NAME=L"زح_يمين";
     inline auto SHL_NAME=L"زح_يسار";
     inline auto BIT_AND_NAME=L"و";
-    inline auto XOR_NAME=L"أو_حصرية"; // FIXME: Change the Arabic name
+    inline auto XOR_NAME=L"عدم_تكافؤ";
     inline auto BIT_OR_NAME=L"أو";
     inline auto LOGICAL_NOT_NAME=L"نفي";
     inline auto BIT_NOT_NAME=L"نفي_بت";
