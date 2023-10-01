@@ -409,9 +409,9 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
             ;
         case 6:
             return
-                iterator->currentMatch(SymbolToken::SHL)
-                ||
                 iterator->currentMatch(SymbolToken::SHR)
+                ||
+                iterator->currentMatch(SymbolToken::SHL)
             ;
         case 7:
             return iterator->currentMatch(SymbolToken::AMPERSAND);

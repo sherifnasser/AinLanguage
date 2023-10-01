@@ -22,8 +22,8 @@ public:
     static SymbolToken QUESTION_MARK;
     static SymbolToken EXCLAMATION_MARK;
     static SymbolToken BIT_NOT;
-    static SymbolToken SHL;
     static SymbolToken SHR;
+    static SymbolToken SHL;
     static SymbolToken AMPERSAND;
     static SymbolToken XOR;
     static SymbolToken BAR;
