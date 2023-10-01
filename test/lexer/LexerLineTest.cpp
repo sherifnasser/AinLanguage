@@ -226,7 +226,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
         };
 
         WHEN("Line has ain puncts (has arabic puncts)"){
-            std::wstring line=L"::++--(){}[]<>:=+-*/%!**&|\\.>=<===!=&&||+=-=*=/=%=**=،؛؟";
+            std::wstring line=L"::++--(){}[]<>:=+-*/%!**&^|\\.>=<===!=&&||+=-=*=/=%=**=،؛؟";
             std::vector<SymbolToken> expectedTokens={
                 SymbolToken::DOUBLE_COLONS,SymbolToken::PLUS_PLUS,SymbolToken::MINUS_MINUS,
                 SymbolToken::LEFT_PARENTHESIS,SymbolToken::RIGHT_PARENTHESIS,
@@ -236,7 +236,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
                 SymbolToken::COLON,SymbolToken::EQUAL,
                 SymbolToken::PLUS,SymbolToken::MINUS,SymbolToken::STAR,SymbolToken::SLASH,SymbolToken::MODULO,
                 SymbolToken::EXCLAMATION_MARK,
-                SymbolToken::POWER,SymbolToken::AMPERSAND,SymbolToken::BAR,SymbolToken::BACK_SLASH,
+                SymbolToken::POWER,SymbolToken::AMPERSAND,SymbolToken::XOR,SymbolToken::BAR,SymbolToken::BACK_SLASH,
                 SymbolToken::DOT,
                 SymbolToken::GREATER_EQUAL,SymbolToken::LESS_EQUAL,SymbolToken::EQUAL_EQUAL,SymbolToken::NOT_EQUAL,
                 SymbolToken::LOGICAL_AND,SymbolToken::LOGICAL_OR,

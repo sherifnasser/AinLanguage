@@ -43,9 +43,11 @@ NonStaticFunInvokeExpression(
         case Operator::GREATER_EQUAL:
             this->funName=OperatorFunctions::COMPARE_TO_NAME;break;
         case Operator::BIT_AND:
-            this->funName=OperatorFunctions::BIT_AND;break;
+            this->funName=OperatorFunctions::BIT_AND_NAME;break;
+        case Operator::XOR:
+            this->funName=OperatorFunctions::XOR_NAME;break;
         case Operator::BIT_OR:
-            this->funName=OperatorFunctions::BIT_OR;break;
+            this->funName=OperatorFunctions::BIT_OR_NAME;break;
         case Operator::UNARY_PLUS:
             this->funName=OperatorFunctions::UNARY_PLUS_NAME;break;
         case Operator::UNARY_MINUS:

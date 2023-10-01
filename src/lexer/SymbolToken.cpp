@@ -19,6 +19,7 @@ SymbolToken SymbolToken::SEMICOLON=SymbolToken(L"؛");
 SymbolToken SymbolToken::QUESTION_MARK=SymbolToken(L"؟");
 SymbolToken SymbolToken::EXCLAMATION_MARK=SymbolToken(L"!");
 SymbolToken SymbolToken::AMPERSAND=SymbolToken(L"&");
+SymbolToken SymbolToken::XOR=SymbolToken(L"^");
 SymbolToken SymbolToken::BAR=SymbolToken(L"|");
 SymbolToken SymbolToken::DOT=SymbolToken(L".");
 SymbolToken SymbolToken::DOUBLE_QUOTE=SymbolToken(L"\"");

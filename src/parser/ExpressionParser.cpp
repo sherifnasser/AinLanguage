@@ -407,10 +407,12 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
         case 6:
             return iterator->currentMatch(SymbolToken::AMPERSAND);
         case 7:
-            return iterator->currentMatch(SymbolToken::BAR);
+            return iterator->currentMatch(SymbolToken::XOR);
         case 8:
-            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+            return iterator->currentMatch(SymbolToken::BAR);
         case 9:
+            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+        case 10:
             return iterator->currentMatch(SymbolToken::LOGICAL_OR);
     }
     return false;
@@ -444,6 +446,8 @@ OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerT
         return OperatorFunInvokeExpression::Operator::GREATER_EQUAL;
     if(op==SymbolToken::AMPERSAND)
         return OperatorFunInvokeExpression::Operator::BIT_AND;
+    if(op==SymbolToken::XOR)
+        return OperatorFunInvokeExpression::Operator::XOR;
     if(op==SymbolToken::BAR)
         return OperatorFunInvokeExpression::Operator::BIT_OR;
     

@@ -23,6 +23,7 @@ public:
     static SymbolToken QUESTION_MARK;
     static SymbolToken EXCLAMATION_MARK;
     static SymbolToken AMPERSAND;
+    static SymbolToken XOR;
     static SymbolToken BAR;
     static SymbolToken DOT;
     static SymbolToken DOUBLE_QUOTE;
