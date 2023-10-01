@@ -31,7 +31,7 @@ SymbolToken SymbolToken::STAR=SymbolToken(L"*");
 SymbolToken SymbolToken::SLASH=SymbolToken(L"/");
 SymbolToken SymbolToken::EQUAL=SymbolToken(L"=");
 SymbolToken SymbolToken::MODULO=SymbolToken(L"%");
-SymbolToken SymbolToken::POWER=SymbolToken(L"^");
+SymbolToken SymbolToken::POWER=SymbolToken(L"**");
 
 SymbolToken SymbolToken::PLUS_PLUS=SymbolToken(L"++");
 SymbolToken SymbolToken::MINUS_MINUS=SymbolToken(L"--");
@@ -48,4 +48,4 @@ SymbolToken SymbolToken::MINUS_EQUAL=SymbolToken(L"-=");
 SymbolToken SymbolToken::STAR_EQUAL=SymbolToken(L"*=");
 SymbolToken SymbolToken::SLASH_EQUAL=SymbolToken(L"/=");
 SymbolToken SymbolToken::MODULO_EQUAL=SymbolToken(L"%=");
-SymbolToken SymbolToken::POWER_EQUAL=SymbolToken(L"^=");
+SymbolToken SymbolToken::POWER_EQUAL=SymbolToken(L"**=");
