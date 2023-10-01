@@ -1502,10 +1502,29 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
         true
     );
 
+    auto BIT_AND=getBitAndFun<PrimitiveType,BoolValue>(
+        classScope,
+        Type::BOOL,
+        BOOL_PARAM_NAME
+    );
+
+    auto XOR=getXorFun<PrimitiveType,BoolValue>(
+        classScope,
+        Type::BOOL,
+        BOOL_PARAM_NAME
+    );
+
+    auto BIT_OR=getBitOrFun<PrimitiveType,BoolValue>(
+        classScope,
+        Type::BOOL,
+        BOOL_PARAM_NAME
+    );
+
     auto funs={
         NOT,
         EQUALS,
-        TO_STRING
+        TO_STRING,
+        BIT_AND,XOR,BIT_OR,
     };
 
     auto publicFuns=classScope->getPublicFunctions();
