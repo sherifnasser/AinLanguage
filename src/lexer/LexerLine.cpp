@@ -250,15 +250,18 @@ SharedLexerToken LexerLine::findSymbolToken(){
         SymbolToken::POWER,
         SymbolToken::DOUBLE_COLONS,
         SymbolToken::PLUS_PLUS,
-        SymbolToken::MINUS_MINUS
+        SymbolToken::MINUS_MINUS,
+        SymbolToken::SHL,
+        SymbolToken::SHR,
     };
     for(auto &s:multipleSymbolTokens){
         auto found=line.find(s.getVal(),tokenStartIndex);
         if(found!=tokenStartIndex)
             continue;
         tokenEndIndex++; // skip next symbol
-        // As '**=' is for POWER_EQUAL
-        if(s==SymbolToken::POWER_EQUAL)
+
+        // As '**=', shl and shr have 3 characters
+        if(s.getVal().size()==3)
             tokenEndIndex++; // skip '=' symbol
         
         return std::make_shared<SymbolToken>(s);

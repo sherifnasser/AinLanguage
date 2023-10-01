@@ -405,14 +405,20 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
                 iterator->currentMatch(SymbolToken::NOT_EQUAL)
             ;
         case 6:
-            return iterator->currentMatch(SymbolToken::AMPERSAND);
+            return
+                iterator->currentMatch(SymbolToken::SHL)
+                ||
+                iterator->currentMatch(SymbolToken::SHR)
+            ;
         case 7:
-            return iterator->currentMatch(SymbolToken::XOR);
+            return iterator->currentMatch(SymbolToken::AMPERSAND);
         case 8:
-            return iterator->currentMatch(SymbolToken::BAR);
+            return iterator->currentMatch(SymbolToken::XOR);
         case 9:
-            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+            return iterator->currentMatch(SymbolToken::BAR);
         case 10:
+            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+        case 11:
             return iterator->currentMatch(SymbolToken::LOGICAL_OR);
     }
     return false;
@@ -444,6 +450,10 @@ OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerT
         return OperatorFunInvokeExpression::Operator::GREATER;
     if(op==SymbolToken::GREATER_EQUAL)
         return OperatorFunInvokeExpression::Operator::GREATER_EQUAL;
+    if(op==SymbolToken::SHL)
+        return OperatorFunInvokeExpression::Operator::SHL;
+    if(op==SymbolToken::SHR)
+        return OperatorFunInvokeExpression::Operator::SHR;
     if(op==SymbolToken::AMPERSAND)
         return OperatorFunInvokeExpression::Operator::BIT_AND;
     if(op==SymbolToken::XOR)

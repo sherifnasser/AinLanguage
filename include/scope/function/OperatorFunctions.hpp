@@ -13,6 +13,8 @@ namespace OperatorFunctions{
     inline auto POW_NAME=L"أس";
     inline auto COMPARE_TO_NAME=L"قارن_مع";
     inline auto EQUALS_NAME=L"يساوي";
+    inline auto SHL_NAME=L"زح_يسار";
+    inline auto SHR_NAME=L"زح_يمين";
     inline auto BIT_AND_NAME=L"و";
     inline auto XOR_NAME=L"أو_حصرية"; // FIXME: Change the Arabic name
     inline auto BIT_OR_NAME=L"أو";

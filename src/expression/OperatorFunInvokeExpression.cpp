@@ -42,6 +42,10 @@ NonStaticFunInvokeExpression(
         case Operator::GREATER:
         case Operator::GREATER_EQUAL:
             this->funName=OperatorFunctions::COMPARE_TO_NAME;break;
+        case Operator::SHL:
+            this->funName=OperatorFunctions::SHL_NAME;break;
+        case Operator::SHR:
+            this->funName=OperatorFunctions::SHR_NAME;break;
         case Operator::BIT_AND:
             this->funName=OperatorFunctions::BIT_AND_NAME;break;
         case Operator::XOR:
