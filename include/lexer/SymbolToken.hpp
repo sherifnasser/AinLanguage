@@ -56,4 +56,11 @@ public:
     static SymbolToken SLASH_EQUAL;
     static SymbolToken MODULO_EQUAL;
     static SymbolToken POWER_EQUAL;
+
+    static SymbolToken SHR_EQUAL;
+    static SymbolToken SHL_EQUAL;
+    static SymbolToken BIT_NOT_EQUAL;
+    static SymbolToken BIT_AND_EQUAL;
+    static SymbolToken XOR_EQUAL;
+    static SymbolToken BIT_OR_EQUAL;
 };

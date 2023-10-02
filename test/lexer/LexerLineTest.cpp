@@ -226,9 +226,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
         };
 
         WHEN("Line has ain puncts (has arabic puncts)"){
-            std::wstring line=L"زح<زح>::++--(){}[]<>:=+-*/%!**&^|~\\.>=<===!=&&||+=-=*=/=%=**=،؛؟";
+            std::wstring line=L"زح<=زح<زح>=زح>::++--(){}[]<>:=+-*/%!**&^|~\\.>=<===!=&&||+=-=*=/=%=**=&=^=|=~=،؛؟";
             std::vector<SymbolToken> expectedTokens={
-                SymbolToken::SHR,SymbolToken::SHL,
+                SymbolToken::SHR_EQUAL,SymbolToken::SHR,
+                SymbolToken::SHL_EQUAL,SymbolToken::SHL,
                 SymbolToken::DOUBLE_COLONS,SymbolToken::PLUS_PLUS,SymbolToken::MINUS_MINUS,
                 SymbolToken::LEFT_PARENTHESIS,SymbolToken::RIGHT_PARENTHESIS,
                 SymbolToken::LEFT_CURLY_BRACES,SymbolToken::RIGHT_CURLY_BRACES,
@@ -247,6 +248,8 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
                 SymbolToken::PLUS_EQUAL,SymbolToken::MINUS_EQUAL,
                 SymbolToken::STAR_EQUAL,SymbolToken::SLASH_EQUAL,
                 SymbolToken::MODULO_EQUAL,SymbolToken::POWER_EQUAL,
+                SymbolToken::BIT_AND_EQUAL,SymbolToken::XOR_EQUAL,SymbolToken::BIT_OR_EQUAL,
+                SymbolToken::BIT_NOT_EQUAL,
                 SymbolToken::COMMA,SymbolToken::SEMICOLON,SymbolToken::QUESTION_MARK,
             };
             THEN("Gives correct tokens"){

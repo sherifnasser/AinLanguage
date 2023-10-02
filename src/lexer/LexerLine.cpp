@@ -247,23 +247,24 @@ SharedLexerToken LexerLine::findSymbolToken(){
         SymbolToken::SLASH_EQUAL,
         SymbolToken::MODULO_EQUAL,
         SymbolToken::POWER_EQUAL,   // This should be before POWER to detect the '='
+        SymbolToken::SHR_EQUAL,     // This should be before SHR   to detect the '='
+        SymbolToken::SHL_EQUAL,     // This should be before SHL   to detect the '='
+        SymbolToken::BIT_NOT_EQUAL,
+        SymbolToken::BIT_AND_EQUAL,
+        SymbolToken::XOR_EQUAL,
+        SymbolToken::BIT_OR_EQUAL,
         SymbolToken::POWER,
         SymbolToken::DOUBLE_COLONS,
         SymbolToken::PLUS_PLUS,
         SymbolToken::MINUS_MINUS,
-        SymbolToken::SHL,
         SymbolToken::SHR,
+        SymbolToken::SHL,
     };
     for(auto &s:multipleSymbolTokens){
         auto found=line.find(s.getVal(),tokenStartIndex);
         if(found!=tokenStartIndex)
             continue;
-        tokenEndIndex++; // skip next symbol
-
-        // As '**=', shl and shr have 3 characters
-        if(s.getVal().size()==3)
-            tokenEndIndex++; // skip '=' symbol
-        
+        tokenEndIndex+=s.getVal().size()-1; // skip next symbols
         return std::make_shared<SymbolToken>(s);
     }
 

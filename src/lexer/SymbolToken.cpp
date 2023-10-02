@@ -53,3 +53,10 @@ SymbolToken SymbolToken::STAR_EQUAL=SymbolToken(L"*=");
 SymbolToken SymbolToken::SLASH_EQUAL=SymbolToken(L"/=");
 SymbolToken SymbolToken::MODULO_EQUAL=SymbolToken(L"%=");
 SymbolToken SymbolToken::POWER_EQUAL=SymbolToken(L"**=");
+
+SymbolToken SymbolToken::SHR_EQUAL=SymbolToken(L"زح<=");
+SymbolToken SymbolToken::SHL_EQUAL=SymbolToken(L"زح>=");
+SymbolToken SymbolToken::BIT_NOT_EQUAL=SymbolToken(L"~=");
+SymbolToken SymbolToken::BIT_AND_EQUAL=SymbolToken(L"&=");
+SymbolToken SymbolToken::XOR_EQUAL=SymbolToken(L"^=");
+SymbolToken SymbolToken::BIT_OR_EQUAL=SymbolToken(L"|=");
