@@ -32,6 +32,7 @@
 #include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
+#include <cassert>
 #include <memory>
 #include <map>
 #include <string>
@@ -464,6 +465,7 @@ OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerT
     if(op==SymbolToken::BAR)
         return OperatorFunInvokeExpression::Operator::BIT_OR;
     
+    assert(false); // Unreachable
 }
 
 SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value) {

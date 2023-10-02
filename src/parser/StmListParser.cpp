@@ -26,6 +26,7 @@
 #include "VarStm.hpp"
 #include "Variable.hpp"
 #include "WhileStatement.hpp"
+#include <cassert>
 #include <memory>
 #include <vector>
 
@@ -306,21 +307,7 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     
     auto op=iterator->currentToken();
     
-    if(
-        *op!=SymbolToken::EQUAL
-        &&
-        *op!=SymbolToken::PLUS_EQUAL
-        &&
-        *op!=SymbolToken::MINUS_EQUAL
-        &&
-        *op!=SymbolToken::STAR_EQUAL
-        &&
-        *op!=SymbolToken::SLASH_EQUAL
-        &&
-        *op!=SymbolToken::MODULO_EQUAL
-        &&
-        *op!=SymbolToken::POWER_EQUAL
-    )
+    if(!isAssignmentSymbol(*op))
         return std::make_shared<ExpressionStatement>(
             lineNumber,
             parentScope,
@@ -362,6 +349,36 @@ SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope pare
     );
     
 }
+bool StmListParser::isAssignmentSymbol(LexerToken op){
+    return 
+        op==SymbolToken::EQUAL
+        ||
+        op==SymbolToken::PLUS_EQUAL
+        ||
+        op==SymbolToken::MINUS_EQUAL
+        ||
+        op==SymbolToken::STAR_EQUAL
+        ||
+        op==SymbolToken::SLASH_EQUAL
+        ||
+        op==SymbolToken::MODULO_EQUAL
+        ||
+        op==SymbolToken::POWER_EQUAL
+        ||
+        op==SymbolToken::SHR_EQUAL
+        ||
+        op==SymbolToken::SHL_EQUAL
+        ||
+        op==SymbolToken::BIT_NOT_EQUAL
+        ||
+        op==SymbolToken::BIT_AND_EQUAL
+        ||
+        op==SymbolToken::XOR_EQUAL
+        ||
+        op==SymbolToken::BIT_OR_EQUAL
+    ;
+}
+
 OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(LexerToken op){
 
     if(op==SymbolToken::PLUS_EQUAL)
@@ -376,5 +393,18 @@ OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(L
         return OperatorFunInvokeExpression::Operator::MOD;
     if(op==SymbolToken::POWER_EQUAL)
         return OperatorFunInvokeExpression::Operator::POW;
+    if(op==SymbolToken::SHR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::SHR;
+    if(op==SymbolToken::SHL_EQUAL)
+        return OperatorFunInvokeExpression::Operator::SHL;
+    if(op==SymbolToken::BIT_NOT_EQUAL)
+        return OperatorFunInvokeExpression::Operator::BIT_NOT;
+    if(op==SymbolToken::BIT_AND_EQUAL)
+        return OperatorFunInvokeExpression::Operator::BIT_AND;
+    if(op==SymbolToken::XOR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::XOR;
+    if(op==SymbolToken::BIT_OR_EQUAL)
+        return OperatorFunInvokeExpression::Operator::BIT_OR;
     
+    assert(false); // Unreachable
 }
