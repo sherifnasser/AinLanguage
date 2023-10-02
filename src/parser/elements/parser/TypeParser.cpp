@@ -1,5 +1,6 @@
 #include "TypeParser.hpp"
 #include "SharedPtrTypes.hpp"
+#include "SymbolToken.hpp"
 #include "Type.hpp"
 #include "TokensIterator.hpp"
 #include "TypeChecker.hpp"
@@ -16,6 +17,15 @@ TypeParser::TypeParser(
 
 SharedType TypeParser::parse(){
     // TODO: parse generics and nullables
+
+    if(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+        iterator->next();
+        auto type=parse();
+        expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+        iterator->next();
+        return std::make_shared<Type::Array>(type);
+    }
+
     auto typeId=expectIdentifier();
     auto typeName=std::make_shared<std::wstring>(typeId);    
     auto type=std::make_shared<Type>(typeName);
