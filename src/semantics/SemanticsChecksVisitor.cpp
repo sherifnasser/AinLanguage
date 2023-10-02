@@ -1,4 +1,5 @@
 #include "SemanticsChecksVisitor.hpp"
+#include "ASTVisitor.hpp"
 #include "BaseScope.hpp"
 #include "CannotAccessPrivateFunctionException.hpp"
 #include "CannotAccessPrivateVariableException.hpp"
@@ -393,6 +394,23 @@ void SemanticsChecksVisitor::visit(NewObjectExpression* ex){
         decl+L" للنوع "+AinException::betweenAngleBrackets(*type->getName())
     );
 
+}
+
+void SemanticsChecksVisitor::visit(NewArrayExpression* ex){
+    for(auto cap:ex->getCapacities()){
+        cap->accept(this);
+        auto capType=cap->getReturnType()->getClassScope();
+        if(
+            capType!=Type::INT->getClassScope()
+            &&
+            capType!=Type::UINT->getClassScope()
+            &&
+            capType!=Type::LONG->getClassScope()
+            &&
+            capType!=Type::ULONG->getClassScope()
+        )
+            throw UnexpectedTypeException(cap->getLineNumber(),*Type::INT_NAME,capType->getName());
+    }
 }
 
 void SemanticsChecksVisitor::visit(LogicalExpression* ex){

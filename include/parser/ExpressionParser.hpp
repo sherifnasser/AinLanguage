@@ -32,7 +32,7 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parseIdentifierExpression();
 
-        SharedIExpression parseNewObjectExpression();
+        SharedIExpression parseNewExpression();
 
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
 

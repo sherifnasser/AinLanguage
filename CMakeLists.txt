@@ -33,6 +33,7 @@ add_library(ainsrc
     src/expression/UnitExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/IExpression.cpp
+    src/expression/NewArrayExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
     src/expression/NewObjectExpression.cpp
     src/expression/LogicalExpression.cpp

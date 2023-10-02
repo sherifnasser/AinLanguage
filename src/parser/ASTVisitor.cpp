@@ -1,5 +1,6 @@
 #include "ASTVisitor.hpp"
 
+#include "NewArrayExpression.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
@@ -19,6 +20,7 @@
 #include "VarAccessExpression.hpp"
 #include "FunInvokeExpression.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
@@ -65,6 +67,8 @@ void ASTVisitor::visit(VarAccessExpression* ex){}
 void ASTVisitor::visit(FunInvokeExpression* ex){}
 
 void ASTVisitor::visit(NewObjectExpression* ex){}
+
+void ASTVisitor::visit(NewArrayExpression* ex){}
 
 void ASTVisitor::visit(LiteralExpression* ex){}
 
@@ -151,6 +155,10 @@ void FunInvokeExpression::accept(ASTVisitor* visitor){
 }
 
 void NewObjectExpression::accept(ASTVisitor* visitor){
+    visitor->visit(this);
+}
+
+void NewArrayExpression::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 

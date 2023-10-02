@@ -4,6 +4,7 @@
 #include "CharValue.hpp"
 #include "ClassScope.hpp"
 #include "DoubleValue.hpp"
+#include "ExpressionExpectedException.hpp"
 #include "FileScope.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
@@ -16,6 +17,7 @@
 #include "LogicalExpression.hpp"
 #include "LongValue.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
@@ -63,6 +65,9 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
         
         auto right=parseBinaryOperatorExpression(precedence-1);
 
+        if(!right)
+            throw ExpressionExpectedException(iterator->lineNumber);
+
         if(*op==SymbolToken::LOGICAL_OR){
             left=std::make_shared<LogicalExpression>(
                 lineNumber,LogicalExpression::Operation::OR,left,right
@@ -107,7 +112,7 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
     else if(auto idEx=parseIdentifierExpression())
         primary=idEx;
 
-    else if(auto newObjEx=parseNewObjectExpression())
+    else if(auto newObjEx=parseNewExpression())
         primary=newObjEx;
 
     else
@@ -284,17 +289,38 @@ SharedIExpression ExpressionParser::parseIdentifierExpression(){
     
 }
 
-SharedIExpression ExpressionParser::parseNewObjectExpression(){
+SharedIExpression ExpressionParser::parseNewExpression(){
 
     if(!iterator->currentMatch(KeywordToken::NEW))
         return nullptr;
     
     int lineNumber=iterator->lineNumber;
 
-    iterator->next();
+    // The capacity expressions for a multi-dimensional array
+    auto arraysCapacities=std::vector<SharedIExpression>();
+
+    while(iterator->nextMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+        iterator->next();
+
+        auto ex=parse();
+
+        if(!ex)
+            throw ExpressionExpectedException(iterator->lineNumber);
+
+        arraysCapacities.push_back(ex);
+        
+        expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+    }
 
     auto type=typeParserProvider(iterator,scope)->parse();
 
+    if(!arraysCapacities.empty())
+        return std::make_shared<NewArrayExpression>(
+            lineNumber,
+            arraysCapacities,
+            type
+        );
+    
     auto args=expectFunArgs();
 
     auto newObjEx=std::make_shared<NewObjectExpression>(

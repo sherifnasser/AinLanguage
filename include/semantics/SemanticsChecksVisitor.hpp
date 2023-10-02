@@ -21,6 +21,7 @@
 #include "VarAccessExpression.hpp"
 #include "FunInvokeExpression.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
@@ -48,6 +49,7 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(VarAccessExpression* ex)override;
         void visit(FunInvokeExpression* ex)override;
         void visit(NewObjectExpression* ex)override;
+        void visit(NewArrayExpression* ex)override;
 
         void visit(LogicalExpression* ex)override;
         void visit(NonStaticVarAccessExpression* ex)override;
