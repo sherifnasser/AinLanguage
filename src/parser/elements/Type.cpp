@@ -16,8 +16,22 @@
 Type::Type(SharedWString name,SharedClassScope classScope)
 :name(name),classScope(classScope){}
 
+const Type::Array* Type::asArray()const{
+    return dynamic_cast<const Array*>(this);
+}
+
 bool Type::operator==(const Type& type)const{
-    return *this->name==*type.name;
+    auto thisArray=this->asArray();
+    
+    if(!thisArray)
+        return *this->name==*type.name;
+
+    auto otherArray=type.asArray();
+
+    if(!otherArray)
+        return false;
+    
+    return *thisArray->getType()==*otherArray->getType();
 }
 
 bool Type::operator!=(const Type& type)const{
@@ -100,7 +114,6 @@ SharedType Type::STRING=std::make_shared<Type>(
     std::make_shared<StringClassScope>()
 );
 
-
 void Type::addBuiltInClassesTo(SharedFileScope fileScope) {
     auto builtInCLasses={
         UNIT,
@@ -113,4 +126,12 @@ void Type::addBuiltInClassesTo(SharedFileScope fileScope) {
     for(auto builtInClass:builtInCLasses){
         (*privateClasses)[*builtInClass->getName()]=builtInClass->getClassScope();
     }
+}
+
+Type::~Type(){}
+
+Type::Array::Array(SharedType type):Type(nullptr),type(type){}
+
+SharedType Type::Array::getType()const{
+    return this->type;
 }

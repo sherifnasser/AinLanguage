@@ -6,6 +6,7 @@ class Type{
         SharedWString name;
         SharedClassScope classScope;
     public:
+        class Array;
         Type(SharedWString name,SharedClassScope classScope=nullptr);
         bool operator==(const Type& type)const;
         bool operator!=(const Type& type)const;
@@ -37,4 +38,17 @@ class Type{
         SharedWString getName();
 
         static void addBuiltInClassesTo(SharedFileScope fileScope);
+
+        virtual ~Type();
+    
+    private:
+        const Array* asArray()const;
+};
+
+class Type::Array:public Type{
+    private:
+        SharedType type;
+    public:
+        Array(SharedType type);
+        SharedType getType()const;
 };
