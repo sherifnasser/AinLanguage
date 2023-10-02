@@ -536,6 +536,20 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
         opName==OperatorFunctions::MOD_NAME
         ||
         opName==OperatorFunctions::POW_NAME
+        ||
+        opName==OperatorFunctions::COMPARE_TO_NAME
+        ||
+        opName==OperatorFunctions::EQUALS_NAME
+        ||
+        opName==OperatorFunctions::SHL_NAME
+        ||
+        opName==OperatorFunctions::SHR_NAME
+        ||
+        opName==OperatorFunctions::BIT_AND_NAME
+        ||
+        opName==OperatorFunctions::XOR_NAME
+        ||
+        opName==OperatorFunctions::BIT_OR_NAME
     ;
 
     if(isBinOp&&paramsSize!=1)
@@ -547,6 +561,8 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
         opName==OperatorFunctions::UNARY_MINUS_NAME
         ||
         opName==OperatorFunctions::LOGICAL_NOT_NAME
+        ||
+        opName==OperatorFunctions::BIT_NOT_NAME
         ||
         opName==OperatorFunctions::INC_NAME
         ||

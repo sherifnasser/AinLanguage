@@ -18,6 +18,7 @@ bool isAinPunct(const wchar_t &c)
         case L'|':
         case L'&':
         case L'^':
+        case L'~':
         case L'=':
         case L'>':
         case L'<':

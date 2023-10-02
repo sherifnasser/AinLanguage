@@ -32,6 +32,7 @@
 #include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
+#include <cassert>
 #include <memory>
 #include <map>
 #include <string>
@@ -128,6 +129,9 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
 
     else if(iterator->currentMatch(SymbolToken::EXCLAMATION_MARK))
         unaryOp=OperatorFunInvokeExpression::Operator::LOGICAL_NOT;
+
+    else if(iterator->currentMatch(SymbolToken::BIT_NOT))
+        unaryOp=OperatorFunInvokeExpression::Operator::BIT_NOT;
 
     else if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
         unaryOp=OperatorFunInvokeExpression::Operator::PRE_INC;
@@ -372,17 +376,23 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
 
 bool ExpressionParser::currentMatchByPrecedence(int precedence){
     switch(precedence){
-        case LOWEST_PRECEDENCE:
-            return iterator->currentMatch(SymbolToken::LOGICAL_OR);
-        case LOWEST_PRECEDENCE-1:
-            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
-        case LOWEST_PRECEDENCE-2:
+        case 1:
+            return iterator->currentMatch(SymbolToken::POWER);
+        case 2:
             return
-                iterator->currentMatch(SymbolToken::EQUAL_EQUAL)
+                iterator->currentMatch(SymbolToken::STAR)
                 ||
-                iterator->currentMatch(SymbolToken::NOT_EQUAL)
+                iterator->currentMatch(SymbolToken::SLASH)
+                ||
+                iterator->currentMatch(SymbolToken::MODULO)
             ;
-        case LOWEST_PRECEDENCE-3:
+        case 3:
+            return
+                iterator->currentMatch(SymbolToken::PLUS)
+                ||
+                iterator->currentMatch(SymbolToken::MINUS)
+            ;
+        case 4:
             return
                 iterator->currentMatch(SymbolToken::GREATER_EQUAL)
                 ||
@@ -392,22 +402,28 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
                 ||
                 iterator->currentMatch(SymbolToken::RIGHT_ANGLE_BRACKET)
             ;
-        case LOWEST_PRECEDENCE-4:
+        case 5:
             return
-                iterator->currentMatch(SymbolToken::PLUS)
+                iterator->currentMatch(SymbolToken::EQUAL_EQUAL)
                 ||
-                iterator->currentMatch(SymbolToken::MINUS)
+                iterator->currentMatch(SymbolToken::NOT_EQUAL)
             ;
-        case LOWEST_PRECEDENCE-5:
+        case 6:
             return
-                iterator->currentMatch(SymbolToken::STAR)
+                iterator->currentMatch(SymbolToken::SHR)
                 ||
-                iterator->currentMatch(SymbolToken::SLASH)
-                ||
-                iterator->currentMatch(SymbolToken::MODULO)
+                iterator->currentMatch(SymbolToken::SHL)
             ;
-        case LOWEST_PRECEDENCE-6:
-            return iterator->currentMatch(SymbolToken::POWER);
+        case 7:
+            return iterator->currentMatch(SymbolToken::AMPERSAND);
+        case 8:
+            return iterator->currentMatch(SymbolToken::XOR);
+        case 9:
+            return iterator->currentMatch(SymbolToken::BAR);
+        case 10:
+            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+        case 11:
+            return iterator->currentMatch(SymbolToken::LOGICAL_OR);
     }
     return false;
 }
@@ -438,7 +454,18 @@ OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerT
         return OperatorFunInvokeExpression::Operator::GREATER;
     if(op==SymbolToken::GREATER_EQUAL)
         return OperatorFunInvokeExpression::Operator::GREATER_EQUAL;
+    if(op==SymbolToken::SHL)
+        return OperatorFunInvokeExpression::Operator::SHL;
+    if(op==SymbolToken::SHR)
+        return OperatorFunInvokeExpression::Operator::SHR;
+    if(op==SymbolToken::AMPERSAND)
+        return OperatorFunInvokeExpression::Operator::BIT_AND;
+    if(op==SymbolToken::XOR)
+        return OperatorFunInvokeExpression::Operator::XOR;
+    if(op==SymbolToken::BAR)
+        return OperatorFunInvokeExpression::Operator::BIT_OR;
     
+    assert(false); // Unreachable
 }
 
 SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value) {
