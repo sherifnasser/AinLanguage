@@ -18,6 +18,7 @@ namespace{
         
         void subscribe(int lineNumber,SharedBaseScope searchScope,SharedType type)override{
             calledTimes++;
+            type->setClassScope(Type::INT->getClassScope());
         }
 
         void check()override{};

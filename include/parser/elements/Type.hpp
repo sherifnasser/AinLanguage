@@ -1,6 +1,8 @@
 #pragma once
 #include "SharedPtrTypes.hpp"
+#include <memory>
 #include <string>
+class ArrayClassScope;
 class Type{
     private:
         SharedWString name;
@@ -20,6 +22,7 @@ class Type{
         static SharedWString CHAR_NAME;
         static SharedWString STRING_NAME;
         static SharedWString BOOL_NAME;
+        static SharedWString ARRAY_NAME;
         static SharedType UNIT;
         static SharedType CHAR;
         static SharedType INT;
@@ -30,6 +33,7 @@ class Type{
         static SharedType DOUBLE;
         static SharedType BOOL;
         static SharedType STRING;
+        static std::shared_ptr<ArrayClassScope> ARRAY_CLASS;
 
         SharedClassScope getClassScope();
         
@@ -40,9 +44,9 @@ class Type{
         static void addBuiltInClassesTo(SharedFileScope fileScope);
 
         virtual ~Type();
-    
-    private:
+
         const Array* asArray()const;
+    
 };
 
 class Type::Array:public Type{

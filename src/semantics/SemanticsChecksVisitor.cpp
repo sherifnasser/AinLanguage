@@ -16,6 +16,7 @@
 #include "VariableNotFoundException.hpp"
 #include "KeywordToken.hpp"
 #include "FunParam.hpp"
+#include "ArrayClassScope.hpp"
 
 void SemanticsChecksVisitor::visit(PackageScope* scope){
     for(auto fileIt:scope->getFiles()){
@@ -67,6 +68,8 @@ void SemanticsChecksVisitor::visit(ClassScope* scope){
         scope==Type::BOOL->getClassScope().get()
         ||
         scope==Type::STRING->getClassScope().get()
+        ||
+        scope==Type::ARRAY_CLASS.get()
     )
         return;
 
@@ -144,7 +147,7 @@ void SemanticsChecksVisitor::visit(AssignStatement* stm){
 
     auto t2=newValEx->getReturnType();
 
-    if(t1->getClassScope()!=t2->getClassScope())
+    if(*t1!=*t2)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *t1->getName(),
@@ -202,7 +205,7 @@ void SemanticsChecksVisitor::visit(ReturnStatement* stm){
                 *exType->getName()
             );
     }
-    else if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
+    else if(funScope->getReturnType()!=exType)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *funScope->getReturnType()->getName(),
@@ -399,17 +402,13 @@ void SemanticsChecksVisitor::visit(NewObjectExpression* ex){
 void SemanticsChecksVisitor::visit(NewArrayExpression* ex){
     for(auto cap:ex->getCapacities()){
         cap->accept(this);
-        auto capType=cap->getReturnType()->getClassScope();
-        if(
-            capType!=Type::INT->getClassScope()
-            &&
-            capType!=Type::UINT->getClassScope()
-            &&
-            capType!=Type::LONG->getClassScope()
-            &&
-            capType!=Type::ULONG->getClassScope()
-        )
-            throw UnexpectedTypeException(cap->getLineNumber(),*Type::INT_NAME,capType->getName());
+        auto capType=cap->getReturnType();
+        if(capType->getClassScope()!=Type::INT->getClassScope())
+            throw UnexpectedTypeException(
+                cap->getLineNumber(),
+                *Type::INT_NAME,
+                *capType->getName()
+            );
     }
 }
 
@@ -597,10 +596,10 @@ void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
 
     auto returnType=scope->getReturnType();
 
-    if(opName==OperatorFunctions::COMPARE_TO_NAME&&*returnType->getName()!=*Type::INT_NAME)
+    if(opName==OperatorFunctions::COMPARE_TO_NAME&&returnType->getClassScope()!=Type::INT->getClassScope())
         throw InvalidOperatorFunDeclarationException(L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
 
-    if(opName==OperatorFunctions::EQUALS_NAME&&*returnType->getName()!=*Type::BOOL_NAME)
+    if(opName==OperatorFunctions::EQUALS_NAME&&returnType->getClassScope()!=Type::BOOL->getClassScope())
         throw InvalidOperatorFunDeclarationException(L"دالة يساوي يجب أن ترجع قيمة من نوع منطقي.");
     
     auto parentClass=BaseScope::getContainingClass(scope->getParentScope());

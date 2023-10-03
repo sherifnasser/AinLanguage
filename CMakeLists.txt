@@ -24,6 +24,7 @@ add_library(ainsrc
     src/expression/value/ULongValue.cpp
     src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
+    src/expression/value/ArrayValue.cpp
     src/expression/value/FloatValue.cpp
     src/expression/value/LongValue.cpp
     src/expression/value/UIntValue.cpp

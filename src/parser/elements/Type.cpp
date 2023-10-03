@@ -1,4 +1,5 @@
 #include "Type.hpp"
+#include "ArrayClassScope.hpp"
 #include "CharClassScope.hpp"
 #include "StringClassScope.hpp"
 #include "BoolClassScope.hpp"
@@ -21,16 +22,17 @@ const Type::Array* Type::asArray()const{
 }
 
 bool Type::operator==(const Type& type)const{
+    
+    if(classScope!=type.classScope)
+        return false;
+    
     auto thisArray=this->asArray();
     
     if(!thisArray)
-        return *this->name==*type.name;
+        return true;
 
     auto otherArray=type.asArray();
 
-    if(!otherArray)
-        return false;
-    
     return *thisArray->getType()==*otherArray->getType();
 }
 
@@ -60,6 +62,7 @@ SharedWString Type::DOUBLE_NAME=std::make_shared<std::wstring>(L"عشري_م");
 SharedWString Type::CHAR_NAME=std::make_shared<std::wstring>(L"حرف");
 SharedWString Type::STRING_NAME=std::make_shared<std::wstring>(L"نص");
 SharedWString Type::BOOL_NAME=std::make_shared<std::wstring>(L"منطقي");
+SharedWString Type::ARRAY_NAME=std::make_shared<std::wstring>(L"مصفوفة");
 
 SharedType Type::UNIT=std::make_shared<Type>(
     UNIT_NAME,
@@ -114,6 +117,8 @@ SharedType Type::STRING=std::make_shared<Type>(
     std::make_shared<StringClassScope>()
 );
 
+std::shared_ptr<ArrayClassScope> Type::ARRAY_CLASS=std::make_shared<ArrayClassScope>();
+
 void Type::addBuiltInClassesTo(SharedFileScope fileScope) {
     auto builtInCLasses={
         UNIT,
@@ -130,7 +135,14 @@ void Type::addBuiltInClassesTo(SharedFileScope fileScope) {
 
 Type::~Type(){}
 
-Type::Array::Array(SharedType type):Type(nullptr),type(type){}
+Type::Array::Array(SharedType type):
+    Type(
+        std::make_shared<std::wstring>(
+            L"["+*type->getName()+L"]"
+        ),
+        Type::ARRAY_CLASS
+    ),
+    type(type){}
 
 SharedType Type::Array::getType()const{
     return this->type;

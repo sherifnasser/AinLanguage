@@ -1,4 +1,6 @@
 #include "Interpreter.hpp"
+#include "ArrayNegativeCapacityException.hpp"
+#include "ArrayValue.hpp"
 #include "BoolValue.hpp"
 #include "FunDecl.hpp"
 #include "IntValue.hpp"
@@ -11,6 +13,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <vector>
 
 void Interpreter::push(SharedIValue val){
     valuesStack.push(val);
@@ -50,13 +53,43 @@ void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
 
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getFun()->accept(this);
 
     insideVal->unlinkWithClass();
+}
+
+std::shared_ptr<ArrayValue> Interpreter::initMultiDArray(
+    int capIndex,
+    int capacitiesSize,
+    int capacities[],
+    SharedType type
+){
+    auto cap=capacities[capIndex];
+    
+    auto array=std::make_shared<ArrayValue>(type,cap);
+    
+    if(capIndex==capacitiesSize-1)
+        return array;
+    
+    auto arrayType=type->asArray()->getType();
+    auto arrayVal=array->getValue();
+    auto childrenCapIndex=capIndex+1;
+    auto childrenCap=capacities[childrenCapIndex];
+    for(int i=0;i<childrenCap;i++){
+        arrayVal[i]=initMultiDArray(
+            childrenCapIndex,
+            capacitiesSize,
+            capacities,
+            arrayType
+        );
+    }
+
+    return array;
+
 }
 
 Interpreter::Interpreter():
@@ -133,17 +166,18 @@ void Interpreter::visit(FunScope* scope){
     if(isConstructor)
         decl->returnType->getClassScope()->accept(this);
     
+    auto params=decl->params;
     auto locals=scope->getLocals();
+    int i=params->size()-1;
 
-    int i=0;
-    for(auto local:*locals){
-        auto varName=local.first;
-        auto var=local.second;
+    for(auto localIt=locals->rbegin();localIt!=locals->rend();localIt++){
+        auto varName=localIt->first;
+        auto var=localIt->second;
         var->pushNewValue();
 
-        if(i<decl->params->size()&&*decl->params->at(i)->name==varName){
+        if(i>=0&&*decl->params->at(i)->name==varName){
             var->setValue(pop());
-            i++;
+            i--;
         }
     }
 
@@ -306,8 +340,8 @@ void Interpreter::visit(VarAccessExpression* ex){
 void Interpreter::visit(FunInvokeExpression* ex){
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getFun()->accept(this);
@@ -316,11 +350,40 @@ void Interpreter::visit(FunInvokeExpression* ex){
 void Interpreter::visit(NewObjectExpression* ex){
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getConstructor()->accept(this);
+}
+
+void Interpreter::visit(NewArrayExpression* ex){
+    auto capacitiesExpressions=ex->getCapacities();
+
+    auto capacitiesSize=capacitiesExpressions.size();
+
+    int capacities[capacitiesSize];
+
+    for(int i=0;i<capacitiesSize;i++){
+        capacitiesExpressions[i]->accept(this);
+
+        auto cap=popAs<IntValue>()->getValue();
+
+        if(cap<0)
+            throw ArrayNegativeCapacityException(cap);
+
+        capacities[i]=cap;
+    }
+
+    // Recursion could cause stack overflow
+    std::shared_ptr<ArrayValue> arrayVal=initMultiDArray(
+        0,
+        capacitiesSize,
+        capacities,
+        ex->getReturnType()
+    );
+    
+    push(arrayVal);
 }
 
 void Interpreter::visit(LiteralExpression* ex){

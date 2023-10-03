@@ -3,4 +3,5 @@
 class FloatValue:public PrimitiveValue<float>{
     public:
         FloatValue(float value);
+        std::wstring toString()override;
 };

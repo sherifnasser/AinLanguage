@@ -5,7 +5,7 @@
 CharValue::CharValue(wchar_t value)
 :PrimitiveValue(Type::CHAR,value){}
 
-std::wstring CharValue::toString() {
+std::wstring CharValue::toString(){
     std::wstring val=L"";
     val+=value;
     return val;

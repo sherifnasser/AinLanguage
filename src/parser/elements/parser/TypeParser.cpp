@@ -16,7 +16,9 @@ TypeParser::TypeParser(
 ):BaseParser(iterator,scope),typeChecker(typeChecker){}
 
 SharedType TypeParser::parse(){
-    // TODO: parse generics and nullables
+    // TODO: Parse generics and nullables
+
+    // ANCHOR: Do we need to specify maximum dimension of an array?
 
     if(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
         iterator->next();

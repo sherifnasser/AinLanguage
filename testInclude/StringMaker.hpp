@@ -4,13 +4,14 @@
 #include "Type.hpp"
 #include "string_helper.hpp"
 #include "VarDecl.hpp"
+#include "ClassScope.hpp"
 
 namespace Catch {
     template<>
     struct StringMaker<Type> {
         static std::string convert( Type value ){
             return "Type: ("+std::string(
-                toCharPointer(*value.getName())
+                toCharPointer(value.getClassScope()->getName())
             )+")";
         }
     };

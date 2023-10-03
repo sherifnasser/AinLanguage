@@ -296,10 +296,14 @@ SharedIExpression ExpressionParser::parseNewExpression(){
     
     int lineNumber=iterator->lineNumber;
 
+    iterator->next();
+
+    auto type=typeParserProvider(iterator,scope)->parse();
+
     // The capacity expressions for a multi-dimensional array
     auto arraysCapacities=std::vector<SharedIExpression>();
 
-    while(iterator->nextMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+    while(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
         iterator->next();
 
         auto ex=parse();
@@ -310,10 +314,11 @@ SharedIExpression ExpressionParser::parseNewExpression(){
         arraysCapacities.push_back(ex);
         
         expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+
+        iterator->next();
     }
 
-    auto type=typeParserProvider(iterator,scope)->parse();
-
+    // ANCHOR: Do we need to specify maximum dimension of an array?
     if(!arraysCapacities.empty())
         return std::make_shared<NewArrayExpression>(
             lineNumber,
