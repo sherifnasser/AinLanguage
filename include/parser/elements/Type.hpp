@@ -35,7 +35,7 @@ class Type{
         static SharedType STRING;
         static std::shared_ptr<ArrayClassScope> ARRAY_CLASS;
 
-        SharedClassScope getClassScope();
+        virtual SharedClassScope getClassScope();
         
         void setClassScope(SharedClassScope classScope);
 
@@ -55,4 +55,5 @@ class Type::Array:public Type{
     public:
         Array(SharedType type);
         SharedType getType()const;
+        SharedClassScope getClassScope()override;
 };

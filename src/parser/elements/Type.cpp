@@ -1,6 +1,8 @@
 #include "Type.hpp"
 #include "ArrayClassScope.hpp"
+#include "BuiltInFunScope.hpp"
 #include "CharClassScope.hpp"
+#include "SharedPtrTypes.hpp"
 #include "StringClassScope.hpp"
 #include "BoolClassScope.hpp"
 #include "UnitClassScope.hpp"
@@ -11,6 +13,10 @@
 #include "FloatClassScope.hpp"
 #include "DoubleClassScope.hpp"
 #include "FileScope.hpp"
+#include "FunScope.hpp"
+#include "FunDecl.hpp"
+#include "FunParam.hpp"
+#include <algorithm>
 #include <memory>
 #include <string>
 
@@ -146,4 +152,39 @@ Type::Array::Array(SharedType type):
 
 SharedType Type::Array::getType()const{
     return this->type;
+}
+
+SharedClassScope Type::Array::getClassScope(){
+
+    auto funs=ARRAY_CLASS->getPublicFunctions();
+
+    std::wstring GET_OLD_NAME=L"";
+    std::wstring SET_OLD_NAME=L"";
+
+    for(auto funIt:*funs){
+        if(funIt.second==ArrayClassScope::GET){
+            GET_OLD_NAME=funIt.first;
+            continue;
+        }
+        if(funIt.second==ArrayClassScope::SET){
+            SET_OLD_NAME=funIt.first;
+            continue;
+        }
+        if(!GET_OLD_NAME.empty()&&!SET_OLD_NAME.empty())
+            break;
+    }
+
+    ArrayClassScope::GET->getDecl()->returnType=this->type;
+    ArrayClassScope::SET->getDecl()->params->at(1)->type=this->type;
+
+    auto GET_nodeHandler=funs->extract(GET_OLD_NAME);
+    auto SET_nodeHandler=funs->extract(SET_OLD_NAME);
+
+    GET_nodeHandler.key()=ArrayClassScope::GET->getDecl()->toString();
+    SET_nodeHandler.key()=ArrayClassScope::SET->getDecl()->toString();
+
+    funs->insert(std::move(GET_nodeHandler));
+    funs->insert(std::move(SET_nodeHandler));
+
+    return this->classScope;
 }

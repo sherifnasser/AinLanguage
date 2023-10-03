@@ -39,11 +39,11 @@ SharedClassScope PackageScope::getClassByType(SharedType type){
     return nullptr;
 }
 
-std::map<std::wstring, SharedPackageScope> PackageScope::getPackages()const{
+std::unordered_map<std::wstring, SharedPackageScope> PackageScope::getPackages()const{
     return this->packages;
 }
 
-std::map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
+std::unordered_map<std::wstring, SharedFileScope> PackageScope::getFiles()const{
     return this->files;
 }
 

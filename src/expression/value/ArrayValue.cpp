@@ -5,7 +5,7 @@
 #include "SharedPtrTypes.hpp"
 #include "ArrayClassScope.hpp"
 #include "Type.hpp"
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <string>
 #include <vector>
@@ -16,8 +16,8 @@ ArrayValue::ArrayValue(SharedType type,int capacity)
     PrimitiveValue(type,std::vector<SharedIValue>{}),
     ObjectValue(
         type,
-        std::make_shared<std::map<std::wstring,SharedIValue>>(
-            std::map<std::wstring,SharedIValue>{
+        std::make_shared<std::unordered_map<std::wstring,SharedIValue>>(
+            std::unordered_map<std::wstring,SharedIValue>{
                 {
                     *ArrayClassScope::CAPACITY_NAME,
                     std::make_shared<IntValue>(capacity)  
@@ -41,6 +41,7 @@ void ArrayValue::linkWithClass(){
 }
 
 void ArrayValue::unlinkWithClass(){
+    value=Type::ARRAY_CLASS->getValue();
     PrimitiveValue<std::vector<SharedIValue>>::unlinkWithClass();
     ObjectValue::unlinkWithClass();
 }

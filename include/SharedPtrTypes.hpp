@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<memory>
+#include <unordered_map>
 #include<vector>
 #include<map>
 #include<string>
@@ -42,7 +43,7 @@ template<typename T>
 using SharedVector=std::shared_ptr<std::vector<T>>;
 
 template<typename Key,typename Val>
-using SharedMap=std::shared_ptr<std::map<Key,Val>>;
+using SharedMap=std::shared_ptr<std::unordered_map<Key,Val>>;
 
 template<typename T>
 using SharedLinkedListNode=std::shared_ptr<LinkedListNode<T>>;

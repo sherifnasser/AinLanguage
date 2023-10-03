@@ -48,6 +48,7 @@ add_library(ainsrc
     src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
+    src/scope/ArrayClassScope.cpp
     src/ain_file/AinFile.cpp
     src/semantics/SemanticsChecksVisitor.cpp
     src/semantics/ImplicitVarTypeChecker.cpp

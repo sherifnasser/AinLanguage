@@ -10,14 +10,14 @@
 
 ClassScope::ClassScope(std::wstring name,SharedBaseScope parentScope)
     :BaseScope(name,parentScope),
-    publicFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    privateFunctions(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    publicConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    privateConstructors(std::make_shared<std::map<std::wstring,SharedFunScope>>()),
-    publicClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
-    privateClasses(std::make_shared<std::map<std::wstring,SharedClassScope>>()),
-    publicVariables(std::make_shared<std::map<std::wstring,SharedVariable>>()),
-    privateVariables(std::make_shared<std::map<std::wstring,SharedVariable>>())
+    publicFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
+    privateFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
+    publicConstructors(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
+    privateConstructors(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
+    publicClasses(std::make_shared<std::unordered_map<std::wstring,SharedClassScope>>()),
+    privateClasses(std::make_shared<std::unordered_map<std::wstring,SharedClassScope>>()),
+    publicVariables(std::make_shared<std::unordered_map<std::wstring,SharedVariable>>()),
+    privateVariables(std::make_shared<std::unordered_map<std::wstring,SharedVariable>>())
 {
     
 }

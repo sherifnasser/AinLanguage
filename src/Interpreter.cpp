@@ -10,10 +10,10 @@
 #include "UnitValue.hpp"
 #include "Variable.hpp"
 #include "FunParam.hpp"
-#include <map>
 #include <memory>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 void Interpreter::push(SharedIValue val){
     valuesStack.push(val);
@@ -166,19 +166,17 @@ void Interpreter::visit(FunScope* scope){
     if(isConstructor)
         decl->returnType->getClassScope()->accept(this);
     
-    auto params=decl->params;
     auto locals=scope->getLocals();
-    int i=params->size()-1;
 
-    for(auto localIt=locals->rbegin();localIt!=locals->rend();localIt++){
+    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
         auto varName=localIt->first;
         auto var=localIt->second;
         var->pushNewValue();
+    }
 
-        if(i>=0&&*decl->params->at(i)->name==varName){
-            var->setValue(pop());
-            i--;
-        }
+    auto params=decl->params;
+    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
+        (*locals)[*paramIt->get()->name]->setValue(pop());
     }
 
     for(auto stm:*scope->getStmList()){
@@ -199,7 +197,7 @@ void Interpreter::visit(FunScope* scope){
     if(!isConstructor)
         return;
 
-    auto properties=std::make_shared<std::map<std::wstring, SharedIValue>>();
+    auto properties=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
 
     auto classScope=decl->returnType->getClassScope();
 
@@ -217,9 +215,10 @@ void Interpreter::visit(FunScope* scope){
 }
 
 void Interpreter::visit(BuiltInFunScope* scope){
-    auto args=std::make_shared<std::map<std::wstring, SharedIValue>>();
-    for(auto param :*scope->getDecl()->params){
-        (*args)[*param->name]=pop();
+    auto args=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
+    auto params=scope->getDecl()->params;
+    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
+        (*args)[*paramIt->get()->name]=pop();
     }
     push(scope->invoke(args));
 }
