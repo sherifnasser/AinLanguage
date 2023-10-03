@@ -12,6 +12,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             UNARY_PLUS,UNARY_MINUS,
             LOGICAL_NOT,BIT_NOT,
             PRE_INC,PRE_DEC,POST_INC,POST_DEC,
+            GET,SET,
         };
         OperatorFunInvokeExpression(
             int lineNumber,

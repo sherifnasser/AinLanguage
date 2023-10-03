@@ -30,6 +30,7 @@ class BuiltInFunScope:public FunScope{
         static void addBuiltInFunctionsToCharClass();
         static void addBuiltInFunctionsToStringClass();
         static void addBuiltInFunctionsToUnitClass();
+        static void addBuiltInFunctionsToArrayClass();
         void accept(ASTVisitor *visitor) override;
 
         template <typename PrimitiveType, typename ParamValue, typename ReturnValue>
@@ -202,6 +203,7 @@ class BuiltInFunScope:public FunScope{
         static const inline auto BOOL_PARAM_NAME=L"_منطقي";
         static const inline auto UNIT_PARAM_NAME=L"_الوحدة";
         static const inline auto BIT_COUNT_PARAM_NAME=L"عدد_البتات";
+        static const inline auto INDEX_PARAM_NAME=L"رقم_العنصر";
         static const inline auto READ_LINE_NAME=L"أدخل_";
         static const inline auto READ_NAME=L"أدخل";
         static const inline auto PRINT_NAME=L"اظهر";
@@ -215,6 +217,7 @@ class BuiltInFunScope:public FunScope{
         static const inline auto TO_BOOL_NAME=L"كمنطقي";
         static const inline auto TO_CHAR_NAME=L"كحرف";
         static const inline auto TO_STRING_NAME=L"كنص";
+        static const inline auto IS_NOT_EMPTY_NAME=L"أمشغولة";
 
     public:
         BuiltInFunScope(

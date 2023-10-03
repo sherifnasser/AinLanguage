@@ -25,6 +25,7 @@
 #include "ULongClassScope.hpp"
 #include "ULongValue.hpp"
 #include "UnitValue.hpp"
+#include "ArrayClassScope.hpp"
 #include "ainio.hpp"
 #include "FileScope.hpp"
 #include "runtime/NumberFormatException.hpp"
@@ -284,6 +285,7 @@ void BuiltInFunScope::addBuiltInFunctionsToBuiltInClasses() {
     addBuiltInFunctionsToCharClass();
     addBuiltInFunctionsToStringClass();
     addBuiltInFunctionsToUnitClass();
+    addBuiltInFunctionsToArrayClass();
 }
 
 void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
@@ -1833,4 +1835,58 @@ void BuiltInFunScope::addBuiltInFunctionsToUnitClass(){
    
     (*publicFuns)[TO_STRING->getDecl()->toString()]=TO_STRING;
 
+}
+
+void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
+    auto classScope=Type::ARRAY_CLASS;
+
+    /*auto GET=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::GET_NAME,
+        returnType,
+        std::map<std::wstring, SharedType>{{INDEX_PARAM_NAME,Type::INT}},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto array=classScope->getValue();
+            auto index=std::dynamic_pointer_cast<IntValue>(params->at(INDEX_PARAM_NAME))->getValue();
+            return array[index];
+        },
+        true
+    );
+
+    auto SET=std::make_shared<BuiltInFunScope>(
+        OperatorFunctions::SET_NAME,
+        Type::UNIT,
+        std::map<std::wstring, SharedType>{
+            {INDEX_PARAM_NAME,Type::INT},
+            // Value
+        },
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto array=classScope->getValue();
+            auto index=std::dynamic_pointer_cast<IntValue>(params->at(INDEX_PARAM_NAME))->getValue();
+            array[index]=params->at(INDEX_PARAM_NAME);
+            return std::make_shared<UnitValue>();
+        },
+        true
+    );*/
+
+    auto IS_NOT_EMPTY=std::make_shared<BuiltInFunScope>(
+        IS_NOT_EMPTY_NAME,
+        Type::BOOL,
+        std::map<std::wstring, SharedType>{},
+        [=](SharedMap<std::wstring, SharedIValue> params){
+            auto array=classScope->getValue();
+            return std::make_shared<BoolValue>(!array.empty());
+        },
+        false
+    );
+
+    auto funs={
+        //GET,
+        //SET,
+        IS_NOT_EMPTY,
+    };
+
+    auto publicFuns=classScope->getPublicFunctions();
+    for(auto fun:funs){
+        (*publicFuns)[fun->getDecl()->toString()]=fun;
+    }
 }
