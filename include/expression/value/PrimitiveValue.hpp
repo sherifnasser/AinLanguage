@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 template<typename T>
-class PrimitiveValue:public IValue{
+class PrimitiveValue:public virtual IValue{
     protected:
         T value;
         std::shared_ptr<PrimitiveClassScope<T>> classScope;

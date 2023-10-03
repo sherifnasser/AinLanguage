@@ -3,7 +3,7 @@
 #include <string>
 
 CharValue::CharValue(wchar_t value)
-:PrimitiveValue(Type::CHAR,value){}
+:IValue(Type::CHAR),PrimitiveValue(Type::CHAR,value){}
 
 std::wstring CharValue::toString(){
     std::wstring val=L"";
