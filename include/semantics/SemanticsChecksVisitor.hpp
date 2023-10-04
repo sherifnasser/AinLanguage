@@ -29,7 +29,9 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
 #include <string>
+#include <vector>
 
 class SemanticsChecksVisitor:public ASTVisitor{
     public:
@@ -58,6 +60,7 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
+        void visit(SetOperatorExpression* ex)override;
 
     private:
         SharedBaseScope checkScope;
@@ -67,6 +70,18 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void doOperatorFunChecks(FunScope* scope);
         void checkOperatorFunParamsSize(FunScope* scope);
         void checkOperatorFunReturnType(FunScope* scope);
-        void checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex);
         std::wstring getAugmentedAssignOpFunName(AugmentedAssignStatement::Operator op);
+        std::wstring getOpFunNameOfSetOp(SetOperatorExpression::Operator op);
+        SharedFunScope findFunInType(
+            SharedType type,
+            std::wstring funName,
+            std::vector<SharedType> paramsTypes,
+            int traceLineNumber
+        );
+        SharedFunScope findOpFunInType(
+            SharedType type,
+            std::wstring funName,
+            std::vector<SharedType> paramsTypes,
+            int traceLineNumber
+        );
 };

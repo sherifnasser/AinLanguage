@@ -27,18 +27,28 @@ class SetOperatorExpression:public IExpression{
 
         void accept(ASTVisitor *visitor) override;
 
+        SharedIExpression getArrayEx()const;
+
         SharedOpFunInvokeExpression getExOfGet()const;
+
+        SharedIExpression getIndexEx()const;
 
         SharedIExpression getValueEx()const;
 
-        SharedFunScope getFun()const;
+        SharedFunScope getFunOfSet()const;
 
-        void setFun(SharedFunScope fun);
-        
+        void setFunOfSet(SharedFunScope fun);
+
+        SharedFunScope getFunOfOp()const;
+
+        void setFunOfOp(SharedFunScope fun);
+
+        Operator getOp()const;
 
     private:
         SharedOpFunInvokeExpression exOfGet;
         SharedIExpression valueEx;
-        SharedFunScope fun;
+        SharedFunScope funOfSet;
+        SharedFunScope funOfOp;
         Operator op;
 };

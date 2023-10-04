@@ -163,9 +163,9 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
 
         if(primaryAsGetEx){
             auto setSubOp=
-                (unaryOp==OperatorFunInvokeExpression::Operator::POST_INC)
-                ?SetOperatorExpression::Operator::POST_INC
-                :SetOperatorExpression::Operator::POST_DEC
+                (unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC)
+                ?SetOperatorExpression::Operator::PRE_INC
+                :SetOperatorExpression::Operator::PRE_DEC
             ;
             return std::make_shared<SetOperatorExpression>(
                 setSubOp,

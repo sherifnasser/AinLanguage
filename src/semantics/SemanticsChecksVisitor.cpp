@@ -19,6 +19,7 @@
 #include "ArrayClassScope.hpp"
 #include <cassert>
 #include <string>
+#include <vector>
 
 void SemanticsChecksVisitor::visit(PackageScope* scope){
     for(auto fileIt:scope->getFiles()){
@@ -176,35 +177,14 @@ void SemanticsChecksVisitor::visit(AugmentedAssignStatement* stm){
     auto exType=right->getReturnType();
 
     std::wstring funName=getAugmentedAssignOpFunName(stm->getOp());
-    
-    auto params=std::make_shared<std::vector<SharedFunParam>>();
-    params->push_back(
-        std::make_shared<FunParam>(nullptr,exType)
+
+    auto fun=findOpFunInType(
+        lType,
+        funName,
+        {exType},
+        lineNumber
     );
-    auto decl=FunDecl(
-        std::make_shared<std::wstring>(funName),
-        nullptr,
-        std::make_shared<bool>(true),
-        params
-    ).toString();
 
-    SharedFunScope fun=lType->getClassScope()->findPublicFunction(decl);
-    
-    if(!fun){
-        fun=lType->getClassScope()->findPrivateFunction(decl);
-
-        // TODO: make trace more readable
-        auto trace=
-            BaseScope::getContainingFile(checkScope)->getName()+
-            L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
-
-        if(!fun)
-            throw FunctionNotFoundException(trace,*lType->getName()+L"::"+decl);
-        
-        if(lType->getClassScope()!=BaseScope::getContainingClass(checkScope))
-            throw CannotAccessPrivateFunctionException(trace,decl);
-    }
-    
     auto rType=fun->getReturnType();
 
     if(*lType!=*rType)
@@ -535,24 +515,51 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
 }
 
 void SemanticsChecksVisitor::visit(NonStaticFunInvokeExpression* ex){
-    checkNonStaticFunInvokeEx(ex);
+    auto lineNumber=ex->getLineNumber();
+
+    auto paramsTypes=std::vector<SharedType>();
+    for(auto arg:*ex->getArgs()){
+        arg->accept(this);
+        paramsTypes.push_back(arg->getReturnType());
+    }
+
+    auto inside=ex->getInside();
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    
+    auto fun=findFunInType(
+        insideType,
+        ex->getFunName(),
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFun(fun);
+    ex->setReturnType(fun->getReturnType());
 }
 
 void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
 
-    checkNonStaticFunInvokeEx(ex);
+    auto lineNumber=ex->getLineNumber();
 
-    auto decl=ex->getFun()->getDecl();
-
-    if(!*decl->isOperator){
-        // TODO: make trace more readable
-        auto trace=
-            ex->getInside()->getReturnType()->getClassScope()->getName()+
-            L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
-        
-        // append operator to decl, so it says "operator function ... not found "
-        throw FunctionNotFoundException(trace,L"مؤثر "+decl->toString());
+    auto paramsTypes=std::vector<SharedType>();
+    for(auto arg:*ex->getArgs()){
+        arg->accept(this);
+        paramsTypes.push_back(arg->getReturnType());
     }
+
+    auto inside=ex->getInside();
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    
+    auto fun=findOpFunInType(
+        insideType,
+        ex->getFunName(),
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFun(fun);
     
     switch(ex->getOp()){
         case OperatorFunInvokeExpression::Operator::LESS:
@@ -560,9 +567,75 @@ void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
         case OperatorFunInvokeExpression::Operator::GREATER:
         case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:
             ex->setReturnType(Type::BOOL);
+            break;
         default:
+            ex->setReturnType(fun->getReturnType());
             break;
     }
+}
+
+void SemanticsChecksVisitor::visit(SetOperatorExpression* ex){
+    
+    auto lineNumber=ex->getLineNumber();
+
+    auto exOfGet=ex->getExOfGet();
+
+    exOfGet->accept(this);
+
+    auto lType=exOfGet->getReturnType();
+    
+
+    SharedType valueType;
+
+    if(ex->getOp()!=SetOperatorExpression::Operator::EQUAL){
+
+        std::vector<SharedType> paramsTypes;
+
+        // When operator is not inc or dec operators
+        if(auto exOfValue=ex->getValueEx()){
+            exOfValue->accept(this);
+            auto exType=exOfValue->getReturnType();
+            paramsTypes.push_back(exType);
+            valueType=exType;
+        }else{
+            valueType=lType; // type of ex of get
+        }
+        
+        std::wstring opFunName=getOpFunNameOfSetOp(ex->getOp());
+
+        auto opFun=findOpFunInType(
+            lType,
+            opFunName,
+            paramsTypes,
+            lineNumber
+        );
+
+        auto rType=opFun->getReturnType();
+
+        if(*lType!=*rType)
+            throw UnexpectedTypeException(
+                lineNumber,
+                *lType->getName(),
+                *rType->getName()
+            );
+
+        ex->setFunOfOp(opFun);
+
+        valueType=opFun->getReturnType();
+    }
+
+    auto funOfSet=findOpFunInType(
+        ex->getArrayEx()->getReturnType(),
+        OperatorFunctions::SET_NAME,
+        {
+            ex->getIndexEx()->getReturnType(),
+            valueType
+        },
+        lineNumber
+    );
+    
+    ex->setFunOfSet(funOfSet);
+    ex->setReturnType(funOfSet->getReturnType());
 }
 
 void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){
@@ -682,54 +755,6 @@ void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
     
 }
 
-void SemanticsChecksVisitor::checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex){
-    auto args=ex->getArgs();
-    auto funName=ex->getFunName();
-    auto inside=ex->getInside();
-    auto lineNumber=ex->getLineNumber();
-
-    auto params=std::make_shared<std::vector<SharedFunParam>>();
-    for(auto arg:*args){
-        arg->accept(this);
-        auto argType=arg->getReturnType();
-        params->push_back(
-            std::make_shared<FunParam>(nullptr,argType)
-        );
-    }
-    auto decl=FunDecl(
-        std::make_shared<std::wstring>(funName),
-        nullptr,
-        std::make_shared<bool>(false),
-        params
-    ).toString();
-
-    inside->accept(this);
-    auto insideType=inside->getReturnType();
-    auto insideClassScope=insideType->getClassScope();
-    auto publicFun=insideClassScope->findPublicFunction(decl);
-    if(publicFun){
-        ex->setFun(publicFun);
-        ex->setReturnType(publicFun->getReturnType());
-        return;
-    }
-
-    auto privateFun=insideClassScope->findPrivateFunction(decl);
-
-    // TODO: make trace more readable
-    auto trace=
-        BaseScope::getContainingFile(checkScope)->getName()+
-        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
-
-    if(!privateFun)
-        throw FunctionNotFoundException(trace,insideClassScope->getName()+L"::"+decl);
-    
-    if(insideClassScope!=BaseScope::getContainingClass(checkScope))
-        throw CannotAccessPrivateFunctionException(trace,decl);
-    
-    ex->setFun(privateFun);
-    ex->setReturnType(privateFun->getReturnType());
-}
-
 std::wstring SemanticsChecksVisitor::getAugmentedAssignOpFunName(
     AugmentedAssignStatement::Operator op
 ){
@@ -761,4 +786,104 @@ std::wstring SemanticsChecksVisitor::getAugmentedAssignOpFunName(
     }
 
     assert(false); // Unreachable
+}
+
+std::wstring SemanticsChecksVisitor::getOpFunNameOfSetOp(SetOperatorExpression::Operator op) {
+    switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+            return OperatorFunctions::PLUS_NAME;
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+            return OperatorFunctions::MINUS_NAME;
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+            return OperatorFunctions::TIMES_NAME;
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+            return OperatorFunctions::DIV_NAME;
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+            return OperatorFunctions::MOD_NAME;
+        case SetOperatorExpression::Operator::POW_EQUAL:
+            return OperatorFunctions::POW_NAME;
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+            return OperatorFunctions::SHR_NAME;
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+            return OperatorFunctions::SHL_NAME;
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+            return OperatorFunctions::BIT_AND_NAME;
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+            return OperatorFunctions::XOR_NAME;
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
+            return OperatorFunctions::BIT_OR_NAME;
+        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:
+            return OperatorFunctions::BIT_NOT_NAME;
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::POST_INC:
+            return OperatorFunctions::INC_NAME;
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_DEC:
+            return OperatorFunctions::DEC_NAME;
+        default:
+            return L"";
+    }
+}
+SharedFunScope SemanticsChecksVisitor::findFunInType(
+    SharedType type,
+    std::wstring funName,
+    std::vector<SharedType> paramsTypes,
+    int traceLineNumber
+){
+    auto params=std::make_shared<std::vector<SharedFunParam>>();
+    for(auto paramType:paramsTypes){
+        params->push_back(
+            std::make_shared<FunParam>(nullptr,paramType)
+        );
+    }
+    auto decl=FunDecl(
+        std::make_shared<std::wstring>(funName),
+        nullptr,
+        std::make_shared<bool>(true),
+        params
+    ).toString();
+
+    SharedFunScope fun=type->getClassScope()->findPublicFunction(decl);
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(traceLineNumber)+L")";
+
+    if(!fun){
+        fun=type->getClassScope()->findPrivateFunction(decl);
+
+        if(!fun)
+            throw FunctionNotFoundException(trace,*type->getName()+L"::"+decl);
+        
+        if(type->getClassScope()!=BaseScope::getContainingClass(checkScope))
+            throw CannotAccessPrivateFunctionException(trace,decl);
+    }
+
+    return fun;
+}
+SharedFunScope SemanticsChecksVisitor::findOpFunInType(
+    SharedType type,
+    std::wstring funName,
+    std::vector<SharedType> paramsTypes,
+    int traceLineNumber
+){
+    auto fun=findFunInType(
+        type,
+        funName,
+        paramsTypes,
+        traceLineNumber
+    );
+
+
+    if(*fun->getDecl()->isOperator)
+        return fun;
+
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(traceLineNumber)+L")";
+
+    // append operator to decl, so it says "operator function ... not found "
+    throw FunctionNotFoundException(trace,L"مؤثر "+fun->getDecl()->toString());
+
 }

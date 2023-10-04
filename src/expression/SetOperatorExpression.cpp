@@ -12,18 +12,38 @@ SetOperatorExpression::SetOperatorExpression(
     op(op)
 {}
 
+SharedIExpression SetOperatorExpression::getArrayEx()const{
+    return this->exOfGet->getInside();
+}
+
 SharedOpFunInvokeExpression SetOperatorExpression::getExOfGet()const{
     return this->exOfGet;
+}
+
+SharedIExpression SetOperatorExpression::getIndexEx()const{
+    return this->exOfGet->getArgs()->at(0);
 }
 
 SharedIExpression SetOperatorExpression::getValueEx()const{
     return this->valueEx;
 }
 
-SharedFunScope SetOperatorExpression::getFun()const{
-    return this->fun;
+SharedFunScope SetOperatorExpression::getFunOfSet()const {
+    return this->funOfSet;
 }
 
-void SetOperatorExpression::setFun(SharedFunScope fun){
-    this->fun=fun;
+void SetOperatorExpression::setFunOfSet(SharedFunScope fun){
+    this->funOfSet=fun;
+}
+
+SharedFunScope SetOperatorExpression::getFunOfOp()const{
+    return this->funOfOp;
+}
+
+void SetOperatorExpression::setFunOfOp(SharedFunScope fun){
+    this->funOfOp=fun;
+}
+
+SetOperatorExpression::Operator SetOperatorExpression::getOp()const{
+    return this->op;
 }
