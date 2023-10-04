@@ -11,6 +11,7 @@ class StmListScope;
 class VarStm;
 class IfStatement;
 class AssignStatement;
+class AugmentedAssignStatement;
 class WhileStatement;
 class DoWhileStatement;
 class BreakStatement;
@@ -42,6 +43,7 @@ class ASTVisitor{
 
         virtual void visit(VarStm* stm);
         virtual void visit(AssignStatement* stm);
+        virtual void visit(AugmentedAssignStatement* stm);
         virtual void visit(IfStatement* stm);
         virtual void visit(WhileStatement* stm);
         virtual void visit(DoWhileStatement* stm);

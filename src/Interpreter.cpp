@@ -237,17 +237,25 @@ void Interpreter::visit(VarStm* stm){
 }
 
 void Interpreter::visit(AssignStatement* stm){
-    
-    stm->getEx()->accept(assigner);
-    
-    if(!stm->isAugmentedAssignment()){
-        pop();
-        stm->getNewValEx()->accept(this);
-    }else{
-        stm->getNewValEx()->accept(assigner);
-    }
+    stm->getLeft()->accept(assigner);
+    pop();
+    stm->getRight()->accept(this);
+    stm->getLeft()->accept(assigner);
+}
 
-    stm->getEx()->accept(assigner);
+void Interpreter::visit(AugmentedAssignStatement* stm){
+    
+    stm->getLeft()->accept(assigner);
+    auto leftVal=top();
+
+    stm->getRight()->accept(assigner);
+    auto rightVal=top();
+
+    leftVal->linkWithClass();
+    stm->getOpFun()->accept(this);
+    leftVal->unlinkWithClass();
+    
+    stm->getLeft()->accept(assigner);
 }
 
 void Interpreter::visit(IfStatement* stm){

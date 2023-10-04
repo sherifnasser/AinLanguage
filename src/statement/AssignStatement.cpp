@@ -7,20 +7,15 @@
 AssignStatement::AssignStatement(
     int lineNumber,
     SharedStmListScope runScope,
-    SharedIExpression ex,
-    SharedIExpression newValEx,
-    bool isAugmented
+    SharedIExpression left,
+    SharedIExpression right
 )
-:IStatement(lineNumber,runScope),ex(ex),newValEx(newValEx),isAugmented(isAugmented){}
+:IStatement(lineNumber,runScope),left(left),right(right){}
 
-SharedIExpression AssignStatement::getEx()const{
-    return ex;
+SharedIExpression AssignStatement::getLeft()const{
+    return left;
 }
 
-SharedIExpression AssignStatement::getNewValEx()const{
-    return newValEx;
-}
-
-bool AssignStatement::isAugmentedAssignment()const{
-    return isAugmented;
+SharedIExpression AssignStatement::getRight()const{
+    return right;
 }

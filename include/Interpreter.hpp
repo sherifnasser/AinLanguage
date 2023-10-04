@@ -12,6 +12,7 @@
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -81,6 +82,7 @@ class Interpreter:public ASTVisitor{
         void visit(StmListScope* scope)override;
         void visit(VarStm* stm)override;
         void visit(AssignStatement* stm)override;
+        void visit(AugmentedAssignStatement* stm)override;
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
         void visit(DoWhileStatement* stm)override;

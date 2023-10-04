@@ -11,6 +11,7 @@
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -47,6 +48,8 @@ void ASTVisitor::visit(StmListScope* scope){}
 void ASTVisitor::visit(VarStm* stm){}
 
 void ASTVisitor::visit(AssignStatement* stm){}
+
+void ASTVisitor::visit(AugmentedAssignStatement* stm){}
 
 void ASTVisitor::visit(IfStatement* stm){}
 
@@ -119,6 +122,10 @@ void IfStatement::accept(ASTVisitor* visitor){
 }
 
 void AssignStatement::accept(ASTVisitor* visitor){
+    visitor->visit(this);
+}
+
+void AugmentedAssignStatement::accept(ASTVisitor *visitor){
     visitor->visit(this);
 }
 

@@ -61,6 +61,7 @@ add_library(ainsrc
     src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp
     src/statement/BreakStatement.cpp
+    src/statement/AugmentedAssignStatement.cpp
     src/statement/VarStm.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp

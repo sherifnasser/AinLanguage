@@ -26,7 +26,5 @@ class StmListParser:public BaseParser<SharedStmList>{
         SharedIStatement parseReturnStatement(SharedStmListScope parentScope);
         SharedIStatement parseBreakContinueStatement(SharedStmListScope parentScope);
         SharedIStatement parseExpressionStatement(SharedStmListScope parentScope);
-        bool isAssignmentSymbol(LexerToken op);
-        OperatorFunInvokeExpression::Operator getAssignEqualOpFromToken(LexerToken op);
 
 };

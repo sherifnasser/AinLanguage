@@ -12,6 +12,7 @@
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -28,6 +29,7 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include <string>
 
 class SemanticsChecksVisitor:public ASTVisitor{
     public:
@@ -40,6 +42,7 @@ class SemanticsChecksVisitor:public ASTVisitor{
 
         void visit(VarStm* stm)override;
         void visit(AssignStatement* stm)override;
+        void visit(AugmentedAssignStatement* stm)override;
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
         void visit(DoWhileStatement* stm)override;
@@ -65,4 +68,5 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void checkOperatorFunParamsSize(FunScope* scope);
         void checkOperatorFunReturnType(FunScope* scope);
         void checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex);
+        std::wstring getAugmentedAssignOpFunName(AugmentedAssignStatement::Operator op);
 };
