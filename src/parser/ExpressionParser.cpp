@@ -24,6 +24,7 @@
 #include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
+#include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "StringValue.hpp"
@@ -152,17 +153,30 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     iterator->next();
 
     auto primary=parsePrimaryExpression();
+    
+    if(  
+        unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC
+        ||
+        unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
+    ){
+        auto primaryAsGetEx=IExpression::isGetOpFunInvokeExpression(primary);
 
-    if(
-        (
-            unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC
-            ||
-            unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
-        )
-        &&
-        !IExpression::isAssignableExpression(primary)
-    )
-        throw OnlyVariablesAreAssignableException(lineNumber);
+        if(primaryAsGetEx){
+            auto setSubOp=
+                (unaryOp==OperatorFunInvokeExpression::Operator::POST_INC)
+                ?SetOperatorExpression::Operator::POST_INC
+                :SetOperatorExpression::Operator::POST_DEC
+            ;
+            return std::make_shared<SetOperatorExpression>(
+                setSubOp,
+                primaryAsGetEx,
+                nullptr
+            );
+        }
+
+        if(!IExpression::isAssignableExpression(primary))
+            throw OnlyVariablesAreAssignableException(lineNumber);
+    }
 
     auto args=std::make_shared<std::vector<SharedIExpression>>(
         std::vector<SharedIExpression>{}
@@ -184,7 +198,7 @@ SharedIExpression ExpressionParser::parseParenthesesExpression(){
     
     iterator->next();
 
-    auto ex=parseBinaryOperatorExpression();
+    auto ex=parse();
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
@@ -339,7 +353,7 @@ SharedIExpression ExpressionParser::parseNewExpression(){
 
 SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside){
 
-    auto ex=parsePostIncDecExpression(inside);
+    auto ex=parsePostOpExpression(inside);
 
     if(!iterator->currentMatch(SymbolToken::DOT))
         return ex;
@@ -371,26 +385,60 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
     return parseNonStaticAccessExpression(ex);
 }
 
-SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression inside){
+SharedIExpression ExpressionParser::parsePostOpExpression(SharedIExpression inside){
 
-
-    OperatorFunInvokeExpression::Operator unaryOp;
-
-    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
-        unaryOp=OperatorFunInvokeExpression::Operator::POST_INC;
-
-    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
-        unaryOp=OperatorFunInvokeExpression::Operator::POST_DEC;
-
-    else
-        return inside;
+    OperatorFunInvokeExpression::Operator op;
 
     auto lineNumber=iterator->lineNumber;
 
-    if(!IExpression::isAssignableExpression(inside))
-        throw OnlyVariablesAreAssignableException(lineNumber);
+    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
+        op=OperatorFunInvokeExpression::Operator::POST_INC;
+
+    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
+        op=OperatorFunInvokeExpression::Operator::POST_DEC;
+
+    else if(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+        op=OperatorFunInvokeExpression::Operator::GET;
+        iterator->next();
+        auto indexEx=parse();
+        expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+        iterator->next();
+
+        auto args=std::make_shared<std::vector<SharedIExpression>>(
+            std::vector<SharedIExpression>{indexEx}
+        );
+        
+        auto getEx=std::make_shared<OperatorFunInvokeExpression>(
+            lineNumber,
+            op,
+            args,
+            inside
+        );
+
+        return parsePostOpExpression(getEx);
+    }
+    else
+        return inside;
 
     iterator->next();
+
+    auto insideAsGetEx=IExpression::isGetOpFunInvokeExpression(inside);
+
+    if(insideAsGetEx){
+        auto setSubOp=
+            (op==OperatorFunInvokeExpression::Operator::POST_INC)
+            ?SetOperatorExpression::Operator::POST_INC
+            :SetOperatorExpression::Operator::POST_DEC
+        ;
+        return std::make_shared<SetOperatorExpression>(
+            setSubOp,
+            insideAsGetEx,
+            nullptr
+        );
+    }
+
+    if(!IExpression::isAssignableExpression(inside))
+        throw OnlyVariablesAreAssignableException(lineNumber);
 
     auto args=std::make_shared<std::vector<SharedIExpression>>(
         std::vector<SharedIExpression>{}
@@ -398,7 +446,7 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
     
     return std::make_shared<OperatorFunInvokeExpression>(
         lineNumber,
-        unaryOp,
+        op,
         args,
         inside
     );

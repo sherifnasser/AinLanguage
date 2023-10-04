@@ -14,4 +14,5 @@ class IExpression:public ASTNode{
         virtual ~IExpression();
         int getLineNumber()const;
         static bool isAssignableExpression(SharedIExpression ex);
+        static SharedOpFunInvokeExpression isGetOpFunInvokeExpression(SharedIExpression ex);
 };

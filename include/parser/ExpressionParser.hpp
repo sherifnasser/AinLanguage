@@ -36,7 +36,7 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
 
-        SharedIExpression parsePostIncDecExpression(SharedIExpression inside);
+        SharedIExpression parsePostOpExpression(SharedIExpression inside);
         
         bool currentMatchByPrecedence(int precedence);
 

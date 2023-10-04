@@ -12,7 +12,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             UNARY_PLUS,UNARY_MINUS,
             LOGICAL_NOT,BIT_NOT,
             PRE_INC,PRE_DEC,POST_INC,POST_DEC,
-            GET,SET,
+            GET,
         };
         OperatorFunInvokeExpression(
             int lineNumber,
@@ -20,6 +20,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             SharedVector<SharedIExpression> args,
             SharedIExpression inside
         );
+        
         void accept(ASTVisitor *visitor) override;
 
         Operator getOp()const;

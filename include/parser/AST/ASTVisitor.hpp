@@ -30,6 +30,7 @@ class LogicalExpression;
 class NonStaticVarAccessExpression;
 class NonStaticFunInvokeExpression;
 class OperatorFunInvokeExpression;
+class SetOperatorExpression;
 
 class ASTVisitor{
     public:
@@ -63,6 +64,7 @@ class ASTVisitor{
         virtual void visit(NonStaticVarAccessExpression* ex);
         virtual void visit(NonStaticFunInvokeExpression* ex);
         virtual void visit(OperatorFunInvokeExpression* ex);
+        virtual void visit(SetOperatorExpression* ex);
 
         virtual ~ASTVisitor();
 

@@ -33,6 +33,7 @@ class Variable;
 class IStatement;
 class VarStm;
 class IExpression;
+class OperatorFunInvokeExpression;
 template<typename T>
 struct LinkedListNode;
 template<typename T>
@@ -94,6 +95,8 @@ using SharedIStatement=std::shared_ptr<IStatement>;
 using SharedVarStm=std::shared_ptr<VarStm>;
 
 using SharedIExpression=std::shared_ptr<IExpression>;
+
+using SharedOpFunInvokeExpression=std::shared_ptr<OperatorFunInvokeExpression>;
 
 using SharedStmList=SharedVector<SharedIStatement>;
 

@@ -629,6 +629,8 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
         opName==OperatorFunctions::XOR_NAME
         ||
         opName==OperatorFunctions::BIT_OR_NAME
+        ||
+        opName==OperatorFunctions::GET_NAME
     ;
 
     if(isBinOp&&paramsSize!=1)
@@ -649,6 +651,9 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
     ;
 
     if(isUnaryOp&&paramsSize!=0)
+        throw InvalidOperatorFunDeclarationException(L"عدد المعاملات غير صالح لدالة "+opName);
+
+    if(opName==OperatorFunctions::SET_NAME&&paramsSize<2)
         throw InvalidOperatorFunDeclarationException(L"عدد المعاملات غير صالح لدالة "+opName);
 
 }

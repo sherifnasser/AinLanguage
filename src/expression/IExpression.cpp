@@ -1,6 +1,7 @@
 #include "IExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
+#include "OperatorFunInvokeExpression.hpp"
 
 IExpression::IExpression(int lineNumber,SharedType returnType)
 :lineNumber(lineNumber),returnType(returnType){}
@@ -24,4 +25,13 @@ bool IExpression::isAssignableExpression(SharedIExpression ex){
         ||
         std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)
     ;
+}
+
+SharedOpFunInvokeExpression IExpression::isGetOpFunInvokeExpression(SharedIExpression ex){
+    auto opFun=std::dynamic_pointer_cast<OperatorFunInvokeExpression>(ex);
+    if(!opFun)
+        return nullptr;
+    if(opFun->getOp()==OperatorFunInvokeExpression::Operator::GET)
+        return opFun;
+    return nullptr;
 }
