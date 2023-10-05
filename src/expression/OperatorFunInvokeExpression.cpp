@@ -68,6 +68,8 @@ NonStaticFunInvokeExpression(
             this->funName=OperatorFunctions::DEC_NAME;break;
         case Operator::GET:
             this->funName=OperatorFunctions::GET_NAME;break;
+        case Operator::SET_EQUAL:
+            this->funName=OperatorFunctions::SET_NAME;break;
     }
 }
 

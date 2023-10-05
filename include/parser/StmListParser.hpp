@@ -26,5 +26,13 @@ class StmListParser:public BaseParser<SharedStmList>{
         SharedIStatement parseReturnStatement(SharedStmListScope parentScope);
         SharedIStatement parseBreakContinueStatement(SharedStmListScope parentScope);
         SharedIStatement parseExpressionStatement(SharedStmListScope parentScope);
+        SharedIStatement parseAsSetOperatorExStm(
+            SharedStmListScope parentScope,
+            SharedOpFunInvokeExpression exOfGet
+        );
+        SharedIStatement parseAsAssignStm(
+            SharedStmListScope parentScope,
+            SharedIExpression leftEx
+        );
 
 };
