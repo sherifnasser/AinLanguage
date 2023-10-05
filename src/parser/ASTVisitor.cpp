@@ -1,5 +1,6 @@
 #include "ASTVisitor.hpp"
 
+#include "NewArrayExpression.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
@@ -10,6 +11,7 @@
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -19,12 +21,14 @@
 #include "VarAccessExpression.hpp"
 #include "FunInvokeExpression.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
 
 ASTVisitor::~ASTVisitor(){}
 
@@ -46,6 +50,8 @@ void ASTVisitor::visit(VarStm* stm){}
 
 void ASTVisitor::visit(AssignStatement* stm){}
 
+void ASTVisitor::visit(AugmentedAssignStatement* stm){}
+
 void ASTVisitor::visit(IfStatement* stm){}
 
 void ASTVisitor::visit(WhileStatement* stm){}
@@ -66,6 +72,8 @@ void ASTVisitor::visit(FunInvokeExpression* ex){}
 
 void ASTVisitor::visit(NewObjectExpression* ex){}
 
+void ASTVisitor::visit(NewArrayExpression* ex){}
+
 void ASTVisitor::visit(LiteralExpression* ex){}
 
 void ASTVisitor::visit(UnitExpression* ex){}
@@ -77,6 +85,8 @@ void ASTVisitor::visit(NonStaticVarAccessExpression* ex){}
 void ASTVisitor::visit(NonStaticFunInvokeExpression* ex){}
 
 void ASTVisitor::visit(OperatorFunInvokeExpression* ex){}
+
+void ASTVisitor::visit(SetOperatorExpression* ex){}
 
 void PackageScope::accept(ASTVisitor* visitor){
     visitor->visit(this);
@@ -118,6 +128,10 @@ void AssignStatement::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 
+void AugmentedAssignStatement::accept(ASTVisitor *visitor){
+    visitor->visit(this);
+}
+
 void WhileStatement::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
@@ -154,6 +168,10 @@ void NewObjectExpression::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
 
+void NewArrayExpression::accept(ASTVisitor* visitor){
+    visitor->visit(this);
+}
+
 void LiteralExpression::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }
@@ -175,5 +193,9 @@ void NonStaticFunInvokeExpression::accept(ASTVisitor* visitor){
 }
 
 void OperatorFunInvokeExpression::accept(ASTVisitor* visitor){
+    visitor->visit(this);
+}
+
+void SetOperatorExpression::accept(ASTVisitor* visitor){
     visitor->visit(this);
 }

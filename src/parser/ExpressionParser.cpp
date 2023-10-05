@@ -4,6 +4,7 @@
 #include "CharValue.hpp"
 #include "ClassScope.hpp"
 #include "DoubleValue.hpp"
+#include "ExpressionExpectedException.hpp"
 #include "FileScope.hpp"
 #include "FloatValue.hpp"
 #include "FunInvokeExpression.hpp"
@@ -16,12 +17,14 @@
 #include "LogicalExpression.hpp"
 #include "LongValue.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NumberToken.hpp"
 #include "OnlyVariablesAreAssignableException.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "OperatorFunctions.hpp"
+#include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StmListScope.hpp"
 #include "StringValue.hpp"
@@ -32,6 +35,7 @@
 #include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
+#include <cassert>
 #include <memory>
 #include <map>
 #include <string>
@@ -61,6 +65,9 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
         iterator->next();
         
         auto right=parseBinaryOperatorExpression(precedence-1);
+
+        if(!right)
+            throw ExpressionExpectedException(iterator->lineNumber);
 
         if(*op==SymbolToken::LOGICAL_OR){
             left=std::make_shared<LogicalExpression>(
@@ -106,7 +113,7 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
     else if(auto idEx=parseIdentifierExpression())
         primary=idEx;
 
-    else if(auto newObjEx=parseNewObjectExpression())
+    else if(auto newObjEx=parseNewExpression())
         primary=newObjEx;
 
     else
@@ -129,6 +136,9 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     else if(iterator->currentMatch(SymbolToken::EXCLAMATION_MARK))
         unaryOp=OperatorFunInvokeExpression::Operator::LOGICAL_NOT;
 
+    else if(iterator->currentMatch(SymbolToken::BIT_NOT))
+        unaryOp=OperatorFunInvokeExpression::Operator::BIT_NOT;
+
     else if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
         unaryOp=OperatorFunInvokeExpression::Operator::PRE_INC;
 
@@ -143,17 +153,30 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     iterator->next();
 
     auto primary=parsePrimaryExpression();
+    
+    if(  
+        unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC
+        ||
+        unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
+    ){
+        auto primaryAsGetEx=IExpression::isGetOpFunInvokeExpression(primary);
 
-    if(
-        (
-            unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC
-            ||
-            unaryOp==OperatorFunInvokeExpression::Operator::PRE_DEC
-        )
-        &&
-        !IExpression::isAssignableExpression(primary)
-    )
-        throw OnlyVariablesAreAssignableException(lineNumber);
+        if(primaryAsGetEx){
+            auto setSubOp=
+                (unaryOp==OperatorFunInvokeExpression::Operator::PRE_INC)
+                ?SetOperatorExpression::Operator::PRE_INC
+                :SetOperatorExpression::Operator::PRE_DEC
+            ;
+            return std::make_shared<SetOperatorExpression>(
+                setSubOp,
+                primaryAsGetEx,
+                nullptr
+            );
+        }
+
+        if(!IExpression::isAssignableExpression(primary))
+            throw OnlyVariablesAreAssignableException(lineNumber);
+    }
 
     auto args=std::make_shared<std::vector<SharedIExpression>>(
         std::vector<SharedIExpression>{}
@@ -175,7 +198,7 @@ SharedIExpression ExpressionParser::parseParenthesesExpression(){
     
     iterator->next();
 
-    auto ex=parseBinaryOperatorExpression();
+    auto ex=parse();
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
@@ -280,7 +303,7 @@ SharedIExpression ExpressionParser::parseIdentifierExpression(){
     
 }
 
-SharedIExpression ExpressionParser::parseNewObjectExpression(){
+SharedIExpression ExpressionParser::parseNewExpression(){
 
     if(!iterator->currentMatch(KeywordToken::NEW))
         return nullptr;
@@ -291,6 +314,32 @@ SharedIExpression ExpressionParser::parseNewObjectExpression(){
 
     auto type=typeParserProvider(iterator,scope)->parse();
 
+    // The capacity expressions for a multi-dimensional array
+    auto arraysCapacities=std::vector<SharedIExpression>();
+
+    while(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+        iterator->next();
+
+        auto ex=parse();
+
+        if(!ex)
+            throw ExpressionExpectedException(iterator->lineNumber);
+
+        arraysCapacities.push_back(ex);
+        
+        expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+
+        iterator->next();
+    }
+
+    // ANCHOR: Do we need to specify maximum dimension of an array?
+    if(!arraysCapacities.empty())
+        return std::make_shared<NewArrayExpression>(
+            lineNumber,
+            arraysCapacities,
+            type
+        );
+    
     auto args=expectFunArgs();
 
     auto newObjEx=std::make_shared<NewObjectExpression>(
@@ -304,7 +353,7 @@ SharedIExpression ExpressionParser::parseNewObjectExpression(){
 
 SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside){
 
-    auto ex=parsePostIncDecExpression(inside);
+    auto ex=parsePostOpExpression(inside);
 
     if(!iterator->currentMatch(SymbolToken::DOT))
         return ex;
@@ -336,26 +385,60 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
     return parseNonStaticAccessExpression(ex);
 }
 
-SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression inside){
+SharedIExpression ExpressionParser::parsePostOpExpression(SharedIExpression inside){
 
-
-    OperatorFunInvokeExpression::Operator unaryOp;
-
-    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
-        unaryOp=OperatorFunInvokeExpression::Operator::POST_INC;
-
-    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
-        unaryOp=OperatorFunInvokeExpression::Operator::POST_DEC;
-
-    else
-        return inside;
+    OperatorFunInvokeExpression::Operator op;
 
     auto lineNumber=iterator->lineNumber;
 
-    if(!IExpression::isAssignableExpression(inside))
-        throw OnlyVariablesAreAssignableException(lineNumber);
+    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
+        op=OperatorFunInvokeExpression::Operator::POST_INC;
+
+    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
+        op=OperatorFunInvokeExpression::Operator::POST_DEC;
+
+    else if(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+        op=OperatorFunInvokeExpression::Operator::GET;
+        iterator->next();
+        auto indexEx=parse();
+        expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
+        iterator->next();
+
+        auto args=std::make_shared<std::vector<SharedIExpression>>(
+            std::vector<SharedIExpression>{indexEx}
+        );
+        
+        auto getEx=std::make_shared<OperatorFunInvokeExpression>(
+            lineNumber,
+            op,
+            args,
+            inside
+        );
+
+        return parsePostOpExpression(getEx);
+    }
+    else
+        return inside;
 
     iterator->next();
+
+    auto insideAsGetEx=IExpression::isGetOpFunInvokeExpression(inside);
+
+    if(insideAsGetEx){
+        auto setSubOp=
+            (op==OperatorFunInvokeExpression::Operator::POST_INC)
+            ?SetOperatorExpression::Operator::POST_INC
+            :SetOperatorExpression::Operator::POST_DEC
+        ;
+        return std::make_shared<SetOperatorExpression>(
+            setSubOp,
+            insideAsGetEx,
+            nullptr
+        );
+    }
+
+    if(!IExpression::isAssignableExpression(inside))
+        throw OnlyVariablesAreAssignableException(lineNumber);
 
     auto args=std::make_shared<std::vector<SharedIExpression>>(
         std::vector<SharedIExpression>{}
@@ -363,7 +446,7 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
     
     return std::make_shared<OperatorFunInvokeExpression>(
         lineNumber,
-        unaryOp,
+        op,
         args,
         inside
     );
@@ -372,17 +455,23 @@ SharedIExpression ExpressionParser::parsePostIncDecExpression(SharedIExpression 
 
 bool ExpressionParser::currentMatchByPrecedence(int precedence){
     switch(precedence){
-        case LOWEST_PRECEDENCE:
-            return iterator->currentMatch(SymbolToken::LOGICAL_OR);
-        case LOWEST_PRECEDENCE-1:
-            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
-        case LOWEST_PRECEDENCE-2:
+        case 1:
+            return iterator->currentMatch(SymbolToken::POWER);
+        case 2:
             return
-                iterator->currentMatch(SymbolToken::EQUAL_EQUAL)
+                iterator->currentMatch(SymbolToken::STAR)
                 ||
-                iterator->currentMatch(SymbolToken::NOT_EQUAL)
+                iterator->currentMatch(SymbolToken::SLASH)
+                ||
+                iterator->currentMatch(SymbolToken::MODULO)
             ;
-        case LOWEST_PRECEDENCE-3:
+        case 3:
+            return
+                iterator->currentMatch(SymbolToken::PLUS)
+                ||
+                iterator->currentMatch(SymbolToken::MINUS)
+            ;
+        case 4:
             return
                 iterator->currentMatch(SymbolToken::GREATER_EQUAL)
                 ||
@@ -392,22 +481,28 @@ bool ExpressionParser::currentMatchByPrecedence(int precedence){
                 ||
                 iterator->currentMatch(SymbolToken::RIGHT_ANGLE_BRACKET)
             ;
-        case LOWEST_PRECEDENCE-4:
+        case 5:
             return
-                iterator->currentMatch(SymbolToken::PLUS)
+                iterator->currentMatch(SymbolToken::EQUAL_EQUAL)
                 ||
-                iterator->currentMatch(SymbolToken::MINUS)
+                iterator->currentMatch(SymbolToken::NOT_EQUAL)
             ;
-        case LOWEST_PRECEDENCE-5:
+        case 6:
             return
-                iterator->currentMatch(SymbolToken::STAR)
+                iterator->currentMatch(SymbolToken::SHR)
                 ||
-                iterator->currentMatch(SymbolToken::SLASH)
-                ||
-                iterator->currentMatch(SymbolToken::MODULO)
+                iterator->currentMatch(SymbolToken::SHL)
             ;
-        case LOWEST_PRECEDENCE-6:
-            return iterator->currentMatch(SymbolToken::POWER);
+        case 7:
+            return iterator->currentMatch(SymbolToken::AMPERSAND);
+        case 8:
+            return iterator->currentMatch(SymbolToken::XOR);
+        case 9:
+            return iterator->currentMatch(SymbolToken::BAR);
+        case 10:
+            return iterator->currentMatch(SymbolToken::LOGICAL_AND);
+        case 11:
+            return iterator->currentMatch(SymbolToken::LOGICAL_OR);
     }
     return false;
 }
@@ -438,7 +533,18 @@ OperatorFunInvokeExpression::Operator ExpressionParser::getBinOpFromToken(LexerT
         return OperatorFunInvokeExpression::Operator::GREATER;
     if(op==SymbolToken::GREATER_EQUAL)
         return OperatorFunInvokeExpression::Operator::GREATER_EQUAL;
+    if(op==SymbolToken::SHL)
+        return OperatorFunInvokeExpression::Operator::SHL;
+    if(op==SymbolToken::SHR)
+        return OperatorFunInvokeExpression::Operator::SHR;
+    if(op==SymbolToken::AMPERSAND)
+        return OperatorFunInvokeExpression::Operator::BIT_AND;
+    if(op==SymbolToken::XOR)
+        return OperatorFunInvokeExpression::Operator::XOR;
+    if(op==SymbolToken::BAR)
+        return OperatorFunInvokeExpression::Operator::BIT_OR;
     
+    assert(false); // Unreachable
 }
 
 SharedIValue ExpressionParser::parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value) {

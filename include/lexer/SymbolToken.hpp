@@ -19,10 +19,13 @@ public:
     static SymbolToken COLON;
     static SymbolToken DOUBLE_COLONS;
     static SymbolToken SEMICOLON;
-
     static SymbolToken QUESTION_MARK;
     static SymbolToken EXCLAMATION_MARK;
+    static SymbolToken BIT_NOT;
+    static SymbolToken SHR;
+    static SymbolToken SHL;
     static SymbolToken AMPERSAND;
+    static SymbolToken XOR;
     static SymbolToken BAR;
     static SymbolToken DOT;
     static SymbolToken DOUBLE_QUOTE;
@@ -53,4 +56,11 @@ public:
     static SymbolToken SLASH_EQUAL;
     static SymbolToken MODULO_EQUAL;
     static SymbolToken POWER_EQUAL;
+
+    static SymbolToken SHR_EQUAL;
+    static SymbolToken SHL_EQUAL;
+    static SymbolToken BIT_NOT_EQUAL;
+    static SymbolToken BIT_AND_EQUAL;
+    static SymbolToken XOR_EQUAL;
+    static SymbolToken BIT_OR_EQUAL;
 };

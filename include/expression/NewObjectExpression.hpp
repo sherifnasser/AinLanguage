@@ -7,7 +7,11 @@ class NewObjectExpression:public IExpression{
         SharedVector<SharedIExpression> args;
         SharedFunScope constructor;
     public:
-        NewObjectExpression(int lineNumber,SharedType type, SharedVector<SharedIExpression> args);
+        NewObjectExpression(
+            int lineNumber,
+            SharedType type,
+            SharedVector<SharedIExpression> args
+        );
         void accept(ASTVisitor *visitor) override;
         SharedVector<SharedIExpression> getArgs() const;
         SharedFunScope getConstructor()const;

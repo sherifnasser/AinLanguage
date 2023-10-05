@@ -226,8 +226,10 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
         };
 
         WHEN("Line has ain puncts (has arabic puncts)"){
-            std::wstring line=L"::++--(){}[]<>:=+-*/%!^&|\\.>=<===!=&&||+=-=*=/=%=^=،؛؟";
+            std::wstring line=L"زح<=زح<زح>=زح>::++--(){}[]<>:=+-*/%!**&^|~\\.>=<===!=&&||+=-=*=/=%=**=&=^=|=~=،؛؟";
             std::vector<SymbolToken> expectedTokens={
+                SymbolToken::SHR_EQUAL,SymbolToken::SHR,
+                SymbolToken::SHL_EQUAL,SymbolToken::SHL,
                 SymbolToken::DOUBLE_COLONS,SymbolToken::PLUS_PLUS,SymbolToken::MINUS_MINUS,
                 SymbolToken::LEFT_PARENTHESIS,SymbolToken::RIGHT_PARENTHESIS,
                 SymbolToken::LEFT_CURLY_BRACES,SymbolToken::RIGHT_CURLY_BRACES,
@@ -236,13 +238,18 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
                 SymbolToken::COLON,SymbolToken::EQUAL,
                 SymbolToken::PLUS,SymbolToken::MINUS,SymbolToken::STAR,SymbolToken::SLASH,SymbolToken::MODULO,
                 SymbolToken::EXCLAMATION_MARK,
-                SymbolToken::POWER,SymbolToken::AMPERSAND,SymbolToken::BAR,SymbolToken::BACK_SLASH,
+                SymbolToken::POWER,
+                SymbolToken::AMPERSAND,SymbolToken::XOR,SymbolToken::BAR,
+                SymbolToken::BIT_NOT,
+                SymbolToken::BACK_SLASH,
                 SymbolToken::DOT,
                 SymbolToken::GREATER_EQUAL,SymbolToken::LESS_EQUAL,SymbolToken::EQUAL_EQUAL,SymbolToken::NOT_EQUAL,
                 SymbolToken::LOGICAL_AND,SymbolToken::LOGICAL_OR,
                 SymbolToken::PLUS_EQUAL,SymbolToken::MINUS_EQUAL,
                 SymbolToken::STAR_EQUAL,SymbolToken::SLASH_EQUAL,
                 SymbolToken::MODULO_EQUAL,SymbolToken::POWER_EQUAL,
+                SymbolToken::BIT_AND_EQUAL,SymbolToken::XOR_EQUAL,SymbolToken::BIT_OR_EQUAL,
+                SymbolToken::BIT_NOT_EQUAL,
                 SymbolToken::COMMA,SymbolToken::SEMICOLON,SymbolToken::QUESTION_MARK,
             };
             THEN("Gives correct tokens"){
@@ -335,7 +342,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
             };
 
             THEN("Tokenize legals with different number system"){
-                auto legalNumSys=std::map<std::wstring,std::wstring>{
+                auto legalNumSys=std::unordered_map<std::wstring,std::wstring>{
                     {L"12",L"12"},
                     {L"0b10100",L"20"},
                     {L"0B10_101",L"21"},

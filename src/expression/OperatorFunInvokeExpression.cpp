@@ -42,18 +42,34 @@ NonStaticFunInvokeExpression(
         case Operator::GREATER:
         case Operator::GREATER_EQUAL:
             this->funName=OperatorFunctions::COMPARE_TO_NAME;break;
+        case Operator::SHR:
+            this->funName=OperatorFunctions::SHR_NAME;break;
+        case Operator::SHL:
+            this->funName=OperatorFunctions::SHL_NAME;break;
+        case Operator::BIT_AND:
+            this->funName=OperatorFunctions::BIT_AND_NAME;break;
+        case Operator::XOR:
+            this->funName=OperatorFunctions::XOR_NAME;break;
+        case Operator::BIT_OR:
+            this->funName=OperatorFunctions::BIT_OR_NAME;break;
         case Operator::UNARY_PLUS:
             this->funName=OperatorFunctions::UNARY_PLUS_NAME;break;
         case Operator::UNARY_MINUS:
             this->funName=OperatorFunctions::UNARY_MINUS_NAME;break;
         case Operator::LOGICAL_NOT:
             this->funName=OperatorFunctions::LOGICAL_NOT_NAME;break;
+        case Operator::BIT_NOT:
+            this->funName=OperatorFunctions::BIT_NOT_NAME;break;
         case Operator::PRE_INC:
         case Operator::POST_INC:
             this->funName=OperatorFunctions::INC_NAME;break;
         case Operator::PRE_DEC:
         case Operator::POST_DEC:
             this->funName=OperatorFunctions::DEC_NAME;break;
+        case Operator::GET:
+            this->funName=OperatorFunctions::GET_NAME;break;
+        case Operator::SET_EQUAL:
+            this->funName=OperatorFunctions::SET_NAME;break;
     }
 }
 

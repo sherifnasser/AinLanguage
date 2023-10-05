@@ -12,6 +12,7 @@
 #include "VarStm.hpp"
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -21,12 +22,16 @@
 #include "VarAccessExpression.hpp"
 #include "FunInvokeExpression.hpp"
 #include "NewObjectExpression.hpp"
+#include "NewArrayExpression.hpp"
 #include "LiteralExpression.hpp"
 #include "UnitExpression.hpp"
 #include "LogicalExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
+
+#include "ArrayValue.hpp"
 #include <memory>
 #include <stack>
 
@@ -57,6 +62,15 @@ class Interpreter:public ASTVisitor{
         template<typename T>
         std::shared_ptr<T> topAs();
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
+        /**
+        NOTE: The @param type should be of type Type::Array. Be careful as we want to avoid casting.
+        */
+        std::shared_ptr<ArrayValue> initMultiDArray(
+            int capIndex,
+            int capacitiesSize,
+            int capacities[],
+            SharedType type
+        );
     public:
         Interpreter();
         Interpreter(Assigner* assigner);
@@ -69,6 +83,7 @@ class Interpreter:public ASTVisitor{
         void visit(StmListScope* scope)override;
         void visit(VarStm* stm)override;
         void visit(AssignStatement* stm)override;
+        void visit(AugmentedAssignStatement* stm)override;
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
         void visit(DoWhileStatement* stm)override;
@@ -79,12 +94,14 @@ class Interpreter:public ASTVisitor{
         void visit(VarAccessExpression* ex)override;
         void visit(FunInvokeExpression* ex)override;
         void visit(NewObjectExpression* ex)override;
+        void visit(NewArrayExpression* ex)override;
         void visit(LiteralExpression* ex)override;
         void visit(UnitExpression* ex)override;
         void visit(LogicalExpression* ex)override;
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
+        void visit(SetOperatorExpression* ex)override;
 };
 
 template<typename T>

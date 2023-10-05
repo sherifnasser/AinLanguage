@@ -11,7 +11,7 @@ class PrimitiveClassScope:public ClassScope{
         PrimitiveClassScope(SharedWString name);
         T getValue();
         void setValue(T value);
-        void pushNewValue();
+        void pushNewValue(T value);
         void popLastValue();
 };
 
@@ -32,8 +32,8 @@ void PrimitiveClassScope<T>::setValue(T value){
 }
 
 template<typename T>
-void PrimitiveClassScope<T>::pushNewValue(){
-    valueStack->push_back(0);
+void PrimitiveClassScope<T>::pushNewValue(T value){
+    valueStack->push_back(value);
 }
 
 template<typename T>

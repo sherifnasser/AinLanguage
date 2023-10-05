@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<memory>
+#include <unordered_map>
 #include<vector>
 #include<map>
 #include<string>
@@ -32,6 +33,7 @@ class Variable;
 class IStatement;
 class VarStm;
 class IExpression;
+class OperatorFunInvokeExpression;
 template<typename T>
 struct LinkedListNode;
 template<typename T>
@@ -42,7 +44,7 @@ template<typename T>
 using SharedVector=std::shared_ptr<std::vector<T>>;
 
 template<typename Key,typename Val>
-using SharedMap=std::shared_ptr<std::map<Key,Val>>;
+using SharedMap=std::shared_ptr<std::unordered_map<Key,Val>>;
 
 template<typename T>
 using SharedLinkedListNode=std::shared_ptr<LinkedListNode<T>>;
@@ -93,6 +95,8 @@ using SharedIStatement=std::shared_ptr<IStatement>;
 using SharedVarStm=std::shared_ptr<VarStm>;
 
 using SharedIExpression=std::shared_ptr<IExpression>;
+
+using SharedOpFunInvokeExpression=std::shared_ptr<OperatorFunInvokeExpression>;
 
 using SharedStmList=SharedVector<SharedIStatement>;
 

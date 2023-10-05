@@ -6,8 +6,8 @@
 #include <string>
 class PackageScope:public BaseScope{
     private:
-        std::map<std::wstring, SharedPackageScope> packages;
-        std::map<std::wstring, SharedFileScope> files;
+        std::unordered_map<std::wstring, SharedPackageScope> packages;
+        std::unordered_map<std::wstring, SharedFileScope> files;
     public:
     
         void accept(ASTVisitor *visitor) override;
@@ -35,8 +35,8 @@ class PackageScope:public BaseScope{
 
         static SharedPackageScope AIN_PACKAGE;
 
-        std::map<std::wstring, SharedPackageScope> getPackages() const;
+        std::unordered_map<std::wstring, SharedPackageScope> getPackages() const;
 
-        std::map<std::wstring, SharedFileScope> getFiles() const;
+        std::unordered_map<std::wstring, SharedFileScope> getFiles() const;
 
 };

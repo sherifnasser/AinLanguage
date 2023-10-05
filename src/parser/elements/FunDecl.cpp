@@ -58,5 +58,3 @@ std::wstring FunDecl::toString(){
     }
     return *this->name+L"("+paramsTypes+L")";
 }
-
-    

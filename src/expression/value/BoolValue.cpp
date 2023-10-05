@@ -3,7 +3,7 @@
 #include "Type.hpp"
 
 BoolValue::BoolValue(bool value)
-:PrimitiveValue(Type::BOOL,value){}
+:IValue(Type::BOOL),PrimitiveValue(Type::BOOL,value){}
 
 std::wstring BoolValue::toString() {
     if(value)

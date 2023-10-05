@@ -16,7 +16,7 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parse()override;
     private:
-        static const int LOWEST_PRECEDENCE=7;
+        static const int LOWEST_PRECEDENCE=11;
 
         TypeParserProvider typeParserProvider;
 
@@ -32,11 +32,11 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parseIdentifierExpression();
 
-        SharedIExpression parseNewObjectExpression();
+        SharedIExpression parseNewExpression();
 
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
 
-        SharedIExpression parsePostIncDecExpression(SharedIExpression inside);
+        SharedIExpression parsePostOpExpression(SharedIExpression inside);
         
         bool currentMatchByPrecedence(int precedence);
 
