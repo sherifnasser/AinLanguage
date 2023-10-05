@@ -5,6 +5,7 @@
 class AugmentedAssignStatement:public AssignStatement{
     public:
         enum class Operator{
+            BAD_OP, // Used as default value
             PLUS,MINUS,TIMES,DIV,MOD,POW,
             SHR,SHL,
             BIT_AND,XOR,BIT_OR,BIT_NOT

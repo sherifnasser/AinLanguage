@@ -317,7 +317,7 @@ SharedIStatement StmListParser::parseAsSetOperatorExStm(
 
     auto op=iterator->currentToken();
 
-    SetOperatorExpression::Operator augOp;
+    auto augOp=SetOperatorExpression::Operator::BAD_OP;
 
     if(*op==SymbolToken::PLUS_EQUAL)
         augOp=SetOperatorExpression::Operator::PLUS_EQUAL;
@@ -409,7 +409,7 @@ SharedIStatement StmListParser::parseAsAssignStm(
 ){
     auto op=iterator->currentToken();
 
-    AugmentedAssignStatement::Operator augOp;
+    auto augOp=AugmentedAssignStatement::Operator::BAD_OP;
 
     if(*op==SymbolToken::PLUS_EQUAL)
         augOp=AugmentedAssignStatement::Operator::PLUS;

@@ -4,6 +4,7 @@
 class SetOperatorExpression:public IExpression{
     public:
         enum class Operator{
+            BAD_OP, // Used as default value
             PLUS_EQUAL,MINUS_EQUAL,
             TIMES_EQUAL,DIV_EQUAL,
             MOD_EQUAL,POW_EQUAL,
