@@ -1,4 +1,5 @@
 #include "SemanticsChecksVisitor.hpp"
+#include "ASTVisitor.hpp"
 #include "BaseScope.hpp"
 #include "CannotAccessPrivateFunctionException.hpp"
 #include "CannotAccessPrivateVariableException.hpp"
@@ -15,6 +16,10 @@
 #include "VariableNotFoundException.hpp"
 #include "KeywordToken.hpp"
 #include "FunParam.hpp"
+#include "ArrayClassScope.hpp"
+#include <cassert>
+#include <string>
+#include <vector>
 
 void SemanticsChecksVisitor::visit(PackageScope* scope){
     for(auto fileIt:scope->getFiles()){
@@ -66,6 +71,8 @@ void SemanticsChecksVisitor::visit(ClassScope* scope){
         scope==Type::BOOL->getClassScope().get()
         ||
         scope==Type::STRING->getClassScope().get()
+        ||
+        scope==Type::ARRAY_CLASS.get()
     )
         return;
 
@@ -131,24 +138,63 @@ void SemanticsChecksVisitor::visit(AssignStatement* stm){
 
     initStmRunScope(stm);
 
-    auto ex=stm->getEx();
+    auto left=stm->getLeft();
 
-    auto newValEx=stm->getNewValEx();
+    auto right=stm->getRight();
 
-    ex->accept(this);
+    left->accept(this);
 
-    newValEx->accept(this);
+    right->accept(this);
 
-    auto t1=ex->getReturnType();
+    auto t1=left->getReturnType();
 
-    auto t2=newValEx->getReturnType();
+    auto t2=right->getReturnType();
 
-    if(t1->getClassScope()!=t2->getClassScope())
+    if(*t1!=*t2)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *t1->getName(),
             *t2->getName()
         );
+}
+
+void SemanticsChecksVisitor::visit(AugmentedAssignStatement* stm){
+
+    initStmRunScope(stm);
+
+    auto lineNumber=stm->getLineNumber();
+
+    auto left=stm->getLeft();
+
+    auto right=stm->getRight();
+
+    left->accept(this);
+
+    right->accept(this);
+
+    auto lType=left->getReturnType();
+
+    auto exType=right->getReturnType();
+
+    std::wstring funName=getAugmentedAssignOpFunName(stm->getOp());
+
+    auto fun=findOpFunInType(
+        lType,
+        funName,
+        {exType},
+        lineNumber
+    );
+
+    auto rType=fun->getReturnType();
+
+    if(*lType!=*rType)
+        throw UnexpectedTypeException(
+            stm->getLineNumber(),
+            *lType->getName(),
+            *rType->getName()
+        );
+
+    stm->setOpFun(fun);
 }
 
 void SemanticsChecksVisitor::visit(IfStatement* stm){
@@ -159,7 +205,7 @@ void SemanticsChecksVisitor::visit(IfStatement* stm){
 
     ifCondition->accept(this);
 
-    if(ifCondition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+    if(*ifCondition->getReturnType()!=*Type::BOOL)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *Type::BOOL_NAME,
@@ -194,14 +240,14 @@ void SemanticsChecksVisitor::visit(ReturnStatement* stm){
     
     // Return statements in constructors should return Unit
     if(funScope->getDecl()->isConstructor()){
-        if(exType->getClassScope()!=Type::UNIT->getClassScope())
+        if(*exType!=*Type::UNIT)
             throw UnexpectedTypeException(
                 stm->getLineNumber(),
                 *Type::UNIT_NAME,
                 *exType->getName()
             );
     }
-    else if(funScope->getReturnType()->getClassScope()!=exType->getClassScope())
+    else if(*funScope->getReturnType()!=*exType)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *funScope->getReturnType()->getName(),
@@ -395,6 +441,19 @@ void SemanticsChecksVisitor::visit(NewObjectExpression* ex){
 
 }
 
+void SemanticsChecksVisitor::visit(NewArrayExpression* ex){
+    for(auto cap:ex->getCapacities()){
+        cap->accept(this);
+        auto capType=cap->getReturnType();
+        if(capType->getClassScope()!=Type::INT->getClassScope())
+            throw UnexpectedTypeException(
+                cap->getLineNumber(),
+                *Type::INT_NAME,
+                *capType->getName()
+            );
+    }
+}
+
 void SemanticsChecksVisitor::visit(LogicalExpression* ex){
     auto left=ex->getLeft();
     auto right=ex->getRight();
@@ -456,24 +515,51 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
 }
 
 void SemanticsChecksVisitor::visit(NonStaticFunInvokeExpression* ex){
-    checkNonStaticFunInvokeEx(ex);
+    auto lineNumber=ex->getLineNumber();
+
+    auto paramsTypes=std::vector<SharedType>();
+    for(auto arg:*ex->getArgs()){
+        arg->accept(this);
+        paramsTypes.push_back(arg->getReturnType());
+    }
+
+    auto inside=ex->getInside();
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    
+    auto fun=findFunInType(
+        insideType,
+        ex->getFunName(),
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFun(fun);
+    ex->setReturnType(fun->getReturnType());
 }
 
 void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
 
-    checkNonStaticFunInvokeEx(ex);
+    auto lineNumber=ex->getLineNumber();
 
-    auto decl=ex->getFun()->getDecl();
-
-    if(!*decl->isOperator){
-        // TODO: make trace more readable
-        auto trace=
-            ex->getInside()->getReturnType()->getClassScope()->getName()+
-            L"::"+checkScope->getName()+L"("+std::to_wstring(ex->getLineNumber())+L")";
-        
-        // append operator to decl, so it says "operator function ... not found "
-        throw FunctionNotFoundException(trace,L"مؤثر "+decl->toString());
+    auto paramsTypes=std::vector<SharedType>();
+    for(auto arg:*ex->getArgs()){
+        arg->accept(this);
+        paramsTypes.push_back(arg->getReturnType());
     }
+
+    auto inside=ex->getInside();
+    inside->accept(this);
+    auto insideType=inside->getReturnType();
+    
+    auto fun=findOpFunInType(
+        insideType,
+        ex->getFunName(),
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFun(fun);
     
     switch(ex->getOp()){
         case OperatorFunInvokeExpression::Operator::LESS:
@@ -481,9 +567,57 @@ void SemanticsChecksVisitor::visit(OperatorFunInvokeExpression* ex){
         case OperatorFunInvokeExpression::Operator::GREATER:
         case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:
             ex->setReturnType(Type::BOOL);
+            break;
         default:
+            ex->setReturnType(fun->getReturnType());
             break;
     }
+}
+
+void SemanticsChecksVisitor::visit(SetOperatorExpression* ex){
+    
+    auto lineNumber=ex->getLineNumber();
+
+    auto exOfGet=ex->getExOfGet();
+
+    exOfGet->accept(this);
+
+    auto typeOfGetEx=exOfGet->getReturnType();
+
+    std::vector<SharedType> paramsTypes;
+
+    // When operator is not inc or dec operators
+    if(auto exOfValue=ex->getValueEx()){
+        exOfValue->accept(this);
+        auto exType=exOfValue->getReturnType();
+        paramsTypes.push_back(exType);
+    }
+    
+    std::wstring opFunName=getOpFunNameOfSetOp(ex->getOp());
+
+    auto opFun=findOpFunInType(
+        typeOfGetEx,
+        opFunName,
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFunOfOp(opFun);
+
+    auto typeOfValueToSet=opFun->getReturnType();
+
+    auto funOfSet=findOpFunInType(
+        ex->getExHasGetOp()->getReturnType(),
+        OperatorFunctions::SET_NAME,
+        {
+            ex->getIndexEx()->getReturnType(),
+            typeOfValueToSet
+        },
+        lineNumber
+    );
+    
+    ex->setFunOfSet(funOfSet);
+    ex->setReturnType(funOfSet->getReturnType());
 }
 
 void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){
@@ -498,7 +632,7 @@ void SemanticsChecksVisitor::doWhileStmChecks(WhileStatement* stm){
 
     condition->accept(this);
 
-    if(condition->getReturnType()->getClassScope()!=Type::BOOL->getClassScope())
+    if(*condition->getReturnType()!=*Type::BOOL)
         throw UnexpectedTypeException(
             stm->getLineNumber(),
             *Type::BOOL_NAME,
@@ -550,6 +684,8 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
         opName==OperatorFunctions::XOR_NAME
         ||
         opName==OperatorFunctions::BIT_OR_NAME
+        ||
+        opName==OperatorFunctions::GET_NAME
     ;
 
     if(isBinOp&&paramsSize!=1)
@@ -572,6 +708,9 @@ void SemanticsChecksVisitor::checkOperatorFunParamsSize(FunScope* scope){
     if(isUnaryOp&&paramsSize!=0)
         throw InvalidOperatorFunDeclarationException(L"عدد المعاملات غير صالح لدالة "+opName);
 
+    if(opName==OperatorFunctions::SET_NAME&&paramsSize<2)
+        throw InvalidOperatorFunDeclarationException(L"عدد المعاملات غير صالح لدالة "+opName);
+
 }
 
 void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
@@ -579,10 +718,10 @@ void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
 
     auto returnType=scope->getReturnType();
 
-    if(opName==OperatorFunctions::COMPARE_TO_NAME&&*returnType->getName()!=*Type::INT_NAME)
+    if(opName==OperatorFunctions::COMPARE_TO_NAME&&returnType->getClassScope()!=Type::INT->getClassScope())
         throw InvalidOperatorFunDeclarationException(L"دالة قارن_مع يجب أن ترجع قيمة من نوع صحيح.");
 
-    if(opName==OperatorFunctions::EQUALS_NAME&&*returnType->getName()!=*Type::BOOL_NAME)
+    if(opName==OperatorFunctions::EQUALS_NAME&&returnType->getClassScope()!=Type::BOOL->getClassScope())
         throw InvalidOperatorFunDeclarationException(L"دالة يساوي يجب أن ترجع قيمة من نوع منطقي.");
     
     auto parentClass=BaseScope::getContainingClass(scope->getParentScope());
@@ -598,50 +737,135 @@ void SemanticsChecksVisitor::checkOperatorFunReturnType(FunScope* scope){
     
 }
 
-void SemanticsChecksVisitor::checkNonStaticFunInvokeEx(NonStaticFunInvokeExpression* ex){
-    auto args=ex->getArgs();
-    auto funName=ex->getFunName();
-    auto inside=ex->getInside();
-    auto lineNumber=ex->getLineNumber();
+std::wstring SemanticsChecksVisitor::getAugmentedAssignOpFunName(
+    AugmentedAssignStatement::Operator op
+){
+    switch(op){
+        case AugmentedAssignStatement::Operator::PLUS:
+            return OperatorFunctions::PLUS_NAME;
+        case AugmentedAssignStatement::Operator::MINUS:
+            return OperatorFunctions::MINUS_NAME;
+        case AugmentedAssignStatement::Operator::TIMES:
+            return OperatorFunctions::TIMES_NAME;
+        case AugmentedAssignStatement::Operator::DIV:
+            return OperatorFunctions::DIV_NAME;
+        case AugmentedAssignStatement::Operator::MOD:
+            return OperatorFunctions::MOD_NAME;
+        case AugmentedAssignStatement::Operator::POW:
+            return OperatorFunctions::POW_NAME;
+        case AugmentedAssignStatement::Operator::SHR:
+            return OperatorFunctions::SHR_NAME;
+        case AugmentedAssignStatement::Operator::SHL:
+            return OperatorFunctions::SHL_NAME;
+        case AugmentedAssignStatement::Operator::BIT_AND:
+            return OperatorFunctions::BIT_AND_NAME;
+        case AugmentedAssignStatement::Operator::XOR:
+            return OperatorFunctions::XOR_NAME;
+        case AugmentedAssignStatement::Operator::BIT_OR:
+            return OperatorFunctions::BIT_OR_NAME;
+        case AugmentedAssignStatement::Operator::BIT_NOT:
+            return OperatorFunctions::BIT_NOT_NAME;
+    }
 
+    assert(false); // Unreachable
+}
+
+std::wstring SemanticsChecksVisitor::getOpFunNameOfSetOp(SetOperatorExpression::Operator op) {
+    switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+            return OperatorFunctions::PLUS_NAME;
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+            return OperatorFunctions::MINUS_NAME;
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+            return OperatorFunctions::TIMES_NAME;
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+            return OperatorFunctions::DIV_NAME;
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+            return OperatorFunctions::MOD_NAME;
+        case SetOperatorExpression::Operator::POW_EQUAL:
+            return OperatorFunctions::POW_NAME;
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+            return OperatorFunctions::SHR_NAME;
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+            return OperatorFunctions::SHL_NAME;
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+            return OperatorFunctions::BIT_AND_NAME;
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+            return OperatorFunctions::XOR_NAME;
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
+            return OperatorFunctions::BIT_OR_NAME;
+        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:
+            return OperatorFunctions::BIT_NOT_NAME;
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::POST_INC:
+            return OperatorFunctions::INC_NAME;
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_DEC:
+            return OperatorFunctions::DEC_NAME;
+        default:
+            return L"";
+    }
+}
+SharedFunScope SemanticsChecksVisitor::findFunInType(
+    SharedType type,
+    std::wstring funName,
+    std::vector<SharedType> paramsTypes,
+    int traceLineNumber
+){
     auto params=std::make_shared<std::vector<SharedFunParam>>();
-    for(auto arg:*args){
-        arg->accept(this);
-        auto argType=arg->getReturnType();
+    for(auto paramType:paramsTypes){
         params->push_back(
-            std::make_shared<FunParam>(nullptr,argType)
+            std::make_shared<FunParam>(nullptr,paramType)
         );
     }
     auto decl=FunDecl(
         std::make_shared<std::wstring>(funName),
         nullptr,
-        std::make_shared<bool>(false),
+        std::make_shared<bool>(true),
         params
     ).toString();
 
-    inside->accept(this);
-    auto insideType=inside->getReturnType();
-    auto insideClassScope=insideType->getClassScope();
-    auto publicFun=insideClassScope->findPublicFunction(decl);
-    if(publicFun){
-        ex->setFun(publicFun);
-        ex->setReturnType(publicFun->getReturnType());
-        return;
+    SharedFunScope fun=type->getClassScope()->findPublicFunction(decl);
+    // TODO: make trace more readable
+    auto trace=
+        BaseScope::getContainingFile(checkScope)->getName()+
+        L"::"+checkScope->getName()+L"("+std::to_wstring(traceLineNumber)+L")";
+
+    if(!fun){
+        fun=type->getClassScope()->findPrivateFunction(decl);
+
+        if(!fun)
+            throw FunctionNotFoundException(trace,*type->getName()+L"::"+decl);
+        
+        if(type->getClassScope()!=BaseScope::getContainingClass(checkScope))
+            throw CannotAccessPrivateFunctionException(trace,decl);
     }
 
-    auto privateFun=insideClassScope->findPrivateFunction(decl);
+    return fun;
+}
+SharedFunScope SemanticsChecksVisitor::findOpFunInType(
+    SharedType type,
+    std::wstring funName,
+    std::vector<SharedType> paramsTypes,
+    int traceLineNumber
+){
+    auto fun=findFunInType(
+        type,
+        funName,
+        paramsTypes,
+        traceLineNumber
+    );
+
+
+    if(*fun->getDecl()->isOperator)
+        return fun;
 
     // TODO: make trace more readable
     auto trace=
         BaseScope::getContainingFile(checkScope)->getName()+
-        L"::"+checkScope->getName()+L"("+std::to_wstring(lineNumber)+L")";
+        L"::"+checkScope->getName()+L"("+std::to_wstring(traceLineNumber)+L")";
 
-    if(!privateFun)
-        throw FunctionNotFoundException(trace,insideClassScope->getName()+L"::"+decl);
-    
-    if(insideClassScope!=BaseScope::getContainingClass(checkScope))
-        throw CannotAccessPrivateFunctionException(trace,decl);
-    
-    ex->setFun(privateFun);
-    ex->setReturnType(privateFun->getReturnType());
+    // append operator to decl, so it says "operator function ... not found "
+    throw FunctionNotFoundException(trace,L"مؤثر "+fun->getDecl()->toString());
+
 }

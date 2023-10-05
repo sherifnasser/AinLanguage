@@ -11,6 +11,7 @@ class StmListScope;
 class VarStm;
 class IfStatement;
 class AssignStatement;
+class AugmentedAssignStatement;
 class WhileStatement;
 class DoWhileStatement;
 class BreakStatement;
@@ -21,6 +22,7 @@ class ExpressionStatement;
 class VarAccessExpression;
 class FunInvokeExpression;
 class NewObjectExpression;
+class NewArrayExpression;
 class LiteralExpression;
 class UnitExpression;
 
@@ -28,6 +30,7 @@ class LogicalExpression;
 class NonStaticVarAccessExpression;
 class NonStaticFunInvokeExpression;
 class OperatorFunInvokeExpression;
+class SetOperatorExpression;
 
 class ASTVisitor{
     public:
@@ -41,6 +44,7 @@ class ASTVisitor{
 
         virtual void visit(VarStm* stm);
         virtual void visit(AssignStatement* stm);
+        virtual void visit(AugmentedAssignStatement* stm);
         virtual void visit(IfStatement* stm);
         virtual void visit(WhileStatement* stm);
         virtual void visit(DoWhileStatement* stm);
@@ -52,6 +56,7 @@ class ASTVisitor{
         virtual void visit(VarAccessExpression* ex);
         virtual void visit(FunInvokeExpression* ex);
         virtual void visit(NewObjectExpression* ex);
+        virtual void visit(NewArrayExpression* ex);
         virtual void visit(LiteralExpression* ex);
         virtual void visit(UnitExpression* ex);
 
@@ -59,6 +64,7 @@ class ASTVisitor{
         virtual void visit(NonStaticVarAccessExpression* ex);
         virtual void visit(NonStaticFunInvokeExpression* ex);
         virtual void visit(OperatorFunInvokeExpression* ex);
+        virtual void visit(SetOperatorExpression* ex);
 
         virtual ~ASTVisitor();
 

@@ -2,7 +2,7 @@
 #include "IValue.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
-class ObjectValue:public IValue{
+class ObjectValue:public virtual IValue{
     private:
         SharedMap<std::wstring, SharedIValue> properties;
     public:

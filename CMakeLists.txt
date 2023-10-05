@@ -24,6 +24,7 @@ add_library(ainsrc
     src/expression/value/ULongValue.cpp
     src/expression/value/StringValue.cpp
     src/expression/value/IValue.cpp
+    src/expression/value/ArrayValue.cpp
     src/expression/value/FloatValue.cpp
     src/expression/value/LongValue.cpp
     src/expression/value/UIntValue.cpp
@@ -32,7 +33,9 @@ add_library(ainsrc
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
     src/expression/VarAccessExpression.cpp
+    src/expression/SetOperatorExpression.cpp
     src/expression/IExpression.cpp
+    src/expression/NewArrayExpression.cpp
     src/expression/NonStaticVarAccessExpression.cpp
     src/expression/NewObjectExpression.cpp
     src/expression/LogicalExpression.cpp
@@ -46,6 +49,7 @@ add_library(ainsrc
     src/scope/StringClassScope.cpp
     src/scope/FileScope.cpp
     src/scope/Variable.cpp
+    src/scope/ArrayClassScope.cpp
     src/ain_file/AinFile.cpp
     src/semantics/SemanticsChecksVisitor.cpp
     src/semantics/ImplicitVarTypeChecker.cpp
@@ -58,6 +62,7 @@ add_library(ainsrc
     src/statement/AssignStatement.cpp
     src/statement/ReturnStatement.cpp
     src/statement/BreakStatement.cpp
+    src/statement/AugmentedAssignStatement.cpp
     src/statement/VarStm.cpp
     src/helpers/string_helper.cpp
     src/helpers/ainio.cpp

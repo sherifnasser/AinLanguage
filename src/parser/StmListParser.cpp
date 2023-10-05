@@ -1,11 +1,12 @@
 #include "StmListParser.hpp"
 #include "ASTVisitor.hpp"
-#include "AssignStatement.hpp"
+#include "AugmentedAssignStatement.hpp"
 #include "BreakStatement.hpp"
 #include "ContinueStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "ExpressionExpectedException.hpp"
 #include "ExpressionStatement.hpp"
+#include "SetOperatorExpression.hpp"
 #include "IfStatement.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
@@ -298,113 +299,187 @@ SharedIStatement StmListParser::parseBreakContinueStatement(SharedStmListScope p
 
 SharedIStatement StmListParser::parseExpressionStatement(SharedStmListScope parentScope){
 
-    int lineNumber=iterator->lineNumber;
-
     auto ex=expressionParserProvider(iterator,parentScope)->parse();
 
     if(!ex)
         return nullptr;
-    
+
+    if(auto exOfGet=IExpression::isGetOpFunInvokeExpression(ex))
+        return parseAsSetOperatorExStm(parentScope,exOfGet);
+
+    return parseAsAssignStm(parentScope,ex);
+}
+
+SharedIStatement StmListParser::parseAsSetOperatorExStm(
+    SharedStmListScope parentScope,
+    SharedOpFunInvokeExpression exOfGet
+){
+
     auto op=iterator->currentToken();
-    
-    if(!isAssignmentSymbol(*op))
+
+    auto augOp=SetOperatorExpression::Operator::BAD_OP;
+
+    if(*op==SymbolToken::PLUS_EQUAL)
+        augOp=SetOperatorExpression::Operator::PLUS_EQUAL;
+    else if(*op==SymbolToken::MINUS_EQUAL)
+        augOp=SetOperatorExpression::Operator::MINUS_EQUAL;
+    else if(*op==SymbolToken::STAR_EQUAL)
+        augOp=SetOperatorExpression::Operator::TIMES_EQUAL;
+    else if(*op==SymbolToken::SLASH_EQUAL)
+        augOp=SetOperatorExpression::Operator::DIV_EQUAL;
+    else if(*op==SymbolToken::MODULO_EQUAL)
+        augOp=SetOperatorExpression::Operator::MOD_EQUAL;
+    else if(*op==SymbolToken::POWER_EQUAL)
+        augOp=SetOperatorExpression::Operator::POW_EQUAL;
+    else if(*op==SymbolToken::SHR_EQUAL)
+        augOp=SetOperatorExpression::Operator::SHR_EQUAL;
+    else if(*op==SymbolToken::SHL_EQUAL)
+        augOp=SetOperatorExpression::Operator::SHL_EQUAL;
+    else if(*op==SymbolToken::BIT_NOT_EQUAL)
+        augOp=SetOperatorExpression::Operator::BIT_NOT_EQUAL;
+    else if(*op==SymbolToken::BIT_AND_EQUAL)
+        augOp=SetOperatorExpression::Operator::BIT_AND_EQUAL;
+    else if(*op==SymbolToken::XOR_EQUAL)
+        augOp=SetOperatorExpression::Operator::XOR_EQUAL;
+    else if(*op==SymbolToken::BIT_OR_EQUAL)
+        augOp=SetOperatorExpression::Operator::BIT_OR_EQUAL;
+    else if(*op!=SymbolToken::EQUAL)
         return std::make_shared<ExpressionStatement>(
-            lineNumber,
+            exOfGet->getLineNumber(),
             parentScope,
-            ex
+            exOfGet
         );
     
-    if(!IExpression::isAssignableExpression(ex))
-        throw OnlyVariablesAreAssignableException(lineNumber);
+    auto lineNumber=iterator->lineNumber;
+    
+    iterator->next();
 
-    lineNumber=iterator->lineNumber;
+    auto valueToSetEx=expressionParserProvider(iterator,scope)->parse();
+        
+    if(!valueToSetEx)
+        throw ExpressionExpectedException(iterator->lineNumber);
+
+    SharedIExpression exOfSet;
+
+    switch(augOp){
+
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+        case SetOperatorExpression::Operator::POW_EQUAL:
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
+            exOfSet=std::make_shared<SetOperatorExpression>(
+                augOp,
+                exOfGet,
+                valueToSetEx
+            );
+            break;
+        }
+        default:{
+            auto indexEx=exOfGet->getArgs()->at(0);
+            auto args=std::vector<SharedIExpression>{
+                indexEx,valueToSetEx
+            };
+            exOfSet=std::make_shared<OperatorFunInvokeExpression>(
+                lineNumber,
+                OperatorFunInvokeExpression::Operator::SET_EQUAL,
+                std::make_shared<std::vector<SharedIExpression>>(args),
+                exOfGet->getInside()
+            );
+        }
+    }
+
+    return std::make_shared<ExpressionStatement>(
+        lineNumber,
+        parentScope,
+        exOfSet
+    );
+}
+
+SharedIStatement StmListParser::parseAsAssignStm(
+    SharedStmListScope parentScope,
+    SharedIExpression leftEx
+){
+    auto op=iterator->currentToken();
+
+    auto augOp=AugmentedAssignStatement::Operator::BAD_OP;
+
+    if(*op==SymbolToken::PLUS_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::PLUS;
+    else if(*op==SymbolToken::MINUS_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::MINUS;
+    else if(*op==SymbolToken::STAR_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::TIMES;
+    else if(*op==SymbolToken::SLASH_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::DIV;
+    else if(*op==SymbolToken::MODULO_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::MOD;
+    else if(*op==SymbolToken::POWER_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::POW;
+    else if(*op==SymbolToken::SHR_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::SHR;
+    else if(*op==SymbolToken::SHL_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::SHL;
+    else if(*op==SymbolToken::BIT_NOT_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::BIT_NOT;
+    else if(*op==SymbolToken::BIT_AND_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::BIT_AND;
+    else if(*op==SymbolToken::XOR_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::XOR;
+    else if(*op==SymbolToken::BIT_OR_EQUAL)
+        augOp=AugmentedAssignStatement::Operator::BIT_OR;
+    else if(*op!=SymbolToken::EQUAL)
+        return std::make_shared<ExpressionStatement>(
+            leftEx->getLineNumber(),
+            parentScope,
+            leftEx
+        );
+
+    auto lineNumber=iterator->lineNumber;
+    
+    if(!IExpression::isAssignableExpression(leftEx))
+        throw OnlyVariablesAreAssignableException(lineNumber);
 
     iterator->next();
     
-    auto assignExRight=expressionParserProvider(iterator,scope)->parse();
+    auto rightEx=expressionParserProvider(iterator,scope)->parse();
 
-    if(!assignExRight)
+    if(!rightEx)
         throw ExpressionExpectedException(iterator->lineNumber);
 
-    auto isAugmented=*op!=SymbolToken::EQUAL;
-    
-    if(isAugmented){
-
-        auto args=std::make_shared<std::vector<SharedIExpression>>(std::vector<SharedIExpression>{assignExRight});
-
-        assignExRight=std::make_shared<OperatorFunInvokeExpression>(
-            lineNumber,
-            getAssignEqualOpFromToken(*op),
-            args,
-            ex
-        );
+    switch(augOp){
+        case AugmentedAssignStatement::Operator::PLUS:
+        case AugmentedAssignStatement::Operator::MINUS:
+        case AugmentedAssignStatement::Operator::TIMES:
+        case AugmentedAssignStatement::Operator::DIV:
+        case AugmentedAssignStatement::Operator::MOD:
+        case AugmentedAssignStatement::Operator::POW:
+        case AugmentedAssignStatement::Operator::SHL:
+        case AugmentedAssignStatement::Operator::SHR:
+        case AugmentedAssignStatement::Operator::BIT_AND:
+        case AugmentedAssignStatement::Operator::XOR:
+        case AugmentedAssignStatement::Operator::BIT_OR:
+        case AugmentedAssignStatement::Operator::BIT_NOT:
+            return std::make_shared<AugmentedAssignStatement>(
+                lineNumber,
+                parentScope,
+                augOp,
+                leftEx,
+                rightEx
+            );
+        default:
+            return std::make_shared<AssignStatement>(
+                lineNumber,
+                parentScope,
+                leftEx,
+                rightEx
+            );
     }
-        
-    return std::make_shared<AssignStatement>(
-        lineNumber,
-        parentScope,
-        ex,
-        assignExRight,
-        isAugmented
-    );
-    
-}
-bool StmListParser::isAssignmentSymbol(LexerToken op){
-    return 
-        op==SymbolToken::EQUAL
-        ||
-        op==SymbolToken::PLUS_EQUAL
-        ||
-        op==SymbolToken::MINUS_EQUAL
-        ||
-        op==SymbolToken::STAR_EQUAL
-        ||
-        op==SymbolToken::SLASH_EQUAL
-        ||
-        op==SymbolToken::MODULO_EQUAL
-        ||
-        op==SymbolToken::POWER_EQUAL
-        ||
-        op==SymbolToken::SHR_EQUAL
-        ||
-        op==SymbolToken::SHL_EQUAL
-        ||
-        op==SymbolToken::BIT_NOT_EQUAL
-        ||
-        op==SymbolToken::BIT_AND_EQUAL
-        ||
-        op==SymbolToken::XOR_EQUAL
-        ||
-        op==SymbolToken::BIT_OR_EQUAL
-    ;
-}
-
-OperatorFunInvokeExpression::Operator StmListParser::getAssignEqualOpFromToken(LexerToken op){
-
-    if(op==SymbolToken::PLUS_EQUAL)
-        return OperatorFunInvokeExpression::Operator::PLUS;
-    if(op==SymbolToken::MINUS_EQUAL)
-        return OperatorFunInvokeExpression::Operator::MINUS;
-    if(op==SymbolToken::STAR_EQUAL)
-        return OperatorFunInvokeExpression::Operator::TIMES;
-    if(op==SymbolToken::SLASH_EQUAL)
-        return OperatorFunInvokeExpression::Operator::DIV;
-    if(op==SymbolToken::MODULO_EQUAL)
-        return OperatorFunInvokeExpression::Operator::MOD;
-    if(op==SymbolToken::POWER_EQUAL)
-        return OperatorFunInvokeExpression::Operator::POW;
-    if(op==SymbolToken::SHR_EQUAL)
-        return OperatorFunInvokeExpression::Operator::SHR;
-    if(op==SymbolToken::SHL_EQUAL)
-        return OperatorFunInvokeExpression::Operator::SHL;
-    if(op==SymbolToken::BIT_NOT_EQUAL)
-        return OperatorFunInvokeExpression::Operator::BIT_NOT;
-    if(op==SymbolToken::BIT_AND_EQUAL)
-        return OperatorFunInvokeExpression::Operator::BIT_AND;
-    if(op==SymbolToken::XOR_EQUAL)
-        return OperatorFunInvokeExpression::Operator::XOR;
-    if(op==SymbolToken::BIT_OR_EQUAL)
-        return OperatorFunInvokeExpression::Operator::BIT_OR;
-    
-    assert(false); // Unreachable
 }

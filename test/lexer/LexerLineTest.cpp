@@ -342,7 +342,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
             };
 
             THEN("Tokenize legals with different number system"){
-                auto legalNumSys=std::map<std::wstring,std::wstring>{
+                auto legalNumSys=std::unordered_map<std::wstring,std::wstring>{
                     {L"12",L"12"},
                     {L"0b10100",L"20"},
                     {L"0B10_101",L"21"},

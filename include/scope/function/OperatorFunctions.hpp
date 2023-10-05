@@ -24,6 +24,8 @@ namespace OperatorFunctions{
     inline auto UNARY_MINUS_NAME=L"سالب";
     inline auto INC_NAME=L"زد";
     inline auto DEC_NAME=L"أنقص";
+    inline auto GET_NAME=L"جلب";
+    inline auto SET_NAME=L"تعيين";
 
     inline bool isOperatorFunName(std::wstring name){
         
@@ -38,7 +40,8 @@ namespace OperatorFunctions{
             // Unary operators
             UNARY_PLUS_NAME,UNARY_MINUS_NAME,
             LOGICAL_NOT_NAME,BIT_NOT_NAME,
-            INC_NAME,DEC_NAME
+            INC_NAME,DEC_NAME,
+            GET_NAME,SET_NAME,
         };
 
         for(auto& op:OPERATORS_NAMES){

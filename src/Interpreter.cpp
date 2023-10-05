@@ -1,16 +1,20 @@
 #include "Interpreter.hpp"
+#include "ArrayNegativeCapacityException.hpp"
+#include "ArrayValue.hpp"
 #include "BoolValue.hpp"
 #include "FunDecl.hpp"
 #include "IntValue.hpp"
 #include "ObjectValue.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include "UnitValue.hpp"
 #include "Variable.hpp"
 #include "FunParam.hpp"
-#include <map>
 #include <memory>
 #include <string>
+#include <vector>
+#include <unordered_map>
 
 void Interpreter::push(SharedIValue val){
     valuesStack.push(val);
@@ -50,13 +54,43 @@ void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
 
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getFun()->accept(this);
 
     insideVal->unlinkWithClass();
+}
+
+std::shared_ptr<ArrayValue> Interpreter::initMultiDArray(
+    int capIndex,
+    int capacitiesSize,
+    int capacities[],
+    SharedType type
+){
+    auto cap=capacities[capIndex];
+    
+    auto array=std::make_shared<ArrayValue>(type,cap);
+    
+    if(capIndex==capacitiesSize-1)
+        return array;
+    
+    auto arrayType=type->asArray()->getType();
+    auto arrayVal=array->getValue();
+    auto childrenCapIndex=capIndex+1;
+    auto childrenCap=capacities[childrenCapIndex];
+    for(int i=0;i<childrenCap;i++){
+        arrayVal[i]=initMultiDArray(
+            childrenCapIndex,
+            capacitiesSize,
+            capacities,
+            arrayType
+        );
+    }
+
+    return array;
+
 }
 
 Interpreter::Interpreter():
@@ -135,16 +169,15 @@ void Interpreter::visit(FunScope* scope){
     
     auto locals=scope->getLocals();
 
-    int i=0;
-    for(auto local:*locals){
-        auto varName=local.first;
-        auto var=local.second;
+    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
+        auto varName=localIt->first;
+        auto var=localIt->second;
         var->pushNewValue();
+    }
 
-        if(i<decl->params->size()&&*decl->params->at(i)->name==varName){
-            var->setValue(pop());
-            i++;
-        }
+    auto params=decl->params;
+    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
+        (*locals)[*paramIt->get()->name]->setValue(pop());
     }
 
     for(auto stm:*scope->getStmList()){
@@ -165,7 +198,7 @@ void Interpreter::visit(FunScope* scope){
     if(!isConstructor)
         return;
 
-    auto properties=std::make_shared<std::map<std::wstring, SharedIValue>>();
+    auto properties=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
 
     auto classScope=decl->returnType->getClassScope();
 
@@ -183,9 +216,10 @@ void Interpreter::visit(FunScope* scope){
 }
 
 void Interpreter::visit(BuiltInFunScope* scope){
-    auto args=std::make_shared<std::map<std::wstring, SharedIValue>>();
-    for(auto param :*scope->getDecl()->params){
-        (*args)[*param->name]=pop();
+    auto args=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
+    auto params=scope->getDecl()->params;
+    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
+        (*args)[*paramIt->get()->name]=pop();
     }
     push(scope->invoke(args));
 }
@@ -204,17 +238,25 @@ void Interpreter::visit(VarStm* stm){
 }
 
 void Interpreter::visit(AssignStatement* stm){
-    
-    stm->getEx()->accept(assigner);
-    
-    if(!stm->isAugmentedAssignment()){
-        pop();
-        stm->getNewValEx()->accept(this);
-    }else{
-        stm->getNewValEx()->accept(assigner);
-    }
+    stm->getLeft()->accept(assigner);
+    pop();
+    stm->getRight()->accept(this);
+    stm->getLeft()->accept(assigner);
+}
 
-    stm->getEx()->accept(assigner);
+void Interpreter::visit(AugmentedAssignStatement* stm){
+    
+    stm->getLeft()->accept(assigner);
+    auto leftVal=top();
+
+    stm->getRight()->accept(assigner);
+    auto rightVal=top();
+
+    leftVal->linkWithClass();
+    stm->getOpFun()->accept(this);
+    leftVal->unlinkWithClass();
+    
+    stm->getLeft()->accept(assigner);
 }
 
 void Interpreter::visit(IfStatement* stm){
@@ -306,8 +348,8 @@ void Interpreter::visit(VarAccessExpression* ex){
 void Interpreter::visit(FunInvokeExpression* ex){
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getFun()->accept(this);
@@ -316,11 +358,40 @@ void Interpreter::visit(FunInvokeExpression* ex){
 void Interpreter::visit(NewObjectExpression* ex){
     auto args=ex->getArgs();
 
-    for(int i=args->size()-1;i>=0;i--){
-        (*args)[i]->accept(this);
+    for(auto arg:*args){
+        arg->accept(this);
     }
 
     ex->getConstructor()->accept(this);
+}
+
+void Interpreter::visit(NewArrayExpression* ex){
+    auto capacitiesExpressions=ex->getCapacities();
+
+    auto capacitiesSize=capacitiesExpressions.size();
+
+    int capacities[capacitiesSize];
+
+    for(int i=0;i<capacitiesSize;i++){
+        capacitiesExpressions[i]->accept(this);
+
+        auto cap=popAs<IntValue>()->getValue();
+
+        if(cap<0)
+            throw ArrayNegativeCapacityException(cap);
+
+        capacities[i]=cap;
+    }
+
+    // Recursion could cause stack overflow
+    std::shared_ptr<ArrayValue> arrayVal=initMultiDArray(
+        0,
+        capacitiesSize,
+        capacities,
+        ex->getReturnType()
+    );
+    
+    push(arrayVal);
 }
 
 void Interpreter::visit(LiteralExpression* ex){
@@ -426,5 +497,71 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         }
         default:
             break;
+    }
+}
+
+void Interpreter::visit(SetOperatorExpression* ex){
+
+    auto op=ex->getOp();
+    
+    ex->getExHasGetOp()->accept(this);
+    auto valHasGet=pop();
+
+    ex->getIndexEx()->accept(this);
+    auto index=top();
+
+    valHasGet->linkWithClass();
+    ex->getExOfGet()->getFun()->accept(this);
+    valHasGet->unlinkWithClass();
+    auto valueOfGet=pop();
+
+    switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+        case SetOperatorExpression::Operator::POW_EQUAL:
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
+            push(valueOfGet);
+            ex->getValueEx()->accept(this);
+        }
+        default:break;
+    }
+
+    valueOfGet->linkWithClass();
+    ex->getFunOfOp()->accept(this);
+    valueOfGet->unlinkWithClass();
+    auto valueToSet=pop();
+
+    push(index);
+    push(valueToSet);
+
+    valHasGet->linkWithClass();
+    ex->getFunOfSet()->accept(this);
+    valHasGet->unlinkWithClass();
+
+    switch(op){
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:{
+            pop();
+            push(index);
+            valHasGet->linkWithClass();
+            ex->getExOfGet()->getFun()->accept(this);
+            valHasGet->unlinkWithClass();
+            break;
+        }
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:{
+            pop();
+            push(valueOfGet);
+            break;
+        }
+        default:break;
     }
 }

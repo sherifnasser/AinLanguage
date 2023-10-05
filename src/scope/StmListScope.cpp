@@ -8,7 +8,7 @@ StmListScope::StmListScope(std::wstring name,SharedBaseScope parentScope)
 :
     BaseScope(name,parentScope),
     locals(
-        std::make_shared<std::map<std::wstring,SharedVariable>>()
+        std::make_shared<std::unordered_map<std::wstring,SharedVariable>>()
     ),
     stmList(
         std::make_shared<std::vector<SharedIStatement>>()

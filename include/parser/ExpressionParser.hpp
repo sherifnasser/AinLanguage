@@ -32,11 +32,11 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parseIdentifierExpression();
 
-        SharedIExpression parseNewObjectExpression();
+        SharedIExpression parseNewExpression();
 
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
 
-        SharedIExpression parsePostIncDecExpression(SharedIExpression inside);
+        SharedIExpression parsePostOpExpression(SharedIExpression inside);
         
         bool currentMatchByPrecedence(int precedence);
 
