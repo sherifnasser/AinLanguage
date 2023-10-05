@@ -14,37 +14,19 @@ We plan to make the language self-hosted, which means, **Ain** will be written i
 
 [Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
-# Bug fixes in v0.1.1
-
-Fix https://github.com/sherifnasser/AinLanguage/issues/32
-
-# What's new in v0.1
+# What's new in v0.2
 
 #### New in the language
 
-* Support unary operators
+* Arrays
 
-* Support break and continue statements
+* Get and set operators
 
-* Support multiple constructors in a class
-
-* Fix [#26](https://github.com/sherifnasser/AinLanguage/issues/26) and [#27](https://github.com/sherifnasser/AinLanguage/issues/27)
+* Bitwise operators
 
 #### New for contributors
 
-* Use visitor pattern
-  
-* Add [`ASTNode`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/AST/ASTNode.hpp) and [`ASTVistior`](https://github.com/sherifnasser/AinLanguage/blob/main/include/parser/AST/ASTVistior.hpp)
-
-* Move checking to [`SemanticsChecksVisitor`](https://github.com/sherifnasser/AinLanguage/blob/main/include/semantics/SemanticsChecksVisitor.hpp)
-
-* Move interpretation to [`Interpreter`](https://github.com/sherifnasser/AinLanguage/blob/main/include/Interpreter.hpp)
-
-# TODO in v0.2
-
-* Basic support for arrays
-
-* Support bitwise operators
+* Add [`SetOperatorExpression`](https://github.com/sherifnasser/AinLanguage/blob/main/include/expression/SetOperatorExpression.hpp), [`NewArrayExpression`](https://github.com/sherifnasser/AinLanguage/blob/main/include/expression/ASTVistior.hpp) and [`AugmentedAssignStatement`](https://github.com/sherifnasser/AinLanguage/blob/main/include/statement/AugmentedAssignStatement.hpp)
 
 # Ain and Unicode
 **Ain** currently doesn't support some Unicode characters for some languages.
