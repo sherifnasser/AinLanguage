@@ -13,6 +13,7 @@ class OperatorFunInvokeExpression:public NonStaticFunInvokeExpression{
             LOGICAL_NOT,BIT_NOT,
             PRE_INC,PRE_DEC,POST_INC,POST_DEC,
             GET,
+            SET_EQUAL, // Should be used when the operator of set is equal
         };
         OperatorFunInvokeExpression(
             int lineNumber,

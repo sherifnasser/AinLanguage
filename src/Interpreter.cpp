@@ -6,6 +6,7 @@
 #include "IntValue.hpp"
 #include "ObjectValue.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
 #include "UnitValue.hpp"
 #include "Variable.hpp"
@@ -496,5 +497,71 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         }
         default:
             break;
+    }
+}
+
+void Interpreter::visit(SetOperatorExpression* ex){
+
+    auto op=ex->getOp();
+    
+    ex->getExHasGetOp()->accept(this);
+    auto valHasGet=pop();
+
+    ex->getIndexEx()->accept(this);
+    auto index=top();
+
+    valHasGet->linkWithClass();
+    ex->getExOfGet()->getFun()->accept(this);
+    valHasGet->unlinkWithClass();
+    auto valueOfGet=pop();
+
+    switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+        case SetOperatorExpression::Operator::POW_EQUAL:
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
+            push(valueOfGet);
+            ex->getValueEx()->accept(this);
+        }
+        default:break;
+    }
+
+    valueOfGet->linkWithClass();
+    ex->getFunOfOp()->accept(this);
+    valueOfGet->unlinkWithClass();
+    auto valueToSet=pop();
+
+    push(index);
+    push(valueToSet);
+
+    valHasGet->linkWithClass();
+    ex->getFunOfSet()->accept(this);
+    valHasGet->unlinkWithClass();
+
+    switch(op){
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:{
+            pop();
+            push(index);
+            valHasGet->linkWithClass();
+            ex->getExOfGet()->getFun()->accept(this);
+            valHasGet->unlinkWithClass();
+            break;
+        }
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:{
+            pop();
+            push(valueOfGet);
+            break;
+        }
+        default:break;
     }
 }

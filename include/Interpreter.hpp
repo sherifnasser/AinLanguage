@@ -29,6 +29,7 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "SetOperatorExpression.hpp"
 
 #include "ArrayValue.hpp"
 #include <memory>
@@ -100,6 +101,7 @@ class Interpreter:public ASTVisitor{
         void visit(NonStaticVarAccessExpression* ex)override;
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
+        void visit(SetOperatorExpression* ex)override;
 };
 
 template<typename T>

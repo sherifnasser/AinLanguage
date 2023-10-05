@@ -11,8 +11,6 @@ class SetOperatorExpression:public IExpression{
             SHR_EQUAL,SHL_EQUAL,
             BIT_AND_EQUAL,XOR_EQUAL,
             BIT_OR_EQUAL,BIT_NOT_EQUAL,
-            
-            EQUAL,
 
             PRE_INC,PRE_DEC,
             POST_INC,POST_DEC,
@@ -27,7 +25,7 @@ class SetOperatorExpression:public IExpression{
 
         void accept(ASTVisitor *visitor) override;
 
-        SharedIExpression getArrayEx()const;
+        SharedIExpression getExHasGetOp()const;
 
         SharedOpFunInvokeExpression getExOfGet()const;
 

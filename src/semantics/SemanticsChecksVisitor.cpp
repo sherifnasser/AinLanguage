@@ -582,54 +582,36 @@ void SemanticsChecksVisitor::visit(SetOperatorExpression* ex){
 
     exOfGet->accept(this);
 
-    auto lType=exOfGet->getReturnType();
-    
+    auto typeOfGetEx=exOfGet->getReturnType();
 
-    SharedType valueType;
+    std::vector<SharedType> paramsTypes;
 
-    if(ex->getOp()!=SetOperatorExpression::Operator::EQUAL){
-
-        std::vector<SharedType> paramsTypes;
-
-        // When operator is not inc or dec operators
-        if(auto exOfValue=ex->getValueEx()){
-            exOfValue->accept(this);
-            auto exType=exOfValue->getReturnType();
-            paramsTypes.push_back(exType);
-            valueType=exType;
-        }else{
-            valueType=lType; // type of ex of get
-        }
-        
-        std::wstring opFunName=getOpFunNameOfSetOp(ex->getOp());
-
-        auto opFun=findOpFunInType(
-            lType,
-            opFunName,
-            paramsTypes,
-            lineNumber
-        );
-
-        auto rType=opFun->getReturnType();
-
-        if(*lType!=*rType)
-            throw UnexpectedTypeException(
-                lineNumber,
-                *lType->getName(),
-                *rType->getName()
-            );
-
-        ex->setFunOfOp(opFun);
-
-        valueType=opFun->getReturnType();
+    // When operator is not inc or dec operators
+    if(auto exOfValue=ex->getValueEx()){
+        exOfValue->accept(this);
+        auto exType=exOfValue->getReturnType();
+        paramsTypes.push_back(exType);
     }
+    
+    std::wstring opFunName=getOpFunNameOfSetOp(ex->getOp());
+
+    auto opFun=findOpFunInType(
+        typeOfGetEx,
+        opFunName,
+        paramsTypes,
+        lineNumber
+    );
+
+    ex->setFunOfOp(opFun);
+
+    auto typeOfValueToSet=opFun->getReturnType();
 
     auto funOfSet=findOpFunInType(
-        ex->getArrayEx()->getReturnType(),
+        ex->getExHasGetOp()->getReturnType(),
         OperatorFunctions::SET_NAME,
         {
             ex->getIndexEx()->getReturnType(),
-            valueType
+            typeOfValueToSet
         },
         lineNumber
     );

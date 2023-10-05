@@ -12,7 +12,7 @@ SetOperatorExpression::SetOperatorExpression(
     op(op)
 {}
 
-SharedIExpression SetOperatorExpression::getArrayEx()const{
+SharedIExpression SetOperatorExpression::getExHasGetOp()const{
     return this->exOfGet->getInside();
 }
 
