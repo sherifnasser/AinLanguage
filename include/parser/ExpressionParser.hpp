@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseParser.hpp"
+#include "LexerToken.hpp"
 #include "NumberToken.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "SharedPtrTypes.hpp"
@@ -16,6 +17,9 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parse()override;
     private:
+
+        int prevLineNumber;
+        
         static const int LOWEST_PRECEDENCE=11;
 
         TypeParserProvider typeParserProvider;
@@ -45,5 +49,11 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
         SharedIValue parseNumberValue(NumberToken::NUMBER_TYPE numType,std::wstring value);
 
         SharedVector<SharedIExpression> expectFunArgs();
+
+        void next();
+
+        bool nextMatch(LexerToken expected);
+
+        bool currentMatchInSameLine(LexerToken expected);
         
 };
