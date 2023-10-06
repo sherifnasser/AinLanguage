@@ -14,6 +14,9 @@ We plan to make the language self-hosted, which means, **Ain** will be written i
 
 [Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
+# Bug fixes in v0.2.1
+Fix #35
+
 # What's new in v0.2
 
 #### New in the language

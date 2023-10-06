@@ -48,6 +48,7 @@ ExpressionParser::ExpressionParser(
 ):BaseParser(iterator,scope),typeParserProvider(typeParserProvider){}
 
 SharedIExpression ExpressionParser::parse(){
+    prevLineNumber=iterator->lineNumber;
     return parseBinaryOperatorExpression();
 }
 
@@ -62,7 +63,7 @@ SharedIExpression ExpressionParser::parseBinaryOperatorExpression(int precedence
 
         auto op=iterator->currentToken();
 
-        iterator->next();
+        next();
         
         auto right=parseBinaryOperatorExpression(precedence-1);
 
@@ -150,7 +151,7 @@ SharedIExpression ExpressionParser::parseUnaryOperatorExpression(){
     
     auto lineNumber=iterator->lineNumber;
 
-    iterator->next();
+    next();
 
     auto primary=parsePrimaryExpression();
     
@@ -196,13 +197,13 @@ SharedIExpression ExpressionParser::parseParenthesesExpression(){
     if(!iterator->currentMatch(SymbolToken::LEFT_PARENTHESIS))
         return nullptr;
     
-    iterator->next();
+    next();
 
     auto ex=parse();
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    iterator->next();
+    next();
 
     return ex;
 }
@@ -212,13 +213,13 @@ SharedIExpression ExpressionParser::parseLiteralExpression(){
     int lineNumber=iterator->lineNumber;
 
     if(iterator->currentMatch(KeywordToken::TRUE)){
-        iterator->next();
+        next();
         auto value=std::make_shared<BoolValue>(true);
         return std::make_shared<LiteralExpression>(lineNumber,value);
     }
 
     if(iterator->currentMatch(KeywordToken::FALSE)){
-        iterator->next();
+        next();
         auto value=std::make_shared<BoolValue>(false);
         return std::make_shared<LiteralExpression>(lineNumber,value);
     }
@@ -257,7 +258,7 @@ SharedIExpression ExpressionParser::parseLiteralExpression(){
         default:{}
     }
 
-    iterator->next();
+    next();
 
     return std::make_shared<LiteralExpression>(lineNumber,value);
 }
@@ -271,7 +272,9 @@ SharedIExpression ExpressionParser::parseIdentifierExpression(){
     
     auto id=iterator->currentVal();
 
-    if(iterator->nextMatch(SymbolToken::LEFT_PARENTHESIS)){
+    next();
+
+    if(currentMatchInSameLine(SymbolToken::LEFT_PARENTHESIS)){
         auto args=expectFunArgs();
         
         auto funEx=std::make_shared<FunInvokeExpression>(
@@ -310,7 +313,7 @@ SharedIExpression ExpressionParser::parseNewExpression(){
     
     int lineNumber=iterator->lineNumber;
 
-    iterator->next();
+    next();
 
     auto type=typeParserProvider(iterator,scope)->parse();
 
@@ -318,7 +321,7 @@ SharedIExpression ExpressionParser::parseNewExpression(){
     auto arraysCapacities=std::vector<SharedIExpression>();
 
     while(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
-        iterator->next();
+        next();
 
         auto ex=parse();
 
@@ -329,7 +332,7 @@ SharedIExpression ExpressionParser::parseNewExpression(){
         
         expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
 
-        iterator->next();
+        next();
     }
 
     // ANCHOR: Do we need to specify maximum dimension of an array?
@@ -360,15 +363,17 @@ SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpres
     
     inside=ex;
     
-    iterator->next();
+    next();
     
     int lineNumber=iterator->lineNumber;
 
     // TODO: right might be inner class instantiation
 
     auto id=expectIdentifier();
+
+    next();
     
-    if(iterator->nextMatch(SymbolToken::LEFT_PARENTHESIS))
+    if(currentMatchInSameLine(SymbolToken::LEFT_PARENTHESIS))
         ex=std::make_shared<NonStaticFunInvokeExpression>(
             lineNumber,
             id,
@@ -391,18 +396,18 @@ SharedIExpression ExpressionParser::parsePostOpExpression(SharedIExpression insi
 
     auto lineNumber=iterator->lineNumber;
 
-    if(iterator->currentMatch(SymbolToken::PLUS_PLUS))
+    if(currentMatchInSameLine(SymbolToken::PLUS_PLUS))
         op=OperatorFunInvokeExpression::Operator::POST_INC;
 
-    else if(iterator->currentMatch(SymbolToken::MINUS_MINUS))
+    else if(currentMatchInSameLine(SymbolToken::MINUS_MINUS))
         op=OperatorFunInvokeExpression::Operator::POST_DEC;
 
-    else if(iterator->currentMatch(SymbolToken::LEFT_SQUARE_BRACKET)){
+    else if(currentMatchInSameLine(SymbolToken::LEFT_SQUARE_BRACKET)){
         op=OperatorFunInvokeExpression::Operator::GET;
-        iterator->next();
+        next();
         auto indexEx=parse();
         expectSymbol(SymbolToken::RIGHT_SQUARE_BRACKET);
-        iterator->next();
+        next();
 
         auto args=std::make_shared<std::vector<SharedIExpression>>(
             std::vector<SharedIExpression>{indexEx}
@@ -420,7 +425,7 @@ SharedIExpression ExpressionParser::parsePostOpExpression(SharedIExpression insi
     else
         return inside;
 
-    iterator->next();
+    next();
 
     auto insideAsGetEx=IExpression::isGetOpFunInvokeExpression(inside);
 
@@ -456,49 +461,49 @@ SharedIExpression ExpressionParser::parsePostOpExpression(SharedIExpression insi
 bool ExpressionParser::currentMatchByPrecedence(int precedence){
     switch(precedence){
         case 1:
-            return iterator->currentMatch(SymbolToken::POWER);
+            return currentMatchInSameLine(SymbolToken::POWER);
         case 2:
             return
-                iterator->currentMatch(SymbolToken::STAR)
+                currentMatchInSameLine(SymbolToken::STAR)
                 ||
-                iterator->currentMatch(SymbolToken::SLASH)
+                currentMatchInSameLine(SymbolToken::SLASH)
                 ||
-                iterator->currentMatch(SymbolToken::MODULO)
+                currentMatchInSameLine(SymbolToken::MODULO)
             ;
         case 3:
             return
-                iterator->currentMatch(SymbolToken::PLUS)
+                currentMatchInSameLine(SymbolToken::PLUS)
                 ||
-                iterator->currentMatch(SymbolToken::MINUS)
+                currentMatchInSameLine(SymbolToken::MINUS)
             ;
         case 4:
             return
-                iterator->currentMatch(SymbolToken::GREATER_EQUAL)
+                currentMatchInSameLine(SymbolToken::GREATER_EQUAL)
                 ||
-                iterator->currentMatch(SymbolToken::LESS_EQUAL)
+                currentMatchInSameLine(SymbolToken::LESS_EQUAL)
                 ||
-                iterator->currentMatch(SymbolToken::LEFT_ANGLE_BRACKET)
+                currentMatchInSameLine(SymbolToken::LEFT_ANGLE_BRACKET)
                 ||
-                iterator->currentMatch(SymbolToken::RIGHT_ANGLE_BRACKET)
+                currentMatchInSameLine(SymbolToken::RIGHT_ANGLE_BRACKET)
             ;
         case 5:
             return
-                iterator->currentMatch(SymbolToken::EQUAL_EQUAL)
+                currentMatchInSameLine(SymbolToken::EQUAL_EQUAL)
                 ||
-                iterator->currentMatch(SymbolToken::NOT_EQUAL)
+                currentMatchInSameLine(SymbolToken::NOT_EQUAL)
             ;
         case 6:
             return
-                iterator->currentMatch(SymbolToken::SHR)
+                currentMatchInSameLine(SymbolToken::SHR)
                 ||
-                iterator->currentMatch(SymbolToken::SHL)
+                currentMatchInSameLine(SymbolToken::SHL)
             ;
         case 7:
-            return iterator->currentMatch(SymbolToken::AMPERSAND);
+            return currentMatchInSameLine(SymbolToken::AMPERSAND);
         case 8:
-            return iterator->currentMatch(SymbolToken::XOR);
+            return currentMatchInSameLine(SymbolToken::XOR);
         case 9:
-            return iterator->currentMatch(SymbolToken::BAR);
+            return currentMatchInSameLine(SymbolToken::BAR);
         case 10:
             return iterator->currentMatch(SymbolToken::LOGICAL_AND);
         case 11:
@@ -592,7 +597,7 @@ SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){
 
     do{
 
-        if(iterator->nextMatch(SymbolToken::RIGHT_PARENTHESIS))
+        if(nextMatch(SymbolToken::RIGHT_PARENTHESIS))
             break;
 
         auto arg=parse();
@@ -603,7 +608,25 @@ SharedVector<SharedIExpression> ExpressionParser::expectFunArgs(){
 
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    iterator->next();
+    next();
 
     return args;
+}
+
+void ExpressionParser::next(){
+    prevLineNumber=iterator->lineNumber;
+    iterator->next();
+}
+
+bool ExpressionParser::nextMatch(LexerToken expected){
+    prevLineNumber=iterator->lineNumber;
+    return iterator->nextMatch(expected);
+}
+
+bool ExpressionParser::currentMatchInSameLine(LexerToken expected){
+    return
+        prevLineNumber==iterator->lineNumber
+        &&
+        iterator->currentMatch(expected)
+    ;
 }
