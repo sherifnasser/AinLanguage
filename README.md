@@ -14,8 +14,11 @@ We plan to make the language self-hosted, which means, **Ain** will be written i
 
 [Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
+# Bug fixes in v0.2.2
+Fix https://github.com/sherifnasser/AinLanguage/issues/41
+
 # Bug fixes in v0.2.1
-Fix #35
+Fix https://github.com/sherifnasser/AinLanguage/issues/35
 
 # What's new in v0.2
 
@@ -37,7 +40,7 @@ Fix #35
 Also, **Ain** prevents Unicode characters that are considered Kufr or prohibited in Islam (Crosses, pride, music, etc.).
 
 # Terminal RTL support
-To support autodetecting of RTL text in your terminal emulator, you could run the command
+To support auto-detecting of RTL text in your terminal emulator, you could run the command
 
 ```console
 printf "\e[?2501h"
