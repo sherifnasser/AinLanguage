@@ -257,7 +257,7 @@ SharedIStatement StmListParser::parseReturnStatement(SharedStmListScope parentSc
 
     iterator->next();
 
-    auto ex=expressionParserProvider(iterator,scope)->parse();
+    auto ex=expressionParserProvider(iterator,parentScope)->parse();
 
     if(!ex)
         ex=std::make_shared<UnitExpression>(lineNumber);
@@ -352,7 +352,7 @@ SharedIStatement StmListParser::parseAsSetOperatorExStm(
     
     iterator->next();
 
-    auto valueToSetEx=expressionParserProvider(iterator,scope)->parse();
+    auto valueToSetEx=expressionParserProvider(iterator,parentScope)->parse();
         
     if(!valueToSetEx)
         throw ExpressionExpectedException(iterator->lineNumber);
@@ -447,7 +447,7 @@ SharedIStatement StmListParser::parseAsAssignStm(
 
     iterator->next();
     
-    auto rightEx=expressionParserProvider(iterator,scope)->parse();
+    auto rightEx=expressionParserProvider(iterator,parentScope)->parse();
 
     if(!rightEx)
         throw ExpressionExpectedException(iterator->lineNumber);

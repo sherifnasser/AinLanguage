@@ -46,6 +46,17 @@ void Interpreter::runStmList(StmListScope* scope){
     }
 }
 
+void Interpreter::initStmListLocals(StmListScope* scope){
+    
+    auto locals=scope->getLocals();
+
+    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
+        auto varName=localIt->first;
+        auto var=localIt->second;
+        var->pushNewValue();
+    }
+}
+
 void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
 
     auto insideVal=pop();
@@ -166,14 +177,10 @@ void Interpreter::visit(FunScope* scope){
 
     if(isConstructor)
         decl->returnType->getClassScope()->accept(this);
-    
+
     auto locals=scope->getLocals();
 
-    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
-        auto varName=localIt->first;
-        auto var=localIt->second;
-        var->pushNewValue();
-    }
+    initStmListLocals(scope);
 
     auto params=decl->params;
     for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
@@ -225,10 +232,12 @@ void Interpreter::visit(BuiltInFunScope* scope){
 }
 
 void Interpreter::visit(LoopScope* scope){
+    initStmListLocals(scope);
     runStmList(scope);
 }
 
 void Interpreter::visit(StmListScope* scope){
+    initStmListLocals(scope);
     runStmList(scope);
 }
 
@@ -247,9 +256,9 @@ void Interpreter::visit(AssignStatement* stm){
 void Interpreter::visit(AugmentedAssignStatement* stm){
     
     stm->getLeft()->accept(assigner);
-    auto leftVal=top();
+    auto leftVal=pop();
 
-    stm->getRight()->accept(assigner);
+    stm->getRight()->accept(this);
     auto rightVal=top();
 
     leftVal->linkWithClass();
