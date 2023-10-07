@@ -256,9 +256,9 @@ void Interpreter::visit(AssignStatement* stm){
 void Interpreter::visit(AugmentedAssignStatement* stm){
     
     stm->getLeft()->accept(assigner);
-    auto leftVal=top();
+    auto leftVal=pop();
 
-    stm->getRight()->accept(assigner);
+    stm->getRight()->accept(this);
     auto rightVal=top();
 
     leftVal->linkWithClass();
