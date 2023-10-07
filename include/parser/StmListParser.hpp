@@ -6,7 +6,7 @@
 #include <memory>
 class StmListParser:public BaseParser<SharedStmList>{
     private:
-        SharedBaseParser<SharedVarStm> varStmParser;
+        VarStmParserProvider varStmParserProvider;
         ExpressionParserProvider expressionParserProvider;
     public:
         StmListParser(

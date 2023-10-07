@@ -57,6 +57,7 @@ class Interpreter:public ASTVisitor{
         SharedIValue top();
         SharedIValue pop();
         void runStmList(StmListScope* scope);
+        void initStmListLocals(StmListScope* scope);
         template<typename T>
         std::shared_ptr<T> popAs();
         template<typename T>
