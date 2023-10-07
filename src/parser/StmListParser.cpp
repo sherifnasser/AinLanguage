@@ -38,9 +38,7 @@ StmListParser::StmListParser(
     ExpressionParserProvider expressionParserProvider
 )
 : BaseParser(iterator,scope),
-varStmParser(
-    varStmParserProvider(iterator,scope)
-),
+varStmParserProvider(varStmParserProvider),
 expressionParserProvider(expressionParserProvider)
 {}
 
@@ -123,7 +121,7 @@ SharedIStatement StmListParser::parseNextStatement(SharedStmListScope parentScop
 }
 
 SharedIStatement StmListParser::parseVarStatement(SharedStmListScope parentScope) {
-    auto varStm=varStmParser->parse();
+    auto varStm=varStmParserProvider(iterator,parentScope)->parse();
 
     if(!varStm)
         return nullptr;
