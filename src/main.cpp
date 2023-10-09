@@ -31,6 +31,7 @@
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "Type.hpp"
+#include "InterpreterV2.hpp"
 
 auto typeParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     return std::make_shared<TypeParser>(
@@ -171,8 +172,8 @@ int main(int argc, char * argv[]){
         
         delete checker;
 
-        auto interpreter=new Interpreter;
-        auto assigner=new Interpreter::Assigner(interpreter);
+        auto interpreter=new InterpreterV2;
+        auto assigner=new InterpreterV2::Assigner(interpreter);
         interpreter->assigner=assigner;
         
         auto main=PackageScope::AIN_PACKAGE->
