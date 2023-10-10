@@ -10,7 +10,7 @@
 #include "DoWhileStatement.hpp"
 class VarsOffsetSetter:public ASTVisitor{
     public:
-        
+        int stmListScopeOffset;
         struct Offset{
             Offset(int* reg, int value);
             Offset();

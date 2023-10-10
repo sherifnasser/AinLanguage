@@ -24,16 +24,14 @@ BX(BX){}
 void VarsOffsetSetter::offsetStmListScope(StmListScope* scope){
     auto locals=scope->getLocals();
 
-    auto offset=1;
-
     for(auto varIt:*scope->getLocals()){
         
         (*offsets)[varIt.second.get()]=Offset(
             BP,
-            offset
+            stmListScopeOffset
         );
 
-        offset++;
+        stmListScopeOffset++;
     }
 
     for(auto stm:*scope->getStmList())
@@ -112,7 +110,7 @@ void VarsOffsetSetter::visit(FunScope* scope){
 
     }
 
-    offset=1;
+    stmListScopeOffset=1;
     for(auto varIt:*scope->getLocals()){
         
         auto paramOffsetIt=paramsOffsets.find(varIt.first);
@@ -120,12 +118,12 @@ void VarsOffsetSetter::visit(FunScope* scope){
         (*offsets)[varIt.second.get()]=Offset(
             BP,
             (paramOffsetIt==paramsOffsets.end())
-            ?offset
+            ?stmListScopeOffset
             :paramOffsetIt->second
         );
 
         if(paramOffsetIt==paramsOffsets.end())
-            offset++;
+            stmListScopeOffset++;
     }
 
     for(auto stm:*scope->getStmList())

@@ -348,21 +348,16 @@ void InterpreterV2::visit(IfStatement* stm){
 
 void InterpreterV2::visit(WhileStatement* stm){
     
-    stm->getCondition()->accept(this);
-
-    if(popAs<BoolValue>()->getValue()){
-        push(new IntValue(*BP));
-        *BP=*SP;
-    }
-
     while(true){
+        stm->getCondition()->accept(this);
 
+        if(!popAs<BoolValue>()->getValue())
+            break;
+        
         stm->getLoopScope()->accept(this);
- 
-        if(loopContinue){
+
+        if(loopContinue)
             loopContinue=false;
-            *SP=*BP;
-        }
 
         if(loopBreak){
             loopBreak=false;
@@ -371,31 +366,17 @@ void InterpreterV2::visit(WhileStatement* stm){
 
         if(funReturn)
             break;
-            
-        stm->getCondition()->accept(this);
-
-        if(!popAs<BoolValue>()->getValue())
-            break;
         
     }
-
-    *SP=*BP;
-    *BP=popAs<IntValue>()->getValue();
 }
 
 void InterpreterV2::visit(DoWhileStatement* stm){
 
-    push(new IntValue(*BP));
-
-    *BP=*SP;
-
     do{
         stm->getLoopScope()->accept(this);
 
-        if(loopContinue){
+        if(loopContinue)
             loopContinue=false;
-            *SP=*BP;
-        }
 
         if(loopBreak){
             loopBreak=false;
@@ -411,9 +392,6 @@ void InterpreterV2::visit(DoWhileStatement* stm){
             break;
         
     }while(true);
-
-    *SP=*BP;
-    *BP=popAs<IntValue>()->getValue();
 }
 
 void InterpreterV2::visit(BreakStatement* stm){
