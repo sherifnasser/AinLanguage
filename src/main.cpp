@@ -32,6 +32,7 @@
 #include "FunScope.hpp"
 #include "Type.hpp"
 #include "InterpreterV2.hpp"
+#include "VarsOffsetSetter.hpp"
 
 auto typeParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     return std::make_shared<TypeParser>(
@@ -174,13 +175,22 @@ int main(int argc, char * argv[]){
 
         auto interpreter=new InterpreterV2;
         auto assigner=new InterpreterV2::Assigner(interpreter);
+        auto varsOffsetSetter=new VarsOffsetSetter(
+            &interpreter->offsets,
+            interpreter->BP,
+            interpreter->BX
+        );
+
+        PackageScope::AIN_PACKAGE->accept(varsOffsetSetter);
+
+        delete varsOffsetSetter;
+
         interpreter->assigner=assigner;
         
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
         
-        PackageScope::AIN_PACKAGE->accept(interpreter);
         main->accept(interpreter);
 
         delete assigner;

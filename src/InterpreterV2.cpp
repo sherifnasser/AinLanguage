@@ -46,38 +46,6 @@ IValue* InterpreterV2::pop(){
     return val;
 }
 
-void InterpreterV2::offsetFunVars(FunScope* scope){
-    auto params=scope->getDecl()->params;
-    auto locals=scope->getLocals();
-
-    auto paramsOffsets=std::unordered_map<std::wstring,int>{};
-
-    auto offset=-1;
-    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
-
-        paramsOffsets[
-            *paramIt->get()->name
-        ]=offset--;
-
-    }
-
-    offset=1;
-    for(auto varIt:*scope->getLocals()){
-        
-        auto paramOffsetIt=paramsOffsets.find(varIt.first);
-        
-        offsets[varIt.second.get()]=Offset(
-            BP,
-            (paramOffsetIt==paramsOffsets.end())
-            ?offset
-            :paramOffsetIt->second
-        );
-
-        if(paramOffsetIt==paramsOffsets.end())
-            offset++;
-    }
-}
-
 void InterpreterV2::runStmList(StmListScope* scope){
     for(auto stm:*scope->getStmList()){
         stm->accept(this);
@@ -186,6 +154,7 @@ ArrayValue* InterpreterV2::initMultiDArray(
 InterpreterV2::InterpreterV2():
     BP(new int(0)),
     SP(new int(0)),
+    BX(new int(0)),
     funReturn(false),
     loopBreak(false),
     loopContinue(false)
@@ -223,22 +192,10 @@ void InterpreterV2::Assigner::visit(OperatorFunInvokeExpression* ex){
 }
 
 void InterpreterV2::visit(PackageScope* scope){
-    for(auto packageIterator:scope->getPackages()){
-        packageIterator.second->accept(this);
-    }
-    for(auto fileIterator:scope->getFiles()){
-        fileIterator.second->accept(this);
-    }
+    // TODO
 }
 
 void InterpreterV2::visit(FileScope* scope){
-
-    for(auto funIt:*scope->getPublicFunctions()){
-        offsetFunVars(funIt.second.get());
-    }
-    for(auto funIt:*scope->getPrivateFunctions()){
-        offsetFunVars(funIt.second.get());
-    }
 
     // TODO: Global variables
     /*
@@ -306,11 +263,9 @@ void InterpreterV2::visit(FunScope* scope){
     }
 
     if(!funReturn&&!isConstructor)
-        push(new UnitValue);
+        AX=new UnitValue;
     
     funReturn=false;
-
-    AX=pop();
 
     *SP=*BP;
 
@@ -401,16 +356,21 @@ void InterpreterV2::visit(IfStatement* stm){
 
 void InterpreterV2::visit(WhileStatement* stm){
     
+    stm->getCondition()->accept(this);
+
+    if(popAs<BoolValue>()->getValue()){
+        push(new IntValue(*BP));
+        *BP=*SP;
+    }
+
     while(true){
-        stm->getCondition()->accept(this);
 
-        if(!popAs<BoolValue>()->getValue())
-            break;
-        
         stm->getLoopScope()->accept(this);
-
-        if(loopContinue)
+ 
+        if(loopContinue){
             loopContinue=false;
+            *SP=*BP;
+        }
 
         if(loopBreak){
             loopBreak=false;
@@ -419,16 +379,31 @@ void InterpreterV2::visit(WhileStatement* stm){
 
         if(funReturn)
             break;
+            
+        stm->getCondition()->accept(this);
+
+        if(!popAs<BoolValue>()->getValue())
+            break;
         
     }
+
+    *SP=*BP;
+    *BP=popAs<IntValue>()->getValue();
 }
 
 void InterpreterV2::visit(DoWhileStatement* stm){
+
+    push(new IntValue(*BP));
+
+    *BP=*SP;
+
     do{
         stm->getLoopScope()->accept(this);
 
-        if(loopContinue)
+        if(loopContinue){
             loopContinue=false;
+            *SP=*BP;
+        }
 
         if(loopBreak){
             loopBreak=false;
@@ -443,8 +418,10 @@ void InterpreterV2::visit(DoWhileStatement* stm){
         if(!popAs<BoolValue>()->getValue())
             break;
         
-    }
-    while(true);
+    }while(true);
+
+    *SP=*BP;
+    *BP=popAs<IntValue>()->getValue();
 }
 
 void InterpreterV2::visit(BreakStatement* stm){
@@ -457,6 +434,7 @@ void InterpreterV2::visit(ContinueStatement* stm){
 
 void InterpreterV2::visit(ReturnStatement* stm){
     stm->getEx()->accept(this);
+    AX=pop();
     funReturn=true;
 }
 
@@ -467,7 +445,8 @@ void InterpreterV2::visit(ExpressionStatement* stm){
 
 void InterpreterV2::visit(VarAccessExpression* ex){
     auto offset=offsets[ex->getVar().get()];
-    push(stack[*offset.reg+offset.value]);
+    auto memory=(offset.reg==BP)?stack:heap;
+    push(memory[*offset.reg+offset.value]);
 }
 
 void InterpreterV2::visit(FunInvokeExpression* ex){
@@ -487,13 +466,7 @@ void InterpreterV2::visit(FunInvokeExpression* ex){
     push(AX); // return value
 }
 
-/*void InterpreterV2::visit(NewObjectExpression* ex){
-
-    // TODO
-
-    push(new IntValue(bp));
-
-    bp=sp;
+void InterpreterV2::visit(NewObjectExpression* ex){
 
     auto args=ex->getArgs();
 
@@ -503,12 +476,12 @@ void InterpreterV2::visit(FunInvokeExpression* ex){
 
     ex->getConstructor()->accept(this);
 
-    sp=bp;
+    for(auto arg:*args){
+        pop();
+    }
 
-    bp=popAs<IntValue>()->getValue();
-
-    push(ax); // return value
-}*/
+    push(AX); // return value
+}
 
 //void InterpreterV2::visit(NewArrayExpression* ex){
     // TODO
@@ -725,13 +698,3 @@ void InterpreterV2::dup(){
 void InterpreterV2::over(){
     push(stack[*SP-1]);
 }
-
-InterpreterV2::Offset::Offset(int* reg, int value):
-    reg(reg),
-    value(value)
-{}
-
-InterpreterV2::Offset::Offset():
-    reg(0),
-    value(0)
-{}

@@ -14,6 +14,7 @@
 #include "AssignStatement.hpp"
 #include "AugmentedAssignStatement.hpp"
 #include "Variable.hpp"
+#include "VarsOffsetSetter.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -57,24 +58,13 @@ class InterpreterV2:public ASTVisitor{
         };
         Assigner* assigner;
     private:
-        struct Offset{
-            Offset(int* reg, int value);
-            Offset();
-            int * reg=0;
-            int value=0;
-        };
-        std::unordered_map<Variable*, Offset> offsets;
         bool funReturn;
         bool loopBreak;
         bool loopContinue;
         IValue* stack[STACK_SIZE];
         IValue* heap[HEAP_SIZE];
         IValue* AX;
-        RefValue* BX;
-        int*const BP;
-        int*const SP;
 
-        void offsetFunVars(FunScope* scope);
         void runStmList(StmListScope* scope);
         void initStmListLocals(StmListScope* scope);
         
@@ -129,6 +119,11 @@ class InterpreterV2:public ASTVisitor{
         T* popAs();
         template<typename T>
         T* topAs();
+
+        std::unordered_map<Variable*, VarsOffsetSetter::Offset> offsets;
+        int*const BX;
+        int*const BP;
+        int*const SP;
 };
 
 template<typename T>

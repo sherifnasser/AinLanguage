@@ -7,6 +7,7 @@ project(AinLanguage)
 add_library(ainsrc
     src/main.cpp
     src/Interpreter.cpp
+    src/VarsOffsetSetter.cpp
     src/lexer/LexerToken.cpp
     src/lexer/Lexer.cpp
     src/lexer/KeywordToken.cpp
