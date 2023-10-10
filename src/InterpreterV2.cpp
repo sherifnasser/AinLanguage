@@ -10,6 +10,7 @@
 #include "Interpreter.hpp"
 #include "ObjectValue.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "OutOfMemoryException.hpp"
 #include "RefValue.hpp"
 #include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
@@ -151,6 +152,37 @@ ArrayValue* InterpreterV2::initMultiDArray(
     return nullptr;
 }
 
+int InterpreterV2::getAvailableHeapAddress(ClassScope* scope){
+    int objSize=scope->getPublicVariables()->size()+scope->getPrivateVariables()->size();
+    int heapAddress=HEAP_SIZE;
+
+    for(int i=0;i<HEAP_SIZE;){
+        if(auto reservedObj=heap[i]){
+            auto reservedObjSize=dynamic_cast<IntValue*>(reservedObj);
+            i+=reservedObjSize->getValue()+1;
+            continue;
+        }
+        int j=i;
+        int lastValidCell=i+objSize;
+        for(;j<=lastValidCell;j++){
+            if(heap[j])
+                break;
+        }
+        if(j>lastValidCell){
+            heapAddress=i;
+            break;
+        }
+        i=j;
+    }
+
+    if(heapAddress>=HEAP_SIZE)
+        throw OutOfMemoryException();
+
+    heap[heapAddress]=new IntValue(objSize);
+
+    return heapAddress;
+}
+
 InterpreterV2::InterpreterV2():
     BP(new int(0)),
     SP(new int(0)),
@@ -168,21 +200,23 @@ void InterpreterV2::Assigner::visit(VarAccessExpression* ex){
         ex->accept(interpreter);
     }else{
         auto offset=interpreter->offsets[ex->getVar().get()];
-        interpreter->stack[*offset.reg+offset.value]=interpreter->pop();
+        auto mem=(offset.reg==interpreter->BP)?interpreter->stack:interpreter->heap;
+        mem[*offset.reg+offset.value]=interpreter->pop();
     }
     assign=!assign;
 }
 
 void InterpreterV2::Assigner::visit(NonStaticVarAccessExpression* ex){
-    // TODO
     if(!assign){
-        /*ex->getInside()->accept(interpreter);
-        auto var=interpreter->topAs<ObjectValue>();
-        interpreter->push(var->findPropertyValue(ex->getVarName()));*/
+        ex->getInside()->accept(interpreter);
+        auto ref=interpreter->topAs<RefValue>()->getAddress();
+        interpreter->push(
+            interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]
+        );
     }else{
-       /*auto val=interpreter->pop();
-        auto var=interpreter->popAs<ObjectValue>();
-        var->assignProperty(ex->getVarName(),val);*/
+        auto val=interpreter->pop();
+        auto ref=interpreter->popAs<RefValue>()->getAddress();
+        interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]=val;
     }
     assign=!assign;
 }
@@ -209,39 +243,10 @@ void InterpreterV2::visit(FileScope* scope){
     scope->getGlobalVarsInitStmList()->accept(this);*/
 }
 
-/*void InterpreterV2::visit(ClassScope* scope){
-
-    int objSize=scope->getPublicVariables()->size()+scope->getPrivateVariables()->size();
-    int heapAddress=HEAP_SIZE;
-
-    for(int i=0;i<HEAP_SIZE;){
-        if(auto reservedObj=heap[i]){
-            auto reservedObjSize=dynamic_cast<IntValue*>(reservedObj);
-            i+=reservedObjSize->getValue()+1;
-            continue;
-        }
-        int j=i;
-        int lastValidCell=i+objSize;
-        for(;j<=lastValidCell;j++){
-            if(heap[j])
-                break;
-        }
-        if(j>lastValidCell){
-            heapAddress=i;
-            break;
-        }
-        i=j;
-    }
-
-
-    if(heapAddress>=HEAP_SIZE)
-        throw; // TODO
-
-    // TODO
-
+void InterpreterV2::visit(ClassScope* scope){
     scope->getVarsInitStmList()->accept(this);
 }
-*/
+
 void InterpreterV2::visit(FunScope* scope){
 
     push(new IntValue(*BP));
@@ -262,7 +267,11 @@ void InterpreterV2::visit(FunScope* scope){
             break;
     }
 
-    if(!funReturn&&!isConstructor)
+    if(isConstructor)
+        AX=new RefValue(*BX);
+
+    // When return type of a function is unit but it reaches its end, without an explicit return
+    else if(!funReturn) 
         AX=new UnitValue;
     
     funReturn=false;
@@ -271,24 +280,6 @@ void InterpreterV2::visit(FunScope* scope){
 
     *BP=popAs<IntValue>()->getValue();
 
-    if(!isConstructor)
-        return;
-
-    /*auto properties=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
-
-    auto classScope=decl->returnType->getClassScope();
-
-    for(auto varIt:*classScope->getPrivateVariables()){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-    for(auto varIt:*classScope->getPublicVariables()){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-
-    push(std::make_shared<ObjectValue>(decl->returnType,properties));
-*/
 }
 
 void InterpreterV2::visit(BuiltInFunScope* scope){
@@ -313,7 +304,8 @@ void InterpreterV2::visit(StmListScope* scope){
 void InterpreterV2::visit(VarStm* stm){
     stm->getEx()->accept(this);
     auto offset=offsets[stm->getVar().get()];
-    stack[*offset.reg+offset.value]=pop();
+    auto mem=(offset.reg==BP)?stack:heap;
+    mem[*offset.reg+offset.value]=pop();
 }
 
 void InterpreterV2::visit(AssignStatement* stm){
@@ -468,6 +460,12 @@ void InterpreterV2::visit(FunInvokeExpression* ex){
 
 void InterpreterV2::visit(NewObjectExpression* ex){
 
+    int heapAddress=getAvailableHeapAddress(ex->getReturnType()->getClassScope().get());
+
+    push(new RefValue(*BX));
+
+    *BX=heapAddress;
+
     auto args=ex->getArgs();
 
     for(auto arg:*args){
@@ -480,7 +478,9 @@ void InterpreterV2::visit(NewObjectExpression* ex){
         pop();
     }
 
-    push(AX); // return value
+    *BX=popAs<RefValue>()->getAddress();
+
+    push(AX); // return address of object
 }
 
 //void InterpreterV2::visit(NewArrayExpression* ex){
@@ -537,12 +537,14 @@ void InterpreterV2::visit(LogicalExpression* ex){
     ex->getRight()->accept(this);
 }
 
-//void InterpreterV2::visit(NonStaticVarAccessExpression* ex){
-    // TODO
-    /*ex->getInside()->accept(this);
-    auto propVal=popAs<ObjectValue>()->findPropertyValue(ex->getVarName());
-    push(propVal);*/
-//}
+void InterpreterV2::visit(NonStaticVarAccessExpression* ex){
+    ex->getInside()->accept(this);
+    AX=pop();
+    auto ax=dynamic_cast<RefValue*>(AX)->getAddress();
+    push(
+        heap[ax+offsets[ex->getVar().get()].value]
+    );
+}
 
 //void InterpreterV2::visit(NonStaticFunInvokeExpression* ex){
     // TODO

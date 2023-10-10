@@ -78,17 +78,18 @@ class InterpreterV2:public ASTVisitor{
             int capacities[],
             SharedType type
         );
+        int getAvailableHeapAddress(ClassScope* scope);
     public:
         InterpreterV2();
         void visit(PackageScope* scope)override;
         void visit(FileScope* scope)override;
-        //void visit(ClassScope* scope)override;
+        void visit(ClassScope* scope)override;
         void visit(FunScope* scope)override;                    // ANCHOR: DONE
         void visit(BuiltInFunScope* scope)override;             // ANCHOR: DONE
         void visit(LoopScope* scope)override;
         void visit(StmListScope* scope)override;
         void visit(VarStm* stm)override;                        // ANCHOR: DONE
-        void visit(AssignStatement* stm)override;
+        void visit(AssignStatement* stm)override;               // ANCHOR: DONE
         void visit(AugmentedAssignStatement* stm)override;
         void visit(IfStatement* stm)override;
         void visit(WhileStatement* stm)override;
@@ -99,12 +100,12 @@ class InterpreterV2:public ASTVisitor{
         void visit(ExpressionStatement* stm)override;           // ANCHOR: DONE
         void visit(VarAccessExpression* ex)override;            // ANCHOR: DONE
         void visit(FunInvokeExpression* ex)override;            // ANCHOR: DONE
-        //void visit(NewObjectExpression* ex)override;            // TODO
+        void visit(NewObjectExpression* ex)override;            // ANCHOR: DONE
         //void visit(NewArrayExpression* ex)override;             // TODO
         void visit(LiteralExpression* ex)override;              // ANCHOR: DONE
         void visit(UnitExpression* ex)override;                 // ANCHOR: DONE
         void visit(LogicalExpression* ex)override;              // ANCHOR: DONE
-        //void visit(NonStaticVarAccessExpression* ex)override;   // TODO
+        void visit(NonStaticVarAccessExpression* ex)override;   // ANCHOR: DONE
         //void visit(NonStaticFunInvokeExpression* ex)override;   // TODO
         void visit(OperatorFunInvokeExpression* ex)override;    // TODO
         void visit(SetOperatorExpression* ex)override;          // TODO

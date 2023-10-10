@@ -490,7 +490,7 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
     if(publicVar){
         if(!publicVar->getType())
             throw MustHaveExplicitTypeException(lineNumber);
-        
+        ex->setVar(publicVar);
         ex->setReturnType(publicVar->getType());
         return;
     }
@@ -510,7 +510,8 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
 
     if(!privateVar->getType())
         throw MustHaveExplicitTypeException(lineNumber);
-        
+
+    ex->setVar(privateVar);    
     ex->setReturnType(privateVar->getType());
 }
 

@@ -82,6 +82,14 @@ void VarsOffsetSetter::visit(ClassScope* scope){
 
         varsOffset++;
     }
+
+    for(auto constructorIt:*scope->getPublicConstructors()){
+        constructorIt.second->accept(this);
+    }
+    for(auto constructorIt:*scope->getPrivateConstructors()){
+        constructorIt.second->accept(this);
+    }
+    
     for(auto funIt:*scope->getPublicFunctions()){
         funIt.second->accept(this);
     }

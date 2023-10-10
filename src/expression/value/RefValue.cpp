@@ -13,8 +13,10 @@ std::wstring RefValue::toString() {
     return L"";
 }
 
-RefValue::RefValue()
-    : IValue(Type::INT)
-{
+RefValue::RefValue(int value)
+    : IValue(Type::INT),
+    address(value){}
     
+int RefValue::getAddress()const{
+    return address;
 }

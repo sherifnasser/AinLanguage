@@ -25,3 +25,11 @@ std::wstring NonStaticVarAccessExpression::getVarName()const{
 SharedIExpression NonStaticVarAccessExpression::getInside()const{
     return inside;
 }
+
+SharedVariable NonStaticVarAccessExpression::getVar()const{
+    return var;
+}
+
+void NonStaticVarAccessExpression::setVar(SharedVariable var){
+    this->var=var;
+}
