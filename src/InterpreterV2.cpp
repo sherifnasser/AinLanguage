@@ -524,11 +524,30 @@ void InterpreterV2::visit(NonStaticVarAccessExpression* ex){
     );
 }
 
-//void InterpreterV2::visit(NonStaticFunInvokeExpression* ex){
-    // TODO
-    /*ex->getInside()->accept(this);
-    invokeNonStaticFun(ex);*/
-//}
+void InterpreterV2::visit(NonStaticFunInvokeExpression* ex){
+
+    push(new RefValue(*BX));
+
+    ex->getInside()->accept(this);
+
+    *BX=popAs<RefValue>()->getAddress();
+
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    ex->getFun()->accept(this);
+
+    for(auto arg:*args){
+        pop();
+    }
+
+    *BX=popAs<RefValue>()->getAddress();
+
+    push(AX); // return value
+}
 
 void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
     // TODO
