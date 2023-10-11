@@ -94,9 +94,7 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         },
         [](InterpreterV2* interpreter){
             auto input=ainread(false);
-            interpreter->push(
-                new StringValue(input)
-            );
+            interpreter->AX=new StringValue(input);
         }
     );
 
@@ -110,9 +108,7 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         },
         [](InterpreterV2* interpreter){
             auto input=ainread(true);
-            interpreter->push(
-                new StringValue(input)
-            );
+            interpreter->AX=new StringValue(input);
         }
     );
 
@@ -129,7 +125,7 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
     [](InterpreterV2* interpreter){
         auto msg=interpreter->top();
         ainprint(msg->toString(), false);
-        interpreter->push(new UnitValue);
+        interpreter->AX=new UnitValue;
     };
 
     auto PRINTLN_INVOKE_FUN=
@@ -145,7 +141,7 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
     [](InterpreterV2* interpreter){
         auto msg=interpreter->top();
         ainprint(msg->toString(), true);
-        interpreter->push(new UnitValue);
+        interpreter->AX=new UnitValue;
     };
 
     auto PRINT_INT=std::make_shared<BuiltInFunScope>(
@@ -537,15 +533,12 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
             return std::make_shared<CharValue>(charValue);
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<IntValue>()->getValue();
+            auto val=dynamic_cast<IntValue*>(interpreter->AX)->getValue();
             wchar_t charValue=static_cast<wchar_t>(val);
             if(isKufrOrUnsupportedCharacter(charValue))
                 throw; // TODO
-            interpreter->push(
-                new CharValue(charValue)
-            );
-        },
-        true
+            interpreter->AX=new CharValue(charValue);
+        }
     );
 
     auto SHR=getShrFun<PrimitiveType,IntValue>(classScope,Type::INT);
@@ -1545,10 +1538,8 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
             return std::make_shared<BoolValue>(!value);
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<BoolValue>()->getValue();
-            interpreter->push(
-                new BoolValue(!val)
-            );
+            auto val=dynamic_cast<BoolValue*>(interpreter->AX)->getValue();
+            interpreter->AX=new BoolValue(!val);
         },
         true
     );
@@ -1570,12 +1561,8 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
             );
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<BoolValue>();
-            interpreter->push(
-                new StringValue(val->toString())
-            );
-        },
-        true
+            interpreter->AX=new StringValue(interpreter->AX->toString());
+        }
     );
 
     auto BIT_AND=getBitAndFun<PrimitiveType,BoolValue>(
@@ -1629,15 +1616,12 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
             return std::make_shared<CharValue>(charValue);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<CharValue>()->getValue();
-            auto b=interpreter->topAs<IntValue>()->getValue();
+            auto a=dynamic_cast<CharValue*>(interpreter->AX)->getValue();
+            auto b=dynamic_cast<IntValue*>(interpreter->CX)->getValue();
             auto charValue=static_cast<wchar_t>(a+b);
             if(isKufrOrUnsupportedCharacter(charValue))
                 throw; // TODO
-            interpreter->push(
-                new CharValue(charValue)
-            );
+            interpreter->AX=new CharValue(charValue);
         },
         true
     );
@@ -1655,15 +1639,9 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
             return std::make_shared<StringValue>(val);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<CharValue>()->getValue();
-            auto b=interpreter->topAs<StringValue>()->getValue();
-            std::wstring val=L"";
-            val+=a;
-            val+=b;
-            interpreter->push(
-                new StringValue(val)
-            );
+            auto a=interpreter->AX->toString();
+            auto b=interpreter->CX->toString();
+            interpreter->AX=new StringValue(a+b);
         },
         true
     );
@@ -1681,15 +1659,12 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
             return std::make_shared<CharValue>(charValue);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<CharValue>()->getValue();
-            auto b=interpreter->topAs<IntValue>()->getValue();
+            auto a=dynamic_cast<CharValue*>(interpreter->AX)->getValue();
+            auto b=dynamic_cast<IntValue*>(interpreter->CX)->getValue();
             auto charValue=static_cast<wchar_t>(a-b);
             if(isKufrOrUnsupportedCharacter(charValue))
                 throw; // TODO
-            interpreter->push(
-                new CharValue(charValue)
-            );
+            interpreter->AX=new CharValue(charValue);
         },
         true
     );
@@ -1723,9 +1698,8 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
             return std::make_shared<CharValue>(val);
         },
         [](InterpreterV2* interpreter){
-            interpreter->dup();
-        },
-        true
+            // Nothing
+        }
     );
 
     auto TO_STRING=std::make_shared<BuiltInFunScope>(
@@ -1739,14 +1713,9 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
             return std::make_shared<StringValue>(val);
         },
         [](InterpreterV2* interpreter){
-            auto value=interpreter->topAs<CharValue>()->getValue();
-            std::wstring val=L"";
-            val+=value;
-            interpreter->push(
-                new StringValue(val)
-            );
-        },
-        true
+            auto val=interpreter->AX->toString();
+            interpreter->AX=new StringValue(val);
+        }
     );
 
     auto funs={
@@ -1781,12 +1750,9 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             return std::make_shared<StringValue>(val);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<StringValue>()->getValue();
-            auto b=interpreter->topAs<StringValue>()->getValue();
-            interpreter->push(
-                new StringValue(a+b)
-            );
+            auto a=interpreter->AX->toString();
+            auto b=interpreter->CX->toString();
+            interpreter->AX=new StringValue(a+b);
         },
         true
     );
@@ -1804,12 +1770,9 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             return std::make_shared<StringValue>(val);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<StringValue>()->getValue();
-            auto b=interpreter->topAs<CharValue>()->getValue();
-            interpreter->push(
-                new StringValue(a+b)
-            );
+            auto a=interpreter->AX->toString();
+            auto b=interpreter->CX->toString();
+            interpreter->AX=new StringValue(a+b);
         },
         true
     );
@@ -1825,12 +1788,9 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             return std::make_shared<BoolValue>(equalsVal);
         },
         [](InterpreterV2* interpreter){
-            interpreter->over();
-            auto a=interpreter->popAs<StringValue>()->getValue();
-            auto b=interpreter->topAs<StringValue>()->getValue();
-            interpreter->push(
-                new BoolValue(a==b)
-            );
+            auto a=interpreter->AX->toString();
+            auto b=interpreter->CX->toString();
+            interpreter->AX=new BoolValue(a==b);
         },
         true
     );
@@ -1849,17 +1809,14 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoi(val);
-                interpreter->push(
-                    new IntValue(value)
-                );
+                interpreter->AX=new IntValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_UINT=std::make_shared<BuiltInFunScope>(
@@ -1880,21 +1837,18 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoull(val);
 
                 if(value>std::numeric_limits<unsigned int>().max())
                     throw NumberFormatException(val);
 
-                interpreter->push(
-                    new UIntValue(value)
-                );
+                interpreter->AX=new UIntValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_LONG=std::make_shared<BuiltInFunScope>(
@@ -1911,17 +1865,14 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoll(val);
-                interpreter->push(
-                    new LongValue(value)
-                );
+                interpreter->AX=new LongValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_ULONG=std::make_shared<BuiltInFunScope>(
@@ -1938,18 +1889,14 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoull(val);
-
-                interpreter->push(
-                    new ULongValue(value)
-                );
+                interpreter->AX=new ULongValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_FLOAT=std::make_shared<BuiltInFunScope>(
@@ -1966,18 +1913,14 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stof(val);
-
-                interpreter->push(
-                    new FloatValue(value)
-                );
+                interpreter->AX=new FloatValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_DOUBLE=std::make_shared<BuiltInFunScope>(
@@ -1994,18 +1937,14 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             }
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
+            auto val=interpreter->AX->toString();
             try{
                 auto value=std::stold(val);
-
-                interpreter->push(
-                    new DoubleValue(value)
-                );
+                interpreter->AX=new DoubleValue(value);
             }catch(std::exception e){
                 throw NumberFormatException(val);
             }
-        },
-        true
+        }
     );
 
     auto TO_STRING=std::make_shared<BuiltInFunScope>(
@@ -2017,12 +1956,9 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
             return std::make_shared<StringValue>(val);
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<StringValue>()->getValue();
-            interpreter->push(
-                new StringValue(val)
-            );
-        },
-        true
+            auto val=interpreter->AX;
+            interpreter->AX=new StringValue(val->toString());
+        }
     );
 
     auto funs={
@@ -2050,12 +1986,9 @@ void BuiltInFunScope::addBuiltInFunctionsToUnitClass(){
             return std::make_shared<StringValue>(*Type::UNIT->getName());
         },
         [](InterpreterV2* interpreter){
-            auto val=interpreter->topAs<UnitValue>();
-            interpreter->push(
-                new StringValue(val->toString())
-            );
-        },
-        true
+            auto val=interpreter->AX;
+            interpreter->AX=new StringValue(val->toString());
+        }
     );
 
     auto publicFuns=Type::UNIT->getClassScope()->getPublicFunctions();
@@ -2117,8 +2050,7 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
         },
         [](InterpreterV2* interpreter){
             // TODO
-        },
-        false
+        }
     );
 
     ArrayClassScope::GET=GET;

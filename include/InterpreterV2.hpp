@@ -63,12 +63,13 @@ class InterpreterV2:public ASTVisitor{
         bool loopContinue;
         IValue* stack[STACK_SIZE];
         IValue* heap[HEAP_SIZE];
-        IValue* AX;
 
         void runStmList(StmListScope* scope);
         void initStmListLocals(StmListScope* scope);
         
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
+        void invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex);
+        void invokeBuiltInOpFun(OperatorFunInvokeExpression* ex);
         /**
         NOTE: The @param type should be of type Type::Array. Be careful as we want to avoid casting.
         */
@@ -107,7 +108,7 @@ class InterpreterV2:public ASTVisitor{
         void visit(LogicalExpression* ex)override;              // ANCHOR: DONE
         void visit(NonStaticVarAccessExpression* ex)override;   // ANCHOR: DONE
         void visit(NonStaticFunInvokeExpression* ex)override;   // ANCHOR: DONE
-        void visit(OperatorFunInvokeExpression* ex)override;    // TODO
+        void visit(OperatorFunInvokeExpression* ex)override;    // ANCHOR: DONE
         void visit(SetOperatorExpression* ex)override;          // TODO
 
 
@@ -122,6 +123,9 @@ class InterpreterV2:public ASTVisitor{
         T* topAs();
 
         std::unordered_map<Variable*, VarsOffsetSetter::Offset> offsets;
+        IValue* AX;
+        IValue* CX;
+        IValue* DX;
         int*const BX;
         int*const BP;
         int*const SP;

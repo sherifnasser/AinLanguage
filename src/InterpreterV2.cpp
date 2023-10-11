@@ -104,10 +104,11 @@ void InterpreterV2::initStmListLocals(StmListScope* scope){
 }
 
 void InterpreterV2::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
+    push(new RefValue(*BX));
 
-    auto insideVal=pop();
+    ex->getInside()->accept(this);
 
-    insideVal->linkWithClass();
+    *BX=popAs<RefValue>()->getAddress();
 
     auto args=ex->getArgs();
 
@@ -117,7 +118,152 @@ void InterpreterV2::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
 
     ex->getFun()->accept(this);
 
-    insideVal->unlinkWithClass();
+    for(auto arg:*args){
+        pop();
+    }
+
+    *BX=popAs<RefValue>()->getAddress();
+
+    push(AX); // return value
+}
+
+void InterpreterV2::invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex){
+    ex->getInside()->accept(this);
+
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    switch(args->size()){
+        case 2:
+            DX=pop();
+        case 1:
+            CX=pop();
+        case 0:
+        default:
+            AX=pop();
+    }
+
+    ex->getFun()->accept(this);
+
+    push(AX); // return value
+}
+
+void InterpreterV2::invokeBuiltInOpFun(OperatorFunInvokeExpression* ex){
+    
+    auto op=ex->getOp();
+
+    if(
+        op==OperatorFunInvokeExpression::Operator::PRE_INC
+        ||
+        op==OperatorFunInvokeExpression::Operator::PRE_DEC
+        ||
+        op==OperatorFunInvokeExpression::Operator::POST_INC
+        ||
+        op==OperatorFunInvokeExpression::Operator::POST_DEC
+    ){
+
+        ex->getInside()->accept(assigner);
+
+        DX=pop();
+
+        AX=DX;
+
+        ex->getFun()->accept(this);
+
+        push(AX); // push return value to assign it
+
+        ex->getInside()->accept(assigner);
+        
+        switch(op){
+            case OperatorFunInvokeExpression::Operator::PRE_INC:
+            case OperatorFunInvokeExpression::Operator::PRE_DEC:
+                push(AX);
+                break;
+            case OperatorFunInvokeExpression::Operator::POST_INC:
+            case OperatorFunInvokeExpression::Operator::POST_DEC:
+                push(DX);
+                break;
+            default:{}
+        }
+
+        return;
+    }
+    
+    ex->getInside()->accept(this);
+
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    switch(op){
+        case OperatorFunInvokeExpression::Operator::SET_EQUAL:
+            DX=pop();   // value arg
+        case OperatorFunInvokeExpression::Operator::PLUS:
+        case OperatorFunInvokeExpression::Operator::MINUS:
+        case OperatorFunInvokeExpression::Operator::TIMES:
+        case OperatorFunInvokeExpression::Operator::DIV:
+        case OperatorFunInvokeExpression::Operator::MOD:
+        case OperatorFunInvokeExpression::Operator::POW:
+        case OperatorFunInvokeExpression::Operator::EQUAL_EQUAL:
+        case OperatorFunInvokeExpression::Operator::NOT_EQUAL:
+        case OperatorFunInvokeExpression::Operator::LESS:
+        case OperatorFunInvokeExpression::Operator::LESS_EQUAL:
+        case OperatorFunInvokeExpression::Operator::GREATER:
+        case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:
+        case OperatorFunInvokeExpression::Operator::SHR:
+        case OperatorFunInvokeExpression::Operator::SHL:
+        case OperatorFunInvokeExpression::Operator::BIT_AND:
+        case OperatorFunInvokeExpression::Operator::XOR:
+        case OperatorFunInvokeExpression::Operator::BIT_OR:
+        case OperatorFunInvokeExpression::Operator::GET:
+            CX=pop();   // 2nd operand
+        case OperatorFunInvokeExpression::Operator::UNARY_PLUS:
+        case OperatorFunInvokeExpression::Operator::UNARY_MINUS:
+        case OperatorFunInvokeExpression::Operator::LOGICAL_NOT:
+        case OperatorFunInvokeExpression::Operator::BIT_NOT:
+            AX=pop();   // 1st operand
+            break;
+        default:{}
+    }
+
+    ex->getFun()->accept(this);
+
+    switch(op){
+        case OperatorFunInvokeExpression::Operator::NOT_EQUAL:{
+            auto val=dynamic_cast<BoolValue*>(AX)->getValue();
+            AX=new BoolValue(!val);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::LESS:{
+            auto val=dynamic_cast<IntValue*>(AX)->getValue();
+            AX=new BoolValue(val<0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::LESS_EQUAL:{
+            auto val=dynamic_cast<IntValue*>(AX)->getValue();
+            AX=new BoolValue(val<=0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::GREATER:{
+            auto val=dynamic_cast<IntValue*>(AX)->getValue();
+            AX=new BoolValue(val>0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:{
+            auto val=dynamic_cast<IntValue*>(AX)->getValue();
+            AX=new BoolValue(val>=0);
+            break;
+        }
+        default:
+            break;
+    }
+
+    push(AX);
 }
 
 ArrayValue* InterpreterV2::initMultiDArray(
@@ -286,8 +432,6 @@ void InterpreterV2::visit(BuiltInFunScope* scope){
     // Built-in functions don't affect BP, so we don't need to push it on the stack
 
     scope->invokeOnInterpreter(this);
-
-    AX=pop();
 
 }
 
@@ -525,33 +669,20 @@ void InterpreterV2::visit(NonStaticVarAccessExpression* ex){
 }
 
 void InterpreterV2::visit(NonStaticFunInvokeExpression* ex){
-
-    push(new RefValue(*BX));
-
-    ex->getInside()->accept(this);
-
-    *BX=popAs<RefValue>()->getAddress();
-
-    auto args=ex->getArgs();
-
-    for(auto arg:*args){
-        arg->accept(this);
+    if(auto builtIn=std::dynamic_pointer_cast<BuiltInFunScope>(ex->getFun())){
+        invokeNonStaticBuiltInFun(ex);
+        return;
     }
-
-    ex->getFun()->accept(this);
-
-    for(auto arg:*args){
-        pop();
-    }
-
-    *BX=popAs<RefValue>()->getAddress();
-
-    push(AX); // return value
+    invokeNonStaticFun(ex);
 }
 
 void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
-    // TODO
-    /*
+    
+    if(auto builtIn=std::dynamic_pointer_cast<BuiltInFunScope>(ex->getFun())){
+        invokeBuiltInOpFun(ex);
+        return;
+    }
+
     auto op=ex->getOp();
 
     if(
@@ -563,21 +694,26 @@ void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
         ||
         op==OperatorFunInvokeExpression::Operator::POST_DEC
     ){
+        push(new RefValue(*BX));
 
         ex->getInside()->accept(assigner);
 
-        auto oldVal=top();
-        
-        invokeNonStaticFun(ex);
+        auto oldVal=pop();
 
-        auto newVal=top();
+        *BX=dynamic_cast<RefValue*>(oldVal)->getAddress();
+        
+        ex->getFun()->accept(this);
+
+        *BX=popAs<RefValue>()->getAddress();
+
+        push(AX); // return value
 
         ex->getInside()->accept(assigner);
         
         switch(op){
             case OperatorFunInvokeExpression::Operator::PRE_INC:
             case OperatorFunInvokeExpression::Operator::PRE_DEC:
-                push(newVal);
+                push(AX);
                 break;
             case OperatorFunInvokeExpression::Operator::POST_INC:
             case OperatorFunInvokeExpression::Operator::POST_DEC:
@@ -589,37 +725,36 @@ void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
         return;
     }
 
-    ex->getInside()->accept(this);
     invokeNonStaticFun(ex);
     switch(op){
         case OperatorFunInvokeExpression::Operator::NOT_EQUAL:{
             auto val=popAs<BoolValue>()->getValue();
-            push(std::make_shared<BoolValue>(!val));
+            push(new BoolValue(!val));
             break;
         }
         case OperatorFunInvokeExpression::Operator::LESS:{
             auto val=popAs<IntValue>()->getValue();
-            push(std::make_shared<BoolValue>(val<0));
+            push(new BoolValue(val<0));
             break;
         }
         case OperatorFunInvokeExpression::Operator::LESS_EQUAL:{
             auto val=popAs<IntValue>()->getValue();
-            push(std::make_shared<BoolValue>(val<=0));
+            push(new BoolValue(val<=0));
             break;
         }
         case OperatorFunInvokeExpression::Operator::GREATER:{
             auto val=popAs<IntValue>()->getValue();
-            push(std::make_shared<BoolValue>(val>0));
+            push(new BoolValue(val>0));
             break;
         }
         case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:{
             auto val=popAs<IntValue>()->getValue();
-            push(std::make_shared<BoolValue>(val>=0));
+            push(new BoolValue(val>=0));
             break;
         }
         default:
             break;
-    }*/
+    }
 }
 
 void InterpreterV2::visit(SetOperatorExpression* ex){
