@@ -223,40 +223,37 @@ void InterpreterV2::invokeBuiltInOpFun(OperatorFunInvokeExpression* ex){
     push(AX);
 }
 
-ArrayValue* InterpreterV2::initMultiDArray(
-    int capIndex,
-    int capacitiesSize,
-    int capacities[],
-    SharedType type
-){
-    // TODO
-    /*auto cap=capacities[capIndex];
+void InterpreterV2::initMultiDArray(){
+
+    push(new RefValue(*DI));
+
+    auto dimensionsSize=dynamic_cast<IntValue*>(CX)->getValue();
     
-    auto array=new ArrayValue(type,cap);
+    DX=stack[*BP-dimensionsSize];
     
-    if(capIndex==capacitiesSize-1)
-        return array;
+    auto arraySize=dynamic_cast<IntValue*>(DX)->getValue();
     
-    auto arrayType=type->asArray()->getType();
-    auto arrayVal=array->getValue();
-    auto childrenCapIndex=capIndex+1;
-    auto childrenCap=capacities[childrenCapIndex];
-    for(int i=0;i<childrenCap;i++){
-        arrayVal[i]=initMultiDArray(
-            childrenCapIndex,
-            capacitiesSize,
-            capacities,
-            arrayType
-        );
+    *DI=getAvailableHeapAddress(arraySize);
+
+    if(dimensionsSize>1){
+        for(int i=0;i<arraySize;i++){
+            CX=new IntValue(dimensionsSize-1);
+            initMultiDArray();
+            heap[*DI+i+1]=AX;
+        }
     }
 
-    return array;*/
+    AX=new RefValue(*DI);
 
-    return nullptr;
+    *DI=popAs<RefValue>()->getAddress();
 }
 
 int InterpreterV2::getAvailableHeapAddress(ClassScope* scope){
     int objSize=scope->getPublicVariables()->size()+scope->getPrivateVariables()->size();
+    return getAvailableHeapAddress(objSize);
+}
+
+int InterpreterV2::getAvailableHeapAddress(int size){
     int heapAddress=HEAP_SIZE;
 
     for(int i=0;i<HEAP_SIZE;){
@@ -266,7 +263,7 @@ int InterpreterV2::getAvailableHeapAddress(ClassScope* scope){
             continue;
         }
         int j=i;
-        int lastValidCell=i+objSize;
+        int lastValidCell=i+size;
         for(;j<=lastValidCell;j++){
             if(heap[j])
                 break;
@@ -281,12 +278,13 @@ int InterpreterV2::getAvailableHeapAddress(ClassScope* scope){
     if(heapAddress>=HEAP_SIZE)
         throw OutOfMemoryException();
 
-    heap[heapAddress]=new IntValue(objSize);
+    heap[heapAddress]=new IntValue(size);
 
     return heapAddress;
 }
 
 InterpreterV2::InterpreterV2():
+    DI(new int(-1)),
     BP(new int(0)),
     SP(new int(0)),
     BX(new int(-1)),
@@ -573,35 +571,37 @@ void InterpreterV2::visit(NewObjectExpression* ex){
     push(AX); // return address of object
 }
 
-//void InterpreterV2::visit(NewArrayExpression* ex){
-    // TODO
-    /*auto capacitiesExpressions=ex->getCapacities();
+void InterpreterV2::visit(NewArrayExpression* ex){
 
-    auto capacitiesSize=capacitiesExpressions.size();
-
-    int capacities[capacitiesSize];
-
-    for(int i=0;i<capacitiesSize;i++){
-        capacitiesExpressions[i]->accept(this);
-
-        auto cap=popAs<IntValue>()->getValue();
-
+    auto capExs=ex->getCapacities();
+    
+    for(auto capEx:capExs){
+        capEx->accept(this);
+        auto cap=topAs<IntValue>()->getValue();
         if(cap<0)
             throw ArrayNegativeCapacityException(cap);
-
-        capacities[i]=cap;
     }
 
-    // Recursion could cause stack overflow
-    std::shared_ptr<ArrayValue> arrayVal=initMultiDArray(
-        0,
-        capacitiesSize,
-        capacities,
-        ex->getReturnType()
-    );
-    
-    push(arrayVal);*/
-//d}
+    push(new IntValue(*BP));
+
+    *BP=*SP;
+
+    // dimensions size
+    CX=new IntValue(ex->getCapacities().size());
+
+    initMultiDArray();
+
+    *SP=*BP;
+
+    *BP=popAs<IntValue>()->getValue();
+
+    for(auto capEx:capExs){
+        pop();
+    }
+
+    push(AX);
+
+}
 
 void InterpreterV2::visit(LiteralExpression* ex){
     push(ex->getValue().get());

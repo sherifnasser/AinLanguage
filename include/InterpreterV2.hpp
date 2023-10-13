@@ -78,16 +78,9 @@ class InterpreterV2:public ASTVisitor{
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
         void invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex);
         void invokeBuiltInOpFun(OperatorFunInvokeExpression* ex);
-        /**
-        NOTE: The @param type should be of type Type::Array. Be careful as we want to avoid casting.
-        */
-        ArrayValue* initMultiDArray(
-            int capIndex,
-            int capacitiesSize,
-            int capacities[],
-            SharedType type
-        );
+        void initMultiDArray();
         int getAvailableHeapAddress(ClassScope* scope);
+        int getAvailableHeapAddress(int size);
     public:
         InterpreterV2();
         void visit(PackageScope* scope)override;
@@ -99,7 +92,7 @@ class InterpreterV2:public ASTVisitor{
         void visit(StmListScope* scope)override;                // ANCHOR: DONE
         void visit(VarStm* stm)override;                        // ANCHOR: DONE
         void visit(AssignStatement* stm)override;               // ANCHOR: DONE
-        void visit(AugmentedAssignStatement* stm)override;
+        void visit(AugmentedAssignStatement* stm)override;      // ANCHOR: DONE
         void visit(IfStatement* stm)override;                   // ANCHOR: DONE
         void visit(WhileStatement* stm)override;                // ANCHOR: DONE
         void visit(DoWhileStatement* stm)override;              // ANCHOR: DONE
@@ -110,7 +103,7 @@ class InterpreterV2:public ASTVisitor{
         void visit(VarAccessExpression* ex)override;            // ANCHOR: DONE
         void visit(FunInvokeExpression* ex)override;            // ANCHOR: DONE
         void visit(NewObjectExpression* ex)override;            // ANCHOR: DONE
-        //void visit(NewArrayExpression* ex)override;             // TODO
+        void visit(NewArrayExpression* ex)override;             // ANCHOR: DONE
         void visit(LiteralExpression* ex)override;              // ANCHOR: DONE
         void visit(UnitExpression* ex)override;                 // ANCHOR: DONE
         void visit(LogicalExpression* ex)override;              // ANCHOR: DONE
@@ -134,6 +127,7 @@ class InterpreterV2:public ASTVisitor{
         IValue* AX;
         IValue* CX;
         IValue* DX;
+        int*const DI;
         int*const BX;
         int*const BP;
         int*const SP;
