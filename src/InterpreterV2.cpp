@@ -5,6 +5,7 @@
 #include "ArrayClassScope.hpp"
 #include "CharValue.hpp"
 #include "FunDecl.hpp"
+#include "FunScope.hpp"
 #include "IValue.hpp"
 #include "IntValue.hpp"
 #include "Interpreter.hpp"
@@ -55,52 +56,8 @@ void InterpreterV2::runStmList(StmListScope* scope){
     }
 }
 
-void InterpreterV2::initStmListLocals(StmListScope* scope){
-    
-    auto locals=scope->getLocals();
-
-    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
-        auto varType=localIt->second->getType();
-        
-        IValue* val;
-        
-        if(*varType==*Type::INT)
-            val=new IntValue(0);
-        
-        else if(*varType==*Type::UINT)
-            val=new UIntValue(0);
-        
-        else if(*varType==*Type::LONG)
-            val=new LongValue(0);
-        
-        else if(*varType==*Type::ULONG)
-            val=new ULongValue(0);
-        
-        else if(*varType==*Type::FLOAT)
-            val=new FloatValue(0);
-        
-        else if(*varType==*Type::DOUBLE)
-            val=new DoubleValue(0);
-        
-        else if(*varType==*Type::CHAR)
-            val=new CharValue(0);
-        
-        else if(*varType==*Type::BOOL)
-            val=new BoolValue(0);
-
-        // TODO: Ref values
-
-        else if(*varType==*Type::STRING)
-            val=new RefValue();
-
-        else if(varType->getClassScope()==Type::ARRAY_CLASS)
-            val=new RefValue();
-
-        else
-            val=new RefValue();
-        
-        push(val);
-    }
+void InterpreterV2::offsetStmListLocals(int size){
+    *SP+=size;
 }
 
 void InterpreterV2::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
@@ -165,7 +122,7 @@ void InterpreterV2::invokeBuiltInOpFun(OperatorFunInvokeExpression* ex){
         op==OperatorFunInvokeExpression::Operator::POST_DEC
     ){
 
-        ex->getInside()->accept(assigner);
+        ex->getInside()->accept(lAssigner);
 
         DX=pop();
 
@@ -175,7 +132,7 @@ void InterpreterV2::invokeBuiltInOpFun(OperatorFunInvokeExpression* ex){
 
         push(AX); // push return value to assign it
 
-        ex->getInside()->accept(assigner);
+        ex->getInside()->accept(rAssigner);
         
         switch(op){
             case OperatorFunInvokeExpression::Operator::PRE_INC:
@@ -332,43 +289,40 @@ int InterpreterV2::getAvailableHeapAddress(ClassScope* scope){
 InterpreterV2::InterpreterV2():
     BP(new int(0)),
     SP(new int(0)),
-    BX(new int(0)),
+    BX(new int(-1)),
     funReturn(false),
     loopBreak(false),
     loopContinue(false)
 {}
 
-InterpreterV2::Assigner::Assigner(InterpreterV2* interpreter)
+InterpreterV2::LeftSideAssigner::LeftSideAssigner(InterpreterV2* interpreter)
 :interpreter(interpreter){}
 
-void InterpreterV2::Assigner::visit(VarAccessExpression* ex){
-    if(!assign){
-        ex->accept(interpreter);
-    }else{
-        auto offset=interpreter->offsets[ex->getVar().get()];
-        auto mem=(offset.reg==interpreter->BP)?interpreter->stack:interpreter->heap;
-        mem[*offset.reg+offset.value]=interpreter->pop();
-    }
-    assign=!assign;
+void InterpreterV2::LeftSideAssigner::visit(VarAccessExpression* ex){
+    ex->accept(interpreter);
 }
 
-void InterpreterV2::Assigner::visit(NonStaticVarAccessExpression* ex){
-    if(!assign){
-        ex->getInside()->accept(interpreter);
-        auto ref=interpreter->topAs<RefValue>()->getAddress();
-        interpreter->push(
-            interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]
-        );
-    }else{
-        auto val=interpreter->pop();
-        auto ref=interpreter->popAs<RefValue>()->getAddress();
-        interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]=val;
-    }
-    assign=!assign;
+void InterpreterV2::LeftSideAssigner::visit(NonStaticVarAccessExpression* ex){
+    ex->getInside()->accept(interpreter);
+    auto ref=interpreter->topAs<RefValue>()->getAddress();
+    interpreter->push(
+        interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]
+    );
 }
 
-void InterpreterV2::Assigner::visit(OperatorFunInvokeExpression* ex){
-    interpreter->invokeNonStaticFun(ex);
+InterpreterV2::RightSideAssigner::RightSideAssigner(InterpreterV2* interpreter)
+:interpreter(interpreter){}
+
+void InterpreterV2::RightSideAssigner::visit(VarAccessExpression* ex){
+    auto offset=interpreter->offsets[ex->getVar().get()];
+    auto mem=(offset.reg==interpreter->BP)?interpreter->stack:interpreter->heap;
+    mem[*offset.reg+offset.value]=interpreter->pop();
+}
+
+void InterpreterV2::RightSideAssigner::visit(NonStaticVarAccessExpression* ex){
+    auto val=interpreter->pop();
+    auto ref=interpreter->popAs<RefValue>()->getAddress();
+    interpreter->heap[ref+interpreter->offsets[ex->getVar().get()].value]=val;
 }
 
 void InterpreterV2::visit(PackageScope* scope){
@@ -405,7 +359,12 @@ void InterpreterV2::visit(FunScope* scope){
     if(isConstructor)
         decl->returnType->getClassScope()->accept(this);
 
-    initStmListLocals(scope);
+    // locals contains params, so we don't offset params
+    auto localsSize=scope->getLocals()->size();
+    auto paramsSize=scope->getDecl()->params->size();
+
+    if(localsSize>paramsSize)
+        offsetStmListLocals(localsSize-paramsSize);
 
     for(auto stm:*scope->getStmList()){
         stm->accept(this);
@@ -436,12 +395,12 @@ void InterpreterV2::visit(BuiltInFunScope* scope){
 }
 
 void InterpreterV2::visit(LoopScope* scope){
-    initStmListLocals(scope);
+    offsetStmListLocals(scope->getLocals()->size());
     runStmList(scope);
 }
 
 void InterpreterV2::visit(StmListScope* scope){
-    initStmListLocals(scope);
+    offsetStmListLocals(scope->getLocals()->size());
     runStmList(scope);
 }
 
@@ -453,25 +412,34 @@ void InterpreterV2::visit(VarStm* stm){
 }
 
 void InterpreterV2::visit(AssignStatement* stm){
-    stm->getLeft()->accept(assigner);
+    stm->getLeft()->accept(lAssigner);
     pop();
     stm->getRight()->accept(this);
-    stm->getLeft()->accept(assigner);
+    stm->getLeft()->accept(rAssigner);
 }
 
 void InterpreterV2::visit(AugmentedAssignStatement* stm){
-    
-    stm->getLeft()->accept(assigner);
-    auto leftVal=pop();
 
-    stm->getRight()->accept(this);
-    auto rightVal=top();
-
-    leftVal->linkWithClass();
-    stm->getOpFun()->accept(this);
-    leftVal->unlinkWithClass();
+    if(auto isBuiltIn=std::dynamic_pointer_cast<BuiltInFunScope>(stm->getOpFun())){
+        stm->getLeft()->accept(lAssigner);
+        stm->getRight()->accept(this);
+        CX=pop();
+        AX=pop();
+        stm->getOpFun()->accept(this);
+        push(AX);
+        stm->getLeft()->accept(rAssigner);
+    }else{
+        push(new RefValue(*BX));
+        stm->getLeft()->accept(lAssigner);
+        *BX=popAs<RefValue>()->getAddress();
+        stm->getRight()->accept(this);
+        stm->getOpFun()->accept(this);
+        pop();  // pop right
+        push(AX);
+        stm->getLeft()->accept(rAssigner);
+        *BX=popAs<RefValue>()->getAddress();
+    }
     
-    stm->getLeft()->accept(assigner);
 }
 
 void InterpreterV2::visit(IfStatement* stm){
@@ -696,7 +664,7 @@ void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
     ){
         push(new RefValue(*BX));
 
-        ex->getInside()->accept(assigner);
+        ex->getInside()->accept(lAssigner);
 
         auto oldVal=pop();
 
@@ -708,7 +676,7 @@ void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
 
         push(AX); // return value
 
-        ex->getInside()->accept(assigner);
+        ex->getInside()->accept(rAssigner);
         
         switch(op){
             case OperatorFunInvokeExpression::Operator::PRE_INC:

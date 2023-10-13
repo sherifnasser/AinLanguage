@@ -764,8 +764,6 @@ std::wstring SemanticsChecksVisitor::getAugmentedAssignOpFunName(
             return OperatorFunctions::XOR_NAME;
         case AugmentedAssignStatement::Operator::BIT_OR:
             return OperatorFunctions::BIT_OR_NAME;
-        case AugmentedAssignStatement::Operator::BIT_NOT:
-            return OperatorFunctions::BIT_NOT_NAME;
     }
 
     assert(false); // Unreachable
@@ -795,8 +793,6 @@ std::wstring SemanticsChecksVisitor::getOpFunNameOfSetOp(SetOperatorExpression::
             return OperatorFunctions::XOR_NAME;
         case SetOperatorExpression::Operator::BIT_OR_EQUAL:
             return OperatorFunctions::BIT_OR_NAME;
-        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:
-            return OperatorFunctions::BIT_NOT_NAME;
         case SetOperatorExpression::Operator::PRE_INC:
         case SetOperatorExpression::Operator::POST_INC:
             return OperatorFunctions::INC_NAME;

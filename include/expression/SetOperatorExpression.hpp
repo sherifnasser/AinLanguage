@@ -11,7 +11,7 @@ class SetOperatorExpression:public IExpression{
 
             SHR_EQUAL,SHL_EQUAL,
             BIT_AND_EQUAL,XOR_EQUAL,
-            BIT_OR_EQUAL,BIT_NOT_EQUAL,
+            BIT_OR_EQUAL,
 
             PRE_INC,PRE_DEC,
             POST_INC,POST_DEC,

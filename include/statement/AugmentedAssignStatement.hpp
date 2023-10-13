@@ -8,7 +8,7 @@ class AugmentedAssignStatement:public AssignStatement{
             BAD_OP, // Used as default value
             PLUS,MINUS,TIMES,DIV,MOD,POW,
             SHR,SHL,
-            BIT_AND,XOR,BIT_OR,BIT_NOT
+            BIT_AND,XOR,BIT_OR
         };
         AugmentedAssignStatement(
             int lineNumber,

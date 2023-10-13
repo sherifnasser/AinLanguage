@@ -174,7 +174,8 @@ int main(int argc, char * argv[]){
         delete checker;
 
         auto interpreter=new InterpreterV2;
-        auto assigner=new InterpreterV2::Assigner(interpreter);
+        auto lAssigner=new InterpreterV2::LeftSideAssigner(interpreter);
+        auto rAssigner=new InterpreterV2::RightSideAssigner(interpreter);
         auto varsOffsetSetter=new VarsOffsetSetter(
             &interpreter->offsets,
             interpreter->BP,
@@ -185,7 +186,8 @@ int main(int argc, char * argv[]){
 
         delete varsOffsetSetter;
 
-        interpreter->assigner=assigner;
+        interpreter->lAssigner=lAssigner;
+        interpreter->rAssigner=rAssigner;
         
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(filesStack[0]))->
@@ -193,7 +195,8 @@ int main(int argc, char * argv[]){
         
         main->accept(interpreter);
 
-        delete assigner;
+        delete lAssigner;
+        delete rAssigner;
         delete interpreter;
 
     }

@@ -46,17 +46,25 @@ class BuiltInFunScope;
 
 class InterpreterV2:public ASTVisitor{
     public:
-        class Assigner:public ASTVisitor{
+        class LeftSideAssigner:public ASTVisitor{
             private:
                 InterpreterV2* interpreter;
-                bool assign=false;
             public:
-                Assigner(InterpreterV2* interpreter);
+                LeftSideAssigner(InterpreterV2* interpreter);
                 void visit(VarAccessExpression* ex)override;
                 void visit(NonStaticVarAccessExpression* ex)override;
-                void visit(OperatorFunInvokeExpression* ex)override;
         };
-        Assigner* assigner;
+        class RightSideAssigner:public ASTVisitor{
+            private:
+                InterpreterV2* interpreter;
+            public:
+                RightSideAssigner(InterpreterV2* interpreter);
+                void visit(VarAccessExpression* ex)override;
+                void visit(NonStaticVarAccessExpression* ex)override;
+        };
+
+        LeftSideAssigner* lAssigner;
+        RightSideAssigner* rAssigner;
     private:
         bool funReturn;
         bool loopBreak;
@@ -65,7 +73,7 @@ class InterpreterV2:public ASTVisitor{
         IValue* heap[HEAP_SIZE];
 
         void runStmList(StmListScope* scope);
-        void initStmListLocals(StmListScope* scope);
+        void offsetStmListLocals(int size);
         
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
         void invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex);
@@ -84,17 +92,17 @@ class InterpreterV2:public ASTVisitor{
         InterpreterV2();
         void visit(PackageScope* scope)override;
         void visit(FileScope* scope)override;
-        void visit(ClassScope* scope)override;
+        void visit(ClassScope* scope)override;                  // ANCHOR: DONE
         void visit(FunScope* scope)override;                    // ANCHOR: DONE
         void visit(BuiltInFunScope* scope)override;             // ANCHOR: DONE
-        void visit(LoopScope* scope)override;
-        void visit(StmListScope* scope)override;
+        void visit(LoopScope* scope)override;                   // ANCHOR: DONE
+        void visit(StmListScope* scope)override;                // ANCHOR: DONE
         void visit(VarStm* stm)override;                        // ANCHOR: DONE
         void visit(AssignStatement* stm)override;               // ANCHOR: DONE
         void visit(AugmentedAssignStatement* stm)override;
-        void visit(IfStatement* stm)override;
-        void visit(WhileStatement* stm)override;
-        void visit(DoWhileStatement* stm)override;
+        void visit(IfStatement* stm)override;                   // ANCHOR: DONE
+        void visit(WhileStatement* stm)override;                // ANCHOR: DONE
+        void visit(DoWhileStatement* stm)override;              // ANCHOR: DONE
         void visit(BreakStatement* stm)override;                // ANCHOR: DONE
         void visit(ContinueStatement* stm)override;             // ANCHOR: DONE
         void visit(ReturnStatement* stm)override;               // ANCHOR: DONE
