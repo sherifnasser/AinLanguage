@@ -17,6 +17,7 @@
 #include "OperatorFunctions.hpp"
 #include "PackageScope.hpp"
 #include "FunDecl.hpp"
+#include "RefValue.hpp"
 #include "SharedPtrTypes.hpp"
 #include "StringClassScope.hpp"
 #include "StringValue.hpp"
@@ -2009,11 +2010,18 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
         [=](SharedMap<std::wstring, SharedIValue> params){
             auto array=classScope->getValue();
             auto index=std::dynamic_pointer_cast<IntValue>(params->at(INDEX_PARAM_NAME))->getValue();
+            if(index>=array.size())
+                throw ArrayIndexOutOfRangeException(array.size(),index);
             auto val=array[index];
             return val;
         },
         [](InterpreterV2* interpreter){
-            // TODO
+            auto arrayAddress=dynamic_cast<RefValue*>(interpreter->AX)->getAddress();
+            auto index=dynamic_cast<IntValue*>(interpreter->CX)->getValue();
+            auto arraySize=dynamic_cast<IntValue*>(interpreter->heap[arrayAddress])->getValue();
+            if(index>=arraySize)
+                throw ArrayIndexOutOfRangeException(arraySize,index);
+            interpreter->AX=interpreter->heap[arrayAddress+index+1];
         },
         true
     );
@@ -2035,7 +2043,14 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
             return std::make_shared<UnitValue>();
         },
         [](InterpreterV2* interpreter){
-            // TODO
+            auto arrayAddress=dynamic_cast<RefValue*>(interpreter->AX)->getAddress();
+            auto index=dynamic_cast<IntValue*>(interpreter->CX)->getValue();
+            auto arraySize=dynamic_cast<IntValue*>(interpreter->heap[arrayAddress])->getValue();
+            if(index>=arraySize)
+                throw ArrayIndexOutOfRangeException(arraySize,index);
+            auto value=interpreter->DX;
+            interpreter->heap[arrayAddress+index+1]=value;
+            interpreter->AX=new UnitValue;
         },
         true
     );
@@ -2049,7 +2064,9 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
             return std::make_shared<BoolValue>(!array.empty());
         },
         [](InterpreterV2* interpreter){
-            // TODO
+            auto arrayAddress=dynamic_cast<RefValue*>(interpreter->AX)->getAddress();
+            auto size=dynamic_cast<IntValue*>(interpreter->heap[arrayAddress])->getValue();
+            interpreter->AX=new BoolValue(size!=0);
         }
     );
 

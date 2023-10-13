@@ -70,7 +70,6 @@ class InterpreterV2:public ASTVisitor{
         bool loopBreak;
         bool loopContinue;
         IValue* stack[STACK_SIZE];
-        IValue* heap[HEAP_SIZE];
 
         void runStmList(StmListScope* scope);
         void offsetStmListLocals(int size);
@@ -131,6 +130,8 @@ class InterpreterV2:public ASTVisitor{
         int*const BX;
         int*const BP;
         int*const SP;
+
+        IValue* heap[HEAP_SIZE];
 };
 
 template<typename T>

@@ -1,6 +1,8 @@
 #include "VarsOffsetSetter.hpp"
 #include "FunDecl.hpp"
 #include "FunParam.hpp"
+#include "Type.hpp"
+#include "ArrayClassScope.hpp"
 
 VarsOffsetSetter::Offset::Offset(int* reg, int value):
     reg(reg),
@@ -45,6 +47,11 @@ void VarsOffsetSetter::visit(PackageScope* scope){
     for(auto fileIterator:scope->getFiles()){
         fileIterator.second->accept(this);
     }
+    auto arrayCapacityProperty=Type::ARRAY_CLASS->getPublicVariables()->at(*ArrayClassScope::CAPACITY_NAME).get();
+    (*offsets)[arrayCapacityProperty]=Offset(
+        BX,
+        0
+    );
 }
 
 void VarsOffsetSetter::visit(FileScope* scope){
