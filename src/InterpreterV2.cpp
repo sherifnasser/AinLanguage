@@ -727,20 +727,47 @@ void InterpreterV2::visit(OperatorFunInvokeExpression* ex){
 
 void InterpreterV2::visit(SetOperatorExpression* ex){
 
-    // TODO
-    /*
     auto op=ex->getOp();
+
+    auto funOfGet=ex->getExOfGet()->getFun().get();
+    auto funOfOp=ex->getFunOfOp().get();
+    auto funOfSet=ex->getFunOfSet().get();
     
-    ex->getExHasGetOp()->accept(this);
-    auto valHasGet=pop();
+    if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfGet)!=nullptr){
 
-    ex->getIndexEx()->accept(this);
-    auto index=top();
+        ex->getExHasGetOp()->accept(this);
 
-    valHasGet->linkWithClass();
-    ex->getExOfGet()->getFun()->accept(this);
-    valHasGet->unlinkWithClass();
-    auto valueOfGet=pop();
+        ex->getIndexEx()->accept(this);
+
+        CX=pop(); // index
+
+        AX=top(); // ex has get() and set()
+
+        funOfGet->accept(this);
+
+    }else{
+        push(new RefValue(*BX));
+
+        ex->getExHasGetOp()->accept(this);
+        
+        *BX=topAs<RefValue>()->getAddress();
+
+        ex->getIndexEx()->accept(this);
+
+        funOfGet->accept(this);
+
+        CX=pop(); // index
+
+        DX=pop(); // ex has get() and set()
+
+        *BX=popAs<RefValue>()->getAddress();
+
+        push(DX); // ex has get() and set()
+    }
+
+    push(CX); // index
+
+    push(AX); // value of get()
 
     switch(op){
         case SetOperatorExpression::Operator::PLUS_EQUAL:
@@ -753,44 +780,112 @@ void InterpreterV2::visit(SetOperatorExpression* ex){
         case SetOperatorExpression::Operator::SHL_EQUAL:
         case SetOperatorExpression::Operator::BIT_AND_EQUAL:
         case SetOperatorExpression::Operator::XOR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
-            push(valueOfGet);
-            ex->getValueEx()->accept(this);
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
+            // built-in is for a primitive
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfOp)){
+                ex->getValueEx()->accept(this);
+                CX=pop(); // 2nd operand i.e. the value of right side
+                AX=top(); // 1st operand i.e. value of get()
+                funOfOp->accept(this);
+            }else{
+                push(new RefValue(*BX));
+                // AX contains the value of get()
+                *BX=dynamic_cast<RefValue*>(AX)->getAddress();
+                ex->getValueEx()->accept(this);
+                funOfOp->accept(this);
+                pop(); // pop value
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            break;
+        }
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:{
+            // built-in is for a primitive
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfOp)){
+                // AX is the 1st operand and contains the value of get()
+                funOfOp->accept(this);
+            }else{
+                push(new RefValue(*BX));
+                // AX contains the value of get()
+                *BX=dynamic_cast<RefValue*>(AX)->getAddress();
+                funOfOp->accept(this);
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            break;
         }
         default:break;
     }
 
-    valueOfGet->linkWithClass();
-    ex->getFunOfOp()->accept(this);
-    valueOfGet->unlinkWithClass();
-    auto valueToSet=pop();
+    // AX has the value of op fun i.e. the value to set
 
-    push(index);
-    push(valueToSet);
+    if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfSet)){
+        DX=AX;  // AX has the value of op fun i.e. the value to set
+        // stack[*SP] is the value of get(), but we don't need it here
+        CX=stack[*SP-1]; // index
+        AX=stack[*SP-2]; // ex has get() and set() i.e. the array
+        funOfSet->accept(this);
+        DX=pop();   // the value of get()
+        CX=pop();   // index
+    }else{
+        DX=pop(); // The value of get()
+        CX=pop(); // index
+        push(DX); // The value of get()
+        push(new RefValue(*BX));
+        push(CX); // index
+        push(AX); // the value to set
+        // stack[*SP-4] contains the ex has get() and set()
+        *BX=dynamic_cast<RefValue*>(stack[*SP-4])->getAddress();
+        funOfSet->accept(this);
+        pop();    // the value to set
+        CX=pop(); // index
+        *BX=popAs<RefValue>()->getAddress();
+        DX=pop(); // The value of get()
+    }
 
-    valHasGet->linkWithClass();
-    ex->getFunOfSet()->accept(this);
-    valHasGet->unlinkWithClass();
+    // AX has the value of set fun
 
     switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+        case SetOperatorExpression::Operator::POW_EQUAL:
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
+            pop();  // the ex has get() and set()
+            push(AX);   // return value of set fun
+            break;
+        }
         case SetOperatorExpression::Operator::PRE_INC:
         case SetOperatorExpression::Operator::PRE_DEC:{
-            pop();
-            push(index);
-            valHasGet->linkWithClass();
-            ex->getExOfGet()->getFun()->accept(this);
-            valHasGet->unlinkWithClass();
+            AX=pop(); // ex has get() and set()
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfGet)){
+                funOfGet->accept(this);
+            }else{
+                push(new RefValue(*BX));
+                *BX=dynamic_cast<RefValue*>(AX)->getAddress();
+                push(CX); // index
+                funOfGet->accept(this);
+                pop(); // index
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            push(AX);
             break;
         }
         case SetOperatorExpression::Operator::POST_INC:
         case SetOperatorExpression::Operator::POST_DEC:{
-            pop();
-            push(valueOfGet);
+            pop();  // the ex has get() and set()
+            push(DX); // The value of get()
             break;
         }
         default:break;
-    }*/
+    }
 }
 
 void InterpreterV2::dup(){

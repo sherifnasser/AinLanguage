@@ -618,7 +618,18 @@ void SemanticsChecksVisitor::visit(SetOperatorExpression* ex){
     );
     
     ex->setFunOfSet(funOfSet);
-    ex->setReturnType(funOfSet->getReturnType());
+
+    switch(ex->getOp()){
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:
+            ex->setReturnType(ex->getExOfGet()->getReturnType());
+            break;
+        default:
+            ex->setReturnType(funOfSet->getReturnType());
+    }
+    
 }
 
 void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){

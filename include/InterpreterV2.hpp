@@ -109,7 +109,7 @@ class InterpreterV2:public ASTVisitor{
         void visit(NonStaticVarAccessExpression* ex)override;   // ANCHOR: DONE
         void visit(NonStaticFunInvokeExpression* ex)override;   // ANCHOR: DONE
         void visit(OperatorFunInvokeExpression* ex)override;    // ANCHOR: DONE
-        void visit(SetOperatorExpression* ex)override;          // TODO
+        void visit(SetOperatorExpression* ex)override;          // ANCHOR: DONE
 
 
         void dup();
