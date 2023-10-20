@@ -535,8 +535,7 @@ void Interpreter::visit(SetOperatorExpression* ex){
         case SetOperatorExpression::Operator::SHL_EQUAL:
         case SetOperatorExpression::Operator::BIT_AND_EQUAL:
         case SetOperatorExpression::Operator::XOR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
             push(valueOfGet);
             ex->getValueEx()->accept(this);
         }
