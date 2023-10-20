@@ -1,7 +1,6 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "CannotAccessPrivateVariableException.hpp"
 #include "IExpression.hpp"
-#include "ObjectValue.hpp"
 #include "Type.hpp"
 #include "ClassScope.hpp"
 #include "Variable.hpp"
@@ -24,4 +23,12 @@ std::wstring NonStaticVarAccessExpression::getVarName()const{
 
 SharedIExpression NonStaticVarAccessExpression::getInside()const{
     return inside;
+}
+
+SharedVariable NonStaticVarAccessExpression::getVar()const{
+    return var;
+}
+
+void NonStaticVarAccessExpression::setVar(SharedVariable var){
+    this->var=var;
 }

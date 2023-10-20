@@ -47,7 +47,7 @@ SharedFileScope FileParser::parse(){
 
     fileScope->setGlobalVarsInitStmList(
         std::make_shared<StmListScope>(
-            filePath,fileScope
+            0,filePath,fileScope
         )
     );
 

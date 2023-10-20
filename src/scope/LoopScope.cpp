@@ -3,5 +3,5 @@
 #include "IStatement.hpp"
 #include "SharedPtrTypes.hpp"
 
-LoopScope::LoopScope(SharedBaseScope parentScope):
-    StmListScope(L"حلقة_تكرارية",parentScope){}
+LoopScope::LoopScope(int lineNumber,SharedBaseScope parentScope):
+    StmListScope(lineNumber,L"حلقة_تكرارية",parentScope){}

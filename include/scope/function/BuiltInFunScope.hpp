@@ -16,9 +16,11 @@
 #include <functional>
 #include <memory>
 #include <string>
+
+class Interpreter;
 class BuiltInFunScope:public FunScope{
     private:
-        std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> invokeFun;
+        std::function<void(Interpreter*)> invokeOnInterpreterFun;
         static void addBuiltInFunctionsToIntClass();
         static void addBuiltInFunctionsToUIntClass();
         static void addBuiltInFunctionsToLongClass();
@@ -124,13 +126,6 @@ class BuiltInFunScope:public FunScope{
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
             SharedType returnType
         );
-        
-        template <typename PrimitiveType, typename ReturnValue>
-        static inline std::shared_ptr<BuiltInFunScope> getToAnotherTypeFun(
-            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
-            std::wstring name,
-            SharedType returnType
-        );
 
         template <typename PrimitiveType, typename ReturnValue>
         static inline std::shared_ptr<BuiltInFunScope> getUnaryPlusFun(
@@ -153,6 +148,13 @@ class BuiltInFunScope:public FunScope{
         template <typename PrimitiveType, typename ReturnValue>
         static inline std::shared_ptr<BuiltInFunScope> getDecFun(
             std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            SharedType returnType
+        );
+
+        template <typename PrimitiveType, typename ReturnValue>
+        static inline std::shared_ptr<BuiltInFunScope> getToAnotherTypeFun(
+            std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+            std::wstring name,
             SharedType returnType
         );
 
@@ -224,19 +226,20 @@ class BuiltInFunScope:public FunScope{
             std::wstring name,
             SharedType returnType,
             std::vector<std::pair<std::wstring, SharedType>> params,
-            std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> invokeFun,
+            std::function<void(Interpreter*)> invokeOnInterpreterFun,
             bool isOperator=false
         );
 
         ~BuiltInFunScope();
-        
-        SharedIValue invoke(SharedMap<std::wstring, SharedIValue> params);
+
+        void invokeOnInterpreter(Interpreter* interpreter);
 
         static void addBuiltInFunctionsTo(SharedFileScope fileScope);
 
         static void addBuiltInFunctionsToBuiltInClasses();
 };
 
+#include "Interpreter.hpp"
 
 template <typename PrimitiveType, typename ParamValue, typename ReturnValue>
 inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getPlusFun(
@@ -249,10 +252,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getPlusFun(
         OperatorFunctions::PLUS_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ReturnValue>(firstVal+secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a+b);
         },
         true
     );
@@ -269,10 +272,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getMinusFun(
         OperatorFunctions::MINUS_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ReturnValue>(firstVal-secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a-b);
         },
         true
     );
@@ -289,10 +292,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getTimesFun(
         OperatorFunctions::TIMES_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ReturnValue>(firstVal*secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a*b);
         },
         true
     );
@@ -309,10 +312,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getDivFun(
         OperatorFunctions::DIV_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ReturnValue>(firstVal/secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a/b);
         },
         true
     );
@@ -329,10 +332,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getModFun(
         OperatorFunctions::MOD_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ReturnValue>(firstVal%secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a%b);
         },
         true
     );
@@ -348,11 +351,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getCompareToFun(
         OperatorFunctions::COMPARE_TO_NAME,
         Type::INT,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            auto compareVal=(firstVal>secondVal)?1:(firstVal<secondVal)?-1:0;
-            return std::make_shared<IntValue>(compareVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<IntValue>(a-b);
         },
         true
     );
@@ -368,11 +370,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getEqualsFun(
         OperatorFunctions::EQUALS_NAME,
         Type::BOOL,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,paramType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(params->at(paramName))->getValue();
-            auto equalsVal=firstVal==secondVal;
-            return std::make_shared<BoolValue>(equalsVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<BoolValue>(a==b);
         },
         true
     );
@@ -387,10 +388,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getShrFun(
         OperatorFunctions::SHR_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{BIT_COUNT_PARAM_NAME,returnType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(BIT_COUNT_PARAM_NAME))->getValue();
-            return std::make_shared<ParamValue>(firstVal>>secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ParamValue>(a>>b);
         },
         true
     );
@@ -405,10 +406,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getShlFun(
         OperatorFunctions::SHL_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{BIT_COUNT_PARAM_NAME,returnType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(BIT_COUNT_PARAM_NAME))->getValue();
-            return std::make_shared<ParamValue>(firstVal<<secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ParamValue>(a<<b);
         },
         true
     );
@@ -424,10 +425,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitAndFun(
         OperatorFunctions::BIT_AND_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,returnType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ParamValue>(firstVal&secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ParamValue>(a&b);
         },
         true
     );
@@ -443,10 +444,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getXorFun(
         OperatorFunctions::XOR_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,returnType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ParamValue>(firstVal^secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ParamValue>(a^b);
         },
         true
     );
@@ -462,10 +463,10 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitOrFun(
         OperatorFunctions::BIT_OR_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{{paramName,returnType}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<ParamValue>(params->at(paramName))->getValue();
-            return std::make_shared<ParamValue>(firstVal|secondVal);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            auto b=std::dynamic_pointer_cast<ParamValue>(interpreter->CX)->getValue();
+            interpreter->AX=std::make_shared<ParamValue>(a|b);
         },
         true
     );
@@ -480,27 +481,9 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getBitNotFun(
         OperatorFunctions::BIT_NOT_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(~val);
-        },
-        true
-    );
-}
-
-template <typename PrimitiveType, typename ReturnValue>
-inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getToAnotherTypeFun(
-    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
-    std::wstring name,
-    SharedType returnType
-){
-    return std::make_shared<BuiltInFunScope>(
-        name,
-        returnType,
-        std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(val);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(~a);
         },
         true
     );
@@ -515,9 +498,8 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryPlusFun(
         OperatorFunctions::UNARY_PLUS_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(val);
+        [=](Interpreter* interpreter){
+            // Nothing
         },
         true
     );
@@ -532,9 +514,9 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getUnaryMinusFun(
         OperatorFunctions::UNARY_MINUS_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(-val);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(-a);
         },
         true
     );
@@ -549,9 +531,9 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getIncFun(
         OperatorFunctions::INC_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(++val);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(++a);
         },
         true
     );
@@ -566,11 +548,29 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getDecFun(
         OperatorFunctions::DEC_NAME,
         returnType,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<ReturnValue>(--val);
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(--a);
         },
         true
+    );
+}
+
+
+template <typename PrimitiveType, typename ReturnValue>
+inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getToAnotherTypeFun(
+    std::shared_ptr<PrimitiveClassScope<PrimitiveType>> classScope,
+    std::wstring name,
+    SharedType returnType
+){
+    return std::make_shared<BuiltInFunScope>(
+        name,
+        returnType,
+        std::vector<std::pair<std::wstring, SharedType>>{},
+        [=](Interpreter* interpreter){
+            auto a=std::dynamic_pointer_cast<PrimitiveValue<PrimitiveType>>(interpreter->AX)->getValue();
+            interpreter->AX=std::make_shared<ReturnValue>(a);
+        }
     );
 }
 
@@ -624,10 +624,9 @@ inline std::shared_ptr<BuiltInFunScope> BuiltInFunScope::getToStringFun(
         TO_STRING_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<StringValue>(std::to_wstring(val));
-        },
-        true
+        [=](Interpreter* interpreter){
+            auto a=interpreter->AX;
+            interpreter->AX=std::make_shared<StringValue>(a->toString());
+        }
     );
 }

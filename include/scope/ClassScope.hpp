@@ -3,7 +3,6 @@
 #include "SharedPtrTypes.hpp"
 class ClassScope: public BaseScope{
     private:
-        // TODO: add protected and static members
 
         // map fun decl to functions
         SharedMap<std::wstring,SharedFunScope> publicFunctions;
@@ -23,7 +22,7 @@ class ClassScope: public BaseScope{
 
         SharedStmListScope varsInitStmList;
     public:
-        ClassScope(std::wstring name,SharedBaseScope parentScope);
+        ClassScope(int lineNumber,std::wstring name,SharedBaseScope parentScope);
 
         void accept(ASTVisitor *visitor) override;
 

@@ -10,7 +10,6 @@
 #include "FunDeclParser.hpp"
 #include "FunParamParser.hpp"
 #include "FunParser.hpp"
-#include "Interpreter.hpp"
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
@@ -31,6 +30,8 @@
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "Type.hpp"
+#include "Interpreter.hpp"
+#include "VarsOffsetSetter.hpp"
 
 auto typeParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
     return std::make_shared<TypeParser>(
@@ -172,17 +173,31 @@ int main(int argc, char * argv[]){
         delete checker;
 
         auto interpreter=new Interpreter;
-        auto assigner=new Interpreter::Assigner(interpreter);
-        interpreter->assigner=assigner;
+        auto lAssigner=new Interpreter::LeftSideAssigner(interpreter);
+        auto rAssigner=new Interpreter::RightSideAssigner(interpreter);
+        auto varsOffsetSetter=new VarsOffsetSetter(
+            &interpreter->offsets,
+            interpreter->BP,
+            interpreter->BX,
+            interpreter->DS
+        );
+
+        PackageScope::AIN_PACKAGE->accept(varsOffsetSetter);
+
+        delete varsOffsetSetter;
+
+        interpreter->lAssigner=lAssigner;
+        interpreter->rAssigner=rAssigner;
         
         auto main=PackageScope::AIN_PACKAGE->
             findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
         
-        PackageScope::AIN_PACKAGE->accept(interpreter);
+        PackageScope::AIN_PACKAGE->accept(interpreter); // To init global vars
         main->accept(interpreter);
 
-        delete assigner;
+        delete lAssigner;
+        delete rAssigner;
         delete interpreter;
 
     }

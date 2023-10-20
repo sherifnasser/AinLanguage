@@ -9,8 +9,6 @@ class StringValue:public IValue{
         std::shared_ptr<StringClassScope> classScope;
     public:
         StringValue(std::wstring value);
-        void linkWithClass()override;
-        void unlinkWithClass()override;
         std::wstring toString()override;
         std::wstring getValue() const;
 };

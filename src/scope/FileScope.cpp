@@ -11,7 +11,7 @@
 #include <string>
 
 FileScope::FileScope(std::wstring filePath,SharedPackageScope parentScope)
-:BaseScope(filePath,parentScope),
+:BaseScope(0,filePath,parentScope),
 publicFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
 privateFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
 publicClasses(std::make_shared<std::unordered_map<std::wstring,SharedClassScope>>()),

@@ -490,7 +490,7 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
     if(publicVar){
         if(!publicVar->getType())
             throw MustHaveExplicitTypeException(lineNumber);
-        
+        ex->setVar(publicVar);
         ex->setReturnType(publicVar->getType());
         return;
     }
@@ -510,7 +510,8 @@ void SemanticsChecksVisitor::visit(NonStaticVarAccessExpression* ex){
 
     if(!privateVar->getType())
         throw MustHaveExplicitTypeException(lineNumber);
-        
+
+    ex->setVar(privateVar);    
     ex->setReturnType(privateVar->getType());
 }
 
@@ -617,7 +618,18 @@ void SemanticsChecksVisitor::visit(SetOperatorExpression* ex){
     );
     
     ex->setFunOfSet(funOfSet);
-    ex->setReturnType(funOfSet->getReturnType());
+
+    switch(ex->getOp()){
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:
+            ex->setReturnType(ex->getExOfGet()->getReturnType());
+            break;
+        default:
+            ex->setReturnType(funOfSet->getReturnType());
+    }
+    
 }
 
 void SemanticsChecksVisitor::initStmRunScope(IStatement* stm){
@@ -763,8 +775,6 @@ std::wstring SemanticsChecksVisitor::getAugmentedAssignOpFunName(
             return OperatorFunctions::XOR_NAME;
         case AugmentedAssignStatement::Operator::BIT_OR:
             return OperatorFunctions::BIT_OR_NAME;
-        case AugmentedAssignStatement::Operator::BIT_NOT:
-            return OperatorFunctions::BIT_NOT_NAME;
     }
 
     assert(false); // Unreachable
@@ -794,8 +804,6 @@ std::wstring SemanticsChecksVisitor::getOpFunNameOfSetOp(SetOperatorExpression::
             return OperatorFunctions::XOR_NAME;
         case SetOperatorExpression::Operator::BIT_OR_EQUAL:
             return OperatorFunctions::BIT_OR_NAME;
-        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:
-            return OperatorFunctions::BIT_NOT_NAME;
         case SetOperatorExpression::Operator::PRE_INC:
         case SetOperatorExpression::Operator::POST_INC:
             return OperatorFunctions::INC_NAME;

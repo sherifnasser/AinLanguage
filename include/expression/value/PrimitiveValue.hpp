@@ -12,8 +12,6 @@ class PrimitiveValue:public virtual IValue{
     public:
         PrimitiveValue<T>(SharedType type,T value);
         T getValue();
-        void linkWithClass()override;
-        void unlinkWithClass()override;
 };
 
 template<typename T>
@@ -23,19 +21,4 @@ PrimitiveValue<T>::PrimitiveValue(SharedType type,T value)
 template<typename T>
 T PrimitiveValue<T>::getValue(){
     return this->value;
-}
-
-template<typename T>
-inline void PrimitiveValue<T>::linkWithClass(){
-    if(!classScope)
-        classScope=
-            std::dynamic_pointer_cast<PrimitiveClassScope<T>>(type->getClassScope())
-        ;
-
-    classScope->pushNewValue(value);
-}
-
-template<typename T>
-inline void PrimitiveValue<T>::unlinkWithClass(){
-    classScope->popLastValue();
 }

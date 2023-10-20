@@ -4,7 +4,7 @@
 #include "OperatorFunInvokeExpression.hpp"
 
 IExpression::IExpression(int lineNumber,SharedType returnType)
-:lineNumber(lineNumber),returnType(returnType){}
+:ASTNode(lineNumber),returnType(returnType){}
 
 SharedType IExpression::getReturnType() {
     return this->returnType;
@@ -15,9 +15,6 @@ void IExpression::setReturnType(SharedType returnType){
 }
 
 IExpression::~IExpression(){}
-int IExpression::getLineNumber()const{
-    return lineNumber;
-}
 
 bool IExpression::isAssignableExpression(SharedIExpression ex){
     return

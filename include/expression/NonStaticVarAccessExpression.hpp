@@ -6,6 +6,7 @@ class NonStaticVarAccessExpression:public IExpression{
     private:
         std::wstring varName;
         SharedIExpression inside;
+        SharedVariable var;
     public:
         NonStaticVarAccessExpression(
             int lineNumber,
@@ -17,4 +18,8 @@ class NonStaticVarAccessExpression:public IExpression{
         std::wstring getVarName() const;
 
         SharedIExpression getInside() const;
+
+        SharedVariable getVar()const;
+
+        void setVar(SharedVariable var);
 };

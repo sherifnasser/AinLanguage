@@ -13,9 +13,10 @@
 #include "InvalidOperatorFunDeclarationException.hpp"
 
 FunScope::FunScope(
+    int lineNumber,
     SharedBaseScope parentScope,
     SharedFunDecl decl
-):StmListScope(*decl->name,parentScope),decl(decl)
+):StmListScope(lineNumber,*decl->name,parentScope),decl(decl)
 {}
 
 SharedType FunScope::getReturnType(){

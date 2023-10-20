@@ -2,6 +2,6 @@
 #include "StmListScope.hpp"
 class LoopScope:public StmListScope{
     public:
-        LoopScope(SharedBaseScope parentScope);
+        LoopScope(int lineNumber,SharedBaseScope parentScope);
         void accept(ASTVisitor *visitor) override;
 };

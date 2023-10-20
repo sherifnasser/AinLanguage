@@ -4,9 +4,9 @@
 #include <memory>
 #include <vector>
 
-StmListScope::StmListScope(std::wstring name,SharedBaseScope parentScope)
+StmListScope::StmListScope(int lineNumber,std::wstring name,SharedBaseScope parentScope)
 :
-    BaseScope(name,parentScope),
+    BaseScope(lineNumber,name,parentScope),
     locals(
         std::make_shared<std::unordered_map<std::wstring,SharedVariable>>()
     ),

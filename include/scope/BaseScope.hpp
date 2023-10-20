@@ -1,5 +1,4 @@
 #pragma once
-// TODO: change name
 #include "ASTNode.hpp"
 #include "SharedPtrTypes.hpp"
 #include <string>
@@ -9,7 +8,7 @@ protected:
 
     std::wstring name;
 public:
-    BaseScope(std::wstring name,SharedBaseScope parentScope);
+    BaseScope(int lineNumber,std::wstring name,SharedBaseScope parentScope);
     SharedBaseScope getParentScope();
     std::wstring getName();
     virtual ~BaseScope();

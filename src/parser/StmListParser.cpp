@@ -151,9 +151,13 @@ SharedIStatement StmListParser::parseIfStatement(SharedStmListScope parentScope)
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto ifScope=std::make_shared<StmListScope>(L"لو",parentScope);
-
     iterator->next();
+
+    auto ifScope=std::make_shared<StmListScope>(
+        iterator->lineNumber,
+        L"لو",
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(ifScope);
 
@@ -161,7 +165,11 @@ SharedIStatement StmListParser::parseIfStatement(SharedStmListScope parentScope)
 
     if(iterator->currentMatch(KeywordToken::ELSE)){
         iterator->next();
-        elseScope=std::make_shared<StmListScope>(L"وإلا",parentScope);
+        elseScope=std::make_shared<StmListScope>(
+            iterator->lineNumber,
+            L"وإلا",
+            parentScope
+        );
         parseEvenWithNoCurlyBracesInScope(elseScope);
     }
 
@@ -192,9 +200,12 @@ SharedIStatement StmListParser::parseWhileStatement(SharedStmListScope parentSco
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto whileScope=std::make_shared<LoopScope>(parentScope);
-
     iterator->next();
+
+    auto whileScope=std::make_shared<LoopScope>(
+        iterator->lineNumber,
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(whileScope);
 
@@ -213,9 +224,12 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
 
     int lineNumber=iterator->lineNumber;
 
-    auto doWhileScope=std::make_shared<LoopScope>(parentScope);
-
     iterator->next();
+
+    auto doWhileScope=std::make_shared<LoopScope>(
+        iterator->lineNumber,
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(doWhileScope);
 
@@ -333,8 +347,6 @@ SharedIStatement StmListParser::parseAsSetOperatorExStm(
         augOp=SetOperatorExpression::Operator::SHR_EQUAL;
     else if(*op==SymbolToken::SHL_EQUAL)
         augOp=SetOperatorExpression::Operator::SHL_EQUAL;
-    else if(*op==SymbolToken::BIT_NOT_EQUAL)
-        augOp=SetOperatorExpression::Operator::BIT_NOT_EQUAL;
     else if(*op==SymbolToken::BIT_AND_EQUAL)
         augOp=SetOperatorExpression::Operator::BIT_AND_EQUAL;
     else if(*op==SymbolToken::XOR_EQUAL)
@@ -371,8 +383,7 @@ SharedIStatement StmListParser::parseAsSetOperatorExStm(
         case SetOperatorExpression::Operator::SHL_EQUAL:
         case SetOperatorExpression::Operator::BIT_AND_EQUAL:
         case SetOperatorExpression::Operator::XOR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_OR_EQUAL:
-        case SetOperatorExpression::Operator::BIT_NOT_EQUAL:{
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
             exOfSet=std::make_shared<SetOperatorExpression>(
                 augOp,
                 exOfGet,
@@ -425,8 +436,6 @@ SharedIStatement StmListParser::parseAsAssignStm(
         augOp=AugmentedAssignStatement::Operator::SHR;
     else if(*op==SymbolToken::SHL_EQUAL)
         augOp=AugmentedAssignStatement::Operator::SHL;
-    else if(*op==SymbolToken::BIT_NOT_EQUAL)
-        augOp=AugmentedAssignStatement::Operator::BIT_NOT;
     else if(*op==SymbolToken::BIT_AND_EQUAL)
         augOp=AugmentedAssignStatement::Operator::BIT_AND;
     else if(*op==SymbolToken::XOR_EQUAL)
@@ -464,7 +473,6 @@ SharedIStatement StmListParser::parseAsAssignStm(
         case AugmentedAssignStatement::Operator::BIT_AND:
         case AugmentedAssignStatement::Operator::XOR:
         case AugmentedAssignStatement::Operator::BIT_OR:
-        case AugmentedAssignStatement::Operator::BIT_NOT:
             return std::make_shared<AugmentedAssignStatement>(
                 lineNumber,
                 parentScope,
