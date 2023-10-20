@@ -886,3 +886,29 @@ void Interpreter::visit(SetOperatorExpression* ex){
         default:break;
     }
 }
+
+void Interpreter::visit(ThisExpression* ex){
+    push(std::make_shared<RefValue>(*BX));
+}
+
+void Interpreter::visit(ThisVarAccessExpression* ex){
+    auto offset=offsets[ex->getVar().get()];
+    push(memory[*offset.reg+offset.value]);
+}
+
+void Interpreter::visit(ThisFunInvokeExpression* ex){
+    
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    ex->getFun()->accept(this);
+
+    for(auto arg:*args){
+        pop();
+    }
+
+    push(AX); // return value
+}
