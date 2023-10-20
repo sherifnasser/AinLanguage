@@ -16,12 +16,21 @@ VarsOffsetSetter::Offset::Offset():
 
 VarsOffsetSetter::VarsOffsetSetter(
     std::unordered_map<Variable*, Offset>*offsets,
-    int* BP,
-    int* BX
+    int*const BP,
+    int*const BX,
+    const int*const DS
 )
 :offsets(offsets),
 BP(BP),
-BX(BX){}
+BX(BX),
+DS(DS)
+{
+    auto arrayCapacityProperty=Type::ARRAY_CLASS->getPublicVariables()->at(*ArrayClassScope::CAPACITY_NAME).get();
+    (*offsets)[arrayCapacityProperty]=Offset(
+        BX,
+        0
+    );
+}
 
 void VarsOffsetSetter::offsetStmListScope(StmListScope* scope){
     auto locals=scope->getLocals();
@@ -33,7 +42,7 @@ void VarsOffsetSetter::offsetStmListScope(StmListScope* scope){
             stmListScopeOffset
         );
 
-        stmListScopeOffset++;
+        stmListScopeOffset--;
     }
 
     for(auto stm:*scope->getStmList())
@@ -41,17 +50,12 @@ void VarsOffsetSetter::offsetStmListScope(StmListScope* scope){
 }
 
 void VarsOffsetSetter::visit(PackageScope* scope){
-    for(auto packageIterator:scope->getPackages()){
-        packageIterator.second->accept(this);
-    }
     for(auto fileIterator:scope->getFiles()){
         fileIterator.second->accept(this);
     }
-    auto arrayCapacityProperty=Type::ARRAY_CLASS->getPublicVariables()->at(*ArrayClassScope::CAPACITY_NAME).get();
-    (*offsets)[arrayCapacityProperty]=Offset(
-        BX,
-        0
-    );
+    for(auto packageIterator:scope->getPackages()){
+        packageIterator.second->accept(this);
+    }
 }
 
 void VarsOffsetSetter::visit(FileScope* scope){
@@ -67,6 +71,29 @@ void VarsOffsetSetter::visit(FileScope* scope){
     for(auto funIt:*scope->getPrivateClasses()){
         funIt.second->accept(this);
     }
+    for(auto varIt:*scope->getPublicVariables()){
+        auto var=varIt.second.get();
+        (*offsets)[var]=Offset(
+            const_cast<int*>(DS),
+            globalVarsOffset
+        );
+        auto varType=var->getType()->getClassScope();
+        globalVarsOffset+=varType->getPublicVariables()->size()+varType->getPrivateVariables()->size()+1;
+    }
+    for(auto varIt:*scope->getPrivateVariables()){
+        auto var=varIt.second.get();
+        (*offsets)[var]=Offset(
+            const_cast<int*>(DS),
+            globalVarsOffset
+        );
+        auto varType=var->getType()->getClassScope();
+        globalVarsOffset+=varType->getPublicVariables()->size()+varType->getPrivateVariables()->size()+1;
+    }
+
+    /** TODO
+    if(globalVarsOffset>=DATA_SIZE)
+        throw;
+    */
 }
 
 void VarsOffsetSetter::visit(ClassScope* scope){
@@ -108,16 +135,16 @@ void VarsOffsetSetter::visit(FunScope* scope){
 
     auto paramsOffsets=std::unordered_map<std::wstring,int>{};
 
-    auto offset=-1;
+    auto offset=1;
     for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
 
         paramsOffsets[
             *paramIt->get()->name
-        ]=offset--;
+        ]=offset++;
 
     }
 
-    stmListScopeOffset=1;
+    stmListScopeOffset=-1;
     for(auto varIt:*scope->getLocals()){
         
         auto paramOffsetIt=paramsOffsets.find(varIt.first);
@@ -130,7 +157,7 @@ void VarsOffsetSetter::visit(FunScope* scope){
         );
 
         if(paramOffsetIt==paramsOffsets.end())
-            stmListScopeOffset++;
+            stmListScopeOffset--;
     }
 
     for(auto stm:*scope->getStmList())

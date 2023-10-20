@@ -179,7 +179,8 @@ int main(int argc, char * argv[]){
         auto varsOffsetSetter=new VarsOffsetSetter(
             &interpreter->offsets,
             interpreter->BP,
-            interpreter->BX
+            interpreter->BX,
+            interpreter->DS
         );
 
         PackageScope::AIN_PACKAGE->accept(varsOffsetSetter);
@@ -193,6 +194,7 @@ int main(int argc, char * argv[]){
             findFileByPath(toWstring(filesStack[0]))->
             findPublicFunction(L"البداية()");
         
+        PackageScope::AIN_PACKAGE->accept(interpreter); // To init global vars
         main->accept(interpreter);
 
         delete lAssigner;

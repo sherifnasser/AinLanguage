@@ -36,11 +36,12 @@
 #include "ArrayValue.hpp"
 #include "RefValue.hpp"
 #include <memory>
-#include <stack>
 #include <unordered_map>
 
-#define STACK_SIZE 64
+#define DATA_SIZE  64
 #define HEAP_SIZE  64
+#define STACK_SIZE 64
+#define MEM_SIZE   DATA_SIZE+HEAP_SIZE+STACK_SIZE
 
 class BuiltInFunScope;
 
@@ -69,10 +70,10 @@ class InterpreterV2:public ASTVisitor{
         bool funReturn;
         bool loopBreak;
         bool loopContinue;
-        IValue* stack[STACK_SIZE];
 
         void runStmList(StmListScope* scope);
-        void offsetStmListLocals(int size);
+        void reserveSpaceForStmListLocals(int size);
+        void removeReservedSpaceForStmListLocals(int size);
         
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
         void invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex);
@@ -114,32 +115,33 @@ class InterpreterV2:public ASTVisitor{
 
         void dup();
         void over();
-        void push(IValue* val);
-        IValue* top();
-        IValue* pop();
+        void push(SharedIValue val);
+        SharedIValue top();
+        SharedIValue pop();
         template<typename T>
-        T* popAs();
+        std::shared_ptr<T> popAs();
         template<typename T>
-        T* topAs();
+        std::shared_ptr<T> topAs();
 
         std::unordered_map<Variable*, VarsOffsetSetter::Offset> offsets;
-        IValue* AX;
-        IValue* CX;
-        IValue* DX;
+        SharedIValue AX;
+        SharedIValue CX;
+        SharedIValue DX;
         int*const DI;
         int*const BX;
         int*const BP;
         int*const SP;
-
-        IValue* heap[HEAP_SIZE];
+        const int*const DS;
+        const int*const SS;
+        SharedIValue memory[MEM_SIZE];
 };
 
 template<typename T>
-inline T* InterpreterV2::popAs(){
-    return dynamic_cast<T*>(pop());
+inline std::shared_ptr<T> InterpreterV2::popAs(){
+    return std::dynamic_pointer_cast<T>(pop());
 }
 
 template<typename T>
-inline T* InterpreterV2::topAs(){
-    return dynamic_cast<T*>(top());
+inline std::shared_ptr<T> InterpreterV2::topAs(){
+    return std::dynamic_pointer_cast<T>(top());
 }

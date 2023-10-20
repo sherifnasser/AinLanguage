@@ -11,6 +11,7 @@
 class VarsOffsetSetter:public ASTVisitor{
     public:
         int stmListScopeOffset;
+        int globalVarsOffset=0; // 1st address in data segment
         struct Offset{
             Offset(int* reg, int value);
             Offset();
@@ -20,10 +21,12 @@ class VarsOffsetSetter:public ASTVisitor{
         std::unordered_map<Variable*, Offset>* offsets;
         int*const BP;
         int*const BX;
+        const int*const DS;
         VarsOffsetSetter(
             std::unordered_map<Variable*, Offset>* offsets,
-            int* BP,
-            int* BX
+            int*const BP,
+            int*const BX,
+            const int*const DS
         );
     private:
         void offsetStmListScope(StmListScope* scope);
