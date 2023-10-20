@@ -1,7 +1,6 @@
 #include "NonStaticVarAccessExpression.hpp"
 #include "CannotAccessPrivateVariableException.hpp"
 #include "IExpression.hpp"
-#include "ObjectValue.hpp"
 #include "Type.hpp"
 #include "ClassScope.hpp"
 #include "Variable.hpp"

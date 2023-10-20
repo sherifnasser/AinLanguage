@@ -5,7 +5,7 @@
 BoolValue::BoolValue(bool value)
 :IValue(Type::BOOL),PrimitiveValue(Type::BOOL,value){}
 
-std::wstring BoolValue::toString() {
+std::wstring BoolValue::toString(){
     if(value)
         return KeywordToken::TRUE.getVal();
     return KeywordToken::FALSE.getVal();

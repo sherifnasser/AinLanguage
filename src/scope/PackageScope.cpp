@@ -5,7 +5,7 @@
 #include <memory>
 
 PackageScope::PackageScope(std::wstring name,SharedPackageScope parentScope)
-:BaseScope(name,parentScope){}
+:BaseScope(0,name,parentScope){}
 
 SharedPackageScope PackageScope::findPackageByName(std::wstring name){
     auto package=packages.find(name);

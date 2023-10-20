@@ -226,7 +226,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
         };
 
         WHEN("Line has ain puncts (has arabic puncts)"){
-            std::wstring line=L"زح<=زح<زح>=زح>::++--(){}[]<>:=+-*/%!**&^|~\\.>=<===!=&&||+=-=*=/=%=**=&=^=|=~=،؛؟";
+            std::wstring line=L"<<=<<>>=>>::++--(){}[]<>:=+-*/%!**&^|~\\.>=<===!=&&||+=-=*=/=%=**=&=^=|=~=،؛؟";
             std::vector<SymbolToken> expectedTokens={
                 SymbolToken::SHR_EQUAL,SymbolToken::SHR,
                 SymbolToken::SHL_EQUAL,SymbolToken::SHL,

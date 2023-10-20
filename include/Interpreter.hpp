@@ -1,7 +1,7 @@
 #pragma once
 #include "ASTVisitor.hpp"
 
-#include "BuiltInFunScope.hpp"
+#include "IValue.hpp"
 #include "PackageScope.hpp"
 #include "FileScope.hpp"
 #include "ClassScope.hpp"
@@ -13,6 +13,8 @@
 #include "IfStatement.hpp"
 #include "AssignStatement.hpp"
 #include "AugmentedAssignStatement.hpp"
+#include "Variable.hpp"
+#include "VarsOffsetSetter.hpp"
 #include "WhileStatement.hpp"
 #include "DoWhileStatement.hpp"
 #include "BreakStatement.hpp"
@@ -31,50 +33,55 @@
 #include "OperatorFunInvokeExpression.hpp"
 #include "SetOperatorExpression.hpp"
 
-#include "ArrayValue.hpp"
+#include "RefValue.hpp"
 #include <memory>
-#include <stack>
+#include <unordered_map>
+
+#define DATA_SIZE  64
+#define HEAP_SIZE  64
+#define STACK_SIZE 64
+#define MEM_SIZE   DATA_SIZE+HEAP_SIZE+STACK_SIZE
+
+class BuiltInFunScope;
 
 class Interpreter:public ASTVisitor{
     public:
-        class Assigner:public ASTVisitor{
+        class LeftSideAssigner:public ASTVisitor{
             private:
                 Interpreter* interpreter;
-                bool assign=false;
             public:
-                Assigner(Interpreter* interpreter);
+                LeftSideAssigner(Interpreter* interpreter);
                 void visit(VarAccessExpression* ex)override;
                 void visit(NonStaticVarAccessExpression* ex)override;
-                void visit(OperatorFunInvokeExpression* ex)override;
         };
-        Assigner* assigner;
+        class RightSideAssigner:public ASTVisitor{
+            private:
+                Interpreter* interpreter;
+            public:
+                RightSideAssigner(Interpreter* interpreter);
+                void visit(VarAccessExpression* ex)override;
+                void visit(NonStaticVarAccessExpression* ex)override;
+        };
+
+        LeftSideAssigner* lAssigner;
+        RightSideAssigner* rAssigner;
     private:
         bool funReturn;
         bool loopBreak;
         bool loopContinue;
-        std::stack<SharedIValue> valuesStack;
-        void push(SharedIValue val);
-        SharedIValue top();
-        SharedIValue pop();
+
         void runStmList(StmListScope* scope);
-        void initStmListLocals(StmListScope* scope);
-        template<typename T>
-        std::shared_ptr<T> popAs();
-        template<typename T>
-        std::shared_ptr<T> topAs();
+        void reserveSpaceForStmListLocals(int size);
+        void removeReservedSpaceForStmListLocals(int size);
+        
         void invokeNonStaticFun(NonStaticFunInvokeExpression* ex);
-        /**
-        NOTE: The @param type should be of type Type::Array. Be careful as we want to avoid casting.
-        */
-        std::shared_ptr<ArrayValue> initMultiDArray(
-            int capIndex,
-            int capacitiesSize,
-            int capacities[],
-            SharedType type
-        );
+        void invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex);
+        void invokeBuiltInOpFun(OperatorFunInvokeExpression* ex);
+        void initMultiDArray();
+        int getAvailableHeapAddress(ClassScope* scope);
+        int getAvailableHeapAddress(int size);
     public:
         Interpreter();
-        Interpreter(Assigner* assigner);
         void visit(PackageScope* scope)override;
         void visit(FileScope* scope)override;
         void visit(ClassScope* scope)override;
@@ -103,6 +110,26 @@ class Interpreter:public ASTVisitor{
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
         void visit(SetOperatorExpression* ex)override;
+
+        void push(SharedIValue val);
+        SharedIValue top();
+        SharedIValue pop();
+        template<typename T>
+        std::shared_ptr<T> popAs();
+        template<typename T>
+        std::shared_ptr<T> topAs();
+
+        std::unordered_map<Variable*, VarsOffsetSetter::Offset> offsets;
+        SharedIValue AX;
+        SharedIValue CX;
+        SharedIValue DX;
+        int*const DI;
+        int*const BX;
+        int*const BP;
+        int*const SP;
+        const int*const DS;
+        const int*const SS;
+        SharedIValue memory[MEM_SIZE];
 };
 
 template<typename T>

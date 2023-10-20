@@ -19,8 +19,8 @@ SymbolToken SymbolToken::SEMICOLON=SymbolToken(L"؛");
 SymbolToken SymbolToken::QUESTION_MARK=SymbolToken(L"؟");
 SymbolToken SymbolToken::EXCLAMATION_MARK=SymbolToken(L"!");
 SymbolToken SymbolToken::BIT_NOT=SymbolToken(L"~");
-SymbolToken SymbolToken::SHR=SymbolToken(L"زح<"); // FIXME: Change the value
-SymbolToken SymbolToken::SHL=SymbolToken(L"زح>"); // FIXME: Change the value
+SymbolToken SymbolToken::SHR=SymbolToken(L"<<");
+SymbolToken SymbolToken::SHL=SymbolToken(L">>");
 SymbolToken SymbolToken::AMPERSAND=SymbolToken(L"&");
 SymbolToken SymbolToken::XOR=SymbolToken(L"^");
 SymbolToken SymbolToken::BAR=SymbolToken(L"|");
@@ -54,8 +54,8 @@ SymbolToken SymbolToken::SLASH_EQUAL=SymbolToken(L"/=");
 SymbolToken SymbolToken::MODULO_EQUAL=SymbolToken(L"%=");
 SymbolToken SymbolToken::POWER_EQUAL=SymbolToken(L"**=");
 
-SymbolToken SymbolToken::SHR_EQUAL=SymbolToken(L"زح<=");
-SymbolToken SymbolToken::SHL_EQUAL=SymbolToken(L"زح>=");
+SymbolToken SymbolToken::SHR_EQUAL=SymbolToken(L"<<=");
+SymbolToken SymbolToken::SHL_EQUAL=SymbolToken(L">>=");
 SymbolToken SymbolToken::BIT_NOT_EQUAL=SymbolToken(L"~=");
 SymbolToken SymbolToken::BIT_AND_EQUAL=SymbolToken(L"&=");
 SymbolToken SymbolToken::XOR_EQUAL=SymbolToken(L"^=");

@@ -2,6 +2,7 @@
 #include "FunParser.hpp"
 #include "SharedPtrTypes.hpp"
 #include "BaseParser.hpp"
+#include "TokensIteratorForTests.hpp"
 #include "Variable.hpp"
 #include "FunParam.hpp"
 #include "FunDecl.hpp"
@@ -70,7 +71,7 @@ TEST_CASE("FunParser tests","[FunParserTest.cpp]"){
     }; 
 
     auto funScope=FunParser(
-        nullptr,
+        getTokensIterator({}), // to be able to access lineNumber property in TokensIterator
         nullptr,
         fakeFunDeclParserProvider,
         fakeStmListParserProvider

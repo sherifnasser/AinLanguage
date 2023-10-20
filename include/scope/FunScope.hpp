@@ -8,10 +8,9 @@ class FunScope:public StmListScope{
     protected:
         SharedFunDecl decl;
         SharedIValue returnValue;
-        // TODO: add params for shadowing
-        // SharedMap<std::wstring, SharedVariable> params;
     public:
         FunScope(
+            int lineNumber,
             SharedBaseScope parentScope,
             SharedFunDecl decl
         );

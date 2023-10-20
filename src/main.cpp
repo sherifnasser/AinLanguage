@@ -10,7 +10,6 @@
 #include "FunDeclParser.hpp"
 #include "FunParamParser.hpp"
 #include "FunParser.hpp"
-#include "Interpreter.hpp"
 #include "PackageParser.hpp"
 #include "PackageScope.hpp"
 #include "ParserProvidersAliases.hpp"
@@ -31,7 +30,7 @@
 #include "FileScope.hpp"
 #include "FunScope.hpp"
 #include "Type.hpp"
-#include "InterpreterV2.hpp"
+#include "Interpreter.hpp"
 #include "VarsOffsetSetter.hpp"
 
 auto typeParserProvider=[](SharedTokensIterator iterator,SharedBaseScope scope){
@@ -173,9 +172,9 @@ int main(int argc, char * argv[]){
         
         delete checker;
 
-        auto interpreter=new InterpreterV2;
-        auto lAssigner=new InterpreterV2::LeftSideAssigner(interpreter);
-        auto rAssigner=new InterpreterV2::RightSideAssigner(interpreter);
+        auto interpreter=new Interpreter;
+        auto lAssigner=new Interpreter::LeftSideAssigner(interpreter);
+        auto rAssigner=new Interpreter::RightSideAssigner(interpreter);
         auto varsOffsetSetter=new VarsOffsetSetter(
             &interpreter->offsets,
             interpreter->BP,

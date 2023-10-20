@@ -8,8 +8,12 @@
 #include "StmListScope.hpp"
 #include <memory>
 
-BaseScope::BaseScope(std::wstring name,SharedBaseScope parentScope)
-:name(name),parentScope(parentScope){}
+BaseScope::BaseScope(
+    int lineNumber,
+    std::wstring name,
+    SharedBaseScope parentScope
+)
+:ASTNode(lineNumber),name(name),parentScope(parentScope){}
 
 SharedBaseScope BaseScope::getParentScope() {
     return this->parentScope;

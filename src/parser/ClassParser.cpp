@@ -7,7 +7,6 @@
 #include "FunScope.hpp"
 #include "KeywordToken.hpp"
 #include "LexerToken.hpp"
-#include "ObjectValue.hpp"
 #include "SharedPtrTypes.hpp"
 #include "SymbolToken.hpp"
 #include "Type.hpp"
@@ -38,21 +37,27 @@ SharedClassScope ClassParser::parse(){
     if(!iterator->currentMatch(KeywordToken::CLASS))
         return nullptr;
 
+    auto lineNumber=iterator->lineNumber;
+
     auto className=expectNextIdentifier();
 
     iterator->next();
-    // TODO: parse primary constructor and super classes
+
     expectSymbol(SymbolToken::LEFT_CURLY_BRACES);
+    
     iterator->next();
     
-
     auto classScope=std::make_shared<ClassScope>(
+        lineNumber,
         className,
         scope
     );
+
     classScope->setVarsInitStmList(
         std::make_shared<StmListScope>(
-            className,classScope
+            lineNumber,
+            className,
+            classScope
         )
     );
 
@@ -90,7 +95,7 @@ SharedClassScope ClassParser::parse(){
         );
 
         (*classScope->getPublicConstructors())[decl->toString()]=
-            std::make_shared<FunScope>(classScope,decl);
+            std::make_shared<FunScope>(lineNumber,classScope,decl);
     }
 
     return classScope;
@@ -167,7 +172,11 @@ void ClassParser::parseConstructor(SharedType parentType){
 
     auto declStr=decl->toString();
     
-    auto constructorScope=std::make_shared<FunScope>(parentScope,decl);
+    auto constructorScope=std::make_shared<FunScope>(
+        lineNumber,
+        parentScope,
+        decl
+    );
 
     if(parentScope->findPublicConstructor(declStr)||parentScope->findPrivateConstructor(declStr))
         throw ConflictingDeclarationException(lineNumber);

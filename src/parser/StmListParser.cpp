@@ -151,9 +151,13 @@ SharedIStatement StmListParser::parseIfStatement(SharedStmListScope parentScope)
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto ifScope=std::make_shared<StmListScope>(L"لو",parentScope);
-
     iterator->next();
+
+    auto ifScope=std::make_shared<StmListScope>(
+        iterator->lineNumber,
+        L"لو",
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(ifScope);
 
@@ -161,7 +165,11 @@ SharedIStatement StmListParser::parseIfStatement(SharedStmListScope parentScope)
 
     if(iterator->currentMatch(KeywordToken::ELSE)){
         iterator->next();
-        elseScope=std::make_shared<StmListScope>(L"وإلا",parentScope);
+        elseScope=std::make_shared<StmListScope>(
+            iterator->lineNumber,
+            L"وإلا",
+            parentScope
+        );
         parseEvenWithNoCurlyBracesInScope(elseScope);
     }
 
@@ -192,9 +200,12 @@ SharedIStatement StmListParser::parseWhileStatement(SharedStmListScope parentSco
     
     expectSymbol(SymbolToken::RIGHT_PARENTHESIS);
 
-    auto whileScope=std::make_shared<LoopScope>(parentScope);
-
     iterator->next();
+
+    auto whileScope=std::make_shared<LoopScope>(
+        iterator->lineNumber,
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(whileScope);
 
@@ -213,9 +224,12 @@ SharedIStatement StmListParser::parseDoWhileStatement(SharedStmListScope parentS
 
     int lineNumber=iterator->lineNumber;
 
-    auto doWhileScope=std::make_shared<LoopScope>(parentScope);
-
     iterator->next();
+
+    auto doWhileScope=std::make_shared<LoopScope>(
+        iterator->lineNumber,
+        parentScope
+    );
 
     parseEvenWithNoCurlyBracesInScope(doWhileScope);
 

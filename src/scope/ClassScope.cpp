@@ -8,8 +8,8 @@
 #include <memory>
 #include <string>
 
-ClassScope::ClassScope(std::wstring name,SharedBaseScope parentScope)
-    :BaseScope(name,parentScope),
+ClassScope::ClassScope(int lineNumber,std::wstring name,SharedBaseScope parentScope)
+    :BaseScope(lineNumber,name,parentScope),
     publicFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
     privateFunctions(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),
     publicConstructors(std::make_shared<std::unordered_map<std::wstring,SharedFunScope>>()),

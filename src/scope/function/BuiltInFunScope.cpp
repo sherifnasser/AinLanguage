@@ -4,6 +4,7 @@
 #include "BoolValue.hpp"
 #include "CharClassScope.hpp"
 #include "CharValue.hpp"
+#include "ContainsKufrOrUnsupportedCharacterException.hpp"
 #include "DoubleClassScope.hpp"
 #include "DoubleValue.hpp"
 #include "FloatClassScope.hpp"
@@ -44,20 +45,19 @@ BuiltInFunScope::BuiltInFunScope(
     std::wstring name,
     SharedType returnType,
     std::vector<std::pair<std::wstring, SharedType>>params,
-    std::function<SharedIValue(SharedMap<std::wstring, SharedIValue>)> invokeFun,
-    std::function<void(InterpreterV2*)> invokeOnInterpreterFun,
+    std::function<void(Interpreter*)> invokeOnInterpreterFun,
     bool isOperator
 ):
     FunScope(
+        0,
         PackageScope::AIN_PACKAGE,
         std::make_shared<FunDecl>(
-                std::make_shared<std::wstring>(name),
-                returnType,
-                std::make_shared<bool>(isOperator),
-                std::make_shared<std::vector<SharedFunParam>>()
+            std::make_shared<std::wstring>(name),
+            returnType,
+            std::make_shared<bool>(isOperator),
+            std::make_shared<std::vector<SharedFunParam>>()
         )
     ),
-    invokeFun(invokeFun),
     invokeOnInterpreterFun(invokeOnInterpreterFun)
 {
     for(auto paramsIterator:params){
@@ -70,16 +70,9 @@ BuiltInFunScope::BuiltInFunScope(
     }
 }
 
-BuiltInFunScope::~BuiltInFunScope()
-{
-    
-}
+BuiltInFunScope::~BuiltInFunScope(){}
 
-SharedIValue BuiltInFunScope::invoke(SharedMap<std::wstring, SharedIValue> params) {
-    return invokeFun(params);
-}
-
-void BuiltInFunScope::invokeOnInterpreter(InterpreterV2* interpreter){
+void BuiltInFunScope::invokeOnInterpreter(Interpreter* interpreter){
     invokeOnInterpreterFun(interpreter);
 }
 
@@ -89,11 +82,7 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         READ_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [](SharedMap<std::wstring, SharedIValue>){
-            auto input=ainread(false);
-            return std::make_shared<StringValue>(input);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto input=ainread(false);
             interpreter->AX=std::make_shared<StringValue>(input);
         }
@@ -103,43 +92,21 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         READ_LINE_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [](SharedMap<std::wstring, SharedIValue>){
-            auto input=ainread(true);
-            return std::make_shared<StringValue>(input);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto input=ainread(true);
             interpreter->AX=std::make_shared<StringValue>(input);
         }
     );
 
-    auto PRINT_INVOKE_FUN=
-    [](SharedMap<std::wstring, SharedIValue> params){
-        for(auto paramIterator:*params){
-            auto paramVal=paramIterator.second->toString();
-            ainprint(paramVal, false);
-        }
-        return std::make_shared<UnitValue>();
-    };
-
     auto PRINT_INVOKE_INTERPRETER_FUN=
-    [](InterpreterV2* interpreter){
+    [](Interpreter* interpreter){
         auto msg=interpreter->top();
         ainprint(msg->toString(), false);
         interpreter->AX=std::make_shared<UnitValue>();
     };
 
-    auto PRINTLN_INVOKE_FUN=
-    [](SharedMap<std::wstring, SharedIValue> params){
-        for(auto paramIterator:*params){
-            auto paramVal=paramIterator.second->toString();
-            ainprint(paramVal, true);
-        }
-        return std::make_shared<UnitValue>();
-    };
-
     auto PRINTLN_INVOKE_INTERPRETER_FUN=
-    [](InterpreterV2* interpreter){
+    [](Interpreter* interpreter){
         auto msg=interpreter->top();
         ainprint(msg->toString(), true);
         interpreter->AX=std::make_shared<UnitValue>();
@@ -149,7 +116,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{INT_PARAM_NAME,Type::INT}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -157,7 +123,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{INT_PARAM_NAME,Type::INT}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -165,7 +130,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{UINT_PARAM_NAME,Type::UINT}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -173,7 +137,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{UINT_PARAM_NAME,Type::UINT}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -181,7 +144,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{LONG_PARAM_NAME,Type::LONG}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -189,7 +151,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{LONG_PARAM_NAME,Type::LONG}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -197,7 +158,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{ULONG_PARAM_NAME,Type::ULONG}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -205,7 +165,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{ULONG_PARAM_NAME,Type::ULONG}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -213,7 +172,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{FLOAT_PARAM_NAME,Type::FLOAT}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -221,7 +179,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{FLOAT_PARAM_NAME,Type::FLOAT}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -229,7 +186,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{DOUBLE_PARAM_NAME,Type::DOUBLE}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -237,7 +193,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{DOUBLE_PARAM_NAME,Type::DOUBLE}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -245,7 +200,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{CHAR_PARAM_NAME,Type::CHAR}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -253,7 +207,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{CHAR_PARAM_NAME,Type::CHAR}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -261,7 +214,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{STRING_PARAM_NAME,Type::STRING}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -269,7 +221,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{STRING_PARAM_NAME,Type::STRING}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -277,7 +228,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{BOOL_PARAM_NAME,Type::BOOL}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -285,7 +235,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{BOOL_PARAM_NAME,Type::BOOL}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -293,7 +242,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINT_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{UNIT_PARAM_NAME,Type::UNIT}},
-        PRINT_INVOKE_FUN,
         PRINT_INVOKE_INTERPRETER_FUN
     );
 
@@ -301,7 +249,6 @@ void BuiltInFunScope::addBuiltInFunctionsTo(SharedFileScope fileScope){
         PRINTLN_NAME,
         Type::UNIT,
         std::vector<std::pair<std::wstring, SharedType>>{{UNIT_PARAM_NAME,Type::UNIT}},
-        PRINTLN_INVOKE_FUN,
         PRINTLN_INVOKE_INTERPRETER_FUN
     );
 
@@ -526,18 +473,12 @@ void BuiltInFunScope::addBuiltInFunctionsToIntClass(){
         TO_CHAR_NAME,
         Type::CHAR,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            wchar_t charValue=static_cast<wchar_t>(val);
-            if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
-            return std::make_shared<CharValue>(charValue);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=std::dynamic_pointer_cast<IntValue>(interpreter->AX)->getValue();
             wchar_t charValue=static_cast<wchar_t>(val);
             if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
+                // TODO: show line number
+                throw ContainsKufrOrUnsupportedCharacterException(-1,L"");
             interpreter->AX=std::make_shared<CharValue>(charValue);
         }
     );
@@ -1534,11 +1475,7 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
         OperatorFunctions::LOGICAL_NOT_NAME,
         Type::BOOL,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto value=classScope->getValue();
-            return std::make_shared<BoolValue>(!value);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=std::dynamic_pointer_cast<BoolValue>(interpreter->AX)->getValue();
             interpreter->AX=std::make_shared<BoolValue>(!val);
         },
@@ -1555,13 +1492,7 @@ void BuiltInFunScope::addBuiltInFunctionsToBoolClass(){
         TO_STRING_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto value=classScope->getValue();
-            return std::make_shared<StringValue>(
-                (value)?KeywordToken::TRUE.getVal():KeywordToken::FALSE.getVal()
-            );
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             interpreter->AX=std::make_shared<StringValue>(interpreter->AX->toString());
         }
     );
@@ -1608,20 +1539,13 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
         OperatorFunctions::PLUS_NAME,
         Type::CHAR,
         std::vector<std::pair<std::wstring, SharedType>>{{INT_PARAM_NAME,Type::INT}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<IntValue>(params->at(INT_PARAM_NAME))->getValue();
-            auto charValue=static_cast<wchar_t>(firstVal+secondVal);
-            if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
-            return std::make_shared<CharValue>(charValue);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=std::dynamic_pointer_cast<CharValue>(interpreter->AX)->getValue();
             auto b=std::dynamic_pointer_cast<IntValue>(interpreter->CX)->getValue();
             auto charValue=static_cast<wchar_t>(a+b);
             if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
+                // TODO: show line number
+                throw ContainsKufrOrUnsupportedCharacterException(-1,L"");
             interpreter->AX=std::make_shared<CharValue>(charValue);
         },
         true
@@ -1631,15 +1555,7 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
         OperatorFunctions::PLUS_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{{STRING_PARAM_NAME,Type::STRING}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
-            std::wstring val=L"";
-            val+=firstVal;
-            val+=secondVal;
-            return std::make_shared<StringValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=interpreter->AX->toString();
             auto b=interpreter->CX->toString();
             interpreter->AX=std::make_shared<StringValue>(a+b);
@@ -1651,20 +1567,13 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
         OperatorFunctions::MINUS_NAME,
         Type::CHAR,
         std::vector<std::pair<std::wstring, SharedType>>{{INT_PARAM_NAME,Type::INT}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<IntValue>(params->at(INT_PARAM_NAME))->getValue();
-            auto charValue=static_cast<wchar_t>(firstVal-secondVal);
-            if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
-            return std::make_shared<CharValue>(charValue);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=std::dynamic_pointer_cast<CharValue>(interpreter->AX)->getValue();
             auto b=std::dynamic_pointer_cast<IntValue>(interpreter->CX)->getValue();
             auto charValue=static_cast<wchar_t>(a-b);
             if(isKufrOrUnsupportedCharacter(charValue))
-                throw; // TODO
+                // TODO: show line number
+                throw ContainsKufrOrUnsupportedCharacterException(-1,L"");
             interpreter->AX=std::make_shared<CharValue>(charValue);
         },
         true
@@ -1693,12 +1602,7 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
         TO_CHAR_NAME,
         Type::CHAR,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            // no need to check for kufr or unsupported characters as this method cannot be called from those characters
-            return std::make_shared<CharValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             // Nothing
         }
     );
@@ -1707,13 +1611,7 @@ void BuiltInFunScope::addBuiltInFunctionsToCharClass() {
         TO_STRING_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto value=classScope->getValue();
-            std::wstring val=L"";
-            val+=value;
-            return std::make_shared<StringValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             interpreter->AX=std::make_shared<StringValue>(val);
         }
@@ -1742,15 +1640,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         OperatorFunctions::PLUS_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{{STRING_PARAM_NAME,Type::STRING}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
-            std::wstring val=L"";
-            val+=firstVal;
-            val+=secondVal;
-            return std::make_shared<StringValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=interpreter->AX->toString();
             auto b=interpreter->CX->toString();
             interpreter->AX=std::make_shared<StringValue>(a+b);
@@ -1762,15 +1652,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         OperatorFunctions::PLUS_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{{CHAR_PARAM_NAME,Type::CHAR}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<CharValue>(params->at(CHAR_PARAM_NAME))->toString();
-            std::wstring val=L"";
-            val+=firstVal;
-            val+=secondVal;
-            return std::make_shared<StringValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=interpreter->AX->toString();
             auto b=interpreter->CX->toString();
             interpreter->AX=std::make_shared<StringValue>(a+b);
@@ -1782,13 +1664,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         OperatorFunctions::EQUALS_NAME,
         Type::BOOL,
         std::vector<std::pair<std::wstring, SharedType>>{{STRING_PARAM_NAME,Type::STRING}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto firstVal=classScope->getValue();
-            auto secondVal=std::dynamic_pointer_cast<StringValue>(params->at(STRING_PARAM_NAME))->getValue();
-            auto equalsVal=firstVal==secondVal;
-            return std::make_shared<BoolValue>(equalsVal);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto a=interpreter->AX->toString();
             auto b=interpreter->CX->toString();
             interpreter->AX=std::make_shared<BoolValue>(a==b);
@@ -1800,16 +1676,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_INT_NAME,
         Type::INT,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stoi(val);
-                return std::make_shared<IntValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoi(val);
@@ -1824,20 +1691,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_UINT_NAME,
         Type::UINT,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stoull(val);
-
-                if(value>std::numeric_limits<unsigned int>().max())
-                    throw NumberFormatException(val);
-
-                return std::make_shared<UIntValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoull(val);
@@ -1856,16 +1710,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_LONG_NAME,
         Type::LONG,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stoll(val);
-                return std::make_shared<LongValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoll(val);
@@ -1880,16 +1725,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_ULONG_NAME,
         Type::ULONG,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stoull(val);
-                return std::make_shared<ULongValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stoull(val);
@@ -1904,16 +1740,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_FLOAT_NAME,
         Type::FLOAT,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stof(val);
-                return std::make_shared<FloatValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stof(val);
@@ -1928,16 +1755,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_DOUBLE_NAME,
         Type::DOUBLE,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            try{
-                auto value=std::stold(val);
-                return std::make_shared<DoubleValue>(value);
-            }catch(std::exception e){
-                throw NumberFormatException(val);
-            }
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX->toString();
             try{
                 auto value=std::stold(val);
@@ -1952,11 +1770,7 @@ void BuiltInFunScope::addBuiltInFunctionsToStringClass() {
         TO_STRING_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto val=classScope->getValue();
-            return std::make_shared<StringValue>(val);
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX;
             interpreter->AX=std::make_shared<StringValue>(val->toString());
         }
@@ -1983,10 +1797,7 @@ void BuiltInFunScope::addBuiltInFunctionsToUnitClass(){
         TO_STRING_NAME,
         Type::STRING,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            return std::make_shared<StringValue>(*Type::UNIT->getName());
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto val=interpreter->AX;
             interpreter->AX=std::make_shared<StringValue>(val->toString());
         }
@@ -2007,15 +1818,7 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
         OperatorFunctions::GET_NAME,
         genericType,
         std::vector<std::pair<std::wstring, SharedType>>{{INDEX_PARAM_NAME,Type::INT}},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto array=classScope->getValue();
-            auto index=std::dynamic_pointer_cast<IntValue>(params->at(INDEX_PARAM_NAME))->getValue();
-            if(index>=array.size())
-                throw ArrayIndexOutOfRangeException(array.size(),index);
-            auto val=array[index];
-            return val;
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto arrayAddress=std::dynamic_pointer_cast<RefValue>(interpreter->AX)->getAddress();
             auto index=std::dynamic_pointer_cast<IntValue>(interpreter->CX)->getValue();
             auto arraySize=std::dynamic_pointer_cast<IntValue>(interpreter->memory[arrayAddress])->getValue();
@@ -2033,16 +1836,7 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
             {INDEX_PARAM_NAME,Type::INT},
             {VALUE_PARAM_NAME,genericType},
         },
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto array=classScope->getValue();
-            auto index=std::dynamic_pointer_cast<IntValue>(params->at(INDEX_PARAM_NAME))->getValue();
-            if(index>=array.size())
-                throw ArrayIndexOutOfRangeException(array.size(),index);
-            array[index]=params->at(VALUE_PARAM_NAME);
-            classScope->setValue(array);
-            return std::make_shared<UnitValue>();
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto arrayAddress=std::dynamic_pointer_cast<RefValue>(interpreter->AX)->getAddress();
             auto index=std::dynamic_pointer_cast<IntValue>(interpreter->CX)->getValue();
             auto arraySize=std::dynamic_pointer_cast<IntValue>(interpreter->memory[arrayAddress])->getValue();
@@ -2059,11 +1853,7 @@ void BuiltInFunScope::addBuiltInFunctionsToArrayClass(){
         IS_NOT_EMPTY_NAME,
         Type::BOOL,
         std::vector<std::pair<std::wstring, SharedType>>{},
-        [=](SharedMap<std::wstring, SharedIValue> params){
-            auto array=classScope->getValue();
-            return std::make_shared<BoolValue>(!array.empty());
-        },
-        [](InterpreterV2* interpreter){
+        [](Interpreter* interpreter){
             auto arrayAddress=std::dynamic_pointer_cast<RefValue>(interpreter->AX)->getAddress();
             auto size=std::dynamic_pointer_cast<IntValue>(interpreter->memory[arrayAddress])->getValue();
             interpreter->AX=std::make_shared<BoolValue>(size!=0);

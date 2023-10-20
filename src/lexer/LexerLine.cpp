@@ -264,7 +264,7 @@ SharedLexerToken LexerLine::findSymbolToken(){
         auto found=line.find(s.getVal(),tokenStartIndex);
         if(found!=tokenStartIndex)
             continue;
-        tokenEndIndex+=s.getVal().size()-1; // skip next symbols
+        tokenEndIndex+=s.getVal().size()-1; // skip remaining symbols
         return std::make_shared<SymbolToken>(s);
     }
 

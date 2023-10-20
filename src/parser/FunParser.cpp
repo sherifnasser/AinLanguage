@@ -29,6 +29,8 @@ stmListParserProvider(stmListParserProvider){}
 
 SharedFunScope FunParser::parse(){
 
+    auto lineNumber=iterator->lineNumber;
+
     auto decl=funDeclParser->parse();
 
     if(!decl)
@@ -38,10 +40,9 @@ SharedFunScope FunParser::parse(){
         decl->returnType=Type::UNIT;
     
     auto funScope=std::make_shared<FunScope>(
-        FunScope(
-            scope,
-            decl
-        )
+        lineNumber,
+        scope,
+        decl
     );
     
     auto locals=funScope->getLocals();

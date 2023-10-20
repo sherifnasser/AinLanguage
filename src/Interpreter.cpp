@@ -1,13 +1,20 @@
-#include "Interpreter.hpp"
+#include "BuiltInFunScope.hpp"
 #include "ArrayNegativeCapacityException.hpp"
-#include "ArrayValue.hpp"
 #include "BoolValue.hpp"
+#include "ArrayClassScope.hpp"
+#include "CharValue.hpp"
 #include "FunDecl.hpp"
+#include "FunScope.hpp"
+#include "IValue.hpp"
 #include "IntValue.hpp"
-#include "ObjectValue.hpp"
 #include "OperatorFunInvokeExpression.hpp"
+#include "OutOfMemoryException.hpp"
+#include "RefValue.hpp"
 #include "SetOperatorExpression.hpp"
 #include "SharedPtrTypes.hpp"
+#include "StackOverFlowException.hpp"
+#include "StackUnderFlowException.hpp"
+#include "Type.hpp"
 #include "UnitValue.hpp"
 #include "Variable.hpp"
 #include "FunParam.hpp"
@@ -17,24 +24,24 @@
 #include <unordered_map>
 
 void Interpreter::push(SharedIValue val){
-    valuesStack.push(val);
+    if(--*SP<=*SS-1)
+        throw StackOverFlowException();
+
+    memory[*SP]=val;
 }
 
 SharedIValue Interpreter::top(){
-    if(valuesStack.empty())
-        throw;
+    if(*SP>=MEM_SIZE)
+        throw StackUnderFlowException();
     
-    return valuesStack.top();
+    return memory[*SP];
 }
 
 SharedIValue Interpreter::pop(){
-    if(valuesStack.empty())
-        throw;
-
-    auto val=valuesStack.top();
-
-    valuesStack.pop();
-
+    if(*SP>=MEM_SIZE)
+        throw StackUnderFlowException();
+    auto val=memory[*SP];
+    memory[(*SP)++]=0;
     return val;
 }
 
@@ -46,22 +53,20 @@ void Interpreter::runStmList(StmListScope* scope){
     }
 }
 
-void Interpreter::initStmListLocals(StmListScope* scope){
-    
-    auto locals=scope->getLocals();
+void Interpreter::reserveSpaceForStmListLocals(int size){
+    *SP-=size;
+}
 
-    for(auto localIt=locals->begin();localIt!=locals->end();localIt++){
-        auto varName=localIt->first;
-        auto var=localIt->second;
-        var->pushNewValue();
-    }
+void Interpreter::removeReservedSpaceForStmListLocals(int size){
+    *SP+=size;
 }
 
 void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
+    push(std::make_shared<RefValue>(*BX));
 
-    auto insideVal=pop();
+    ex->getInside()->accept(this);
 
-    insideVal->linkWithClass();
+    *BX=popAs<RefValue>()->getAddress();
 
     auto args=ex->getArgs();
 
@@ -71,106 +76,279 @@ void Interpreter::invokeNonStaticFun(NonStaticFunInvokeExpression* ex){
 
     ex->getFun()->accept(this);
 
-    insideVal->unlinkWithClass();
-}
-
-std::shared_ptr<ArrayValue> Interpreter::initMultiDArray(
-    int capIndex,
-    int capacitiesSize,
-    int capacities[],
-    SharedType type
-){
-    auto cap=capacities[capIndex];
-    
-    auto array=std::make_shared<ArrayValue>(type,cap);
-    
-    if(capIndex==capacitiesSize-1)
-        return array;
-    
-    auto arrayType=type->asArray()->getType();
-    auto arrayVal=array->getValue();
-    auto childrenCapIndex=capIndex+1;
-    auto childrenCap=capacities[childrenCapIndex];
-    for(int i=0;i<childrenCap;i++){
-        arrayVal[i]=initMultiDArray(
-            childrenCapIndex,
-            capacitiesSize,
-            capacities,
-            arrayType
-        );
+    for(auto arg:*args){
+        pop();
     }
 
-    return array;
+    *BX=popAs<RefValue>()->getAddress();
 
+    push(AX); // return value
+}
+
+void Interpreter::invokeNonStaticBuiltInFun(NonStaticFunInvokeExpression* ex){
+    ex->getInside()->accept(this);
+
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    switch(args->size()){
+        case 2:
+            DX=pop();
+        case 1:
+            CX=pop();
+        case 0:
+        default:
+            AX=pop();
+    }
+
+    ex->getFun()->accept(this);
+
+    push(AX); // return value
+}
+
+void Interpreter::invokeBuiltInOpFun(OperatorFunInvokeExpression* ex){
+    
+    auto op=ex->getOp();
+
+    if(
+        op==OperatorFunInvokeExpression::Operator::PRE_INC
+        ||
+        op==OperatorFunInvokeExpression::Operator::PRE_DEC
+        ||
+        op==OperatorFunInvokeExpression::Operator::POST_INC
+        ||
+        op==OperatorFunInvokeExpression::Operator::POST_DEC
+    ){
+
+        ex->getInside()->accept(lAssigner);
+
+        DX=pop();
+
+        AX=DX;
+
+        ex->getFun()->accept(this);
+
+        push(AX); // push return value to assign it
+
+        ex->getInside()->accept(rAssigner);
+        
+        switch(op){
+            case OperatorFunInvokeExpression::Operator::PRE_INC:
+            case OperatorFunInvokeExpression::Operator::PRE_DEC:
+                push(AX);
+                break;
+            case OperatorFunInvokeExpression::Operator::POST_INC:
+            case OperatorFunInvokeExpression::Operator::POST_DEC:
+                push(DX);
+                break;
+            default:{}
+        }
+
+        return;
+    }
+    
+    ex->getInside()->accept(this);
+
+    auto args=ex->getArgs();
+
+    for(auto arg:*args){
+        arg->accept(this);
+    }
+
+    switch(op){
+        case OperatorFunInvokeExpression::Operator::SET_EQUAL:
+            DX=pop();   // value arg
+        case OperatorFunInvokeExpression::Operator::PLUS:
+        case OperatorFunInvokeExpression::Operator::MINUS:
+        case OperatorFunInvokeExpression::Operator::TIMES:
+        case OperatorFunInvokeExpression::Operator::DIV:
+        case OperatorFunInvokeExpression::Operator::MOD:
+        case OperatorFunInvokeExpression::Operator::POW:
+        case OperatorFunInvokeExpression::Operator::EQUAL_EQUAL:
+        case OperatorFunInvokeExpression::Operator::NOT_EQUAL:
+        case OperatorFunInvokeExpression::Operator::LESS:
+        case OperatorFunInvokeExpression::Operator::LESS_EQUAL:
+        case OperatorFunInvokeExpression::Operator::GREATER:
+        case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:
+        case OperatorFunInvokeExpression::Operator::SHR:
+        case OperatorFunInvokeExpression::Operator::SHL:
+        case OperatorFunInvokeExpression::Operator::BIT_AND:
+        case OperatorFunInvokeExpression::Operator::XOR:
+        case OperatorFunInvokeExpression::Operator::BIT_OR:
+        case OperatorFunInvokeExpression::Operator::GET:
+            CX=pop();   // 2nd operand
+        case OperatorFunInvokeExpression::Operator::UNARY_PLUS:
+        case OperatorFunInvokeExpression::Operator::UNARY_MINUS:
+        case OperatorFunInvokeExpression::Operator::LOGICAL_NOT:
+        case OperatorFunInvokeExpression::Operator::BIT_NOT:
+            AX=pop();   // 1st operand
+            break;
+        default:{}
+    }
+
+    ex->getFun()->accept(this);
+
+    switch(op){
+        case OperatorFunInvokeExpression::Operator::NOT_EQUAL:{
+            auto val=std::dynamic_pointer_cast<BoolValue>(AX)->getValue();
+            AX=std::make_shared<BoolValue>(!val);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::LESS:{
+            auto val=std::dynamic_pointer_cast<IntValue>(AX)->getValue();
+            AX=std::make_shared<BoolValue>(val<0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::LESS_EQUAL:{
+            auto val=std::dynamic_pointer_cast<IntValue>(AX)->getValue();
+            AX=std::make_shared<BoolValue>(val<=0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::GREATER:{
+            auto val=std::dynamic_pointer_cast<IntValue>(AX)->getValue();
+            AX=std::make_shared<BoolValue>(val>0);
+            break;
+        }
+        case OperatorFunInvokeExpression::Operator::GREATER_EQUAL:{
+            auto val=std::dynamic_pointer_cast<IntValue>(AX)->getValue();
+            AX=std::make_shared<BoolValue>(val>=0);
+            break;
+        }
+        default:
+            break;
+    }
+
+    push(AX);
+}
+
+void Interpreter::initMultiDArray(){
+
+    push(std::make_shared<RefValue>(*DI));
+
+    auto dimensionsSize=std::dynamic_pointer_cast<IntValue>(CX)->getValue();
+    
+    DX=memory[*BP+dimensionsSize];
+    
+    auto arraySize=std::dynamic_pointer_cast<IntValue>(DX)->getValue();
+    
+    *DI=getAvailableHeapAddress(arraySize);
+
+    if(dimensionsSize>1){
+        for(int i=0;i<arraySize;i++){
+            CX=std::make_shared<IntValue>(dimensionsSize-1);
+            initMultiDArray();
+            memory[*DI+i+1]=AX;
+        }
+    }
+
+    AX=std::make_shared<RefValue>(*DI);
+
+    *DI=popAs<RefValue>()->getAddress();
+}
+
+int Interpreter::getAvailableHeapAddress(ClassScope* scope){
+    int objSize=scope->getPublicVariables()->size()+scope->getPrivateVariables()->size();
+    return getAvailableHeapAddress(objSize);
+}
+
+int Interpreter::getAvailableHeapAddress(int size){
+    int heapAddress=*SS;
+
+    for(int i=DATA_SIZE;i<*SS;){
+        if(auto reservedObj=memory[i]){
+            auto reservedObjSize=std::dynamic_pointer_cast<IntValue>(reservedObj)->getValue();
+            i+=reservedObjSize+1;
+            continue;
+        }
+        int j=i;
+        int lastValidCell=i+size;
+        if(lastValidCell>=*SS)
+            break; // This will throw OutOfMemoryException as heapAddress equals SS
+        for(;j<=lastValidCell;j++){
+            if(memory[j])
+                break;
+        }
+        if(j>lastValidCell){
+            heapAddress=i;
+            break;
+        }
+        i=j;
+    }
+
+    if(heapAddress>=*SS)
+        throw OutOfMemoryException();
+
+    memory[heapAddress]=std::make_shared<IntValue>(size);
+
+    return heapAddress;
 }
 
 Interpreter::Interpreter():
-funReturn(false),loopBreak(false),loopContinue(false){}
+    DI(new int(-1)),
+    BP(new int(MEM_SIZE-1)),
+    SP(new int(*BP)),
+    BX(new int(-1)),
+    DS(new int(0)),
+    SS(new int(DATA_SIZE+HEAP_SIZE)),
+    funReturn(false),
+    loopBreak(false),
+    loopContinue(false)
+{}
 
-Interpreter::Interpreter(Assigner* assigner):assigner(assigner){}
-
-Interpreter::Assigner::Assigner(Interpreter* interpreter)
+Interpreter::LeftSideAssigner::LeftSideAssigner(Interpreter* interpreter)
 :interpreter(interpreter){}
 
-void Interpreter::Assigner::visit(VarAccessExpression* ex){
-    if(!assign){
-        ex->accept(interpreter);
-    }else{
-        ex->getVar()->setValue(interpreter->pop());
-    }
-    assign=!assign;
+void Interpreter::LeftSideAssigner::visit(VarAccessExpression* ex){
+    ex->accept(interpreter);
 }
 
-void Interpreter::Assigner::visit(NonStaticVarAccessExpression* ex){
-    if(!assign){
-        ex->getInside()->accept(interpreter);
-        auto var=interpreter->topAs<ObjectValue>();
-        interpreter->push(var->findPropertyValue(ex->getVarName()));
-    }else{
-        auto val=interpreter->pop();
-        auto var=interpreter->popAs<ObjectValue>();
-        var->assignProperty(ex->getVarName(),val);
-    }
-    assign=!assign;
+void Interpreter::LeftSideAssigner::visit(NonStaticVarAccessExpression* ex){
+    ex->getInside()->accept(interpreter);
+    auto ref=interpreter->topAs<RefValue>()->getAddress();
+    interpreter->push(
+        interpreter->memory[ref+interpreter->offsets[ex->getVar().get()].value]
+    );
 }
 
-void Interpreter::Assigner::visit(OperatorFunInvokeExpression* ex){
-    interpreter->invokeNonStaticFun(ex);
+Interpreter::RightSideAssigner::RightSideAssigner(Interpreter* interpreter)
+:interpreter(interpreter){}
+
+void Interpreter::RightSideAssigner::visit(VarAccessExpression* ex){
+    auto offset=interpreter->offsets[ex->getVar().get()];
+    interpreter->memory[*offset.reg+offset.value]=interpreter->pop();
+}
+
+void Interpreter::RightSideAssigner::visit(NonStaticVarAccessExpression* ex){
+    auto val=interpreter->pop();
+    auto ref=interpreter->popAs<RefValue>()->getAddress();
+    interpreter->memory[ref+interpreter->offsets[ex->getVar().get()].value]=val;
 }
 
 void Interpreter::visit(PackageScope* scope){
-    for(auto packageIterator:scope->getPackages()){
-        packageIterator.second->accept(this);
-    }
     for(auto fileIterator:scope->getFiles()){
         fileIterator.second->accept(this);
+    }
+    for(auto packageIterator:scope->getPackages()){
+        packageIterator.second->accept(this);
     }
 }
 
 void Interpreter::visit(FileScope* scope){
-    for(auto varIt:*scope->getPublicVariables()){
-        varIt.second->pushNewValue();
-    }
-    for(auto varIt:*scope->getPrivateVariables()){
-        varIt.second->pushNewValue();
-    }
-
     scope->getGlobalVarsInitStmList()->accept(this);
 }
 
 void Interpreter::visit(ClassScope* scope){
-
-    for(auto varIt:*scope->getPrivateVariables()){
-        varIt.second->pushNewValue();
-    }
-    for(auto varIt:*scope->getPublicVariables()){
-        varIt.second->pushNewValue();
-    }
-
     scope->getVarsInitStmList()->accept(this);
 }
 
 void Interpreter::visit(FunScope* scope){
+
+    push(std::make_shared<IntValue>(*BP));
+
+    *BP=*SP;
 
     auto decl=scope->getDecl();
     auto isConstructor=decl->isConstructor();
@@ -178,14 +356,12 @@ void Interpreter::visit(FunScope* scope){
     if(isConstructor)
         decl->returnType->getClassScope()->accept(this);
 
-    auto locals=scope->getLocals();
+    // locals contains params, so we don't offset params
+    auto localsSize=scope->getLocals()->size();
+    auto paramsSize=scope->getDecl()->params->size();
 
-    initStmListLocals(scope);
-
-    auto params=decl->params;
-    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
-        (*locals)[*paramIt->get()->name]->setValue(pop());
-    }
+    if(localsSize>paramsSize)
+        reserveSpaceForStmListLocals(localsSize-paramsSize);
 
     for(auto stm:*scope->getStmList()){
         stm->accept(this);
@@ -193,79 +369,75 @@ void Interpreter::visit(FunScope* scope){
             break;
     }
 
-    for(auto local:*locals){
-        local.second->popLastValue();
-    }
+    if(isConstructor)
+        AX=std::make_shared<RefValue>(*BX);
 
-    if(!funReturn&&!isConstructor)
-        push(std::make_shared<UnitValue>());
+    // When return type of a function is unit but it reaches its end, without an explicit return
+    else if(!funReturn) 
+        AX=std::make_shared<UnitValue>();
     
     funReturn=false;
 
-    if(!isConstructor)
-        return;
+    *SP=*BP;
 
-    auto properties=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
-
-    auto classScope=decl->returnType->getClassScope();
-
-    for(auto varIt:*classScope->getPrivateVariables()){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-    for(auto varIt:*classScope->getPublicVariables()){
-        (*properties)[varIt.first]=varIt.second->getValue();
-        varIt.second->popLastValue();
-    }
-
-    push(std::make_shared<ObjectValue>(decl->returnType,properties));
+    *BP=popAs<IntValue>()->getValue();
 
 }
 
 void Interpreter::visit(BuiltInFunScope* scope){
-    auto args=std::make_shared<std::unordered_map<std::wstring, SharedIValue>>();
-    auto params=scope->getDecl()->params;
-    for(auto paramIt=params->rbegin();paramIt!=params->rend();paramIt++){
-        (*args)[*paramIt->get()->name]=pop();
-    }
-    push(scope->invoke(args));
+    // Built-in functions don't affect BP, so we don't need to push it on the stack
+
+    scope->invokeOnInterpreter(this);
+
 }
 
 void Interpreter::visit(LoopScope* scope){
-    initStmListLocals(scope);
+    reserveSpaceForStmListLocals(scope->getLocals()->size());
     runStmList(scope);
+    removeReservedSpaceForStmListLocals(scope->getLocals()->size());
 }
 
 void Interpreter::visit(StmListScope* scope){
-    initStmListLocals(scope);
+    reserveSpaceForStmListLocals(scope->getLocals()->size());
     runStmList(scope);
+    removeReservedSpaceForStmListLocals(scope->getLocals()->size());
 }
 
 void Interpreter::visit(VarStm* stm){
     stm->getEx()->accept(this);
-    stm->getVar()->setValue(pop());
+    auto offset=offsets[stm->getVar().get()];
+    memory[*offset.reg+offset.value]=pop();
 }
 
 void Interpreter::visit(AssignStatement* stm){
-    stm->getLeft()->accept(assigner);
+    stm->getLeft()->accept(lAssigner);
     pop();
     stm->getRight()->accept(this);
-    stm->getLeft()->accept(assigner);
+    stm->getLeft()->accept(rAssigner);
 }
 
 void Interpreter::visit(AugmentedAssignStatement* stm){
-    
-    stm->getLeft()->accept(assigner);
-    auto leftVal=pop();
 
-    stm->getRight()->accept(this);
-    auto rightVal=top();
-
-    leftVal->linkWithClass();
-    stm->getOpFun()->accept(this);
-    leftVal->unlinkWithClass();
+    if(auto isBuiltIn=std::dynamic_pointer_cast<BuiltInFunScope>(stm->getOpFun())){
+        stm->getLeft()->accept(lAssigner);
+        stm->getRight()->accept(this);
+        CX=pop();
+        AX=pop();
+        stm->getOpFun()->accept(this);
+        push(AX);
+        stm->getLeft()->accept(rAssigner);
+    }else{
+        push(std::make_shared<RefValue>(*BX));
+        stm->getLeft()->accept(lAssigner);
+        *BX=popAs<RefValue>()->getAddress();
+        stm->getRight()->accept(this);
+        stm->getOpFun()->accept(this);
+        pop();  // pop right
+        push(AX);
+        stm->getLeft()->accept(rAssigner);
+        *BX=popAs<RefValue>()->getAddress();
+    }
     
-    stm->getLeft()->accept(assigner);
 }
 
 void Interpreter::visit(IfStatement* stm){
@@ -309,6 +481,7 @@ void Interpreter::visit(WhileStatement* stm){
 }
 
 void Interpreter::visit(DoWhileStatement* stm){
+
     do{
         stm->getLoopScope()->accept(this);
 
@@ -328,8 +501,7 @@ void Interpreter::visit(DoWhileStatement* stm){
         if(!popAs<BoolValue>()->getValue())
             break;
         
-    }
-    while(true);
+    }while(true);
 }
 
 void Interpreter::visit(BreakStatement* stm){
@@ -342,6 +514,7 @@ void Interpreter::visit(ContinueStatement* stm){
 
 void Interpreter::visit(ReturnStatement* stm){
     stm->getEx()->accept(this);
+    AX=pop();
     funReturn=true;
 }
 
@@ -351,10 +524,12 @@ void Interpreter::visit(ExpressionStatement* stm){
 }
 
 void Interpreter::visit(VarAccessExpression* ex){
-    push(ex->getVar()->getValue());
+    auto offset=offsets[ex->getVar().get()];
+    push(memory[*offset.reg+offset.value]);
 }
 
 void Interpreter::visit(FunInvokeExpression* ex){
+
     auto args=ex->getArgs();
 
     for(auto arg:*args){
@@ -362,9 +537,22 @@ void Interpreter::visit(FunInvokeExpression* ex){
     }
 
     ex->getFun()->accept(this);
+
+    for(auto arg:*args){
+        pop();
+    }
+
+    push(AX); // return value
 }
 
 void Interpreter::visit(NewObjectExpression* ex){
+
+    int heapAddress=getAvailableHeapAddress(ex->getReturnType()->getClassScope().get());
+
+    push(std::make_shared<RefValue>(*BX));
+
+    *BX=heapAddress;
+
     auto args=ex->getArgs();
 
     for(auto arg:*args){
@@ -372,35 +560,46 @@ void Interpreter::visit(NewObjectExpression* ex){
     }
 
     ex->getConstructor()->accept(this);
+
+    for(auto arg:*args){
+        pop();
+    }
+
+    *BX=popAs<RefValue>()->getAddress();
+
+    push(AX); // return address of object
 }
 
 void Interpreter::visit(NewArrayExpression* ex){
-    auto capacitiesExpressions=ex->getCapacities();
 
-    auto capacitiesSize=capacitiesExpressions.size();
-
-    int capacities[capacitiesSize];
-
-    for(int i=0;i<capacitiesSize;i++){
-        capacitiesExpressions[i]->accept(this);
-
-        auto cap=popAs<IntValue>()->getValue();
-
+    auto capExs=ex->getCapacities();
+    
+    for(auto capEx:capExs){
+        capEx->accept(this);
+        auto cap=topAs<IntValue>()->getValue();
         if(cap<0)
             throw ArrayNegativeCapacityException(cap);
-
-        capacities[i]=cap;
     }
 
-    // Recursion could cause stack overflow
-    std::shared_ptr<ArrayValue> arrayVal=initMultiDArray(
-        0,
-        capacitiesSize,
-        capacities,
-        ex->getReturnType()
-    );
-    
-    push(arrayVal);
+    push(std::make_shared<IntValue>(*BP));
+
+    *BP=*SP;
+
+    // dimensions size
+    CX=std::make_shared<IntValue>(ex->getCapacities().size());
+
+    initMultiDArray();
+
+    *SP=*BP;
+
+    *BP=popAs<IntValue>()->getValue();
+
+    for(auto capEx:capExs){
+        pop();
+    }
+
+    push(AX);
+
 }
 
 void Interpreter::visit(LiteralExpression* ex){
@@ -429,16 +628,28 @@ void Interpreter::visit(LogicalExpression* ex){
 
 void Interpreter::visit(NonStaticVarAccessExpression* ex){
     ex->getInside()->accept(this);
-    auto propVal=popAs<ObjectValue>()->findPropertyValue(ex->getVarName());
-    push(propVal);
+    AX=pop();
+    auto ax=std::dynamic_pointer_cast<RefValue>(AX)->getAddress();
+    push(
+        memory[ax+offsets[ex->getVar().get()].value]
+    );
 }
 
 void Interpreter::visit(NonStaticFunInvokeExpression* ex){
-    ex->getInside()->accept(this);
+    if(auto builtIn=std::dynamic_pointer_cast<BuiltInFunScope>(ex->getFun())){
+        invokeNonStaticBuiltInFun(ex);
+        return;
+    }
     invokeNonStaticFun(ex);
 }
 
 void Interpreter::visit(OperatorFunInvokeExpression* ex){
+    
+    if(auto builtIn=std::dynamic_pointer_cast<BuiltInFunScope>(ex->getFun())){
+        invokeBuiltInOpFun(ex);
+        return;
+    }
+
     auto op=ex->getOp();
 
     if(
@@ -450,21 +661,26 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         ||
         op==OperatorFunInvokeExpression::Operator::POST_DEC
     ){
+        push(std::make_shared<RefValue>(*BX));
 
-        ex->getInside()->accept(assigner);
+        ex->getInside()->accept(lAssigner);
 
-        auto oldVal=top();
+        auto oldVal=pop();
+
+        *BX=std::dynamic_pointer_cast<RefValue>(oldVal)->getAddress();
         
-        invokeNonStaticFun(ex);
+        ex->getFun()->accept(this);
 
-        auto newVal=top();
+        *BX=popAs<RefValue>()->getAddress();
 
-        ex->getInside()->accept(assigner);
+        push(AX); // return value
+
+        ex->getInside()->accept(rAssigner);
         
         switch(op){
             case OperatorFunInvokeExpression::Operator::PRE_INC:
             case OperatorFunInvokeExpression::Operator::PRE_DEC:
-                push(newVal);
+                push(AX);
                 break;
             case OperatorFunInvokeExpression::Operator::POST_INC:
             case OperatorFunInvokeExpression::Operator::POST_DEC:
@@ -476,7 +692,6 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
         return;
     }
 
-    ex->getInside()->accept(this);
     invokeNonStaticFun(ex);
     switch(op){
         case OperatorFunInvokeExpression::Operator::NOT_EQUAL:{
@@ -512,17 +727,46 @@ void Interpreter::visit(OperatorFunInvokeExpression* ex){
 void Interpreter::visit(SetOperatorExpression* ex){
 
     auto op=ex->getOp();
+
+    auto funOfGet=ex->getExOfGet()->getFun().get();
+    auto funOfOp=ex->getFunOfOp().get();
+    auto funOfSet=ex->getFunOfSet().get();
     
-    ex->getExHasGetOp()->accept(this);
-    auto valHasGet=pop();
+    if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfGet)!=nullptr){
 
-    ex->getIndexEx()->accept(this);
-    auto index=top();
+        ex->getExHasGetOp()->accept(this);
 
-    valHasGet->linkWithClass();
-    ex->getExOfGet()->getFun()->accept(this);
-    valHasGet->unlinkWithClass();
-    auto valueOfGet=pop();
+        ex->getIndexEx()->accept(this);
+
+        CX=pop(); // index
+
+        AX=top(); // ex has get() and set()
+
+        funOfGet->accept(this);
+
+    }else{
+        push(std::make_shared<RefValue>(*BX));
+
+        ex->getExHasGetOp()->accept(this);
+        
+        *BX=topAs<RefValue>()->getAddress();
+
+        ex->getIndexEx()->accept(this);
+
+        funOfGet->accept(this);
+
+        CX=pop(); // index
+
+        DX=pop(); // ex has get() and set()
+
+        *BX=popAs<RefValue>()->getAddress();
+
+        push(DX); // ex has get() and set()
+    }
+
+    push(CX); // index
+
+    push(AX); // value of get()
 
     switch(op){
         case SetOperatorExpression::Operator::PLUS_EQUAL:
@@ -536,38 +780,107 @@ void Interpreter::visit(SetOperatorExpression* ex){
         case SetOperatorExpression::Operator::BIT_AND_EQUAL:
         case SetOperatorExpression::Operator::XOR_EQUAL:
         case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
-            push(valueOfGet);
-            ex->getValueEx()->accept(this);
+            // built-in is for a primitive
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfOp)){
+                ex->getValueEx()->accept(this);
+                CX=pop(); // 2nd operand i.e. the value of right side
+                AX=top(); // 1st operand i.e. value of get()
+                funOfOp->accept(this);
+            }else{
+                push(std::make_shared<RefValue>(*BX));
+                // AX contains the value of get()
+                *BX=std::dynamic_pointer_cast<RefValue>(AX)->getAddress();
+                ex->getValueEx()->accept(this);
+                funOfOp->accept(this);
+                pop(); // pop value
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            break;
+        }
+        case SetOperatorExpression::Operator::PRE_INC:
+        case SetOperatorExpression::Operator::PRE_DEC:
+        case SetOperatorExpression::Operator::POST_INC:
+        case SetOperatorExpression::Operator::POST_DEC:{
+            // built-in is for a primitive
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfOp)){
+                // AX is the 1st operand and contains the value of get()
+                funOfOp->accept(this);
+            }else{
+                push(std::make_shared<RefValue>(*BX));
+                // AX contains the value of get()
+                *BX=std::dynamic_pointer_cast<RefValue>(AX)->getAddress();
+                funOfOp->accept(this);
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            break;
         }
         default:break;
     }
 
-    valueOfGet->linkWithClass();
-    ex->getFunOfOp()->accept(this);
-    valueOfGet->unlinkWithClass();
-    auto valueToSet=pop();
+    // AX has the value of op fun i.e. the value to set
 
-    push(index);
-    push(valueToSet);
+    if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfSet)){
+        DX=AX;  // AX has the value of op fun i.e. the value to set
+        // memory[*SP] is the value of get(), but we don't need it here
+        CX=memory[*SP+1]; // index
+        AX=memory[*SP+2]; // ex has get() and set() i.e. the array
+        funOfSet->accept(this);
+        DX=pop();   // the value of get()
+        CX=pop();   // index
+    }else{
+        DX=pop(); // The value of get()
+        CX=pop(); // index
+        push(DX); // The value of get()
+        push(std::make_shared<RefValue>(*BX));
+        push(CX); // index
+        push(AX); // the value to set
+        // memory[*SP+4] contains the ex has get() and set()
+        *BX=std::dynamic_pointer_cast<RefValue>(memory[*SP+4])->getAddress();
+        funOfSet->accept(this);
+        pop();    // the value to set
+        CX=pop(); // index
+        *BX=popAs<RefValue>()->getAddress();
+        DX=pop(); // The value of get()
+    }
 
-    valHasGet->linkWithClass();
-    ex->getFunOfSet()->accept(this);
-    valHasGet->unlinkWithClass();
+    // AX has the value of set fun
 
     switch(op){
+        case SetOperatorExpression::Operator::PLUS_EQUAL:
+        case SetOperatorExpression::Operator::MINUS_EQUAL:
+        case SetOperatorExpression::Operator::TIMES_EQUAL:
+        case SetOperatorExpression::Operator::DIV_EQUAL:
+        case SetOperatorExpression::Operator::MOD_EQUAL:
+        case SetOperatorExpression::Operator::POW_EQUAL:
+        case SetOperatorExpression::Operator::SHR_EQUAL:
+        case SetOperatorExpression::Operator::SHL_EQUAL:
+        case SetOperatorExpression::Operator::BIT_AND_EQUAL:
+        case SetOperatorExpression::Operator::XOR_EQUAL:
+        case SetOperatorExpression::Operator::BIT_OR_EQUAL:{
+            pop();  // the ex has get() and set()
+            push(AX);   // return value of set fun
+            break;
+        }
         case SetOperatorExpression::Operator::PRE_INC:
         case SetOperatorExpression::Operator::PRE_DEC:{
-            pop();
-            push(index);
-            valHasGet->linkWithClass();
-            ex->getExOfGet()->getFun()->accept(this);
-            valHasGet->unlinkWithClass();
+            AX=pop(); // ex has get() and set()
+            if(auto isBuiltIn=dynamic_cast<BuiltInFunScope*>(funOfGet)){
+                funOfGet->accept(this);
+            }else{
+                push(std::make_shared<RefValue>(*BX));
+                *BX=std::dynamic_pointer_cast<RefValue>(AX)->getAddress();
+                push(CX); // index
+                funOfGet->accept(this);
+                pop(); // index
+                *BX=popAs<RefValue>()->getAddress();
+            }
+            push(AX);
             break;
         }
         case SetOperatorExpression::Operator::POST_INC:
         case SetOperatorExpression::Operator::POST_DEC:{
-            pop();
-            push(valueOfGet);
+            pop();  // the ex has get() and set()
+            push(DX); // The value of get()
             break;
         }
         default:break;
