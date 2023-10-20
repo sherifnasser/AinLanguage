@@ -914,14 +914,15 @@ SharedFunScope SemanticsChecksVisitor::findFunInType(
         BaseScope::getContainingFile(checkScope)->getName()+
         L"::"+checkScope->getName()+L"("+std::to_wstring(traceLineNumber)+L")";
 
-    if(!fun)
+    if(!fun){
         fun=type->getClassScope()->findPrivateFunction(decl);
-    
-    if(!fun)
-        throw FunctionNotFoundException(trace,*type->getName()+L"::"+decl);
-        
-    if(type->getClassScope()!=BaseScope::getContainingClass(checkScope))
-        throw CannotAccessPrivateFunctionException(trace,decl);
+
+        if(!fun)
+            throw FunctionNotFoundException(trace,*type->getName()+L"::"+decl);
+
+        if(type->getClassScope()!=BaseScope::getContainingClass(checkScope))
+            throw CannotAccessPrivateFunctionException(trace,decl);
+    }
 
     return fun;
 }

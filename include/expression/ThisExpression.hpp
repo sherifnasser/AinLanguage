@@ -4,6 +4,6 @@
 #include <string>
 class ThisExpression:public IExpression{
     public:
-        ThisExpression(int lineNumber);
+        ThisExpression(int lineNumber,SharedClassScope classScope);
         void accept(ASTVisitor *visitor) override;
 };

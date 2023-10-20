@@ -1,4 +1,5 @@
 #include "IExpression.hpp"
+#include "ThisVarAccessExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include "NonStaticVarAccessExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
@@ -21,6 +22,8 @@ bool IExpression::isAssignableExpression(SharedIExpression ex){
         std::dynamic_pointer_cast<VarAccessExpression>(ex)
         ||
         std::dynamic_pointer_cast<NonStaticVarAccessExpression>(ex)
+        ||
+        std::dynamic_pointer_cast<ThisVarAccessExpression>(ex)
     ;
 }
 
