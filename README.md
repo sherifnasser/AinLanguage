@@ -14,6 +14,11 @@ We plan to make the language self-hosted, which means, **Ain** will be written i
 
 [Follow us on YouTube](https://www.youtube.com/@AinProgrammingLanguage)
 
+# Updates in v0.2.4
+* Fix https://github.com/sherifnasser/AinLanguage/issues/46
+* Achieve https://github.com/sherifnasser/AinLanguage/issues/48
+* Update [`Interpreter`](https://github.com/sherifnasser/AinLanguage/blob/main/include/Interpreter.hpp)
+
 # Bug fixes in v0.2.3
 * Resolve https://github.com/sherifnasser/AinLanguage/issues/41 (This was solved partially in v0.2.2) 
 * Fix https://github.com/sherifnasser/AinLanguage/issues/43
