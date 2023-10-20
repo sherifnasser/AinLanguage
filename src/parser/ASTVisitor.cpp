@@ -29,9 +29,9 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "SetOperatorExpression.hpp"
-#include "ThisFunInvokeExpression.hpp"
-#include "ThisVarAccessExpression.hpp"
 #include "ThisExpression.hpp"
+#include "ThisVarAccessExpression.hpp"
+#include "ThisFunInvokeExpression.hpp"
 
 ASTVisitor::~ASTVisitor(){}
 
@@ -91,11 +91,11 @@ void ASTVisitor::visit(OperatorFunInvokeExpression* ex){}
 
 void ASTVisitor::visit(SetOperatorExpression* ex){}
 
-void ASTVisitor::visit(ThisFunInvokeExpression* ex){}
+void ASTVisitor::visit(ThisExpression* ex){}
 
 void ASTVisitor::visit(ThisVarAccessExpression* ex){}
 
-void ASTVisitor::visit(ThisExpression* ex){}
+void ASTVisitor::visit(ThisFunInvokeExpression* ex){}
 
 void PackageScope::accept(ASTVisitor* visitor){
     visitor->visit(this);

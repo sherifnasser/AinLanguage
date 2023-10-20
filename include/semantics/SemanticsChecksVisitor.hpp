@@ -30,6 +30,8 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "SetOperatorExpression.hpp"
+#include "ThisVarAccessExpression.hpp"
+#include "ThisFunInvokeExpression.hpp"
 #include <string>
 #include <vector>
 
@@ -61,6 +63,9 @@ class SemanticsChecksVisitor:public ASTVisitor{
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
         void visit(SetOperatorExpression* ex)override;
+
+        void visit(ThisVarAccessExpression* ex)override;
+        void visit(ThisFunInvokeExpression* ex)override;
 
     private:
         SharedBaseScope checkScope;
