@@ -446,7 +446,7 @@ SCENARIO("Test LexerLine lexes a line", "[LexerLineTest.cpp]"){
                 KeywordToken::VAR,KeywordToken::VAL,KeywordToken::OPERATOR,KeywordToken::FUN,
                 KeywordToken::RETURN,
                 KeywordToken::PACKAGE,KeywordToken::IMPORT,KeywordToken::CLASS,KeywordToken::INTERFACE,
-                KeywordToken::OBJECT,KeywordToken::NEW,
+                KeywordToken::OBJECT,KeywordToken::NEW,KeywordToken::THIS,
                 KeywordToken::DATA,KeywordToken::ABSTRACT,KeywordToken::OPEN,KeywordToken::ENUM,
                 KeywordToken::ANNOTATION,
                 KeywordToken::PUBLIC,KeywordToken::PRIVATE,KeywordToken::PROTECTED,KeywordToken::OVERRIDE,

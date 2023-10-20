@@ -6,6 +6,7 @@ project(AinLanguage)
 
 add_library(ainsrc
     src/main.cpp
+    src/Interpreter.cpp
     src/VarsOffsetSetter.cpp
     src/lexer/LexerToken.cpp
     src/lexer/Lexer.cpp
@@ -29,8 +30,11 @@ add_library(ainsrc
     src/expression/value/UIntValue.cpp
     src/expression/FunInvokeExpression.cpp
     src/expression/NonStaticFunInvokeExpression.cpp
+    src/expression/ThisExpression.cpp
     src/expression/LiteralExpression.cpp
     src/expression/UnitExpression.cpp
+    src/expression/ThisVarAccessExpression.cpp
+    src/expression/ThisFunInvokeExpression.cpp
     src/expression/VarAccessExpression.cpp
     src/expression/SetOperatorExpression.cpp
     src/expression/IExpression.cpp
@@ -85,7 +89,6 @@ add_library(ainsrc
     src/parser/FileParser.cpp
     src/parser/ASTNode.cpp
     src/parser/ASTVisitor.cpp
-    src/Interpreter.cpp
 )
 
 set(INCLUDE

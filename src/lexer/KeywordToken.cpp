@@ -7,7 +7,7 @@ LexerToken(LexerToken::KEYWORD_TOKEN,val){}
 bool KeywordToken::iskeyword(LexerToken t){
     KeywordToken keywords[]={
         VAR,VAL,OPERATOR,FUN,RETURN,
-        PACKAGE,IMPORT,NEW,CLASS,INTERFACE,OBJECT,
+        PACKAGE,IMPORT,NEW,THIS,CLASS,INTERFACE,OBJECT,
         DATA,ABSTRACT,OPEN,ENUM,ANNOTATION,
         PUBLIC,PRIVATE,PROTECTED,OVERRIDE,
         IF,/*ELSE_IF,*/ELSE,WHEN,
@@ -35,6 +35,7 @@ KeywordToken KeywordToken::RETURN=KeywordToken(L"أرجع");
 KeywordToken KeywordToken::PACKAGE=KeywordToken(L"حزمة");
 KeywordToken KeywordToken::IMPORT=KeywordToken(L"استيراد");
 KeywordToken KeywordToken::NEW=KeywordToken(L"إنشاء");
+KeywordToken KeywordToken::THIS=KeywordToken(L"هذا");
 KeywordToken KeywordToken::CLASS=KeywordToken(L"تصنيف");
 KeywordToken KeywordToken::INTERFACE=KeywordToken(L"وسيط");
 KeywordToken KeywordToken::OBJECT=KeywordToken(L"كائن");

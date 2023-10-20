@@ -17,6 +17,7 @@ public:
     static KeywordToken PACKAGE;
     static KeywordToken IMPORT;
     static KeywordToken NEW;
+    static KeywordToken THIS;
     static KeywordToken CLASS;
     static KeywordToken INTERFACE;
     static KeywordToken OBJECT;

@@ -1,15 +1,4 @@
 #include "NonStaticFunInvokeExpression.hpp"
-#include "BaseScope.hpp"
-#include "FileScope.hpp"
-#include "FunctionNotFoundException.hpp"
-#include "SharedPtrTypes.hpp"
-#include "Type.hpp"
-#include "ClassScope.hpp"
-#include "FunDecl.hpp"
-#include "FunScope.hpp"
-#include "CannotAccessPrivateFunctionException.hpp"
-#include "IValue.hpp"
-#include "FunParam.hpp"
 
 NonStaticFunInvokeExpression::NonStaticFunInvokeExpression(
     int lineNumber,

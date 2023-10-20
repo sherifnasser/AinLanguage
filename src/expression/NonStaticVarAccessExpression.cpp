@@ -1,12 +1,4 @@
 #include "NonStaticVarAccessExpression.hpp"
-#include "CannotAccessPrivateVariableException.hpp"
-#include "IExpression.hpp"
-#include "Type.hpp"
-#include "ClassScope.hpp"
-#include "Variable.hpp"
-#include "FileScope.hpp"
-#include "VariableNotFoundException.hpp"
-#include "MustHaveExplicitTypeException.hpp"
 
 NonStaticVarAccessExpression::NonStaticVarAccessExpression(
     int lineNumber,

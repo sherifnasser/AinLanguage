@@ -38,6 +38,8 @@ class ExpressionParser:public BaseParser<SharedIExpression>{
 
         SharedIExpression parseNewExpression();
 
+        SharedIExpression parseThisExpression();
+
         SharedIExpression parseNonStaticAccessExpression(SharedIExpression inside);
 
         SharedIExpression parsePostOpExpression(SharedIExpression inside);

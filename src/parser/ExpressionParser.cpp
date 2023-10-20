@@ -29,9 +29,13 @@
 #include "StmListScope.hpp"
 #include "StringValue.hpp"
 #include "SymbolToken.hpp"
+#include "ThisExpression.hpp"
+#include "ThisFunInvokeExpression.hpp"
+#include "ThisVarAccessExpression.hpp"
 #include "Type.hpp"
 #include "UIntValue.hpp"
 #include "ULongValue.hpp"
+#include "TokenIsNotAllowedHereException.hpp"
 #include "UnitExpression.hpp"
 #include "VarAccessExpression.hpp"
 #include <algorithm>
@@ -116,6 +120,9 @@ SharedIExpression ExpressionParser::parsePrimaryExpression(){
 
     else if(auto newObjEx=parseNewExpression())
         primary=newObjEx;
+
+    else if(auto thisEx=parseThisExpression())
+        primary=thisEx;
 
     else
         return nullptr;
@@ -352,6 +359,53 @@ SharedIExpression ExpressionParser::parseNewExpression(){
     );
 
     return newObjEx;
+}
+
+SharedIExpression ExpressionParser::parseThisExpression(){
+    
+    if(!iterator->currentMatch(KeywordToken::THIS))
+        return nullptr;
+
+    auto lineNumber=iterator->lineNumber;
+
+    auto classScope=BaseScope::getContainingClass(scope);
+
+    if(!classScope)
+        throw TokenIsNotAllowedHereException(
+            lineNumber,
+            KeywordToken::THIS.getVal()
+        );
+
+    if(!iterator->nextMatch(SymbolToken::DOT))
+        return std::make_shared<ThisExpression>(lineNumber,classScope);
+
+    lineNumber=iterator->lineNumber;
+
+    auto id=expectNextIdentifier();
+
+    next();
+
+    if(currentMatchInSameLine(SymbolToken::LEFT_PARENTHESIS)){
+        auto args=expectFunArgs();
+        
+        auto funEx=std::make_shared<ThisFunInvokeExpression>(
+            lineNumber,
+            classScope,
+            id,
+            args
+        );
+
+        return funEx;
+    }
+
+    auto varEx=std::make_shared<ThisVarAccessExpression>(
+        lineNumber,
+        classScope,
+        id
+    );
+
+    return varEx;
+
 }
 
 SharedIExpression ExpressionParser::parseNonStaticAccessExpression(SharedIExpression inside){

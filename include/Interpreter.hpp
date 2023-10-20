@@ -32,6 +32,9 @@
 #include "NonStaticFunInvokeExpression.hpp"
 #include "OperatorFunInvokeExpression.hpp"
 #include "SetOperatorExpression.hpp"
+#include "ThisExpression.hpp"
+#include "ThisVarAccessExpression.hpp"
+#include "ThisFunInvokeExpression.hpp"
 
 #include "RefValue.hpp"
 #include <memory>
@@ -110,6 +113,9 @@ class Interpreter:public ASTVisitor{
         void visit(NonStaticFunInvokeExpression* ex)override;
         void visit(OperatorFunInvokeExpression* ex)override;
         void visit(SetOperatorExpression* ex)override;
+        void visit(ThisExpression* ex)override;
+        void visit(ThisVarAccessExpression* ex)override;
+        void visit(ThisFunInvokeExpression* ex)override;
 
         void push(SharedIValue val);
         SharedIValue top();

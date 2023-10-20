@@ -32,6 +32,10 @@ class NonStaticFunInvokeExpression;
 class OperatorFunInvokeExpression;
 class SetOperatorExpression;
 
+class ThisExpression;
+class ThisVarAccessExpression;
+class ThisFunInvokeExpression;
+
 class ASTVisitor{
     public:
         virtual void visit(PackageScope* scope);
@@ -65,6 +69,10 @@ class ASTVisitor{
         virtual void visit(NonStaticFunInvokeExpression* ex);
         virtual void visit(OperatorFunInvokeExpression* ex);
         virtual void visit(SetOperatorExpression* ex);
+
+        virtual void visit(ThisExpression* ex);
+        virtual void visit(ThisVarAccessExpression* ex);
+        virtual void visit(ThisFunInvokeExpression* ex);
 
         virtual ~ASTVisitor();
 
